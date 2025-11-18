@@ -2,7 +2,8 @@
 
 import * as React from "react"
 import * as SelectPrimitive from "@radix-ui/react-select"
-import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "lucide-react"
+import { CheckIcon, ChevronUpIcon } from "lucide-react"
+import { MaterialSymbol } from "../material-symbol"
 
 import { cn } from "../../lib/utils"
 
@@ -37,31 +38,33 @@ function SelectTrigger({
       data-slot="select-trigger"
       data-size={size}
       className={cn(
-        // Base styles matching button secondary
-        "bg-[var(--semantic-surface-secondary)] text-[var(--semantic-text-subdued)]",
-        "hover:opacity-80 transition-all",
+        // Base styles matching Input
+        "border-input placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30",
+        "h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow]",
+        "outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
         // Layout and spacing
-        "flex w-fit items-center justify-between gap-2 rounded-md px-3 py-2 text-sm whitespace-nowrap",
-        "outline-none disabled:cursor-not-allowed disabled:opacity-50",
+        "flex items-center justify-between gap-2 whitespace-nowrap",
         // Sizes
-        "data-[size=default]:h-9 data-[size=sm]:h-8",
+        "data-[size=default]:h-9 data-[size=sm]:h-8 data-[size=sm]:text-sm",
         // Content styles
-        "data-[placeholder]:text-[var(--semantic-text-subdued)]",
-        "[&_svg:not([class*='text-'])]:text-[var(--semantic-text-subdued)]",
+        "data-[placeholder]:text-muted-foreground",
         "*:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2",
-        // Focus states matching button
-        "focus-visible:ring-[var(--semantic-surface-interaction-strong)]/50 focus-visible:ring-[3px]",
-        // Error states
-        "aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/20 dark:aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/40 aria-invalid:border-[var(--semantic-surface-rag-danger-strong)]",
-        // Icon styles
-        "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        // Focus states matching Input
+        "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]",
+        // Error states matching Input
+        "aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/20 dark:aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/40 aria-invalid:border-[var(--semantic-stroke-rag-danger-default)]",
         className
       )}
       {...props}
     >
       {children}
       <SelectPrimitive.Icon asChild>
-        <ChevronDownIcon className="size-4 opacity-50" />
+        <MaterialSymbol 
+          name="expand_more" 
+          size={16} 
+          weight={300}
+          className="text-[var(--semantic-icon-subdued)] shrink-0 pointer-events-none"
+        />
       </SelectPrimitive.Icon>
     </SelectPrimitive.Trigger>
   )
@@ -185,7 +188,12 @@ function SelectScrollDownButton({
       )}
       {...props}
     >
-      <ChevronDownIcon className="size-4" />
+      <MaterialSymbol 
+        name="expand_more" 
+        size={16} 
+        weight={300}
+        className="text-[var(--semantic-icon-subdued)]"
+      />
     </SelectPrimitive.ScrollDownButton>
   )
 }
