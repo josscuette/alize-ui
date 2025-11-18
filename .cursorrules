@@ -1,0 +1,56 @@
+# Cursor Rules for Alize Project
+
+## React Components
+
+- Always use TypeScript for component props
+- Use `function` declarations for named components
+- Use `export` directly for main components
+- Extend HTML element props with `React.ComponentProps<"element">`
+- Use `VariantProps` from `class-variance-authority` for component variants
+- Always use `cn()` utility for combining Tailwind classes
+- Include `data-slot` attributes for main elements in shadcn/ui components
+
+## Styling
+
+- Use Tailwind CSS classes, never inline styles (except for Material Symbols fontVariationSettings)
+- **ALWAYS** use CSS variables from theme: `var(--semantic-*)` for design tokens
+- Use `var(--foreground)`, `var(--background)` for base colors only when semantic tokens are not available
+- Never hardcode color values
+- **PRIORITY**: Always prefer semantic design tokens (`--semantic-*`) over generic Tailwind colors
+- Order Tailwind classes: Layout → Spacing → Sizing → Typography → Visual → Effects → States
+- Use `!important` sparingly, only when necessary for specificity
+
+## Material Symbols
+
+- **ALWAYS** use MaterialSymbol component instead of SVG icons or other icon libraries
+- Always use `weight={300}` as default
+- Use consistent sizes: 16, 20, 24
+- Let parent components handle color via CSS classes
+- **ALWAYS** use semantic design tokens for icon colors:
+  - `text-[var(--semantic-icon-subdued)]` for default/subdued icons
+  - `text-[var(--semantic-icon-interaction-default)]` for interactive/primary icons
+  - `text-[var(--semantic-text-reversedpersistent)]` for icons on dark backgrounds
+  - Never use `text-muted-foreground` or other generic Tailwind colors for icons
+
+## File Structure
+
+- Keep component files in `components/` directory
+- UI components in `components/ui/`
+- Custom components in `components/`
+- Utilities in `lib/`
+- Never modify `globals.css` except for base styles and Material Symbols setup
+
+## CSS Global Rules
+
+- DO NOT add complex CSS selectors in `globals.css`
+- DO NOT add component-specific styles in `globals.css`
+- Only add base styles, Material Symbols setup, and theme variables
+- Prefer Tailwind classes or component-scoped styles
+
+## Code Quality
+
+- Run `npm run check` before committing
+- Follow the conventions in `CONVENTIONS.md`
+- Use ESLint and Prettier configurations
+- Ensure TypeScript strict mode compliance
+
