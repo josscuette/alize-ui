@@ -294,6 +294,7 @@ export {
 
 // Utilities
 export { MaterialSymbol } from './components/material-symbol'
+export { MaterialSymbolsProvider } from './components/material-symbols-provider'
 export { cn } from './lib/utils'
 
 // Re-export types

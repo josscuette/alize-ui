@@ -47,7 +47,25 @@ import "alize/app/globals.css";
 import "alize/app/theme.css";
 ```
 
-### 5. Use Components
+### 5. Add Material Symbols Provider
+
+```tsx
+// app/layout.tsx
+import { MaterialSymbolsProvider } from "alize";
+
+export default function RootLayout({ children }) {
+  return (
+    <html>
+      <body>
+        <MaterialSymbolsProvider />
+        {children}
+      </body>
+    </html>
+  );
+}
+```
+
+### 6. Use Components
 
 ```tsx
 import { Button, Input, Card } from "alize";

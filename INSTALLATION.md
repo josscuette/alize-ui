@@ -108,6 +108,28 @@ import "alize/app/globals.css";
 import "alize/app/theme.css";
 ```
 
+**⚠️ Important: Material Symbols Font**
+
+Some bundlers may not process the Google Fonts `@import` correctly. Add `MaterialSymbolsProvider` to your root layout:
+
+```tsx
+// app/layout.tsx (Next.js App Router)
+import { MaterialSymbolsProvider } from "alize"
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <body>
+        <MaterialSymbolsProvider />
+        {children}
+      </body>
+    </html>
+  );
+}
+```
+
+This ensures Material Symbols font loads correctly even if CSS `@import` fails.
+
 ### Step 5: Configure Tailwind CSS
 
 **For Tailwind CSS v4**, the CSS variables are already included when you import `alize/app/globals.css` and `alize/app/theme.css`. However, you need to ensure Tailwind scans Alize components for classes:
