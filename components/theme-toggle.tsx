@@ -2,8 +2,8 @@
 
 import * as React from "react";
 import { useTheme } from "next-themes";
-import { Switch } from "@/components/ui/switch";
-import { MaterialSymbol } from "@/components/material-symbol";
+import { Switch } from "./ui/switch";
+import { MaterialSymbol } from "./material-symbol";
 
 export function ThemeToggle() {
   const { theme, setTheme, resolvedTheme } = useTheme();

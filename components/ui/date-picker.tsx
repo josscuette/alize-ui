@@ -1,12 +1,12 @@
 "use client"
 
 import * as React from "react"
-import { Calendar } from "@/components/ui/calendar"
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { MaterialSymbol } from "@/components/material-symbol"
-import { cn } from "@/lib/utils"
+import { Calendar } from "./calendar"
+import { Popover, PopoverContent, PopoverTrigger } from "./popover"
+import { Button } from "./button"
+import { Input } from "./input"
+import { MaterialSymbol } from "../material-symbol"
+import { cn } from "../../lib/utils"
 import { format } from "date-fns"
 
 export interface DatePickerProps {

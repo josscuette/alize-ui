@@ -1,14 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { ComponentConfig } from "@/lib/components-config";
-import { MaterialSymbol } from "@/components/material-symbol";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { ButtonGroup, ButtonGroupSeparator, ButtonGroupText } from "@/components/ui/button-group";
-import { Checkbox, CheckboxCard } from "@/components/ui/checkbox";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { ComponentConfig } from "../lib/components-config";
+import { MaterialSymbol } from "./material-symbol";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import { Badge } from "./ui/badge";
+import { Button } from "./ui/button";
+import { ButtonGroup, ButtonGroupSeparator, ButtonGroupText } from "./ui/button-group";
+import { Checkbox, CheckboxCard } from "./ui/checkbox";
+import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
 import {
   Field,
   FieldContent,
@@ -20,23 +20,23 @@ import {
   FieldSeparator,
   FieldSet,
   FieldTitle,
-} from "@/components/ui/field";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { Progress } from "@/components/ui/progress";
-import { RadioGroup, RadioGroupItem, RadioGroupCardItem } from "@/components/ui/radio-group";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, SelectGroup, SelectLabel, SelectSeparator } from "@/components/ui/select";
-import { Slider } from "@/components/ui/slider";
-import { Switch, SwitchCard } from "@/components/ui/switch";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Separator } from "@/components/ui/separator";
-import { Skeleton } from "@/components/ui/skeleton";
-import { Spinner } from "@/components/ui/spinner";
-import { Kbd, KbdGroup } from "@/components/ui/kbd";
-import { Toggle } from "@/components/ui/toggle";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+} from "./ui/field";
+import { Input } from "./ui/input";
+import { Label } from "./ui/label";
+import { Textarea } from "./ui/textarea";
+import { Progress } from "./ui/progress";
+import { RadioGroup, RadioGroupItem, RadioGroupCardItem } from "./ui/radio-group";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, SelectGroup, SelectLabel, SelectSeparator } from "./ui/select";
+import { Slider } from "./ui/slider";
+import { Switch, SwitchCard } from "./ui/switch";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
+import { Separator } from "./ui/separator";
+import { Skeleton } from "./ui/skeleton";
+import { Spinner } from "./ui/spinner";
+import { Kbd, KbdGroup } from "./ui/kbd";
+import { Toggle } from "./ui/toggle";
+import { ToggleGroup, ToggleGroupItem } from "./ui/toggle-group";
+import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 import {
   TypographyH1,
   TypographyH2,
@@ -45,15 +45,15 @@ import {
   TypographyP,
   TypographyBlockquote,
   TypographyCode,
-} from "@/components/ui/typography";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { Empty } from "@/components/ui/empty";
-import { Item } from "@/components/ui/item";
-import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { Popover, PopoverContent, PopoverTrigger, PopoverAnchor } from "@/components/ui/popover";
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
+} from "./ui/typography";
+import { AspectRatio } from "./ui/aspect-ratio";
+import { Empty } from "./ui/empty";
+import { Item } from "./ui/item";
+import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collapsible";
+import { Popover, PopoverContent, PopoverTrigger, PopoverAnchor } from "./ui/popover";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "./ui/hover-card";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -69,7 +69,7 @@ import {
   DropdownMenuSub,
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "./ui/dropdown-menu";
 import {
   ContextMenu,
   ContextMenuContent,
@@ -84,7 +84,7 @@ import {
   ContextMenuSub,
   ContextMenuSubContent,
   ContextMenuSubTrigger,
-} from "@/components/ui/context-menu";
+} from "./ui/context-menu";
 import {
   Command,
   CommandDialog,
@@ -95,7 +95,7 @@ import {
   CommandItem,
   CommandShortcut,
   CommandSeparator,
-} from "@/components/ui/command";
+} from "./ui/command";
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -104,7 +104,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
   BreadcrumbEllipsis,
-} from "@/components/ui/breadcrumb";
+} from "./ui/breadcrumb";
 import {
   Pagination,
   PaginationContent,
@@ -113,15 +113,15 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "@/components/ui/pagination";
-import { NativeSelect, NativeSelectOption, NativeSelectOptGroup } from "@/components/ui/native-select";
+} from "./ui/pagination";
+import { NativeSelect, NativeSelectOption, NativeSelectOptGroup } from "./ui/native-select";
 import {
   InputOTP,
   InputOTPGroup,
   InputOTPSlot,
   InputOTPSeparator,
-} from "@/components/ui/input-otp";
-import { InputGroup } from "@/components/ui/input-group";
+} from "./ui/input-otp";
+import { InputGroup } from "./ui/input-group";
 import {
   Dialog,
   DialogContent,
@@ -130,7 +130,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
+} from "./ui/dialog";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -141,7 +141,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
+} from "./ui/alert-dialog";
 import {
   Drawer,
   DrawerClose,
@@ -151,7 +151,7 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/components/ui/drawer";
+} from "./ui/drawer";
 import {
   Sheet,
   SheetContent,
@@ -160,7 +160,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet";
+} from "./ui/sheet";
 import {
   Form,
   FormControl,
@@ -169,7 +169,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
+} from "./ui/form";
 import {
   Table,
   TableBody,
@@ -179,23 +179,23 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from "./ui/table";
 import { useForm } from "react-hook-form";
-import { Calendar } from "@/components/ui/calendar";
+import { Calendar } from "./ui/calendar";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+} from "./ui/carousel";
+import { ScrollArea, ScrollBar } from "./ui/scroll-area";
 import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
-} from "@/components/ui/resizable";
-import { Toaster } from "@/components/ui/sonner";
+} from "./ui/resizable";
+import { Toaster } from "./ui/sonner";
 import { toast } from "sonner";
 import {
   Sidebar,
@@ -210,7 +210,7 @@ import {
   SidebarMenuItem,
   SidebarProvider,
   SidebarTrigger,
-} from "@/components/ui/sidebar";
+} from "./ui/sidebar";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -218,7 +218,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
+} from "./ui/navigation-menu";
 import {
   Menubar,
   MenubarContent,
@@ -226,7 +226,7 @@ import {
   MenubarMenu,
   MenubarSeparator,
   MenubarTrigger,
-} from "@/components/ui/menubar";
+} from "./ui/menubar";
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip as RechartsTooltip, XAxis, YAxis } from "recharts";
 
 interface ComponentShowcaseProps {

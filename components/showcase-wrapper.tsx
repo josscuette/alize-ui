@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef, ReactNode, useLayoutEffect } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "../lib/utils";
 
 interface ShowcaseWrapperProps {
   children: ReactNode;
