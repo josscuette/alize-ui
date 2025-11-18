@@ -18,7 +18,7 @@ A comprehensive React component library based on [shadcn/ui](https://ui.shadcn.c
 To use Alize in your project, install it via GitHub:
 
 ```bash
-npm install git+https://github.com/YOUR_USERNAME/alize.git
+npm install git+https://github.com/josscuette/alize-ui.git
 ```
 
 **Quick Start**: See [QUICKSTART.md](./QUICKSTART.md) for a 5-minute setup guide.

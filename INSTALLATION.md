@@ -14,18 +14,18 @@ This guide explains how to install and use Alize as a dependency in your project
 ### Step 1: Install via GitHub
 
 ```bash
-npm install git+https://github.com/YOUR_USERNAME/alize.git
+npm install git+https://github.com/josscuette/alize-ui.git
 # or
-yarn add git+https://github.com/YOUR_USERNAME/alize.git
+yarn add git+https://github.com/josscuette/alize-ui.git
 # or
-pnpm add git+https://github.com/YOUR_USERNAME/alize.git
+pnpm add git+https://github.com/josscuette/alize-ui.git
 ```
 
 Or install from a specific branch/tag:
 
 ```bash
-npm install git+https://github.com/YOUR_USERNAME/alize.git#main
-npm install git+https://github.com/YOUR_USERNAME/alize.git#v0.1.0
+npm install git+https://github.com/josscuette/alize-ui.git#main
+npm install git+https://github.com/josscuette/alize-ui.git#v0.1.0
 ```
 
 ### Step 2: Install Peer Dependencies
