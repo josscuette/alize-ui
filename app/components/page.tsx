@@ -15,17 +15,27 @@ export default function Home() {
   const pathname = usePathname();
   const [selectedComponent, setSelectedComponent] = useState<string>("button");
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const [showModifiedOnly, setShowModifiedOnly] = useState<boolean>(false);
 
   const filteredComponents = useMemo(() => {
-    if (!searchQuery.trim()) {
-      return componentsConfig;
+    let filtered = componentsConfig;
+    
+    // Filter by search query
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase();
+      filtered = filtered.filter((component) =>
+        component.name.toLowerCase().includes(query) ||
+        component.category.toLowerCase().includes(query)
+      );
     }
-    const query = searchQuery.toLowerCase();
-    return componentsConfig.filter((component) =>
-      component.name.toLowerCase().includes(query) ||
-      component.category.toLowerCase().includes(query)
-    );
-  }, [searchQuery]);
+    
+    // Filter by modified status
+    if (showModifiedOnly) {
+      filtered = filtered.filter((component) => component.modified);
+    }
+    
+    return filtered;
+  }, [searchQuery, showModifiedOnly]);
 
   const groupedComponents = useMemo(() => {
     return filteredComponents.reduce(
@@ -62,9 +72,26 @@ export default function Home() {
             <MaterialSymbol name="apps" size={16} weight={300} />
             <span>Components</span>
           </Link>
-          <p className="text-xs text-muted-foreground">
-            {componentsConfig.filter((c) => c.modified).length} modified
-          </p>
+          <div className="flex items-center justify-between">
+            <button
+              onClick={() => setShowModifiedOnly(!showModifiedOnly)}
+              className={cn(
+                "flex items-center gap-2 px-2 py-1 rounded text-xs transition-colors",
+                showModifiedOnly
+                  ? "bg-[var(--semantic-surface-interaction-default)] text-[var(--semantic-text-interaction-default)] font-medium"
+                  : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
+              )}
+            >
+              <MaterialSymbol 
+                name={showModifiedOnly ? "check_circle" : "circle"} 
+                size={14} 
+                weight={300}
+              />
+              <span>
+                {componentsConfig.filter((c) => c.modified).length} modified
+              </span>
+            </button>
+          </div>
           <div className="relative group">
             <MaterialSymbol 
               name="search" 
@@ -105,9 +132,16 @@ export default function Home() {
 
             return (
               <div key={key} className="space-y-2">
-                <h2 className="text-xs font-normal text-muted-foreground uppercase tracking-wider">
-                  {label}
-                </h2>
+                <div className="flex items-center justify-between">
+                  <h2 className="text-xs font-normal text-muted-foreground uppercase tracking-wider">
+                    {label}
+                  </h2>
+                  {components.filter((c) => c.modified).length > 0 && (
+                    <span className="text-xs text-muted-foreground">
+                      {components.filter((c) => c.modified).length}
+                    </span>
+                  )}
+                </div>
                 <ul className="space-y-1">
                   {components.map((component) => (
                     <li key={component.id}>
@@ -120,7 +154,11 @@ export default function Home() {
                             : "hover:bg-accent/50 text-muted-foreground hover:text-foreground"
                         )}
                       >
-                        <span>{component.name}</span>
+                        <span className={cn(
+                          component.modified && "font-medium"
+                        )}>
+                          {component.name}
+                        </span>
                         {component.modified && (
                           <span
                             className="size-1.5 rounded-full bg-[var(--semantic-surface-interaction-strong)]"
