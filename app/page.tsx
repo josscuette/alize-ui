@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { MaterialSymbol } from "@/components/material-symbol";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { GlobalHeader } from "@/components/global-header";
 import { cn } from "@/lib/utils";
 
 export default function Home() {
@@ -29,7 +29,7 @@ export default function Home() {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="sticky top-0 z-30 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-8 pr-20 md:pr-8">
+        <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-8">
           <div className="flex items-center gap-2">
             <MaterialSymbol name="widgets" size={24} weight={300} className="text-[var(--semantic-icon-interaction-default)]" />
             <h1 className="text-xl font-normal">Alize</h1>
@@ -40,6 +40,7 @@ export default function Home() {
                 Components
               </Button>
             </Link>
+            <GlobalHeader />
           </div>
         </div>
       </header>

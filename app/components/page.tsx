@@ -4,7 +4,7 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { componentsConfig, categories, type ComponentConfig } from "@/lib/components-config";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { GlobalHeader } from "@/components/global-header";
 import { MaterialSymbol } from "@/components/material-symbol";
 import { cn } from "@/lib/utils";
 import { ComponentShowcase } from "@/components/component-showcase";
@@ -14,7 +14,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
 
-export default function Home() {
+export default function ComponentsPage() {
   const pathname = usePathname();
   const isMobile = useIsMobile();
   const [selectedComponent, setSelectedComponent] = useState<string>("button");
@@ -59,10 +59,11 @@ export default function Home() {
     <>
       {/* Header */}
       <div className="p-4 border-b space-y-3">
-        <div className="flex items-center">
+        <div className="flex items-center justify-between">
           <Link href="/" className="text-lg font-normal hover:text-[var(--semantic-text-interaction-default)] transition-colors">
             Components
           </Link>
+          {!isMobile && <GlobalHeader />}
         </div>
         <Link
           href="/"
@@ -234,7 +235,7 @@ export default function Home() {
             <Link href="/" className="text-lg font-normal hover:text-[var(--semantic-text-interaction-default)] transition-colors">
               Components
             </Link>
-            <div className="w-10" /> {/* Spacer pour aligner avec le theme switcher */}
+            <GlobalHeader />
           </div>
         )}
         <ShowcaseWrapper key={selectedComponent}>
