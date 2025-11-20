@@ -87,7 +87,7 @@ export function Component({
    - Grouper les classes par catégorie avec des commentaires si nécessaire
 
 3. **Variables CSS** :
-   - Utiliser `var(--semantic-*)` pour les tokens de design
+   - Utiliser `var(--semantic-text-default)`, `var(--semantic-surface-default)`, etc. pour les tokens de design
    - Utiliser `var(--foreground)`, `var(--background)` pour les couleurs de base
    - Ne pas utiliser de valeurs hardcodées pour les couleurs
 

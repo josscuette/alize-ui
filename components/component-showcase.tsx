@@ -1,5 +1,6 @@
 "use client";
 
+import * as React from "react";
 import { useState } from "react";
 import { ComponentConfig } from "../lib/components-config";
 import { MaterialSymbol } from "./material-symbol";
@@ -236,7 +237,7 @@ interface ComponentShowcaseProps {
 interface ShowcaseEntry {
   title: string;
   description: string;
-  body: JSX.Element;
+  body: React.ReactElement;
 }
 
 interface SectionProps {
@@ -15349,7 +15350,7 @@ function CalendarDemo() {
 }
 
 function CalendarRangeDemo() {
-  const [dateRange, setDateRange] = useState<{ from: Date | undefined; to: Date | undefined }>({
+  const [dateRange, setDateRange] = useState<{ from: Date | undefined; to?: Date | undefined }>({
     from: new Date(2024, 0, 15),
     to: new Date(2024, 0, 20),
   });
@@ -15358,7 +15359,7 @@ function CalendarRangeDemo() {
     <Calendar
       mode="range"
       selected={dateRange}
-      onSelect={(range) => setDateRange(range || { from: undefined, to: undefined })}
+      onSelect={(range) => setDateRange(range || { from: undefined })}
       className="rounded-md border"
     />
   );
