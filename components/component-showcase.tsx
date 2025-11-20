@@ -275,9 +275,9 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
     body: (
       <>
         <Section title="Overview" description="Complete button system showing all variants and sizes in a grid layout.">
-          <div className="flex flex-col gap-6 md:gap-[27px]">
+          <div className="flex flex-col gap-6 md:gap-6 lg:gap-[27px]">
             {/* Primary row */}
-            <div className="flex flex-wrap gap-4 md:gap-[87px] items-center">
+            <div className="flex flex-wrap gap-4 md:gap-8 lg:gap-[87px] items-center">
               <div className="flex gap-2 items-center">
                 <Button size="lg">Button</Button>
                 <Button size="icon-lg">
@@ -304,7 +304,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
               </div>
             </div>
             {/* Secondary row */}
-            <div className="flex flex-wrap gap-4 md:gap-[87px] items-center">
+            <div className="flex flex-wrap gap-4 md:gap-8 lg:gap-[87px] items-center">
               <div className="flex gap-2 items-center">
                 <Button variant="secondary" size="lg">Button</Button>
                 <Button variant="secondary" size="icon-lg">
@@ -331,7 +331,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
               </div>
             </div>
             {/* Outline row */}
-            <div className="flex flex-wrap gap-4 md:gap-[87px] items-center">
+            <div className="flex flex-wrap gap-4 md:gap-8 lg:gap-[87px] items-center">
               <div className="flex gap-2 items-center">
                 <Button variant="outline" size="lg">Button</Button>
                 <Button variant="outline" size="icon-lg">
@@ -358,7 +358,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
               </div>
             </div>
             {/* Tertiary row */}
-            <div className="flex flex-wrap gap-4 md:gap-[87px] items-center">
+            <div className="flex flex-wrap gap-4 md:gap-8 lg:gap-[87px] items-center">
               <div className="flex gap-2 items-center">
                 <Button variant="tertiary" size="lg">Button</Button>
                 <Button variant="tertiary" size="icon-lg">
