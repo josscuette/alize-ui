@@ -59,10 +59,24 @@ export default function Home() {
     <>
       {/* Header */}
       <div className="p-4 border-b space-y-3">
-        <div className="flex items-center justify-between">
-          <h1 className="text-lg font-normal">Components</h1>
-          <ThemeToggle />
+        <div className="flex items-center">
+          <Link href="/" className="text-lg font-normal hover:text-[var(--semantic-text-interaction-default)] transition-colors">
+            Components
+          </Link>
         </div>
+        <Link
+          href="/"
+          className={cn(
+            "flex items-center gap-2 px-3 py-1.5 rounded-md text-sm transition-colors",
+            pathname === "/"
+              ? "bg-accent text-accent-foreground font-medium"
+              : "hover:bg-accent/50 text-muted-foreground hover:text-foreground"
+          )}
+          onClick={() => isMobile && setSidebarOpen(false)}
+        >
+          <MaterialSymbol name="home" size={16} weight={300} />
+          <span>Home</span>
+        </Link>
         <Link
           href="/components"
           className={cn(
@@ -217,8 +231,10 @@ export default function Home() {
               <MaterialSymbol name="menu" size={20} weight={300} />
               <span className="sr-only">Toggle menu</span>
             </Button>
-            <h1 className="text-lg font-normal">Components</h1>
-            <ThemeToggle />
+            <Link href="/" className="text-lg font-normal hover:text-[var(--semantic-text-interaction-default)] transition-colors">
+              Components
+            </Link>
+            <div className="w-10" /> {/* Spacer pour aligner avec le theme switcher */}
           </div>
         )}
         <ShowcaseWrapper key={selectedComponent}>
