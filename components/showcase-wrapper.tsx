@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef, ReactNode, useLayoutEffect } from "react";
 import { cn } from "../lib/utils";
+import { useIsMobile } from "../hooks/use-mobile";
 
 interface ShowcaseWrapperProps {
   children: ReactNode;
@@ -10,6 +11,7 @@ interface ShowcaseWrapperProps {
 export function ShowcaseWrapper({ children }: ShowcaseWrapperProps) {
   const [sections, setSections] = useState<Array<{ id: string; title: string }>>([]);
   const containerRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
 
   const detectSections = () => {
     if (!containerRef.current) return;
@@ -95,8 +97,8 @@ export function ShowcaseWrapper({ children }: ShowcaseWrapperProps) {
       <div ref={containerRef} className="flex-1 min-w-0">
         {children}
       </div>
-      {sections.length > 0 && (
-        <aside className="w-[200px] shrink-0 sticky top-8 h-fit pr-8">
+      {sections.length > 0 && !isMobile && (
+        <aside className="hidden lg:block w-[200px] shrink-0 sticky top-8 h-fit pr-8">
           <nav className="space-y-1">
             <h4 className="text-xs font-normal text-muted-foreground uppercase tracking-wider mb-3">
               Sections

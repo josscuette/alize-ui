@@ -275,9 +275,9 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
     body: (
       <>
         <Section title="Overview" description="Complete button system showing all variants and sizes in a grid layout.">
-          <div className="flex flex-col gap-[27px]">
+          <div className="flex flex-col gap-6 md:gap-[27px]">
             {/* Primary row */}
-            <div className="flex gap-[87px] items-center">
+            <div className="flex flex-wrap gap-4 md:gap-[87px] items-center">
               <div className="flex gap-2 items-center">
                 <Button size="lg">Button</Button>
                 <Button size="icon-lg">
@@ -304,7 +304,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
               </div>
             </div>
             {/* Secondary row */}
-            <div className="flex gap-[87px] items-center">
+            <div className="flex flex-wrap gap-4 md:gap-[87px] items-center">
               <div className="flex gap-2 items-center">
                 <Button variant="secondary" size="lg">Button</Button>
                 <Button variant="secondary" size="icon-lg">
@@ -331,7 +331,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
               </div>
             </div>
             {/* Outline row */}
-            <div className="flex gap-[87px] items-center">
+            <div className="flex flex-wrap gap-4 md:gap-[87px] items-center">
               <div className="flex gap-2 items-center">
                 <Button variant="outline" size="lg">Button</Button>
                 <Button variant="outline" size="icon-lg">
@@ -358,7 +358,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
               </div>
             </div>
             {/* Tertiary row */}
-            <div className="flex gap-[87px] items-center">
+            <div className="flex flex-wrap gap-4 md:gap-[87px] items-center">
               <div className="flex gap-2 items-center">
                 <Button variant="tertiary" size="lg">Button</Button>
                 <Button variant="tertiary" size="icon-lg">
@@ -563,15 +563,15 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
             {/* Data table toolbar - Full width */}
             <div>
               <p className="text-xs text-muted-foreground mb-3">Data table toolbar</p>
-              <div className="flex items-center justify-between p-3 border rounded-lg">
-                <div className="flex items-center gap-2">
-                  <Input placeholder="Search..." className="w-64" />
-                  <Button size="sm" variant="outline">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 p-3 border rounded-lg">
+                <div className="flex items-center gap-2 flex-1 min-w-0">
+                  <Input placeholder="Search..." className="w-full sm:w-64" />
+                  <Button size="sm" variant="outline" className="shrink-0">
                     <MaterialSymbol name="filter_list" size={16} weight={300} />
                     Filter
                   </Button>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 shrink-0">
                   <Button size="sm" variant="outline">
                     <MaterialSymbol name="file_download" size={16} weight={300} />
                     Export
