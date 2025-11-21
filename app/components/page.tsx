@@ -60,7 +60,7 @@ export default function ComponentsPage() {
       {/* Header */}
       <div className="p-4 border-b space-y-3">
         <div className="flex items-center justify-between">
-          <Link href="/" className="text-lg font-normal hover:text-[var(--semantic-text-interaction-default)] transition-colors">
+          <Link href="/" className="text-lg font-normal hover:text-semantic-text-interaction-default transition-colors">
             Components
           </Link>
           {!isMobile && <GlobalHeader />}
@@ -97,7 +97,7 @@ export default function ComponentsPage() {
             className={cn(
               "flex items-center gap-2 px-2 py-1 rounded text-xs transition-colors",
               showModifiedOnly
-                ? "bg-[var(--semantic-surface-interaction-default)] text-[var(--semantic-text-interaction-default)] font-medium"
+                ? "bg-semantic-surface-interaction-subdued text-semantic-text-interaction-default font-medium"
                 : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
             )}
           >
@@ -116,7 +116,7 @@ export default function ComponentsPage() {
             name="search" 
             size={16}
             weight={300}
-            className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--semantic-icon-subdued)] pointer-events-none z-10" 
+            className="absolute left-3 top-1/2 -translate-y-1/2 text-semantic-icon-subdued pointer-events-none z-10" 
           />
           <Input
             type="text"
@@ -136,7 +136,7 @@ export default function ComponentsPage() {
                 name="close" 
                 size={16}
                 weight={300}
-                className="text-[var(--semantic-icon-subdued)] hover:text-[var(--semantic-icon-interaction-default)] cursor-pointer" 
+                className="text-semantic-icon-subdued hover:text-semantic-icon-interaction-default cursor-pointer" 
               />
             </button>
           )}
@@ -183,7 +183,7 @@ export default function ComponentsPage() {
                       </span>
                       {component.modified && (
                         <span
-                          className="size-1.5 rounded-full bg-[var(--semantic-surface-interaction-strong)]"
+                          className="size-1.5 rounded-full bg-semantic-surface-interaction-strong"
                           title="Modified component"
                           aria-label="Modified component"
                         />
@@ -232,7 +232,7 @@ export default function ComponentsPage() {
               <MaterialSymbol name="menu" size={20} weight={300} />
               <span className="sr-only">Toggle menu</span>
             </Button>
-            <Link href="/" className="text-lg font-normal hover:text-[var(--semantic-text-interaction-default)] transition-colors">
+            <Link href="/" className="text-lg font-normal hover:text-semantic-text-interaction-default transition-colors">
               Components
             </Link>
             <GlobalHeader />

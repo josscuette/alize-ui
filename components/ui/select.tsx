@@ -52,7 +52,7 @@ function SelectTrigger({
         // Focus states matching Input
         "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]",
         // Error states matching Input
-        "aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/20 dark:aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/40 aria-invalid:border-[var(--semantic-stroke-rag-danger-default)]",
+        "aria-invalid:ring-semantic-surface-rag-danger-strong/20 dark:aria-invalid:ring-semantic-surface-rag-danger-strong/40 aria-invalid:border-semantic-stroke-rag-danger-default",
         className
       )}
       {...props}
@@ -63,7 +63,7 @@ function SelectTrigger({
           name="expand_more" 
           size={16} 
           weight={300}
-          className="text-[var(--semantic-icon-subdued)] shrink-0 pointer-events-none"
+          className="text-semantic-icon-subdued shrink-0 pointer-events-none"
         />
       </SelectPrimitive.Icon>
     </SelectPrimitive.Trigger>
@@ -192,7 +192,7 @@ function SelectScrollDownButton({
         name="expand_more" 
         size={16} 
         weight={300}
-        className="text-[var(--semantic-icon-subdued)]"
+        className="text-semantic-icon-subdued"
       />
     </SelectPrimitive.ScrollDownButton>
   )

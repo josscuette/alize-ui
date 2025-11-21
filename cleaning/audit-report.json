@@ -1,0 +1,1004 @@
+{
+  "summary": {
+    "totalFilesScanned": 65,
+    "totalArbitraryValues": 121,
+    "uniqueTokensUsed": 19,
+    "tokensDefined": 66,
+    "tokensUnused": [
+      "--semantic-brand-picto",
+      "--semantic-brand-text",
+      "--semantic-icon-ai-default",
+      "--semantic-icon-default",
+      "--semantic-icon-rag-danger-default",
+      "--semantic-icon-rag-success-default",
+      "--semantic-icon-rag-warning-default",
+      "--semantic-icon-reversed",
+      "--semantic-icon-reversedpersistent",
+      "--semantic-icon-tonal-science-default",
+      "--semantic-stroke-ai-default",
+      "--semantic-stroke-interaction-default",
+      "--semantic-stroke-rag-danger-bright",
+      "--semantic-stroke-rag-danger-strong",
+      "--semantic-stroke-rag-success-bright",
+      "--semantic-stroke-rag-success-default",
+      "--semantic-stroke-rag-success-strong",
+      "--semantic-stroke-rag-warning-bright",
+      "--semantic-stroke-rag-warning-default",
+      "--semantic-stroke-rag-warning-strong",
+      "--semantic-stroke-strong",
+      "--semantic-stroke-tonal-science-default",
+      "--semantic-surface-ai-strong",
+      "--semantic-surface-ai-subdued",
+      "--semantic-surface-contrast",
+      "--semantic-surface-default",
+      "--semantic-surface-interaction-bright",
+      "--semantic-surface-interaction-subdued",
+      "--semantic-surface-overlays-level2",
+      "--semantic-surface-overlays-level3",
+      "--semantic-surface-overlays-ref",
+      "--semantic-surface-rag-danger-bright",
+      "--semantic-surface-rag-danger-subdued",
+      "--semantic-surface-rag-success-bright",
+      "--semantic-surface-rag-success-strong",
+      "--semantic-surface-rag-success-subdued",
+      "--semantic-surface-rag-warning-bright",
+      "--semantic-surface-rag-warning-strong",
+      "--semantic-surface-rag-warning-subdued",
+      "--semantic-surface-strong",
+      "--semantic-surface-tonal-science-strong",
+      "--semantic-surface-tonal-science-subdued",
+      "--semantic-text-ai-default",
+      "--semantic-text-rag-danger-default",
+      "--semantic-text-rag-success-default",
+      "--semantic-text-rag-warning-default",
+      "--semantic-text-reversed",
+      "--semantic-text-tonal-science-default"
+    ]
+  },
+  "arbitraryValues": [
+    {
+      "file": "app/components/page.tsx",
+      "line": 63,
+      "class": "[var(--semantic-text-interaction-default)]",
+      "fullLine": "<Link href=\"/\" className=\"text-lg font-normal hover:text-[var(--semantic-text-interaction-default)] transition-colors\">"
+    },
+    {
+      "file": "app/components/page.tsx",
+      "line": 100,
+      "class": "[var(--semantic-surface-interaction-default)]",
+      "fullLine": "? \"bg-[var(--semantic-surface-interaction-default)] text-[var(--semantic-text-interaction-default)] font-medium\""
+    },
+    {
+      "file": "app/components/page.tsx",
+      "line": 100,
+      "class": "[var(--semantic-text-interaction-default)]",
+      "fullLine": "? \"bg-[var(--semantic-surface-interaction-default)] text-[var(--semantic-text-interaction-default)] font-medium\""
+    },
+    {
+      "file": "app/components/page.tsx",
+      "line": 119,
+      "class": "[var(--semantic-icon-subdued)]",
+      "fullLine": "className=\"absolute left-3 top-1/2 -translate-y-1/2 text-[var(--semantic-icon-subdued)] pointer-events-none z-10\""
+    },
+    {
+      "file": "app/components/page.tsx",
+      "line": 139,
+      "class": "[var(--semantic-icon-subdued)]",
+      "fullLine": "className=\"text-[var(--semantic-icon-subdued)] hover:text-[var(--semantic-icon-interaction-default)] cursor-pointer\""
+    },
+    {
+      "file": "app/components/page.tsx",
+      "line": 139,
+      "class": "[var(--semantic-icon-interaction-default)]",
+      "fullLine": "className=\"text-[var(--semantic-icon-subdued)] hover:text-[var(--semantic-icon-interaction-default)] cursor-pointer\""
+    },
+    {
+      "file": "app/components/page.tsx",
+      "line": 186,
+      "class": "[var(--semantic-surface-interaction-strong)]",
+      "fullLine": "className=\"size-1.5 rounded-full bg-[var(--semantic-surface-interaction-strong)]\""
+    },
+    {
+      "file": "app/components/page.tsx",
+      "line": 235,
+      "class": "[var(--semantic-text-interaction-default)]",
+      "fullLine": "<Link href=\"/\" className=\"text-lg font-normal hover:text-[var(--semantic-text-interaction-default)] transition-colors\">"
+    },
+    {
+      "file": "app/page.tsx",
+      "line": 34,
+      "class": "[var(--semantic-icon-interaction-default)]",
+      "fullLine": "<MaterialSymbol name=\"widgets\" size={24} weight={300} className=\"text-[var(--semantic-icon-interaction-default)]\" />"
+    },
+    {
+      "file": "app/page.tsx",
+      "line": 51,
+      "class": "[var(--semantic-surface-subdued)]",
+      "fullLine": "<div className=\"inline-flex items-center gap-2 px-4 py-2 rounded-full border bg-[var(--semantic-surface-subdued)] text-sm text-[var(--semantic-text-subdued)]\">"
+    },
+    {
+      "file": "app/page.tsx",
+      "line": 51,
+      "class": "[var(--semantic-text-subdued)]",
+      "fullLine": "<div className=\"inline-flex items-center gap-2 px-4 py-2 rounded-full border bg-[var(--semantic-surface-subdued)] text-sm text-[var(--semantic-text-subdued)]\">"
+    },
+    {
+      "file": "app/page.tsx",
+      "line": 58,
+      "class": "[var(--semantic-text-interaction-default)]",
+      "fullLine": "<span className=\"text-[var(--semantic-text-interaction-default)]\">Alize</span>"
+    },
+    {
+      "file": "app/page.tsx",
+      "line": 61,
+      "class": "[var(--semantic-text-subdued)]",
+      "fullLine": "<p className=\"text-lg md:text-xl text-[var(--semantic-text-subdued)] max-w-2xl mx-auto leading-relaxed\">"
+    },
+    {
+      "file": "app/page.tsx",
+      "line": 80,
+      "class": "[var(--semantic-surface-subdued)]",
+      "fullLine": "<section className=\"container mx-auto px-4 md:px-8 py-16 md:py-24 bg-[var(--semantic-surface-subdued)] rounded-t-3xl\">"
+    },
+    {
+      "file": "app/page.tsx",
+      "line": 84,
+      "class": "[var(--semantic-text-subdued)]",
+      "fullLine": "<p className=\"text-lg text-[var(--semantic-text-subdued)]\">"
+    },
+    {
+      "file": "app/page.tsx",
+      "line": 89,
+      "class": "[var(--semantic-stroke-default)]",
+      "fullLine": "<Card className=\"border-[var(--semantic-stroke-default)] bg-background\">"
+    },
+    {
+      "file": "app/page.tsx",
+      "line": 99,
+      "class": "[var(--semantic-surface-subdued)]",
+      "fullLine": "<div className=\"p-4 rounded-md bg-[var(--semantic-surface-subdued)] border border-[var(--semantic-stroke-default)] font-mono text-sm overflow-x-auto\">"
+    },
+    {
+      "file": "app/page.tsx",
+      "line": 99,
+      "class": "[var(--semantic-stroke-default)]",
+      "fullLine": "<div className=\"p-4 rounded-md bg-[var(--semantic-surface-subdued)] border border-[var(--semantic-stroke-default)] font-mono text-sm overflow-x-auto\">"
+    },
+    {
+      "file": "app/page.tsx",
+      "line": 100,
+      "class": "[var(--semantic-text-default)]",
+      "fullLine": "<code className=\"text-[var(--semantic-text-default)]\">"
+    },
+    {
+      "file": "app/page.tsx",
+      "line": 106,
+      "class": "[var(--semantic-stroke-default)]",
+      "fullLine": "<div className=\"pt-4 border-t border-[var(--semantic-stroke-default)]\">"
+    },
+    {
+      "file": "app/page.tsx",
+      "line": 107,
+      "class": "[var(--semantic-text-subdued)]",
+      "fullLine": "<p className=\"text-sm text-[var(--semantic-text-subdued)] mb-4\">"
+    },
+    {
+      "file": "app/page.tsx",
+      "line": 110,
+      "class": "[var(--semantic-surface-subdued)]",
+      "fullLine": "<div className=\"p-4 rounded-md bg-[var(--semantic-surface-subdued)] border border-[var(--semantic-stroke-default)] font-mono text-sm overflow-x-auto\">"
+    },
+    {
+      "file": "app/page.tsx",
+      "line": 110,
+      "class": "[var(--semantic-stroke-default)]",
+      "fullLine": "<div className=\"p-4 rounded-md bg-[var(--semantic-surface-subdued)] border border-[var(--semantic-stroke-default)] font-mono text-sm overflow-x-auto\">"
+    },
+    {
+      "file": "app/page.tsx",
+      "line": 111,
+      "class": "[var(--semantic-text-default)]",
+      "fullLine": "<code className=\"text-[var(--semantic-text-default)]\">"
+    },
+    {
+      "file": "app/page.tsx",
+      "line": 122,
+      "class": "[var(--semantic-stroke-default)]",
+      "fullLine": "<footer className=\"container mx-auto px-4 md:px-8 py-12 border-t border-[var(--semantic-stroke-default)]\">"
+    },
+    {
+      "file": "app/page.tsx",
+      "line": 126,
+      "class": "[var(--semantic-icon-subdued)]",
+      "fullLine": "<MaterialSymbol name=\"widgets\" size={20} weight={300} className=\"text-[var(--semantic-icon-subdued)]\" />"
+    },
+    {
+      "file": "app/page.tsx",
+      "line": 127,
+      "class": "[var(--semantic-text-subdued)]",
+      "fullLine": "<span className=\"text-sm text-[var(--semantic-text-subdued)]\">"
+    },
+    {
+      "file": "app/page.tsx",
+      "line": 131,
+      "class": "[var(--semantic-text-subdued)]",
+      "fullLine": "<div className=\"flex items-center gap-6 text-sm text-[var(--semantic-text-subdued)]\">"
+    },
+    {
+      "file": "app/page.tsx",
+      "line": 134,
+      "class": "[var(--semantic-text-interaction-default)]",
+      "fullLine": "className=\"hover:text-[var(--semantic-text-interaction-default)] transition-colors flex items-center gap-2\""
+    },
+    {
+      "file": "app/page.tsx",
+      "line": 139,
+      "class": "[var(--semantic-text-interaction-default)]",
+      "fullLine": "<Link href=\"/components\" className=\"hover:text-[var(--semantic-text-interaction-default)] transition-colors\">"
+    },
+    {
+      "file": "components/theme-toggle.tsx",
+      "line": 39,
+      "class": "[var(--semantic-text-subdued)]",
+      "fullLine": "<MaterialSymbol name=\"light_mode\" size={16} className=\"text-[var(--semantic-text-subdued)]\" />"
+    },
+    {
+      "file": "components/theme-toggle.tsx",
+      "line": 47,
+      "class": "[var(--semantic-text-subdued)]",
+      "fullLine": "<MaterialSymbol name=\"dark_mode\" size={16} className=\"text-[var(--semantic-text-subdued)]\" />"
+    },
+    {
+      "file": "components/ui/avatar.tsx",
+      "line": 100,
+      "class": "[var(--semantic-surface-subdued)]",
+      "fullLine": "\"bg-[var(--semantic-surface-subdued)] flex size-full items-center justify-center text-[var(--semantic-text-subdued)]\","
+    },
+    {
+      "file": "components/ui/avatar.tsx",
+      "line": 100,
+      "class": "[var(--semantic-text-subdued)]",
+      "fullLine": "\"bg-[var(--semantic-surface-subdued)] flex size-full items-center justify-center text-[var(--semantic-text-subdued)]\","
+    },
+    {
+      "file": "components/ui/button.tsx",
+      "line": 8,
+      "class": "[var(--semantic-surface-interaction-strong)]",
+      "fullLine": "\"inline-flex items-center justify-center whitespace-nowrap font-normal transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none shrink-0 [&_svg]:shrink-0 outline-none focus-visible:ring-[var(--semantic-surface-interaction-strong)]/50 focus-visible:ring-[3px] aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/20 dark:aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/40 aria-invalid:border-[var(--semantic-surface-rag-danger-strong)]\","
+    },
+    {
+      "file": "components/ui/button.tsx",
+      "line": 8,
+      "class": "[var(--semantic-surface-rag-danger-strong)]",
+      "fullLine": "\"inline-flex items-center justify-center whitespace-nowrap font-normal transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none shrink-0 [&_svg]:shrink-0 outline-none focus-visible:ring-[var(--semantic-surface-interaction-strong)]/50 focus-visible:ring-[3px] aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/20 dark:aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/40 aria-invalid:border-[var(--semantic-surface-rag-danger-strong)]\","
+    },
+    {
+      "file": "components/ui/button.tsx",
+      "line": 8,
+      "class": "[var(--semantic-surface-rag-danger-strong)]",
+      "fullLine": "\"inline-flex items-center justify-center whitespace-nowrap font-normal transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none shrink-0 [&_svg]:shrink-0 outline-none focus-visible:ring-[var(--semantic-surface-interaction-strong)]/50 focus-visible:ring-[3px] aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/20 dark:aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/40 aria-invalid:border-[var(--semantic-surface-rag-danger-strong)]\","
+    },
+    {
+      "file": "components/ui/button.tsx",
+      "line": 8,
+      "class": "[var(--semantic-surface-rag-danger-strong)]",
+      "fullLine": "\"inline-flex items-center justify-center whitespace-nowrap font-normal transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none shrink-0 [&_svg]:shrink-0 outline-none focus-visible:ring-[var(--semantic-surface-interaction-strong)]/50 focus-visible:ring-[3px] aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/20 dark:aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/40 aria-invalid:border-[var(--semantic-surface-rag-danger-strong)]\","
+    },
+    {
+      "file": "components/ui/button.tsx",
+      "line": 12,
+      "class": "[var(--semantic-surface-primary)]",
+      "fullLine": "default: \"bg-[var(--semantic-surface-primary)] text-[var(--semantic-text-reversedpersistent)] hover:opacity-90 [&_.material-symbols-outlined]:text-[var(--semantic-icon-interaction-bright)]\","
+    },
+    {
+      "file": "components/ui/button.tsx",
+      "line": 12,
+      "class": "[var(--semantic-text-reversedpersistent)]",
+      "fullLine": "default: \"bg-[var(--semantic-surface-primary)] text-[var(--semantic-text-reversedpersistent)] hover:opacity-90 [&_.material-symbols-outlined]:text-[var(--semantic-icon-interaction-bright)]\","
+    },
+    {
+      "file": "components/ui/button.tsx",
+      "line": 12,
+      "class": "[var(--semantic-icon-interaction-bright)]",
+      "fullLine": "default: \"bg-[var(--semantic-surface-primary)] text-[var(--semantic-text-reversedpersistent)] hover:opacity-90 [&_.material-symbols-outlined]:text-[var(--semantic-icon-interaction-bright)]\","
+    },
+    {
+      "file": "components/ui/button.tsx",
+      "line": 16,
+      "class": "[var(--semantic-stroke-default)]",
+      "fullLine": "\"border border-[var(--semantic-stroke-default)] text-[var(--semantic-text-subdued)] hover:bg-[var(--semantic-surface-overlays-level1)] [&_.material-symbols-outlined]:!text-[var(--semantic-icon-subdued)]\","
+    },
+    {
+      "file": "components/ui/button.tsx",
+      "line": 16,
+      "class": "[var(--semantic-text-subdued)]",
+      "fullLine": "\"border border-[var(--semantic-stroke-default)] text-[var(--semantic-text-subdued)] hover:bg-[var(--semantic-surface-overlays-level1)] [&_.material-symbols-outlined]:!text-[var(--semantic-icon-subdued)]\","
+    },
+    {
+      "file": "components/ui/button.tsx",
+      "line": 16,
+      "class": "[var(--semantic-surface-overlays-level1)]",
+      "fullLine": "\"border border-[var(--semantic-stroke-default)] text-[var(--semantic-text-subdued)] hover:bg-[var(--semantic-surface-overlays-level1)] [&_.material-symbols-outlined]:!text-[var(--semantic-icon-subdued)]\","
+    },
+    {
+      "file": "components/ui/button.tsx",
+      "line": 16,
+      "class": "[var(--semantic-icon-subdued)]",
+      "fullLine": "\"border border-[var(--semantic-stroke-default)] text-[var(--semantic-text-subdued)] hover:bg-[var(--semantic-surface-overlays-level1)] [&_.material-symbols-outlined]:!text-[var(--semantic-icon-subdued)]\","
+    },
+    {
+      "file": "components/ui/button.tsx",
+      "line": 18,
+      "class": "[var(--semantic-surface-secondary)]",
+      "fullLine": "\"bg-[var(--semantic-surface-secondary)] text-[var(--semantic-text-subdued)] hover:opacity-80 [&_.material-symbols-outlined]:!text-[var(--semantic-icon-subdued)]\","
+    },
+    {
+      "file": "components/ui/button.tsx",
+      "line": 18,
+      "class": "[var(--semantic-text-subdued)]",
+      "fullLine": "\"bg-[var(--semantic-surface-secondary)] text-[var(--semantic-text-subdued)] hover:opacity-80 [&_.material-symbols-outlined]:!text-[var(--semantic-icon-subdued)]\","
+    },
+    {
+      "file": "components/ui/button.tsx",
+      "line": 18,
+      "class": "[var(--semantic-icon-subdued)]",
+      "fullLine": "\"bg-[var(--semantic-surface-secondary)] text-[var(--semantic-text-subdued)] hover:opacity-80 [&_.material-symbols-outlined]:!text-[var(--semantic-icon-subdued)]\","
+    },
+    {
+      "file": "components/ui/button.tsx",
+      "line": 20,
+      "class": "[var(--semantic-text-subdued)]",
+      "fullLine": "\"text-[var(--semantic-text-subdued)] hover:bg-[var(--semantic-surface-overlays-level1)] [&_.material-symbols-outlined]:!text-[var(--semantic-icon-subdued)]\","
+    },
+    {
+      "file": "components/ui/button.tsx",
+      "line": 20,
+      "class": "[var(--semantic-surface-overlays-level1)]",
+      "fullLine": "\"text-[var(--semantic-text-subdued)] hover:bg-[var(--semantic-surface-overlays-level1)] [&_.material-symbols-outlined]:!text-[var(--semantic-icon-subdued)]\","
+    },
+    {
+      "file": "components/ui/button.tsx",
+      "line": 20,
+      "class": "[var(--semantic-icon-subdued)]",
+      "fullLine": "\"text-[var(--semantic-text-subdued)] hover:bg-[var(--semantic-surface-overlays-level1)] [&_.material-symbols-outlined]:!text-[var(--semantic-icon-subdued)]\","
+    },
+    {
+      "file": "components/ui/button.tsx",
+      "line": 21,
+      "class": "[var(--semantic-text-interaction-bright)]",
+      "fullLine": "link: \"text-primary underline-offset-4 hover:underline hover:text-[var(--semantic-text-interaction-bright)] [&_.material-symbols-outlined]:!text-[var(--semantic-icon-subdued)] hover:[&_.material-symbols-outlined]:!text-[var(--semantic-icon-interaction-bright)]\","
+    },
+    {
+      "file": "components/ui/button.tsx",
+      "line": 21,
+      "class": "[var(--semantic-icon-subdued)]",
+      "fullLine": "link: \"text-primary underline-offset-4 hover:underline hover:text-[var(--semantic-text-interaction-bright)] [&_.material-symbols-outlined]:!text-[var(--semantic-icon-subdued)] hover:[&_.material-symbols-outlined]:!text-[var(--semantic-icon-interaction-bright)]\","
+    },
+    {
+      "file": "components/ui/button.tsx",
+      "line": 21,
+      "class": "[var(--semantic-icon-interaction-bright)]",
+      "fullLine": "link: \"text-primary underline-offset-4 hover:underline hover:text-[var(--semantic-text-interaction-bright)] [&_.material-symbols-outlined]:!text-[var(--semantic-icon-subdued)] hover:[&_.material-symbols-outlined]:!text-[var(--semantic-icon-interaction-bright)]\","
+    },
+    {
+      "file": "components/ui/button.tsx",
+      "line": 22,
+      "class": "[var(--semantic-text-subdued)]",
+      "fullLine": "tertiary: \"text-[var(--semantic-text-subdued)] hover:bg-[var(--semantic-surface-overlays-level1)] [&_.material-symbols-outlined]:!text-[var(--semantic-icon-subdued)]\","
+    },
+    {
+      "file": "components/ui/button.tsx",
+      "line": 22,
+      "class": "[var(--semantic-surface-overlays-level1)]",
+      "fullLine": "tertiary: \"text-[var(--semantic-text-subdued)] hover:bg-[var(--semantic-surface-overlays-level1)] [&_.material-symbols-outlined]:!text-[var(--semantic-icon-subdued)]\","
+    },
+    {
+      "file": "components/ui/button.tsx",
+      "line": 22,
+      "class": "[var(--semantic-icon-subdued)]",
+      "fullLine": "tertiary: \"text-[var(--semantic-text-subdued)] hover:bg-[var(--semantic-surface-overlays-level1)] [&_.material-symbols-outlined]:!text-[var(--semantic-icon-subdued)]\","
+    },
+    {
+      "file": "components/ui/button.tsx",
+      "line": 72,
+      "class": "[var(--semantic-text-reversedpersistent)]",
+      "fullLine": "isPrimaryIconOnly && '[&_.material-symbols-outlined]:!text-[var(--semantic-text-reversedpersistent)]',"
+    },
+    {
+      "file": "components/ui/checkbox.tsx",
+      "line": 17,
+      "class": "[var(--semantic-stroke-default)]",
+      "fullLine": "\"peer border-[var(--semantic-stroke-default)] data-[state=unchecked]:bg-transparent data-[state=checked]:bg-[var(--semantic-surface-interaction-strong)] data-[state=checked]:text-white data-[state=checked]:border-[var(--semantic-surface-interaction-strong)] focus-visible:border-[var(--semantic-surface-interaction-strong)] focus-visible:ring-[var(--semantic-surface-interaction-strong)]/50 aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/20 dark:aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/40 aria-invalid:border-[var(--semantic-surface-rag-danger-strong)] size-4 shrink-0 rounded-[4px] border transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50\","
+    },
+    {
+      "file": "components/ui/checkbox.tsx",
+      "line": 17,
+      "class": "[var(--semantic-surface-interaction-strong)]",
+      "fullLine": "\"peer border-[var(--semantic-stroke-default)] data-[state=unchecked]:bg-transparent data-[state=checked]:bg-[var(--semantic-surface-interaction-strong)] data-[state=checked]:text-white data-[state=checked]:border-[var(--semantic-surface-interaction-strong)] focus-visible:border-[var(--semantic-surface-interaction-strong)] focus-visible:ring-[var(--semantic-surface-interaction-strong)]/50 aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/20 dark:aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/40 aria-invalid:border-[var(--semantic-surface-rag-danger-strong)] size-4 shrink-0 rounded-[4px] border transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50\","
+    },
+    {
+      "file": "components/ui/checkbox.tsx",
+      "line": 17,
+      "class": "[var(--semantic-surface-interaction-strong)]",
+      "fullLine": "\"peer border-[var(--semantic-stroke-default)] data-[state=unchecked]:bg-transparent data-[state=checked]:bg-[var(--semantic-surface-interaction-strong)] data-[state=checked]:text-white data-[state=checked]:border-[var(--semantic-surface-interaction-strong)] focus-visible:border-[var(--semantic-surface-interaction-strong)] focus-visible:ring-[var(--semantic-surface-interaction-strong)]/50 aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/20 dark:aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/40 aria-invalid:border-[var(--semantic-surface-rag-danger-strong)] size-4 shrink-0 rounded-[4px] border transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50\","
+    },
+    {
+      "file": "components/ui/checkbox.tsx",
+      "line": 17,
+      "class": "[var(--semantic-surface-interaction-strong)]",
+      "fullLine": "\"peer border-[var(--semantic-stroke-default)] data-[state=unchecked]:bg-transparent data-[state=checked]:bg-[var(--semantic-surface-interaction-strong)] data-[state=checked]:text-white data-[state=checked]:border-[var(--semantic-surface-interaction-strong)] focus-visible:border-[var(--semantic-surface-interaction-strong)] focus-visible:ring-[var(--semantic-surface-interaction-strong)]/50 aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/20 dark:aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/40 aria-invalid:border-[var(--semantic-surface-rag-danger-strong)] size-4 shrink-0 rounded-[4px] border transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50\","
+    },
+    {
+      "file": "components/ui/checkbox.tsx",
+      "line": 17,
+      "class": "[var(--semantic-surface-interaction-strong)]",
+      "fullLine": "\"peer border-[var(--semantic-stroke-default)] data-[state=unchecked]:bg-transparent data-[state=checked]:bg-[var(--semantic-surface-interaction-strong)] data-[state=checked]:text-white data-[state=checked]:border-[var(--semantic-surface-interaction-strong)] focus-visible:border-[var(--semantic-surface-interaction-strong)] focus-visible:ring-[var(--semantic-surface-interaction-strong)]/50 aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/20 dark:aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/40 aria-invalid:border-[var(--semantic-surface-rag-danger-strong)] size-4 shrink-0 rounded-[4px] border transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50\","
+    },
+    {
+      "file": "components/ui/checkbox.tsx",
+      "line": 17,
+      "class": "[var(--semantic-surface-rag-danger-strong)]",
+      "fullLine": "\"peer border-[var(--semantic-stroke-default)] data-[state=unchecked]:bg-transparent data-[state=checked]:bg-[var(--semantic-surface-interaction-strong)] data-[state=checked]:text-white data-[state=checked]:border-[var(--semantic-surface-interaction-strong)] focus-visible:border-[var(--semantic-surface-interaction-strong)] focus-visible:ring-[var(--semantic-surface-interaction-strong)]/50 aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/20 dark:aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/40 aria-invalid:border-[var(--semantic-surface-rag-danger-strong)] size-4 shrink-0 rounded-[4px] border transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50\","
+    },
+    {
+      "file": "components/ui/checkbox.tsx",
+      "line": 17,
+      "class": "[var(--semantic-surface-rag-danger-strong)]",
+      "fullLine": "\"peer border-[var(--semantic-stroke-default)] data-[state=unchecked]:bg-transparent data-[state=checked]:bg-[var(--semantic-surface-interaction-strong)] data-[state=checked]:text-white data-[state=checked]:border-[var(--semantic-surface-interaction-strong)] focus-visible:border-[var(--semantic-surface-interaction-strong)] focus-visible:ring-[var(--semantic-surface-interaction-strong)]/50 aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/20 dark:aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/40 aria-invalid:border-[var(--semantic-surface-rag-danger-strong)] size-4 shrink-0 rounded-[4px] border transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50\","
+    },
+    {
+      "file": "components/ui/checkbox.tsx",
+      "line": 17,
+      "class": "[var(--semantic-surface-rag-danger-strong)]",
+      "fullLine": "\"peer border-[var(--semantic-stroke-default)] data-[state=unchecked]:bg-transparent data-[state=checked]:bg-[var(--semantic-surface-interaction-strong)] data-[state=checked]:text-white data-[state=checked]:border-[var(--semantic-surface-interaction-strong)] focus-visible:border-[var(--semantic-surface-interaction-strong)] focus-visible:ring-[var(--semantic-surface-interaction-strong)]/50 aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/20 dark:aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/40 aria-invalid:border-[var(--semantic-surface-rag-danger-strong)] size-4 shrink-0 rounded-[4px] border transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50\","
+    },
+    {
+      "file": "components/ui/checkbox.tsx",
+      "line": 52,
+      "class": "[var(--semantic-stroke-subdued)]",
+      "fullLine": "\"border-[var(--semantic-stroke-subdued)] bg-transparent\","
+    },
+    {
+      "file": "components/ui/checkbox.tsx",
+      "line": 54,
+      "class": "[var(--semantic-surface-whisper)]",
+      "fullLine": "\"has-[[data-state=checked]]:bg-[var(--semantic-surface-whisper)] has-[[data-state=checked]]:border-[var(--semantic-stroke-default)]\","
+    },
+    {
+      "file": "components/ui/checkbox.tsx",
+      "line": 54,
+      "class": "[var(--semantic-stroke-default)]",
+      "fullLine": "\"has-[[data-state=checked]]:bg-[var(--semantic-surface-whisper)] has-[[data-state=checked]]:border-[var(--semantic-stroke-default)]\","
+    },
+    {
+      "file": "components/ui/checkbox.tsx",
+      "line": 63,
+      "class": "[var(--semantic-stroke-default)]",
+      "fullLine": "\"border-[var(--semantic-stroke-default)] data-[state=unchecked]:bg-transparent data-[state=checked]:bg-[var(--semantic-surface-interaction-strong)] data-[state=checked]:text-white data-[state=checked]:border-[var(--semantic-surface-interaction-strong)] focus-visible:border-[var(--semantic-surface-interaction-strong)] focus-visible:ring-[var(--semantic-surface-interaction-strong)]/50 aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/20 dark:aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/40 aria-invalid:border-[var(--semantic-surface-rag-danger-strong)] size-4 shrink-0 rounded-[4px] border transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50\","
+    },
+    {
+      "file": "components/ui/checkbox.tsx",
+      "line": 63,
+      "class": "[var(--semantic-surface-interaction-strong)]",
+      "fullLine": "\"border-[var(--semantic-stroke-default)] data-[state=unchecked]:bg-transparent data-[state=checked]:bg-[var(--semantic-surface-interaction-strong)] data-[state=checked]:text-white data-[state=checked]:border-[var(--semantic-surface-interaction-strong)] focus-visible:border-[var(--semantic-surface-interaction-strong)] focus-visible:ring-[var(--semantic-surface-interaction-strong)]/50 aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/20 dark:aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/40 aria-invalid:border-[var(--semantic-surface-rag-danger-strong)] size-4 shrink-0 rounded-[4px] border transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50\","
+    },
+    {
+      "file": "components/ui/checkbox.tsx",
+      "line": 63,
+      "class": "[var(--semantic-surface-interaction-strong)]",
+      "fullLine": "\"border-[var(--semantic-stroke-default)] data-[state=unchecked]:bg-transparent data-[state=checked]:bg-[var(--semantic-surface-interaction-strong)] data-[state=checked]:text-white data-[state=checked]:border-[var(--semantic-surface-interaction-strong)] focus-visible:border-[var(--semantic-surface-interaction-strong)] focus-visible:ring-[var(--semantic-surface-interaction-strong)]/50 aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/20 dark:aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/40 aria-invalid:border-[var(--semantic-surface-rag-danger-strong)] size-4 shrink-0 rounded-[4px] border transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50\","
+    },
+    {
+      "file": "components/ui/checkbox.tsx",
+      "line": 63,
+      "class": "[var(--semantic-surface-interaction-strong)]",
+      "fullLine": "\"border-[var(--semantic-stroke-default)] data-[state=unchecked]:bg-transparent data-[state=checked]:bg-[var(--semantic-surface-interaction-strong)] data-[state=checked]:text-white data-[state=checked]:border-[var(--semantic-surface-interaction-strong)] focus-visible:border-[var(--semantic-surface-interaction-strong)] focus-visible:ring-[var(--semantic-surface-interaction-strong)]/50 aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/20 dark:aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/40 aria-invalid:border-[var(--semantic-surface-rag-danger-strong)] size-4 shrink-0 rounded-[4px] border transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50\","
+    },
+    {
+      "file": "components/ui/checkbox.tsx",
+      "line": 63,
+      "class": "[var(--semantic-surface-interaction-strong)]",
+      "fullLine": "\"border-[var(--semantic-stroke-default)] data-[state=unchecked]:bg-transparent data-[state=checked]:bg-[var(--semantic-surface-interaction-strong)] data-[state=checked]:text-white data-[state=checked]:border-[var(--semantic-surface-interaction-strong)] focus-visible:border-[var(--semantic-surface-interaction-strong)] focus-visible:ring-[var(--semantic-surface-interaction-strong)]/50 aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/20 dark:aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/40 aria-invalid:border-[var(--semantic-surface-rag-danger-strong)] size-4 shrink-0 rounded-[4px] border transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50\","
+    },
+    {
+      "file": "components/ui/checkbox.tsx",
+      "line": 63,
+      "class": "[var(--semantic-surface-rag-danger-strong)]",
+      "fullLine": "\"border-[var(--semantic-stroke-default)] data-[state=unchecked]:bg-transparent data-[state=checked]:bg-[var(--semantic-surface-interaction-strong)] data-[state=checked]:text-white data-[state=checked]:border-[var(--semantic-surface-interaction-strong)] focus-visible:border-[var(--semantic-surface-interaction-strong)] focus-visible:ring-[var(--semantic-surface-interaction-strong)]/50 aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/20 dark:aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/40 aria-invalid:border-[var(--semantic-surface-rag-danger-strong)] size-4 shrink-0 rounded-[4px] border transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50\","
+    },
+    {
+      "file": "components/ui/checkbox.tsx",
+      "line": 63,
+      "class": "[var(--semantic-surface-rag-danger-strong)]",
+      "fullLine": "\"border-[var(--semantic-stroke-default)] data-[state=unchecked]:bg-transparent data-[state=checked]:bg-[var(--semantic-surface-interaction-strong)] data-[state=checked]:text-white data-[state=checked]:border-[var(--semantic-surface-interaction-strong)] focus-visible:border-[var(--semantic-surface-interaction-strong)] focus-visible:ring-[var(--semantic-surface-interaction-strong)]/50 aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/20 dark:aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/40 aria-invalid:border-[var(--semantic-surface-rag-danger-strong)] size-4 shrink-0 rounded-[4px] border transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50\","
+    },
+    {
+      "file": "components/ui/checkbox.tsx",
+      "line": 63,
+      "class": "[var(--semantic-surface-rag-danger-strong)]",
+      "fullLine": "\"border-[var(--semantic-stroke-default)] data-[state=unchecked]:bg-transparent data-[state=checked]:bg-[var(--semantic-surface-interaction-strong)] data-[state=checked]:text-white data-[state=checked]:border-[var(--semantic-surface-interaction-strong)] focus-visible:border-[var(--semantic-surface-interaction-strong)] focus-visible:ring-[var(--semantic-surface-interaction-strong)]/50 aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/20 dark:aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/40 aria-invalid:border-[var(--semantic-surface-rag-danger-strong)] size-4 shrink-0 rounded-[4px] border transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50\","
+    },
+    {
+      "file": "components/ui/checkbox.tsx",
+      "line": 78,
+      "class": "[var(--semantic-text-default)]",
+      "fullLine": "\"text-[var(--semantic-text-default)]\","
+    },
+    {
+      "file": "components/ui/checkbox.tsx",
+      "line": 85,
+      "class": "[var(--semantic-text-subdued)]",
+      "fullLine": "<span className=\"text-sm leading-5 text-[var(--semantic-text-subdued)]\">"
+    },
+    {
+      "file": "components/ui/input.tsx",
+      "line": 13,
+      "class": "[var(--semantic-surface-rag-danger-strong)]",
+      "fullLine": "\"aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/20 dark:aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/40 aria-invalid:border-[var(--semantic-stroke-rag-danger-default)]\","
+    },
+    {
+      "file": "components/ui/input.tsx",
+      "line": 13,
+      "class": "[var(--semantic-surface-rag-danger-strong)]",
+      "fullLine": "\"aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/20 dark:aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/40 aria-invalid:border-[var(--semantic-stroke-rag-danger-default)]\","
+    },
+    {
+      "file": "components/ui/input.tsx",
+      "line": 13,
+      "class": "[var(--semantic-stroke-rag-danger-default)]",
+      "fullLine": "\"aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/20 dark:aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/40 aria-invalid:border-[var(--semantic-stroke-rag-danger-default)]\","
+    },
+    {
+      "file": "components/ui/progress.tsx",
+      "line": 17,
+      "class": "[var(--semantic-surface-interaction-strong)]",
+      "fullLine": "\"bg-[var(--semantic-surface-interaction-strong)]/20 relative h-2 w-full overflow-hidden rounded-full\","
+    },
+    {
+      "file": "components/ui/progress.tsx",
+      "line": 24,
+      "class": "[var(--semantic-surface-interaction-strong)]",
+      "fullLine": "className=\"bg-[var(--semantic-surface-interaction-strong)] h-full w-full flex-1 transition-all\""
+    },
+    {
+      "file": "components/ui/radio-group.tsx",
+      "line": 33,
+      "class": "[var(--semantic-stroke-default)]",
+      "fullLine": "\"border border-[var(--semantic-stroke-default)] rounded-3xl\","
+    },
+    {
+      "file": "components/ui/radio-group.tsx",
+      "line": 36,
+      "class": "[var(--semantic-surface-interaction-strong)]",
+      "fullLine": "\"data-[state=checked]:bg-[var(--semantic-surface-interaction-strong)] data-[state=checked]:rounded-full data-[state=checked]:border-0\","
+    },
+    {
+      "file": "components/ui/radio-group.tsx",
+      "line": 38,
+      "class": "[var(--semantic-surface-interaction-strong)]",
+      "fullLine": "\"focus-visible:ring-[var(--semantic-surface-interaction-strong)]/50 focus-visible:ring-[3px]\","
+    },
+    {
+      "file": "components/ui/radio-group.tsx",
+      "line": 40,
+      "class": "[var(--semantic-surface-rag-danger-strong)]",
+      "fullLine": "\"aria-invalid:border-[var(--semantic-surface-rag-danger-strong)]\","
+    },
+    {
+      "file": "components/ui/radio-group.tsx",
+      "line": 41,
+      "class": "[var(--semantic-surface-rag-danger-strong)]",
+      "fullLine": "\"aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/20\","
+    },
+    {
+      "file": "components/ui/radio-group.tsx",
+      "line": 42,
+      "class": "[var(--semantic-surface-rag-danger-strong)]",
+      "fullLine": "\"dark:aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/40\","
+    },
+    {
+      "file": "components/ui/radio-group.tsx",
+      "line": 78,
+      "class": "[var(--semantic-stroke-subdued)]",
+      "fullLine": "\"border-[var(--semantic-stroke-subdued)] bg-transparent\","
+    },
+    {
+      "file": "components/ui/radio-group.tsx",
+      "line": 80,
+      "class": "[var(--semantic-surface-whisper)]",
+      "fullLine": "\"has-[[data-state=checked]]:bg-[var(--semantic-surface-whisper)] has-[[data-state=checked]]:border-[var(--semantic-stroke-default)]\","
+    },
+    {
+      "file": "components/ui/radio-group.tsx",
+      "line": 80,
+      "class": "[var(--semantic-stroke-default)]",
+      "fullLine": "\"has-[[data-state=checked]]:bg-[var(--semantic-surface-whisper)] has-[[data-state=checked]]:border-[var(--semantic-stroke-default)]\","
+    },
+    {
+      "file": "components/ui/radio-group.tsx",
+      "line": 93,
+      "class": "[var(--semantic-stroke-default)]",
+      "fullLine": "\"border border-[var(--semantic-stroke-default)] rounded-3xl\","
+    },
+    {
+      "file": "components/ui/radio-group.tsx",
+      "line": 96,
+      "class": "[var(--semantic-surface-interaction-strong)]",
+      "fullLine": "\"data-[state=checked]:bg-[var(--semantic-surface-interaction-strong)] data-[state=checked]:rounded-full data-[state=checked]:border-0\","
+    },
+    {
+      "file": "components/ui/radio-group.tsx",
+      "line": 98,
+      "class": "[var(--semantic-surface-interaction-strong)]",
+      "fullLine": "\"focus-visible:ring-[var(--semantic-surface-interaction-strong)]/50 focus-visible:ring-[3px]\","
+    },
+    {
+      "file": "components/ui/radio-group.tsx",
+      "line": 100,
+      "class": "[var(--semantic-surface-rag-danger-strong)]",
+      "fullLine": "\"aria-invalid:border-[var(--semantic-surface-rag-danger-strong)]\","
+    },
+    {
+      "file": "components/ui/radio-group.tsx",
+      "line": 101,
+      "class": "[var(--semantic-surface-rag-danger-strong)]",
+      "fullLine": "\"aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/20\","
+    },
+    {
+      "file": "components/ui/radio-group.tsx",
+      "line": 102,
+      "class": "[var(--semantic-surface-rag-danger-strong)]",
+      "fullLine": "\"dark:aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/40\","
+    },
+    {
+      "file": "components/ui/radio-group.tsx",
+      "line": 118,
+      "class": "[var(--semantic-text-default)]",
+      "fullLine": "\"text-[var(--semantic-text-default)]\","
+    },
+    {
+      "file": "components/ui/radio-group.tsx",
+      "line": 125,
+      "class": "[var(--semantic-text-subdued)]",
+      "fullLine": "<span className=\"text-sm leading-5 text-[var(--semantic-text-subdued)]\">"
+    },
+    {
+      "file": "components/ui/select.tsx",
+      "line": 55,
+      "class": "[var(--semantic-surface-rag-danger-strong)]",
+      "fullLine": "\"aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/20 dark:aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/40 aria-invalid:border-[var(--semantic-stroke-rag-danger-default)]\","
+    },
+    {
+      "file": "components/ui/select.tsx",
+      "line": 55,
+      "class": "[var(--semantic-surface-rag-danger-strong)]",
+      "fullLine": "\"aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/20 dark:aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/40 aria-invalid:border-[var(--semantic-stroke-rag-danger-default)]\","
+    },
+    {
+      "file": "components/ui/select.tsx",
+      "line": 55,
+      "class": "[var(--semantic-stroke-rag-danger-default)]",
+      "fullLine": "\"aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/20 dark:aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/40 aria-invalid:border-[var(--semantic-stroke-rag-danger-default)]\","
+    },
+    {
+      "file": "components/ui/select.tsx",
+      "line": 66,
+      "class": "[var(--semantic-icon-subdued)]",
+      "fullLine": "className=\"text-[var(--semantic-icon-subdued)] shrink-0 pointer-events-none\""
+    },
+    {
+      "file": "components/ui/select.tsx",
+      "line": 195,
+      "class": "[var(--semantic-icon-subdued)]",
+      "fullLine": "className=\"text-[var(--semantic-icon-subdued)]\""
+    },
+    {
+      "file": "components/ui/slider.tsx",
+      "line": 48,
+      "class": "[var(--semantic-surface-interaction-strong)]",
+      "fullLine": "\"bg-[var(--semantic-surface-interaction-strong)] absolute data-[orientation=horizontal]:h-full data-[orientation=vertical]:w-full\""
+    },
+    {
+      "file": "components/ui/slider.tsx",
+      "line": 56,
+      "class": "[var(--semantic-surface-interaction-strong)]",
+      "fullLine": "className=\"border-[var(--semantic-surface-interaction-strong)] ring-ring/50 block size-4 shrink-0 rounded-full border bg-white shadow-sm transition-[color,box-shadow] hover:ring-4 focus-visible:ring-4 focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-50\""
+    },
+    {
+      "file": "components/ui/switch.tsx",
+      "line": 18,
+      "class": "[var(--semantic-surface-interaction-strong)]",
+      "fullLine": "\"data-[state=checked]:bg-[var(--semantic-surface-interaction-strong)] data-[state=checked]:rounded-full data-[state=checked]:border-0\","
+    },
+    {
+      "file": "components/ui/switch.tsx",
+      "line": 20,
+      "class": "[var(--semantic-surface-secondary)]",
+      "fullLine": "\"data-[state=unchecked]:bg-[var(--semantic-surface-secondary)] data-[state=unchecked]:border data-[state=unchecked]:border-[var(--semantic-stroke-default)] data-[state=unchecked]:rounded-3xl\","
+    },
+    {
+      "file": "components/ui/switch.tsx",
+      "line": 20,
+      "class": "[var(--semantic-stroke-default)]",
+      "fullLine": "\"data-[state=unchecked]:bg-[var(--semantic-surface-secondary)] data-[state=unchecked]:border data-[state=unchecked]:border-[var(--semantic-stroke-default)] data-[state=unchecked]:rounded-3xl\","
+    },
+    {
+      "file": "components/ui/switch.tsx",
+      "line": 22,
+      "class": "[var(--semantic-surface-interaction-strong)]",
+      "fullLine": "\"focus-visible:ring-[var(--semantic-surface-interaction-strong)]/50 focus-visible:ring-[3px] focus-visible:outline-none\","
+    },
+    {
+      "file": "components/ui/switch.tsx",
+      "line": 61,
+      "class": "[var(--semantic-stroke-subdued)]",
+      "fullLine": "\"border-[var(--semantic-stroke-subdued)] bg-transparent\","
+    },
+    {
+      "file": "components/ui/switch.tsx",
+      "line": 63,
+      "class": "[var(--semantic-surface-whisper)]",
+      "fullLine": "\"has-[[data-state=checked]]:bg-[var(--semantic-surface-whisper)] has-[[data-state=checked]]:border-[var(--semantic-stroke-default)]\","
+    },
+    {
+      "file": "components/ui/switch.tsx",
+      "line": 63,
+      "class": "[var(--semantic-stroke-default)]",
+      "fullLine": "\"has-[[data-state=checked]]:bg-[var(--semantic-surface-whisper)] has-[[data-state=checked]]:border-[var(--semantic-stroke-default)]\","
+    },
+    {
+      "file": "components/ui/switch.tsx",
+      "line": 71,
+      "class": "[var(--semantic-text-default)]",
+      "fullLine": "\"text-[var(--semantic-text-default)]\","
+    },
+    {
+      "file": "components/ui/switch.tsx",
+      "line": 78,
+      "class": "[var(--semantic-text-subdued)]",
+      "fullLine": "<span className=\"text-sm leading-5 text-[var(--semantic-text-subdued)]\">"
+    },
+    {
+      "file": "components/ui/switch.tsx",
+      "line": 91,
+      "class": "[var(--semantic-surface-interaction-strong)]",
+      "fullLine": "\"data-[state=checked]:bg-[var(--semantic-surface-interaction-strong)] data-[state=checked]:rounded-full data-[state=checked]:border-0\","
+    },
+    {
+      "file": "components/ui/switch.tsx",
+      "line": 93,
+      "class": "[var(--semantic-surface-secondary)]",
+      "fullLine": "\"data-[state=unchecked]:bg-[var(--semantic-surface-secondary)] data-[state=unchecked]:border data-[state=unchecked]:border-[var(--semantic-stroke-default)] data-[state=unchecked]:rounded-3xl\","
+    },
+    {
+      "file": "components/ui/switch.tsx",
+      "line": 93,
+      "class": "[var(--semantic-stroke-default)]",
+      "fullLine": "\"data-[state=unchecked]:bg-[var(--semantic-surface-secondary)] data-[state=unchecked]:border data-[state=unchecked]:border-[var(--semantic-stroke-default)] data-[state=unchecked]:rounded-3xl\","
+    },
+    {
+      "file": "components/ui/switch.tsx",
+      "line": 95,
+      "class": "[var(--semantic-surface-interaction-strong)]",
+      "fullLine": "\"focus-visible:ring-[var(--semantic-surface-interaction-strong)]/50 focus-visible:ring-[3px] focus-visible:outline-none\","
+    }
+  ],
+  "tokensUsed": [
+    "--semantic-icon-interaction-bright",
+    "--semantic-icon-interaction-default",
+    "--semantic-icon-subdued",
+    "--semantic-stroke-default",
+    "--semantic-stroke-rag-danger-default",
+    "--semantic-stroke-subdued",
+    "--semantic-surface-interaction-default",
+    "--semantic-surface-interaction-strong",
+    "--semantic-surface-overlays-level1",
+    "--semantic-surface-primary",
+    "--semantic-surface-rag-danger-strong",
+    "--semantic-surface-secondary",
+    "--semantic-surface-subdued",
+    "--semantic-surface-whisper",
+    "--semantic-text-default",
+    "--semantic-text-interaction-bright",
+    "--semantic-text-interaction-default",
+    "--semantic-text-reversedpersistent",
+    "--semantic-text-subdued"
+  ],
+  "tokensByFile": {
+    "app/components/page.tsx": [
+      "--semantic-text-interaction-default",
+      "--semantic-surface-interaction-default",
+      "--semantic-text-interaction-default",
+      "--semantic-icon-subdued",
+      "--semantic-icon-subdued",
+      "--semantic-icon-interaction-default",
+      "--semantic-surface-interaction-strong",
+      "--semantic-text-interaction-default"
+    ],
+    "app/page.tsx": [
+      "--semantic-icon-interaction-default",
+      "--semantic-surface-subdued",
+      "--semantic-text-subdued",
+      "--semantic-text-interaction-default",
+      "--semantic-text-subdued",
+      "--semantic-surface-subdued",
+      "--semantic-text-subdued",
+      "--semantic-stroke-default",
+      "--semantic-surface-subdued",
+      "--semantic-stroke-default",
+      "--semantic-text-default",
+      "--semantic-stroke-default",
+      "--semantic-text-subdued",
+      "--semantic-surface-subdued",
+      "--semantic-stroke-default",
+      "--semantic-text-default",
+      "--semantic-stroke-default",
+      "--semantic-icon-subdued",
+      "--semantic-text-subdued",
+      "--semantic-text-subdued",
+      "--semantic-text-interaction-default",
+      "--semantic-text-interaction-default"
+    ],
+    "components/theme-toggle.tsx": [
+      "--semantic-text-subdued",
+      "--semantic-text-subdued"
+    ],
+    "components/ui/avatar.tsx": [
+      "--semantic-surface-subdued",
+      "--semantic-text-subdued"
+    ],
+    "components/ui/button.tsx": [
+      "--semantic-surface-interaction-strong",
+      "--semantic-surface-rag-danger-strong",
+      "--semantic-surface-rag-danger-strong",
+      "--semantic-surface-rag-danger-strong",
+      "--semantic-surface-primary",
+      "--semantic-text-reversedpersistent",
+      "--semantic-icon-interaction-bright",
+      "--semantic-stroke-default",
+      "--semantic-text-subdued",
+      "--semantic-surface-overlays-level1",
+      "--semantic-icon-subdued",
+      "--semantic-surface-secondary",
+      "--semantic-text-subdued",
+      "--semantic-icon-subdued",
+      "--semantic-text-subdued",
+      "--semantic-surface-overlays-level1",
+      "--semantic-icon-subdued",
+      "--semantic-text-interaction-bright",
+      "--semantic-icon-subdued",
+      "--semantic-icon-interaction-bright",
+      "--semantic-text-subdued",
+      "--semantic-surface-overlays-level1",
+      "--semantic-icon-subdued",
+      "--semantic-text-reversedpersistent"
+    ],
+    "components/ui/checkbox.tsx": [
+      "--semantic-stroke-default",
+      "--semantic-surface-interaction-strong",
+      "--semantic-surface-interaction-strong",
+      "--semantic-surface-interaction-strong",
+      "--semantic-surface-interaction-strong",
+      "--semantic-surface-rag-danger-strong",
+      "--semantic-surface-rag-danger-strong",
+      "--semantic-surface-rag-danger-strong",
+      "--semantic-stroke-subdued",
+      "--semantic-surface-whisper",
+      "--semantic-stroke-default",
+      "--semantic-stroke-default",
+      "--semantic-surface-interaction-strong",
+      "--semantic-surface-interaction-strong",
+      "--semantic-surface-interaction-strong",
+      "--semantic-surface-interaction-strong",
+      "--semantic-surface-rag-danger-strong",
+      "--semantic-surface-rag-danger-strong",
+      "--semantic-surface-rag-danger-strong",
+      "--semantic-text-default",
+      "--semantic-text-subdued"
+    ],
+    "components/ui/input.tsx": [
+      "--semantic-surface-rag-danger-strong",
+      "--semantic-surface-rag-danger-strong",
+      "--semantic-stroke-rag-danger-default"
+    ],
+    "components/ui/progress.tsx": [
+      "--semantic-surface-interaction-strong",
+      "--semantic-surface-interaction-strong"
+    ],
+    "components/ui/radio-group.tsx": [
+      "--semantic-stroke-default",
+      "--semantic-surface-interaction-strong",
+      "--semantic-surface-interaction-strong",
+      "--semantic-surface-rag-danger-strong",
+      "--semantic-surface-rag-danger-strong",
+      "--semantic-surface-rag-danger-strong",
+      "--semantic-stroke-subdued",
+      "--semantic-surface-whisper",
+      "--semantic-stroke-default",
+      "--semantic-stroke-default",
+      "--semantic-surface-interaction-strong",
+      "--semantic-surface-interaction-strong",
+      "--semantic-surface-rag-danger-strong",
+      "--semantic-surface-rag-danger-strong",
+      "--semantic-surface-rag-danger-strong",
+      "--semantic-text-default",
+      "--semantic-text-subdued"
+    ],
+    "components/ui/select.tsx": [
+      "--semantic-surface-rag-danger-strong",
+      "--semantic-surface-rag-danger-strong",
+      "--semantic-stroke-rag-danger-default",
+      "--semantic-icon-subdued",
+      "--semantic-icon-subdued"
+    ],
+    "components/ui/slider.tsx": [
+      "--semantic-surface-interaction-strong",
+      "--semantic-surface-interaction-strong"
+    ],
+    "components/ui/switch.tsx": [
+      "--semantic-surface-interaction-strong",
+      "--semantic-surface-secondary",
+      "--semantic-stroke-default",
+      "--semantic-surface-interaction-strong",
+      "--semantic-stroke-subdued",
+      "--semantic-surface-whisper",
+      "--semantic-stroke-default",
+      "--semantic-text-default",
+      "--semantic-text-subdued",
+      "--semantic-surface-interaction-strong",
+      "--semantic-surface-secondary",
+      "--semantic-stroke-default",
+      "--semantic-surface-interaction-strong"
+    ]
+  },
+  "tokensUnused": [
+    "--semantic-brand-picto",
+    "--semantic-brand-text",
+    "--semantic-icon-ai-default",
+    "--semantic-icon-default",
+    "--semantic-icon-rag-danger-default",
+    "--semantic-icon-rag-success-default",
+    "--semantic-icon-rag-warning-default",
+    "--semantic-icon-reversed",
+    "--semantic-icon-reversedpersistent",
+    "--semantic-icon-tonal-science-default",
+    "--semantic-stroke-ai-default",
+    "--semantic-stroke-interaction-default",
+    "--semantic-stroke-rag-danger-bright",
+    "--semantic-stroke-rag-danger-strong",
+    "--semantic-stroke-rag-success-bright",
+    "--semantic-stroke-rag-success-default",
+    "--semantic-stroke-rag-success-strong",
+    "--semantic-stroke-rag-warning-bright",
+    "--semantic-stroke-rag-warning-default",
+    "--semantic-stroke-rag-warning-strong",
+    "--semantic-stroke-strong",
+    "--semantic-stroke-tonal-science-default",
+    "--semantic-surface-ai-strong",
+    "--semantic-surface-ai-subdued",
+    "--semantic-surface-contrast",
+    "--semantic-surface-default",
+    "--semantic-surface-interaction-bright",
+    "--semantic-surface-interaction-subdued",
+    "--semantic-surface-overlays-level2",
+    "--semantic-surface-overlays-level3",
+    "--semantic-surface-overlays-ref",
+    "--semantic-surface-rag-danger-bright",
+    "--semantic-surface-rag-danger-subdued",
+    "--semantic-surface-rag-success-bright",
+    "--semantic-surface-rag-success-strong",
+    "--semantic-surface-rag-success-subdued",
+    "--semantic-surface-rag-warning-bright",
+    "--semantic-surface-rag-warning-strong",
+    "--semantic-surface-rag-warning-subdued",
+    "--semantic-surface-strong",
+    "--semantic-surface-tonal-science-strong",
+    "--semantic-surface-tonal-science-subdued",
+    "--semantic-text-ai-default",
+    "--semantic-text-rag-danger-default",
+    "--semantic-text-rag-success-default",
+    "--semantic-text-rag-warning-default",
+    "--semantic-text-reversed",
+    "--semantic-text-tonal-science-default"
+  ]
+}

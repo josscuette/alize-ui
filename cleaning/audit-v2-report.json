@@ -1,0 +1,3132 @@
+{
+  "summary": {
+    "totalFiles": 69,
+    "filesWithTokens": 63,
+    "totalArbitraryClasses": 0,
+    "totalSemanticClasses": 236,
+    "totalTokensUsed": 26,
+    "tokensInArbitrary": 0,
+    "tokensInSemantic": 26
+  },
+  "tokens": {
+    "available": [
+      "brand-picto",
+      "brand-text",
+      "icon-ai-default",
+      "icon-default",
+      "icon-interaction-bright",
+      "icon-interaction-default",
+      "icon-rag-danger-default",
+      "icon-rag-success-default",
+      "icon-rag-warning-default",
+      "icon-reversed",
+      "icon-reversedpersistent",
+      "icon-subdued",
+      "icon-tonal-science-default",
+      "stroke-ai-default",
+      "stroke-default",
+      "stroke-interaction-default",
+      "stroke-rag-danger-bright",
+      "stroke-rag-danger-default",
+      "stroke-rag-danger-strong",
+      "stroke-rag-success-bright",
+      "stroke-rag-success-default",
+      "stroke-rag-success-strong",
+      "stroke-rag-warning-bright",
+      "stroke-rag-warning-default",
+      "stroke-rag-warning-strong",
+      "stroke-strong",
+      "stroke-subdued",
+      "stroke-tonal-science-default",
+      "surface-ai-strong",
+      "surface-ai-subdued",
+      "surface-contrast",
+      "surface-default",
+      "surface-interaction-bright",
+      "surface-interaction-strong",
+      "surface-interaction-subdued",
+      "surface-overlays-level1",
+      "surface-overlays-level2",
+      "surface-overlays-level3",
+      "surface-overlays-ref",
+      "surface-primary",
+      "surface-rag-danger-bright",
+      "surface-rag-danger-strong",
+      "surface-rag-danger-subdued",
+      "surface-rag-success-bright",
+      "surface-rag-success-strong",
+      "surface-rag-success-subdued",
+      "surface-rag-warning-bright",
+      "surface-rag-warning-strong",
+      "surface-rag-warning-subdued",
+      "surface-secondary",
+      "surface-strong",
+      "surface-subdued",
+      "surface-tonal-science-strong",
+      "surface-tonal-science-subdued",
+      "surface-whisper",
+      "text-ai-default",
+      "text-default",
+      "text-interaction-bright",
+      "text-interaction-default",
+      "text-rag-danger-default",
+      "text-rag-success-default",
+      "text-rag-warning-default",
+      "text-reversed",
+      "text-reversedpersistent",
+      "text-subdued",
+      "text-tonal-science-default"
+    ],
+    "used": [
+      "icon-interaction-bright",
+      "icon-interaction-default",
+      "icon-rag-success-default",
+      "icon-subdued",
+      "stroke-default",
+      "stroke-rag-danger-default",
+      "stroke-rag-success-default",
+      "stroke-subdued",
+      "surface-interaction-strong",
+      "surface-interaction-subdued",
+      "surface-overlays-level1",
+      "surface-primary",
+      "surface-rag-danger-bright",
+      "surface-rag-danger-strong",
+      "surface-rag-success-bright",
+      "surface-rag-success-subdued",
+      "surface-rag-warning-bright",
+      "surface-secondary",
+      "surface-subdued",
+      "surface-whisper",
+      "text-default",
+      "text-interaction-bright",
+      "text-interaction-default",
+      "text-rag-danger-default",
+      "text-reversedpersistent",
+      "text-subdued"
+    ],
+    "unused": [
+      "brand-picto",
+      "brand-text",
+      "icon-ai-default",
+      "icon-default",
+      "icon-rag-danger-default",
+      "icon-rag-warning-default",
+      "icon-reversed",
+      "icon-reversedpersistent",
+      "icon-tonal-science-default",
+      "stroke-ai-default",
+      "stroke-interaction-default",
+      "stroke-rag-danger-bright",
+      "stroke-rag-danger-strong",
+      "stroke-rag-success-bright",
+      "stroke-rag-success-strong",
+      "stroke-rag-warning-bright",
+      "stroke-rag-warning-default",
+      "stroke-rag-warning-strong",
+      "stroke-strong",
+      "stroke-tonal-science-default",
+      "surface-ai-strong",
+      "surface-ai-subdued",
+      "surface-contrast",
+      "surface-default",
+      "surface-interaction-bright",
+      "surface-overlays-level2",
+      "surface-overlays-level3",
+      "surface-overlays-ref",
+      "surface-rag-danger-subdued",
+      "surface-rag-success-strong",
+      "surface-rag-warning-strong",
+      "surface-rag-warning-subdued",
+      "surface-strong",
+      "surface-tonal-science-strong",
+      "surface-tonal-science-subdued",
+      "text-ai-default",
+      "text-rag-success-default",
+      "text-rag-warning-default",
+      "text-reversed",
+      "text-tonal-science-default"
+    ],
+    "onlyInArbitrary": [],
+    "onlyInSemantic": [
+      "icon-interaction-bright",
+      "icon-interaction-default",
+      "icon-rag-success-default",
+      "icon-subdued",
+      "stroke-default",
+      "stroke-rag-danger-default",
+      "stroke-rag-success-default",
+      "stroke-subdued",
+      "surface-interaction-strong",
+      "surface-interaction-subdued",
+      "surface-overlays-level1",
+      "surface-primary",
+      "surface-rag-danger-bright",
+      "surface-rag-danger-strong",
+      "surface-rag-success-bright",
+      "surface-rag-success-subdued",
+      "surface-rag-warning-bright",
+      "surface-secondary",
+      "surface-subdued",
+      "surface-whisper",
+      "text-default",
+      "text-interaction-bright",
+      "text-interaction-default",
+      "text-rag-danger-default",
+      "text-reversedpersistent",
+      "text-subdued"
+    ],
+    "inBoth": []
+  },
+  "tokensByCategory": {
+    "text": [
+      "text-ai-default",
+      "text-default",
+      "text-interaction-bright",
+      "text-interaction-default",
+      "text-rag-danger-default",
+      "text-rag-success-default",
+      "text-rag-warning-default",
+      "text-reversed",
+      "text-reversedpersistent",
+      "text-subdued",
+      "text-tonal-science-default"
+    ],
+    "icon": [
+      "icon-ai-default",
+      "icon-default",
+      "icon-interaction-bright",
+      "icon-interaction-default",
+      "icon-rag-danger-default",
+      "icon-rag-success-default",
+      "icon-rag-warning-default",
+      "icon-reversed",
+      "icon-reversedpersistent",
+      "icon-subdued",
+      "icon-tonal-science-default"
+    ],
+    "surface": [
+      "surface-ai-strong",
+      "surface-ai-subdued",
+      "surface-contrast",
+      "surface-default",
+      "surface-interaction-bright",
+      "surface-interaction-strong",
+      "surface-interaction-subdued",
+      "surface-overlays-level1",
+      "surface-overlays-level2",
+      "surface-overlays-level3",
+      "surface-overlays-ref",
+      "surface-primary",
+      "surface-rag-danger-bright",
+      "surface-rag-danger-strong",
+      "surface-rag-danger-subdued",
+      "surface-rag-success-bright",
+      "surface-rag-success-strong",
+      "surface-rag-success-subdued",
+      "surface-rag-warning-bright",
+      "surface-rag-warning-strong",
+      "surface-rag-warning-subdued",
+      "surface-secondary",
+      "surface-strong",
+      "surface-subdued",
+      "surface-tonal-science-strong",
+      "surface-tonal-science-subdued",
+      "surface-whisper"
+    ],
+    "stroke": [
+      "stroke-ai-default",
+      "stroke-default",
+      "stroke-interaction-default",
+      "stroke-rag-danger-bright",
+      "stroke-rag-danger-default",
+      "stroke-rag-danger-strong",
+      "stroke-rag-success-bright",
+      "stroke-rag-success-default",
+      "stroke-rag-success-strong",
+      "stroke-rag-warning-bright",
+      "stroke-rag-warning-default",
+      "stroke-rag-warning-strong",
+      "stroke-strong",
+      "stroke-subdued",
+      "stroke-tonal-science-default"
+    ],
+    "brand": [
+      "brand-picto",
+      "brand-text"
+    ],
+    "other": []
+  },
+  "files": [
+    {
+      "file": "components/component-showcase.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 114,
+      "tokens": [
+        "icon-interaction-bright",
+        "icon-interaction-default",
+        "icon-rag-success-default",
+        "icon-subdued",
+        "stroke-rag-danger-default",
+        "stroke-rag-success-default",
+        "stroke-subdued",
+        "surface-interaction-strong",
+        "surface-rag-danger-bright",
+        "surface-rag-success-bright",
+        "surface-rag-success-subdued",
+        "surface-rag-warning-bright",
+        "text-interaction-bright",
+        "text-rag-danger-default",
+        "text-reversedpersistent"
+      ]
+    },
+    {
+      "file": "components/theme-toggle.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 2,
+      "tokens": [
+        "text-subdued"
+      ]
+    },
+    {
+      "file": "components/ui/avatar.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 2,
+      "tokens": [
+        "surface-subdued",
+        "text-subdued"
+      ]
+    },
+    {
+      "file": "components/ui/button.styles.ts",
+      "arbitraryCount": 0,
+      "semanticCount": 24,
+      "tokens": [
+        "icon-interaction-bright",
+        "icon-subdued",
+        "stroke-default",
+        "surface-interaction-strong",
+        "surface-overlays-level1",
+        "surface-primary",
+        "surface-rag-danger-strong",
+        "surface-secondary",
+        "text-interaction-bright",
+        "text-reversedpersistent",
+        "text-subdued"
+      ]
+    },
+    {
+      "file": "components/ui/button.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 1,
+      "tokens": [
+        "text-reversedpersistent"
+      ]
+    },
+    {
+      "file": "components/ui/checkbox.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 21,
+      "tokens": [
+        "stroke-default",
+        "stroke-subdued",
+        "surface-interaction-strong",
+        "surface-rag-danger-strong",
+        "surface-whisper",
+        "text-default",
+        "text-subdued"
+      ]
+    },
+    {
+      "file": "components/ui/input.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 3,
+      "tokens": [
+        "stroke-rag-danger-default",
+        "surface-rag-danger-strong"
+      ]
+    },
+    {
+      "file": "components/ui/progress.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 2,
+      "tokens": [
+        "surface-interaction-strong"
+      ]
+    },
+    {
+      "file": "components/ui/radio-group.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 17,
+      "tokens": [
+        "stroke-default",
+        "stroke-subdued",
+        "surface-interaction-strong",
+        "surface-rag-danger-strong",
+        "surface-whisper",
+        "text-default",
+        "text-subdued"
+      ]
+    },
+    {
+      "file": "components/ui/select.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 5,
+      "tokens": [
+        "icon-subdued",
+        "stroke-rag-danger-default",
+        "surface-rag-danger-strong"
+      ]
+    },
+    {
+      "file": "components/ui/slider.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 2,
+      "tokens": [
+        "surface-interaction-strong"
+      ]
+    },
+    {
+      "file": "components/ui/switch.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 13,
+      "tokens": [
+        "stroke-default",
+        "stroke-subdued",
+        "surface-interaction-strong",
+        "surface-secondary",
+        "surface-whisper",
+        "text-default",
+        "text-subdued"
+      ]
+    },
+    {
+      "file": "app/components/page.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 8,
+      "tokens": [
+        "icon-interaction-default",
+        "icon-subdued",
+        "surface-interaction-strong",
+        "surface-interaction-subdued",
+        "text-interaction-default"
+      ]
+    },
+    {
+      "file": "app/page.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 22,
+      "tokens": [
+        "icon-interaction-default",
+        "icon-subdued",
+        "stroke-default",
+        "surface-subdued",
+        "text-default",
+        "text-interaction-default",
+        "text-subdued"
+      ]
+    },
+    {
+      "file": "components/ui/accordion.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/alert-dialog.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/alert.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/aspect-ratio.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/badge.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/breadcrumb.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/button-group.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/calendar.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/card.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/carousel.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/chart.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/collapsible.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/combobox.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/command.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/context-menu.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/data-table.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/date-picker.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/dialog.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/drawer.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/dropdown-menu.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/empty.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/field.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/form.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/hover-card.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/input-group.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/input-otp.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/item.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/kbd.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/label.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/menubar.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/native-select.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/navigation-menu.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/pagination.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/popover.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/resizable.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/scroll-area.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/separator.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/sheet.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/sidebar.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/skeleton.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/sonner.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/spinner.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/table.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/tabs.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/textarea.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/toggle-group.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/toggle.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/tooltip.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    },
+    {
+      "file": "components/ui/typography.tsx",
+      "arbitraryCount": 0,
+      "semanticCount": 0,
+      "tokens": []
+    }
+  ],
+  "detailedFiles": [
+    {
+      "file": "components/component-showcase.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [
+        {
+          "class": "bg-semantic-stroke-subdued",
+          "prefix": "bg",
+          "category": "stroke",
+          "variant": "subdued",
+          "token": "stroke-subdued",
+          "line": 259
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 780
+        },
+        {
+          "class": "border-semantic-stroke-rag-danger-default",
+          "prefix": "border",
+          "category": "stroke",
+          "variant": "rag-danger-default",
+          "token": "stroke-rag-danger-default",
+          "line": 861
+        },
+        {
+          "class": "text-semantic-text-rag-danger-default",
+          "prefix": "text",
+          "category": "text",
+          "variant": "rag-danger-default",
+          "token": "text-rag-danger-default",
+          "line": 863
+        },
+        {
+          "class": "border-semantic-stroke-rag-success-default",
+          "prefix": "border",
+          "category": "stroke",
+          "variant": "rag-success-default",
+          "token": "stroke-rag-success-default",
+          "line": 871
+        },
+        {
+          "class": "text-semantic-icon-rag-success-default",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "rag-success-default",
+          "token": "icon-rag-success-default",
+          "line": 877
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 898
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 910
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 922
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 967
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 1056
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 1125
+        },
+        {
+          "class": "text-semantic-text-rag-danger-default",
+          "prefix": "text",
+          "category": "text",
+          "variant": "rag-danger-default",
+          "token": "text-rag-danger-default",
+          "line": 1174
+        },
+        {
+          "class": "text-semantic-text-rag-danger-default",
+          "prefix": "text",
+          "category": "text",
+          "variant": "rag-danger-default",
+          "token": "text-rag-danger-default",
+          "line": 1333
+        },
+        {
+          "class": "text-semantic-text-rag-danger-default",
+          "prefix": "text",
+          "category": "text",
+          "variant": "rag-danger-default",
+          "token": "text-rag-danger-default",
+          "line": 1340
+        },
+        {
+          "class": "text-semantic-text-rag-danger-default",
+          "prefix": "text",
+          "category": "text",
+          "variant": "rag-danger-default",
+          "token": "text-rag-danger-default",
+          "line": 1366
+        },
+        {
+          "class": "border-semantic-stroke-rag-danger-default",
+          "prefix": "border",
+          "category": "stroke",
+          "variant": "rag-danger-default",
+          "token": "stroke-rag-danger-default",
+          "line": 1373
+        },
+        {
+          "class": "text-semantic-text-rag-danger-default",
+          "prefix": "text",
+          "category": "text",
+          "variant": "rag-danger-default",
+          "token": "text-rag-danger-default",
+          "line": 1375
+        },
+        {
+          "class": "text-semantic-text-rag-danger-default",
+          "prefix": "text",
+          "category": "text",
+          "variant": "rag-danger-default",
+          "token": "text-rag-danger-default",
+          "line": 1390
+        },
+        {
+          "class": "text-semantic-text-rag-danger-default",
+          "prefix": "text",
+          "category": "text",
+          "variant": "rag-danger-default",
+          "token": "text-rag-danger-default",
+          "line": 1397
+        },
+        {
+          "class": "text-semantic-text-rag-danger-default",
+          "prefix": "text",
+          "category": "text",
+          "variant": "rag-danger-default",
+          "token": "text-rag-danger-default",
+          "line": 1404
+        },
+        {
+          "class": "bg-semantic-surface-rag-success-bright",
+          "prefix": "bg",
+          "category": "surface",
+          "variant": "rag-success-bright",
+          "token": "surface-rag-success-bright",
+          "line": 2286
+        },
+        {
+          "class": "bg-semantic-surface-rag-warning-bright",
+          "prefix": "bg",
+          "category": "surface",
+          "variant": "rag-warning-bright",
+          "token": "surface-rag-warning-bright",
+          "line": 2293
+        },
+        {
+          "class": "bg-semantic-surface-rag-danger-bright",
+          "prefix": "bg",
+          "category": "surface",
+          "variant": "rag-danger-bright",
+          "token": "surface-rag-danger-bright",
+          "line": 2300
+        },
+        {
+          "class": "bg-semantic-surface-rag-success-bright",
+          "prefix": "bg",
+          "category": "surface",
+          "variant": "rag-success-bright",
+          "token": "surface-rag-success-bright",
+          "line": 2411
+        },
+        {
+          "class": "bg-semantic-surface-rag-warning-bright",
+          "prefix": "bg",
+          "category": "surface",
+          "variant": "rag-warning-bright",
+          "token": "surface-rag-warning-bright",
+          "line": 2427
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 4003
+        },
+        {
+          "class": "text-semantic-text-rag-danger-default",
+          "prefix": "text",
+          "category": "text",
+          "variant": "rag-danger-default",
+          "token": "text-rag-danger-default",
+          "line": 4545
+        },
+        {
+          "class": "text-semantic-text-rag-danger-default",
+          "prefix": "text",
+          "category": "text",
+          "variant": "rag-danger-default",
+          "token": "text-rag-danger-default",
+          "line": 4766
+        },
+        {
+          "class": "text-semantic-text-rag-danger-default",
+          "prefix": "text",
+          "category": "text",
+          "variant": "rag-danger-default",
+          "token": "text-rag-danger-default",
+          "line": 4870
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 5732
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 5736
+        },
+        {
+          "class": "text-semantic-icon-interaction-default",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "interaction-default",
+          "token": "icon-interaction-default",
+          "line": 5809
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 6541
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 6657
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 6742
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 6745
+        },
+        {
+          "class": "text-semantic-icon-interaction-default",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "interaction-default",
+          "token": "icon-interaction-default",
+          "line": 6877
+        },
+        {
+          "class": "bg-semantic-surface-interaction-strong",
+          "prefix": "bg",
+          "category": "surface",
+          "variant": "interaction-strong",
+          "token": "surface-interaction-strong",
+          "line": 6979
+        },
+        {
+          "class": "text-semantic-text-interaction-bright",
+          "prefix": "text",
+          "category": "text",
+          "variant": "interaction-bright",
+          "token": "text-interaction-bright",
+          "line": 7261
+        },
+        {
+          "class": "text-semantic-icon-interaction-default",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "interaction-default",
+          "token": "icon-interaction-default",
+          "line": 7262
+        },
+        {
+          "class": "text-semantic-icon-interaction-bright",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "interaction-bright",
+          "token": "icon-interaction-bright",
+          "line": 7262
+        },
+        {
+          "class": "decoration-semantic-text-interaction-bright",
+          "prefix": "decoration",
+          "category": "text",
+          "variant": "interaction-bright",
+          "token": "text-interaction-bright",
+          "line": 7263
+        },
+        {
+          "class": "text-semantic-icon-interaction-default",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "interaction-default",
+          "token": "icon-interaction-default",
+          "line": 7269
+        },
+        {
+          "class": "text-semantic-text-interaction-bright",
+          "prefix": "text",
+          "category": "text",
+          "variant": "interaction-bright",
+          "token": "text-interaction-bright",
+          "line": 7281
+        },
+        {
+          "class": "text-semantic-icon-interaction-default",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "interaction-default",
+          "token": "icon-interaction-default",
+          "line": 7282
+        },
+        {
+          "class": "text-semantic-icon-interaction-bright",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "interaction-bright",
+          "token": "icon-interaction-bright",
+          "line": 7282
+        },
+        {
+          "class": "decoration-semantic-text-interaction-bright",
+          "prefix": "decoration",
+          "category": "text",
+          "variant": "interaction-bright",
+          "token": "text-interaction-bright",
+          "line": 7283
+        },
+        {
+          "class": "text-semantic-icon-interaction-default",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "interaction-default",
+          "token": "icon-interaction-default",
+          "line": 7289
+        },
+        {
+          "class": "bg-semantic-icon-rag-success-default",
+          "prefix": "bg",
+          "category": "icon",
+          "variant": "rag-success-default",
+          "token": "icon-rag-success-default",
+          "line": 7400
+        },
+        {
+          "class": "bg-semantic-icon-rag-success-default",
+          "prefix": "bg",
+          "category": "icon",
+          "variant": "rag-success-default",
+          "token": "icon-rag-success-default",
+          "line": 7407
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 8417
+        },
+        {
+          "class": "text-semantic-text-rag-danger-default",
+          "prefix": "text",
+          "category": "text",
+          "variant": "rag-danger-default",
+          "token": "text-rag-danger-default",
+          "line": 8592
+        },
+        {
+          "class": "text-semantic-text-rag-danger-default",
+          "prefix": "text",
+          "category": "text",
+          "variant": "rag-danger-default",
+          "token": "text-rag-danger-default",
+          "line": 8711
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 8739
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 8751
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 8765
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 8776
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 8844
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 8858
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 8919
+        },
+        {
+          "class": "text-semantic-text-rag-danger-default",
+          "prefix": "text",
+          "category": "text",
+          "variant": "rag-danger-default",
+          "token": "text-rag-danger-default",
+          "line": 9474
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 10394
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 10407
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 10474
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 10492
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12239
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12243
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12247
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12251
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12263
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12267
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12271
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12275
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12284
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12288
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12292
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12296
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12307
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12312
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12317
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12322
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12335
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12339
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12343
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12347
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12358
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12362
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12366
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12370
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12381
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12386
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12390
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12395
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12406
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12410
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12414
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12418
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12429
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12433
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12437
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12441
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12452
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12456
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12460
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 12464
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 13439
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 13490
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 13496
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 13503
+        },
+        {
+          "class": "bg-semantic-surface-interaction-strong",
+          "prefix": "bg",
+          "category": "surface",
+          "variant": "interaction-strong",
+          "token": "surface-interaction-strong",
+          "line": 13945
+        },
+        {
+          "class": "bg-semantic-surface-rag-success-subdued",
+          "prefix": "bg",
+          "category": "surface",
+          "variant": "rag-success-subdued",
+          "token": "surface-rag-success-subdued",
+          "line": 13949
+        },
+        {
+          "class": "bg-semantic-surface-interaction-strong",
+          "prefix": "bg",
+          "category": "surface",
+          "variant": "interaction-strong",
+          "token": "surface-interaction-strong",
+          "line": 14716
+        },
+        {
+          "class": "text-semantic-text-reversedpersistent",
+          "prefix": "text",
+          "category": "text",
+          "variant": "reversedpersistent",
+          "token": "text-reversedpersistent",
+          "line": 14716
+        }
+      ],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/theme-toggle.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [
+        {
+          "class": "text-semantic-text-subdued",
+          "prefix": "text",
+          "category": "text",
+          "variant": "subdued",
+          "token": "text-subdued",
+          "line": 39
+        },
+        {
+          "class": "text-semantic-text-subdued",
+          "prefix": "text",
+          "category": "text",
+          "variant": "subdued",
+          "token": "text-subdued",
+          "line": 47
+        }
+      ],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/avatar.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [
+        {
+          "class": "bg-semantic-surface-subdued",
+          "prefix": "bg",
+          "category": "surface",
+          "variant": "subdued",
+          "token": "surface-subdued",
+          "line": 100
+        },
+        {
+          "class": "text-semantic-text-subdued",
+          "prefix": "text",
+          "category": "text",
+          "variant": "subdued",
+          "token": "text-subdued",
+          "line": 100
+        }
+      ],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/button.styles.ts",
+      "arbitraryClasses": [],
+      "semanticClasses": [
+        {
+          "class": "ring-semantic-surface-interaction-strong",
+          "prefix": "ring",
+          "category": "surface",
+          "variant": "interaction-strong",
+          "token": "surface-interaction-strong",
+          "line": 9
+        },
+        {
+          "class": "ring-semantic-surface-rag-danger-strong",
+          "prefix": "ring",
+          "category": "surface",
+          "variant": "rag-danger-strong",
+          "token": "surface-rag-danger-strong",
+          "line": 10
+        },
+        {
+          "class": "ring-semantic-surface-rag-danger-strong",
+          "prefix": "ring",
+          "category": "surface",
+          "variant": "rag-danger-strong",
+          "token": "surface-rag-danger-strong",
+          "line": 10
+        },
+        {
+          "class": "border-semantic-surface-rag-danger-strong",
+          "prefix": "border",
+          "category": "surface",
+          "variant": "rag-danger-strong",
+          "token": "surface-rag-danger-strong",
+          "line": 11
+        },
+        {
+          "class": "bg-semantic-surface-primary",
+          "prefix": "bg",
+          "category": "surface",
+          "variant": "primary",
+          "token": "surface-primary",
+          "line": 16
+        },
+        {
+          "class": "bg-semantic-surface-secondary",
+          "prefix": "bg",
+          "category": "surface",
+          "variant": "secondary",
+          "token": "surface-secondary",
+          "line": 17
+        },
+        {
+          "class": "bg-semantic-surface-overlays-level1",
+          "prefix": "bg",
+          "category": "surface",
+          "variant": "overlays-level1",
+          "token": "surface-overlays-level1",
+          "line": 18
+        },
+        {
+          "class": "text-semantic-text-reversedpersistent",
+          "prefix": "text",
+          "category": "text",
+          "variant": "reversedpersistent",
+          "token": "text-reversedpersistent",
+          "line": 25
+        },
+        {
+          "class": "text-semantic-text-subdued",
+          "prefix": "text",
+          "category": "text",
+          "variant": "subdued",
+          "token": "text-subdued",
+          "line": 26
+        },
+        {
+          "class": "text-semantic-text-interaction-bright",
+          "prefix": "text",
+          "category": "text",
+          "variant": "interaction-bright",
+          "token": "text-interaction-bright",
+          "line": 27
+        },
+        {
+          "class": "text-semantic-icon-interaction-bright",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "interaction-bright",
+          "token": "icon-interaction-bright",
+          "line": 34
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 35
+        },
+        {
+          "class": "text-semantic-icon-interaction-bright",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "interaction-bright",
+          "token": "icon-interaction-bright",
+          "line": 36
+        },
+        {
+          "class": "text-semantic-text-reversedpersistent",
+          "prefix": "text",
+          "category": "text",
+          "variant": "reversedpersistent",
+          "token": "text-reversedpersistent",
+          "line": 37
+        },
+        {
+          "class": "bg-semantic-surface-overlays-level1",
+          "prefix": "bg",
+          "category": "surface",
+          "variant": "overlays-level1",
+          "token": "surface-overlays-level1",
+          "line": 46
+        },
+        {
+          "class": "text-semantic-icon-interaction-bright",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "interaction-bright",
+          "token": "icon-interaction-bright",
+          "line": 56
+        },
+        {
+          "class": "border-semantic-stroke-default",
+          "prefix": "border",
+          "category": "stroke",
+          "variant": "default",
+          "token": "stroke-default",
+          "line": 69
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 72
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 79
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 85
+        },
+        {
+          "class": "text-semantic-text-interaction-bright",
+          "prefix": "text",
+          "category": "text",
+          "variant": "interaction-bright",
+          "token": "text-interaction-bright",
+          "line": 92
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 93
+        },
+        {
+          "class": "text-semantic-icon-interaction-bright",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "interaction-bright",
+          "token": "icon-interaction-bright",
+          "line": 94
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 100
+        }
+      ],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/button.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [
+        {
+          "class": "text-semantic-text-reversedpersistent",
+          "prefix": "text",
+          "category": "text",
+          "variant": "reversedpersistent",
+          "token": "text-reversedpersistent",
+          "line": 83
+        }
+      ],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/checkbox.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [
+        {
+          "class": "border-semantic-stroke-default",
+          "prefix": "border",
+          "category": "stroke",
+          "variant": "default",
+          "token": "stroke-default",
+          "line": 17
+        },
+        {
+          "class": "bg-semantic-surface-interaction-strong",
+          "prefix": "bg",
+          "category": "surface",
+          "variant": "interaction-strong",
+          "token": "surface-interaction-strong",
+          "line": 17
+        },
+        {
+          "class": "border-semantic-surface-interaction-strong",
+          "prefix": "border",
+          "category": "surface",
+          "variant": "interaction-strong",
+          "token": "surface-interaction-strong",
+          "line": 17
+        },
+        {
+          "class": "border-semantic-surface-interaction-strong",
+          "prefix": "border",
+          "category": "surface",
+          "variant": "interaction-strong",
+          "token": "surface-interaction-strong",
+          "line": 17
+        },
+        {
+          "class": "ring-semantic-surface-interaction-strong",
+          "prefix": "ring",
+          "category": "surface",
+          "variant": "interaction-strong",
+          "token": "surface-interaction-strong",
+          "line": 17
+        },
+        {
+          "class": "ring-semantic-surface-rag-danger-strong",
+          "prefix": "ring",
+          "category": "surface",
+          "variant": "rag-danger-strong",
+          "token": "surface-rag-danger-strong",
+          "line": 17
+        },
+        {
+          "class": "ring-semantic-surface-rag-danger-strong",
+          "prefix": "ring",
+          "category": "surface",
+          "variant": "rag-danger-strong",
+          "token": "surface-rag-danger-strong",
+          "line": 17
+        },
+        {
+          "class": "border-semantic-surface-rag-danger-strong",
+          "prefix": "border",
+          "category": "surface",
+          "variant": "rag-danger-strong",
+          "token": "surface-rag-danger-strong",
+          "line": 17
+        },
+        {
+          "class": "border-semantic-stroke-subdued",
+          "prefix": "border",
+          "category": "stroke",
+          "variant": "subdued",
+          "token": "stroke-subdued",
+          "line": 52
+        },
+        {
+          "class": "bg-semantic-surface-whisper",
+          "prefix": "bg",
+          "category": "surface",
+          "variant": "whisper",
+          "token": "surface-whisper",
+          "line": 54
+        },
+        {
+          "class": "border-semantic-stroke-default",
+          "prefix": "border",
+          "category": "stroke",
+          "variant": "default",
+          "token": "stroke-default",
+          "line": 54
+        },
+        {
+          "class": "border-semantic-stroke-default",
+          "prefix": "border",
+          "category": "stroke",
+          "variant": "default",
+          "token": "stroke-default",
+          "line": 63
+        },
+        {
+          "class": "bg-semantic-surface-interaction-strong",
+          "prefix": "bg",
+          "category": "surface",
+          "variant": "interaction-strong",
+          "token": "surface-interaction-strong",
+          "line": 63
+        },
+        {
+          "class": "border-semantic-surface-interaction-strong",
+          "prefix": "border",
+          "category": "surface",
+          "variant": "interaction-strong",
+          "token": "surface-interaction-strong",
+          "line": 63
+        },
+        {
+          "class": "border-semantic-surface-interaction-strong",
+          "prefix": "border",
+          "category": "surface",
+          "variant": "interaction-strong",
+          "token": "surface-interaction-strong",
+          "line": 63
+        },
+        {
+          "class": "ring-semantic-surface-interaction-strong",
+          "prefix": "ring",
+          "category": "surface",
+          "variant": "interaction-strong",
+          "token": "surface-interaction-strong",
+          "line": 63
+        },
+        {
+          "class": "ring-semantic-surface-rag-danger-strong",
+          "prefix": "ring",
+          "category": "surface",
+          "variant": "rag-danger-strong",
+          "token": "surface-rag-danger-strong",
+          "line": 63
+        },
+        {
+          "class": "ring-semantic-surface-rag-danger-strong",
+          "prefix": "ring",
+          "category": "surface",
+          "variant": "rag-danger-strong",
+          "token": "surface-rag-danger-strong",
+          "line": 63
+        },
+        {
+          "class": "border-semantic-surface-rag-danger-strong",
+          "prefix": "border",
+          "category": "surface",
+          "variant": "rag-danger-strong",
+          "token": "surface-rag-danger-strong",
+          "line": 63
+        },
+        {
+          "class": "text-semantic-text-default",
+          "prefix": "text",
+          "category": "text",
+          "variant": "default",
+          "token": "text-default",
+          "line": 78
+        },
+        {
+          "class": "text-semantic-text-subdued",
+          "prefix": "text",
+          "category": "text",
+          "variant": "subdued",
+          "token": "text-subdued",
+          "line": 85
+        }
+      ],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/input.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [
+        {
+          "class": "ring-semantic-surface-rag-danger-strong",
+          "prefix": "ring",
+          "category": "surface",
+          "variant": "rag-danger-strong",
+          "token": "surface-rag-danger-strong",
+          "line": 13
+        },
+        {
+          "class": "ring-semantic-surface-rag-danger-strong",
+          "prefix": "ring",
+          "category": "surface",
+          "variant": "rag-danger-strong",
+          "token": "surface-rag-danger-strong",
+          "line": 13
+        },
+        {
+          "class": "border-semantic-stroke-rag-danger-default",
+          "prefix": "border",
+          "category": "stroke",
+          "variant": "rag-danger-default",
+          "token": "stroke-rag-danger-default",
+          "line": 13
+        }
+      ],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/progress.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [
+        {
+          "class": "bg-semantic-surface-interaction-strong",
+          "prefix": "bg",
+          "category": "surface",
+          "variant": "interaction-strong",
+          "token": "surface-interaction-strong",
+          "line": 17
+        },
+        {
+          "class": "bg-semantic-surface-interaction-strong",
+          "prefix": "bg",
+          "category": "surface",
+          "variant": "interaction-strong",
+          "token": "surface-interaction-strong",
+          "line": 24
+        }
+      ],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/radio-group.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [
+        {
+          "class": "border-semantic-stroke-default",
+          "prefix": "border",
+          "category": "stroke",
+          "variant": "default",
+          "token": "stroke-default",
+          "line": 33
+        },
+        {
+          "class": "bg-semantic-surface-interaction-strong",
+          "prefix": "bg",
+          "category": "surface",
+          "variant": "interaction-strong",
+          "token": "surface-interaction-strong",
+          "line": 36
+        },
+        {
+          "class": "ring-semantic-surface-interaction-strong",
+          "prefix": "ring",
+          "category": "surface",
+          "variant": "interaction-strong",
+          "token": "surface-interaction-strong",
+          "line": 38
+        },
+        {
+          "class": "border-semantic-surface-rag-danger-strong",
+          "prefix": "border",
+          "category": "surface",
+          "variant": "rag-danger-strong",
+          "token": "surface-rag-danger-strong",
+          "line": 40
+        },
+        {
+          "class": "ring-semantic-surface-rag-danger-strong",
+          "prefix": "ring",
+          "category": "surface",
+          "variant": "rag-danger-strong",
+          "token": "surface-rag-danger-strong",
+          "line": 41
+        },
+        {
+          "class": "ring-semantic-surface-rag-danger-strong",
+          "prefix": "ring",
+          "category": "surface",
+          "variant": "rag-danger-strong",
+          "token": "surface-rag-danger-strong",
+          "line": 42
+        },
+        {
+          "class": "border-semantic-stroke-subdued",
+          "prefix": "border",
+          "category": "stroke",
+          "variant": "subdued",
+          "token": "stroke-subdued",
+          "line": 78
+        },
+        {
+          "class": "bg-semantic-surface-whisper",
+          "prefix": "bg",
+          "category": "surface",
+          "variant": "whisper",
+          "token": "surface-whisper",
+          "line": 80
+        },
+        {
+          "class": "border-semantic-stroke-default",
+          "prefix": "border",
+          "category": "stroke",
+          "variant": "default",
+          "token": "stroke-default",
+          "line": 80
+        },
+        {
+          "class": "border-semantic-stroke-default",
+          "prefix": "border",
+          "category": "stroke",
+          "variant": "default",
+          "token": "stroke-default",
+          "line": 93
+        },
+        {
+          "class": "bg-semantic-surface-interaction-strong",
+          "prefix": "bg",
+          "category": "surface",
+          "variant": "interaction-strong",
+          "token": "surface-interaction-strong",
+          "line": 96
+        },
+        {
+          "class": "ring-semantic-surface-interaction-strong",
+          "prefix": "ring",
+          "category": "surface",
+          "variant": "interaction-strong",
+          "token": "surface-interaction-strong",
+          "line": 98
+        },
+        {
+          "class": "border-semantic-surface-rag-danger-strong",
+          "prefix": "border",
+          "category": "surface",
+          "variant": "rag-danger-strong",
+          "token": "surface-rag-danger-strong",
+          "line": 100
+        },
+        {
+          "class": "ring-semantic-surface-rag-danger-strong",
+          "prefix": "ring",
+          "category": "surface",
+          "variant": "rag-danger-strong",
+          "token": "surface-rag-danger-strong",
+          "line": 101
+        },
+        {
+          "class": "ring-semantic-surface-rag-danger-strong",
+          "prefix": "ring",
+          "category": "surface",
+          "variant": "rag-danger-strong",
+          "token": "surface-rag-danger-strong",
+          "line": 102
+        },
+        {
+          "class": "text-semantic-text-default",
+          "prefix": "text",
+          "category": "text",
+          "variant": "default",
+          "token": "text-default",
+          "line": 118
+        },
+        {
+          "class": "text-semantic-text-subdued",
+          "prefix": "text",
+          "category": "text",
+          "variant": "subdued",
+          "token": "text-subdued",
+          "line": 125
+        }
+      ],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/select.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [
+        {
+          "class": "ring-semantic-surface-rag-danger-strong",
+          "prefix": "ring",
+          "category": "surface",
+          "variant": "rag-danger-strong",
+          "token": "surface-rag-danger-strong",
+          "line": 55
+        },
+        {
+          "class": "ring-semantic-surface-rag-danger-strong",
+          "prefix": "ring",
+          "category": "surface",
+          "variant": "rag-danger-strong",
+          "token": "surface-rag-danger-strong",
+          "line": 55
+        },
+        {
+          "class": "border-semantic-stroke-rag-danger-default",
+          "prefix": "border",
+          "category": "stroke",
+          "variant": "rag-danger-default",
+          "token": "stroke-rag-danger-default",
+          "line": 55
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 66
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 195
+        }
+      ],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/slider.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [
+        {
+          "class": "bg-semantic-surface-interaction-strong",
+          "prefix": "bg",
+          "category": "surface",
+          "variant": "interaction-strong",
+          "token": "surface-interaction-strong",
+          "line": 48
+        },
+        {
+          "class": "border-semantic-surface-interaction-strong",
+          "prefix": "border",
+          "category": "surface",
+          "variant": "interaction-strong",
+          "token": "surface-interaction-strong",
+          "line": 56
+        }
+      ],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/switch.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [
+        {
+          "class": "bg-semantic-surface-interaction-strong",
+          "prefix": "bg",
+          "category": "surface",
+          "variant": "interaction-strong",
+          "token": "surface-interaction-strong",
+          "line": 18
+        },
+        {
+          "class": "bg-semantic-surface-secondary",
+          "prefix": "bg",
+          "category": "surface",
+          "variant": "secondary",
+          "token": "surface-secondary",
+          "line": 20
+        },
+        {
+          "class": "border-semantic-stroke-default",
+          "prefix": "border",
+          "category": "stroke",
+          "variant": "default",
+          "token": "stroke-default",
+          "line": 20
+        },
+        {
+          "class": "ring-semantic-surface-interaction-strong",
+          "prefix": "ring",
+          "category": "surface",
+          "variant": "interaction-strong",
+          "token": "surface-interaction-strong",
+          "line": 22
+        },
+        {
+          "class": "border-semantic-stroke-subdued",
+          "prefix": "border",
+          "category": "stroke",
+          "variant": "subdued",
+          "token": "stroke-subdued",
+          "line": 61
+        },
+        {
+          "class": "bg-semantic-surface-whisper",
+          "prefix": "bg",
+          "category": "surface",
+          "variant": "whisper",
+          "token": "surface-whisper",
+          "line": 63
+        },
+        {
+          "class": "border-semantic-stroke-default",
+          "prefix": "border",
+          "category": "stroke",
+          "variant": "default",
+          "token": "stroke-default",
+          "line": 63
+        },
+        {
+          "class": "text-semantic-text-default",
+          "prefix": "text",
+          "category": "text",
+          "variant": "default",
+          "token": "text-default",
+          "line": 71
+        },
+        {
+          "class": "text-semantic-text-subdued",
+          "prefix": "text",
+          "category": "text",
+          "variant": "subdued",
+          "token": "text-subdued",
+          "line": 78
+        },
+        {
+          "class": "bg-semantic-surface-interaction-strong",
+          "prefix": "bg",
+          "category": "surface",
+          "variant": "interaction-strong",
+          "token": "surface-interaction-strong",
+          "line": 91
+        },
+        {
+          "class": "bg-semantic-surface-secondary",
+          "prefix": "bg",
+          "category": "surface",
+          "variant": "secondary",
+          "token": "surface-secondary",
+          "line": 93
+        },
+        {
+          "class": "border-semantic-stroke-default",
+          "prefix": "border",
+          "category": "stroke",
+          "variant": "default",
+          "token": "stroke-default",
+          "line": 93
+        },
+        {
+          "class": "ring-semantic-surface-interaction-strong",
+          "prefix": "ring",
+          "category": "surface",
+          "variant": "interaction-strong",
+          "token": "surface-interaction-strong",
+          "line": 95
+        }
+      ],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "app/components/page.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [
+        {
+          "class": "text-semantic-text-interaction-default",
+          "prefix": "text",
+          "category": "text",
+          "variant": "interaction-default",
+          "token": "text-interaction-default",
+          "line": 63
+        },
+        {
+          "class": "bg-semantic-surface-interaction-subdued",
+          "prefix": "bg",
+          "category": "surface",
+          "variant": "interaction-subdued",
+          "token": "surface-interaction-subdued",
+          "line": 100
+        },
+        {
+          "class": "text-semantic-text-interaction-default",
+          "prefix": "text",
+          "category": "text",
+          "variant": "interaction-default",
+          "token": "text-interaction-default",
+          "line": 100
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 119
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 139
+        },
+        {
+          "class": "text-semantic-icon-interaction-default",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "interaction-default",
+          "token": "icon-interaction-default",
+          "line": 139
+        },
+        {
+          "class": "bg-semantic-surface-interaction-strong",
+          "prefix": "bg",
+          "category": "surface",
+          "variant": "interaction-strong",
+          "token": "surface-interaction-strong",
+          "line": 186
+        },
+        {
+          "class": "text-semantic-text-interaction-default",
+          "prefix": "text",
+          "category": "text",
+          "variant": "interaction-default",
+          "token": "text-interaction-default",
+          "line": 235
+        }
+      ],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "app/page.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [
+        {
+          "class": "text-semantic-icon-interaction-default",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "interaction-default",
+          "token": "icon-interaction-default",
+          "line": 34
+        },
+        {
+          "class": "bg-semantic-surface-subdued",
+          "prefix": "bg",
+          "category": "surface",
+          "variant": "subdued",
+          "token": "surface-subdued",
+          "line": 51
+        },
+        {
+          "class": "text-semantic-text-subdued",
+          "prefix": "text",
+          "category": "text",
+          "variant": "subdued",
+          "token": "text-subdued",
+          "line": 51
+        },
+        {
+          "class": "text-semantic-text-interaction-default",
+          "prefix": "text",
+          "category": "text",
+          "variant": "interaction-default",
+          "token": "text-interaction-default",
+          "line": 58
+        },
+        {
+          "class": "text-semantic-text-subdued",
+          "prefix": "text",
+          "category": "text",
+          "variant": "subdued",
+          "token": "text-subdued",
+          "line": 61
+        },
+        {
+          "class": "bg-semantic-surface-subdued",
+          "prefix": "bg",
+          "category": "surface",
+          "variant": "subdued",
+          "token": "surface-subdued",
+          "line": 80
+        },
+        {
+          "class": "text-semantic-text-subdued",
+          "prefix": "text",
+          "category": "text",
+          "variant": "subdued",
+          "token": "text-subdued",
+          "line": 84
+        },
+        {
+          "class": "border-semantic-stroke-default",
+          "prefix": "border",
+          "category": "stroke",
+          "variant": "default",
+          "token": "stroke-default",
+          "line": 89
+        },
+        {
+          "class": "bg-semantic-surface-subdued",
+          "prefix": "bg",
+          "category": "surface",
+          "variant": "subdued",
+          "token": "surface-subdued",
+          "line": 99
+        },
+        {
+          "class": "border-semantic-stroke-default",
+          "prefix": "border",
+          "category": "stroke",
+          "variant": "default",
+          "token": "stroke-default",
+          "line": 99
+        },
+        {
+          "class": "text-semantic-text-default",
+          "prefix": "text",
+          "category": "text",
+          "variant": "default",
+          "token": "text-default",
+          "line": 100
+        },
+        {
+          "class": "border-semantic-stroke-default",
+          "prefix": "border",
+          "category": "stroke",
+          "variant": "default",
+          "token": "stroke-default",
+          "line": 106
+        },
+        {
+          "class": "text-semantic-text-subdued",
+          "prefix": "text",
+          "category": "text",
+          "variant": "subdued",
+          "token": "text-subdued",
+          "line": 107
+        },
+        {
+          "class": "bg-semantic-surface-subdued",
+          "prefix": "bg",
+          "category": "surface",
+          "variant": "subdued",
+          "token": "surface-subdued",
+          "line": 110
+        },
+        {
+          "class": "border-semantic-stroke-default",
+          "prefix": "border",
+          "category": "stroke",
+          "variant": "default",
+          "token": "stroke-default",
+          "line": 110
+        },
+        {
+          "class": "text-semantic-text-default",
+          "prefix": "text",
+          "category": "text",
+          "variant": "default",
+          "token": "text-default",
+          "line": 111
+        },
+        {
+          "class": "border-semantic-stroke-default",
+          "prefix": "border",
+          "category": "stroke",
+          "variant": "default",
+          "token": "stroke-default",
+          "line": 122
+        },
+        {
+          "class": "text-semantic-icon-subdued",
+          "prefix": "text",
+          "category": "icon",
+          "variant": "subdued",
+          "token": "icon-subdued",
+          "line": 126
+        },
+        {
+          "class": "text-semantic-text-subdued",
+          "prefix": "text",
+          "category": "text",
+          "variant": "subdued",
+          "token": "text-subdued",
+          "line": 127
+        },
+        {
+          "class": "text-semantic-text-subdued",
+          "prefix": "text",
+          "category": "text",
+          "variant": "subdued",
+          "token": "text-subdued",
+          "line": 131
+        },
+        {
+          "class": "text-semantic-text-interaction-default",
+          "prefix": "text",
+          "category": "text",
+          "variant": "interaction-default",
+          "token": "text-interaction-default",
+          "line": 134
+        },
+        {
+          "class": "text-semantic-text-interaction-default",
+          "prefix": "text",
+          "category": "text",
+          "variant": "interaction-default",
+          "token": "text-interaction-default",
+          "line": 139
+        }
+      ],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/accordion.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/alert-dialog.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/alert.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/aspect-ratio.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/badge.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/breadcrumb.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/button-group.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/calendar.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/card.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/carousel.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/chart.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/collapsible.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/combobox.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/command.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/context-menu.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/data-table.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/date-picker.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/dialog.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/drawer.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/dropdown-menu.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/empty.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/field.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/form.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/hover-card.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/input-group.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/input-otp.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/item.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/kbd.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/label.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/menubar.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/native-select.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/navigation-menu.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/pagination.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/popover.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/resizable.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/scroll-area.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/separator.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/sheet.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/sidebar.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/skeleton.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/sonner.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/spinner.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/table.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/tabs.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/textarea.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/toggle-group.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/toggle.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/tooltip.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    },
+    {
+      "file": "components/ui/typography.tsx",
+      "arbitraryClasses": [],
+      "semanticClasses": [],
+      "tokensUsed": {},
+      "tokensInArbitrary": {},
+      "tokensInSemantic": {}
+    }
+  ]
+}

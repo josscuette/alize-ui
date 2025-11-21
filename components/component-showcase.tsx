@@ -256,7 +256,7 @@ function Section({ title, description, children }: SectionProps) {
         </div>
         <div className="mt-8">{children}</div>
       </section>
-      <Separator className="bg-[var(--semantic-stroke-subdued)]" />
+      <Separator className="bg-semantic-stroke-subdued" />
     </>
   );
 }
@@ -777,7 +777,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
                   name="search"
                   size={16}
                   weight={300}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--semantic-icon-subdued)]"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 text-semantic-icon-subdued"
                 />
                 <Input id="overview-icon-left" placeholder="Search..." className="pl-9" />
               </div>
@@ -858,9 +858,9 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
                     id="state-error" 
                     defaultValue="invalid@email" 
                     aria-invalid="true"
-                    className="border-[var(--semantic-stroke-rag-danger-default)]"
+                    className="border-semantic-stroke-rag-danger-default"
                   />
-                  <p className="text-xs text-[var(--semantic-text-rag-danger-default)]">Please enter a valid email address</p>
+                  <p className="text-xs text-semantic-text-rag-danger-default">Please enter a valid email address</p>
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="state-success">Success state</Label>
@@ -868,13 +868,13 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
                     <Input 
                       id="state-success" 
                       defaultValue="user@example.com"
-                      className="pr-9 border-[var(--semantic-stroke-rag-success-default)]"
+                      className="pr-9 border-semantic-stroke-rag-success-default"
                     />
                     <MaterialSymbol
                       name="check_circle"
                       size={16}
                       weight={300}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--semantic-icon-rag-success-default)]"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-semantic-icon-rag-success-default"
                     />
                   </div>
                 </div>
@@ -895,7 +895,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
                       name="search"
                       size={16}
                       weight={300}
-                      className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--semantic-icon-subdued)]"
+                      className="absolute left-3 top-1/2 -translate-y-1/2 text-semantic-icon-subdued"
                     />
                     <Input id="icon-left-search" placeholder="Search..." className="pl-9" />
                   </div>
@@ -907,7 +907,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
                       name="mail"
                       size={16}
                       weight={300}
-                      className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--semantic-icon-subdued)]"
+                      className="absolute left-3 top-1/2 -translate-y-1/2 text-semantic-icon-subdued"
                     />
                     <Input id="icon-left-email" type="email" placeholder="you@example.com" className="pl-9" />
                   </div>
@@ -919,7 +919,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
                       name="lock"
                       size={16}
                       weight={300}
-                      className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--semantic-icon-subdued)]"
+                      className="absolute left-3 top-1/2 -translate-y-1/2 text-semantic-icon-subdued"
                     />
                     <Input id="icon-left-lock" type="password" placeholder="••••••••" className="pl-9" />
                   </div>
@@ -964,7 +964,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
                     name="search"
                     size={16}
                     weight={300}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--semantic-icon-subdued)]"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 text-semantic-icon-subdued"
                   />
                   <Input id="icon-both" placeholder="Search..." className="pl-9 pr-9" />
                   <button
@@ -1053,7 +1053,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
                     name="search"
                     size={16}
                     weight={300}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--semantic-icon-subdued)]"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 text-semantic-icon-subdued"
                   />
                   <Input placeholder="Search..." className="pl-9" />
                 </div>
@@ -1122,7 +1122,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
                     name="search"
                     size={16}
                     weight={300}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--semantic-icon-subdued)]"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 text-semantic-icon-subdued"
                   />
                   <Input placeholder="Search..." className="pl-9" />
                 </div>
@@ -1171,7 +1171,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
             <div className="space-y-2">
               <Label htmlFor="overview-required">
                 Required field
-                <span className="text-[var(--semantic-text-rag-danger-default)] ml-1">*</span>
+                <span className="text-semantic-text-rag-danger-default ml-1">*</span>
               </Label>
               <Input id="overview-required" placeholder="Required" />
             </div>
@@ -1330,14 +1330,14 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
                 <div className="space-y-2">
                   <Label htmlFor="state-required">
                     Email address
-                    <span className="text-[var(--semantic-text-rag-danger-default)] ml-1">*</span>
+                    <span className="text-semantic-text-rag-danger-default ml-1">*</span>
                   </Label>
                   <Input id="state-required" type="email" placeholder="you@example.com" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="state-required-2">
                     Password
-                    <span className="text-[var(--semantic-text-rag-danger-default)] ml-1">*</span>
+                    <span className="text-semantic-text-rag-danger-default ml-1">*</span>
                   </Label>
                   <Input id="state-required-2" type="password" placeholder="••••••••" />
                 </div>
@@ -1363,16 +1363,16 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
             <div>
               <p className="text-xs text-muted-foreground mb-3">Error state</p>
               <div className="space-y-2">
-                <Label htmlFor="state-error" className="text-[var(--semantic-text-rag-danger-default)]">
+                <Label htmlFor="state-error" className="text-semantic-text-rag-danger-default">
                   Invalid email
                 </Label>
                 <Input 
                   id="state-error" 
                   defaultValue="invalid@email" 
                   aria-invalid="true"
-                  className="border-[var(--semantic-stroke-rag-danger-default)]"
+                  className="border-semantic-stroke-rag-danger-default"
                 />
-                <p className="text-xs text-[var(--semantic-text-rag-danger-default)]">Please enter a valid email address</p>
+                <p className="text-xs text-semantic-text-rag-danger-default">Please enter a valid email address</p>
               </div>
             </div>
           </div>
@@ -1387,21 +1387,21 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
                 <div className="space-y-2">
                   <Label htmlFor="register-name">
                     Full name
-                    <span className="text-[var(--semantic-text-rag-danger-default)] ml-1">*</span>
+                    <span className="text-semantic-text-rag-danger-default ml-1">*</span>
                   </Label>
                   <Input id="register-name" placeholder="John Doe" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="register-email">
                     Email
-                    <span className="text-[var(--semantic-text-rag-danger-default)] ml-1">*</span>
+                    <span className="text-semantic-text-rag-danger-default ml-1">*</span>
                   </Label>
                   <Input id="register-email" type="email" placeholder="you@example.com" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="register-password">
                     Password
-                    <span className="text-[var(--semantic-text-rag-danger-default)] ml-1">*</span>
+                    <span className="text-semantic-text-rag-danger-default ml-1">*</span>
                   </Label>
                   <Input id="register-password" type="password" placeholder="••••••••" />
                 </div>
@@ -2283,21 +2283,21 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
                     <AvatarImage src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=faces" alt="User" />
                     <AvatarFallback size="md">JD</AvatarFallback>
                   </Avatar>
-                  <div className="absolute bottom-0 right-0 size-3 rounded-full border-2 border-background bg-[var(--semantic-surface-rag-success-bright)]" />
+                  <div className="absolute bottom-0 right-0 size-3 rounded-full border-2 border-background bg-semantic-surface-rag-success-bright" />
                 </div>
                 <div className="relative">
                   <Avatar size="md">
                     <AvatarImage src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=faces" alt="User" />
                     <AvatarFallback size="md">JS</AvatarFallback>
                   </Avatar>
-                  <div className="absolute bottom-0 right-0 size-3 rounded-full border-2 border-background bg-[var(--semantic-surface-rag-warning-bright)]" />
+                  <div className="absolute bottom-0 right-0 size-3 rounded-full border-2 border-background bg-semantic-surface-rag-warning-bright" />
                 </div>
                 <div className="relative">
                   <Avatar size="md">
                     <AvatarImage src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=faces" alt="User" />
                     <AvatarFallback size="md">SJ</AvatarFallback>
                   </Avatar>
-                  <div className="absolute bottom-0 right-0 size-3 rounded-full border-2 border-background bg-[var(--semantic-surface-rag-danger-bright)]" />
+                  <div className="absolute bottom-0 right-0 size-3 rounded-full border-2 border-background bg-semantic-surface-rag-danger-bright" />
                 </div>
               </div>
             </div>
@@ -2408,7 +2408,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
                         <AvatarImage src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&h=120&fit=crop&crop=faces" alt="User" />
                         <AvatarFallback size="sm">JD</AvatarFallback>
                       </Avatar>
-                      <div className="absolute bottom-0 right-0 size-2.5 rounded-full border-2 border-background bg-[var(--semantic-surface-rag-success-bright)]" />
+                      <div className="absolute bottom-0 right-0 size-2.5 rounded-full border-2 border-background bg-semantic-surface-rag-success-bright" />
                     </div>
                     <div>
                       <p className="text-sm font-normal">Jane Doe</p>
@@ -2424,7 +2424,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
                         <AvatarImage src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=120&fit=crop&crop=faces" alt="User" />
                         <AvatarFallback size="sm">JS</AvatarFallback>
                       </Avatar>
-                      <div className="absolute bottom-0 right-0 size-2.5 rounded-full border-2 border-background bg-[var(--semantic-surface-rag-warning-bright)]" />
+                      <div className="absolute bottom-0 right-0 size-2.5 rounded-full border-2 border-background bg-semantic-surface-rag-warning-bright" />
                     </div>
                     <div>
                       <p className="text-sm font-normal">John Smith</p>
@@ -4000,7 +4000,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
               <TypographyH4 className="text-base">Appearance</TypographyH4>
               <div className="flex items-center justify-between gap-3">
                 <div className="flex items-center gap-2">
-                  <MaterialSymbol name="light_mode" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                  <MaterialSymbol name="light_mode" size={16} weight={300} className="text-semantic-icon-subdued" />
                   <label htmlFor="theme-switch" className="text-sm cursor-pointer">
                     Dark mode
                   </label>
@@ -4542,7 +4542,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
                   <SelectItem value="option2">Option 2</SelectItem>
                 </SelectContent>
               </Select>
-              <p className="text-xs text-[var(--semantic-text-rag-danger-default)]">Please select an option</p>
+              <p className="text-xs text-semantic-text-rag-danger-default">Please select an option</p>
             </div>
           </div>
         </Section>
@@ -4763,7 +4763,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
                     <SelectItem value="option2">Option 2</SelectItem>
                   </SelectContent>
                 </Select>
-                <p className="text-xs text-[var(--semantic-text-rag-danger-default)]">This field is required</p>
+                <p className="text-xs text-semantic-text-rag-danger-default">This field is required</p>
               </div>
             </div>
           </div>
@@ -4867,7 +4867,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
                 rows={4}
                 aria-invalid
               />
-              <p className="text-xs text-[var(--semantic-text-rag-danger-default)]">Please enter a valid message</p>
+              <p className="text-xs text-semantic-text-rag-danger-default">Please enter a valid message</p>
             </div>
           </div>
         </Section>
@@ -5729,11 +5729,11 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
               <CardContent>
                 <div className="space-y-2">
                   <div className="flex items-center gap-2 text-sm">
-                    <MaterialSymbol name="email" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                    <MaterialSymbol name="email" size={16} weight={300} className="text-semantic-icon-subdued" />
                     <span className="text-muted-foreground">john.doe@example.com</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm">
-                    <MaterialSymbol name="location_on" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                    <MaterialSymbol name="location_on" size={16} weight={300} className="text-semantic-icon-subdued" />
                     <span className="text-muted-foreground">San Francisco, CA</span>
                   </div>
                 </div>
@@ -5806,7 +5806,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
             <Card className="break-inside-avoid">
               <CardHeader>
                 <div className="flex items-center gap-2">
-                  <MaterialSymbol name="star" size={20} weight={300} className="text-[var(--semantic-icon-interaction-default)]" />
+                  <MaterialSymbol name="star" size={20} weight={300} className="text-semantic-icon-interaction-default" />
                   <CardTitle>Premium Feature</CardTitle>
                 </div>
                 <CardDescription>Unlock advanced capabilities</CardDescription>
@@ -6538,7 +6538,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
               <Collapsible className="w-full max-w-md">
                 <CollapsibleTrigger className="flex items-center justify-between w-full text-left py-2 hover:underline">
                   <span className="text-sm font-normal">More information</span>
-                  <MaterialSymbol name="expand_more" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                  <MaterialSymbol name="expand_more" size={16} weight={300} className="text-semantic-icon-subdued" />
                 </CollapsibleTrigger>
                 <CollapsibleContent className="mt-2 p-4 rounded-md border bg-card">
                   <p className="text-sm text-muted-foreground">Here's some additional information that can be expanded.</p>
@@ -6654,7 +6654,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
               <Collapsible>
                 <CollapsibleTrigger className="flex items-center justify-between w-full text-left py-2 hover:underline">
                   <span className="text-sm font-normal">How do I get started?</span>
-                  <MaterialSymbol name="expand_more" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                  <MaterialSymbol name="expand_more" size={16} weight={300} className="text-semantic-icon-subdued" />
                 </CollapsibleTrigger>
                 <CollapsibleContent className="mt-2">
                   <p className="text-sm text-muted-foreground">Create an account and follow the onboarding process to get started.</p>
@@ -6739,10 +6739,10 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
               <Collapsible>
                 <CollapsibleTrigger className="flex items-center justify-between w-full text-left py-2 hover:underline">
                   <div className="flex items-center gap-2">
-                    <MaterialSymbol name="help" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                    <MaterialSymbol name="help" size={16} weight={300} className="text-semantic-icon-subdued" />
                     <span className="text-sm font-normal">Need help?</span>
                   </div>
-                  <MaterialSymbol name="expand_more" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                  <MaterialSymbol name="expand_more" size={16} weight={300} className="text-semantic-icon-subdued" />
                 </CollapsibleTrigger>
                 <CollapsibleContent className="mt-2">
                   <p className="text-sm text-muted-foreground">Contact our support team for assistance.</p>
@@ -6874,7 +6874,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
               <PopoverContent className="w-80">
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
-                    <MaterialSymbol name="info" size={16} weight={300} className="text-[var(--semantic-icon-interaction-default)]" />
+                    <MaterialSymbol name="info" size={16} weight={300} className="text-semantic-icon-interaction-default" />
                     <TypographyH4 className="text-base">Information</TypographyH4>
                   </div>
                   <p className="text-sm text-muted-foreground">
@@ -6976,7 +6976,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
               <Popover>
                 <PopoverTrigger asChild>
                   <Button variant="outline" className="w-full justify-start">
-                    <div className="w-4 h-4 rounded border bg-[var(--semantic-surface-interaction-strong)]" />
+                    <div className="w-4 h-4 rounded border bg-semantic-surface-interaction-strong" />
                     <span className="ml-2">Choose color</span>
                   </Button>
                 </PopoverTrigger>
@@ -7258,15 +7258,15 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
           <div className="flex flex-wrap gap-3">
             <HoverCard>
               <HoverCardTrigger asChild>
-                <span className="inline-flex items-center gap-2 text-sm text-foreground hover:text-[var(--semantic-text-interaction-bright)] cursor-pointer transition-colors">
-                  <MaterialSymbol name="info" size={16} weight={300} className="text-[var(--semantic-icon-interaction-default)] hover:text-[var(--semantic-icon-interaction-bright)]" />
-                  <span className="underline decoration-[var(--semantic-text-interaction-bright)] underline-offset-4">Information</span>
+                <span className="inline-flex items-center gap-2 text-sm text-foreground hover:text-semantic-text-interaction-bright cursor-pointer transition-colors">
+                  <MaterialSymbol name="info" size={16} weight={300} className="text-semantic-icon-interaction-default hover:text-semantic-icon-interaction-bright" />
+                  <span className="underline decoration-semantic-text-interaction-bright underline-offset-4">Information</span>
                 </span>
               </HoverCardTrigger>
               <HoverCardContent className="w-80">
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
-                    <MaterialSymbol name="info" size={16} weight={300} className="text-[var(--semantic-icon-interaction-default)]" />
+                    <MaterialSymbol name="info" size={16} weight={300} className="text-semantic-icon-interaction-default" />
                     <TypographyH4 className="text-base">Information</TypographyH4>
                   </div>
                   <p className="text-sm text-muted-foreground">
@@ -7278,15 +7278,15 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
 
             <HoverCard>
               <HoverCardTrigger asChild>
-                <span className="inline-flex items-center gap-2 text-sm text-foreground hover:text-[var(--semantic-text-interaction-bright)] cursor-pointer transition-colors">
-                  <MaterialSymbol name="help" size={16} weight={300} className="text-[var(--semantic-icon-interaction-default)] hover:text-[var(--semantic-icon-interaction-bright)]" />
-                  <span className="underline decoration-[var(--semantic-text-interaction-bright)] underline-offset-4">Help</span>
+                <span className="inline-flex items-center gap-2 text-sm text-foreground hover:text-semantic-text-interaction-bright cursor-pointer transition-colors">
+                  <MaterialSymbol name="help" size={16} weight={300} className="text-semantic-icon-interaction-default hover:text-semantic-icon-interaction-bright" />
+                  <span className="underline decoration-semantic-text-interaction-bright underline-offset-4">Help</span>
                 </span>
               </HoverCardTrigger>
               <HoverCardContent className="w-80">
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
-                    <MaterialSymbol name="help" size={16} weight={300} className="text-[var(--semantic-icon-interaction-default)]" />
+                    <MaterialSymbol name="help" size={16} weight={300} className="text-semantic-icon-interaction-default" />
                     <TypographyH4 className="text-base">Help & Support</TypographyH4>
                   </div>
                   <p className="text-sm text-muted-foreground">
@@ -7397,14 +7397,14 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
               <HoverCard>
                 <HoverCardTrigger asChild>
                   <div className="flex items-center gap-2 cursor-pointer">
-                    <div className="w-2 h-2 rounded-full bg-[var(--semantic-icon-rag-success-default)]" />
+                    <div className="w-2 h-2 rounded-full bg-semantic-icon-rag-success-default" />
                     <span className="text-sm">Online</span>
                   </div>
                 </HoverCardTrigger>
                 <HoverCardContent className="w-64">
                   <div className="space-y-2">
                     <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 rounded-full bg-[var(--semantic-icon-rag-success-default)]" />
+                      <div className="w-2 h-2 rounded-full bg-semantic-icon-rag-success-default" />
                       <TypographyH4 className="text-base">Status: Online</TypographyH4>
                     </div>
                     <p className="text-sm text-muted-foreground">
@@ -8414,7 +8414,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
                 <PopoverTrigger asChild>
                   <div className="relative">
                     <Input placeholder="Search users..." className="pr-10" />
-                    <MaterialSymbol name="search" size={16} weight={300} className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--semantic-icon-subdued)]" />
+                    <MaterialSymbol name="search" size={16} weight={300} className="absolute right-3 top-1/2 -translate-y-1/2 text-semantic-icon-subdued" />
                   </div>
                 </PopoverTrigger>
                 <PopoverContent className="w-[300px] p-0">
@@ -8589,7 +8589,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
                   ))}
                 </InputOTPGroup>
               </InputOTP>
-              <p className="text-xs text-[var(--semantic-text-rag-danger-default)]">Invalid code. Please try again.</p>
+              <p className="text-xs text-semantic-text-rag-danger-default">Invalid code. Please try again.</p>
             </div>
           </div>
         </Section>
@@ -8708,7 +8708,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
                     ))}
                   </InputOTPGroup>
                 </InputOTP>
-                <p className="text-xs text-[var(--semantic-text-rag-danger-default)]">Invalid code. Please try again.</p>
+                <p className="text-xs text-semantic-text-rag-danger-default">Invalid code. Please try again.</p>
                 <Button variant="outline" className="w-full">Resend code</Button>
               </div>
             </div>
@@ -8736,7 +8736,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
             <div className="space-y-2">
               <Label className="text-sm">With icon</Label>
               <InputGroup className="gap-2">
-                <MaterialSymbol name="search" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                <MaterialSymbol name="search" size={16} weight={300} className="text-semantic-icon-subdued" />
                 <Input placeholder="Search..." />
               </InputGroup>
             </div>
@@ -8748,7 +8748,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
             <div className="space-y-2">
               <Label className="text-sm">Icon on left</Label>
               <InputGroup className="gap-2">
-                <MaterialSymbol name="search" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                <MaterialSymbol name="search" size={16} weight={300} className="text-semantic-icon-subdued" />
                 <Input placeholder="Search..." />
               </InputGroup>
             </div>
@@ -8762,7 +8762,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
             <div className="space-y-2">
               <Label className="text-sm">Icon and button</Label>
               <InputGroup className="gap-2">
-                <MaterialSymbol name="search" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                <MaterialSymbol name="search" size={16} weight={300} className="text-semantic-icon-subdued" />
                 <Input placeholder="Search..." />
                 <Button>
                   <MaterialSymbol name="search" size={16} weight={300} />
@@ -8773,7 +8773,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
               <Label className="text-sm">Icon on right</Label>
               <InputGroup className="gap-2">
                 <Input placeholder="Search..." />
-                <MaterialSymbol name="search" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                <MaterialSymbol name="search" size={16} weight={300} className="text-semantic-icon-subdued" />
               </InputGroup>
             </div>
           </div>
@@ -8841,7 +8841,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
             <div className="p-4 rounded-lg border bg-card space-y-3 break-inside-avoid">
               <TypographyH4 className="text-base">Search bar</TypographyH4>
               <InputGroup className="gap-2">
-                <MaterialSymbol name="search" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                <MaterialSymbol name="search" size={16} weight={300} className="text-semantic-icon-subdued" />
                 <Input placeholder="Search products..." />
                 <Button size="icon">
                   <MaterialSymbol name="tune" size={16} weight={300} />
@@ -8855,7 +8855,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
               <div className="space-y-2">
                 <Label className="text-sm">Email address</Label>
                 <InputGroup className="gap-2">
-                  <MaterialSymbol name="email" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                  <MaterialSymbol name="email" size={16} weight={300} className="text-semantic-icon-subdued" />
                   <Input type="email" placeholder="your@email.com" />
                 </InputGroup>
               </div>
@@ -8916,7 +8916,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
             <div className="p-4 rounded-lg border bg-card space-y-3 break-inside-avoid">
               <TypographyH4 className="text-base">Filter input</TypographyH4>
               <InputGroup className="gap-2">
-                <MaterialSymbol name="filter_list" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                <MaterialSymbol name="filter_list" size={16} weight={300} className="text-semantic-icon-subdued" />
                 <Input placeholder="Filter by name..." />
                 <Badge variant="secondary">5</Badge>
               </InputGroup>
@@ -9471,7 +9471,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
                 <NativeSelectOption value="option1">Option 1</NativeSelectOption>
                 <NativeSelectOption value="option2">Option 2</NativeSelectOption>
               </NativeSelect>
-              <p className="text-xs text-[var(--semantic-text-rag-danger-default)]">Please select an option</p>
+              <p className="text-xs text-semantic-text-rag-danger-default">Please select an option</p>
             </div>
           </div>
         </Section>
@@ -10391,7 +10391,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
             {/* Menu item with shortcut */}
             <div className="flex items-center justify-between p-3 rounded-lg border bg-card break-inside-avoid">
               <div className="flex items-center gap-2">
-                <MaterialSymbol name="search" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                <MaterialSymbol name="search" size={16} weight={300} className="text-semantic-icon-subdued" />
                 <span className="text-sm">Search</span>
               </div>
               <KbdGroup>
@@ -10404,7 +10404,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
             {/* Command palette item */}
             <div className="flex items-center justify-between p-3 rounded-lg border bg-card break-inside-avoid">
               <div className="flex items-center gap-2">
-                <MaterialSymbol name="code" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                <MaterialSymbol name="code" size={16} weight={300} className="text-semantic-icon-subdued" />
                 <span className="text-sm">Open command palette</span>
               </div>
               <KbdGroup>
@@ -10471,7 +10471,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
             {/* Search bar hint */}
             <div className="p-3 rounded-lg border bg-card break-inside-avoid">
               <div className="flex items-center gap-2">
-                <MaterialSymbol name="search" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                <MaterialSymbol name="search" size={16} weight={300} className="text-semantic-icon-subdued" />
                 <input
                   type="text"
                   placeholder="Search..."
@@ -10489,7 +10489,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
             <div className="p-3 rounded-lg border bg-card break-inside-avoid">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <MaterialSymbol name="content_copy" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                  <MaterialSymbol name="content_copy" size={16} weight={300} className="text-semantic-icon-subdued" />
                   <span className="text-sm">Copy</span>
                 </div>
                 <KbdGroup>
@@ -12236,19 +12236,19 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
         <Section title="With Icons" description="Add icons to items to enhance visual clarity and improve navigation.">
           <div className="max-w-xs space-y-1 rounded-lg border p-2">
             <Item>
-              <MaterialSymbol name="dashboard" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+              <MaterialSymbol name="dashboard" size={16} weight={300} className="text-semantic-icon-subdued" />
               Dashboard
             </Item>
             <Item selected>
-              <MaterialSymbol name="folder" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+              <MaterialSymbol name="folder" size={16} weight={300} className="text-semantic-icon-subdued" />
               Projects
             </Item>
             <Item>
-              <MaterialSymbol name="settings" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+              <MaterialSymbol name="settings" size={16} weight={300} className="text-semantic-icon-subdued" />
               Settings
             </Item>
             <Item>
-              <MaterialSymbol name="person" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+              <MaterialSymbol name="person" size={16} weight={300} className="text-semantic-icon-subdued" />
               Profile
             </Item>
           </div>
@@ -12260,19 +12260,19 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
               <p className="text-xs text-muted-foreground">Navigation menu</p>
               <div className="max-w-xs space-y-1 rounded-lg border p-2">
                 <Item>
-                  <MaterialSymbol name="home" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                  <MaterialSymbol name="home" size={16} weight={300} className="text-semantic-icon-subdued" />
                   Home
                 </Item>
                 <Item selected>
-                  <MaterialSymbol name="inbox" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                  <MaterialSymbol name="inbox" size={16} weight={300} className="text-semantic-icon-subdued" />
                   Inbox
                 </Item>
                 <Item>
-                  <MaterialSymbol name="star" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                  <MaterialSymbol name="star" size={16} weight={300} className="text-semantic-icon-subdued" />
                   Favorites
                 </Item>
                 <Item>
-                  <MaterialSymbol name="archive" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                  <MaterialSymbol name="archive" size={16} weight={300} className="text-semantic-icon-subdued" />
                   Archive
                 </Item>
               </div>
@@ -12281,19 +12281,19 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
               <p className="text-xs text-muted-foreground">File list</p>
               <div className="max-w-xs space-y-1 rounded-lg border p-2">
                 <Item>
-                  <MaterialSymbol name="description" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                  <MaterialSymbol name="description" size={16} weight={300} className="text-semantic-icon-subdued" />
                   Document.pdf
                 </Item>
                 <Item>
-                  <MaterialSymbol name="image" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                  <MaterialSymbol name="image" size={16} weight={300} className="text-semantic-icon-subdued" />
                   Image.jpg
                 </Item>
                 <Item selected>
-                  <MaterialSymbol name="video_file" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                  <MaterialSymbol name="video_file" size={16} weight={300} className="text-semantic-icon-subdued" />
                   Video.mp4
                 </Item>
                 <Item>
-                  <MaterialSymbol name="audio_file" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                  <MaterialSymbol name="audio_file" size={16} weight={300} className="text-semantic-icon-subdued" />
                   Audio.mp3
                 </Item>
               </div>
@@ -12304,22 +12304,22 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
         <Section title="With Badges" description="Combine Item with badges to show additional information like counts or status.">
           <div className="max-w-xs space-y-1 rounded-lg border p-2">
             <Item>
-              <MaterialSymbol name="inbox" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+              <MaterialSymbol name="inbox" size={16} weight={300} className="text-semantic-icon-subdued" />
               Inbox
               <Badge variant="secondary" className="ml-auto">12</Badge>
             </Item>
             <Item>
-              <MaterialSymbol name="star" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+              <MaterialSymbol name="star" size={16} weight={300} className="text-semantic-icon-subdued" />
               Favorites
               <Badge variant="secondary" className="ml-auto">5</Badge>
             </Item>
             <Item selected>
-              <MaterialSymbol name="notifications" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+              <MaterialSymbol name="notifications" size={16} weight={300} className="text-semantic-icon-subdued" />
               Notifications
               <Badge variant="destructive" className="ml-auto">3</Badge>
             </Item>
             <Item>
-              <MaterialSymbol name="archive" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+              <MaterialSymbol name="archive" size={16} weight={300} className="text-semantic-icon-subdued" />
               Archive
             </Item>
           </div>
@@ -12332,19 +12332,19 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
               <TypographyH4 className="text-base">Sidebar navigation</TypographyH4>
               <div className="space-y-1">
                 <Item>
-                  <MaterialSymbol name="dashboard" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                  <MaterialSymbol name="dashboard" size={16} weight={300} className="text-semantic-icon-subdued" />
                   Dashboard
                 </Item>
                 <Item selected>
-                  <MaterialSymbol name="folder" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                  <MaterialSymbol name="folder" size={16} weight={300} className="text-semantic-icon-subdued" />
                   Projects
                 </Item>
                 <Item>
-                  <MaterialSymbol name="people" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                  <MaterialSymbol name="people" size={16} weight={300} className="text-semantic-icon-subdued" />
                   Team
                 </Item>
                 <Item>
-                  <MaterialSymbol name="settings" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                  <MaterialSymbol name="settings" size={16} weight={300} className="text-semantic-icon-subdued" />
                   Settings
                 </Item>
               </div>
@@ -12355,19 +12355,19 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
               <TypographyH4 className="text-base">File browser</TypographyH4>
               <div className="space-y-1">
                 <Item>
-                  <MaterialSymbol name="folder" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                  <MaterialSymbol name="folder" size={16} weight={300} className="text-semantic-icon-subdued" />
                   Documents
                 </Item>
                 <Item>
-                  <MaterialSymbol name="folder" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                  <MaterialSymbol name="folder" size={16} weight={300} className="text-semantic-icon-subdued" />
                   Images
                 </Item>
                 <Item selected>
-                  <MaterialSymbol name="folder" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                  <MaterialSymbol name="folder" size={16} weight={300} className="text-semantic-icon-subdued" />
                   Videos
                 </Item>
                 <Item>
-                  <MaterialSymbol name="folder" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                  <MaterialSymbol name="folder" size={16} weight={300} className="text-semantic-icon-subdued" />
                   Downloads
                 </Item>
               </div>
@@ -12378,21 +12378,21 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
               <TypographyH4 className="text-base">Menu with counts</TypographyH4>
               <div className="space-y-1">
                 <Item>
-                  <MaterialSymbol name="inbox" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                  <MaterialSymbol name="inbox" size={16} weight={300} className="text-semantic-icon-subdued" />
                   Inbox
                   <Badge variant="secondary" className="ml-auto text-xs">24</Badge>
                 </Item>
                 <Item>
-                  <MaterialSymbol name="send" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                  <MaterialSymbol name="send" size={16} weight={300} className="text-semantic-icon-subdued" />
                   Sent
                 </Item>
                 <Item selected>
-                  <MaterialSymbol name="drafts" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                  <MaterialSymbol name="drafts" size={16} weight={300} className="text-semantic-icon-subdued" />
                   Drafts
                   <Badge variant="secondary" className="ml-auto text-xs">3</Badge>
                 </Item>
                 <Item>
-                  <MaterialSymbol name="delete" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                  <MaterialSymbol name="delete" size={16} weight={300} className="text-semantic-icon-subdued" />
                   Trash
                 </Item>
               </div>
@@ -12403,19 +12403,19 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
               <TypographyH4 className="text-base">Settings categories</TypographyH4>
               <div className="space-y-1">
                 <Item>
-                  <MaterialSymbol name="person" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                  <MaterialSymbol name="person" size={16} weight={300} className="text-semantic-icon-subdued" />
                   Account
                 </Item>
                 <Item selected>
-                  <MaterialSymbol name="notifications" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                  <MaterialSymbol name="notifications" size={16} weight={300} className="text-semantic-icon-subdued" />
                   Notifications
                 </Item>
                 <Item>
-                  <MaterialSymbol name="security" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                  <MaterialSymbol name="security" size={16} weight={300} className="text-semantic-icon-subdued" />
                   Security
                 </Item>
                 <Item>
-                  <MaterialSymbol name="palette" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                  <MaterialSymbol name="palette" size={16} weight={300} className="text-semantic-icon-subdued" />
                   Appearance
                 </Item>
               </div>
@@ -12426,19 +12426,19 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
               <TypographyH4 className="text-base">Project list</TypographyH4>
               <div className="space-y-1">
                 <Item>
-                  <MaterialSymbol name="folder" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                  <MaterialSymbol name="folder" size={16} weight={300} className="text-semantic-icon-subdued" />
                   Website Redesign
                 </Item>
                 <Item>
-                  <MaterialSymbol name="folder" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                  <MaterialSymbol name="folder" size={16} weight={300} className="text-semantic-icon-subdued" />
                   Mobile App
                 </Item>
                 <Item selected>
-                  <MaterialSymbol name="folder" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                  <MaterialSymbol name="folder" size={16} weight={300} className="text-semantic-icon-subdued" />
                   Marketing Campaign
                 </Item>
                 <Item>
-                  <MaterialSymbol name="folder" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                  <MaterialSymbol name="folder" size={16} weight={300} className="text-semantic-icon-subdued" />
                   Documentation
                 </Item>
               </div>
@@ -12449,19 +12449,19 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
               <TypographyH4 className="text-base">Command menu</TypographyH4>
               <div className="space-y-1">
                 <Item>
-                  <MaterialSymbol name="create" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                  <MaterialSymbol name="create" size={16} weight={300} className="text-semantic-icon-subdued" />
                   Create new file
                 </Item>
                 <Item selected>
-                  <MaterialSymbol name="folder" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                  <MaterialSymbol name="folder" size={16} weight={300} className="text-semantic-icon-subdued" />
                   Open folder
                 </Item>
                 <Item>
-                  <MaterialSymbol name="search" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                  <MaterialSymbol name="search" size={16} weight={300} className="text-semantic-icon-subdued" />
                   Search files
                 </Item>
                 <Item>
-                  <MaterialSymbol name="settings" size={16} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                  <MaterialSymbol name="settings" size={16} weight={300} className="text-semantic-icon-subdued" />
                   Preferences
                 </Item>
               </div>
@@ -13436,7 +13436,7 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
                     name="search"
                     size={16}
                     weight={300}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--semantic-icon-subdued)]"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 text-semantic-icon-subdued"
                   />
                   <Input placeholder="Search users..." className="pl-9" />
                 </div>
@@ -13487,20 +13487,20 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
                   <TableHead>
                     <div className="flex items-center gap-2">
                       <span>User</span>
-                      <MaterialSymbol name="unfold_more" size={14} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                      <MaterialSymbol name="unfold_more" size={14} weight={300} className="text-semantic-icon-subdued" />
                     </div>
                   </TableHead>
                   <TableHead>
                     <div className="flex items-center gap-2">
                       <span>Role</span>
-                      <MaterialSymbol name="unfold_more" size={14} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                      <MaterialSymbol name="unfold_more" size={14} weight={300} className="text-semantic-icon-subdued" />
                     </div>
                   </TableHead>
                   <TableHead>Email</TableHead>
                   <TableHead>
                     <div className="flex items-center gap-2">
                       <span>Status</span>
-                      <MaterialSymbol name="unfold_more" size={14} weight={300} className="text-[var(--semantic-icon-subdued)]" />
+                      <MaterialSymbol name="unfold_more" size={14} weight={300} className="text-semantic-icon-subdued" />
                     </div>
                   </TableHead>
                   <TableHead>Last active</TableHead>
@@ -13942,11 +13942,11 @@ const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = 
               <Calendar />
               <div className="space-y-2 pt-2">
                 <div className="flex items-center gap-2 text-sm">
-                  <div className="h-2 w-2 rounded-full bg-[var(--semantic-surface-interaction-strong)]" />
+                  <div className="h-2 w-2 rounded-full bg-semantic-surface-interaction-strong" />
                   <span>Event scheduled</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
-                  <div className="h-2 w-2 rounded-full bg-[var(--semantic-surface-rag-success-default)]" />
+                  <div className="h-2 w-2 rounded-full bg-semantic-surface-rag-success-subdued" />
                   <span>Available</span>
                 </div>
               </div>
@@ -14713,7 +14713,7 @@ function Component() {
                 <Sidebar collapsible="none" className="border-r">
                   <SidebarHeader>
                     <div className="flex items-center gap-2 px-4 py-4">
-                      <div className="flex h-8 w-8 items-center justify-center rounded-md bg-[var(--semantic-surface-interaction-strong)] text-[var(--semantic-text-reversedpersistent)]">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-md bg-semantic-surface-interaction-strong text-semantic-text-reversedpersistent">
                         <MaterialSymbol name="apps" size={16} weight={300} />
                       </div>
                       <span className="font-medium">App</span>

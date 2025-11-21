@@ -14,7 +14,7 @@ function Checkbox({
     <CheckboxPrimitive.Root
       data-slot="checkbox"
       className={cn(
-        "peer border-[var(--semantic-stroke-default)] data-[state=unchecked]:bg-transparent data-[state=checked]:bg-[var(--semantic-surface-interaction-strong)] data-[state=checked]:text-white data-[state=checked]:border-[var(--semantic-surface-interaction-strong)] focus-visible:border-[var(--semantic-surface-interaction-strong)] focus-visible:ring-[var(--semantic-surface-interaction-strong)]/50 aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/20 dark:aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/40 aria-invalid:border-[var(--semantic-surface-rag-danger-strong)] size-4 shrink-0 rounded-[4px] border transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50",
+        "peer border-semantic-stroke-default data-[state=unchecked]:bg-transparent data-[state=checked]:bg-semantic-surface-interaction-strong data-[state=checked]:text-white data-[state=checked]:border-semantic-surface-interaction-strong focus-visible:border-semantic-surface-interaction-strong focus-visible:ring-semantic-surface-interaction-strong/50 aria-invalid:ring-semantic-surface-rag-danger-strong/20 dark:aria-invalid:ring-semantic-surface-rag-danger-strong/40 aria-invalid:border-semantic-surface-rag-danger-strong size-4 shrink-0 rounded-[4px] border transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50",
         className
       )}
       {...props}
@@ -49,9 +49,9 @@ function CheckboxCard({
       className={cn(
         "group relative flex gap-2 items-start px-4 py-3 rounded-[8px] border transition-all cursor-pointer",
         // Inactive state
-        "border-[var(--semantic-stroke-subdued)] bg-transparent",
+        "border-semantic-stroke-subdued bg-transparent",
         // Active state (when checkbox is checked)
-        "has-[[data-state=checked]]:bg-[var(--semantic-surface-whisper)] has-[[data-state=checked]]:border-[var(--semantic-stroke-default)]",
+        "has-[[data-state=checked]]:bg-semantic-surface-whisper has-[[data-state=checked]]:border-semantic-stroke-default",
         className
       )}
     >
@@ -60,7 +60,7 @@ function CheckboxCard({
         id={itemId}
         className={cn(
           "mt-0.5 shrink-0 cursor-pointer",
-          "border-[var(--semantic-stroke-default)] data-[state=unchecked]:bg-transparent data-[state=checked]:bg-[var(--semantic-surface-interaction-strong)] data-[state=checked]:text-white data-[state=checked]:border-[var(--semantic-surface-interaction-strong)] focus-visible:border-[var(--semantic-surface-interaction-strong)] focus-visible:ring-[var(--semantic-surface-interaction-strong)]/50 aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/20 dark:aria-invalid:ring-[var(--semantic-surface-rag-danger-strong)]/40 aria-invalid:border-[var(--semantic-surface-rag-danger-strong)] size-4 shrink-0 rounded-[4px] border transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50",
+          "border-semantic-stroke-default data-[state=unchecked]:bg-transparent data-[state=checked]:bg-semantic-surface-interaction-strong data-[state=checked]:text-white data-[state=checked]:border-semantic-surface-interaction-strong focus-visible:border-semantic-surface-interaction-strong focus-visible:ring-semantic-surface-interaction-strong/50 aria-invalid:ring-semantic-surface-rag-danger-strong/20 dark:aria-invalid:ring-semantic-surface-rag-danger-strong/40 aria-invalid:border-semantic-surface-rag-danger-strong size-4 shrink-0 rounded-[4px] border transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50",
         )}
         {...props}
       >
@@ -75,14 +75,14 @@ function CheckboxCard({
         <span
           className={cn(
             "text-sm leading-5",
-            "text-[var(--semantic-text-default)]",
+            "text-semantic-text-default",
             "group-has-[[data-state=checked]]:font-normal"
           )}
         >
           {label}
         </span>
         {description && (
-          <span className="text-sm leading-5 text-[var(--semantic-text-subdued)]">
+          <span className="text-sm leading-5 text-semantic-text-subdued">
             {description}
           </span>
         )}

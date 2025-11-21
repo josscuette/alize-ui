@@ -1,0 +1,13 @@
+./app/components/page.tsx
+./app/page.tsx
+./components/component-showcase.tsx
+./components/theme-toggle.tsx
+./components/ui/avatar.tsx
+./components/ui/button.tsx
+./components/ui/checkbox.tsx
+./components/ui/input.tsx
+./components/ui/progress.tsx
+./components/ui/radio-group.tsx
+./components/ui/select.tsx
+./components/ui/slider.tsx
+./components/ui/switch.tsx

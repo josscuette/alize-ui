@@ -1,0 +1,90 @@
+{
+  "semantic": {
+    "brand": {
+      "picto": {
+        "text": "text-semantic-brand-picto",
+        "bg": "bg-semantic-brand-picto"
+      },
+      "text": {
+        "text": "text-semantic-brand-text",
+        "bg": "bg-semantic-brand-text"
+      }
+    },
+
+    "icon": {
+      "ai-default": { "text": "text-semantic-icon-ai-default" },
+      "default": { "text": "text-semantic-icon-default" },
+      "interaction-bright": { "text": "text-semantic-icon-interaction-bright" },
+      "interaction-default": { "text": "text-semantic-icon-interaction-default" },
+      "rag-danger-default": { "text": "text-semantic-icon-rag-danger-default" },
+      "rag-success-default": { "text": "text-semantic-icon-rag-success-default" },
+      "rag-warning-default": { "text": "text-semantic-icon-rag-warning-default" },
+      "reversed": { "text": "text-semantic-icon-reversed" },
+      "reversedpersistent": { "text": "text-semantic-icon-reversedpersistent" },
+      "subdued": { "text": "text-semantic-icon-subdued" },
+      "tonal-science-default": { "text": "text-semantic-icon-tonal-science-default" }
+    },
+
+    "text": {
+      "ai-default": { "text": "text-semantic-text-ai-default" },
+      "default": { "text": "text-semantic-text-default" },
+      "interaction-bright": { "text": "text-semantic-text-interaction-bright" },
+      "interaction-default": { "text": "text-semantic-text-interaction-default" },
+      "rag-danger-default": { "text": "text-semantic-text-rag-danger-default" },
+      "rag-success-default": { "text": "text-semantic-text-rag-success-default" },
+      "rag-warning-default": { "text": "text-semantic-text-rag-warning-default" },
+      "reversed": { "text": "text-semantic-text-reversed" },
+      "reversedpersistent": { "text": "text-semantic-text-reversedpersistent" },
+      "subdued": { "text": "text-semantic-text-subdued" },
+      "tonal-science-default": { "text": "text-semantic-text-tonal-science-default" }
+    },
+
+    "stroke": {
+      "ai-default": { "border": "border-semantic-stroke-ai-default" },
+      "default": { "border": "border-semantic-stroke-default" },
+      "interaction-default": { "border": "border-semantic-stroke-interaction-default" },
+      "rag-danger-bright": { "border": "border-semantic-stroke-rag-danger-bright" },
+      "rag-danger-default": { "border": "border-semantic-stroke-rag-danger-default" },
+      "rag-danger-strong": { "border": "border-semantic-stroke-rag-danger-strong" },
+      "rag-success-bright": { "border": "border-semantic-stroke-rag-success-bright" },
+      "rag-success-default": { "border": "border-semantic-stroke-rag-success-default" },
+      "rag-success-strong": { "border": "border-semantic-stroke-rag-success-strong" },
+      "rag-warning-bright": { "border": "border-semantic-stroke-rag-warning-bright" },
+      "rag-warning-default": { "border": "border-semantic-stroke-rag-warning-default" },
+      "rag-warning-strong": { "border": "border-semantic-stroke-rag-warning-strong" },
+      "strong": { "border": "border-semantic-stroke-strong" },
+      "subdued": { "border": "border-semantic-stroke-subdued" },
+      "tonal-science-default": { "border": "border-semantic-stroke-tonal-science-default" }
+    },
+
+    "surface": {
+      "ai-strong": { "bg": "bg-semantic-surface-ai-strong" },
+      "ai-subdued": { "bg": "bg-semantic-surface-ai-subdued" },
+      "contrast": { "bg": "bg-semantic-surface-contrast" },
+      "default": { "bg": "bg-semantic-surface-default" },
+      "interaction-bright": { "bg": "bg-semantic-surface-interaction-bright" },
+      "interaction-strong": { "bg": "bg-semantic-surface-interaction-strong" },
+      "interaction-subdued": { "bg": "bg-semantic-surface-interaction-subdued" },
+      "overlays-level1": { "bg": "bg-semantic-surface-overlays-level1" },
+      "overlays-level2": { "bg": "bg-semantic-surface-overlays-level2" },
+      "overlays-level3": { "bg": "bg-semantic-surface-overlays-level3" },
+      "overlays-ref": { "bg": "bg-semantic-surface-overlays-ref" },
+      "primary": { "bg": "bg-semantic-surface-primary" },
+      "rag-danger-bright": { "bg": "bg-semantic-surface-rag-danger-bright" },
+      "rag-danger-strong": { "bg": "bg-semantic-surface-rag-danger-strong" },
+      "rag-danger-subdued": { "bg": "bg-semantic-surface-rag-danger-subdued" },
+      "rag-success-bright": { "bg": "bg-semantic-surface-rag-success-bright" },
+      "rag-success-strong": { "bg": "bg-semantic-surface-rag-success-strong" },
+      "rag-success-subdued": { "bg": "bg-semantic-surface-rag-success-subdued" },
+      "rag-warning-bright": { "bg": "bg-semantic-surface-rag-warning-bright" },
+      "rag-warning-strong": { "bg": "bg-semantic-surface-rag-warning-strong" },
+      "rag-warning-subdued": { "bg": "bg-semantic-surface-rag-warning-subdued" },
+      "secondary": { "bg": "bg-semantic-surface-secondary" },
+      "strong": { "bg": "bg-semantic-surface-strong" },
+      "subdued": { "bg": "bg-semantic-surface-subdued" },
+      "tonal-science-strong": { "bg": "bg-semantic-surface-tonal-science-strong" },
+      "tonal-science-subdued": { "bg": "bg-semantic-surface-tonal-science-subdued" },
+      "whisper": { "bg": "bg-semantic-surface-whisper" }
+    }
+  }
+}

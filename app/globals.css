@@ -114,6 +114,8 @@
 
 /* Import custom theme to override default values */
 @import "./theme.css";
+/* Import Tailwind theme configuration for semantic tokens */
+@import "./theme-tailwind.css";
 
 @layer base {
   * {

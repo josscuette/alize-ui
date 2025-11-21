@@ -97,7 +97,7 @@ function AvatarFallback({
     <AvatarPrimitive.Fallback
       data-slot="avatar-fallback"
       className={cn(
-        "bg-[var(--semantic-surface-subdued)] flex size-full items-center justify-center text-[var(--semantic-text-subdued)]",
+        "bg-semantic-surface-subdued flex size-full items-center justify-center text-semantic-text-subdued",
         textSizeMap[size],
         className
       )}

@@ -36,7 +36,7 @@ export function ThemeToggle() {
 
   return (
     <div className="flex items-center gap-2">
-      <MaterialSymbol name="light_mode" size={16} className="text-[var(--semantic-text-subdued)]" />
+      <MaterialSymbol name="light_mode" size={16} className="text-semantic-text-subdued" />
       <Switch
         checked={isDark}
         onCheckedChange={(checked) => {
@@ -44,7 +44,7 @@ export function ThemeToggle() {
         }}
         aria-label="Toggle theme"
       />
-      <MaterialSymbol name="dark_mode" size={16} className="text-[var(--semantic-text-subdued)]" />
+      <MaterialSymbol name="dark_mode" size={16} className="text-semantic-text-subdued" />
     </div>
   );
 }
