@@ -5,6 +5,7 @@ import * as CheckboxPrimitive from "@radix-ui/react-checkbox"
 import { CheckIcon } from "lucide-react"
 
 import { cn } from "../../lib/utils"
+import { stroke, states, radius, text, animation, surface } from "../../styles"
 
 function Checkbox({
   className,
@@ -14,7 +15,33 @@ function Checkbox({
     <CheckboxPrimitive.Root
       data-slot="checkbox"
       className={cn(
-        "peer border-semantic-stroke-default data-[state=unchecked]:bg-transparent data-[state=checked]:bg-semantic-surface-interaction-strong data-[state=checked]:text-white data-[state=checked]:border-semantic-surface-interaction-strong focus-visible:border-semantic-surface-interaction-strong focus-visible:ring-semantic-surface-interaction-strong/50 aria-invalid:ring-semantic-surface-rag-danger-strong/20 dark:aria-invalid:ring-semantic-surface-rag-danger-strong/40 aria-invalid:border-semantic-surface-rag-danger-strong size-4 shrink-0 rounded-[4px] border transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50",
+        // Layout & Structure
+        "peer size-4 shrink-0",
+        // Border & Stroke (Foundation Layer)
+        "border",
+        stroke.default,
+        // Background & Surface
+        "data-[state=unchecked]:bg-transparent",
+        // Checked state - using surface.interactionStrong (Foundation Layer value)
+        "data-[state=checked]:bg-semantic-surface-interaction-strong",
+        "data-[state=checked]:border-semantic-surface-interaction-strong",
+        // Text color for check icon
+        "data-[state=checked]:text-white",
+        // Focus states (Foundation Layer)
+        "focus-visible:border-semantic-surface-interaction-strong",
+        states.focusRing,
+        // Invalid states (Foundation Layer)
+        states.invalidRing,
+        states.invalidBorder,
+        // Radius (Foundation Layer)
+        radius.sm,
+        // Disabled states (Foundation Layer)
+        states.disabled,
+        states.disabledCursor,
+        // Animation (Foundation Layer)
+        animation.transitionAll,
+        // Visual Effects
+        "outline-none",
         className
       )}
       {...props}
@@ -47,11 +74,20 @@ function CheckboxCard({
     <label
       htmlFor={itemId}
       className={cn(
-        "group relative flex gap-2 items-start px-4 py-3 rounded-[8px] border transition-all cursor-pointer",
-        // Inactive state
-        "border-semantic-stroke-subdued bg-transparent",
-        // Active state (when checkbox is checked)
-        "has-[[data-state=checked]]:bg-semantic-surface-whisper has-[[data-state=checked]]:border-semantic-stroke-default",
+        // Layout & Structure
+        "group relative flex gap-2 items-start px-4 py-3 cursor-pointer",
+        // Border & Stroke (Foundation Layer)
+        "border",
+        stroke.subdued,
+        // Background & Surface
+        "bg-transparent",
+        // Active state - using surface.whisper and stroke.default (Foundation Layer values)
+        "has-[[data-state=checked]]:bg-semantic-surface-whisper",
+        "has-[[data-state=checked]]:border-semantic-stroke-default",
+        // Radius (specific to CheckboxCard - not in Foundation Layer)
+        "rounded-[8px]",
+        // Animation (Foundation Layer)
+        animation.transitionAll,
         className
       )}
     >
@@ -59,8 +95,35 @@ function CheckboxCard({
         data-slot="checkbox-card"
         id={itemId}
         className={cn(
+          // Layout & Structure
           "mt-0.5 shrink-0 cursor-pointer",
-          "border-semantic-stroke-default data-[state=unchecked]:bg-transparent data-[state=checked]:bg-semantic-surface-interaction-strong data-[state=checked]:text-white data-[state=checked]:border-semantic-surface-interaction-strong focus-visible:border-semantic-surface-interaction-strong focus-visible:ring-semantic-surface-interaction-strong/50 aria-invalid:ring-semantic-surface-rag-danger-strong/20 dark:aria-invalid:ring-semantic-surface-rag-danger-strong/40 aria-invalid:border-semantic-surface-rag-danger-strong size-4 shrink-0 rounded-[4px] border transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50",
+          // Border & Stroke (Foundation Layer)
+          "border",
+          stroke.default,
+          // Background & Surface
+          "data-[state=unchecked]:bg-transparent",
+          // Checked state - using surface.interactionStrong (Foundation Layer value)
+          "data-[state=checked]:bg-semantic-surface-interaction-strong",
+          "data-[state=checked]:border-semantic-surface-interaction-strong",
+          // Text color for check icon
+          "data-[state=checked]:text-white",
+          // Focus states (Foundation Layer)
+          "focus-visible:border-semantic-surface-interaction-strong",
+          states.focusRing,
+          // Invalid states (Foundation Layer)
+          states.invalidRing,
+          states.invalidBorder,
+          // Size & Layout
+          "size-4 shrink-0",
+          // Radius (Foundation Layer)
+          radius.sm,
+          // Disabled states (Foundation Layer)
+          states.disabled,
+          states.disabledCursor,
+          // Animation (Foundation Layer)
+          animation.transitionAll,
+          // Visual Effects
+          "outline-none",
         )}
         {...props}
       >
@@ -74,15 +137,23 @@ function CheckboxCard({
       <div className="flex flex-col gap-1 flex-1 min-w-0">
         <span
           className={cn(
+            // Typography
             "text-sm leading-5",
-            "text-semantic-text-default",
+            // Text color (Foundation Layer)
+            text.default,
+            // Font weight (specific to component)
             "group-has-[[data-state=checked]]:font-normal"
           )}
         >
           {label}
         </span>
         {description && (
-          <span className="text-sm leading-5 text-semantic-text-subdued">
+          <span className={cn(
+            // Typography
+            "text-sm leading-5",
+            // Text color (Foundation Layer)
+            text.subdued
+          )}>
             {description}
           </span>
         )}

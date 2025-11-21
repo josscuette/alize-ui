@@ -4,6 +4,7 @@ import * as React from "react";
 import { useTheme } from "next-themes";
 import { Switch } from "./ui/switch";
 import { MaterialSymbol } from "./material-symbol";
+import { text } from "../styles";
 
 export function ThemeToggle() {
   const { theme, setTheme, resolvedTheme } = useTheme();
@@ -36,7 +37,7 @@ export function ThemeToggle() {
 
   return (
     <div className="flex items-center gap-2">
-      <MaterialSymbol name="light_mode" size={16} className="text-semantic-text-subdued" />
+      <MaterialSymbol name="light_mode" size={16} className={text.subdued} />
       <Switch
         checked={isDark}
         onCheckedChange={(checked) => {
@@ -44,7 +45,7 @@ export function ThemeToggle() {
         }}
         aria-label="Toggle theme"
       />
-      <MaterialSymbol name="dark_mode" size={16} className="text-semantic-text-subdued" />
+      <MaterialSymbol name="dark_mode" size={16} className={text.subdued} />
     </div>
   );
 }

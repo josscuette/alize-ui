@@ -4,6 +4,7 @@ import * as React from "react"
 import * as SwitchPrimitive from "@radix-ui/react-switch"
 
 import { cn } from "../../lib/utils"
+import { surface, stroke, text, states, radius, animation } from "../../styles"
 
 function Switch({
   className,
@@ -13,13 +14,21 @@ function Switch({
     <SwitchPrimitive.Root
       data-slot="switch"
       className={cn(
-        "peer relative inline-flex h-4 w-8 shrink-0 items-center transition-all outline-none disabled:cursor-not-allowed disabled:opacity-50",
-        // Active state: teal background, fully rounded
+        // Layout & Structure
+        "peer relative inline-flex h-4 w-8 shrink-0 items-center",
+        // Animation (Foundation Layer)
+        animation.transitionAll,
+        // Visual Effects (Foundation Layer)
+        states.outlineNone,
+        // Disabled states (Foundation Layer)
+        states.disabledCursor,
+        "disabled:opacity-50", // Keep inline - states.disabled includes pointer-events-none which we don't want
+        // Active state: teal background, fully rounded (Foundation Layer values - keep inline with data-[state] prefix)
         "data-[state=checked]:bg-semantic-surface-interaction-strong data-[state=checked]:rounded-full data-[state=checked]:border-0",
-        // Inactive state: secondary background with border, rounded-3xl
+        // Inactive state: secondary background with border, rounded-3xl (Foundation Layer values - keep inline with data-[state] prefix)
         "data-[state=unchecked]:bg-semantic-surface-secondary data-[state=unchecked]:border data-[state=unchecked]:border-semantic-stroke-default data-[state=unchecked]:rounded-3xl",
-        // Focus states
-        "focus-visible:ring-semantic-surface-interaction-strong/50 focus-visible:ring-[3px] focus-visible:outline-none",
+        // Focus states (Foundation Layer)
+        states.focusRing,
         className
       )}
       {...props}
@@ -56,26 +65,41 @@ function SwitchCard({
     <label
       htmlFor={itemId}
       className={cn(
-        "group relative flex gap-6 items-start px-4 py-3 rounded-[8px] border transition-all cursor-pointer",
-        // Inactive state
-        "border-semantic-stroke-subdued bg-transparent",
-        // Active state (when switch is checked)
+        // Layout & Structure
+        "group relative flex gap-6 items-start px-4 py-3 cursor-pointer",
+        // Border & Stroke (Foundation Layer values - keep inline with has-[[data-state]] prefix)
+        "border border-semantic-stroke-subdued",
+        // Background & Surface
+        "bg-transparent",
+        // Active state (when switch is checked) - Foundation Layer values (keep inline with has-[[data-state]] prefix)
         "has-[[data-state=checked]]:bg-semantic-surface-whisper has-[[data-state=checked]]:border-semantic-stroke-default",
+        // Radius (specific to card - keep inline)
+        "rounded-[8px]",
+        // Animation (Foundation Layer)
+        animation.transitionAll,
         className
       )}
     >
       <div className="flex flex-col gap-1 flex-1 min-w-0">
         <span
           className={cn(
+            // Typography
             "text-sm leading-5",
-            "text-semantic-text-default",
+            // Text color (Foundation Layer)
+            text.default,
+            // Font weight (specific to component - keep inline)
             "group-has-[[data-state=checked]]:font-normal"
           )}
         >
           {label}
         </span>
         {description && (
-          <span className="text-sm leading-5 text-semantic-text-subdued">
+          <span className={cn(
+            // Typography
+            "text-sm leading-5",
+            // Text color (Foundation Layer)
+            text.subdued
+          )}>
             {description}
           </span>
         )}
@@ -85,14 +109,23 @@ function SwitchCard({
           data-slot="switch-card"
           id={itemId}
           className={cn(
+            // Layout & Structure
+            "peer relative inline-flex h-4 w-8 shrink-0 items-center",
+            // Cursor (specific to component - keep inline)
             "cursor-pointer",
-            "peer relative inline-flex h-4 w-8 shrink-0 items-center transition-all outline-none disabled:cursor-not-allowed disabled:opacity-50",
-            // Active state: teal background, fully rounded
+            // Animation (Foundation Layer)
+            animation.transitionAll,
+            // Visual Effects (Foundation Layer)
+            states.outlineNone,
+            // Disabled states (Foundation Layer)
+            states.disabledCursor,
+            "disabled:opacity-50", // Keep inline - states.disabled includes pointer-events-none which we don't want
+            // Active state: teal background, fully rounded (Foundation Layer values - keep inline with data-[state] prefix)
             "data-[state=checked]:bg-semantic-surface-interaction-strong data-[state=checked]:rounded-full data-[state=checked]:border-0",
-            // Inactive state: secondary background with border, rounded-3xl
+            // Inactive state: secondary background with border, rounded-3xl (Foundation Layer values - keep inline with data-[state] prefix)
             "data-[state=unchecked]:bg-semantic-surface-secondary data-[state=unchecked]:border data-[state=unchecked]:border-semantic-stroke-default data-[state=unchecked]:rounded-3xl",
-            // Focus states
-            "focus-visible:ring-semantic-surface-interaction-strong/50 focus-visible:ring-[3px] focus-visible:outline-none",
+            // Focus states (Foundation Layer)
+            states.focusRing,
           )}
           {...props}
         >

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useCallback, memo, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { componentsConfig, categories, type ComponentConfig } from "@/lib/components-config";
@@ -17,7 +17,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 export default function ComponentsPage() {
   const pathname = usePathname();
   const isMobile = useIsMobile();
-  const [selectedComponent, setSelectedComponent] = useState<string>("button");
+  const [selectedComponent, setSelectedComponent] = useState<string>("foundation-layer");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [showModifiedOnly, setShowModifiedOnly] = useState<boolean>(false);
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
@@ -55,7 +55,56 @@ export default function ComponentsPage() {
     );
   }, [filteredComponents]);
 
-  const SidebarContent = () => (
+  const searchInputRef = useRef<HTMLInputElement>(null);
+  const wasFocusedRef = useRef(false);
+
+  const handleSearchChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    wasFocusedRef.current = document.activeElement === e.target;
+    setSearchQuery(e.target.value);
+  }, []);
+
+  useEffect(() => {
+    if (wasFocusedRef.current && searchInputRef.current) {
+      searchInputRef.current.focus();
+      wasFocusedRef.current = false;
+    }
+  }, [searchQuery]);
+
+  const handleClearSearch = useCallback(() => {
+    setSearchQuery("");
+    if (searchInputRef.current) {
+      searchInputRef.current.focus();
+    }
+  }, []);
+
+  const SidebarContent = memo(function SidebarContent({
+    pathname,
+    isMobile,
+    searchQuery,
+    showModifiedOnly,
+    groupedComponents,
+    selectedComponent,
+    onComponentSelect,
+    onToggleModified,
+    onCloseMobile,
+    onSearchChange,
+    onClearSearch,
+    searchInputRef,
+  }: {
+    pathname: string;
+    isMobile: boolean;
+    searchQuery: string;
+    showModifiedOnly: boolean;
+    groupedComponents: Record<string, ComponentConfig[]>;
+    selectedComponent: string;
+    onComponentSelect: (id: string) => void;
+    onToggleModified: () => void;
+    onCloseMobile: () => void;
+    onSearchChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    onClearSearch: () => void;
+    searchInputRef: React.RefObject<HTMLInputElement | null>;
+  }) {
+    return (
     <>
       {/* Header */}
       <div className="p-4 border-b space-y-3">
@@ -73,7 +122,7 @@ export default function ComponentsPage() {
               ? "bg-accent text-accent-foreground font-medium"
               : "hover:bg-accent/50 text-muted-foreground hover:text-foreground"
           )}
-          onClick={() => isMobile && setSidebarOpen(false)}
+          onClick={onCloseMobile}
         >
           <MaterialSymbol name="home" size={16} weight={300} />
           <span>Home</span>
@@ -86,14 +135,14 @@ export default function ComponentsPage() {
               ? "bg-accent text-accent-foreground font-medium"
               : "hover:bg-accent/50 text-muted-foreground hover:text-foreground"
           )}
-          onClick={() => isMobile && setSidebarOpen(false)}
+          onClick={onCloseMobile}
         >
           <MaterialSymbol name="apps" size={16} weight={300} />
           <span>Components</span>
         </Link>
         <div className="flex items-center justify-between">
           <button
-            onClick={() => setShowModifiedOnly(!showModifiedOnly)}
+            onClick={onToggleModified}
             className={cn(
               "flex items-center gap-2 px-2 py-1 rounded text-xs transition-colors",
               showModifiedOnly
@@ -119,16 +168,17 @@ export default function ComponentsPage() {
             className="absolute left-3 top-1/2 -translate-y-1/2 text-semantic-icon-subdued pointer-events-none z-10" 
           />
           <Input
+            ref={searchInputRef}
             type="text"
             placeholder="Search components..."
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={onSearchChange}
             className="pl-9 pr-9 h-8 text-sm"
           />
           {searchQuery && (
             <button
               type="button"
-              onClick={() => setSearchQuery("")}
+              onClick={onClearSearch}
               className="absolute right-3 top-0 bottom-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
               aria-label="Clear search"
             >
@@ -145,6 +195,32 @@ export default function ComponentsPage() {
 
       {/* Navigation scrollable */}
       <nav className="flex-1 overflow-y-auto p-4 space-y-6">
+        {/* Foundation Layer Link */}
+        <div className="space-y-2">
+          <h2 className="text-xs font-normal text-muted-foreground uppercase tracking-wider">
+            Documentation
+          </h2>
+          <ul className="space-y-1">
+            <li>
+              <button
+                onClick={() => {
+                  onComponentSelect("foundation-layer");
+                  if (isMobile) onCloseMobile();
+                }}
+                className={cn(
+                  "w-full text-left px-3 py-1.5 rounded-md text-sm transition-colors flex items-center gap-2",
+                  selectedComponent === "foundation-layer"
+                    ? "bg-accent text-accent-foreground font-medium"
+                    : "hover:bg-accent/50 text-muted-foreground hover:text-foreground"
+                )}
+              >
+                <MaterialSymbol name="layers" size={16} weight={300} />
+                <span>Foundation Layer</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+
         {Object.entries(categories).map(([key, label]) => {
           const components = groupedComponents[key] || [];
           if (components.length === 0) return null;
@@ -166,8 +242,8 @@ export default function ComponentsPage() {
                   <li key={component.id}>
                     <button
                       onClick={() => {
-                        setSelectedComponent(component.id);
-                        if (isMobile) setSidebarOpen(false);
+                        onComponentSelect(component.id);
+                        if (isMobile) onCloseMobile();
                       }}
                       className={cn(
                         "w-full text-left px-3 py-1.5 rounded-md text-sm transition-colors flex items-center justify-between group",
@@ -198,13 +274,27 @@ export default function ComponentsPage() {
       </nav>
     </>
   );
+  });
 
   return (
     <div className="flex h-screen overflow-hidden">
       {/* Navigation latérale - Desktop */}
       {!isMobile && (
         <aside className="hidden md:flex w-64 border-r bg-background flex-col shrink-0">
-          <SidebarContent />
+          <SidebarContent
+            pathname={pathname}
+            isMobile={isMobile}
+            searchQuery={searchQuery}
+            showModifiedOnly={showModifiedOnly}
+            groupedComponents={groupedComponents}
+            selectedComponent={selectedComponent}
+            onComponentSelect={setSelectedComponent}
+            onToggleModified={() => setShowModifiedOnly(!showModifiedOnly)}
+            onCloseMobile={() => setSidebarOpen(false)}
+            onSearchChange={handleSearchChange}
+            onClearSearch={handleClearSearch}
+            searchInputRef={searchInputRef}
+          />
         </aside>
       )}
 
@@ -213,7 +303,20 @@ export default function ComponentsPage() {
         <Sheet open={sidebarOpen} onOpenChange={setSidebarOpen}>
           <SheetContent side="left" className="w-64 p-0">
             <div className="flex flex-col h-full">
-              <SidebarContent />
+              <SidebarContent
+                pathname={pathname}
+                isMobile={isMobile}
+                searchQuery={searchQuery}
+                showModifiedOnly={showModifiedOnly}
+                groupedComponents={groupedComponents}
+                selectedComponent={selectedComponent}
+                onComponentSelect={setSelectedComponent}
+                onToggleModified={() => setShowModifiedOnly(!showModifiedOnly)}
+                onCloseMobile={() => setSidebarOpen(false)}
+                onSearchChange={handleSearchChange}
+                onClearSearch={handleClearSearch}
+                searchInputRef={searchInputRef}
+              />
             </div>
           </SheetContent>
         </Sheet>

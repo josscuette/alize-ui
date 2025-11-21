@@ -4,6 +4,7 @@ import * as React from "react"
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group"
 
 import { cn } from "../../lib/utils"
+import { stroke, states, radius, text, animation, surface } from "../../styles"
 
 function RadioGroup({
   className,
@@ -26,20 +27,31 @@ function RadioGroupItem({
     <RadioGroupPrimitive.Item
       data-slot="radio-group-item"
       className={cn(
-        // Base styles
-        "aspect-square size-4 shrink-0 transition-[background-color,border-color,box-shadow] outline-none",
-        "disabled:cursor-not-allowed disabled:opacity-50",
-        // Inactive state: border only, rounded-3xl
-        "border border-semantic-stroke-default rounded-3xl",
+        // Layout & Structure
+        "aspect-square size-4 shrink-0",
+        // Border & Stroke (Foundation Layer)
+        "border",
+        stroke.default,
+        // Background & Surface
         "data-[state=unchecked]:bg-transparent",
-        // Active state: teal background, fully rounded
-        "data-[state=checked]:bg-semantic-surface-interaction-strong data-[state=checked]:rounded-full data-[state=checked]:border-0",
-        // Focus states
-        "focus-visible:ring-semantic-surface-interaction-strong/50 focus-visible:ring-[3px]",
-        // Error states
-        "aria-invalid:border-semantic-surface-rag-danger-strong",
-        "aria-invalid:ring-semantic-surface-rag-danger-strong/20",
-        "dark:aria-invalid:ring-semantic-surface-rag-danger-strong/40",
+        // Active state - using surface.interactionStrong and radius.full (Foundation Layer values)
+        "data-[state=checked]:bg-semantic-surface-interaction-strong",
+        "data-[state=checked]:rounded-full",
+        "data-[state=checked]:border-0",
+        // Radius (Foundation Layer)
+        radius["3xl"],
+        // Focus states (Foundation Layer)
+        states.focusRing,
+        // Invalid states (Foundation Layer)
+        states.invalidRing,
+        states.invalidBorder,
+        // Disabled states (Foundation Layer)
+        states.disabled,
+        states.disabledCursor,
+        // Animation (specific transition - keep inline)
+        "transition-[background-color,border-color,box-shadow]",
+        // Visual Effects
+        "outline-none",
         className
       )}
       {...props}
@@ -73,11 +85,20 @@ function RadioGroupCardItem({
     <label
       htmlFor={itemId}
       className={cn(
-        "group relative flex gap-2 items-start px-4 py-3 rounded-[8px] border transition-all cursor-pointer",
-        // Inactive state
-        "border-semantic-stroke-subdued bg-transparent",
-        // Active state (when child radio is checked)
-        "has-[[data-state=checked]]:bg-semantic-surface-whisper has-[[data-state=checked]]:border-semantic-stroke-default",
+        // Layout & Structure
+        "group relative flex gap-2 items-start px-4 py-3 cursor-pointer",
+        // Border & Stroke (Foundation Layer)
+        "border",
+        stroke.subdued,
+        // Background & Surface
+        "bg-transparent",
+        // Active state - using surface.whisper and stroke.default (Foundation Layer values)
+        "has-[[data-state=checked]]:bg-semantic-surface-whisper",
+        "has-[[data-state=checked]]:border-semantic-stroke-default",
+        // Radius (specific to RadioGroupCardItem - not in Foundation Layer)
+        "rounded-[8px]",
+        // Animation (Foundation Layer)
+        animation.transitionAll,
         className
       )}
     >
@@ -85,21 +106,33 @@ function RadioGroupCardItem({
         data-slot="radio-group-card-item"
         id={itemId}
         className={cn(
+          // Layout & Structure
           "mt-0.5 shrink-0 cursor-pointer",
-          // Base styles
-          "aspect-square size-4 shrink-0 transition-[background-color,border-color,box-shadow] outline-none",
-          "disabled:cursor-not-allowed disabled:opacity-50",
-          // Inactive state: border only, rounded-3xl
-          "border border-semantic-stroke-default rounded-3xl",
+          // Size & Layout
+          "aspect-square size-4 shrink-0",
+          // Border & Stroke (Foundation Layer)
+          "border",
+          stroke.default,
+          // Background & Surface
           "data-[state=unchecked]:bg-transparent",
-          // Active state: teal background, fully rounded
-          "data-[state=checked]:bg-semantic-surface-interaction-strong data-[state=checked]:rounded-full data-[state=checked]:border-0",
-          // Focus states
-          "focus-visible:ring-semantic-surface-interaction-strong/50 focus-visible:ring-[3px]",
-          // Error states
-          "aria-invalid:border-semantic-surface-rag-danger-strong",
-          "aria-invalid:ring-semantic-surface-rag-danger-strong/20",
-          "dark:aria-invalid:ring-semantic-surface-rag-danger-strong/40",
+          // Active state - using surface.interactionStrong and radius.full (Foundation Layer values)
+          "data-[state=checked]:bg-semantic-surface-interaction-strong",
+          "data-[state=checked]:rounded-full",
+          "data-[state=checked]:border-0",
+          // Radius (Foundation Layer)
+          radius["3xl"],
+          // Focus states (Foundation Layer)
+          states.focusRing,
+          // Invalid states (Foundation Layer)
+          states.invalidRing,
+          states.invalidBorder,
+          // Disabled states (Foundation Layer)
+          states.disabled,
+          states.disabledCursor,
+          // Animation (specific transition - keep inline)
+          "transition-[background-color,border-color,box-shadow]",
+          // Visual Effects
+          "outline-none",
         )}
         {...props}
       >
@@ -114,15 +147,23 @@ function RadioGroupCardItem({
       <div className="flex flex-col gap-1 flex-1 min-w-0">
         <span
           className={cn(
+            // Typography
             "text-sm leading-5",
-            "text-semantic-text-default",
+            // Text color (Foundation Layer)
+            text.default,
+            // Font weight (specific to component)
             "group-has-[[data-state=checked]]:font-normal"
           )}
         >
           {label}
         </span>
         {description && (
-          <span className="text-sm leading-5 text-semantic-text-subdued">
+          <span className={cn(
+            // Typography
+            "text-sm leading-5",
+            // Text color (Foundation Layer)
+            text.subdued
+          )}>
             {description}
           </span>
         )}

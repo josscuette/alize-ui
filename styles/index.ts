@@ -34,4 +34,5 @@ export { states } from "./states"
 export { size } from "./size"
 export { radius } from "./radius"
 export { animation } from "./animation"
+export { shadow } from "./shadow"
 

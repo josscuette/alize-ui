@@ -35,5 +35,7 @@ export const animation = {
   // Specific component transitions
   transitionButton: "transition-all",
   transitionInput: "transition-[color,box-shadow]",
+  transitionFormControl: "transition-[color,box-shadow]",
+  transitionFormControlComplex: "transition-[background-color,border-color,box-shadow]",
 } as const
 

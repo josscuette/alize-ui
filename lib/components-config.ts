@@ -26,9 +26,9 @@ export const componentsConfig: ComponentConfig[] = [
   { id: "aspect-ratio", name: "Aspect Ratio", category: "atoms" },
   { id: "empty", name: "Empty", category: "atoms" },
   { id: "item", name: "Item", category: "atoms" },
+  { id: "checkbox", name: "Checkbox", category: "atoms", modified: true },
   
   // Molecules
-  { id: "checkbox", name: "Checkbox", category: "molecules", modified: true },
   { id: "switch", name: "Switch", category: "molecules", modified: true },
   { id: "radio-group", name: "Radio Group", category: "molecules", modified: true },
   { id: "select", name: "Select", category: "molecules", modified: true },

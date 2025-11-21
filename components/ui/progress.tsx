@@ -4,6 +4,7 @@ import * as React from "react"
 import * as ProgressPrimitive from "@radix-ui/react-progress"
 
 import { cn } from "../../lib/utils"
+import { surface, radius, animation } from "../../styles"
 
 function Progress({
   className,
@@ -14,14 +15,26 @@ function Progress({
     <ProgressPrimitive.Root
       data-slot="progress"
       className={cn(
-        "bg-semantic-surface-interaction-strong/20 relative h-2 w-full overflow-hidden rounded-full",
+        // Background & Surface (Foundation Layer value with opacity - keep inline)
+        "bg-semantic-surface-interaction-strong/20",
+        // Layout & Structure
+        "relative h-2 w-full overflow-hidden",
+        // Radius (Foundation Layer)
+        radius.full,
         className
       )}
       {...props}
     >
       <ProgressPrimitive.Indicator
         data-slot="progress-indicator"
-        className="bg-semantic-surface-interaction-strong h-full w-full flex-1 transition-all"
+        className={cn(
+          // Background & Surface (Foundation Layer)
+          surface.interactionStrong,
+          // Layout & Structure
+          "h-full w-full flex-1",
+          // Animation (Foundation Layer)
+          animation.transitionAll
+        )}
         style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
       />
     </ProgressPrimitive.Root>

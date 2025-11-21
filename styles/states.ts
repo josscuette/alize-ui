@@ -19,6 +19,10 @@ export const states = {
   focusRingDestructive: "focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40",
   focusOutline: "focus-visible:outline-none",
   
+  // Visual utilities
+  outlineNone: "outline-none",
+  outlineHidden: "outline-hidden",
+  
   // Disabled states
   disabled: "disabled:pointer-events-none disabled:opacity-50",
   disabledCursor: "disabled:cursor-not-allowed",

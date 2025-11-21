@@ -3,52 +3,90 @@ import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "../../lib/utils"
-import {
-  buttonBase,
-  defaultStyles,
-  destructiveStyles,
-  outlineStyles,
-  secondaryStyles,
-  ghostStyles,
-  linkStyles,
-  tertiaryStyles,
-  defaultSize,
-  smSize,
-  lgSize,
-  xsSize,
-  iconSize,
-  iconSmSize,
-  iconLgSize,
-  iconXsSize,
-} from "./button.styles"
+import { surface, text, icon, states, stroke, size, radius, animation } from "../../styles"
 
-const buttonVariants = cva(buttonBase, {
-  variants: {
-    variant: {
-      default: defaultStyles,
-      destructive: destructiveStyles,
-      outline: outlineStyles,
-      secondary: secondaryStyles,
-      ghost: ghostStyles,
-      link: linkStyles,
-      tertiary: tertiaryStyles,
+const buttonVariants = cva(
+  cn(
+    // Layout
+    "inline-flex items-center justify-center whitespace-nowrap font-normal",
+    // SVG handling
+    "[&_svg]:pointer-events-none shrink-0 [&_svg]:shrink-0",
+    // Focus
+    "outline-none",
+    // States from Foundation Layer
+    states.disabled,
+    states.focusRing,
+    states.invalidRing,
+    states.invalidBorder,
+    // Animation
+    animation.transitionAll
+  ),
+  {
+    variants: {
+      variant: {
+        default: cn(
+          surface.primary,
+          text.reversedPersistent,
+          states.hoverOpacity90,
+          icon.interactionBright
+        ),
+        destructive: cn(
+          surface.destructiveLegacy,
+          text.destructiveLegacy,
+          states.hoverDestructive,
+          states.focusRingDestructive,
+          surface.destructiveLegacyDark,
+          icon.destructiveLegacy
+        ),
+        outline: cn(
+          "border",
+          stroke.default,
+          text.subdued,
+          states.hoverOverlay1,
+          icon.subdued
+        ),
+        secondary: cn(
+          surface.secondary,
+          text.subdued,
+          states.hoverOpacity80,
+          icon.subdued
+        ),
+        ghost: cn(
+          text.subdued,
+          states.hoverOverlay1,
+          icon.subdued
+        ),
+        link: cn(
+          text.primary,
+          "underline-offset-4",
+          states.hoverUnderline,
+          "hover:text-semantic-text-interaction-bright",
+          icon.subdued,
+          icon.interactionBrightHover
+        ),
+        tertiary: cn(
+          text.subdued,
+          states.hoverOverlay1,
+          icon.subdued
+        ),
+      },
+      size: {
+        default: size.md,
+        sm: size.sm,
+        lg: size.lg,
+        xs: size.xs,
+        icon: size.iconMd,
+        "icon-sm": size.iconSm,
+        "icon-lg": size.iconLg,
+        "icon-xs": size.iconXs,
+      },
     },
-    size: {
-      default: defaultSize,
-      sm: smSize,
-      lg: lgSize,
-      xs: xsSize,
-      icon: iconSize,
-      "icon-sm": iconSmSize,
-      "icon-lg": iconLgSize,
-      "icon-xs": iconXsSize,
+    defaultVariants: {
+      variant: "default",
+      size: "default",
     },
-  },
-  defaultVariants: {
-    variant: "default",
-    size: "default",
-  },
-})
+  }
+)
 
 function Button({
   className,
@@ -80,7 +118,7 @@ function Button({
       className={cn(
         buttonVariants({ variant, size }),
         // Primary icon-only: icon should be reversedPersistent (white) - override default bright color
-        isPrimaryIconOnly && '[&_.material-symbols-outlined]:!text-semantic-text-reversedpersistent',
+        isPrimaryIconOnly && icon.reversedPersistent,
         className
       )}
       {...props}

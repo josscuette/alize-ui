@@ -5,6 +5,7 @@ import * as AvatarPrimitive from "@radix-ui/react-avatar"
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "../../lib/utils"
+import { surface, text, radius } from "../../styles"
 
 const avatarVariants = cva(
   "relative flex shrink-0 overflow-hidden",
@@ -18,7 +19,7 @@ const avatarVariants = cva(
       },
       shape: {
         square: "",
-        rounded: "rounded-full",
+        rounded: radius.full,
       },
     },
     defaultVariants: {
@@ -30,16 +31,16 @@ const avatarVariants = cva(
 
 const avatarShapeRadius = {
   square: {
-    xs: "rounded-sm",
-    sm: "rounded-md",
-    md: "rounded-md",
-    lg: "rounded-md",
+    xs: "rounded-sm", // Keep inline - radius.sm is 4px, rounded-sm is 2px
+    sm: radius.md,
+    md: radius.md,
+    lg: radius.md,
   },
   rounded: {
-    xs: "rounded-full",
-    sm: "rounded-full",
-    md: "rounded-full",
-    lg: "rounded-full",
+    xs: radius.full,
+    sm: radius.full,
+    md: radius.full,
+    lg: radius.full,
   },
 }
 
@@ -97,7 +98,13 @@ function AvatarFallback({
     <AvatarPrimitive.Fallback
       data-slot="avatar-fallback"
       className={cn(
-        "bg-semantic-surface-subdued flex size-full items-center justify-center text-semantic-text-subdued",
+        // Background & Surface (Foundation Layer)
+        surface.subdued,
+        // Layout & Structure
+        "flex size-full items-center justify-center",
+        // Text color (Foundation Layer)
+        text.subdued,
+        // Typography (specific to component - keep inline)
         textSizeMap[size],
         className
       )}

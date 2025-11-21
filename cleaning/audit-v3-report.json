@@ -1,0 +1,2790 @@
+{
+  "summary": {
+    "totalFiles": 62,
+    "filesWithFoundationLayer": 9,
+    "totalFoundationLayerImports": {
+      "surface": 6,
+      "text": 5,
+      "icon": 1,
+      "stroke": 5,
+      "states": 7,
+      "radius": 9,
+      "animation": 7,
+      "shadow": 2,
+      "size": 1
+    },
+    "totalFoundationLayerUsage": {
+      "surface": 12,
+      "text": 14,
+      "icon": 9,
+      "stroke": 11,
+      "states": 51,
+      "radius": 18,
+      "animation": 11,
+      "shadow": 3,
+      "size": 8
+    },
+    "totalArbitraryClasses": {
+      "text": 0,
+      "bg": 0,
+      "border": 0,
+      "ring": 0,
+      "decoration": 0
+    },
+    "totalSemanticClasses": {
+      "text": 22,
+      "bg": 19,
+      "border": 18,
+      "stroke": 13,
+      "surface": 19,
+      "icon": 7
+    },
+    "totalClasses": 630,
+    "totalFoundationLayerClasses": 137,
+    "totalArbitraryClassesCount": 0,
+    "totalSemanticClassesCount": 98
+  },
+  "files": [
+    {
+      "file": "components/ui/accordion.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 12,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/alert-dialog.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 0,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/alert.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 0,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/aspect-ratio.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 0,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/avatar.tsx",
+      "foundationLayerImports": {
+        "surface": true,
+        "text": true,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": true,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 1,
+        "text": 1,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 9,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 0,
+      "foundationLayerClasses": 11,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/badge.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 0,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/breadcrumb.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 2,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/button-group.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 0,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/button.tsx",
+      "foundationLayerImports": {
+        "surface": true,
+        "text": true,
+        "icon": true,
+        "stroke": true,
+        "states": true,
+        "radius": true,
+        "animation": true,
+        "shadow": false,
+        "size": true
+      },
+      "foundationLayerUsage": {
+        "surface": 4,
+        "text": 7,
+        "icon": 9,
+        "stroke": 1,
+        "states": 12,
+        "radius": 0,
+        "animation": 1,
+        "shadow": 0,
+        "size": 8
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 1,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 0,
+      "foundationLayerClasses": 42,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 1
+    },
+    {
+      "file": "components/ui/calendar.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 5,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/card.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 0,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/carousel.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 3,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/chart.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 0,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/checkbox.tsx",
+      "foundationLayerImports": {
+        "surface": true,
+        "text": true,
+        "icon": false,
+        "stroke": true,
+        "states": true,
+        "radius": true,
+        "animation": true,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 3,
+        "text": 2,
+        "icon": 0,
+        "stroke": 4,
+        "states": 10,
+        "radius": 2,
+        "animation": 3,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 3,
+        "border": 5,
+        "stroke": 1,
+        "surface": 3,
+        "icon": 0
+      },
+      "totalClasses": 16,
+      "foundationLayerClasses": 24,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 12
+    },
+    {
+      "file": "components/ui/collapsible.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 0,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/combobox.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 2,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/command.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 26,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/context-menu.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 18,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/data-table.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 2,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/date-picker.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 10,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/dialog.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 19,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/drawer.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 9,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/dropdown-menu.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 19,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/empty.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 7,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/field.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 15,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/form.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 0,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/hover-card.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 0,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/input-group.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 0,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/input-otp.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 11,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/input.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": true,
+        "states": true,
+        "radius": true,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 1,
+        "states": 3,
+        "radius": 1,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 1,
+        "stroke": 1,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 0,
+      "foundationLayerClasses": 5,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 2
+    },
+    {
+      "file": "components/ui/item.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 0,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/kbd.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 0,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/label.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 0,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/menubar.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 20,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/native-select.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 13,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/navigation-menu.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 15,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/pagination.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 6,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/popover.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 0,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/progress.tsx",
+      "foundationLayerImports": {
+        "surface": true,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": true,
+        "animation": true,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 1,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 1,
+        "animation": 1,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 1,
+        "border": 0,
+        "stroke": 0,
+        "surface": 1,
+        "icon": 0
+      },
+      "totalClasses": 0,
+      "foundationLayerClasses": 3,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 2
+    },
+    {
+      "file": "components/ui/radio-group.tsx",
+      "foundationLayerImports": {
+        "surface": true,
+        "text": true,
+        "icon": false,
+        "stroke": true,
+        "states": true,
+        "radius": true,
+        "animation": true,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 3,
+        "text": 2,
+        "icon": 0,
+        "stroke": 4,
+        "states": 10,
+        "radius": 2,
+        "animation": 1,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 3,
+        "border": 1,
+        "stroke": 1,
+        "surface": 3,
+        "icon": 0
+      },
+      "totalClasses": 31,
+      "foundationLayerClasses": 22,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 8
+    },
+    {
+      "file": "components/ui/resizable.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 10,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/scroll-area.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 11,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/select.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": true,
+        "radius": true,
+        "animation": true,
+        "shadow": true,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 1,
+        "states": 4,
+        "radius": 2,
+        "animation": 1,
+        "shadow": 2,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 2,
+        "bg": 0,
+        "border": 1,
+        "stroke": 1,
+        "surface": 0,
+        "icon": 2
+      },
+      "totalClasses": 12,
+      "foundationLayerClasses": 10,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 6
+    },
+    {
+      "file": "components/ui/separator.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 0,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/sheet.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 19,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/sidebar.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 30,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/skeleton.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 0,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/slider.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 1,
+        "border": 1,
+        "stroke": 0,
+        "surface": 1,
+        "icon": 0
+      },
+      "totalClasses": 15,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 3
+    },
+    {
+      "file": "components/ui/sonner.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 8,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/spinner.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 0,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/switch.tsx",
+      "foundationLayerImports": {
+        "surface": true,
+        "text": true,
+        "icon": false,
+        "stroke": true,
+        "states": true,
+        "radius": true,
+        "animation": true,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 2,
+        "icon": 0,
+        "stroke": 0,
+        "states": 8,
+        "radius": 0,
+        "animation": 3,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 5,
+        "border": 4,
+        "stroke": 4,
+        "surface": 5,
+        "icon": 0
+      },
+      "totalClasses": 9,
+      "foundationLayerClasses": 13,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 18
+    },
+    {
+      "file": "components/ui/table.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 3,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/tabs.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 0,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/textarea.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": true,
+        "radius": true,
+        "animation": true,
+        "shadow": true,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 4,
+        "radius": 1,
+        "animation": 1,
+        "shadow": 1,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 0,
+      "foundationLayerClasses": 7,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/toggle-group.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 0,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/toggle.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 0,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/tooltip.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 7,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "components/ui/typography.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 0,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "app/components/page.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 6,
+        "bg": 2,
+        "border": 0,
+        "stroke": 0,
+        "surface": 2,
+        "icon": 3
+      },
+      "totalClasses": 94,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 13
+    },
+    {
+      "file": "app/layout.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 0,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    },
+    {
+      "file": "app/page.tsx",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 13,
+        "bg": 4,
+        "border": 5,
+        "stroke": 5,
+        "surface": 4,
+        "icon": 2
+      },
+      "totalClasses": 151,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 33
+    },
+    {
+      "file": "hooks/use-mobile.ts",
+      "foundationLayerImports": {
+        "surface": false,
+        "text": false,
+        "icon": false,
+        "stroke": false,
+        "states": false,
+        "radius": false,
+        "animation": false,
+        "shadow": false,
+        "size": false
+      },
+      "foundationLayerUsage": {
+        "surface": 0,
+        "text": 0,
+        "icon": 0,
+        "stroke": 0,
+        "states": 0,
+        "radius": 0,
+        "animation": 0,
+        "shadow": 0,
+        "size": 0
+      },
+      "arbitraryClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "ring": 0,
+        "decoration": 0
+      },
+      "semanticClasses": {
+        "text": 0,
+        "bg": 0,
+        "border": 0,
+        "stroke": 0,
+        "surface": 0,
+        "icon": 0
+      },
+      "totalClasses": 0,
+      "foundationLayerClasses": 0,
+      "arbitraryClassesCount": 0,
+      "semanticClassesCount": 0
+    }
+  ],
+  "foundationLayerCoverage": {
+    "percentage": "58.30",
+    "foundationLayerClasses": 137,
+    "semanticClasses": 98,
+    "total": 235
+  },
+  "migrationStatus": {
+    "filesMigrated": 9,
+    "filesTotal": 62,
+    "migrationRate": "14.52",
+    "arbitraryClassesRemaining": 0,
+    "semanticClassesDirect": 98
+  }
+}

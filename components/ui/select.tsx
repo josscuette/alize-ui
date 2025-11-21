@@ -6,6 +6,7 @@ import { CheckIcon, ChevronUpIcon } from "lucide-react"
 import { MaterialSymbol } from "../material-symbol"
 
 import { cn } from "../../lib/utils"
+import { states, radius, animation, shadow } from "../../styles"
 
 function Select({
   ...props
@@ -38,21 +39,39 @@ function SelectTrigger({
       data-slot="select-trigger"
       data-size={size}
       className={cn(
-        // Base styles matching Input
-        "border-input placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30",
-        "h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow]",
-        "outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
+        // Layout & Structure
+        "h-9 w-full min-w-0 px-3 py-1",
+        // Background & Surface
+        "bg-transparent dark:bg-input/30",
+        // Border & Stroke
+        "border border-input",
+        // Radius (Foundation Layer)
+        radius.md,
+        // Typography
+        "text-base md:text-sm",
+        // Legacy shadcn text colors
+        "placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground",
+        "data-[placeholder]:text-muted-foreground",
+        // Visual Effects (Foundation Layer)
+        shadow.xs,
+        states.outlineNone,
+        // Animation (Foundation Layer)
+        animation.transitionFormControl,
         // Layout and spacing
         "flex items-center justify-between gap-2 whitespace-nowrap",
         // Sizes
         "data-[size=default]:h-9 data-[size=sm]:h-8 data-[size=sm]:text-sm",
         // Content styles
-        "data-[placeholder]:text-muted-foreground",
         "*:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2",
-        // Focus states matching Input
+        // Disabled states (Foundation Layer)
+        states.disabled,
+        states.disabledCursor,
+        // Focus states (legacy shadcn - keep inline)
         "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]",
-        // Error states matching Input
-        "aria-invalid:ring-semantic-surface-rag-danger-strong/20 dark:aria-invalid:ring-semantic-surface-rag-danger-strong/40 aria-invalid:border-semantic-stroke-rag-danger-default",
+        // Invalid states (Foundation Layer)
+        states.invalidRing,
+        // Invalid border - using stroke.destructive with aria-invalid prefix
+        "aria-invalid:border-semantic-stroke-rag-danger-default",
         className
       )}
       {...props}
@@ -82,7 +101,19 @@ function SelectContent({
       <SelectPrimitive.Content
         data-slot="select-content"
         className={cn(
-          "bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 relative z-50 max-h-(--radix-select-content-available-height) min-w-[8rem] origin-(--radix-select-content-transform-origin) overflow-x-hidden overflow-y-auto rounded-md border shadow-md",
+          // Background & Surface (legacy shadcn)
+          "bg-popover text-popover-foreground",
+          // Border & Stroke
+          "border",
+          // Radius (Foundation Layer)
+          radius.md,
+          // Visual Effects (Foundation Layer)
+          shadow.md,
+          "relative z-50",
+          // Layout & Structure
+          "max-h-(--radix-select-content-available-height) min-w-[8rem] origin-(--radix-select-content-transform-origin) overflow-x-hidden overflow-y-auto",
+          // Animations (Radix UI specific - keep inline)
+          "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
           position === "popper" &&
             "data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1",
           className

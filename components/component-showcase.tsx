@@ -3,6 +3,7 @@
 import * as React from "react";
 import { useState } from "react";
 import { ComponentConfig } from "../lib/components-config";
+import { cn } from "../lib/utils";
 import { MaterialSymbol } from "./material-symbol";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Badge } from "./ui/badge";
@@ -231,7 +232,7 @@ import {
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip as RechartsTooltip, XAxis, YAxis } from "recharts";
 
 interface ComponentShowcaseProps {
-  componentId: ComponentConfig["id"];
+  componentId: ComponentConfig["id"] | "foundation-layer";
 }
 
 interface ShowcaseEntry {
@@ -268,7 +269,355 @@ const chartData = [
   { label: "Q4", main: 36, secondary: 25 },
 ];
 
-const showcaseRegistry: Partial<Record<ComponentConfig["id"], ShowcaseEntry>> = {
+const showcaseRegistry: Partial<Record<ComponentConfig["id"] | "foundation-layer", ShowcaseEntry>> = {
+  "foundation-layer": {
+    title: "Foundation Layer",
+    description: "The canonical source of truth for all semantic Tailwind classes used across the Alize design system. A professional, scalable architecture that ensures consistency and maintainability.",
+    body: (
+      <>
+        <Section title="Introduction" description="The Foundation Layer is our design system's style architecture. It provides a centralized, type-safe, and semantic approach to styling components.">
+          <div className="space-y-4">
+            <div className="p-6 rounded-lg border bg-card space-y-3">
+              <h4 className="text-base font-medium">Why Foundation Layer?</h4>
+              <ul className="space-y-2 text-sm text-muted-foreground list-disc list-inside">
+                <li><strong>Single Source of Truth:</strong> All semantic classes are defined in one place</li>
+                <li><strong>Type Safety:</strong> TypeScript ensures correct usage with autocomplete</li>
+                <li><strong>Consistency:</strong> Standardized naming and structure across all modules</li>
+                <li><strong>Maintainability:</strong> Update styles globally by modifying one file</li>
+                <li><strong>Composability:</strong> Combine classes using the <code className="px-1 py-0.5 bg-muted rounded text-xs">cn()</code> utility</li>
+                <li><strong>Semantic First:</strong> All classes use semantic tokens (<code className="px-1 py-0.5 bg-muted rounded text-xs">semantic-*</code>)</li>
+              </ul>
+            </div>
+          </div>
+        </Section>
+
+        <Section title="Structure" description="The Foundation Layer is organized into 9 modules, each handling a specific aspect of styling.">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <div className="p-4 rounded-lg border bg-card space-y-2">
+              <div className="flex items-center gap-2">
+                <MaterialSymbol name="palette" size={20} weight={300} className="text-semantic-icon-subdued" />
+                <h4 className="text-sm font-medium">surfaces.ts</h4>
+              </div>
+              <p className="text-xs text-muted-foreground">Background colors and surface tokens</p>
+            </div>
+            <div className="p-4 rounded-lg border bg-card space-y-2">
+              <div className="flex items-center gap-2">
+                <MaterialSymbol name="text_fields" size={20} weight={300} className="text-semantic-icon-subdued" />
+                <h4 className="text-sm font-medium">text.ts</h4>
+              </div>
+              <p className="text-xs text-muted-foreground">Text color semantic classes</p>
+            </div>
+            <div className="p-4 rounded-lg border bg-card space-y-2">
+              <div className="flex items-center gap-2">
+                <MaterialSymbol name="image" size={20} weight={300} className="text-semantic-icon-subdued" />
+                <h4 className="text-sm font-medium">icon.ts</h4>
+              </div>
+              <p className="text-xs text-muted-foreground">Icon colors for Material Symbols</p>
+            </div>
+            <div className="p-4 rounded-lg border bg-card space-y-2">
+              <div className="flex items-center gap-2">
+                <MaterialSymbol name="border_style" size={20} weight={300} className="text-semantic-icon-subdued" />
+                <h4 className="text-sm font-medium">stroke.ts</h4>
+              </div>
+              <p className="text-xs text-muted-foreground">Border and stroke colors</p>
+            </div>
+            <div className="p-4 rounded-lg border bg-card space-y-2">
+              <div className="flex items-center gap-2">
+                <MaterialSymbol name="toggle_on" size={20} weight={300} className="text-semantic-icon-subdued" />
+                <h4 className="text-sm font-medium">states.ts</h4>
+              </div>
+              <p className="text-xs text-muted-foreground">Interaction states (hover, focus, disabled)</p>
+            </div>
+            <div className="p-4 rounded-lg border bg-card space-y-2">
+              <div className="flex items-center gap-2">
+                <MaterialSymbol name="straighten" size={20} weight={300} className="text-semantic-icon-subdued" />
+                <h4 className="text-sm font-medium">size.ts</h4>
+              </div>
+              <p className="text-xs text-muted-foreground">Standardized size presets</p>
+            </div>
+            <div className="p-4 rounded-lg border bg-card space-y-2">
+              <div className="flex items-center gap-2">
+                <MaterialSymbol name="radio_button_unchecked" size={20} weight={300} className="text-semantic-icon-subdued" />
+                <h4 className="text-sm font-medium">radius.ts</h4>
+              </div>
+              <p className="text-xs text-muted-foreground">Border radius presets</p>
+            </div>
+            <div className="p-4 rounded-lg border bg-card space-y-2">
+              <div className="flex items-center gap-2">
+                <MaterialSymbol name="animation" size={20} weight={300} className="text-semantic-icon-subdued" />
+                <h4 className="text-sm font-medium">animation.ts</h4>
+              </div>
+              <p className="text-xs text-muted-foreground">Animation and transition presets</p>
+            </div>
+            <div className="p-4 rounded-lg border bg-card space-y-2">
+              <div className="flex items-center gap-2">
+                <MaterialSymbol name="layers" size={20} weight={300} className="text-semantic-icon-subdued" />
+                <h4 className="text-sm font-medium">shadow.ts</h4>
+              </div>
+              <p className="text-xs text-muted-foreground">Shadow presets</p>
+            </div>
+          </div>
+        </Section>
+
+        <Section title="Usage" description="Import the modules you need and use them in your components.">
+          <div className="space-y-4">
+            <div className="p-4 rounded-lg border bg-muted/50">
+              <pre className="text-xs overflow-x-auto">
+                <code>{`import { surface, text, icon, states, radius, animation } from '@/styles'
+
+// Use in components
+className={cn(
+  surface.primary,
+  text.reversedPersistent,
+  icon.interactionBright,
+  states.hoverOverlay1,
+  radius.md,
+  animation.transitionAll
+)}`}</code>
+              </pre>
+            </div>
+            <div className="p-4 rounded-lg border bg-card space-y-2">
+              <h4 className="text-sm font-medium">Example: Button Component</h4>
+              <pre className="text-xs overflow-x-auto bg-muted/50 p-3 rounded">
+                <code>{`import { surface, text, icon, states, radius, animation } from '../../styles'
+import { cva } from 'class-variance-authority'
+
+const buttonVariants = cva(
+  cn(
+    "inline-flex items-center justify-center",
+    states.disabled,
+    states.focusRing,
+    animation.transitionAll
+  ),
+  {
+    variants: {
+      variant: {
+        default: cn(
+          surface.primary,
+          text.reversedPersistent,
+          states.hoverOpacity90
+        ),
+      },
+    },
+  }
+)`}</code>
+              </pre>
+            </div>
+          </div>
+        </Section>
+
+        <Section title="Surfaces" description="Background colors and surface tokens for components.">
+          <div className="space-y-4">
+            <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+              <div className="p-4 rounded-lg border space-y-2">
+                <div className="h-12 rounded-md bg-semantic-surface-primary flex items-center justify-center">
+                  <span className="text-xs text-semantic-text-reversedpersistent">surface.primary</span>
+                </div>
+                <code className="text-xs text-muted-foreground">bg-semantic-surface-primary</code>
+              </div>
+              <div className="p-4 rounded-lg border space-y-2">
+                <div className="h-12 rounded-md bg-semantic-surface-secondary flex items-center justify-center">
+                  <span className="text-xs text-semantic-text-default">surface.secondary</span>
+                </div>
+                <code className="text-xs text-muted-foreground">bg-semantic-surface-secondary</code>
+              </div>
+              <div className="p-4 rounded-lg border space-y-2">
+                <div className="h-12 rounded-md bg-semantic-surface-interaction-strong flex items-center justify-center">
+                  <span className="text-xs text-white">surface.interactionStrong</span>
+                </div>
+                <code className="text-xs text-muted-foreground">bg-semantic-surface-interaction-strong</code>
+              </div>
+              <div className="p-4 rounded-lg border space-y-2">
+                <div className="h-12 rounded-md bg-semantic-surface-overlays-level1 flex items-center justify-center">
+                  <span className="text-xs text-semantic-text-default">surface.overlay1</span>
+                </div>
+                <code className="text-xs text-muted-foreground">bg-semantic-surface-overlays-level1</code>
+              </div>
+              <div className="p-4 rounded-lg border space-y-2">
+                <div className="h-12 rounded-md bg-semantic-surface-whisper flex items-center justify-center">
+                  <span className="text-xs text-semantic-text-default">surface.whisper</span>
+                </div>
+                <code className="text-xs text-muted-foreground">bg-semantic-surface-whisper</code>
+              </div>
+              <div className="p-4 rounded-lg border space-y-2">
+                <div className="h-12 rounded-md bg-semantic-surface-rag-danger-strong flex items-center justify-center">
+                  <span className="text-xs text-white">surface.destructive</span>
+                </div>
+                <code className="text-xs text-muted-foreground">bg-semantic-surface-rag-danger-strong</code>
+              </div>
+            </div>
+          </div>
+        </Section>
+
+        <Section title="Text Colors" description="Semantic text colors for consistent typography.">
+          <div className="space-y-4">
+            <div className="grid gap-3 md:grid-cols-2">
+              <div className="p-4 rounded-lg border bg-card space-y-2">
+                <p className="text-sm text-semantic-text-default">text.default</p>
+                <code className="text-xs text-muted-foreground">text-semantic-text-default</code>
+              </div>
+              <div className="p-4 rounded-lg border bg-card space-y-2">
+                <p className="text-sm text-semantic-text-subdued">text.subdued</p>
+                <code className="text-xs text-muted-foreground">text-semantic-text-subdued</code>
+              </div>
+              <div className="p-4 rounded-lg border bg-card space-y-2">
+                <p className="text-sm text-semantic-text-interaction-bright">text.interactionBright</p>
+                <code className="text-xs text-muted-foreground">text-semantic-text-interaction-bright</code>
+              </div>
+              <div className="p-4 rounded-lg border bg-card space-y-2">
+                <p className="text-sm text-semantic-text-rag-danger-default">text.destructive</p>
+                <code className="text-xs text-muted-foreground">text-semantic-text-rag-danger-default</code>
+              </div>
+            </div>
+          </div>
+        </Section>
+
+        <Section title="States" description="Reusable interaction state classes for consistent behavior.">
+          <div className="space-y-4">
+            <div className="grid gap-3 md:grid-cols-2">
+              <div className="p-4 rounded-lg border bg-card space-y-3">
+                <h4 className="text-sm font-medium">Hover States</h4>
+                <div className="space-y-2">
+                  <Button variant="ghost" className="w-full justify-start">states.hoverOverlay1</Button>
+                  <Button variant="ghost" className="w-full justify-start">states.hoverPrimary</Button>
+                  <Button variant="ghost" className="w-full justify-start">states.hoverOpacity90</Button>
+                </div>
+              </div>
+              <div className="p-4 rounded-lg border bg-card space-y-3">
+                <h4 className="text-sm font-medium">Focus States</h4>
+                <div className="space-y-2">
+                  <Input placeholder="states.focusRing" className="focus-visible:ring-semantic-surface-interaction-strong/50 focus-visible:ring-[3px]" />
+                  <code className="text-xs text-muted-foreground block">Focus ring with semantic color</code>
+                </div>
+              </div>
+              <div className="p-4 rounded-lg border bg-card space-y-3">
+                <h4 className="text-sm font-medium">Disabled States</h4>
+                <div className="space-y-2">
+                  <Button disabled>states.disabled</Button>
+                  <code className="text-xs text-muted-foreground block">pointer-events-none + opacity-50</code>
+                </div>
+              </div>
+              <div className="p-4 rounded-lg border bg-card space-y-3">
+                <h4 className="text-sm font-medium">Invalid States</h4>
+                <div className="space-y-2">
+                  <Input aria-invalid className="aria-invalid:ring-semantic-surface-rag-danger-strong/20 dark:aria-invalid:ring-semantic-surface-rag-danger-strong/40" />
+                  <code className="text-xs text-muted-foreground block">states.invalidRing</code>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Section>
+
+        <Section title="Size Presets" description="Standardized size presets that include height, padding, typography, and icon sizing.">
+          <div className="space-y-4">
+            <div className="space-y-3">
+              <div className="flex flex-wrap gap-2 items-center">
+                <Button size="xs">size.xs</Button>
+                <Button size="sm">size.sm</Button>
+                <Button size="default">size.md</Button>
+                <Button size="lg">size.lg</Button>
+              </div>
+              <p className="text-xs text-muted-foreground">
+                Size presets include: height, padding, font-size, icon-size selectors, and border radius
+              </p>
+            </div>
+          </div>
+        </Section>
+
+        <Section title="Radius" description="Semantic border radius presets for consistent rounded corners.">
+          <div className="space-y-4">
+            <div className="grid gap-3 md:grid-cols-3 lg:grid-cols-6">
+              <div className="p-4 rounded-[4px] border bg-card text-center">
+                <code className="text-xs">radius.sm</code>
+              </div>
+              <div className="p-4 rounded-md border bg-card text-center">
+                <code className="text-xs">radius.md</code>
+              </div>
+              <div className="p-4 rounded-lg border bg-card text-center">
+                <code className="text-xs">radius.lg</code>
+              </div>
+              <div className="p-4 rounded-xl border bg-card text-center">
+                <code className="text-xs">radius.xl</code>
+              </div>
+              <div className="p-4 rounded-full border bg-card text-center">
+                <code className="text-xs">radius.full</code>
+              </div>
+              <div className="p-4 rounded-3xl border bg-card text-center">
+                <code className="text-xs">radius.3xl</code>
+              </div>
+            </div>
+          </div>
+        </Section>
+
+        <Section title="Animation" description="System-level animation presets for consistent transitions.">
+          <div className="space-y-4">
+            <div className="grid gap-3 md:grid-cols-2">
+              <div className="p-4 rounded-lg border bg-card space-y-2">
+                <h4 className="text-sm font-medium">Transitions</h4>
+                <ul className="text-xs text-muted-foreground space-y-1">
+                  <li>• animation.transitionAll</li>
+                  <li>• animation.transitionColors</li>
+                  <li>• animation.transitionFormControl</li>
+                </ul>
+              </div>
+              <div className="p-4 rounded-lg border bg-card space-y-2">
+                <h4 className="text-sm font-medium">Animations</h4>
+                <ul className="text-xs text-muted-foreground space-y-1">
+                  <li>• animation.fadeIn / fadeOut</li>
+                  <li>• animation.scaleIn / scaleOut</li>
+                  <li>• animation.slideUp / slideDown</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </Section>
+
+        <Section title="Best Practices" description="Guidelines for using the Foundation Layer effectively.">
+          <div className="space-y-4">
+            <div className="p-6 rounded-lg border bg-card space-y-4">
+              <div className="space-y-2">
+                <h4 className="text-sm font-medium">✅ Do</h4>
+                <ul className="text-sm text-muted-foreground space-y-1 list-disc list-inside">
+                  <li>Import only what you need: <code className="px-1 py-0.5 bg-muted rounded text-xs">{`import { surface, text } from '@/styles'`}</code></li>
+                  <li>Combine classes using <code className="px-1 py-0.5 bg-muted rounded text-xs">cn()</code> utility</li>
+                  <li>Use semantic classes for all design tokens</li>
+                  <li>Keep component-specific classes inline when they don't fit the Foundation Layer</li>
+                  <li>Document why you're keeping classes inline</li>
+                </ul>
+              </div>
+              <div className="space-y-2">
+                <h4 className="text-sm font-medium">❌ Don't</h4>
+                <ul className="text-sm text-muted-foreground space-y-1 list-disc list-inside">
+                  <li>Use arbitrary classes like <code className="px-1 py-0.5 bg-muted rounded text-xs">text-[var(--semantic-XXX)]</code></li>
+                  <li>Hardcode color values</li>
+                  <li>Create duplicate style definitions</li>
+                  <li>Modify Foundation Layer files without updating documentation</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </Section>
+
+        <Section title="Migration Status" description="Current status of Foundation Layer adoption across components.">
+          <div className="space-y-4">
+            <div className="p-6 rounded-lg border bg-card space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-medium">Components Migrated</span>
+                <span className="text-sm text-muted-foreground">9 / 10</span>
+              </div>
+              <div className="w-full bg-muted rounded-full h-2">
+                <div className="bg-semantic-surface-interaction-strong h-2 rounded-full" style={{ width: '90%' }} />
+              </div>
+              <div className="grid gap-2 md:grid-cols-2 text-xs text-muted-foreground">
+                <div>✅ Button, Input, Checkbox, Radio Group</div>
+                <div>✅ Select, Switch, Textarea, Avatar, Progress</div>
+              </div>
+            </div>
+          </div>
+        </Section>
+      </>
+    ),
+  },
   button: {
     title: "Button",
     description: "High-signal actions tuned on the design tokens (radius, spacing, icons). Buttons communicate actions users can take and are one of the most important interactive elements in your interface.",
@@ -15495,7 +15844,7 @@ function DatePickerWithInputDemo() {
 }
 
 function ComponentShowcase({ componentId }: ComponentShowcaseProps) {
-  const showcase = showcaseRegistry[componentId];
+  const showcase = showcaseRegistry[componentId as keyof typeof showcaseRegistry];
 
   if (!showcase) {
     return (
