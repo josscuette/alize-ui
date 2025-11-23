@@ -8,9 +8,7 @@
 // export default nextConfig;
 /** @type {import("next").NextConfig} */
 const nextConfig = {
-  experimental: {
-    turbo: false, 
-  },
+  // Removed invalid 'turbo' experimental option
 };
 
 module.exports = nextConfig;

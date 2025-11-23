@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useCallback, memo, useRef, useEffect } from "react";
+import { useState, useMemo, useCallback, memo, useRef, useEffect, Suspense } from "react";
 import Link from "next/link";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import { componentsConfig, categories, type ComponentConfig } from "@/lib/components-config";
@@ -14,7 +14,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
 
-export default function ComponentsPage() {
+function ComponentsPageInner() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -393,5 +393,20 @@ export default function ComponentsPage() {
         </ShowcaseWrapper>
       </main>
     </div>
+  );
+}
+
+export default function ComponentsPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="text-center space-y-2">
+          <MaterialSymbol name="hourglass_empty" size={24} weight={300} className="animate-spin mx-auto text-semantic-text-subdued" />
+          <p className="text-sm text-semantic-text-subdued">Loading components...</p>
+        </div>
+      </div>
+    }>
+      <ComponentsPageInner />
+    </Suspense>
   );
 }
