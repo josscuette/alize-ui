@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Source_Sans_3, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { MaterialSymbolsProvider } from "@/components/material-symbols-provider";
+import { GlobalNavigation } from "@/components/global-navigation";
+import { NavigationProvider } from "@/contexts/navigation-context";
 // import { ErrorBoundaryWrapper } from "@/components/error-boundary-wrapper"; // Temporairement désactivé pour debug
 import "./globals.css";
 
@@ -41,8 +43,11 @@ export default function RootLayout({
             dark: "theme-dark",
           }}
         >
-          {children}
-          {/* <ErrorBoundaryWrapper> temporairement désactivé pour debug */}
+          <NavigationProvider>
+            <GlobalNavigation />
+            {children}
+            {/* <ErrorBoundaryWrapper> temporairement désactivé pour debug */}
+          </NavigationProvider>
         </ThemeProvider>
       </body>
     </html>

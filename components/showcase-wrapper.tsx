@@ -10,6 +10,7 @@ interface ShowcaseWrapperProps {
 
 export function ShowcaseWrapper({ children }: ShowcaseWrapperProps) {
   const [sections, setSections] = useState<Array<{ id: string; title: string }>>([]);
+  const [headerTop, setHeaderTop] = useState<number>(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
 
@@ -88,6 +89,44 @@ export function ShowcaseWrapper({ children }: ShowcaseWrapperProps) {
     return () => clearTimeout(timeoutId);
   }, [children]);
 
+  // Calculate header position for sidebar alignment
+  useLayoutEffect(() => {
+    if (!containerRef.current) return;
+    
+    const updateHeaderTop = () => {
+      // Find the header element (usually the first header or the element containing the main title)
+      const header = containerRef.current?.querySelector("header");
+      if (header) {
+        const rect = header.getBoundingClientRect();
+        const scrollContainer = containerRef.current?.closest("main");
+        if (scrollContainer) {
+          const containerRect = scrollContainer.getBoundingClientRect();
+          const relativeTop = rect.top - containerRect.top + scrollContainer.scrollTop;
+          setHeaderTop(relativeTop);
+        } else {
+          setHeaderTop(rect.top);
+        }
+      } else {
+        // Fallback: use padding-top of the container (usually p-8 = 32px)
+        setHeaderTop(32);
+      }
+    };
+
+    updateHeaderTop();
+    
+    // Update on scroll and resize
+    const scrollContainer = containerRef.current?.closest("main");
+    if (scrollContainer) {
+      scrollContainer.addEventListener("scroll", updateHeaderTop);
+      window.addEventListener("resize", updateHeaderTop);
+      
+      return () => {
+        scrollContainer.removeEventListener("scroll", updateHeaderTop);
+        window.removeEventListener("resize", updateHeaderTop);
+      };
+    }
+  }, [children]);
+
   if (sections.length === 0) {
     return <div ref={containerRef}>{children}</div>;
   }
@@ -98,7 +137,10 @@ export function ShowcaseWrapper({ children }: ShowcaseWrapperProps) {
         {children}
       </div>
       {sections.length > 0 && !isMobile && (
-        <aside className="hidden lg:block w-[200px] shrink-0 sticky top-8 h-fit pr-8">
+        <aside 
+          className="hidden lg:block w-[200px] shrink-0 sticky h-fit pr-8"
+          style={{ top: `${headerTop}px` }}
+        >
           <nav className="space-y-1">
             <h4 className="text-xs font-normal text-muted-foreground uppercase tracking-wider mb-3">
               Sections
@@ -139,7 +181,7 @@ export function ShowcaseWrapper({ children }: ShowcaseWrapperProps) {
                   href={`#${section.id}`}
                   onClick={handleClick}
                   className={cn(
-                    "block w-full text-left px-2 py-1.5 text-sm rounded-md transition-colors",
+                    "block w-full text-left py-1.5 px-2 -mx-2 text-sm rounded-md transition-colors",
                     "hover:bg-accent/50 hover:text-foreground",
                     "text-muted-foreground"
                   )}

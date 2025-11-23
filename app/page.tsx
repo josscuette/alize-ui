@@ -1,13 +1,26 @@
 "use client";
 
+import { useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { MaterialSymbol } from "@/components/material-symbol";
-import { GlobalHeader } from "@/components/global-header";
-import { cn } from "@/lib/utils";
+import { useNavigation } from "@/contexts/navigation-context";
 
 export default function Home() {
+  const {
+    setSidebarSections,
+    setShowSearch,
+    setShowModifiedFilter,
+  } = useNavigation();
+
+  // Reset navigation context for pages without subpages
+  useEffect(() => {
+    setSidebarSections([]);
+    setShowSearch(false);
+    setShowModifiedFilter(false);
+  }, [setSidebarSections, setShowSearch, setShowModifiedFilter]);
+
   const quickLinks = [
     {
       title: "Browse Components",
@@ -27,17 +40,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="sticky top-0 z-30 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-8">
-          <div className="flex items-center gap-2">
-            <MaterialSymbol name="widgets" size={24} weight={300} className="text-semantic-icon-interaction-default" />
-            <h1 className="text-xl font-normal">Alize</h1>
-          </div>
-          <GlobalHeader />
-        </div>
-      </header>
-
       {/* Hero Section */}
       <section className="container mx-auto px-4 md:px-8 py-16 md:py-24">
         <div className="max-w-4xl mx-auto text-center space-y-6">
