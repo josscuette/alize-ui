@@ -138,7 +138,7 @@ export function ComponentPreview({ componentId, className }: ComponentPreviewPro
       </div>
     ),
     spinner: (
-      <Spinner size="sm" />
+      <Spinner className="size-4" />
     ),
     label: (
       <div className="space-y-2 w-full">
