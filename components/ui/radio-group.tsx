@@ -6,10 +6,27 @@ import * as RadioGroupPrimitive from "@radix-ui/react-radio-group"
 import { cn } from "../../lib/utils"
 import { stroke, states, radius, text, animation, surface } from "../../styles"
 
+/**
+ * RadioGroup component - A group of radio buttons
+ * 
+ * Manages a group of radio buttons where only one can be selected at a time.
+ * Built on Radix UI primitives for accessibility.
+ * 
+ * @param props - RadioGroup props including value, onValueChange, and standard Radix UI RadioGroup attributes
+ * @returns A radio group element
+ * 
+ * @example
+ * ```tsx
+ * <RadioGroup value={selected} onValueChange={setSelected}>
+ *   <RadioGroupItem value="option1" id="option1" />
+ *   <RadioGroupItem value="option2" id="option2" />
+ * </RadioGroup>
+ * ```
+ */
 function RadioGroup({
   className,
   ...props
-}: React.ComponentProps<typeof RadioGroupPrimitive.Root>) {
+}: RadioGroupProps): React.ReactElement {
   return (
     <RadioGroupPrimitive.Root
       data-slot="radio-group"
@@ -19,10 +36,16 @@ function RadioGroup({
   )
 }
 
+/**
+ * RadioGroupItem component - An individual radio button within a RadioGroup
+ * 
+ * @param props - RadioGroupItem props including value and standard Radix UI RadioGroupItem attributes
+ * @returns A radio button element
+ */
 function RadioGroupItem({
   className,
   ...props
-}: React.ComponentProps<typeof RadioGroupPrimitive.Item>) {
+}: RadioGroupItemProps): React.ReactElement {
   return (
     <RadioGroupPrimitive.Item
       data-slot="radio-group-item"
@@ -67,7 +90,23 @@ function RadioGroupItem({
   )
 }
 
-interface RadioGroupCardItemProps extends React.ComponentProps<typeof RadioGroupPrimitive.Item> {
+/**
+ * RadioGroup component props interface
+ * Extends Radix UI RadioGroup primitive props
+ */
+export interface RadioGroupProps extends React.ComponentProps<typeof RadioGroupPrimitive.Root> {}
+
+/**
+ * RadioGroupItem component props interface
+ * Extends Radix UI RadioGroupItem primitive props
+ */
+export interface RadioGroupItemProps extends React.ComponentProps<typeof RadioGroupPrimitive.Item> {}
+
+/**
+ * RadioGroupCardItem component props interface
+ * Extends Radix UI RadioGroupItem primitive props and adds label/description
+ */
+export interface RadioGroupCardItemProps extends React.ComponentProps<typeof RadioGroupPrimitive.Item> {
   label: string
   description?: string
 }
@@ -78,7 +117,7 @@ function RadioGroupCardItem({
   description,
   id,
   ...props
-}: RadioGroupCardItemProps) {
+}: RadioGroupCardItemProps): React.ReactElement {
   const itemId = id || `radio-card-${Math.random().toString(36).substr(2, 9)}`
   
   return (

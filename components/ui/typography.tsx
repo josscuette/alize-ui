@@ -1,9 +1,64 @@
 import * as React from "react"
 import { cn } from "../../lib/utils"
 
+/**
+ * TypographyH1 component props interface
+ * Extends native h1 element props
+ */
+export interface TypographyH1Props extends React.HTMLAttributes<HTMLHeadingElement> {}
+
+/**
+ * TypographyH2 component props interface
+ * Extends native h2 element props
+ */
+export interface TypographyH2Props extends React.HTMLAttributes<HTMLHeadingElement> {}
+
+/**
+ * TypographyH3 component props interface
+ * Extends native h3 element props
+ */
+export interface TypographyH3Props extends React.HTMLAttributes<HTMLHeadingElement> {}
+
+/**
+ * TypographyH4 component props interface
+ * Extends native h4 element props
+ */
+export interface TypographyH4Props extends React.HTMLAttributes<HTMLHeadingElement> {}
+
+/**
+ * TypographyP component props interface
+ * Extends native p element props
+ */
+export interface TypographyPProps extends React.HTMLAttributes<HTMLParagraphElement> {}
+
+/**
+ * TypographyBlockquote component props interface
+ * Extends native blockquote element props
+ */
+export interface TypographyBlockquoteProps extends React.HTMLAttributes<HTMLQuoteElement> {}
+
+/**
+ * TypographyCode component props interface
+ * Extends native code element props
+ */
+export interface TypographyCodeProps extends React.HTMLAttributes<HTMLElement> {}
+
+/**
+ * TypographyH1 component - A heading level 1
+ * 
+ * Provides a styled h1 heading with consistent typography.
+ * 
+ * @param props - TypographyH1 props including standard HTML h1 attributes
+ * @returns A TypographyH1 component
+ * 
+ * @example
+ * ```tsx
+ * <TypographyH1>Main Title</TypographyH1>
+ * ```
+ */
 const TypographyH1 = React.forwardRef<
   HTMLHeadingElement,
-  React.HTMLAttributes<HTMLHeadingElement>
+  TypographyH1Props
 >(({ className, ...props }, ref) => (
   <h1
     ref={ref}
@@ -13,9 +68,14 @@ const TypographyH1 = React.forwardRef<
 ))
 TypographyH1.displayName = "TypographyH1"
 
+/**
+ * TypographyH2 component - A heading level 2
+ * @param props - TypographyH2 props
+ * @returns A TypographyH2 component
+ */
 const TypographyH2 = React.forwardRef<
   HTMLHeadingElement,
-  React.HTMLAttributes<HTMLHeadingElement>
+  TypographyH2Props
 >(({ className, ...props }, ref) => (
   <h2
     ref={ref}
@@ -25,9 +85,14 @@ const TypographyH2 = React.forwardRef<
 ))
 TypographyH2.displayName = "TypographyH2"
 
+/**
+ * TypographyH3 component - A heading level 3
+ * @param props - TypographyH3 props
+ * @returns A TypographyH3 component
+ */
 const TypographyH3 = React.forwardRef<
   HTMLHeadingElement,
-  React.HTMLAttributes<HTMLHeadingElement>
+  TypographyH3Props
 >(({ className, ...props }, ref) => (
   <h3
     ref={ref}
@@ -37,9 +102,14 @@ const TypographyH3 = React.forwardRef<
 ))
 TypographyH3.displayName = "TypographyH3"
 
+/**
+ * TypographyH4 component - A heading level 4
+ * @param props - TypographyH4 props
+ * @returns A TypographyH4 component
+ */
 const TypographyH4 = React.forwardRef<
   HTMLHeadingElement,
-  React.HTMLAttributes<HTMLHeadingElement>
+  TypographyH4Props
 >(({ className, ...props }, ref) => (
   <h4
     ref={ref}
@@ -49,9 +119,14 @@ const TypographyH4 = React.forwardRef<
 ))
 TypographyH4.displayName = "TypographyH4"
 
+/**
+ * TypographyP component - A paragraph
+ * @param props - TypographyP props
+ * @returns A TypographyP component
+ */
 const TypographyP = React.forwardRef<
   HTMLParagraphElement,
-  React.HTMLAttributes<HTMLParagraphElement>
+  TypographyPProps
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
@@ -61,9 +136,14 @@ const TypographyP = React.forwardRef<
 ))
 TypographyP.displayName = "TypographyP"
 
+/**
+ * TypographyBlockquote component - A blockquote
+ * @param props - TypographyBlockquote props
+ * @returns A TypographyBlockquote component
+ */
 const TypographyBlockquote = React.forwardRef<
   HTMLQuoteElement,
-  React.HTMLAttributes<HTMLQuoteElement>
+  TypographyBlockquoteProps
 >(({ className, ...props }, ref) => (
   <blockquote
     ref={ref}
@@ -73,9 +153,14 @@ const TypographyBlockquote = React.forwardRef<
 ))
 TypographyBlockquote.displayName = "TypographyBlockquote"
 
+/**
+ * TypographyCode component - Inline code
+ * @param props - TypographyCode props
+ * @returns A TypographyCode component
+ */
 const TypographyCode = React.forwardRef<
   HTMLElement,
-  React.HTMLAttributes<HTMLElement>
+  TypographyCodeProps
 >(({ className, ...props }, ref) => (
   <code
     ref={ref}

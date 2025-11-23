@@ -6,10 +6,40 @@ import * as SwitchPrimitive from "@radix-ui/react-switch"
 import { cn } from "../../lib/utils"
 import { surface, stroke, text, states, radius, animation } from "../../styles"
 
+/**
+ * Switch component props interface
+ * Extends Radix UI Switch primitive props
+ */
+export interface SwitchProps extends React.ComponentProps<typeof SwitchPrimitive.Root> {}
+
+/**
+ * SwitchCard component props interface
+ * Extends Radix UI Switch primitive props and adds label/description
+ */
+export interface SwitchCardProps extends React.ComponentProps<typeof SwitchPrimitive.Root> {
+  label: string
+  description?: string
+}
+
+/**
+ * Switch component - A toggle switch control
+ * 
+ * Provides a binary on/off control with smooth animations.
+ * Built on Radix UI primitives for accessibility.
+ * 
+ * @param props - Switch props including checked, onCheckedChange, and standard Radix UI Switch attributes
+ * @returns A switch element
+ * 
+ * @example
+ * ```tsx
+ * <Switch checked={isEnabled} onCheckedChange={setIsEnabled} />
+ * <Switch disabled aria-label="Toggle feature" />
+ * ```
+ */
 function Switch({
   className,
   ...props
-}: React.ComponentProps<typeof SwitchPrimitive.Root>) {
+}: SwitchProps): React.ReactElement {
   return (
     <SwitchPrimitive.Root
       data-slot="switch"
@@ -47,18 +77,27 @@ function Switch({
   )
 }
 
-interface SwitchCardProps extends React.ComponentProps<typeof SwitchPrimitive.Root> {
-  label: string
-  description?: string
-}
-
+/**
+ * SwitchCard component - A switch styled as a card with a label and optional description
+ * 
+ * Provides an enhanced visual and interactive experience for switches,
+ * suitable for settings lists.
+ * 
+ * @param props - SwitchCard props including label, description, and standard Radix UI Switch attributes
+ * @returns A label element containing a switch and its associated text
+ * 
+ * @example
+ * ```tsx
+ * <SwitchCard label="Enable notifications" description="Receive alerts for new messages." />
+ * ```
+ */
 function SwitchCard({
   className,
   label,
   description,
   id,
   ...props
-}: SwitchCardProps) {
+}: SwitchCardProps): React.ReactElement {
   const itemId = id || `switch-card-${Math.random().toString(36).substr(2, 9)}`
   
   return (

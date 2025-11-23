@@ -3,8 +3,45 @@ import * as React from "react"
 import { cn } from "../../lib/utils"
 import { states, radius, stroke } from "../../styles"
 
-const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
-  ({ className, type, ...props }, ref) => {
+/**
+ * Input component props interface
+ * Extends native HTML input element props
+ * 
+ * @example
+ * ```tsx
+ * <Input type="text" placeholder="Enter your name" />
+ * <Input type="email" aria-invalid={hasError} />
+ * ```
+ */
+export interface InputProps extends React.ComponentProps<"input"> {}
+
+/**
+ * Input component - A styled input field with validation states
+ * 
+ * Supports all standard HTML input types and includes built-in support for:
+ * - Disabled states
+ * - Invalid/error states (via aria-invalid)
+ * - Focus states
+ * - File input styling
+ * 
+ * @param props - Input props including type and standard HTML input attributes
+ * @returns An input element with appropriate styling
+ * 
+ * @example
+ * ```tsx
+ * // Basic input
+ * <Input type="text" placeholder="Enter text" />
+ * 
+ * // Input with error state
+ * <Input 
+ *   type="email" 
+ *   aria-invalid={hasError}
+ *   aria-describedby={hasError ? "email-error" : undefined}
+ * />
+ * ```
+ */
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  ({ className, type, ...props }, ref): React.ReactElement => {
     return (
       <input
         ref={ref}

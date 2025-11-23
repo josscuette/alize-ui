@@ -6,10 +6,48 @@ import * as ResizablePrimitive from "react-resizable-panels"
 
 import { cn } from "../../lib/utils"
 
+/**
+ * ResizablePanelGroup component props interface
+ * Extends react-resizable-panels PanelGroup props
+ */
+export interface ResizablePanelGroupProps extends React.ComponentProps<typeof ResizablePrimitive.PanelGroup> {}
+
+/**
+ * ResizablePanel component props interface
+ * Extends react-resizable-panels Panel props
+ */
+export interface ResizablePanelProps extends React.ComponentProps<typeof ResizablePrimitive.Panel> {}
+
+/**
+ * ResizableHandle component props interface
+ * Extends react-resizable-panels PanelResizeHandle props and adds withHandle prop
+ */
+export interface ResizableHandleProps extends React.ComponentProps<typeof ResizablePrimitive.PanelResizeHandle> {
+  withHandle?: boolean
+}
+
+/**
+ * ResizablePanelGroup component - A group of resizable panels
+ * 
+ * Provides a container for resizable panels that can be resized by dragging.
+ * Built on react-resizable-panels.
+ * 
+ * @param props - ResizablePanelGroup props including direction and standard PanelGroup attributes
+ * @returns A ResizablePanelGroup component
+ * 
+ * @example
+ * ```tsx
+ * <ResizablePanelGroup direction="horizontal">
+ *   <ResizablePanel defaultSize={50}>Panel 1</ResizablePanel>
+ *   <ResizableHandle />
+ *   <ResizablePanel defaultSize={50}>Panel 2</ResizablePanel>
+ * </ResizablePanelGroup>
+ * ```
+ */
 function ResizablePanelGroup({
   className,
   ...props
-}: React.ComponentProps<typeof ResizablePrimitive.PanelGroup>) {
+}: ResizablePanelGroupProps): React.ReactElement {
   return (
     <ResizablePrimitive.PanelGroup
       data-slot="resizable-panel-group"
@@ -22,19 +60,27 @@ function ResizablePanelGroup({
   )
 }
 
+/**
+ * ResizablePanel component - An individual resizable panel
+ * @param props - ResizablePanel props including defaultSize, minSize, maxSize
+ * @returns A ResizablePanel component
+ */
 function ResizablePanel({
   ...props
-}: React.ComponentProps<typeof ResizablePrimitive.Panel>) {
+}: ResizablePanelProps): React.ReactElement {
   return <ResizablePrimitive.Panel data-slot="resizable-panel" {...props} />
 }
 
+/**
+ * ResizableHandle component - A handle for resizing panels
+ * @param props - ResizableHandle props including withHandle
+ * @returns A ResizableHandle component
+ */
 function ResizableHandle({
   withHandle,
   className,
   ...props
-}: React.ComponentProps<typeof ResizablePrimitive.PanelResizeHandle> & {
-  withHandle?: boolean
-}) {
+}: ResizableHandleProps): React.ReactElement {
   return (
     <ResizablePrimitive.PanelResizeHandle
       data-slot="resizable-handle"

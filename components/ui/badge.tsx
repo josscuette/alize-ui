@@ -25,13 +25,42 @@ const badgeVariants = cva(
   }
 )
 
+/**
+ * Badge component props interface
+ * Extends native span element props and adds variant and asChild props
+ */
+export interface BadgeProps extends React.ComponentProps<"span">, VariantProps<typeof badgeVariants> {
+  /**
+   * Render as a different element using Radix UI Slot
+   * @default false
+   */
+  asChild?: boolean
+}
+
+/**
+ * Badge component - A small status indicator or label
+ * 
+ * Displays a badge with multiple variants (default, secondary, destructive, outline).
+ * Can be used as a link or other element via the asChild prop.
+ * 
+ * @param props - Badge props including variant, asChild, and standard HTML span attributes
+ * @returns A badge element
+ * 
+ * @example
+ * ```tsx
+ * <Badge variant="default">New</Badge>
+ * <Badge variant="destructive">Error</Badge>
+ * <Badge asChild>
+ *   <a href="/link">Link Badge</a>
+ * </Badge>
+ * ```
+ */
 function Badge({
   className,
   variant,
   asChild = false,
   ...props
-}: React.ComponentProps<"span"> &
-  VariantProps<typeof badgeVariants> & { asChild?: boolean }) {
+}: BadgeProps): React.ReactElement {
   const Comp = asChild ? Slot : "span"
 
   return (

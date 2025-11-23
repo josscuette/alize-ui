@@ -9,7 +9,7 @@ function Item({
   className,
   selected = false,
   ...props
-}: ItemProps) {
+}: ItemProps): React.ReactElement {
   return (
     <div
       data-slot="item"

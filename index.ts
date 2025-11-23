@@ -12,7 +12,9 @@
 
 // Atoms
 export { Button, buttonVariants } from './components/ui/button'
+export type { ButtonProps } from './components/ui/button'
 export { Input } from './components/ui/input'
+export type { InputProps } from './components/ui/input'
 export { Label } from './components/ui/label'
 export { Badge } from './components/ui/badge'
 export { Avatar, AvatarImage, AvatarFallback, avatarVariants } from './components/ui/avatar'
@@ -38,6 +40,7 @@ export { Item } from './components/ui/item'
 
 // Molecules
 export { Checkbox, CheckboxCard } from './components/ui/checkbox'
+export type { CheckboxProps, CheckboxCardProps } from './components/ui/checkbox'
 export { Switch, SwitchCard } from './components/ui/switch'
 export { RadioGroup, RadioGroupItem, RadioGroupCardItem } from './components/ui/radio-group'
 export {

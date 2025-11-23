@@ -7,10 +7,37 @@ import { CheckIcon } from "lucide-react"
 import { cn } from "../../lib/utils"
 import { stroke, states, radius, text, animation, surface } from "../../styles"
 
+/**
+ * Checkbox component props interface
+ * Extends Radix UI Checkbox primitive props
+ */
+export interface CheckboxProps extends React.ComponentProps<typeof CheckboxPrimitive.Root> {}
+
+/**
+ * Checkbox component - A styled checkbox with validation states
+ * 
+ * Supports checked/unchecked states, disabled state, and invalid state (via aria-invalid).
+ * Built on Radix UI primitives for accessibility.
+ * 
+ * @param props - Checkbox props including standard Radix UI Checkbox attributes
+ * @returns A checkbox element with appropriate styling
+ * 
+ * @example
+ * ```tsx
+ * // Basic checkbox
+ * <Checkbox />
+ * 
+ * // Checkbox with error state
+ * <Checkbox aria-invalid={hasError} />
+ * 
+ * // Controlled checkbox
+ * <Checkbox checked={isChecked} onCheckedChange={setIsChecked} />
+ * ```
+ */
 function Checkbox({
   className,
   ...props
-}: React.ComponentProps<typeof CheckboxPrimitive.Root>) {
+}: React.ComponentProps<typeof CheckboxPrimitive.Root>): React.ReactElement {
   return (
     <CheckboxPrimitive.Root
       data-slot="checkbox"
@@ -56,18 +83,41 @@ function Checkbox({
   )
 }
 
-interface CheckboxCardProps extends React.ComponentProps<typeof CheckboxPrimitive.Root> {
+/**
+ * CheckboxCard component props interface
+ * Extends Radix UI Checkbox primitive props with label and description
+ */
+export interface CheckboxCardProps extends React.ComponentProps<typeof CheckboxPrimitive.Root> {
+  /** Label text displayed next to the checkbox */
   label: string
+  /** Optional description text displayed below the label */
   description?: string
 }
 
+/**
+ * CheckboxCard component - A checkbox with integrated label and description
+ * 
+ * Provides a card-style layout for checkboxes with labels and optional descriptions.
+ * Automatically handles focus states and accessibility.
+ * 
+ * @param props - CheckboxCard props including label, description, and standard Checkbox attributes
+ * @returns A label element containing a checkbox with text content
+ * 
+ * @example
+ * ```tsx
+ * <CheckboxCard 
+ *   label="Accept terms and conditions"
+ *   description="By checking this box, you agree to our terms"
+ * />
+ * ```
+ */
 function CheckboxCard({
   className,
   label,
   description,
   id,
   ...props
-}: CheckboxCardProps) {
+}: CheckboxCardProps): React.ReactElement {
   const itemId = id || `checkbox-card-${Math.random().toString(36).substr(2, 9)}`
   
   return (

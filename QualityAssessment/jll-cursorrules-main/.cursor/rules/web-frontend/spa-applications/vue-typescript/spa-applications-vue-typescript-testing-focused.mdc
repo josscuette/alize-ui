@@ -1,0 +1,391 @@
+---
+description: Vue Testing Focused Integrated Cursor Rules
+globs: [*.vue],
+alwaysApply: false,
+---
+
+# Vue - SPA Applications Integrated Cursor Rules (Testing Focused)
+# Version: 1.0
+# Last Updated: 2025-09-09
+# Maintained by: Sergio Martín <sergio.martin@eu.jll.com>
+# Includes: Testing Focused Rules
+
+## Testing Strategy and Implementation
+
+### Testing Pyramid and Strategy
+- **MUST implement a comprehensive testing strategy** covering unit, component, and E2E tests
+- **MUST start writing tests early** in the development process
+- **SHOULD follow the testing pyramid** with more unit tests than integration tests, and more integration tests than E2E tests
+- **Rationale**: Early testing prevents regressions, encourages modular design, and provides confidence in application stability as complexity grows
+- **Examples**:
+  ```typescript
+  // ✅ Good - Testing strategy breakdown
+  /*
+  Testing Pyramid for Vue Applications:
+  
+  E2E Tests (10-20%)
+  ├── Critical user journeys
+  ├── Cross-browser compatibility
+  └── Full application integration
+  
+  Component Tests (30-40%)
+  ├── Component behavior and interactions
+  ├── Props, events, and slots
+  └── User interface integration
+  
+  Unit Tests (40-60%)
+  ├── Business logic functions
+  ├── Utility functions
+  ├── Composables
+  └── Individual component methods
+  */
+  
+  // Project structure example
+  src/
+  ├── components/
+  │   ├── UserCard.vue
+  │   └── __tests__/
+  │       └── UserCard.test.ts
+  ├── composables/
+  │   ├── useAuth.ts
+  │   └── __tests__/
+  │       └── useAuth.test.ts
+  ├── utils/
+  │   ├── helpers.ts
+  │   └── __tests__/
+  │       └── helpers.test.ts
+  └── __tests__/
+      └── e2e/
+          └── user-journey.spec.ts
+  ```
+
+## Unit Testing Implementation
+
+### Unit Testing Requirements and Setup
+- **MUST use Vitest** as the primary unit testing framework for Vite-based projects
+- **MUST test business logic functions** and utility modules
+- **MUST test composables** with proper setup handling
+- **SHOULD achieve high coverage** for critical business logic
+- **Rationale**: Unit tests provide fast feedback, catch logical errors early, and enable confident refactoring of isolated code units
+- **Examples**:
+  ```typescript
+  // ✅ Vitest configuration
+  // vite.config.ts
+  export default defineConfig({
+    plugins: [vue()],
+    test: {
+      globals: true,
+      environment: 'happy-dom',
+      setupFiles: ['./src/test/setup.ts'],
+      coverage: {
+        provider: 'v8',
+        thresholds: { global: { branches: 80, functions: 80, lines: 80 } }
+      }
+    }
+  });
+  
+  // ✅ Business logic unit test
+  // src/utils/helpers.ts
+  export function increment(current: number, max: number = 10): number {
+    return current < max ? current + 1 : current;
+  }
+  
+  // src/utils/__tests__/helpers.test.ts
+  import { describe, test, expect } from 'vitest';
+  import { increment } from '../helpers';
+  
+  describe('increment', () => {
+    test('increments within max limit', () => {
+      expect(increment(5, 10)).toBe(6);
+      expect(increment(10, 10)).toBe(10); // At max
+    });
+  
+    test('uses default max of 10', () => {
+      expect(increment(9)).toBe(10);
+      expect(increment(10)).toBe(10);
+    });
+  });
+  ```
+
+### Composables Testing Patterns
+- **MUST test composables** that contain business logic
+- **MUST handle lifecycle hooks** and provide/inject dependencies in tests
+- **SHOULD test both reactive and non-reactive composables**
+- **Examples**:
+  ```typescript
+  // ✅ Simple composable testing
+  // src/composables/useCounter.ts
+  export function useCounter(initialValue: number = 0) {
+    const count = ref(initialValue);
+    const doubleCount = computed(() => count.value * 2);
+    
+    return {
+      count: readonly(count),
+      doubleCount,
+      increment: () => count.value++,
+      reset: () => count.value = initialValue
+    };
+  }
+  
+  // src/composables/__tests__/useCounter.test.ts
+  describe('useCounter', () => {
+    test('initializes and operates correctly', () => {
+      const { count, doubleCount, increment, reset } = useCounter(5);
+      
+      expect(count.value).toBe(5);
+      expect(doubleCount.value).toBe(10);
+      
+      increment();
+      expect(count.value).toBe(6);
+      
+      reset();
+      expect(count.value).toBe(5);
+    });
+  });
+  
+  // ✅ Complex composable with lifecycle hooks
+  // src/composables/useApi.ts
+  export function useApi<T>(url: string) {
+    const data = ref<T | null>(null);
+    const loading = ref(false);
+    const error = ref<string | null>(null);
+    
+    const fetchData = async () => {
+      loading.value = true;
+      try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        data.value = await response.json();
+      } catch (err) {
+        error.value = err.message;
+      } finally {
+        loading.value = false;
+      }
+    };
+    
+    onMounted(fetchData);
+    return { data, loading, error, refetch: fetchData };
+  }
+  
+  // Test helper for lifecycle composables
+  function withSetup<T>(composable: () => T) {
+    let result: T;
+    const app = createApp({ setup() { result = composable(); return () => {}; } });
+    app.mount(document.createElement('div'));
+    return [result!, app];
+  }
+  
+  describe('useApi', () => {
+    test('fetches data successfully', async () => {
+      vi.mocked(fetch).mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({ id: 1, name: 'Test' })
+      } as Response);
+  
+      const [result, app] = withSetup(() => useApi('/api/test'));
+      await new Promise(resolve => setTimeout(resolve, 0));
+      
+      expect(result.data.value).toEqual({ id: 1, name: 'Test' });
+      expect(result.loading.value).toBe(false);
+      app.unmount();
+    });
+  });
+  ```
+
+## Component Testing Implementation
+
+### Component Testing Requirements
+- **MUST test component behavior** rather than implementation details
+- **MUST test props, events, and slots** as the public interface
+- **MUST use Vue Testing Library** for user-centric testing approach
+- **SHOULD test visual and behavioral logic** separately
+- **Rationale**: Component tests validate the integration between your component and its children, ensuring the component works as users expect
+- **Examples**:
+  ```typescript
+  // ✅ Component testing setup
+  // src/components/UserCard.vue
+  <template>
+    <div class="user-card" :class="{ 'user-card--premium': user.isPremium }">
+      <h3>{{ user.name }}</h3>
+      <p>{{ user.email }}</p>
+      <span v-if="user.isPremium">Premium</span>
+      <button @click="emit('edit', user)">Edit</button>
+      <button @click="emit('delete', user.id)">Delete</button>
+    </div>
+  </template>
+  
+  <script setup lang="ts">
+  interface User {
+    id: string;
+    name: string;
+    email: string;
+    isPremium: boolean;
+  }
+  
+  const props = defineProps<{ user: User }>();
+  const emit = defineEmits<{
+    edit: [user: User];
+    delete: [userId: string];
+  }>();
+  </script>
+  
+  // src/components/__tests__/UserCard.test.ts
+  import { render, screen, fireEvent } from '@testing-library/vue';
+  import UserCard from '../UserCard.vue';
+  
+  const mockUser = {
+    id: '1',
+    name: 'John Doe',
+    email: 'john@example.com',
+    isPremium: false
+  };
+  
+  describe('UserCard', () => {
+    test('renders user information', () => {
+      render(UserCard, { props: { user: mockUser } });
+      
+      expect(screen.getByText('John Doe')).toBeInTheDocument();
+      expect(screen.getByText('john@example.com')).toBeInTheDocument();
+    });
+  
+    test('shows premium badge conditionally', () => {
+      const { rerender } = render(UserCard, { props: { user: mockUser } });
+      expect(screen.queryByText('Premium')).not.toBeInTheDocument();
+      
+      rerender({ user: { ...mockUser, isPremium: true } });
+      expect(screen.getByText('Premium')).toBeInTheDocument();
+    });
+  
+    test('emits events on button clicks', async () => {
+      const { emitted } = render(UserCard, { props: { user: mockUser } });
+  
+      await fireEvent.click(screen.getByRole('button', { name: 'Edit' }));
+      expect(emitted().edit[0]).toEqual([mockUser]);
+  
+      await fireEvent.click(screen.getByRole('button', { name: 'Delete' }));
+      expect(emitted().delete[0]).toEqual([mockUser.id]);
+    });
+  });
+  ```
+
+## End-to-End Testing Implementation
+
+### E2E Testing Strategy and Tools
+- **MUST use Playwright** for comprehensive E2E testing
+- **MUST test critical user journeys** and business workflows
+- **SHOULD test cross-browser compatibility** for supported browsers
+- **SHOULD implement visual regression testing** for UI consistency
+- **Rationale**: E2E tests validate the complete application flow, catching integration issues that unit and component tests cannot detect
+- **Examples**:
+  ```typescript
+  // ✅ Playwright configuration
+  // playwright.config.ts
+  export default defineConfig({
+    testDir: './tests/e2e',
+    use: {
+      baseURL: 'http://localhost:4173',
+      trace: 'on-first-retry'
+    },
+    projects: [
+      { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
+      { name: 'firefox', use: { ...devices['Desktop Firefox'] } }
+    ],
+    webServer: { command: 'npm run preview', port: 4173 }
+  });
+  
+  // ✅ E2E test example
+  // tests/e2e/user-management.spec.ts
+  test.describe('User Management', () => {
+    test.beforeEach(async ({ page }) => {
+      await page.goto('/login');
+      await page.fill('[data-testid="email"]', 'admin@example.com');
+      await page.fill('[data-testid="password"]', 'password123');
+      await page.click('[data-testid="login-button"]');
+    });
+  
+    test('should create a new user', async ({ page }) => {
+      await page.goto('/users');
+      await page.click('[data-testid="create-user-button"]');
+      
+      await page.fill('[data-testid="user-name"]', 'Jane Smith');
+      await page.fill('[data-testid="user-email"]', 'jane@example.com');
+      await page.click('[data-testid="save-user-button"]');
+  
+      await expect(page.locator('text=Jane Smith')).toBeVisible();
+    });
+  
+    test('should handle validation errors', async ({ page }) => {
+      await page.goto('/users');
+      await page.click('[data-testid="create-user-button"]');
+      await page.click('[data-testid="save-user-button"]'); // Submit empty
+  
+      await expect(page.locator('[data-testid="name-error"]')).toBeVisible();
+      await expect(page.locator('text=Name is required')).toBeVisible();
+    });
+  });
+  
+  // ✅ Visual regression testing
+  test('user list should match screenshot', async ({ page }) => {
+    await page.goto('/users');
+    await page.waitForLoadState('networkidle');
+    await expect(page).toHaveScreenshot('user-list.png');
+  });
+  ```
+
+### Test Data Management and Utilities
+- **MUST use consistent test data** across different test types
+- **SHOULD implement test utilities** for common operations
+- **MUST clean up test data** after test execution
+- **Examples**:
+  ```typescript
+  // ✅ Test utilities and data management
+  // src/test/factories.ts
+  import { faker } from '@faker-js/faker';
+  
+  export interface TestUser {
+    id: string;
+    name: string;
+    email: string;
+    isPremium: boolean;
+    role: 'admin' | 'editor' | 'viewer';
+  }
+  
+  export const createTestUser = (overrides: Partial<TestUser> = {}): TestUser => ({
+    id: faker.string.uuid(),
+    name: faker.person.fullName(),
+    email: faker.internet.email(),
+    isPremium: faker.datatype.boolean(),
+    role: faker.helpers.arrayElement(['admin', 'editor', 'viewer']),
+    ...overrides
+  });
+  
+  // src/test/setup.ts
+  import { afterEach } from 'vitest';
+  import { cleanup } from '@testing-library/vue';
+  
+  afterEach(() => cleanup());
+  
+  // Mock matchMedia for components using media queries
+  Object.defineProperty(window, 'matchMedia', {
+    value: vi.fn(() => ({ matches: false, addListener: vi.fn() }))
+  });
+  
+  // src/test/test-utils.ts
+  import { render } from '@testing-library/vue';
+  import { createRouter, createWebHistory } from 'vue-router';
+  
+  export function renderWithRouter(component: any, initialRoute = '/') {
+    const router = createRouter({
+      history: createWebHistory(),
+      routes: [
+        { path: '/', component: { template: '<div>Home</div>' } },
+        { path: '/users', component: { template: '<div>Users</div>' } }
+      ]
+    });
+  
+    router.push(initialRoute);
+    return render(component, { global: { plugins: [router] } });
+  }
+  ```
+
+*Reference: [Vue.js Testing Guide](https://vuejs.org/guide/scaling-up/testing.html)*

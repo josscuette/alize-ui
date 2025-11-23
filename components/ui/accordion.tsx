@@ -6,16 +6,79 @@ import { ChevronDownIcon } from "lucide-react"
 
 import { cn } from "../../lib/utils"
 
-function Accordion({
-  ...props
-}: React.ComponentProps<typeof AccordionPrimitive.Root>) {
-  return <AccordionPrimitive.Root data-slot="accordion" {...props} />
+/**
+ * Accordion component props interface
+ * Extends Radix UI Accordion primitive props
+ */
+export interface AccordionProps extends Omit<React.ComponentProps<typeof AccordionPrimitive.Root>, "type"> {
+  type?: "single" | "multiple"
+  collapsible?: boolean
+  children?: React.ReactNode
 }
 
+/**
+ * AccordionItem component props interface
+ * Extends Radix UI AccordionItem primitive props
+ */
+export interface AccordionItemProps extends React.ComponentProps<typeof AccordionPrimitive.Item> {}
+
+/**
+ * AccordionTrigger component props interface
+ * Extends Radix UI AccordionTrigger primitive props
+ */
+export interface AccordionTriggerProps extends React.ComponentProps<typeof AccordionPrimitive.Trigger> {}
+
+/**
+ * AccordionContent component props interface
+ * Extends Radix UI AccordionContent primitive props
+ */
+export interface AccordionContentProps extends React.ComponentProps<typeof AccordionPrimitive.Content> {}
+
+/**
+ * Accordion component - A collapsible content section
+ * 
+ * Provides an accessible accordion for organizing content into collapsible sections.
+ * Built on Radix UI primitives for accessibility.
+ * 
+ * @param props - Accordion props including type, defaultValue, and standard Radix UI Accordion attributes
+ * @returns An Accordion component
+ * 
+ * @example
+ * ```tsx
+ * <Accordion type="single" collapsible>
+ *   <AccordionItem value="item-1">
+ *     <AccordionTrigger>Section 1</AccordionTrigger>
+ *     <AccordionContent>Content 1</AccordionContent>
+ *   </AccordionItem>
+ * </Accordion>
+ * ```
+ */
+function Accordion(props: AccordionProps): React.ReactElement {
+  const { type = "single", collapsible, ...restProps } = props
+  if (type === "single") {
+    const singleProps = {
+      ...restProps,
+      type: "single" as const,
+      ...(collapsible !== undefined && { collapsible }),
+    } as React.ComponentProps<typeof AccordionPrimitive.Root>
+    return <AccordionPrimitive.Root data-slot="accordion" {...singleProps} />
+  }
+  const multipleProps = {
+    ...restProps,
+    type: "multiple" as const,
+  } as React.ComponentProps<typeof AccordionPrimitive.Root>
+  return <AccordionPrimitive.Root data-slot="accordion" {...multipleProps} />
+}
+
+/**
+ * AccordionItem component - An individual accordion item
+ * @param props - AccordionItem props including value
+ * @returns An AccordionItem component
+ */
 function AccordionItem({
   className,
   ...props
-}: React.ComponentProps<typeof AccordionPrimitive.Item>) {
+}: AccordionItemProps): React.ReactElement {
   return (
     <AccordionPrimitive.Item
       data-slot="accordion-item"
@@ -25,11 +88,16 @@ function AccordionItem({
   )
 }
 
+/**
+ * AccordionTrigger component - The clickable header that toggles the accordion item
+ * @param props - AccordionTrigger props
+ * @returns An AccordionTrigger component
+ */
 function AccordionTrigger({
   className,
   children,
   ...props
-}: React.ComponentProps<typeof AccordionPrimitive.Trigger>) {
+}: AccordionTriggerProps): React.ReactElement {
   return (
     <AccordionPrimitive.Header className="flex">
       <AccordionPrimitive.Trigger
@@ -47,11 +115,16 @@ function AccordionTrigger({
   )
 }
 
+/**
+ * AccordionContent component - The collapsible content of the accordion item
+ * @param props - AccordionContent props
+ * @returns An AccordionContent component
+ */
 function AccordionContent({
   className,
   children,
   ...props
-}: React.ComponentProps<typeof AccordionPrimitive.Content>) {
+}: AccordionContentProps): React.ReactElement {
   return (
     <AccordionPrimitive.Content
       data-slot="accordion-content"

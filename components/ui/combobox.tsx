@@ -32,7 +32,7 @@ export function Combobox({
   emptyText = "No option found.",
   className,
   disabled,
-}: ComboboxProps) {
+}: ComboboxProps): React.ReactElement {
   const [open, setOpen] = React.useState(false)
 
   const selectedOption = options.find((option) => option.value === value)

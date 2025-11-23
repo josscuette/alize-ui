@@ -1,0 +1,454 @@
+---
+description: Vue Performance Focused Integrated Cursor Rules
+globs: [*.vue],
+alwaysApply: false,
+---
+
+# Vue - SPA Applications Integrated Cursor Rules (Performance Focused)
+# Version: 1.0
+# Last Updated: 2025-09-09
+# Maintained by: Sergio Martín <sergio.martin@eu.jll.com>
+# Includes: Performance Focused Rules
+
+## Performance Optimization - Lazy Loading Routes
+
+### Route-Based Code Splitting Requirements
+- **MUST use dynamic imports for all route components** to enable automatic code splitting
+- **MUST NOT use static imports for route components** in production applications
+- **MUST NOT use async components for routes** (use dynamic imports instead)
+- **Rationale**: Dynamic imports enable automatic code splitting by bundlers, reducing initial bundle size and improving page load times by only loading route components when needed
+- **Examples**:
+  ```typescript
+  // ❌ Bad - Static imports create large bundles
+  import UserDetails from './views/UserDetails.vue';
+  import AdminPanel from './views/AdminPanel.vue';
+  
+  const router = createRouter({
+    routes: [
+      { path: '/users/:id', component: UserDetails },
+      { path: '/admin', component: AdminPanel }
+    ]
+  });
+  
+  // ✅ Good - Dynamic imports enable code splitting
+  const router = createRouter({
+    routes: [
+      { path: '/users/:id', component: () => import('./views/UserDetails.vue') },
+      { path: '/admin', component: () => import('./views/AdminPanel.vue') }
+    ]
+  });
+  
+  // ✅ Good - Function-based dynamic imports
+  const UserDetails = () => import('./views/UserDetails.vue');
+  const AdminPanel = () => import('./views/AdminPanel.vue');
+  
+  const router = createRouter({
+    routes: [
+      { path: '/users/:id', component: UserDetails },
+      { path: '/admin', component: AdminPanel }
+    ]
+  });
+  ```
+
+### Strategic Chunk Grouping for Optimal Loading
+- **SHOULD group related route components into logical chunks** to optimize loading patterns
+- **MUST use webpack chunk names or Vite manual chunks** for predictable bundle organization
+- **SHOULD balance chunk size vs. number of chunks** to avoid over-fragmentation
+- **Rationale**: Strategic grouping reduces the number of network requests while maintaining granular loading control for different application sections
+- **Examples**:
+
+#### Webpack Chunk Grouping Strategy
+```typescript
+// ✅ Good - Logical grouping by feature area
+const UserDetails = () => 
+  import(/* webpackChunkName: "user-management" */ './views/UserDetails.vue');
+const UserDashboard = () => 
+  import(/* webpackChunkName: "user-management" */ './views/UserDashboard.vue');
+
+const AdminPanel = () => 
+  import(/* webpackChunkName: "admin-features" */ './views/AdminPanel.vue');
+const AdminUsers = () => 
+  import(/* webpackChunkName: "admin-features" */ './views/AdminUsers.vue');
+
+// ❌ Bad - No chunking strategy (all separate chunks)
+const UserDetails = () => import('./views/UserDetails.vue');
+const AdminPanel = () => import('./views/AdminPanel.vue');
+
+// ❌ Bad - Over-grouping (everything in one chunk)
+const UserDetails = () => 
+  import(/* webpackChunkName: "app-routes" */ './views/UserDetails.vue');
+const AdminPanel = () => 
+  import(/* webpackChunkName: "app-routes" */ './views/AdminPanel.vue');
+```
+
+#### Vite Configuration for Manual Chunks
+```typescript
+// vite.config.ts - ✅ Good chunk organization
+export default defineConfig({
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'user-management': [
+            './src/views/UserDetails.vue',
+            './src/views/UserDashboard.vue',
+            './src/components/UserProfile.vue'
+          ],
+          'admin-features': [
+            './src/views/AdminPanel.vue',
+            './src/views/AdminUsers.vue'
+          ],
+          'vendor-charts': ['chart.js', 'd3'],
+          'vendor-ui': ['@headlessui/vue', '@heroicons/vue']
+        }
+      }
+    }
+  }
+});
+```
+
+### Advanced Performance Patterns
+- **SHOULD implement route-level preloading** for critical user paths
+- **MUST handle loading states** for dynamic route components
+- **SHOULD use route meta fields** to control loading behavior
+- **Examples**:
+
+#### Route Preloading Strategy
+```typescript
+// ✅ Good - Strategic preloading for user flows
+const router = createRouter({
+  routes: [
+    {
+      path: '/dashboard',
+      component: () => import('./views/Dashboard.vue'),
+      meta: { preload: true, priority: 'high' }
+    },
+    {
+      path: '/users/:id',
+      component: () => import('./views/UserDetails.vue'),
+      meta: { preload: false, priority: 'normal' }
+    },
+    {
+      path: '/admin',
+      component: () => import('./views/AdminPanel.vue'),
+      meta: { preload: false, requiresAuth: true }
+    }
+  ]
+});
+
+// Preload likely next routes
+router.afterEach((to) => {
+  if (to.path === '/dashboard') {
+    import('./views/UserProfile.vue'); // Likely next route
+  }
+});
+```
+
+#### Loading State Management
+```vue
+<!-- ✅ Good - Proper loading states for route transitions -->
+<template>
+  <div class="app-container">
+    <AppNavigation />
+    <main class="main-content">
+      <Suspense>
+        <template #default>
+          <RouterView />
+        </template>
+        <template #fallback>
+          <div class="route-loading">
+            <LoadingSpinner />
+            <p>Loading page...</p>
+          </div>
+        </template>
+      </Suspense>
+    </main>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { Suspense } from 'vue';
+import AppNavigation from '@/components/AppNavigation.vue';
+import LoadingSpinner from '@/components/LoadingSpinner.vue';
+</script>
+
+<style scoped>
+.route-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 200px;
+  gap: 16px;
+}
+</style>
+```
+
+### TypeScript Integration for Lazy Loading
+- **MUST maintain type safety** with dynamic imports
+- **SHOULD use typed route definitions** for better development experience
+- **MUST handle Promise rejection** in dynamic imports
+- **Examples**:
+```typescript
+// ✅ Good - Type-safe lazy loading with error handling
+import type { RouteRecordRaw } from 'vue-router';
+
+// Type-safe dynamic import function
+const lazyLoad = (componentPath: string) => {
+  return () => import(componentPath)
+    .catch((error) => {
+      console.error(`Failed to load component: ${componentPath}`, error);
+      return import('./views/ErrorFallback.vue');
+    });
+};
+
+// Typed route configuration
+const routes: RouteRecordRaw[] = [
+  {
+    path: '/users/:id',
+    component: lazyLoad('./views/UserDetails.vue'),
+    meta: { requiresAuth: true, preload: false }
+  },
+  {
+    path: '/dashboard',
+    component: lazyLoad('./views/Dashboard.vue'),
+    meta: { requiresAuth: true, preload: true }
+  }
+];
+
+// ✅ Good - Conditional loading based on permissions
+const loadAdminRoute = () => {
+  return userStore.hasAdminRole 
+    ? import('./views/AdminPanel.vue')
+    : import('./views/AccessDenied.vue');
+};
+
+const router = createRouter({
+  routes: [{
+    path: '/admin',
+    component: loadAdminRoute,
+    meta: { requiresAuth: true, requiresAdmin: true }
+  }]
+});
+```
+
+### Performance Monitoring and Optimization
+- **SHOULD monitor chunk loading performance** in production
+- **MUST implement error boundaries** for failed chunk loads
+- **SHOULD use performance metrics** to optimize chunk strategy
+- **Examples**:
+```typescript
+// ✅ Good - Performance monitoring for lazy loading
+router.beforeResolve(async (to, from, next) => {
+  const startTime = performance.now();
+  
+  try {
+    await to.matched[0]?.components?.default;
+    const loadTime = performance.now() - startTime;
+    
+    if (loadTime > 1000) {
+      console.warn(`Slow route load: ${to.path} took ${loadTime}ms`);
+    }
+    
+    analytics.track('route_load_time', { route: to.path, loadTime });
+    next();
+  } catch (error) {
+    console.error('Route loading failed:', error);
+    next('/error');
+  }
+});
+
+// Retry mechanism for failed chunk loads
+const retryChunkLoad = (fn: () => Promise<any>, retriesLeft = 3): Promise<any> => {
+  return fn().catch((error) => {
+    if (retriesLeft > 0 && error.name === 'ChunkLoadError') {
+      return retryChunkLoad(fn, retriesLeft - 1);
+    }
+    throw error;
+  });
+};
+
+// Apply retry to route components
+const UserDetails = () => retryChunkLoad(() => import('./views/UserDetails.vue'));
+```
+
+## Performance Optimization - Bundle Size and Tree-shaking
+
+### Bundle Size Optimization Requirements
+- **MUST use a build step** for production applications to enable tree-shaking
+- **MUST prefer tree-shakable dependencies** when introducing new packages
+- **SHOULD monitor bundle size impact** when adding dependencies
+- **Rationale**: Tree-shaking eliminates unused code, reducing bundle size by up to 14kb for Vue compiler alone, and significantly more for unused dependencies
+- **Examples**:
+  ```typescript
+  // ✅ Good - Tree-shakable imports
+  import { ref, computed } from 'vue';
+  import { debounce } from 'lodash-es';  // Tree-shakable version
+  import { format } from 'date-fns/format';  // Specific function import
+  
+  // ❌ Bad - Full library imports (not tree-shakable)
+  import * as Vue from 'vue';
+  import _ from 'lodash';  // Entire library
+  import * as dateFns from 'date-fns';  // Entire library
+  
+  // ✅ Good - Conditional component loading
+  const HeavyChart = defineAsyncComponent(() => 
+    import('./components/HeavyChart.vue')
+  );
+  ```
+
+## Performance Optimization - Update Performance
+
+### Props Stability Optimization
+- **MUST ensure prop stability** to prevent unnecessary child component updates
+- **SHOULD compute derived state in parent components** when shared across children
+- **MUST avoid passing unstable references** as props
+- **Rationale**: Stable props prevent cascade re-renders, significantly improving update performance in component trees
+- **Examples**:
+  ```vue
+  <!-- ❌ Bad - Unstable props cause unnecessary updates -->
+  <template>
+    <UserItem
+      v-for="user in users"
+      :key="user.id"
+      :user="user"
+      :is-active="activeUserId"
+      :config="{ theme: 'dark', size: 'large' }"
+    />
+  </template>
+  
+  <!-- ✅ Good - Stable props prevent unnecessary updates -->
+  <template>
+    <UserItem
+      v-for="user in users"
+      :key="user.id"
+      :user="user"
+      :is-active="user.id === activeUserId"
+      :config="stableConfig"
+    />
+  </template>
+  
+  <script setup lang="ts">
+  const stableConfig = { theme: 'dark', size: 'large' } as const;
+  </script>
+  ```
+
+### Computed Property Optimization
+- **MUST ensure computed stability** by avoiding object creation in computed properties
+- **SHOULD manually compare values** when computed returns objects
+- **Examples**:
+  ```typescript
+  // ❌ Bad - Creates new object on every computation
+  const userStats = computed(() => ({
+    isActive: user.value.status === 'active',
+    displayName: `${user.value.firstName} ${user.value.lastName}`
+  }));
+  
+  // ✅ Good - Optimized computed with manual comparison
+  const userStats = computed((oldValue) => {
+    const isActive = user.value.status === 'active';
+    const displayName = `${user.value.firstName} ${user.value.lastName}`;
+    const newValue = { isActive, displayName };
+    
+    if (oldValue?.isActive === newValue.isActive &&
+        oldValue?.displayName === newValue.displayName) {
+      return oldValue;
+    }
+    return newValue;
+  });
+  ```
+
+## Performance Optimization - Large Data Structures
+
+### Reactivity Optimization for Large Data
+- **SHOULD use shallowRef/shallowReactive** for large immutable data structures
+- **MUST treat nested objects as immutable** when using shallow reactivity
+- **MUST replace root state** to trigger updates with shallow reactivity
+- **Rationale**: Shallow reactivity avoids deep proxy overhead for large datasets, improving performance when dealing with 100,000+ properties
+- **Examples**:
+  ```typescript
+  import { shallowRef } from 'vue';
+  
+  // ✅ Good - Shallow reactivity for large datasets
+  const largeDataset = shallowRef<LargeItem[]>([]);
+  
+  // ❌ Bad - This won't trigger updates
+  const addItem = (newItem: LargeItem) => {
+    largeDataset.value.push(newItem);
+  };
+  
+  // ✅ Good - Replace entire array to trigger updates
+  const addItem = (newItem: LargeItem) => {
+    largeDataset.value = [...largeDataset.value, newItem];
+  };
+  ```
+
+### List Virtualization Implementation
+- **MUST use virtual scrolling** for lists with 1000+ items
+- **SHOULD use established libraries** rather than custom implementations
+- **Examples**:
+  ```vue
+  <template>
+    <VirtualList
+      :items="largeItemList"
+      :item-height="60"
+      :container-height="400"
+      v-slot="{ item }"
+    >
+      <ListItem :key="item.id" :item="item" />
+    </VirtualList>
+  </template>
+  
+  <script setup lang="ts">
+  import { VirtualList } from '@tanstack/vue-virtual';
+  
+  const largeItemList = ref(
+    Array.from({ length: 50000 }, (_, i) => ({ id: `item-${i}`, title: `Item ${i}` }))
+  );
+  </script>
+  ```
+
+## Performance Optimization - Component Architecture
+
+### Component Abstraction Optimization
+- **SHOULD avoid unnecessary component abstractions** in performance-critical paths
+- **MUST consider component instance cost** vs. plain DOM nodes
+- **SHOULD profile component hierarchies** in large lists
+- **Rationale**: Component instances are significantly more expensive than DOM nodes; excessive abstraction in large lists can create hundreds of unnecessary component instances
+- **Examples**:
+  ```vue
+  <!-- ❌ Bad - Excessive component abstraction -->
+  <template>
+    <UserListContainer>
+      <UserListItem v-for="user in users" :key="user.id">
+        <UserListItemContainer>
+          <UserListItemAvatar :user="user" />
+          <UserListItemContent>
+            <UserListItemName :user="user" />
+          </UserListItemContent>
+        </UserListItemContainer>
+      </UserListItem>
+    </UserListContainer>
+  </template>
+  
+  <!-- ✅ Good - Optimized component structure -->
+  <template>
+    <div class="user-list">
+      <UserItem v-for="user in users" :key="user.id" :user="user" />
+    </div>
+  </template>
+  ```
+
+### Performance Monitoring Integration
+- **MUST enable Vue performance markers** in development
+- **SHOULD use Vue DevTools** for component performance profiling
+- **Examples**:
+  ```typescript
+  // main.ts - Enable performance markers
+  const app = createApp(App);
+  
+  if (process.env.NODE_ENV === 'development') {
+    app.config.performance = true;
+  }
+  ```
+
+*References: [Vue Router Lazy Loading Guide](https://router.vuejs.org/guide/advanced/lazy-loading.html), [Vue.js Performance Best Practices](https://vuejs.org/guide/best-practices/performance.html)*

@@ -5,14 +5,83 @@ import { ChevronDownIcon } from "lucide-react"
 
 import { cn } from "../../lib/utils"
 
+/**
+ * NavigationMenu component props interface
+ * Extends Radix UI NavigationMenu primitive props and adds viewport prop
+ */
+export interface NavigationMenuProps extends React.ComponentProps<typeof NavigationMenuPrimitive.Root> {
+  viewport?: boolean
+}
+
+/**
+ * NavigationMenuList component props interface
+ * Extends Radix UI NavigationMenuList primitive props
+ */
+export interface NavigationMenuListProps extends React.ComponentProps<typeof NavigationMenuPrimitive.List> {}
+
+/**
+ * NavigationMenuItem component props interface
+ * Extends Radix UI NavigationMenuItem primitive props
+ */
+export interface NavigationMenuItemProps extends React.ComponentProps<typeof NavigationMenuPrimitive.Item> {}
+
+/**
+ * NavigationMenuTrigger component props interface
+ * Extends Radix UI NavigationMenuTrigger primitive props
+ */
+export interface NavigationMenuTriggerProps extends React.ComponentProps<typeof NavigationMenuPrimitive.Trigger> {}
+
+/**
+ * NavigationMenuContent component props interface
+ * Extends Radix UI NavigationMenuContent primitive props
+ */
+export interface NavigationMenuContentProps extends React.ComponentProps<typeof NavigationMenuPrimitive.Content> {}
+
+/**
+ * NavigationMenuViewport component props interface
+ * Extends Radix UI NavigationMenuViewport primitive props
+ */
+export interface NavigationMenuViewportProps extends React.ComponentProps<typeof NavigationMenuPrimitive.Viewport> {}
+
+/**
+ * NavigationMenuLink component props interface
+ * Extends Radix UI NavigationMenuLink primitive props
+ */
+export interface NavigationMenuLinkProps extends React.ComponentProps<typeof NavigationMenuPrimitive.Link> {}
+
+/**
+ * NavigationMenuIndicator component props interface
+ * Extends Radix UI NavigationMenuIndicator primitive props
+ */
+export interface NavigationMenuIndicatorProps extends React.ComponentProps<typeof NavigationMenuPrimitive.Indicator> {}
+
+/**
+ * NavigationMenu component - A navigation menu
+ * 
+ * Provides an accessible navigation menu with dropdown support.
+ * Built on Radix UI primitives for accessibility.
+ * 
+ * @param props - NavigationMenu props including viewport and standard Radix UI NavigationMenu attributes
+ * @returns A NavigationMenu component
+ * 
+ * @example
+ * ```tsx
+ * <NavigationMenu>
+ *   <NavigationMenuList>
+ *     <NavigationMenuItem>
+ *       <NavigationMenuTrigger>Item</NavigationMenuTrigger>
+ *       <NavigationMenuContent>Content</NavigationMenuContent>
+ *     </NavigationMenuItem>
+ *   </NavigationMenuList>
+ * </NavigationMenu>
+ * ```
+ */
 function NavigationMenu({
   className,
   children,
   viewport = true,
   ...props
-}: React.ComponentProps<typeof NavigationMenuPrimitive.Root> & {
-  viewport?: boolean
-}) {
+}: NavigationMenuProps): React.ReactElement {
   return (
     <NavigationMenuPrimitive.Root
       data-slot="navigation-menu"
@@ -29,10 +98,15 @@ function NavigationMenu({
   )
 }
 
+/**
+ * NavigationMenuList component - A list container for navigation menu items
+ * @param props - NavigationMenuList props
+ * @returns A NavigationMenuList component
+ */
 function NavigationMenuList({
   className,
   ...props
-}: React.ComponentProps<typeof NavigationMenuPrimitive.List>) {
+}: NavigationMenuListProps): React.ReactElement {
   return (
     <NavigationMenuPrimitive.List
       data-slot="navigation-menu-list"
@@ -45,10 +119,15 @@ function NavigationMenuList({
   )
 }
 
+/**
+ * NavigationMenuItem component - An individual navigation menu item
+ * @param props - NavigationMenuItem props
+ * @returns A NavigationMenuItem component
+ */
 function NavigationMenuItem({
   className,
   ...props
-}: React.ComponentProps<typeof NavigationMenuPrimitive.Item>) {
+}: NavigationMenuItemProps): React.ReactElement {
   return (
     <NavigationMenuPrimitive.Item
       data-slot="navigation-menu-item"
@@ -62,11 +141,16 @@ const navigationMenuTriggerStyle = cva(
   "group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground disabled:pointer-events-none disabled:opacity-50 data-[state=open]:hover:bg-accent data-[state=open]:text-accent-foreground data-[state=open]:focus:bg-accent data-[state=open]:bg-accent/50 focus-visible:ring-ring/50 outline-none transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1"
 )
 
+/**
+ * NavigationMenuTrigger component - A trigger button for navigation menu items
+ * @param props - NavigationMenuTrigger props
+ * @returns A NavigationMenuTrigger component
+ */
 function NavigationMenuTrigger({
   className,
   children,
   ...props
-}: React.ComponentProps<typeof NavigationMenuPrimitive.Trigger>) {
+}: NavigationMenuTriggerProps): React.ReactElement {
   return (
     <NavigationMenuPrimitive.Trigger
       data-slot="navigation-menu-trigger"
@@ -82,10 +166,15 @@ function NavigationMenuTrigger({
   )
 }
 
+/**
+ * NavigationMenuContent component - Content displayed in navigation menu dropdowns
+ * @param props - NavigationMenuContent props
+ * @returns A NavigationMenuContent component
+ */
 function NavigationMenuContent({
   className,
   ...props
-}: React.ComponentProps<typeof NavigationMenuPrimitive.Content>) {
+}: NavigationMenuContentProps): React.ReactElement {
   return (
     <NavigationMenuPrimitive.Content
       data-slot="navigation-menu-content"
@@ -99,10 +188,15 @@ function NavigationMenuContent({
   )
 }
 
+/**
+ * NavigationMenuViewport component - A viewport container for navigation menu content
+ * @param props - NavigationMenuViewport props
+ * @returns A NavigationMenuViewport component
+ */
 function NavigationMenuViewport({
   className,
   ...props
-}: React.ComponentProps<typeof NavigationMenuPrimitive.Viewport>) {
+}: NavigationMenuViewportProps): React.ReactElement {
   return (
     <div
       className={cn(
@@ -121,10 +215,15 @@ function NavigationMenuViewport({
   )
 }
 
+/**
+ * NavigationMenuLink component - A link within a navigation menu
+ * @param props - NavigationMenuLink props
+ * @returns A NavigationMenuLink component
+ */
 function NavigationMenuLink({
   className,
   ...props
-}: React.ComponentProps<typeof NavigationMenuPrimitive.Link>) {
+}: NavigationMenuLinkProps): React.ReactElement {
   return (
     <NavigationMenuPrimitive.Link
       data-slot="navigation-menu-link"
@@ -137,10 +236,15 @@ function NavigationMenuLink({
   )
 }
 
+/**
+ * NavigationMenuIndicator component - An indicator for active navigation menu items
+ * @param props - NavigationMenuIndicator props
+ * @returns A NavigationMenuIndicator component
+ */
 function NavigationMenuIndicator({
   className,
   ...props
-}: React.ComponentProps<typeof NavigationMenuPrimitive.Indicator>) {
+}: NavigationMenuIndicatorProps): React.ReactElement {
   return (
     <NavigationMenuPrimitive.Indicator
       data-slot="navigation-menu-indicator"

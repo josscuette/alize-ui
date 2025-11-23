@@ -3,7 +3,31 @@ import * as React from "react"
 import { cn } from "../../lib/utils"
 import { states, radius, shadow, animation } from "../../styles"
 
-function Textarea({ className, ...props }: React.ComponentProps<"textarea">) {
+/**
+ * Textarea component props interface
+ * Extends native HTML textarea element props
+ */
+export interface TextareaProps extends React.ComponentProps<"textarea"> {}
+
+/**
+ * Textarea component - A styled textarea field with validation states
+ * 
+ * Supports all standard HTML textarea attributes and includes built-in support for:
+ * - Disabled states
+ * - Invalid/error states (via aria-invalid)
+ * - Focus states
+ * - Auto-sizing with field-sizing-content
+ * 
+ * @param props - Textarea props including rows, cols, and standard HTML textarea attributes
+ * @returns A textarea element with appropriate styling
+ * 
+ * @example
+ * ```tsx
+ * <Textarea placeholder="Enter your message" rows={5} />
+ * <Textarea aria-invalid={hasError} aria-describedby={hasError ? "error-id" : undefined} />
+ * ```
+ */
+function Textarea({ className, ...props }: TextareaProps): React.ReactElement {
   return (
     <textarea
       data-slot="textarea"

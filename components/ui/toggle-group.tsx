@@ -7,6 +7,21 @@ import { type VariantProps } from "class-variance-authority"
 import { cn } from "../../lib/utils"
 import { toggleVariants } from "./toggle"
 
+/**
+ * ToggleGroup component props interface
+ * Extends Radix UI ToggleGroup primitive props and adds variant, size, and spacing props
+ */
+export type ToggleGroupProps = React.ComponentProps<typeof ToggleGroupPrimitive.Root> & VariantProps<typeof toggleVariants> & {
+  spacing?: number
+  children?: React.ReactNode
+}
+
+/**
+ * ToggleGroupItem component props interface
+ * Extends Radix UI ToggleGroupItem primitive props and adds variant and size props
+ */
+export interface ToggleGroupItemProps extends React.ComponentProps<typeof ToggleGroupPrimitive.Item>, VariantProps<typeof toggleVariants> {}
+
 const ToggleGroupContext = React.createContext<
   VariantProps<typeof toggleVariants> & {
     spacing?: number
@@ -17,6 +32,23 @@ const ToggleGroupContext = React.createContext<
   spacing: 0,
 })
 
+/**
+ * ToggleGroup component - A group of toggle buttons
+ * 
+ * Provides a group of toggle buttons that can be used together.
+ * Built on Radix UI primitives for accessibility.
+ * 
+ * @param props - ToggleGroup props including variant, size, spacing, value, onValueChange, and standard Radix UI ToggleGroup attributes
+ * @returns A ToggleGroup component
+ * 
+ * @example
+ * ```tsx
+ * <ToggleGroup variant="default" size="default" spacing={2}>
+ *   <ToggleGroupItem value="a">A</ToggleGroupItem>
+ *   <ToggleGroupItem value="b">B</ToggleGroupItem>
+ * </ToggleGroup>
+ * ```
+ */
 function ToggleGroup({
   className,
   variant,
@@ -24,10 +56,7 @@ function ToggleGroup({
   spacing = 0,
   children,
   ...props
-}: React.ComponentProps<typeof ToggleGroupPrimitive.Root> &
-  VariantProps<typeof toggleVariants> & {
-    spacing?: number
-  }) {
+}: ToggleGroupProps): React.ReactElement {
   return (
     <ToggleGroupPrimitive.Root
       data-slot="toggle-group"
@@ -49,14 +78,18 @@ function ToggleGroup({
   )
 }
 
+/**
+ * ToggleGroupItem component - An individual toggle button in a ToggleGroup
+ * @param props - ToggleGroupItem props including variant, size, and value
+ * @returns A ToggleGroupItem component
+ */
 function ToggleGroupItem({
   className,
   children,
   variant,
   size,
   ...props
-}: React.ComponentProps<typeof ToggleGroupPrimitive.Item> &
-  VariantProps<typeof toggleVariants>) {
+}: ToggleGroupItemProps): React.ReactElement {
   const context = React.useContext(ToggleGroupContext)
 
   return (

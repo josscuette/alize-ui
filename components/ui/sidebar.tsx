@@ -32,6 +32,10 @@ const SIDEBAR_WIDTH_MOBILE = "18rem"
 const SIDEBAR_WIDTH_ICON = "3rem"
 const SIDEBAR_KEYBOARD_SHORTCUT = "b"
 
+/**
+ * SidebarContextProps type
+ * Internal context type for sidebar state
+ */
 type SidebarContextProps = {
   state: "expanded" | "collapsed"
   open: boolean
@@ -53,6 +57,187 @@ function useSidebar() {
   return context
 }
 
+/**
+ * SidebarProvider component props interface
+ * Extends native div element props and adds sidebar control props
+ */
+export interface SidebarProviderProps extends React.ComponentProps<"div"> {
+  defaultOpen?: boolean
+  open?: boolean
+  onOpenChange?: (open: boolean) => void
+}
+
+/**
+ * Sidebar component props interface
+ * Extends native div element props and adds sidebar-specific props
+ */
+export interface SidebarProps extends React.ComponentProps<"div"> {
+  side?: "left" | "right"
+  variant?: "sidebar" | "floating" | "inset"
+  collapsible?: "offcanvas" | "icon" | "none"
+}
+
+/**
+ * SidebarTrigger component props interface
+ * Extends Button props
+ */
+export interface SidebarTriggerProps extends React.ComponentProps<typeof Button> {}
+
+/**
+ * SidebarRail component props interface
+ * Extends native button element props
+ */
+export interface SidebarRailProps extends React.ComponentProps<"button"> {}
+
+/**
+ * SidebarInset component props interface
+ * Extends native main element props
+ */
+export interface SidebarInsetProps extends React.ComponentProps<"main"> {}
+
+/**
+ * SidebarInput component props interface
+ * Extends Input props
+ */
+export interface SidebarInputProps extends React.ComponentProps<typeof Input> {}
+
+/**
+ * SidebarHeader component props interface
+ * Extends native div element props
+ */
+export interface SidebarHeaderProps extends React.ComponentProps<"div"> {}
+
+/**
+ * SidebarFooter component props interface
+ * Extends native div element props
+ */
+export interface SidebarFooterProps extends React.ComponentProps<"div"> {}
+
+/**
+ * SidebarSeparator component props interface
+ * Extends Separator props
+ */
+export interface SidebarSeparatorProps extends React.ComponentProps<typeof Separator> {}
+
+/**
+ * SidebarContent component props interface
+ * Extends native div element props
+ */
+export interface SidebarContentProps extends React.ComponentProps<"div"> {}
+
+/**
+ * SidebarGroup component props interface
+ * Extends native div element props
+ */
+export interface SidebarGroupProps extends React.ComponentProps<"div"> {}
+
+/**
+ * SidebarGroupLabel component props interface
+ * Extends native div element props and adds asChild prop
+ */
+export interface SidebarGroupLabelProps extends React.ComponentProps<"div"> {
+  asChild?: boolean
+}
+
+/**
+ * SidebarGroupAction component props interface
+ * Extends native button element props and adds asChild prop
+ */
+export interface SidebarGroupActionProps extends React.ComponentProps<"button"> {
+  asChild?: boolean
+}
+
+/**
+ * SidebarGroupContent component props interface
+ * Extends native div element props
+ */
+export interface SidebarGroupContentProps extends React.ComponentProps<"div"> {}
+
+/**
+ * SidebarMenu component props interface
+ * Extends native ul element props
+ */
+export interface SidebarMenuProps extends React.ComponentProps<"ul"> {}
+
+/**
+ * SidebarMenuItem component props interface
+ * Extends native li element props
+ */
+export interface SidebarMenuItemProps extends React.ComponentProps<"li"> {}
+
+/**
+ * SidebarMenuButton component props interface
+ * Extends native button element props and adds sidebar-specific props
+ */
+export interface SidebarMenuButtonProps extends React.ComponentProps<"button">, VariantProps<typeof sidebarMenuButtonVariants> {
+  asChild?: boolean
+  isActive?: boolean
+  tooltip?: string | React.ComponentProps<typeof TooltipContent>
+}
+
+/**
+ * SidebarMenuAction component props interface
+ * Extends native button element props and adds sidebar-specific props
+ */
+export interface SidebarMenuActionProps extends React.ComponentProps<"button"> {
+  asChild?: boolean
+  showOnHover?: boolean
+}
+
+/**
+ * SidebarMenuBadge component props interface
+ * Extends native div element props
+ */
+export interface SidebarMenuBadgeProps extends React.ComponentProps<"div"> {}
+
+/**
+ * SidebarMenuSkeleton component props interface
+ * Extends native div element props and adds showIcon prop
+ */
+export interface SidebarMenuSkeletonProps extends React.ComponentProps<"div"> {
+  showIcon?: boolean
+}
+
+/**
+ * SidebarMenuSub component props interface
+ * Extends native ul element props
+ */
+export interface SidebarMenuSubProps extends React.ComponentProps<"ul"> {}
+
+/**
+ * SidebarMenuSubItem component props interface
+ * Extends native li element props
+ */
+export interface SidebarMenuSubItemProps extends React.ComponentProps<"li"> {}
+
+/**
+ * SidebarMenuSubButton component props interface
+ * Extends native a element props and adds sidebar-specific props
+ */
+export interface SidebarMenuSubButtonProps extends React.ComponentProps<"a"> {
+  asChild?: boolean
+  size?: "sm" | "md"
+  isActive?: boolean
+}
+
+/**
+ * SidebarProvider component - A provider for sidebar state
+ * 
+ * Provides sidebar state management and context for all sidebar components.
+ * 
+ * @param props - SidebarProvider props including defaultOpen, open, onOpenChange, and standard HTML div attributes
+ * @returns A SidebarProvider component
+ * 
+ * @example
+ * ```tsx
+ * <SidebarProvider defaultOpen={true}>
+ *   <Sidebar>
+ *     <SidebarHeader>Header</SidebarHeader>
+ *     <SidebarContent>Content</SidebarContent>
+ *   </Sidebar>
+ * </SidebarProvider>
+ * ```
+ */
 function SidebarProvider({
   defaultOpen = true,
   open: openProp,
@@ -61,11 +246,7 @@ function SidebarProvider({
   style,
   children,
   ...props
-}: React.ComponentProps<"div"> & {
-  defaultOpen?: boolean
-  open?: boolean
-  onOpenChange?: (open: boolean) => void
-}) {
+}: SidebarProviderProps) {
   const isMobile = useIsMobile()
   const [openMobile, setOpenMobile] = React.useState(false)
 
@@ -151,6 +332,22 @@ function SidebarProvider({
   )
 }
 
+/**
+ * Sidebar component - A sidebar navigation component
+ * 
+ * Provides a collapsible sidebar with mobile support.
+ * 
+ * @param props - Sidebar props including side, variant, collapsible, and standard HTML div attributes
+ * @returns A Sidebar component
+ * 
+ * @example
+ * ```tsx
+ * <Sidebar side="left" variant="sidebar" collapsible="icon">
+ *   <SidebarHeader>Header</SidebarHeader>
+ *   <SidebarContent>Content</SidebarContent>
+ * </Sidebar>
+ * ```
+ */
 function Sidebar({
   side = "left",
   variant = "sidebar",
@@ -158,11 +355,7 @@ function Sidebar({
   className,
   children,
   ...props
-}: React.ComponentProps<"div"> & {
-  side?: "left" | "right"
-  variant?: "sidebar" | "floating" | "inset"
-  collapsible?: "offcanvas" | "icon" | "none"
-}) {
+}: SidebarProps): React.ReactElement {
   const { isMobile, state, openMobile, setOpenMobile } = useSidebar()
 
   if (collapsible === "none") {
@@ -253,11 +446,16 @@ function Sidebar({
   )
 }
 
+/**
+ * SidebarTrigger component - A button to toggle the sidebar
+ * @param props - SidebarTrigger props
+ * @returns A SidebarTrigger component
+ */
 function SidebarTrigger({
   className,
   onClick,
   ...props
-}: React.ComponentProps<typeof Button>) {
+}: SidebarTriggerProps): React.ReactElement {
   const { toggleSidebar } = useSidebar()
 
   return (
@@ -279,7 +477,12 @@ function SidebarTrigger({
   )
 }
 
-function SidebarRail({ className, ...props }: React.ComponentProps<"button">) {
+/**
+ * SidebarRail component - A rail for resizing the sidebar
+ * @param props - SidebarRail props
+ * @returns A SidebarRail component
+ */
+function SidebarRail({ className, ...props }: SidebarRailProps): React.ReactElement {
   const { toggleSidebar } = useSidebar()
 
   return (
@@ -304,7 +507,12 @@ function SidebarRail({ className, ...props }: React.ComponentProps<"button">) {
   )
 }
 
-function SidebarInset({ className, ...props }: React.ComponentProps<"main">) {
+/**
+ * SidebarInset component - The main content area next to the sidebar
+ * @param props - SidebarInset props
+ * @returns A SidebarInset component
+ */
+function SidebarInset({ className, ...props }: SidebarInsetProps): React.ReactElement {
   return (
     <main
       data-slot="sidebar-inset"
@@ -318,10 +526,15 @@ function SidebarInset({ className, ...props }: React.ComponentProps<"main">) {
   )
 }
 
+/**
+ * SidebarInput component - An input field for the sidebar
+ * @param props - SidebarInput props
+ * @returns A SidebarInput component
+ */
 function SidebarInput({
   className,
   ...props
-}: React.ComponentProps<typeof Input>) {
+}: SidebarInputProps): React.ReactElement {
   return (
     <Input
       data-slot="sidebar-input"
@@ -332,7 +545,12 @@ function SidebarInput({
   )
 }
 
-function SidebarHeader({ className, ...props }: React.ComponentProps<"div">) {
+/**
+ * SidebarHeader component - A header section for the sidebar
+ * @param props - SidebarHeader props
+ * @returns A SidebarHeader component
+ */
+function SidebarHeader({ className, ...props }: SidebarHeaderProps): React.ReactElement {
   return (
     <div
       data-slot="sidebar-header"
@@ -343,7 +561,12 @@ function SidebarHeader({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-function SidebarFooter({ className, ...props }: React.ComponentProps<"div">) {
+/**
+ * SidebarFooter component - A footer section for the sidebar
+ * @param props - SidebarFooter props
+ * @returns A SidebarFooter component
+ */
+function SidebarFooter({ className, ...props }: SidebarFooterProps): React.ReactElement {
   return (
     <div
       data-slot="sidebar-footer"
@@ -354,10 +577,15 @@ function SidebarFooter({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
+/**
+ * SidebarSeparator component - A separator in the sidebar
+ * @param props - SidebarSeparator props
+ * @returns A SidebarSeparator component
+ */
 function SidebarSeparator({
   className,
   ...props
-}: React.ComponentProps<typeof Separator>) {
+}: SidebarSeparatorProps): React.ReactElement {
   return (
     <Separator
       data-slot="sidebar-separator"
@@ -368,7 +596,12 @@ function SidebarSeparator({
   )
 }
 
-function SidebarContent({ className, ...props }: React.ComponentProps<"div">) {
+/**
+ * SidebarContent component - The main content area of the sidebar
+ * @param props - SidebarContent props
+ * @returns A SidebarContent component
+ */
+function SidebarContent({ className, ...props }: SidebarContentProps): React.ReactElement {
   return (
     <div
       data-slot="sidebar-content"
@@ -382,7 +615,12 @@ function SidebarContent({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-function SidebarGroup({ className, ...props }: React.ComponentProps<"div">) {
+/**
+ * SidebarGroup component - A group of sidebar items
+ * @param props - SidebarGroup props
+ * @returns A SidebarGroup component
+ */
+function SidebarGroup({ className, ...props }: SidebarGroupProps): React.ReactElement {
   return (
     <div
       data-slot="sidebar-group"
@@ -393,11 +631,16 @@ function SidebarGroup({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
+/**
+ * SidebarGroupLabel component - A label for a sidebar group
+ * @param props - SidebarGroupLabel props including asChild
+ * @returns A SidebarGroupLabel component
+ */
 function SidebarGroupLabel({
   className,
   asChild = false,
   ...props
-}: React.ComponentProps<"div"> & { asChild?: boolean }) {
+}: SidebarGroupLabelProps): React.ReactElement {
   const Comp = asChild ? Slot : "div"
 
   return (
@@ -414,11 +657,16 @@ function SidebarGroupLabel({
   )
 }
 
+/**
+ * SidebarGroupAction component - An action button for a sidebar group
+ * @param props - SidebarGroupAction props including asChild
+ * @returns A SidebarGroupAction component
+ */
 function SidebarGroupAction({
   className,
   asChild = false,
   ...props
-}: React.ComponentProps<"button"> & { asChild?: boolean }) {
+}: SidebarGroupActionProps): React.ReactElement {
   const Comp = asChild ? Slot : "button"
 
   return (
@@ -437,10 +685,15 @@ function SidebarGroupAction({
   )
 }
 
+/**
+ * SidebarGroupContent component - Content for a sidebar group
+ * @param props - SidebarGroupContent props
+ * @returns A SidebarGroupContent component
+ */
 function SidebarGroupContent({
   className,
   ...props
-}: React.ComponentProps<"div">) {
+}: SidebarGroupContentProps): React.ReactElement {
   return (
     <div
       data-slot="sidebar-group-content"
@@ -451,7 +704,12 @@ function SidebarGroupContent({
   )
 }
 
-function SidebarMenu({ className, ...props }: React.ComponentProps<"ul">) {
+/**
+ * SidebarMenu component - A menu container in the sidebar
+ * @param props - SidebarMenu props
+ * @returns A SidebarMenu component
+ */
+function SidebarMenu({ className, ...props }: SidebarMenuProps): React.ReactElement {
   return (
     <ul
       data-slot="sidebar-menu"
@@ -462,7 +720,12 @@ function SidebarMenu({ className, ...props }: React.ComponentProps<"ul">) {
   )
 }
 
-function SidebarMenuItem({ className, ...props }: React.ComponentProps<"li">) {
+/**
+ * SidebarMenuItem component - An individual menu item in the sidebar
+ * @param props - SidebarMenuItem props
+ * @returns A SidebarMenuItem component
+ */
+function SidebarMenuItem({ className, ...props }: SidebarMenuItemProps): React.ReactElement {
   return (
     <li
       data-slot="sidebar-menu-item"
@@ -495,6 +758,11 @@ const sidebarMenuButtonVariants = cva(
   }
 )
 
+/**
+ * SidebarMenuButton component - A button for sidebar menu items
+ * @param props - SidebarMenuButton props including asChild, isActive, tooltip, variant, size
+ * @returns A SidebarMenuButton component
+ */
 function SidebarMenuButton({
   asChild = false,
   isActive = false,
@@ -503,11 +771,7 @@ function SidebarMenuButton({
   tooltip,
   className,
   ...props
-}: React.ComponentProps<"button"> & {
-  asChild?: boolean
-  isActive?: boolean
-  tooltip?: string | React.ComponentProps<typeof TooltipContent>
-} & VariantProps<typeof sidebarMenuButtonVariants>) {
+}: SidebarMenuButtonProps): React.ReactElement {
   const Comp = asChild ? Slot : "button"
   const { isMobile, state } = useSidebar()
 
@@ -545,15 +809,17 @@ function SidebarMenuButton({
   )
 }
 
+/**
+ * SidebarMenuAction component - An action button for sidebar menu items
+ * @param props - SidebarMenuAction props including asChild and showOnHover
+ * @returns A SidebarMenuAction component
+ */
 function SidebarMenuAction({
   className,
   asChild = false,
   showOnHover = false,
   ...props
-}: React.ComponentProps<"button"> & {
-  asChild?: boolean
-  showOnHover?: boolean
-}) {
+}: SidebarMenuActionProps): React.ReactElement {
   const Comp = asChild ? Slot : "button"
 
   return (
@@ -577,10 +843,15 @@ function SidebarMenuAction({
   )
 }
 
+/**
+ * SidebarMenuBadge component - A badge for sidebar menu items
+ * @param props - SidebarMenuBadge props
+ * @returns A SidebarMenuBadge component
+ */
 function SidebarMenuBadge({
   className,
   ...props
-}: React.ComponentProps<"div">) {
+}: SidebarMenuBadgeProps): React.ReactElement {
   return (
     <div
       data-slot="sidebar-menu-badge"
@@ -599,13 +870,16 @@ function SidebarMenuBadge({
   )
 }
 
+/**
+ * SidebarMenuSkeleton component - A skeleton loader for sidebar menu items
+ * @param props - SidebarMenuSkeleton props including showIcon
+ * @returns A SidebarMenuSkeleton component
+ */
 function SidebarMenuSkeleton({
   className,
   showIcon = false,
   ...props
-}: React.ComponentProps<"div"> & {
-  showIcon?: boolean
-}) {
+}: SidebarMenuSkeletonProps): React.ReactElement {
   // Random width between 50 to 90%.
   const width = React.useMemo(() => {
     return `${Math.floor(Math.random() * 40) + 50}%`
@@ -637,7 +911,12 @@ function SidebarMenuSkeleton({
   )
 }
 
-function SidebarMenuSub({ className, ...props }: React.ComponentProps<"ul">) {
+/**
+ * SidebarMenuSub component - A submenu container in the sidebar
+ * @param props - SidebarMenuSub props
+ * @returns A SidebarMenuSub component
+ */
+function SidebarMenuSub({ className, ...props }: SidebarMenuSubProps): React.ReactElement {
   return (
     <ul
       data-slot="sidebar-menu-sub"
@@ -652,10 +931,15 @@ function SidebarMenuSub({ className, ...props }: React.ComponentProps<"ul">) {
   )
 }
 
+/**
+ * SidebarMenuSubItem component - An individual submenu item
+ * @param props - SidebarMenuSubItem props
+ * @returns A SidebarMenuSubItem component
+ */
 function SidebarMenuSubItem({
   className,
   ...props
-}: React.ComponentProps<"li">) {
+}: SidebarMenuSubItemProps): React.ReactElement {
   return (
     <li
       data-slot="sidebar-menu-sub-item"
@@ -666,17 +950,18 @@ function SidebarMenuSubItem({
   )
 }
 
+/**
+ * SidebarMenuSubButton component - A button for sidebar submenu items
+ * @param props - SidebarMenuSubButton props including asChild, size, isActive
+ * @returns A SidebarMenuSubButton component
+ */
 function SidebarMenuSubButton({
   asChild = false,
   size = "md",
   isActive = false,
   className,
   ...props
-}: React.ComponentProps<"a"> & {
-  asChild?: boolean
-  size?: "sm" | "md"
-  isActive?: boolean
-}) {
+}: SidebarMenuSubButtonProps): React.ReactElement {
   const Comp = asChild ? Slot : "a"
 
   return (

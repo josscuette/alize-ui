@@ -13,10 +13,90 @@ import {
   DialogTitle,
 } from "./dialog"
 
+/**
+ * Command component props interface
+ * Extends cmdk Command primitive props
+ */
+export interface CommandProps extends React.ComponentProps<typeof CommandPrimitive> {}
+
+/**
+ * CommandDialog component props interface
+ * Extends Dialog props and adds title, description, and showCloseButton props
+ */
+export interface CommandDialogProps extends React.ComponentProps<typeof Dialog> {
+  title?: string
+  description?: string
+  className?: string
+  showCloseButton?: boolean
+}
+
+/**
+ * CommandInput component props interface
+ * Extends cmdk CommandInput primitive props
+ */
+export interface CommandInputProps extends React.ComponentProps<typeof CommandPrimitive.Input> {}
+
+/**
+ * CommandList component props interface
+ * Extends cmdk CommandList primitive props
+ */
+export interface CommandListProps extends React.ComponentProps<typeof CommandPrimitive.List> {}
+
+/**
+ * CommandEmpty component props interface
+ * Extends cmdk CommandEmpty primitive props
+ */
+export interface CommandEmptyProps extends React.ComponentProps<typeof CommandPrimitive.Empty> {}
+
+/**
+ * CommandGroup component props interface
+ * Extends cmdk CommandGroup primitive props
+ */
+export interface CommandGroupProps extends React.ComponentProps<typeof CommandPrimitive.Group> {}
+
+/**
+ * CommandSeparator component props interface
+ * Extends cmdk CommandSeparator primitive props
+ */
+export interface CommandSeparatorProps extends React.ComponentProps<typeof CommandPrimitive.Separator> {}
+
+/**
+ * CommandItem component props interface
+ * Extends cmdk CommandItem primitive props
+ */
+export interface CommandItemProps extends React.ComponentProps<typeof CommandPrimitive.Item> {}
+
+/**
+ * CommandShortcut component props interface
+ * Extends native span element props
+ */
+export interface CommandShortcutProps extends React.ComponentProps<"span"> {}
+
+/**
+ * Command component - A command palette interface
+ * 
+ * Provides a command palette for searching and executing commands.
+ * Built on cmdk for command handling.
+ * 
+ * @param props - Command props including standard cmdk Command attributes
+ * @returns A Command component
+ * 
+ * @example
+ * ```tsx
+ * <Command>
+ *   <CommandInput placeholder="Search..." />
+ *   <CommandList>
+ *     <CommandGroup heading="Suggestions">
+ *       <CommandItem>Item 1</CommandItem>
+ *     </CommandGroup>
+ *   </CommandList>
+ * </Command>
+ * ```
+ */
 function Command({
   className,
   ...props
-}: React.ComponentProps<typeof CommandPrimitive>) {
+}: CommandProps): React.ReactElement {
   return (
     <CommandPrimitive
       data-slot="command"
@@ -29,6 +109,11 @@ function Command({
   )
 }
 
+/**
+ * CommandDialog component - A dialog wrapper for Command
+ * @param props - CommandDialog props including title, description, and showCloseButton
+ * @returns A CommandDialog component
+ */
 function CommandDialog({
   title = "Command Palette",
   description = "Search for a command to run...",
@@ -36,12 +121,7 @@ function CommandDialog({
   className,
   showCloseButton = true,
   ...props
-}: React.ComponentProps<typeof Dialog> & {
-  title?: string
-  description?: string
-  className?: string
-  showCloseButton?: boolean
-}) {
+}: CommandDialogProps): React.ReactElement {
   return (
     <Dialog {...props}>
       <DialogHeader className="sr-only">
@@ -60,10 +140,15 @@ function CommandDialog({
   )
 }
 
+/**
+ * CommandInput component - The search input for the command palette
+ * @param props - CommandInput props
+ * @returns A CommandInput component
+ */
 function CommandInput({
   className,
   ...props
-}: React.ComponentProps<typeof CommandPrimitive.Input>) {
+}: CommandInputProps): React.ReactElement {
   return (
     <div
       data-slot="command-input-wrapper"
@@ -82,10 +167,15 @@ function CommandInput({
   )
 }
 
+/**
+ * CommandList component - The scrollable list container for command items
+ * @param props - CommandList props
+ * @returns A CommandList component
+ */
 function CommandList({
   className,
   ...props
-}: React.ComponentProps<typeof CommandPrimitive.List>) {
+}: CommandListProps): React.ReactElement {
   return (
     <CommandPrimitive.List
       data-slot="command-list"
@@ -98,9 +188,14 @@ function CommandList({
   )
 }
 
+/**
+ * CommandEmpty component - The empty state when no commands match
+ * @param props - CommandEmpty props
+ * @returns A CommandEmpty component
+ */
 function CommandEmpty({
   ...props
-}: React.ComponentProps<typeof CommandPrimitive.Empty>) {
+}: CommandEmptyProps): React.ReactElement {
   return (
     <CommandPrimitive.Empty
       data-slot="command-empty"
@@ -110,10 +205,15 @@ function CommandEmpty({
   )
 }
 
+/**
+ * CommandGroup component - A group of related command items
+ * @param props - CommandGroup props
+ * @returns A CommandGroup component
+ */
 function CommandGroup({
   className,
   ...props
-}: React.ComponentProps<typeof CommandPrimitive.Group>) {
+}: CommandGroupProps): React.ReactElement {
   return (
     <CommandPrimitive.Group
       data-slot="command-group"
@@ -126,10 +226,15 @@ function CommandGroup({
   )
 }
 
+/**
+ * CommandSeparator component - A visual separator between command groups
+ * @param props - CommandSeparator props
+ * @returns A CommandSeparator component
+ */
 function CommandSeparator({
   className,
   ...props
-}: React.ComponentProps<typeof CommandPrimitive.Separator>) {
+}: CommandSeparatorProps): React.ReactElement {
   return (
     <CommandPrimitive.Separator
       data-slot="command-separator"
@@ -139,10 +244,15 @@ function CommandSeparator({
   )
 }
 
+/**
+ * CommandItem component - An individual selectable command item
+ * @param props - CommandItem props
+ * @returns A CommandItem component
+ */
 function CommandItem({
   className,
   ...props
-}: React.ComponentProps<typeof CommandPrimitive.Item>) {
+}: CommandItemProps): React.ReactElement {
   return (
     <CommandPrimitive.Item
       data-slot="command-item"
@@ -155,10 +265,15 @@ function CommandItem({
   )
 }
 
+/**
+ * CommandShortcut component - A keyboard shortcut indicator
+ * @param props - CommandShortcut props
+ * @returns A CommandShortcut component
+ */
 function CommandShortcut({
   className,
   ...props
-}: React.ComponentProps<"span">) {
+}: CommandShortcutProps): React.ReactElement {
   return (
     <span
       data-slot="command-shortcut"

@@ -6,13 +6,60 @@ import { MinusIcon } from "lucide-react"
 
 import { cn } from "../../lib/utils"
 
+/**
+ * InputOTP component props interface
+ * Extends input-otp OTPInput props and adds containerClassName prop
+ */
+export type InputOTPProps = React.ComponentProps<typeof OTPInput> & {
+  containerClassName?: string
+  children?: React.ReactNode
+}
+
+/**
+ * InputOTPGroup component props interface
+ * Extends native div element props
+ */
+export interface InputOTPGroupProps extends React.ComponentProps<"div"> {}
+
+/**
+ * InputOTPSlot component props interface
+ * Extends native div element props and adds index prop
+ */
+export interface InputOTPSlotProps extends React.ComponentProps<"div"> {
+  index: number
+}
+
+/**
+ * InputOTPSeparator component props interface
+ * Extends native div element props
+ */
+export interface InputOTPSeparatorProps extends React.ComponentProps<"div"> {}
+
+/**
+ * InputOTP component - A one-time password input
+ * 
+ * Provides an input field for entering one-time passwords (OTP).
+ * Built on input-otp library.
+ * 
+ * @param props - InputOTP props including maxLength, value, onChange, and standard OTPInput attributes
+ * @returns An InputOTP component
+ * 
+ * @example
+ * ```tsx
+ * <InputOTP maxLength={6}>
+ *   <InputOTPGroup>
+ *     <InputOTPSlot index={0} />
+ *     <InputOTPSlot index={1} />
+ *     <InputOTPSlot index={2} />
+ *   </InputOTPGroup>
+ * </InputOTP>
+ * ```
+ */
 function InputOTP({
   className,
   containerClassName,
   ...props
-}: React.ComponentProps<typeof OTPInput> & {
-  containerClassName?: string
-}) {
+}: InputOTPProps): React.ReactElement {
   return (
     <OTPInput
       data-slot="input-otp"
@@ -26,7 +73,12 @@ function InputOTP({
   )
 }
 
-function InputOTPGroup({ className, ...props }: React.ComponentProps<"div">) {
+/**
+ * InputOTPGroup component - A group of OTP input slots
+ * @param props - InputOTPGroup props
+ * @returns An InputOTPGroup component
+ */
+function InputOTPGroup({ className, ...props }: InputOTPGroupProps): React.ReactElement {
   return (
     <div
       data-slot="input-otp-group"
@@ -36,13 +88,16 @@ function InputOTPGroup({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
+/**
+ * InputOTPSlot component - An individual slot in an OTP input
+ * @param props - InputOTPSlot props including index
+ * @returns An InputOTPSlot component
+ */
 function InputOTPSlot({
   index,
   className,
   ...props
-}: React.ComponentProps<"div"> & {
-  index: number
-}) {
+}: InputOTPSlotProps): React.ReactElement {
   const inputOTPContext = React.useContext(OTPInputContext)
   const { char, hasFakeCaret, isActive } = inputOTPContext?.slots[index] ?? {}
 
@@ -66,7 +121,12 @@ function InputOTPSlot({
   )
 }
 
-function InputOTPSeparator({ ...props }: React.ComponentProps<"div">) {
+/**
+ * InputOTPSeparator component - A separator between OTP groups
+ * @param props - InputOTPSeparator props
+ * @returns An InputOTPSeparator component
+ */
+function InputOTPSeparator({ ...props }: InputOTPSeparatorProps): React.ReactElement {
   return (
     <div data-slot="input-otp-separator" role="separator" {...props}>
       <MinusIcon />

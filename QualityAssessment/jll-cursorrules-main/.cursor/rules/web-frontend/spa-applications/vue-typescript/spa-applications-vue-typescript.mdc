@@ -1,0 +1,480 @@
+---
+description: Vue Integrated Cursor Rules
+globs: [*.vue],
+alwaysApply: false,
+---
+
+# Vue - SPA Applications Integrated Cursor Rules
+# Version: 1.0
+# Last Updated: 2025-09-09
+# Maintained by: Sergio Martín <sergio.martin@eu.jll.com>
+# Includes: Best Practices Rules
+
+## TypeScript/Language Best Practices
+
+### Component Naming Conventions
+
+- **MUST use multi-word component names** except for root `App` components
+- **Rationale**: Prevents conflicts with existing and future HTML elements since all HTML elements are single words
+  ```typescript
+  // ❌ Bad - Single word conflicts with HTML elements
+  export default defineComponent({
+    name: 'Item'
+  });
+  
+  // ✅ Good - Multi-word prevents conflicts
+  export default defineComponent({
+    name: 'TodoItem'
+  });
+  ```
+
+### Prop Definitions and Type Safety
+- **MUST use detailed prop definitions with TypeScript interfaces**
+- **MUST specify types, required status, and validators where applicable**
+- **Rationale**: Provides compile-time type checking, runtime validation, and serves as component API documentation
+  ```typescript
+  // ❌ Bad - No type safety
+  const props = defineProps(['status', 'user']);
+  
+  // ✅ Good - TypeScript interface with defaults
+  interface Props {
+    status: 'syncing' | 'synced' | 'error';
+    user: User;
+    count?: number;
+  }
+  const props = withDefaults(defineProps<Props>(), {
+    count: 0
+  });
+  
+  // ✅ Best - With runtime validation
+  const props = defineProps({
+    status: {
+      type: String as PropType<'syncing' | 'synced' | 'error'>,
+      required: true,
+      validator: (value: string) => ['syncing', 'synced', 'error'].includes(value)
+    }
+  });
+  ```
+
+### Template Directive Best Practices
+- **MUST always use `:key` with `v-for` directives**
+- **MUST NOT use `v-if` and `v-for` on the same element**
+- **Rationale**: Keys maintain component state and enable predictable DOM updates; separate directives prevent evaluation errors and improve performance
+  ```vue
+  <!-- ❌ Bad - Missing key, combined directives -->
+  <li v-for="user in users" v-if="user.isActive">
+    {{ user.name }}
+  </li>
+  
+  <!-- ✅ Good - Proper key and separated logic -->
+  <li v-for="user in activeUsers" :key="user.id">
+    {{ user.name }}
+  </li>
+  
+  <script setup lang="ts">
+  const activeUsers = computed(() => 
+    users.value.filter(user => user.isActive)
+  );
+  </script>
+  ```
+
+### Component Styling Architecture
+- **MUST use scoped styling or CSS modules for component-specific styles**
+- **SHOULD use consistent class naming conventions (BEM recommended)**
+- **Rationale**: Prevents style conflicts, enables style encapsulation, and improves maintainability in large applications
+  ```vue
+  <!-- ✅ Scoped styles -->
+  <template>
+    <button class="button button--primary">Submit</button>
+  </template>
+  <style scoped lang="scss">
+  .button {
+    border: none;
+    padding: 8px 16px;
+    &--primary {
+      background-color: var(--color-primary);
+      color: white;
+    }
+  }
+  </style>
+  
+  <!-- ✅ CSS Modules -->
+  <template>
+    <button :class="[$style.button, $style.primary]">Submit</button>
+  </template>
+  <style module lang="scss">
+  .button { border: none; padding: 8px 16px; }
+  .primary { background-color: var(--color-primary); }
+  </style>
+  
+  <!-- ✅ BEM convention -->
+  <template>
+    <button class="c-Button c-Button--primary">Submit</button>
+  </template>
+  <style lang="scss">
+  .c-Button {
+    border: none;
+    &--primary { background-color: var(--color-primary); }
+  }
+  </style>
+  ```
+
+### TypeScript Integration Standards
+- **MUST use strict TypeScript configuration**
+- **MUST define interfaces for all component props, emits, and complex data structures**
+- **SHOULD use generic types for reusable components**
+  ```typescript
+  // ✅ Component with full TypeScript integration
+  interface User {
+    id: number;
+    name: string;
+    role: 'admin' | 'user' | 'guest';
+  }
+  interface Props {
+    users: User[];
+    loading?: boolean;
+  }
+  interface Emits {
+    (e: 'user-selected', user: User): void;
+    (e: 'refresh'): void;
+  }
+  
+  const props = withDefaults(defineProps<Props>(), { loading: false });
+  const emit = defineEmits<Emits>();
+  
+  // ✅ Generic reusable component
+  interface ListProps<T> {
+    items: T[];
+    keyField: keyof T;
+  }
+  ```
+
+### File Organization and Structure
+- **MUST place each component in its own file when using a build system**
+- **MUST use PascalCase for all component filenames throughout the project**
+- **Rationale**: Improves component discoverability, enables better IDE autocompletion, and prevents case-sensitivity issues across different file systems
+  ```
+  // ✅ Good - PascalCase (recommended for TypeScript projects)
+  components/
+  ├── TodoList.vue
+  ├── TodoItem.vue
+  └── UserProfile.vue
+  
+  // ❌ Bad - Mixed casing
+  components/
+  ├── mycomponent.vue
+  ├── MyComponent.vue
+  └── my-component.vue
+  ```
+
+### Base Component Naming Strategy
+- **MUST prefix base/presentational components with consistent prefix** (`Base`, `App`, or `V`)
+- **MUST use full descriptive names, avoiding abbreviations**
+- **Rationale**: Creates clear component hierarchy, enables global registration patterns, and improves component discoverability in alphabetically sorted lists
+  ```typescript
+  // ✅ Good - Base component naming
+  components/
+  ├── BaseButton.vue        // Reusable button component
+  ├── BaseInput.vue         // Reusable input component
+  
+  // ✅ Good - App-specific prefix
+  components/
+  ├── AppNavigation.vue
+  └── AppFooter.vue
+  
+  // ❌ Bad - Generic or abbreviated names
+  components/
+  ├── Btn.vue              // Abbreviated
+  └── Icon.vue             // Too generic
+  
+  // ✅ Good - Full descriptive names
+  components/
+  ├── StudentDashboardSettings.vue
+  └── PaymentMethodSelector.vue
+  
+  // ❌ Bad - Abbreviations
+  components/
+  ├── SdSettings.vue
+  └── PmtSelector.vue
+  ```
+
+### Component Relationship and Coupling
+- **MUST use parent component name as prefix for tightly coupled child components**
+- **MUST order component names from general to specific (highest-level words first)**
+- **Rationale**: Makes component relationships evident, keeps related files together in alphabetical sorting, and improves navigation
+  ```typescript
+  // ✅ Good - Tightly coupled naming
+  components/
+  ├── TodoList.vue
+  ├── TodoListItem.vue
+  
+  components/
+  ├── SearchSidebar.vue
+  ├── SearchSidebarNavigation.vue
+  
+  // ❌ Bad - Unclear relationships
+  components/
+  ├── TodoList.vue
+  ├── TodoItem.vue          // Should be TodoListItem
+  ```
+
+### Component Registration and Naming in Code
+- **MUST use PascalCase for component names in JavaScript/TypeScript**
+- **MUST use camelCase for prop declarations**
+- **SHOULD use consistent casing throughout templates (either camelCase or kebab-case)**
+  ```typescript
+  // ✅ Good - Component registration
+  import TodoList from './TodoList.vue';
+  import UserProfile from './UserProfile.vue';
+  
+  export default defineComponent({
+    name: 'TodoApp',
+    components: {
+      TodoList,
+      UserProfile
+    }
+  });
+  
+  // ✅ Good - Prop definitions
+  interface Props {
+    greetingText: string;      // camelCase in TypeScript
+    isVisible: boolean;
+  }
+  
+  const props = defineProps<Props>();
+  
+  // ✅ Good - Template usage (choose one style consistently)
+  // Option 1: kebab-case (recommended for in-DOM templates)
+  <template>
+    <welcome-message 
+      greeting-text="Hello"
+      :is-visible="true"
+    />
+  </template>
+  
+  // Option 2: camelCase (acceptable in SFC templates)
+  <template>
+    <WelcomeMessage 
+      greetingText="Hello"
+      :isVisible="true"
+    />
+  </template>
+  
+  // ❌ Bad - Mixed casing inconsistency
+  <template>
+    <welcome-message 
+      greetingText="Hello"     <!-- Mixed: kebab component, camel prop -->
+      :is-visible="true"
+    />
+  </template>
+  ```
+
+### Component Structure and Organization Standards
+- **MUST order component options consistently according to logical groupings**
+- **MUST order element attributes consistently for predictable code structure**
+- **SHOULD use consistent Single-File Component (SFC) block ordering**
+- **Rationale**: Improves code readability, enables faster navigation, and creates predictable patterns for team development
+
+#### Composition API Organization (recommended approach)
+```typescript
+<script setup lang="ts">
+// 1. Imports
+import { ref, computed, watch } from 'vue';
+
+// 2. Types & Props
+interface Props {
+  userId: string;
+  editable?: boolean;
+}
+
+const props = withDefaults(defineProps<Props>(), { editable: false });
+const emit = defineEmits<{ 'user-updated': [user: User] }>();
+
+// 3. State & Computed
+const user = ref<User | null>(null);
+const fullName = computed(() => user.value ? `${user.value.firstName} ${user.value.lastName}` : '');
+
+// 4. Methods
+const fetchUser = async () => { /* ... */};
+
+// 5. Watchers
+watch(() => props.userId, fetchUser, { immediate: true });
+</script>
+```
+
+#### Single-File Component Block Ordering
+```vue
+<!-- ✅ Good - Consistent SFC structure (Option 1: Script-first) -->
+<script setup lang="ts">
+</script>
+
+<template>
+</template>
+
+<style scoped lang="scss">
+</style>
+
+<!-- ❌ Bad - Inconsistent ordering across components -->
+<!-- Some components with <style> first, others with <template> first -->
+```
+
+### Performance and Anti-Pattern Warnings
+- **MUST NOT use element selectors with scoped styles** (use class selectors instead)
+- **MUST NOT use implicit parent-child communication patterns** (avoid `$parent` access and prop mutations)
+- **Rationale**: Element selectors with scoped attributes are significantly slower than class selectors; implicit communication breaks component encapsulation and makes state flow unpredictable
+
+#### Scoped Styling Performance
+```vue
+<!-- ❌ Bad - Element selectors with scoped styles (slow) -->
+<template>
+  <div class="user-card">
+    <button>Edit</button>
+    <span>{{ user.name }}</span>
+  </div>
+</template>
+<style scoped>
+/* ❌ Element selectors become button[data-v-f3f3eg9] - slow */
+button { background-color: #007bff; }
+span { font-weight: bold; }
+</style>
+
+<!-- ✅ Good - Class selectors (fast) -->
+<template>
+  <div class="user-card">
+    <button class="edit-button">Edit</button>
+    <span class="user-name">{{ user.name }}</span>
+  </div>
+</template>
+<style scoped>
+/* ✅ Class selectors become .edit-button[data-v-f3f3eg9] - fast */
+.edit-button {
+  background-color: #007bff;
+  &:hover { background-color: #0056b3; }
+}
+.user-name { font-weight: bold; }
+</style>
+```
+
+#### Proper Component Communication Patterns
+```typescript
+// ❌ Bad - Direct prop mutation and parent access
+<script setup lang="ts">
+const props = defineProps<{ todo: Todo }>();
+
+// ❌ BAD: Mutating props directly
+const updateTodo = () => {
+  props.todo.text = 'new text';  // Don't mutate props!
+};
+</script>
+
+<template>
+  <!-- ❌ BAD: Direct v-model on prop -->
+  <input v-model="todo.text" />
+</template>
+
+// ✅ Good - Props down, events up pattern
+<script setup lang="ts">
+interface Props { todo: Todo }
+interface Emits {
+  (e: 'update-text', id: string, text: string): void;
+  (e: 'remove-todo', id: string): void;
+}
+
+const props = defineProps<Props>();
+const emit = defineEmits<Emits>();
+
+const updateTodoText = (event: Event) => {
+  const target = event.target as HTMLInputElement;
+  emit('update-text', props.todo.id, target.value);
+};
+</script>
+
+<template>
+  <div class="todo-item">
+    <!-- ✅ GOOD: Controlled input -->
+    <input 
+      :value="todo.text"
+      @input="updateTodoText"
+    />
+    <button @click="emit('remove-todo', todo.id)">×</button>
+  </div>
+</template>
+
+// ✅ Parent component
+<script setup lang="ts">
+const todos = ref<Todo[]>([...]);
+
+const updateTodoText = (id: string, newText: string) => {
+  const todo = todos.value.find(t => t.id === id);
+  if (todo) todo.text = newText;
+};
+
+const removeTodo = (id: string) => {
+  todos.value = todos.value.filter(t => t.id !== id);
+};
+</script>
+
+<template>
+  <TodoItem
+    v-for="todo in todos"
+    :key="todo.id"
+    :todo="todo"
+    @update-text="updateTodoText"
+    @remove-todo="removeTodo"
+  />
+</template>
+```
+
+#### Advanced Communication Patterns for Complex Cases
+```typescript
+// ✅ For deeply coupled components, use provide/inject
+<script setup lang="ts">
+// Parent component
+import { provide, ref } from 'vue';
+import type { InjectionKey } from 'vue';
+
+interface TodoService {
+  todos: Ref<Todo[]>;
+  addTodo: (text: string) => void;
+  removeTodo: (id: string) => void;
+}
+
+export const todoServiceKey: InjectionKey<TodoService> = Symbol('todoService');
+
+const todos = ref<Todo[]>([]);
+const todoService: TodoService = {
+  todos,
+  addTodo: (text) => todos.value.push({ id: Date.now().toString(), text, completed: false }),
+  removeTodo: (id) => todos.value = todos.value.filter(t => t.id !== id)
+};
+
+provide(todoServiceKey, todoService);
+</script>
+
+// Child component using inject
+<script setup lang="ts">
+import { inject } from 'vue';
+import { todoServiceKey } from './TodoList.vue';
+
+const props = defineProps<{ todoId: string }>();
+const todoService = inject(todoServiceKey);
+
+if (!todoService) throw new Error('TodoService not provided');
+
+const removeTodo = () => todoService.removeTodo(props.todoId);
+</script>
+```
+
+*References: [Vue.js Essential Style Guide](https://vuejs.org/style-guide/rules-essential.html#use-multi-word-component-names), [Vue.js Strongly Recommended Style Guide](https://vuejs.org/style-guide/rules-strongly-recommended.html#component-files), [Vue.js Recommended Style Guide](https://vuejs.org/style-guide/rules-recommended.html#component-instance-options-order), [Vue.js Use with Caution Style Guide](https://vuejs.org/style-guide/rules-use-with-caution.html#element-selectors-with-scoped)*
+
+## Accessibility Implementation (Web Accessibility - a11y)
+Refer to the `./spa-applications-vue-typescript-accessibility-focused.mdc` file.
+
+## Security Implementation (Integrated)
+Refer to the `./spa-applications-vue-typescript-security-focused.mdc` file.
+
+## Performance Optimization (Integrated)
+Refer to the `./spa-applications-vue-typescript-performance-focused.mdc` file.
+
+## Testing Requirements (Integrated)
+Refer to the `./spa-applications-vue-typescript-testing-focused.mdc` file.

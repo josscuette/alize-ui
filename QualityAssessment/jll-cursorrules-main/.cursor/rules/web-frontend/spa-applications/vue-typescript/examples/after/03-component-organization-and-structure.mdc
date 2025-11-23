@@ -1,0 +1,240 @@
+---
+description: Component Organization and Structure After Example
+globs: [],
+alwaysApply: false,
+---
+
+```vue
+<!-- ✅ GOOD EXAMPLE - Follows Component Organization and Structure Rules -->
+<template>
+  <article class="user-profile" role="main" aria-labelledby="user-title">
+    <header class="user-profile__header">
+      <h1 id="user-title" class="user-profile__title">User Profile</h1>
+    </header>
+    
+    <div class="user-profile__content">
+      <img 
+        :src="userAvatar" 
+        :alt="`${userName} profile picture`"
+        class="user-profile__avatar"
+      />
+      
+      <div class="user-profile__info">
+        <h2 class="user-profile__name">{{ userName }}</h2>
+        <p class="user-profile__email">{{ userEmail }}</p>
+      </div>
+    </div>
+    
+    <footer class="user-profile__actions">
+      <BaseButton
+        v-if="editable"
+        variant="primary"
+        :disabled="loading"
+        @click="handleEdit"
+      >
+        Edit Profile
+      </BaseButton>
+      
+      <BaseButton
+        variant="danger"
+        :disabled="loading"
+        @click="handleDelete"
+      >
+        Delete User
+      </BaseButton>
+    </footer>
+  </article>
+</template>
+
+<script setup lang="ts">
+// 1. Type-only imports first
+import type { User } from '@/types/user';
+
+// 2. External library imports
+import { ref, computed, watch, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
+
+// 3. Internal module imports
+import { userService } from '@/services/userService';
+import { useErrorHandler } from '@/composables/useErrorHandler';
+
+// 4. Component imports
+import BaseButton from '@/components/BaseButton.vue';
+
+// 5. Local type definitions
+interface Props {
+  userId: string;
+  editable?: boolean;
+}
+
+interface Emits {
+  (e: 'user-deleted', userId: string): void;
+  (e: 'user-updated', user: User): void;
+}
+
+// 6. Props & Emits
+const props = withDefaults(defineProps<Props>(), {
+  editable: false
+});
+
+const emit = defineEmits<Emits>();
+
+// 7. Composables and external dependencies
+const router = useRouter();
+const { handleError } = useErrorHandler();
+
+// 8. Reactive state
+const user = ref<User | null>(null);
+const loading = ref(false);
+
+// 9. Computed properties
+const userAvatar = computed(() => 
+  user.value?.avatar || '/images/default-avatar.png'
+);
+
+const userName = computed(() => 
+  user.value?.name || 'Unknown User'
+);
+
+const userEmail = computed(() => 
+  user.value?.email || 'No email provided'
+);
+
+// 10. Methods
+const fetchUser = async (): Promise<void> => {
+  if (!props.userId) return;
+  
+  loading.value = true;
+  try {
+    user.value = await userService.getUser(props.userId);
+  } catch (error) {
+    handleError(error, 'Failed to fetch user');
+  } finally {
+    loading.value = false;
+  }
+};
+
+const handleEdit = (): void => {
+  if (!user.value) return;
+  router.push(`/users/${user.value.id}/edit`);
+};
+
+const handleDelete = async (): Promise<void> => {
+  if (!user.value || !confirm('Are you sure you want to delete this user?')) {
+    return;
+  }
+  
+  loading.value = true;
+  try {
+    await userService.deleteUser(user.value.id);
+    emit('user-deleted', user.value.id);
+  } catch (error) {
+    handleError(error, 'Failed to delete user');
+  } finally {
+    loading.value = false;
+  }
+};
+
+// 11. Watchers
+watch(
+  () => props.userId,
+  (newUserId) => {
+    if (newUserId) {
+      fetchUser();
+    }
+  },
+  { immediate: true }
+);
+
+// 12. Lifecycle hooks
+onMounted(() => {
+  // Component mounted logic if needed
+});
+</script>
+
+<style scoped>
+/* ✅ GOOD: Scoped styles with organized BEM structure */
+
+/* Component root */
+.user-profile {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Header section */
+.user-profile__header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.user-profile__title {
+  margin: 0;
+  color: #333;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+/* Content section */
+.user-profile__content {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.user-profile__avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #e9ecef;
+}
+
+.user-profile__info {
+  flex: 1;
+}
+
+.user-profile__name {
+  margin: 0 0 0.5rem 0;
+  color: #333;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.user-profile__email {
+  margin: 0;
+  color: #666;
+  font-size: 1rem;
+}
+
+/* Actions section */
+.user-profile__actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e9ecef;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .user-profile {
+    padding: 1rem;
+    margin: 1rem;
+  }
+  
+  .user-profile__content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .user-profile__actions {
+    flex-direction: column;
+  }
+}
+</style>
+```

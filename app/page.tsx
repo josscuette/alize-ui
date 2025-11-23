@@ -34,14 +34,7 @@ export default function Home() {
             <MaterialSymbol name="widgets" size={24} weight={300} className="text-semantic-icon-interaction-default" />
             <h1 className="text-xl font-normal">Alize</h1>
           </div>
-          <div className="flex items-center gap-4">
-            <Link href="/components">
-              <Button variant="ghost" size="sm">
-                Components
-              </Button>
-            </Link>
-            <GlobalHeader />
-          </div>
+          <GlobalHeader />
         </div>
       </header>
 

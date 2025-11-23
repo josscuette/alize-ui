@@ -54,3 +54,31 @@
 - Use ESLint and Prettier configurations
 - Ensure TypeScript strict mode compliance
 
+## Critical Project Rules
+
+### Server Management
+
+- **ALWAYS stop the development server before making any code modifications**
+  - Check for running Next.js processes: `ps aux | grep -i "next dev" | grep -v grep`
+  - Stop all running servers before editing files to prevent cache corruption
+  - Use `lsof -ti:3000 | xargs kill -9` to free port 3000 if needed
+
+- **ALWAYS check for existing servers before starting a new one**
+  - Before running `npm run dev`, check if other Next.js processes are running
+  - If multiple servers are detected, stop all of them first
+  - Only start one server instance at a time
+
+- **Server startup procedure**:
+  1. Check for existing processes: `ps aux | grep -i "next dev" | grep -v grep`
+  2. Stop all found processes
+  3. Free the port if needed: `lsof -ti:3000 | xargs kill -9 2>/dev/null`
+  4. Then start the server: `npm run dev`
+
+### Directory Management
+
+- **NEVER modify or delete `.next/` directory** - This is Next.js build cache, managed automatically
+- **NEVER modify or delete `node_modules/` directory** - This is managed by npm/yarn package manager
+- **NEVER run commands that delete or modify these directories** (e.g., `rm -rf .next`, `rm -rf node_modules`)
+- If build issues occur, suggest the user run `npm run dev` or `npm run build` to regenerate files
+- These directories are excluded from version control and should remain untouched
+

@@ -2,7 +2,7 @@
 
 import { useState, useMemo, useCallback, memo, useRef, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import { componentsConfig, categories, type ComponentConfig } from "@/lib/components-config";
 import { GlobalHeader } from "@/components/global-header";
 import { MaterialSymbol } from "@/components/material-symbol";
@@ -16,11 +16,44 @@ import { useIsMobile } from "@/hooks/use-mobile";
 
 export default function ComponentsPage() {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const router = useRouter();
   const isMobile = useIsMobile();
-  const [selectedComponent, setSelectedComponent] = useState<string>("foundation-layer");
+  
+  // Initialize selectedComponent from URL query param or default to button
+  const initialComponent = searchParams?.get("component") || "button";
+  const [selectedComponent, setSelectedComponent] = useState<string>(initialComponent);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [showModifiedOnly, setShowModifiedOnly] = useState<boolean>(false);
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
+
+  // Sync selectedComponent with URL query param
+  useEffect(() => {
+    const componentParam = searchParams?.get("component");
+    if (componentParam) {
+      if (componentParam !== selectedComponent) {
+        setSelectedComponent(componentParam);
+      }
+    } else {
+      // Default to button if no component param
+      if (selectedComponent !== "button") {
+        setSelectedComponent("button");
+      }
+    }
+  }, [searchParams]);
+
+  // Update URL when selectedComponent changes
+  const handleComponentSelect = useCallback((componentId: string) => {
+    setSelectedComponent(componentId);
+    if (componentId === "foundation-layer") {
+      router.push("/components?component=foundation-layer");
+    } else if (componentId && componentId !== "button") {
+      router.push(`/components?component=${componentId}`);
+    } else {
+      // For button or default, go to /components without param
+      router.push("/components");
+    }
+  }, [router]);
 
   const filteredComponents = useMemo(() => {
     let filtered = componentsConfig;
@@ -218,6 +251,20 @@ export default function ComponentsPage() {
                 <span>Foundation Layer</span>
               </button>
             </li>
+            <li>
+              <Link
+                href="/compliance"
+                className={cn(
+                  "w-full text-left px-3 py-1.5 rounded-md text-sm transition-colors flex items-center gap-2",
+                  pathname === "/compliance"
+                    ? "bg-accent text-accent-foreground font-medium"
+                    : "hover:bg-accent/50 text-muted-foreground hover:text-foreground"
+                )}
+              >
+                <MaterialSymbol name="verified" size={16} weight={300} />
+                <span>Compliance</span>
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -288,7 +335,7 @@ export default function ComponentsPage() {
             showModifiedOnly={showModifiedOnly}
             groupedComponents={groupedComponents}
             selectedComponent={selectedComponent}
-            onComponentSelect={setSelectedComponent}
+            onComponentSelect={handleComponentSelect}
             onToggleModified={() => setShowModifiedOnly(!showModifiedOnly)}
             onCloseMobile={() => setSidebarOpen(false)}
             onSearchChange={handleSearchChange}
@@ -310,7 +357,7 @@ export default function ComponentsPage() {
                 showModifiedOnly={showModifiedOnly}
                 groupedComponents={groupedComponents}
                 selectedComponent={selectedComponent}
-                onComponentSelect={setSelectedComponent}
+                onComponentSelect={handleComponentSelect}
                 onToggleModified={() => setShowModifiedOnly(!showModifiedOnly)}
                 onCloseMobile={() => setSidebarOpen(false)}
                 onSearchChange={handleSearchChange}

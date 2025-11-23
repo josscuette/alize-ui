@@ -8,7 +8,7 @@ export interface ChartProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactElement
 }
 
-export function Chart({ className, children, ...props }: ChartProps) {
+export function Chart({ className, children, ...props }: ChartProps): React.ReactElement {
   return (
     <div className={cn("w-full", className)} {...props}>
       <ResponsiveContainer width="100%" height="100%">

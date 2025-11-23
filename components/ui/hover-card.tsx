@@ -5,26 +5,74 @@ import * as HoverCardPrimitive from "@radix-ui/react-hover-card"
 
 import { cn } from "../../lib/utils"
 
+/**
+ * HoverCard component props interface
+ * Extends Radix UI HoverCard primitive props
+ */
+export interface HoverCardProps extends React.ComponentProps<typeof HoverCardPrimitive.Root> {}
+
+/**
+ * HoverCardTrigger component props interface
+ * Extends Radix UI HoverCardTrigger primitive props
+ */
+export interface HoverCardTriggerProps extends React.ComponentProps<typeof HoverCardPrimitive.Trigger> {}
+
+/**
+ * HoverCardContent component props interface
+ * Extends Radix UI HoverCardContent primitive props
+ */
+export interface HoverCardContentProps extends React.ComponentProps<typeof HoverCardPrimitive.Content> {
+  align?: "start" | "center" | "end"
+  sideOffset?: number
+}
+
+/**
+ * HoverCard component - A hover card for displaying additional content
+ * 
+ * Provides an accessible hover card that appears when hovering over a trigger element.
+ * Built on Radix UI primitives for accessibility.
+ * 
+ * @param props - HoverCard props including openDelay, closeDelay, and standard Radix UI HoverCard attributes
+ * @returns A HoverCard component
+ * 
+ * @example
+ * ```tsx
+ * <HoverCard>
+ *   <HoverCardTrigger>Hover me</HoverCardTrigger>
+ *   <HoverCardContent>Additional information</HoverCardContent>
+ * </HoverCard>
+ * ```
+ */
 function HoverCard({
   ...props
-}: React.ComponentProps<typeof HoverCardPrimitive.Root>) {
+}: HoverCardProps): React.ReactElement {
   return <HoverCardPrimitive.Root data-slot="hover-card" {...props} />
 }
 
+/**
+ * HoverCardTrigger component - The element that triggers the hover card
+ * @param props - HoverCardTrigger props
+ * @returns A HoverCardTrigger component
+ */
 function HoverCardTrigger({
   ...props
-}: React.ComponentProps<typeof HoverCardPrimitive.Trigger>) {
+}: HoverCardTriggerProps): React.ReactElement {
   return (
     <HoverCardPrimitive.Trigger data-slot="hover-card-trigger" {...props} />
   )
 }
 
+/**
+ * HoverCardContent component - The content container of the hover card
+ * @param props - HoverCardContent props including align and sideOffset
+ * @returns A HoverCardContent component
+ */
 function HoverCardContent({
   className,
   align = "center",
   sideOffset = 4,
   ...props
-}: React.ComponentProps<typeof HoverCardPrimitive.Content>) {
+}: HoverCardContentProps): React.ReactElement {
   return (
     <HoverCardPrimitive.Portal data-slot="hover-card-portal">
       <HoverCardPrimitive.Content

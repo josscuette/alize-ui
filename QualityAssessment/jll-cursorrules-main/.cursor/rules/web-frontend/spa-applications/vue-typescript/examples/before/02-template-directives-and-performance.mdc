@@ -1,0 +1,97 @@
+---
+description: Template Directives and Performance Before Example
+globs: [],
+alwaysApply: false,
+---
+
+```vue
+<!-- ❌ BAD EXAMPLE - Violates Template Directive Best Practices -->
+<template>
+  <div class="user-list">
+    <h2>Active Users</h2>
+    
+    <!-- ❌ BAD: Missing :key with v-for -->
+    <div v-for="user in users" class="user-item">
+      <span>{{ user.name }}</span>
+    </div>
+
+    <!-- ❌ BAD: v-if and v-for on same element -->
+    <li v-for="user in allUsers" v-if="user.isActive" class="active-user">
+      {{ user.name }} - {{ user.email }}
+    </li>
+
+    <!-- ❌ BAD: Complex expression in template -->
+    <div class="user-stats">
+      Total Active: {{ users.filter(u => u.isActive && u.verified).length }}
+    </div>
+
+    <!-- ❌ BAD: Inline object creation (unstable reference) -->
+    <UserCard 
+      v-for="user in users"
+      :user="user"
+      :config="{ theme: 'dark', showAvatar: true }"
+      :handlers="{ onClick: handleClick, onEdit: handleEdit }"
+    />
+
+    <!-- ❌ BAD: Multiple attributes on same line, no consistent ordering -->
+    <button @click="addUser" :disabled="loading" class="btn" :style="buttonStyle" v-show="canAdd">Add User</button>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue';
+import UserCard from './UserCard.vue';
+
+interface User {
+  id: string;
+  name: string;
+  email: string;
+  isActive: boolean;
+  verified: boolean;
+}
+
+const users = ref<User[]>([
+  { id: '1', name: 'John', email: 'john@example.com', isActive: true, verified: true },
+  { id: '2', name: 'Jane', email: 'jane@example.com', isActive: false, verified: true },
+]);
+
+const allUsers = ref<User[]>([...users.value]);
+const loading = ref(false);
+const canAdd = ref(true);
+
+// ❌ BAD: Functions recreated on every render
+const handleClick = (user: User) => {
+  console.log('Clicked:', user.name);
+};
+
+const handleEdit = (user: User) => {
+  console.log('Edit:', user.name);
+};
+
+// ❌ BAD: Computed style object recreated every render
+const buttonStyle = ref({
+  backgroundColor: loading.value ? '#ccc' : '#007bff',
+  color: 'white'
+});
+
+const addUser = () => {
+  // Add user logic
+};
+</script>
+
+<style>
+/* ❌ BAD: Global styles */
+.user-list {
+  padding: 20px;
+}
+
+.user-item {
+  margin: 10px 0;
+}
+
+.btn {
+  padding: 10px;
+  border: none;
+}
+</style>
+```

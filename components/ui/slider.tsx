@@ -5,6 +5,27 @@ import * as SliderPrimitive from "@radix-ui/react-slider"
 
 import { cn } from "../../lib/utils"
 
+/**
+ * Slider component props interface
+ * Extends Radix UI Slider primitive props
+ */
+export interface SliderProps extends React.ComponentProps<typeof SliderPrimitive.Root> {}
+
+/**
+ * Slider component - A range input slider
+ * 
+ * Provides a draggable slider for selecting values within a range.
+ * Built on Radix UI primitives for accessibility.
+ * 
+ * @param props - Slider props including value, defaultValue, min, max, and standard Radix UI Slider attributes
+ * @returns A slider element
+ * 
+ * @example
+ * ```tsx
+ * <Slider defaultValue={[50]} min={0} max={100} />
+ * <Slider value={value} onValueChange={setValue} />
+ * ```
+ */
 function Slider({
   className,
   defaultValue,
@@ -12,7 +33,7 @@ function Slider({
   min = 0,
   max = 100,
   ...props
-}: React.ComponentProps<typeof SliderPrimitive.Root>) {
+}: SliderProps): React.ReactElement {
   const _values = React.useMemo(
     () =>
       Array.isArray(value)

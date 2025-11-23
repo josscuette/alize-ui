@@ -1,0 +1,89 @@
+---
+description: Component Organization and Structure Before Example
+globs: [],
+alwaysApply: false,
+---
+
+```vue
+<!-- ❌ BAD EXAMPLE - Violates Component Organization and Structure Rules -->
+<template>
+  <div>
+    <!-- ❌ BAD: No semantic structure or accessibility -->
+    <div>User Profile</div>
+    <img :src="avatar" />
+    <div>{{ name }}</div>
+    <div>{{ email }}</div>
+    <button @click="edit">Edit</button>
+    <button @click="remove">Delete</button>
+  </div>
+</template>
+
+<script setup lang="ts">
+// ❌ BAD: Imports not organized, mixed order
+import { updateUser } from '@/api/users';
+import { ref, computed, watch } from 'vue';
+import type { User } from '@/types';
+import { useRouter } from 'vue-router';
+import BaseButton from '@/components/BaseButton.vue';
+
+// ❌ BAD: No clear organization, mixed concerns
+const router = useRouter();
+const loading = ref(false);
+
+// ❌ BAD: Props defined after other logic
+const props = defineProps(['userId', 'editable']);
+
+const user = ref<User | null>(null);
+
+// ❌ BAD: Methods mixed with reactive declarations
+const edit = () => {
+  router.push(`/users/${props.userId}/edit`);
+};
+
+const emit = defineEmits(['deleted']);
+
+// ❌ BAD: Computed properties scattered
+const avatar = computed(() => user.value?.avatar || '/default-avatar.png');
+
+// ❌ BAD: Watchers defined after methods
+watch(() => props.userId, fetchUser, { immediate: true });
+
+const name = computed(() => user.value?.name || 'Unknown');
+
+// ❌ BAD: Async function without proper error handling
+const fetchUser = async () => {
+  const response = await fetch(`/api/users/${props.userId}`);
+  user.value = await response.json();
+};
+
+const email = computed(() => user.value?.email || '');
+
+// ❌ BAD: Methods scattered throughout
+const remove = async () => {
+  await fetch(`/api/users/${props.userId}`, { method: 'DELETE' });
+  emit('deleted', props.userId);
+};
+
+// ❌ BAD: No type safety, using any
+const handleError = (error: any) => {
+  console.log(error);
+};
+</script>
+
+<style>
+/* ❌ BAD: Global styles, no organization */
+div {
+  margin: 10px;
+}
+
+button {
+  padding: 5px;
+  margin: 5px;
+}
+
+img {
+  width: 50px;
+  height: 50px;
+}
+</style>
+```

@@ -1,0 +1,189 @@
+---
+description: Comprehensive rules for React TypeScript Single Page Applications, covering component architecture, state management, performance, security, and testing best practices
+globs: ["**/*.{ts,tsx}", "**/*.jsx", "**/package.json", "**/tsconfig.json", "**/vite.config.*", "**/webpack.config.*"]
+alwaysApply: false
+---
+
+# React TypeScript SPA Application Rules
+
+**Version:** 1.0
+**Last Updated:** 2025-10-02
+**Maintained by:** JLL Apex Team
+**Use Case:** Building scalable, maintainable React TypeScript single page applications
+
+## AI Assistant Instructions
+
+You are an expert React TypeScript developer specializing in enterprise-grade single page applications. Focus on modern React patterns, TypeScript best practices, performance optimization, and maintainable architecture. Prioritize code that is scalable, testable, and follows JLL enterprise development standards.
+
+### Core Principles
+- Use functional components with hooks over class components
+- Implement strict TypeScript typing throughout the application
+- Follow atomic design principles for component organization
+- Prioritize performance with proper memoization and optimization techniques
+- Implement comprehensive error boundaries and error handling
+- Use modern state management patterns (Zustand, Redux Toolkit, etc.)
+- Ensure accessibility compliance and semantic HTML
+- Write testable code with proper separation of concerns
+
+### Response Guidelines
+- Always provide TypeScript interfaces/types for component props and state
+- Include proper error handling in all async operations
+- Suggest performance optimizations when rendering large lists or complex components
+- Recommend proper component composition and reusability patterns
+- Provide concrete examples with working code snippets
+- Explain security implications when handling user data or API calls
+
+## Component Architecture and Organization
+
+### Component Structure
+- Use functional components with named exports over default exports for better tree-shaking
+- Implement proper component composition using the "children as props" pattern
+- Create compound components for related UI elements that share state
+- Use custom hooks to extract complex logic from components
+- Implement proper component boundaries with clear responsibilities
+
+### File Organization
+```
+src/
+├── components/
+│   ├── ui/           # Reusable UI components (Button, Input, etc.)
+│   ├── layout/       # Layout components (Header, Sidebar, etc.)
+│   ├── forms/        # Form-related components
+│   └── pages/        # Page-level components
+├── hooks/            # Custom hooks
+├── utils/            # Utility functions
+├── types/            # TypeScript type definitions
+├── constants/        # Application constants
+├── services/         # API service functions
+├── stores/           # State management (Zustand, Redux, etc.)
+└── styles/           # Global styles and theme
+```
+
+## TypeScript Best Practices
+
+### Type Definitions
+- Define comprehensive interfaces for all component props
+- Use union types for component variants and states
+- Implement discriminated unions for complex state management
+- Create generic types for reusable component patterns
+- Use `as const` assertions for literal type preservation
+
+### Type Safety
+- Avoid `any` types; use proper type definitions instead
+- Implement strict null checking with proper optional chaining
+- Use `keyof` and mapped types for dynamic property access
+- Define return types for all functions and hooks
+- Use `satisfies` operator for type validation without widening
+
+## State Management
+
+### Local State
+- Use `useState` for simple component state
+- Implement `useReducer` for complex state logic with multiple actions
+- Use `useMemo` and `useCallback` to prevent unnecessary re-renders
+- Implement proper state initialization patterns
+
+### Global State
+- Use Zustand for lightweight global state management
+- Implement Redux Toolkit for complex applications with middleware needs
+- Create typed selectors and actions for better type safety
+- Implement proper state persistence patterns when needed
+
+## Performance Optimization
+
+### Rendering Optimization
+- Use `React.memo` for expensive components that re-render frequently
+- Implement proper dependency arrays in `useEffect`, `useMemo`, and `useCallback`
+- Use `useMemo` for expensive computations
+- Implement virtual scrolling for large lists
+- Use `React.lazy` and `Suspense` for code splitting
+
+### Bundle Optimization
+- Implement dynamic imports for route-based code splitting
+- Use tree-shaking friendly imports from libraries
+- Implement proper chunk splitting strategies
+- Use compression and minification in production builds
+
+## Error Handling and Boundaries
+
+### Error Boundaries
+- Implement error boundaries at route/page level
+- Create fallback UI components for error states
+- Log errors appropriately for monitoring and debugging
+- Implement graceful degradation patterns
+
+### Async Error Handling
+- Use proper try/catch blocks in async functions
+- Implement loading states for all async operations
+- Handle network errors and timeouts appropriately
+- Provide user-friendly error messages
+
+## Security Considerations
+
+### Data Handling
+- Validate all user inputs on both client and server side
+- Implement proper sanitization for dynamic content
+- Use HTTPS for all external API calls
+- Implement proper authentication token handling
+
+### XSS Prevention
+- Use `dangerouslySetInnerHTML` only with sanitized content
+- Implement Content Security Policy headers
+- Validate and sanitize all URL parameters
+- Use proper encoding for user-generated content
+
+## Testing Patterns
+
+### Component Testing
+- Write unit tests for all custom hooks
+- Implement integration tests for component interactions
+- Use React Testing Library for user-centric testing
+- Mock external dependencies appropriately
+
+### Test Organization
+- Colocate test files with components using `.test.tsx` suffix
+- Implement proper test setup with providers and mocks
+- Use descriptive test names that explain behavior
+- Implement proper cleanup in test teardown
+
+## Code Quality and Standards
+
+### Naming Conventions
+- Use PascalCase for component names and types
+- Use camelCase for variables, functions, and hooks
+- Prefix custom hooks with `use`
+- Use descriptive names that explain purpose
+
+### Code Organization
+- Keep components under 200 lines when possible
+- Extract complex logic into custom hooks
+- Implement proper separation of concerns
+- Use barrel exports for clean imports
+
+## Accessibility (a11y)
+
+### Semantic HTML
+- Use proper semantic elements (`<main>`, `<section>`, `<article>`, etc.)
+- Implement proper heading hierarchy (h1 → h2 → h3)
+- Use ARIA attributes when semantic HTML is insufficient
+- Ensure keyboard navigation support
+
+### Screen Reader Support
+- Provide meaningful alt text for images
+- Implement proper focus management
+- Use ARIA live regions for dynamic content updates
+- Test with screen readers during development
+
+## Development Tools and Configuration
+
+### Build Tools
+- Use Vite for modern development experience
+- Configure TypeScript with strict mode enabled
+- Implement proper ESLint and Prettier configuration
+- Set up Husky for pre-commit hooks
+
+### Development Experience
+- Implement hot module replacement for faster development
+- Use proper source maps for debugging
+- Configure development proxies for API calls
+- Implement proper logging and debugging tools

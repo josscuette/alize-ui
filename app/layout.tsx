@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Source_Sans_3, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { MaterialSymbolsProvider } from "@/components/material-symbols-provider";
+// import { ErrorBoundaryWrapper } from "@/components/error-boundary-wrapper"; // Temporairement désactivé pour debug
 import "./globals.css";
 
 const sourceSans3 = Source_Sans_3({
@@ -41,6 +42,7 @@ export default function RootLayout({
           }}
         >
           {children}
+          {/* <ErrorBoundaryWrapper> temporairement désactivé pour debug */}
         </ThemeProvider>
       </body>
     </html>

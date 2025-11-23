@@ -5,24 +5,78 @@ import * as PopoverPrimitive from "@radix-ui/react-popover"
 
 import { cn } from "../../lib/utils"
 
+/**
+ * Popover component props interface
+ * Extends Radix UI Popover primitive props
+ */
+export interface PopoverProps extends React.ComponentProps<typeof PopoverPrimitive.Root> {}
+
+/**
+ * PopoverTrigger component props interface
+ * Extends Radix UI PopoverTrigger primitive props
+ */
+export interface PopoverTriggerProps extends React.ComponentProps<typeof PopoverPrimitive.Trigger> {}
+
+/**
+ * PopoverContent component props interface
+ * Extends Radix UI PopoverContent primitive props
+ */
+export interface PopoverContentProps extends React.ComponentProps<typeof PopoverPrimitive.Content> {
+  align?: "start" | "center" | "end"
+  sideOffset?: number
+}
+
+/**
+ * PopoverAnchor component props interface
+ * Extends Radix UI PopoverAnchor primitive props
+ */
+export interface PopoverAnchorProps extends React.ComponentProps<typeof PopoverPrimitive.Anchor> {}
+
+/**
+ * Popover component - A popover for displaying content
+ * 
+ * Provides an accessible popover for displaying additional content.
+ * Built on Radix UI primitives for accessibility.
+ * 
+ * @param props - Popover props including open, onOpenChange, and standard Radix UI Popover attributes
+ * @returns A Popover component
+ * 
+ * @example
+ * ```tsx
+ * <Popover>
+ *   <PopoverTrigger>Open</PopoverTrigger>
+ *   <PopoverContent>Content</PopoverContent>
+ * </Popover>
+ * ```
+ */
 function Popover({
   ...props
-}: React.ComponentProps<typeof PopoverPrimitive.Root>) {
+}: PopoverProps): React.ReactElement {
   return <PopoverPrimitive.Root data-slot="popover" {...props} />
 }
 
+/**
+ * PopoverTrigger component - The element that opens the popover
+ * @param props - PopoverTrigger props
+ * @returns A PopoverTrigger component
+ */
 function PopoverTrigger({
   ...props
-}: React.ComponentProps<typeof PopoverPrimitive.Trigger>) {
+}: PopoverTriggerProps): React.ReactElement {
   return <PopoverPrimitive.Trigger data-slot="popover-trigger" {...props} />
 }
 
+/**
+ * PopoverContent component - The content container of the popover
+ * @param props - PopoverContent props including align and sideOffset
+ * @returns A PopoverContent component
+ */
 function PopoverContent({
   className,
   align = "center",
   sideOffset = 4,
   ...props
-}: React.ComponentProps<typeof PopoverPrimitive.Content>) {
+}: PopoverContentProps): React.ReactElement {
   return (
     <PopoverPrimitive.Portal>
       <PopoverPrimitive.Content
@@ -39,9 +93,14 @@ function PopoverContent({
   )
 }
 
+/**
+ * PopoverAnchor component - The anchor element for the popover
+ * @param props - PopoverAnchor props
+ * @returns A PopoverAnchor component
+ */
 function PopoverAnchor({
   ...props
-}: React.ComponentProps<typeof PopoverPrimitive.Anchor>) {
+}: PopoverAnchorProps): React.ReactElement {
   return <PopoverPrimitive.Anchor data-slot="popover-anchor" {...props} />
 }
 

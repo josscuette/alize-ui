@@ -5,11 +5,41 @@ import * as ScrollAreaPrimitive from "@radix-ui/react-scroll-area"
 
 import { cn } from "../../lib/utils"
 
+/**
+ * ScrollArea component props interface
+ * Extends Radix UI ScrollArea primitive props
+ */
+export interface ScrollAreaProps extends React.ComponentProps<typeof ScrollAreaPrimitive.Root> {}
+
+/**
+ * ScrollBar component props interface
+ * Extends Radix UI ScrollAreaScrollbar primitive props
+ */
+export interface ScrollBarProps extends React.ComponentProps<typeof ScrollAreaPrimitive.ScrollAreaScrollbar> {
+  orientation?: "vertical" | "horizontal"
+}
+
+/**
+ * ScrollArea component - A scrollable container
+ * 
+ * Provides a scrollable container with custom scrollbars.
+ * Built on Radix UI primitives.
+ * 
+ * @param props - ScrollArea props including standard Radix UI ScrollArea attributes
+ * @returns A ScrollArea component
+ * 
+ * @example
+ * ```tsx
+ * <ScrollArea className="h-72 w-48">
+ *   <div>Long content...</div>
+ * </ScrollArea>
+ * ```
+ */
 function ScrollArea({
   className,
   children,
   ...props
-}: React.ComponentProps<typeof ScrollAreaPrimitive.Root>) {
+}: ScrollAreaProps): React.ReactElement {
   return (
     <ScrollAreaPrimitive.Root
       data-slot="scroll-area"
@@ -28,11 +58,16 @@ function ScrollArea({
   )
 }
 
+/**
+ * ScrollBar component - A custom scrollbar for the ScrollArea
+ * @param props - ScrollBar props including orientation
+ * @returns A ScrollBar component
+ */
 function ScrollBar({
   className,
   orientation = "vertical",
   ...props
-}: React.ComponentProps<typeof ScrollAreaPrimitive.ScrollAreaScrollbar>) {
+}: ScrollBarProps): React.ReactElement {
   return (
     <ScrollAreaPrimitive.ScrollAreaScrollbar
       data-slot="scroll-area-scrollbar"

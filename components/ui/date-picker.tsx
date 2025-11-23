@@ -27,7 +27,7 @@ export function DatePicker({
   variant = "button",
   className,
   disabled,
-}: DatePickerProps) {
+}: DatePickerProps): React.ReactElement {
   const [open, setOpen] = React.useState(false)
 
   const defaultFormat = variant === "input" 
@@ -36,9 +36,18 @@ export function DatePicker({
 
   const displayFormat = formatString || defaultFormat
 
-  const formatDate = (date: Date | undefined) => {
+  const formatDate = (date: Date | Date[] | { from?: Date; to?: Date } | undefined) => {
     if (!date) return variant === "input" ? "" : placeholder
-    return format(date, displayFormat)
+    if (date instanceof Date) {
+      return format(date, displayFormat)
+    }
+    if (Array.isArray(date)) {
+      return date.length > 0 ? format(date[0], displayFormat) : (variant === "input" ? "" : placeholder)
+    }
+    if (typeof date === "object" && "from" in date && date.from) {
+      return format(date.from, displayFormat)
+    }
+    return variant === "input" ? "" : placeholder
   }
 
   if (variant === "input") {
@@ -69,10 +78,12 @@ export function DatePicker({
             mode="single"
             selected={date}
             onSelect={(selectedDate) => {
-              onDateChange?.(selectedDate)
-              setOpen(false)
+              if (selectedDate instanceof Date || selectedDate === undefined) {
+                onDateChange?.(selectedDate)
+                setOpen(false)
+              }
             }}
-            disabled={disabled}
+            {...(disabled && { disabled: () => disabled })}
           />
         </PopoverContent>
       </Popover>
@@ -96,10 +107,12 @@ export function DatePicker({
           mode="single"
           selected={date}
           onSelect={(selectedDate) => {
-            onDateChange?.(selectedDate)
-            setOpen(false)
+            if (selectedDate instanceof Date || selectedDate === undefined) {
+              onDateChange?.(selectedDate)
+              setOpen(false)
+            }
           }}
-          disabled={disabled}
+          {...(disabled && { disabled: () => disabled })}
         />
       </PopoverContent>
     </Popover>

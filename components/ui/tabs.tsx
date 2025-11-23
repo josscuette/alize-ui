@@ -5,10 +5,55 @@ import * as TabsPrimitive from "@radix-ui/react-tabs"
 
 import { cn } from "../../lib/utils"
 
+/**
+ * Tabs component props interface
+ * Extends Radix UI Tabs primitive props
+ */
+export interface TabsProps extends React.ComponentProps<typeof TabsPrimitive.Root> {}
+
+/**
+ * TabsList component props interface
+ * Extends Radix UI TabsList primitive props
+ */
+export interface TabsListProps extends React.ComponentProps<typeof TabsPrimitive.List> {}
+
+/**
+ * TabsTrigger component props interface
+ * Extends Radix UI TabsTrigger primitive props
+ */
+export interface TabsTriggerProps extends React.ComponentProps<typeof TabsPrimitive.Trigger> {}
+
+/**
+ * TabsContent component props interface
+ * Extends Radix UI TabsContent primitive props
+ */
+export interface TabsContentProps extends React.ComponentProps<typeof TabsPrimitive.Content> {}
+
+/**
+ * Tabs component - A tabbed interface
+ * 
+ * Provides a tabbed interface for organizing content into multiple panels.
+ * Built on Radix UI primitives for accessibility.
+ * 
+ * @param props - Tabs props including value, onValueChange, and standard Radix UI Tabs attributes
+ * @returns A tabs container element
+ * 
+ * @example
+ * ```tsx
+ * <Tabs defaultValue="tab1">
+ *   <TabsList>
+ *     <TabsTrigger value="tab1">Tab 1</TabsTrigger>
+ *     <TabsTrigger value="tab2">Tab 2</TabsTrigger>
+ *   </TabsList>
+ *   <TabsContent value="tab1">Content 1</TabsContent>
+ *   <TabsContent value="tab2">Content 2</TabsContent>
+ * </Tabs>
+ * ```
+ */
 function Tabs({
   className,
   ...props
-}: React.ComponentProps<typeof TabsPrimitive.Root>) {
+}: TabsProps): React.ReactElement {
   return (
     <TabsPrimitive.Root
       data-slot="tabs"
@@ -18,10 +63,15 @@ function Tabs({
   )
 }
 
+/**
+ * TabsList component - The container for tab triggers
+ * @param props - TabsList props
+ * @returns A TabsList component
+ */
 function TabsList({
   className,
   ...props
-}: React.ComponentProps<typeof TabsPrimitive.List>) {
+}: TabsListProps): React.ReactElement {
   return (
     <TabsPrimitive.List
       data-slot="tabs-list"
@@ -34,10 +84,15 @@ function TabsList({
   )
 }
 
+/**
+ * TabsTrigger component - An individual tab trigger button
+ * @param props - TabsTrigger props
+ * @returns A TabsTrigger component
+ */
 function TabsTrigger({
   className,
   ...props
-}: React.ComponentProps<typeof TabsPrimitive.Trigger>) {
+}: TabsTriggerProps): React.ReactElement {
   return (
     <TabsPrimitive.Trigger
       data-slot="tabs-trigger"
@@ -50,10 +105,15 @@ function TabsTrigger({
   )
 }
 
+/**
+ * TabsContent component - The content panel for a tab
+ * @param props - TabsContent props
+ * @returns A TabsContent component
+ */
 function TabsContent({
   className,
   ...props
-}: React.ComponentProps<typeof TabsPrimitive.Content>) {
+}: TabsContentProps): React.ReactElement {
   return (
     <TabsPrimitive.Content
       data-slot="tabs-content"

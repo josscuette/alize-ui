@@ -4,7 +4,81 @@ import * as React from "react"
 
 import { cn } from "../../lib/utils"
 
-function Table({ className, ...props }: React.ComponentProps<"table">) {
+/**
+ * Table component props interface
+ * Extends native table element props
+ */
+export interface TableProps extends React.ComponentProps<"table"> {}
+
+/**
+ * TableHeader component props interface
+ * Extends native thead element props
+ */
+export interface TableHeaderProps extends React.ComponentProps<"thead"> {}
+
+/**
+ * TableBody component props interface
+ * Extends native tbody element props
+ */
+export interface TableBodyProps extends React.ComponentProps<"tbody"> {}
+
+/**
+ * TableFooter component props interface
+ * Extends native tfoot element props
+ */
+export interface TableFooterProps extends React.ComponentProps<"tfoot"> {}
+
+/**
+ * TableRow component props interface
+ * Extends native tr element props
+ */
+export interface TableRowProps extends React.ComponentProps<"tr"> {}
+
+/**
+ * TableHead component props interface
+ * Extends native th element props
+ */
+export interface TableHeadProps extends React.ComponentProps<"th"> {}
+
+/**
+ * TableCell component props interface
+ * Extends native td element props
+ */
+export interface TableCellProps extends React.ComponentProps<"td"> {}
+
+/**
+ * TableCaption component props interface
+ * Extends native caption element props
+ */
+export interface TableCaptionProps extends React.ComponentProps<"caption"> {}
+
+/**
+ * Table component - A data table
+ * 
+ * Provides a structured table for displaying tabular data.
+ * 
+ * @param props - Table props including standard HTML table attributes
+ * @returns A table element wrapped in a scrollable container
+ * 
+ * @example
+ * ```tsx
+ * <Table>
+ *   <TableHeader>
+ *     <TableRow>
+ *       <TableHead>Name</TableHead>
+ *       <TableHead>Email</TableHead>
+ *     </TableRow>
+ *   </TableHeader>
+ *   <TableBody>
+ *     <TableRow>
+ *       <TableCell>John Doe</TableCell>
+ *       <TableCell>john@example.com</TableCell>
+ *     </TableRow>
+ *   </TableBody>
+ * </Table>
+ * ```
+ */
+function Table({ className, ...props }: TableProps): React.ReactElement {
   return (
     <div
       data-slot="table-container"
@@ -19,7 +93,12 @@ function Table({ className, ...props }: React.ComponentProps<"table">) {
   )
 }
 
-function TableHeader({ className, ...props }: React.ComponentProps<"thead">) {
+/**
+ * TableHeader component - The header section of the table
+ * @param props - TableHeader props
+ * @returns A TableHeader component
+ */
+function TableHeader({ className, ...props }: TableHeaderProps): React.ReactElement {
   return (
     <thead
       data-slot="table-header"
@@ -29,7 +108,12 @@ function TableHeader({ className, ...props }: React.ComponentProps<"thead">) {
   )
 }
 
-function TableBody({ className, ...props }: React.ComponentProps<"tbody">) {
+/**
+ * TableBody component - The body section of the table
+ * @param props - TableBody props
+ * @returns A TableBody component
+ */
+function TableBody({ className, ...props }: TableBodyProps): React.ReactElement {
   return (
     <tbody
       data-slot="table-body"
@@ -39,7 +123,12 @@ function TableBody({ className, ...props }: React.ComponentProps<"tbody">) {
   )
 }
 
-function TableFooter({ className, ...props }: React.ComponentProps<"tfoot">) {
+/**
+ * TableFooter component - The footer section of the table
+ * @param props - TableFooter props
+ * @returns A TableFooter component
+ */
+function TableFooter({ className, ...props }: TableFooterProps): React.ReactElement {
   return (
     <tfoot
       data-slot="table-footer"
@@ -52,7 +141,12 @@ function TableFooter({ className, ...props }: React.ComponentProps<"tfoot">) {
   )
 }
 
-function TableRow({ className, ...props }: React.ComponentProps<"tr">) {
+/**
+ * TableRow component - A row in the table
+ * @param props - TableRow props
+ * @returns A TableRow component
+ */
+function TableRow({ className, ...props }: TableRowProps): React.ReactElement {
   return (
     <tr
       data-slot="table-row"
@@ -65,7 +159,12 @@ function TableRow({ className, ...props }: React.ComponentProps<"tr">) {
   )
 }
 
-function TableHead({ className, ...props }: React.ComponentProps<"th">) {
+/**
+ * TableHead component - A header cell in the table
+ * @param props - TableHead props
+ * @returns A TableHead component
+ */
+function TableHead({ className, ...props }: TableHeadProps): React.ReactElement {
   return (
     <th
       data-slot="table-head"
@@ -78,7 +177,12 @@ function TableHead({ className, ...props }: React.ComponentProps<"th">) {
   )
 }
 
-function TableCell({ className, ...props }: React.ComponentProps<"td">) {
+/**
+ * TableCell component - A data cell in the table
+ * @param props - TableCell props
+ * @returns A TableCell component
+ */
+function TableCell({ className, ...props }: TableCellProps): React.ReactElement {
   return (
     <td
       data-slot="table-cell"
@@ -91,10 +195,15 @@ function TableCell({ className, ...props }: React.ComponentProps<"td">) {
   )
 }
 
+/**
+ * TableCaption component - A caption for the table
+ * @param props - TableCaption props
+ * @returns A TableCaption component
+ */
 function TableCaption({
   className,
   ...props
-}: React.ComponentProps<"caption">) {
+}: TableCaptionProps): React.ReactElement {
   return (
     <caption
       data-slot="table-caption"

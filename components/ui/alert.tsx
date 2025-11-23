@@ -19,11 +19,46 @@ const alertVariants = cva(
   }
 )
 
+/**
+ * Alert component props interface
+ * Extends native div element props and adds variant prop
+ */
+export interface AlertProps extends React.ComponentProps<"div">, VariantProps<typeof alertVariants> {}
+
+/**
+ * AlertTitle component props interface
+ * Extends native div element props
+ */
+export interface AlertTitleProps extends React.ComponentProps<"div"> {}
+
+/**
+ * AlertDescription component props interface
+ * Extends native div element props
+ */
+export interface AlertDescriptionProps extends React.ComponentProps<"div"> {}
+
+/**
+ * Alert component - A contextual alert message
+ * 
+ * Displays an alert message with optional title and description.
+ * Supports multiple variants (default, destructive).
+ * 
+ * @param props - Alert props including variant and standard HTML div attributes
+ * @returns An alert element
+ * 
+ * @example
+ * ```tsx
+ * <Alert variant="default">
+ *   <AlertTitle>Title</AlertTitle>
+ *   <AlertDescription>Description</AlertDescription>
+ * </Alert>
+ * ```
+ */
 function Alert({
   className,
   variant,
   ...props
-}: React.ComponentProps<"div"> & VariantProps<typeof alertVariants>) {
+}: AlertProps): React.ReactElement {
   return (
     <div
       data-slot="alert"
@@ -34,7 +69,12 @@ function Alert({
   )
 }
 
-function AlertTitle({ className, ...props }: React.ComponentProps<"div">) {
+/**
+ * AlertTitle component - The title of the alert
+ * @param props - AlertTitle props
+ * @returns An AlertTitle component
+ */
+function AlertTitle({ className, ...props }: AlertTitleProps): React.ReactElement {
   return (
     <div
       data-slot="alert-title"
@@ -47,10 +87,15 @@ function AlertTitle({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
+/**
+ * AlertDescription component - The description text of the alert
+ * @param props - AlertDescription props
+ * @returns An AlertDescription component
+ */
 function AlertDescription({
   className,
   ...props
-}: React.ComponentProps<"div">) {
+}: AlertDescriptionProps): React.ReactElement {
   return (
     <div
       data-slot="alert-description"

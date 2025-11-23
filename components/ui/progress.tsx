@@ -6,11 +6,32 @@ import * as ProgressPrimitive from "@radix-ui/react-progress"
 import { cn } from "../../lib/utils"
 import { surface, radius, animation } from "../../styles"
 
+/**
+ * Progress component props interface
+ * Extends Radix UI Progress primitive props
+ */
+export interface ProgressProps extends React.ComponentProps<typeof ProgressPrimitive.Root> {}
+
+/**
+ * Progress component - A progress bar indicator
+ * 
+ * Displays a visual progress indicator with customizable value.
+ * Built on Radix UI primitives for accessibility.
+ * 
+ * @param props - Progress props including value and standard Radix UI Progress attributes
+ * @returns A progress bar element
+ * 
+ * @example
+ * ```tsx
+ * <Progress value={50} />
+ * <Progress value={75} className="h-4" />
+ * ```
+ */
 function Progress({
   className,
   value,
   ...props
-}: React.ComponentProps<typeof ProgressPrimitive.Root>) {
+}: React.ComponentProps<typeof ProgressPrimitive.Root>): React.ReactElement {
   return (
     <ProgressPrimitive.Root
       data-slot="progress"

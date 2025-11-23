@@ -6,32 +6,136 @@ import { MaterialSymbol } from "../material-symbol"
 
 import { cn } from "../../lib/utils"
 
-function Sheet({ ...props }: React.ComponentProps<typeof SheetPrimitive.Root>) {
+/**
+ * Sheet component props interface
+ * Extends Radix UI Dialog (Sheet) primitive props
+ */
+export interface SheetProps extends React.ComponentProps<typeof SheetPrimitive.Root> {}
+
+/**
+ * SheetTrigger component props interface
+ * Extends Radix UI DialogTrigger primitive props
+ */
+export interface SheetTriggerProps extends React.ComponentProps<typeof SheetPrimitive.Trigger> {}
+
+/**
+ * SheetClose component props interface
+ * Extends Radix UI DialogClose primitive props
+ */
+export interface SheetCloseProps extends React.ComponentProps<typeof SheetPrimitive.Close> {}
+
+/**
+ * SheetPortal component props interface
+ * Extends Radix UI DialogPortal primitive props
+ */
+export interface SheetPortalProps extends React.ComponentProps<typeof SheetPrimitive.Portal> {}
+
+/**
+ * SheetOverlay component props interface
+ * Extends Radix UI DialogOverlay primitive props
+ */
+export interface SheetOverlayProps extends React.ComponentProps<typeof SheetPrimitive.Overlay> {}
+
+/**
+ * SheetContent component props interface
+ * Extends Radix UI DialogContent primitive props and adds side prop
+ */
+export interface SheetContentProps extends React.ComponentProps<typeof SheetPrimitive.Content> {
+  side?: "top" | "right" | "bottom" | "left"
+}
+
+/**
+ * SheetHeader component props interface
+ * Extends native div element props
+ */
+export interface SheetHeaderProps extends React.ComponentProps<"div"> {}
+
+/**
+ * SheetFooter component props interface
+ * Extends native div element props
+ */
+export interface SheetFooterProps extends React.ComponentProps<"div"> {}
+
+/**
+ * SheetTitle component props interface
+ * Extends Radix UI DialogTitle primitive props
+ */
+export interface SheetTitleProps extends React.ComponentProps<typeof SheetPrimitive.Title> {}
+
+/**
+ * SheetDescription component props interface
+ * Extends Radix UI DialogDescription primitive props
+ */
+export interface SheetDescriptionProps extends React.ComponentProps<typeof SheetPrimitive.Description> {}
+
+/**
+ * Sheet component - A slide-over panel
+ * 
+ * Provides an accessible slide-over panel that appears from the side of the screen.
+ * Built on Radix UI Dialog primitives for accessibility.
+ * 
+ * @param props - Sheet props including open, onOpenChange, and standard Radix UI Dialog attributes
+ * @returns A Sheet component
+ * 
+ * @example
+ * ```tsx
+ * <Sheet>
+ *   <SheetTrigger>Open</SheetTrigger>
+ *   <SheetContent side="right">
+ *     <SheetHeader>
+ *       <SheetTitle>Title</SheetTitle>
+ *       <SheetDescription>Description</SheetDescription>
+ *     </SheetHeader>
+ *   </SheetContent>
+ * </Sheet>
+ * ```
+ */
+function Sheet({ ...props }: SheetProps): React.ReactElement {
   return <SheetPrimitive.Root data-slot="sheet" {...props} />
 }
 
+/**
+ * SheetTrigger component - The element that opens the sheet
+ * @param props - SheetTrigger props
+ * @returns A SheetTrigger component
+ */
 function SheetTrigger({
   ...props
-}: React.ComponentProps<typeof SheetPrimitive.Trigger>) {
+}: SheetTriggerProps): React.ReactElement {
   return <SheetPrimitive.Trigger data-slot="sheet-trigger" {...props} />
 }
 
+/**
+ * SheetClose component - The element that closes the sheet
+ * @param props - SheetClose props
+ * @returns A SheetClose component
+ */
 function SheetClose({
   ...props
-}: React.ComponentProps<typeof SheetPrimitive.Close>) {
+}: SheetCloseProps): React.ReactElement {
   return <SheetPrimitive.Close data-slot="sheet-close" {...props} />
 }
 
+/**
+ * SheetPortal component - Portals the sheet content
+ * @param props - SheetPortal props
+ * @returns A SheetPortal component
+ */
 function SheetPortal({
   ...props
-}: React.ComponentProps<typeof SheetPrimitive.Portal>) {
+}: SheetPortalProps): React.ReactElement {
   return <SheetPrimitive.Portal data-slot="sheet-portal" {...props} />
 }
 
+/**
+ * SheetOverlay component - The backdrop overlay for the sheet
+ * @param props - SheetOverlay props
+ * @returns A SheetOverlay component
+ */
 function SheetOverlay({
   className,
   ...props
-}: React.ComponentProps<typeof SheetPrimitive.Overlay>) {
+}: SheetOverlayProps): React.ReactElement {
   return (
     <SheetPrimitive.Overlay
       data-slot="sheet-overlay"
@@ -44,14 +148,17 @@ function SheetOverlay({
   )
 }
 
+/**
+ * SheetContent component - The main content container of the sheet
+ * @param props - SheetContent props including side
+ * @returns A SheetContent component
+ */
 function SheetContent({
   className,
   children,
   side = "right",
   ...props
-}: React.ComponentProps<typeof SheetPrimitive.Content> & {
-  side?: "top" | "right" | "bottom" | "left"
-}) {
+}: SheetContentProps): React.ReactElement {
   return (
     <SheetPortal>
       <SheetOverlay />
@@ -84,7 +191,12 @@ function SheetContent({
   )
 }
 
-function SheetHeader({ className, ...props }: React.ComponentProps<"div">) {
+/**
+ * SheetHeader component - The header section of the sheet
+ * @param props - SheetHeader props
+ * @returns A SheetHeader component
+ */
+function SheetHeader({ className, ...props }: SheetHeaderProps): React.ReactElement {
   return (
     <div
       data-slot="sheet-header"
@@ -94,7 +206,12 @@ function SheetHeader({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-function SheetFooter({ className, ...props }: React.ComponentProps<"div">) {
+/**
+ * SheetFooter component - The footer section of the sheet
+ * @param props - SheetFooter props
+ * @returns A SheetFooter component
+ */
+function SheetFooter({ className, ...props }: SheetFooterProps): React.ReactElement {
   return (
     <div
       data-slot="sheet-footer"
@@ -104,10 +221,15 @@ function SheetFooter({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
+/**
+ * SheetTitle component - The title of the sheet
+ * @param props - SheetTitle props
+ * @returns A SheetTitle component
+ */
 function SheetTitle({
   className,
   ...props
-}: React.ComponentProps<typeof SheetPrimitive.Title>) {
+}: SheetTitleProps): React.ReactElement {
   return (
     <SheetPrimitive.Title
       data-slot="sheet-title"
@@ -117,10 +239,15 @@ function SheetTitle({
   )
 }
 
+/**
+ * SheetDescription component - The description text of the sheet
+ * @param props - SheetDescription props
+ * @returns A SheetDescription component
+ */
 function SheetDescription({
   className,
   ...props
-}: React.ComponentProps<typeof SheetPrimitive.Description>) {
+}: SheetDescriptionProps): React.ReactElement {
   return (
     <SheetPrimitive.Description
       data-slot="sheet-description"

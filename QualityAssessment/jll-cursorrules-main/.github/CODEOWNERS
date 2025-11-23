@@ -1,0 +1,2 @@
+.github/CODEOWNERS @JLLT-Apps/appsec_codeowners
+.github/workflows/security_scan.yml @JLLT-Apps/appsec_codeowners

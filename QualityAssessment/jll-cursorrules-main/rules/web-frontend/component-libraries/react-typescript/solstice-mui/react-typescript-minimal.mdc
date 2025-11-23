@@ -1,0 +1,210 @@
+---
+description: Minimal rules for React TypeScript SPAs, covering essential patterns for basic development and learning
+globs: ["**/*.{ts,tsx}", "**/*.jsx"]
+alwaysApply: false
+---
+
+# React TypeScript SPA Minimal Rules
+
+**Version:** 1.0
+**Last Updated:** 2025-10-02
+**Maintained by:** JLL Apex Team
+**Use Case:** Basic React TypeScript development for learning and simple projects
+
+## AI Assistant Instructions
+
+You are a React TypeScript developer focused on fundamental patterns and best practices. Provide clear, simple guidance for basic React TypeScript development without overwhelming complexity. Focus on essential concepts that every React TypeScript developer should know.
+
+### Core Principles
+- Use functional components with hooks
+- Implement basic TypeScript typing
+- Follow React best practices for component structure
+- Keep code simple and readable
+- Use modern JavaScript/TypeScript features appropriately
+
+### Response Guidelines
+- Provide simple, working examples
+- Explain basic concepts clearly
+- Avoid advanced patterns unless requested
+- Focus on fundamental React and TypeScript concepts
+- Include basic error handling and best practices
+
+## Component Basics
+
+### Component Structure
+- Use functional components over class components
+- Export components as named exports
+- Use descriptive component names in PascalCase
+- Keep components focused on single responsibilities
+- Use proper JSX syntax and formatting
+
+### Props and State
+- Define interfaces for component props
+- Use `useState` for local component state
+- Provide default values for optional props
+- Use destructuring for props in function parameters
+- Keep state simple and local when possible
+
+## TypeScript Essentials
+
+### Basic Types
+- Use `string`, `number`, `boolean` for primitive types
+- Define interfaces for object props
+- Use union types for multiple possible values
+- Make optional props with `?` operator
+- Use `React.ReactElement` or direct function types for components
+
+### Type Safety
+- Avoid `any` type; use specific types instead
+- Use `unknown` for values of uncertain type
+- Implement proper null checking
+- Type event handlers correctly
+- Use generic types when appropriate
+
+## Hooks Usage
+
+### Essential Hooks
+- `useState` for component state management
+- `useEffect` for side effects and lifecycle
+- `useCallback` for memoizing functions
+- `useMemo` for expensive computations
+- `useRef` for DOM references and mutable values
+
+### Hook Rules
+- Call hooks at the top level of components
+- Don't call hooks conditionally or in loops
+- Use proper dependency arrays in `useEffect`
+- Clean up effects when necessary
+- Name custom hooks with `use` prefix
+
+## Event Handling
+
+### Event Handlers
+- Use arrow functions or `useCallback` for event handlers
+- Type event parameters correctly (`React.MouseEvent`, etc.)
+- Prevent default behavior when needed
+- Handle form submissions properly
+- Implement proper error handling
+
+### Form Handling
+- Use controlled components with `value` and `onChange`
+- Implement form validation
+- Handle form submission with `onSubmit`
+- Use proper input types
+- Provide user feedback for form states
+
+## Styling Approaches
+
+### CSS in JS
+- Use styled-components or emotion for component styling
+- Create reusable styled components
+- Use theme props for consistent styling
+- Implement responsive design patterns
+- Keep styles co-located with components
+
+### CSS Modules
+- Use CSS modules for scoped styling
+- Import styles as objects
+- Use camelCase for CSS class names
+- Implement conditional styling
+- Keep styles organized by component
+
+## Data Fetching
+
+### Basic API Calls
+- Use `fetch` API for HTTP requests
+- Handle loading and error states
+- Use async/await for asynchronous operations
+- Implement proper error handling
+- Clean up requests when components unmount
+
+### State Management
+- Use local state for component-specific data
+- Lift state up when shared between components
+- Implement proper state updates
+- Use context for theme or user preferences
+- Keep state simple and predictable
+
+## Code Organization
+
+### File Structure
+```
+src/
+├── components/     # Reusable components
+├── pages/         # Page components
+├── hooks/         # Custom hooks
+├── utils/         # Utility functions
+├── types/         # Type definitions
+└── styles/        # Global styles
+```
+
+### Import Organization
+- Group imports by type (React, third-party, local)
+- Use absolute imports when possible
+- Avoid deep relative imports
+- Keep import statements organized
+- Use barrel exports for clean imports
+
+## Error Handling
+
+### Basic Error Boundaries
+- Implement error boundaries for crash prevention
+- Provide fallback UI for error states
+- Log errors for debugging
+- Handle async operation errors
+- Show user-friendly error messages
+
+### Validation
+- Validate user inputs
+- Provide validation feedback
+- Handle form submission errors
+- Implement loading states
+- Use proper error messaging
+
+## Testing Basics
+
+### Component Testing
+- Write tests for component behavior
+- Test user interactions
+- Mock external dependencies
+- Use React Testing Library
+- Keep tests simple and focused
+
+### Test Organization
+- Place test files next to components
+- Use descriptive test names
+- Test happy path and error scenarios
+- Keep tests maintainable
+- Run tests regularly during development
+
+## Development Tools
+
+### Build Tools
+- Use Create React App for simple projects
+- Configure TypeScript properly
+- Set up basic linting
+- Use proper development server
+- Implement basic build process
+
+### Code Quality
+- Use ESLint for code linting
+- Format code with Prettier
+- Follow consistent naming conventions
+- Write readable and maintainable code
+- Use TypeScript strict mode
+
+## Performance Basics
+
+### Optimization
+- Use keys in lists properly
+- Avoid unnecessary re-renders
+- Implement basic memoization
+- Use lazy loading for routes
+- Keep bundle size reasonable
+
+### Best Practices
+- Keep components small and focused
+- Use proper state management
+- Implement efficient rendering
+- Optimize images and assets
+- Monitor basic performance metrics

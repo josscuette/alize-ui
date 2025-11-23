@@ -11,6 +11,38 @@ import { DayButton, DayPicker, getDefaultClassNames } from "react-day-picker"
 import { cn } from "../../lib/utils"
 import { Button, buttonVariants } from "./button"
 
+/**
+ * Calendar component props interface
+ * Extends react-day-picker DayPicker props and adds buttonVariant prop
+ */
+export interface CalendarProps extends Omit<React.ComponentProps<typeof DayPicker>, "mode" | "selected" | "onSelect" | "defaultMonth" | "captionLayout" | "showOutsideDays" | "showWeekNumber" | "disabled"> {
+  buttonVariant?: React.ComponentProps<typeof Button>["variant"]
+  mode?: "single" | "range" | "multiple"
+  selected?: Date | { from?: Date; to?: Date } | Date[] | undefined
+  onSelect?: (date: Date | { from?: Date; to?: Date } | Date[] | undefined) => void
+  defaultMonth?: Date
+  captionLayout?: "dropdown" | "dropdown-months" | "dropdown-years" | "buttons" | "label"
+  showOutsideDays?: boolean
+  showWeekNumber?: boolean
+  disabled?: (date: Date) => boolean
+  children?: React.ReactNode
+}
+
+/**
+ * Calendar component - A date picker calendar
+ * 
+ * Displays a calendar for selecting dates.
+ * Built on react-day-picker for date handling.
+ * 
+ * @param props - Calendar props including selected, onSelect, and standard DayPicker attributes
+ * @returns A Calendar component
+ * 
+ * @example
+ * ```tsx
+ * <Calendar selected={date} onSelect={setDate} />
+ * <Calendar mode="range" selected={range} onSelect={setRange} />
+ * ```
+ */
 function Calendar({
   className,
   classNames,
@@ -19,22 +51,35 @@ function Calendar({
   buttonVariant = "ghost",
   formatters,
   components,
-  ...props
-}: React.ComponentProps<typeof DayPicker> & {
-  buttonVariant?: React.ComponentProps<typeof Button>["variant"]
-}) {
+  mode,
+  selected,
+  onSelect,
+  defaultMonth,
+  showWeekNumber: showWeekNumberProp,
+  disabled,
+}: CalendarProps): React.ReactElement {
   const defaultClassNames = getDefaultClassNames()
+
+  const dayPickerProps = {
+    ...(mode && { mode }),
+    ...(selected !== undefined && { selected }),
+    ...(onSelect && { onSelect }),
+    ...(defaultMonth && { defaultMonth }),
+    showOutsideDays,
+    ...(showWeekNumberProp !== undefined && { showWeekNumber: showWeekNumberProp }),
+    ...(disabled && { disabled }),
+    ...(captionLayout && captionLayout !== "label" && { captionLayout: captionLayout as "dropdown" | "dropdown-months" | "dropdown-years" | "buttons" }),
+  } as React.ComponentProps<typeof DayPicker>
 
   return (
     <DayPicker
-      showOutsideDays={showOutsideDays}
+      {...dayPickerProps}
       className={cn(
         "bg-background group/calendar p-4 [--cell-size:--spacing(9)] [[data-slot=card-content]_&]:bg-transparent [[data-slot=popover-content]_&]:bg-transparent",
         String.raw`rtl:**:[.rdp-button\_next>svg]:rotate-180`,
         String.raw`rtl:**:[.rdp-button\_previous>svg]:rotate-180`,
         className
       )}
-      captionLayout={captionLayout}
       formatters={{
         formatMonthDropdown: (date) =>
           date.toLocaleString("default", { month: "short" }),
@@ -79,9 +124,9 @@ function Calendar({
         ),
         caption_label: cn(
           "select-none font-medium",
-          captionLayout === "label"
-            ? "text-sm"
-            : "rounded-md pl-2 pr-1 flex items-center gap-1 text-sm h-8 [&>svg]:text-muted-foreground [&>svg]:size-3.5",
+          (captionLayout === "dropdown" || captionLayout === "dropdown-months" || captionLayout === "dropdown-years" || captionLayout === "buttons")
+            ? "rounded-md pl-2 pr-1 flex items-center gap-1 text-sm h-8 [&>svg]:text-muted-foreground [&>svg]:size-3.5"
+            : "text-sm",
           defaultClassNames.caption_label
         ),
         table: "w-full border-collapse",
@@ -101,7 +146,7 @@ function Calendar({
         ),
         day: cn(
           "relative w-full h-full p-0 text-center [&:last-child[data-selected=true]_button]:rounded-r-md group/day aspect-square select-none",
-          props.showWeekNumber
+          showWeekNumberProp
             ? "[&:nth-child(2)[data-selected=true]_button]:rounded-l-md"
             : "[&:first-child[data-selected=true]_button]:rounded-l-md",
           defaultClassNames.day
@@ -170,7 +215,6 @@ function Calendar({
         },
         ...components,
       }}
-      {...props}
     />
   )
 }
@@ -180,7 +224,7 @@ function CalendarDayButton({
   day,
   modifiers,
   ...props
-}: React.ComponentProps<typeof DayButton>) {
+}: React.ComponentProps<typeof DayButton>): React.ReactElement {
   const defaultClassNames = getDefaultClassNames()
 
   const ref = React.useRef<HTMLButtonElement>(null)

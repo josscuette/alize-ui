@@ -5,6 +5,25 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "../../lib/utils"
 import { surface, text, icon, states, stroke, size, radius, animation } from "../../styles"
 
+/**
+ * Button component props interface
+ * 
+ * @example
+ * ```tsx
+ * <Button variant="default" size="md">Click me</Button>
+ * <Button variant="outline" size="icon" aria-label="Close">
+ *   <MaterialSymbol name="close" />
+ * </Button>
+ * ```
+ */
+export interface ButtonProps extends React.ComponentProps<"button">, VariantProps<typeof buttonVariants> {
+  /**
+   * Render as a different element using Radix UI Slot
+   * @default false
+   */
+  asChild?: boolean
+}
+
 const buttonVariants = cva(
   cn(
     // Layout
@@ -88,6 +107,29 @@ const buttonVariants = cva(
   }
 )
 
+/**
+ * Button component - A versatile button with multiple variants and sizes
+ * 
+ * Supports all standard button variants (default, destructive, outline, secondary, ghost, link, tertiary)
+ * and multiple sizes including icon-only variants.
+ * 
+ * @param props - Button props including variant, size, and standard HTML button attributes
+ * @returns A button element with appropriate styling
+ * 
+ * @example
+ * ```tsx
+ * // Default button
+ * <Button>Click me</Button>
+ * 
+ * // Destructive button
+ * <Button variant="destructive">Delete</Button>
+ * 
+ * // Icon-only button (requires aria-label for accessibility)
+ * <Button size="icon" aria-label="Close dialog">
+ *   <MaterialSymbol name="close" />
+ * </Button>
+ * ```
+ */
 function Button({
   className,
   variant,
@@ -95,10 +137,7 @@ function Button({
   asChild = false,
   children,
   ...props
-}: React.ComponentProps<"button"> &
-  VariantProps<typeof buttonVariants> & {
-    asChild?: boolean
-  }) {
+}: ButtonProps): React.ReactElement {
   const Comp = asChild ? Slot : "button"
   
   // Check if button has text (not just icons) - simple check
@@ -112,6 +151,11 @@ function Button({
   const isPrimaryWithText = variant === 'default' && hasText && !isIconOnly
   const isPrimaryIconOnly = variant === 'default' && isIconOnly
 
+  // Add aria-label for icon-only buttons if not provided
+  const iconOnlyProps = isIconOnly && !props['aria-label'] && !props['aria-labelledby']
+    ? { 'aria-label': 'Button' } // Fallback, but should be provided by developer
+    : {}
+
   return (
     <Comp
       data-slot="button"
@@ -121,6 +165,7 @@ function Button({
         isPrimaryIconOnly && icon.reversedPersistent,
         className
       )}
+      {...iconOnlyProps}
       {...props}
     >
       {children}

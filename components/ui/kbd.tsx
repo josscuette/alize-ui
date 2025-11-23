@@ -1,6 +1,36 @@
+import * as React from "react"
 import { cn } from "../../lib/utils"
 
-function Kbd({ className, ...props }: React.ComponentProps<"kbd">) {
+/**
+ * Kbd component props interface
+ * Extends native kbd element props
+ */
+export interface KbdProps extends React.ComponentProps<"kbd"> {}
+
+/**
+ * KbdGroup component props interface
+ * Extends native div element props
+ */
+export interface KbdGroupProps extends React.ComponentProps<"div"> {}
+
+/**
+ * Kbd component - A keyboard key indicator
+ * 
+ * Displays a keyboard key or key combination for documentation or UI hints.
+ * 
+ * @param props - Kbd props including standard HTML kbd attributes
+ * @returns A kbd element
+ * 
+ * @example
+ * ```tsx
+ * <Kbd>Ctrl</Kbd>
+ * <KbdGroup>
+ *   <Kbd>Ctrl</Kbd>
+ *   <Kbd>K</Kbd>
+ * </KbdGroup>
+ * ```
+ */
+function Kbd({ className, ...props }: KbdProps): React.ReactElement {
   return (
     <kbd
       data-slot="kbd"
@@ -15,7 +45,12 @@ function Kbd({ className, ...props }: React.ComponentProps<"kbd">) {
   )
 }
 
-function KbdGroup({ className, ...props }: React.ComponentProps<"div">) {
+/**
+ * KbdGroup component - A group of keyboard keys
+ * @param props - KbdGroup props
+ * @returns A KbdGroup component
+ */
+function KbdGroup({ className, ...props }: KbdGroupProps): React.ReactElement {
   return (
     <kbd
       data-slot="kbd-group"

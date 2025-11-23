@@ -1,0 +1,44 @@
+name: Claude PR Review (Bedrock)
+
+on:
+  issue_comment:
+    types: [created]
+  pull_request_review_comment:
+    types: [created]
+
+jobs:
+  review:
+    if: |
+      (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude') && github.event.issue.pull_request) ||
+      (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude'))
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      id-token: write
+      actions: read
+    steps:
+      - uses: JLLT-Apps/pr-review-agent@v6.0.0
+        with:
+          model: 'us.anthropic.claude-sonnet-4-5-20250929-v1:0'
+          aws_role_to_assume: ${{ secrets.PR_REVIEW_AWS_ROLE_TO_ASSUME }}
+          app_id: ${{ secrets.PR_REVIEW_APP_ID }}
+          app_private_key: ${{ secrets.PR_REVIEW_APP_PRIVATE_KEY }}
+          aws_region: ${{ vars.AWS_REGION || 'us-east-1' }}
+          splunk_hec_token: ${{ secrets.PR_REVIEW_SPLUNK_HEC_TOKEN }}
+          splunk_hec_url: ${{ secrets.PR_REVIEW_SPLUNK_HEC_URL }}
+          prompt: |
+            REPO: ${{ github.repository }}
+            PR NUMBER: ${{ steps.pr.outputs.pr_number }}
+
+            Perform a comprehensive Cursor Rules review with the following focus areas:  
+            - clear and concise instructions
+            - Minimize duplication
+            - Ensure readability and maintainability
+            - Keep rule size minimal (maximum 500 lines)
+            - Update the README when relevant
+            - Verify rule accuracy and correctness
+
+            Provide detailed feedback using inline comments for specific issues.
+            Use top-level comments for general observations or praise.

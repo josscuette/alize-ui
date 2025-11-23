@@ -2,7 +2,70 @@ import * as React from "react"
 
 import { cn } from "../../lib/utils"
 
-function Card({ className, ...props }: React.ComponentProps<"div">) {
+/**
+ * Card component props interface
+ * Extends native div element props
+ */
+export interface CardProps extends React.ComponentProps<"div"> {}
+
+/**
+ * CardHeader component props interface
+ * Extends native div element props
+ */
+export interface CardHeaderProps extends React.ComponentProps<"div"> {}
+
+/**
+ * CardTitle component props interface
+ * Extends native div element props
+ */
+export interface CardTitleProps extends React.ComponentProps<"div"> {}
+
+/**
+ * CardDescription component props interface
+ * Extends native div element props
+ */
+export interface CardDescriptionProps extends React.ComponentProps<"div"> {}
+
+/**
+ * CardAction component props interface
+ * Extends native div element props
+ */
+export interface CardActionProps extends React.ComponentProps<"div"> {}
+
+/**
+ * CardContent component props interface
+ * Extends native div element props
+ */
+export interface CardContentProps extends React.ComponentProps<"div"> {}
+
+/**
+ * CardFooter component props interface
+ * Extends native div element props
+ */
+export interface CardFooterProps extends React.ComponentProps<"div"> {}
+
+/**
+ * Card component - A container for content with header, body, and footer sections
+ * 
+ * Provides a structured layout for displaying content in cards.
+ * Use CardHeader, CardTitle, CardDescription, CardContent, and CardFooter as children.
+ * 
+ * @param props - Card props including standard HTML div attributes
+ * @returns A card container element
+ * 
+ * @example
+ * ```tsx
+ * <Card>
+ *   <CardHeader>
+ *     <CardTitle>Title</CardTitle>
+ *     <CardDescription>Description</CardDescription>
+ *   </CardHeader>
+ *   <CardContent>Content</CardContent>
+ *   <CardFooter>Footer</CardFooter>
+ * </Card>
+ * ```
+ */
+function Card({ className, ...props }: CardProps): React.ReactElement {
   return (
     <div
       data-slot="card"
@@ -15,7 +78,13 @@ function Card({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
+/**
+ * CardHeader component - The header section of a Card
+ * 
+ * @param props - CardHeader props including standard HTML div attributes
+ * @returns A card header element
+ */
+function CardHeader({ className, ...props }: CardHeaderProps): React.ReactElement {
   return (
     <div
       data-slot="card-header"
@@ -28,7 +97,19 @@ function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
+/**
+ * CardTitle component - The title within a CardHeader
+ * 
+ * @param props - CardTitle props including standard HTML div attributes
+ * @returns A card title element
+ */
+/**
+ * CardTitle component - The title within a CardHeader
+ * 
+ * @param props - CardTitle props including standard HTML div attributes
+ * @returns A card title element
+ */
+function CardTitle({ className, ...props }: CardTitleProps): React.ReactElement {
   return (
     <div
       data-slot="card-title"
@@ -38,7 +119,19 @@ function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
+/**
+ * CardDescription component - The description within a CardHeader
+ * 
+ * @param props - CardDescription props including standard HTML div attributes
+ * @returns A card description element
+ */
+/**
+ * CardDescription component - The description within a CardHeader
+ * 
+ * @param props - CardDescription props including standard HTML div attributes
+ * @returns A card description element
+ */
+function CardDescription({ className, ...props }: CardDescriptionProps): React.ReactElement {
   return (
     <div
       data-slot="card-description"
@@ -48,7 +141,19 @@ function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-function CardAction({ className, ...props }: React.ComponentProps<"div">) {
+/**
+ * CardAction component - An action button area within a CardHeader
+ * 
+ * @param props - CardAction props including standard HTML div attributes
+ * @returns A card action element
+ */
+/**
+ * CardAction component - An action button area within a CardHeader
+ * 
+ * @param props - CardAction props including standard HTML div attributes
+ * @returns A card action element
+ */
+function CardAction({ className, ...props }: CardActionProps): React.ReactElement {
   return (
     <div
       data-slot="card-action"
@@ -61,7 +166,19 @@ function CardAction({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-function CardContent({ className, ...props }: React.ComponentProps<"div">) {
+/**
+ * CardContent component - The main content section of a Card
+ * 
+ * @param props - CardContent props including standard HTML div attributes
+ * @returns A card content element
+ */
+/**
+ * CardContent component - The main content section of a Card
+ * 
+ * @param props - CardContent props including standard HTML div attributes
+ * @returns A card content element
+ */
+function CardContent({ className, ...props }: CardContentProps): React.ReactElement {
   return (
     <div
       data-slot="card-content"
@@ -71,7 +188,19 @@ function CardContent({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
+/**
+ * CardFooter component - The footer section of a Card
+ * 
+ * @param props - CardFooter props including standard HTML div attributes
+ * @returns A card footer element
+ */
+/**
+ * CardFooter component - The footer section of a Card
+ * 
+ * @param props - CardFooter props including standard HTML div attributes
+ * @returns A card footer element
+ */
+function CardFooter({ className, ...props }: CardFooterProps): React.ReactElement {
   return (
     <div
       data-slot="card-footer"

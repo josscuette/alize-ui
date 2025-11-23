@@ -6,7 +6,7 @@ import { Switch } from "./ui/switch";
 import { MaterialSymbol } from "./material-symbol";
 import { text } from "../styles";
 
-export function ThemeToggle() {
+export function ThemeToggle(): React.ReactElement {
   const { theme, setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
 

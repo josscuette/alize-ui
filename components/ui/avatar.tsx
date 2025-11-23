@@ -44,13 +44,50 @@ const avatarShapeRadius = {
   },
 }
 
+/**
+ * Avatar component props interface
+ * Extends Radix UI Avatar primitive props and adds size/shape variants
+ */
+export interface AvatarProps extends React.ComponentProps<typeof AvatarPrimitive.Root>, VariantProps<typeof avatarVariants> {}
+
+/**
+ * AvatarImage component props interface
+ * Extends Radix UI AvatarImage primitive props
+ */
+export interface AvatarImageProps extends React.ComponentProps<typeof AvatarPrimitive.Image> {}
+
+/**
+ * AvatarFallback component props interface
+ * Extends Radix UI AvatarFallback primitive props and adds size prop
+ */
+export interface AvatarFallbackProps extends React.ComponentProps<typeof AvatarPrimitive.Fallback> {
+  size?: "xs" | "sm" | "md" | "lg"
+}
+
+/**
+ * Avatar component - A user avatar with image and fallback
+ * 
+ * Displays a user's avatar image with a fallback when the image fails to load.
+ * Supports multiple sizes and shapes (square/rounded).
+ * Built on Radix UI primitives for accessibility.
+ * 
+ * @param props - Avatar props including size, shape, and standard Radix UI Avatar attributes
+ * @returns An avatar element
+ * 
+ * @example
+ * ```tsx
+ * <Avatar size="md" shape="rounded">
+ *   <AvatarImage src="/user.jpg" alt="User" />
+ *   <AvatarFallback>JD</AvatarFallback>
+ * </Avatar>
+ * ```
+ */
 function Avatar({
   className,
   size,
   shape,
   ...props
-}: React.ComponentProps<typeof AvatarPrimitive.Root> &
-  VariantProps<typeof avatarVariants>) {
+}: AvatarProps): React.ReactElement {
   const finalSize = size || "md"
   const finalShape = shape || "rounded"
   
@@ -67,10 +104,16 @@ function Avatar({
   )
 }
 
+/**
+ * AvatarImage component - The image displayed in an Avatar
+ * 
+ * @param props - AvatarImage props including src, alt, and standard Radix UI AvatarImage attributes
+ * @returns An avatar image element
+ */
 function AvatarImage({
   className,
   ...props
-}: React.ComponentProps<typeof AvatarPrimitive.Image>) {
+}: AvatarImageProps): React.ReactElement {
   return (
     <AvatarPrimitive.Image
       data-slot="avatar-image"
@@ -80,13 +123,17 @@ function AvatarImage({
   )
 }
 
+/**
+ * AvatarFallback component - The fallback content displayed when AvatarImage fails to load
+ * 
+ * @param props - AvatarFallback props including size and standard Radix UI AvatarFallback attributes
+ * @returns An avatar fallback element
+ */
 function AvatarFallback({
   className,
   size = "md",
   ...props
-}: React.ComponentProps<typeof AvatarPrimitive.Fallback> & {
-  size?: "xs" | "sm" | "md" | "lg"
-}) {
+}: AvatarFallbackProps): React.ReactElement {
   const textSizeMap = {
     xs: "text-xs",
     sm: "text-sm",

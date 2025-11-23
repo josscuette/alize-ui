@@ -3,11 +3,99 @@
 import { useMemo } from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 
+import * as React from "react"
 import { cn } from "../../lib/utils"
 import { Label } from "./label"
 import { Separator } from "./separator"
 
-function FieldSet({ className, ...props }: React.ComponentProps<"fieldset">) {
+/**
+ * FieldSet component props interface
+ * Extends native fieldset element props
+ */
+export interface FieldSetProps extends React.ComponentProps<"fieldset"> {}
+
+/**
+ * FieldLegend component props interface
+ * Extends native legend element props and adds variant prop
+ */
+export interface FieldLegendProps extends React.ComponentProps<"legend"> {
+  variant?: "legend" | "label"
+}
+
+/**
+ * FieldGroup component props interface
+ * Extends native div element props
+ */
+export interface FieldGroupProps extends React.ComponentProps<"div"> {}
+
+/**
+ * Field component props interface
+ * Extends native div element props and adds orientation prop
+ */
+export interface FieldProps extends React.ComponentProps<"div">, VariantProps<typeof fieldVariants> {}
+
+/**
+ * FieldContent component props interface
+ * Extends native div element props
+ */
+export interface FieldContentProps extends React.ComponentProps<"div"> {}
+
+/**
+ * FieldLabel component props interface
+ * Extends Label props
+ */
+export interface FieldLabelProps extends React.ComponentProps<typeof Label> {}
+
+/**
+ * FieldTitle component props interface
+ * Extends native div element props
+ */
+export interface FieldTitleProps extends React.ComponentProps<"div"> {}
+
+/**
+ * FieldDescription component props interface
+ * Extends native p element props
+ */
+export interface FieldDescriptionProps extends React.ComponentProps<"p"> {}
+
+/**
+ * FieldSeparator component props interface
+ * Extends native div element props
+ */
+export interface FieldSeparatorProps extends React.ComponentProps<"div"> {
+  children?: React.ReactNode
+}
+
+/**
+ * FieldError component props interface
+ * Extends native div element props and adds errors prop
+ */
+export interface FieldErrorProps extends React.ComponentProps<"div"> {
+  errors?: Array<{ message?: string } | undefined>
+}
+
+/**
+ * FieldSet component - A fieldset container for form fields
+ * 
+ * Provides a fieldset container for grouping related form fields.
+ * 
+ * @param props - FieldSet props including standard HTML fieldset attributes
+ * @returns A FieldSet component
+ * 
+ * @example
+ * ```tsx
+ * <FieldSet>
+ *   <FieldLegend>Personal Information</FieldLegend>
+ *   <Field>
+ *     <FieldLabel>Name</FieldLabel>
+ *     <FieldContent>
+ *       <Input />
+ *     </FieldContent>
+ *   </Field>
+ * </FieldSet>
+ * ```
+ */
+function FieldSet({ className, ...props }: FieldSetProps): React.ReactElement {
   return (
     <fieldset
       data-slot="field-set"
@@ -21,11 +109,16 @@ function FieldSet({ className, ...props }: React.ComponentProps<"fieldset">) {
   )
 }
 
+/**
+ * FieldLegend component - A legend for a FieldSet
+ * @param props - FieldLegend props including variant
+ * @returns A FieldLegend component
+ */
 function FieldLegend({
   className,
   variant = "legend",
   ...props
-}: React.ComponentProps<"legend"> & { variant?: "legend" | "label" }) {
+}: FieldLegendProps): React.ReactElement {
   return (
     <legend
       data-slot="field-legend"
@@ -41,7 +134,12 @@ function FieldLegend({
   )
 }
 
-function FieldGroup({ className, ...props }: React.ComponentProps<"div">) {
+/**
+ * FieldGroup component - A group of fields
+ * @param props - FieldGroup props
+ * @returns A FieldGroup component
+ */
+function FieldGroup({ className, ...props }: FieldGroupProps): React.ReactElement {
   return (
     <div
       data-slot="field-group"
@@ -78,11 +176,31 @@ const fieldVariants = cva(
   }
 )
 
+/**
+ * Field component - A form field container
+ * 
+ * Provides a container for form fields with label, content, description, and error.
+ * 
+ * @param props - Field props including orientation and standard HTML div attributes
+ * @returns A Field component
+ * 
+ * @example
+ * ```tsx
+ * <Field orientation="vertical">
+ *   <FieldLabel>Email</FieldLabel>
+ *   <FieldContent>
+ *     <Input type="email" />
+ *   </FieldContent>
+ *   <FieldDescription>Enter your email address</FieldDescription>
+ *   <FieldError />
+ * </Field>
+ * ```
+ */
 function Field({
   className,
   orientation = "vertical",
   ...props
-}: React.ComponentProps<"div"> & VariantProps<typeof fieldVariants>) {
+}: FieldProps): React.ReactElement {
   return (
     <div
       role="group"
@@ -94,7 +212,12 @@ function Field({
   )
 }
 
-function FieldContent({ className, ...props }: React.ComponentProps<"div">) {
+/**
+ * FieldContent component - The content area of a field
+ * @param props - FieldContent props
+ * @returns A FieldContent component
+ */
+function FieldContent({ className, ...props }: FieldContentProps): React.ReactElement {
   return (
     <div
       data-slot="field-content"
@@ -107,10 +230,15 @@ function FieldContent({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
+/**
+ * FieldLabel component - A label for a field
+ * @param props - FieldLabel props
+ * @returns A FieldLabel component
+ */
 function FieldLabel({
   className,
   ...props
-}: React.ComponentProps<typeof Label>) {
+}: FieldLabelProps): React.ReactElement {
   return (
     <Label
       data-slot="field-label"
@@ -125,7 +253,12 @@ function FieldLabel({
   )
 }
 
-function FieldTitle({ className, ...props }: React.ComponentProps<"div">) {
+/**
+ * FieldTitle component - A title for a field
+ * @param props - FieldTitle props
+ * @returns A FieldTitle component
+ */
+function FieldTitle({ className, ...props }: FieldTitleProps): React.ReactElement {
   return (
     <div
       data-slot="field-label"
@@ -138,7 +271,12 @@ function FieldTitle({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-function FieldDescription({ className, ...props }: React.ComponentProps<"p">) {
+/**
+ * FieldDescription component - A description for a field
+ * @param props - FieldDescription props
+ * @returns A FieldDescription component
+ */
+function FieldDescription({ className, ...props }: FieldDescriptionProps): React.ReactElement {
   return (
     <p
       data-slot="field-description"
@@ -153,13 +291,16 @@ function FieldDescription({ className, ...props }: React.ComponentProps<"p">) {
   )
 }
 
+/**
+ * FieldSeparator component - A separator between fields
+ * @param props - FieldSeparator props including children
+ * @returns A FieldSeparator component
+ */
 function FieldSeparator({
   children,
   className,
   ...props
-}: React.ComponentProps<"div"> & {
-  children?: React.ReactNode
-}) {
+}: FieldSeparatorProps): React.ReactElement {
   return (
     <div
       data-slot="field-separator"
@@ -188,9 +329,7 @@ function FieldError({
   children,
   errors,
   ...props
-}: React.ComponentProps<"div"> & {
-  errors?: Array<{ message?: string } | undefined>
-}) {
+}: FieldErrorProps): React.ReactElement | null {
   const content = useMemo(() => {
     if (children) {
       return children

@@ -15692,7 +15692,11 @@ function CalendarDemo() {
     <Calendar
       mode="single"
       selected={date}
-      onSelect={setDate}
+      onSelect={(selected) => {
+        if (selected instanceof Date || selected === undefined) {
+          setDate(selected);
+        }
+      }}
       className="rounded-md border"
     />
   );
@@ -15708,7 +15712,13 @@ function CalendarRangeDemo() {
     <Calendar
       mode="range"
       selected={dateRange}
-      onSelect={(range) => setDateRange(range || { from: undefined })}
+      onSelect={(range) => {
+        if (range && typeof range === 'object' && 'from' in range) {
+          setDateRange({ from: range.from ?? undefined, to: range.to ?? undefined });
+        } else {
+          setDateRange({ from: undefined });
+        }
+      }}
       className="rounded-md border"
     />
   );
@@ -15725,7 +15735,11 @@ function CalendarMultipleDemo() {
     <Calendar
       mode="multiple"
       selected={dates}
-      onSelect={setDates}
+      onSelect={(selected) => {
+        if (Array.isArray(selected) || selected === undefined) {
+          setDates(selected);
+        }
+      }}
       className="rounded-md border"
     />
   );
@@ -15787,8 +15801,10 @@ function DatePickerDemo() {
           mode="single"
           selected={date}
           onSelect={(selectedDate) => {
-            setDate(selectedDate);
-            setOpen(false);
+            if (selectedDate instanceof Date || selectedDate === undefined) {
+              setDate(selectedDate);
+              setOpen(false);
+            }
           }}
         />
       </PopoverContent>
@@ -15834,8 +15850,10 @@ function DatePickerWithInputDemo() {
           mode="single"
           selected={date}
           onSelect={(selectedDate) => {
-            setDate(selectedDate);
-            setOpen(false);
+            if (selectedDate instanceof Date || selectedDate === undefined) {
+              setDate(selectedDate);
+              setOpen(false);
+            }
           }}
         />
       </PopoverContent>

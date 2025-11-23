@@ -3,7 +3,41 @@ import { ChevronDownIcon } from "lucide-react"
 
 import { cn } from "../../lib/utils"
 
-function NativeSelect({ className, ...props }: React.ComponentProps<"select">) {
+/**
+ * NativeSelect component props interface
+ * Extends native select element props
+ */
+export interface NativeSelectProps extends React.ComponentProps<"select"> {}
+
+/**
+ * NativeSelectOption component props interface
+ * Extends native option element props
+ */
+export interface NativeSelectOptionProps extends React.ComponentProps<"option"> {}
+
+/**
+ * NativeSelectOptGroup component props interface
+ * Extends native optgroup element props
+ */
+export interface NativeSelectOptGroupProps extends React.ComponentProps<"optgroup"> {}
+
+/**
+ * NativeSelect component - A native HTML select element
+ * 
+ * Provides a styled native HTML select dropdown.
+ * 
+ * @param props - NativeSelect props including standard HTML select attributes
+ * @returns A NativeSelect component
+ * 
+ * @example
+ * ```tsx
+ * <NativeSelect>
+ *   <NativeSelectOption value="option1">Option 1</NativeSelectOption>
+ *   <NativeSelectOption value="option2">Option 2</NativeSelectOption>
+ * </NativeSelect>
+ * ```
+ */
+function NativeSelect({ className, ...props }: NativeSelectProps): React.ReactElement {
   return (
     <div
       className="group/native-select relative w-fit has-[select:disabled]:opacity-50"
@@ -28,14 +62,24 @@ function NativeSelect({ className, ...props }: React.ComponentProps<"select">) {
   )
 }
 
-function NativeSelectOption({ ...props }: React.ComponentProps<"option">) {
+/**
+ * NativeSelectOption component - An option within a NativeSelect
+ * @param props - NativeSelectOption props
+ * @returns A NativeSelectOption component
+ */
+function NativeSelectOption({ ...props }: NativeSelectOptionProps): React.ReactElement {
   return <option data-slot="native-select-option" {...props} />
 }
 
+/**
+ * NativeSelectOptGroup component - A group of options within a NativeSelect
+ * @param props - NativeSelectOptGroup props
+ * @returns A NativeSelectOptGroup component
+ */
 function NativeSelectOptGroup({
   className,
   ...props
-}: React.ComponentProps<"optgroup">) {
+}: NativeSelectOptGroupProps): React.ReactElement {
   return (
     <optgroup
       data-slot="native-select-optgroup"

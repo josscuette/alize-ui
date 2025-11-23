@@ -6,23 +6,151 @@ import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react"
 
 import { cn } from "../../lib/utils"
 
+/**
+ * DropdownMenu component props interface
+ * Extends Radix UI DropdownMenu primitive props
+ */
+export interface DropdownMenuProps extends React.ComponentProps<typeof DropdownMenuPrimitive.Root> {}
+
+/**
+ * DropdownMenuPortal component props interface
+ * Extends Radix UI DropdownMenuPortal primitive props
+ */
+export interface DropdownMenuPortalProps extends React.ComponentProps<typeof DropdownMenuPrimitive.Portal> {}
+
+/**
+ * DropdownMenuTrigger component props interface
+ * Extends Radix UI DropdownMenuTrigger primitive props
+ */
+export interface DropdownMenuTriggerProps extends React.ComponentProps<typeof DropdownMenuPrimitive.Trigger> {}
+
+/**
+ * DropdownMenuContent component props interface
+ * Extends Radix UI DropdownMenuContent primitive props
+ */
+export interface DropdownMenuContentProps extends React.ComponentProps<typeof DropdownMenuPrimitive.Content> {
+  sideOffset?: number
+}
+
+/**
+ * DropdownMenuGroup component props interface
+ * Extends Radix UI DropdownMenuGroup primitive props
+ */
+export interface DropdownMenuGroupProps extends React.ComponentProps<typeof DropdownMenuPrimitive.Group> {}
+
+/**
+ * DropdownMenuItem component props interface
+ * Extends Radix UI DropdownMenuItem primitive props and adds inset and variant props
+ */
+export interface DropdownMenuItemProps extends React.ComponentProps<typeof DropdownMenuPrimitive.Item> {
+  inset?: boolean
+  variant?: "default" | "destructive"
+}
+
+/**
+ * DropdownMenuCheckboxItem component props interface
+ * Extends Radix UI DropdownMenuCheckboxItem primitive props
+ */
+export interface DropdownMenuCheckboxItemProps extends React.ComponentProps<typeof DropdownMenuPrimitive.CheckboxItem> {}
+
+/**
+ * DropdownMenuRadioGroup component props interface
+ * Extends Radix UI DropdownMenuRadioGroup primitive props
+ */
+export interface DropdownMenuRadioGroupProps extends React.ComponentProps<typeof DropdownMenuPrimitive.RadioGroup> {}
+
+/**
+ * DropdownMenuRadioItem component props interface
+ * Extends Radix UI DropdownMenuRadioItem primitive props
+ */
+export interface DropdownMenuRadioItemProps extends React.ComponentProps<typeof DropdownMenuPrimitive.RadioItem> {}
+
+/**
+ * DropdownMenuLabel component props interface
+ * Extends Radix UI DropdownMenuLabel primitive props and adds inset prop
+ */
+export interface DropdownMenuLabelProps extends React.ComponentProps<typeof DropdownMenuPrimitive.Label> {
+  inset?: boolean
+}
+
+/**
+ * DropdownMenuSeparator component props interface
+ * Extends Radix UI DropdownMenuSeparator primitive props
+ */
+export interface DropdownMenuSeparatorProps extends React.ComponentProps<typeof DropdownMenuPrimitive.Separator> {}
+
+/**
+ * DropdownMenuShortcut component props interface
+ * Extends native span element props
+ */
+export interface DropdownMenuShortcutProps extends React.ComponentProps<"span"> {}
+
+/**
+ * DropdownMenuSub component props interface
+ * Extends Radix UI DropdownMenuSub primitive props
+ */
+export interface DropdownMenuSubProps extends React.ComponentProps<typeof DropdownMenuPrimitive.Sub> {}
+
+/**
+ * DropdownMenuSubTrigger component props interface
+ * Extends Radix UI DropdownMenuSubTrigger primitive props and adds inset prop
+ */
+export interface DropdownMenuSubTriggerProps extends React.ComponentProps<typeof DropdownMenuPrimitive.SubTrigger> {
+  inset?: boolean
+}
+
+/**
+ * DropdownMenuSubContent component props interface
+ * Extends Radix UI DropdownMenuSubContent primitive props
+ */
+export interface DropdownMenuSubContentProps extends React.ComponentProps<typeof DropdownMenuPrimitive.SubContent> {}
+
+/**
+ * DropdownMenu component - A dropdown menu
+ * 
+ * Provides an accessible dropdown menu for displaying actions and options.
+ * Built on Radix UI primitives for accessibility.
+ * 
+ * @param props - DropdownMenu props including open, onOpenChange, and standard Radix UI DropdownMenu attributes
+ * @returns A DropdownMenu component
+ * 
+ * @example
+ * ```tsx
+ * <DropdownMenu>
+ *   <DropdownMenuTrigger>Open</DropdownMenuTrigger>
+ *   <DropdownMenuContent>
+ *     <DropdownMenuItem>Item 1</DropdownMenuItem>
+ *   </DropdownMenuContent>
+ * </DropdownMenu>
+ * ```
+ */
 function DropdownMenu({
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.Root>) {
+}: DropdownMenuProps): React.ReactElement {
   return <DropdownMenuPrimitive.Root data-slot="dropdown-menu" {...props} />
 }
 
+/**
+ * DropdownMenuPortal component - Portals the dropdown menu content
+ * @param props - DropdownMenuPortal props
+ * @returns A DropdownMenuPortal component
+ */
 function DropdownMenuPortal({
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.Portal>) {
+}: DropdownMenuPortalProps): React.ReactElement {
   return (
     <DropdownMenuPrimitive.Portal data-slot="dropdown-menu-portal" {...props} />
   )
 }
 
+/**
+ * DropdownMenuTrigger component - The element that opens the dropdown menu
+ * @param props - DropdownMenuTrigger props
+ * @returns A DropdownMenuTrigger component
+ */
 function DropdownMenuTrigger({
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.Trigger>) {
+}: DropdownMenuTriggerProps): React.ReactElement {
   return (
     <DropdownMenuPrimitive.Trigger
       data-slot="dropdown-menu-trigger"
@@ -31,11 +159,16 @@ function DropdownMenuTrigger({
   )
 }
 
+/**
+ * DropdownMenuContent component - The content container of the dropdown menu
+ * @param props - DropdownMenuContent props including sideOffset
+ * @returns A DropdownMenuContent component
+ */
 function DropdownMenuContent({
   className,
   sideOffset = 4,
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.Content>) {
+}: DropdownMenuContentProps): React.ReactElement {
   return (
     <DropdownMenuPrimitive.Portal>
       <DropdownMenuPrimitive.Content
@@ -51,23 +184,30 @@ function DropdownMenuContent({
   )
 }
 
+/**
+ * DropdownMenuGroup component - A group of related dropdown menu items
+ * @param props - DropdownMenuGroup props
+ * @returns A DropdownMenuGroup component
+ */
 function DropdownMenuGroup({
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.Group>) {
+}: DropdownMenuGroupProps): React.ReactElement {
   return (
     <DropdownMenuPrimitive.Group data-slot="dropdown-menu-group" {...props} />
   )
 }
 
+/**
+ * DropdownMenuItem component - An individual selectable item in the dropdown menu
+ * @param props - DropdownMenuItem props including inset and variant
+ * @returns A DropdownMenuItem component
+ */
 function DropdownMenuItem({
   className,
   inset,
   variant = "default",
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.Item> & {
-  inset?: boolean
-  variant?: "default" | "destructive"
-}) {
+}: DropdownMenuItemProps): React.ReactElement {
   return (
     <DropdownMenuPrimitive.Item
       data-slot="dropdown-menu-item"
@@ -82,12 +222,17 @@ function DropdownMenuItem({
   )
 }
 
+/**
+ * DropdownMenuCheckboxItem component - A checkbox item in the dropdown menu
+ * @param props - DropdownMenuCheckboxItem props
+ * @returns A DropdownMenuCheckboxItem component
+ */
 function DropdownMenuCheckboxItem({
   className,
   children,
   checked,
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.CheckboxItem>) {
+}: DropdownMenuCheckboxItemProps): React.ReactElement {
   return (
     <DropdownMenuPrimitive.CheckboxItem
       data-slot="dropdown-menu-checkbox-item"
@@ -108,9 +253,14 @@ function DropdownMenuCheckboxItem({
   )
 }
 
+/**
+ * DropdownMenuRadioGroup component - A radio group within the dropdown menu
+ * @param props - DropdownMenuRadioGroup props
+ * @returns A DropdownMenuRadioGroup component
+ */
 function DropdownMenuRadioGroup({
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.RadioGroup>) {
+}: DropdownMenuRadioGroupProps): React.ReactElement {
   return (
     <DropdownMenuPrimitive.RadioGroup
       data-slot="dropdown-menu-radio-group"
@@ -119,11 +269,16 @@ function DropdownMenuRadioGroup({
   )
 }
 
+/**
+ * DropdownMenuRadioItem component - A radio item in the dropdown menu
+ * @param props - DropdownMenuRadioItem props
+ * @returns A DropdownMenuRadioItem component
+ */
 function DropdownMenuRadioItem({
   className,
   children,
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.RadioItem>) {
+}: DropdownMenuRadioItemProps): React.ReactElement {
   return (
     <DropdownMenuPrimitive.RadioItem
       data-slot="dropdown-menu-radio-item"
@@ -143,13 +298,16 @@ function DropdownMenuRadioItem({
   )
 }
 
+/**
+ * DropdownMenuLabel component - A non-interactive label in the dropdown menu
+ * @param props - DropdownMenuLabel props including inset
+ * @returns A DropdownMenuLabel component
+ */
 function DropdownMenuLabel({
   className,
   inset,
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.Label> & {
-  inset?: boolean
-}) {
+}: DropdownMenuLabelProps): React.ReactElement {
   return (
     <DropdownMenuPrimitive.Label
       data-slot="dropdown-menu-label"
@@ -163,10 +321,15 @@ function DropdownMenuLabel({
   )
 }
 
+/**
+ * DropdownMenuSeparator component - A visual separator in the dropdown menu
+ * @param props - DropdownMenuSeparator props
+ * @returns A DropdownMenuSeparator component
+ */
 function DropdownMenuSeparator({
   className,
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.Separator>) {
+}: DropdownMenuSeparatorProps): React.ReactElement {
   return (
     <DropdownMenuPrimitive.Separator
       data-slot="dropdown-menu-separator"
@@ -176,10 +339,15 @@ function DropdownMenuSeparator({
   )
 }
 
+/**
+ * DropdownMenuShortcut component - A keyboard shortcut indicator
+ * @param props - DropdownMenuShortcut props
+ * @returns A DropdownMenuShortcut component
+ */
 function DropdownMenuShortcut({
   className,
   ...props
-}: React.ComponentProps<"span">) {
+}: DropdownMenuShortcutProps): React.ReactElement {
   return (
     <span
       data-slot="dropdown-menu-shortcut"
@@ -192,20 +360,28 @@ function DropdownMenuShortcut({
   )
 }
 
+/**
+ * DropdownMenuSub component - A submenu container
+ * @param props - DropdownMenuSub props
+ * @returns A DropdownMenuSub component
+ */
 function DropdownMenuSub({
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.Sub>) {
+}: DropdownMenuSubProps): React.ReactElement {
   return <DropdownMenuPrimitive.Sub data-slot="dropdown-menu-sub" {...props} />
 }
 
+/**
+ * DropdownMenuSubTrigger component - The trigger for a submenu
+ * @param props - DropdownMenuSubTrigger props including inset
+ * @returns A DropdownMenuSubTrigger component
+ */
 function DropdownMenuSubTrigger({
   className,
   inset,
   children,
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.SubTrigger> & {
-  inset?: boolean
-}) {
+}: DropdownMenuSubTriggerProps): React.ReactElement {
   return (
     <DropdownMenuPrimitive.SubTrigger
       data-slot="dropdown-menu-sub-trigger"
@@ -222,10 +398,15 @@ function DropdownMenuSubTrigger({
   )
 }
 
+/**
+ * DropdownMenuSubContent component - The content container of a submenu
+ * @param props - DropdownMenuSubContent props
+ * @returns A DropdownMenuSubContent component
+ */
 function DropdownMenuSubContent({
   className,
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.SubContent>) {
+}: DropdownMenuSubContentProps): React.ReactElement {
   return (
     <DropdownMenuPrimitive.SubContent
       data-slot="dropdown-menu-sub-content"

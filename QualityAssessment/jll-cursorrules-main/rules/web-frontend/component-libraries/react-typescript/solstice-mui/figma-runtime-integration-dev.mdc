@@ -1,0 +1,441 @@
+---
+description: Dev-only runtime integration for Figma via MCP in React TypeScript apps; typed hooks, caching, and helpers. Not for production use.
+globs: ["src/**/*.{ts,tsx}"]
+alwaysApply: false
+---
+
+# Figma Runtime Integration for Development (React TypeScript)
+
+**Version:** 1.0
+**Last Updated:** 2025-10-28
+**Maintained by:** JLL Apex Team
+**Use Case:** Developer-only utilities to fetch Figma data/images via MCP during local development.
+
+## Dev-only Scope and Warnings
+- For development workflows only; do not ship in production bundles
+- Avoid leaking design data or tokens from remote sources
+- Provide feature flags or environment guards when wiring into apps
+
+## Core Capabilities
+- Typed hooks to fetch Figma node/page JSON: `useFigmaNode`, `useFigmaPage`
+- Image helpers: `useFigmaImage(nodeId, params)`
+- Caching: in-memory LRU with TTL, abortable fetches, basic retries
+- Safety: input validation, error boundaries, text sanitization
+
+## Minimal Types
+```typescript
+export interface FigmaBounds { x: number; y: number; width: number; height: number }
+export interface FigmaLayerData {
+  id: string
+  name: string
+  type: 'FRAME' | 'GROUP' | 'TEXT' | 'RECTANGLE' | 'VECTOR'
+  bounds: FigmaBounds
+  children?: FigmaLayerData[]
+}
+```
+
+## Hooks (Examples)
+```typescript
+export const useFigmaNode = (nodeId?: string) => {
+  const [data, setData] = useState<FigmaLayerData | null>(null)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<Error | null>(null)
+
+  useEffect(() => {
+    if (!nodeId) return
+    const controller = new AbortController()
+    const run = async () => {
+      setLoading(true)
+      try {
+        const json = await mcp.figma.getNode(nodeId, { signal: controller.signal })
+        setData(json)
+      } catch (e) {
+        if (!(e as any).name?.includes('Abort')) setError(e as Error)
+      } finally {
+        setLoading(false)
+      }
+    }
+    run()
+    return () => controller.abort()
+  }, [nodeId])
+
+  return { data, loading, error }
+}
+```
+
+```typescript
+export const useFigmaImage = (nodeId?: string, scale = 2) => {
+  const [url, setUrl] = useState<string | null>(null)
+  useEffect(() => {
+    if (!nodeId) return
+    let disposed = false
+    mcp.figma.getImage(nodeId, { scale }).then(u => { if (!disposed) setUrl(u) })
+    return () => { disposed = true }
+  }, [nodeId, scale])
+  return url
+}
+```
+
+## Caching Pattern
+```typescript
+class LruCache<K, V> {
+  constructor(private max = 100, private map = new Map<K, V>()) {}
+  get(k: K) { const v = this.map.get(k); if (v) { this.map.delete(k); this.map.set(k, v) } return v }
+  set(k: K, v: V) { if (this.map.size >= this.max) this.map.delete(this.map.keys().next().value); this.map.set(k, v) }
+}
+```
+
+## Security and Validation
+- Sanitize all text content before rendering
+- Validate IDs (regex) and enforce allowed domains for images
+- Rate-limit repeated requests; provide exponential backoff
+
+## Testing Guidance
+- Hook tests using mocked MCP client responses
+- Error-path tests for aborted/failed requests
+- Snapshot tests for image helper consumers
+
+## Production Guidance
+- Do not import these dev hooks in production bundles
+- Guard imports behind `process.env.NODE_ENV !== 'production'`
+
+---
+
+## Extended Types and Utilities
+
+```typescript
+// Figma layer data interface (extended)
+export interface FigmaLayerData {
+  id: string
+  name: string
+  type: 'FRAME' | 'GROUP' | 'TEXT' | 'RECTANGLE' | 'VECTOR'
+  bounds: { x: number; y: number; width: number; height: number }
+  fills?: FigmaPaint[]
+  strokes?: FigmaPaint[]
+  effects?: FigmaEffect[]
+  children?: FigmaLayerData[]
+}
+
+// Generic token path utility
+export type TokenPath<T> = T extends object
+  ? { [K in keyof T]: K extends string ? `${K}.${TokenPath<T[K]>}` : never }[keyof T]
+  : string
+
+export type SpacingToken = TokenPath<JllTokens['spacing']>
+
+// Type guards and token resolver
+export const isValidFigmaNode = (node: unknown): node is FigmaLayerData => {
+  return (
+    typeof node === 'object' &&
+    node !== null &&
+    'id' in node &&
+    'type' in node &&
+    typeof (node as FigmaLayerData).id === 'string'
+  )
+}
+
+export const resolveToken = <T extends keyof JllTokens>(
+  tokens: JllTokens,
+  path: string
+): any => {
+  return path.split('.').reduce((obj, key) => (obj as any)?.[key], tokens as any)
+}
+```
+
+---
+
+## Dev Components and Error Boundaries
+
+```typescript
+// Dev-only props for Figma-aware components
+export interface FigmaComponentProps {
+  figmaNodeId?: string
+  designTokens?: Partial<JllTokens>
+  accessibilityLabel?: string
+  testId?: string
+}
+
+// Generic dev component wrapper to combine context tokens and overrides
+export const FigmaBasedComponent = <T extends FigmaComponentProps>({
+  figmaNodeId,
+  designTokens,
+  ...props
+}: T) => {
+  const contextTokens = useContext(AppContext).tokens
+  const tokens = useMemo(() => ({ ...contextTokens, ...designTokens }), [contextTokens, designTokens])
+
+  return <Box>{/* Implement using figma data in dev flows */}</Box>
+}
+
+// Error boundary for dev Figma components
+export class FigmaComponentErrorBoundary extends React.Component<
+  { children: React.ReactNode; figmaNodeId?: string },
+  { hasError: boolean; error?: Error }
+> {
+  constructor(props: { children: React.ReactNode; figmaNodeId?: string }) {
+    super(props)
+    this.state = { hasError: false }
+  }
+
+  static getDerivedStateFromError(error: Error) {
+    return { hasError: true, error }
+  }
+
+  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+    console.error(`Figma component error for node ${this.props.figmaNodeId}:`, error, errorInfo)
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <Box sx={{ p: 2, border: '1px solid red', borderRadius: 1 }}>
+          <Typography color="error">
+            Failed to render Figma component {this.props.figmaNodeId}
+          </Typography>
+        </Box>
+      )
+    }
+    return this.props.children
+  }
+}
+```
+
+---
+
+## API Patterns for Dev Integration
+
+```typescript
+// Base props
+interface BaseFigmaProps {
+  figmaNodeId?: string
+  designTokens?: Partial<JllTokens>
+  accessibilityLabel?: string
+  testId?: string
+}
+
+// Dev events
+interface FigmaEventHandlers {
+  onFigmaDataLoad?: (data: FigmaLayerData) => void
+  onTokenResolve?: (tokenPath: string, value: any) => void
+  onDesignSync?: (isInSync: boolean) => void
+}
+
+// Complex props
+interface ComplexFigmaComponentProps extends BaseFigmaProps, FigmaEventHandlers {
+  designUrl?: string
+  variant?: 'primary' | 'secondary' | 'tertiary'
+  size?: 'small' | 'medium' | 'large'
+  interactive?: boolean
+  loading?: boolean
+}
+```
+
+---
+
+## Data Flow and Composition (Dev)
+
+```typescript
+// Hook to load figma node using dev MCP utils
+const useFigmaComponent = (figmaNodeId?: string) => {
+  const [figmaData, setFigmaData] = useState<FigmaLayerData | null>(null)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<Error | null>(null)
+
+  useEffect(() => {
+    if (!figmaNodeId) return
+    const run = async () => {
+      setLoading(true)
+      try {
+        const data = await getFigmaNode(figmaNodeId)
+        setFigmaData(data)
+      } catch (err) {
+        setError(err as Error)
+      } finally {
+        setLoading(false)
+      }
+    }
+    run()
+  }, [figmaNodeId])
+
+  return { figmaData, loading, error }
+}
+
+// Component consuming the dev hook
+export const FigmaSyncedComponent: React.FC<ComplexFigmaComponentProps> = ({
+  figmaNodeId,
+  onFigmaDataLoad,
+  ...props
+}) => {
+  const { figmaData, loading, error } = useFigmaComponent(figmaNodeId)
+
+  useEffect(() => {
+    if (figmaData && onFigmaDataLoad) onFigmaDataLoad(figmaData)
+  }, [figmaData, onFigmaDataLoad])
+
+  if (loading) return <CircularProgress />
+  if (error) return <ErrorFallback error={error} />
+
+  return <Box>{/* Render based on figmaData (dev only) */}</Box>
+}
+
+// Composition primitives
+const FigmaPrimitive: React.FC<{ layer: FigmaLayerData; tokens: JllTokens }> = ({ layer, tokens }) => {
+  const sx = useMemo(() => mapFigmaToSx(layer, tokens), [layer, tokens])
+  return <Box sx={sx} data-figma-id={layer.id} />
+}
+
+const FigmaComposite: React.FC<{ layers: FigmaLayerData[]; tokens: JllTokens }> = ({ layers, tokens }) => (
+  <>
+    {layers.map(layer => (
+      <FigmaPrimitive key={layer.id} layer={layer} tokens={tokens} />
+    ))}
+  </>
+)
+
+export const FigmaPage: React.FC<{ figmaPageId: string; tokens: JllTokens }> = ({ figmaPageId, tokens }) => {
+  const { layers, loading } = useFigmaPage(figmaPageId)
+  if (loading) return <PageSkeleton />
+  return <FigmaComposite layers={layers} tokens={tokens} />
+}
+```
+
+---
+
+## Security, Access, and Validation (Dev)
+
+```typescript
+// Secure token resolver
+class SecureTokenResolver {
+  private readonly allowedTokenPaths: Set<string>
+  constructor(allowedPaths: string[]) { this.allowedTokenPaths = new Set(allowedPaths) }
+  resolve(tokens: JllTokens, path: string): any {
+    if (!this.allowedTokenPaths.has(path)) throw new Error(`Unauthorized token access: ${path}`)
+    const value = resolveToken(tokens, path)
+    if (value === undefined) throw new Error(`Token not found: ${path}`)
+    return value
+  }
+}
+
+// Access control
+const useFigmaAccess = (requiredPermissions: string[]) => {
+  const [hasAccess, setHasAccess] = useState<boolean | null>(null)
+  const [userPermissions, setUserPermissions] = useState<string[]>([])
+  useEffect(() => {
+    const check = async () => {
+      try {
+        const permissions = await getUserPermissions()
+        setUserPermissions(permissions)
+        setHasAccess(requiredPermissions.every(p => permissions.includes(p)))
+      } catch {
+        setHasAccess(false)
+      }
+    }
+    check()
+  }, [requiredPermissions])
+  return { hasAccess, userPermissions }
+}
+
+// Zod validation
+const figmaComponentSchema = z.object({
+  figmaNodeId: z.string().regex(/^[\w-]+$/).optional(),
+  designTokens: z.record(z.any()).optional(),
+  accessibilityLabel: z.string().max(200).optional(),
+  testId: z.string().regex(/^[\w-]+$/).optional()
+})
+
+const useValidatedProps = <T extends Record<string, any>>(props: T, schema: z.ZodSchema<T>) => {
+  const [errors, setErrors] = useState<z.ZodError[]>([])
+  const validatedProps = useMemo(() => {
+    const result = schema.safeParse(props)
+    if (!result.success) { setErrors([result.error]); return {} as T }
+    setErrors([]); return result.data
+  }, [props, schema])
+  return { validatedProps, errors }
+}
+```
+
+---
+
+## Performance and Bundle Patterns (Dev)
+
+```typescript
+// Lazy loading
+const useLazyFigmaDesign = (designId: string) => {
+  const [design, setDesign] = useState<FigmaLayerData[] | null>(null)
+  const [loaded, setLoaded] = useState(false)
+  const loadDesign = useCallback(async () => {
+    if (loaded) return design
+    const data = await fetchFigmaDesign(designId)
+    setDesign(data); setLoaded(true); return data
+  }, [designId, loaded])
+  return { design, loaded, loadDesign }
+}
+
+// Memoized Figma-to-SX mapping
+const useFigmaSx = (layer: FigmaLayerData, tokens: JllTokens) => useMemo(() => {
+  const sx: SxProps<Theme> = {}
+  if (layer.bounds) {
+    sx.width = layer.bounds.width; sx.height = layer.bounds.height
+    sx.position = 'absolute'; sx.left = layer.bounds.x; sx.top = layer.bounds.y
+  }
+  if (layer.fills?.length && layer.fills[0].type === 'SOLID') sx.backgroundColor = (layer.fills[0] as any).color
+  if ((layer as any).cornerRadius) sx.borderRadius = (tokens as any).radii[(layer as any).cornerRadius] || (layer as any).cornerRadius
+  return sx
+}, [layer, tokens])
+
+export const OptimizedFigmaComponent = React.memo<FigmaComponentProps>(({ figmaNodeId, designTokens, ...props }) => {
+  const contextTokens = useContext(AppContext).tokens
+  const tokens = useMemo(() => ({ ...contextTokens, ...designTokens }), [contextTokens, designTokens])
+  const { figmaData } = useFigmaComponent(figmaNodeId)
+  const sx = useFigmaSx(figmaData as any, tokens)
+  return <Box sx={sx} {...props} />
+})
+
+// Dynamic imports for utils (dev)
+const useFigmaUtils = () => {
+  const [utils, setUtils] = useState<any>(null)
+  useEffect(() => { import('./utils/figmaMapping').then(setUtils) }, [])
+  return utils
+}
+```
+
+---
+
+## Testing and Storybook (Dev)
+
+```typescript
+// Design fidelity utility (dev approximation)
+const expectDesignFidelity = (component: ReactElement, figmaNodeId: string) => {
+  const figmaData = getFigmaNode(figmaNodeId)
+  expect(component.props.sx?.width).toBeCloseTo((figmaData as any).bounds.width, 1)
+}
+
+// Storybook snippet with figma param
+export const Primary: Story = {
+  args: { figmaNodeId: 'primary-button-figma-id', children: 'Click me' },
+  parameters: { design: { type: 'figma', url: 'https://www.figma.com/design/ABC123/ButtonComponent' } }
+}
+```
+
+---
+
+## Configuration and Environment (Dev)
+
+```typescript
+interface FigmaMcpConfig { apiKey: string; baseUrl: string; timeout: number; retryAttempts: number; cacheEnabled: boolean; cacheTtl: number }
+export const createFigmaMcpClient = (config: FigmaMcpConfig) => new FigmaMcpClient({
+  ...config,
+  onError: (error) => { console.error('Figma MCP Error:', error) },
+  onTokenRefresh: () => {}
+})
+
+// Token context with optional figma sync
+interface TokenContextValue {
+  tokens: JllTokens
+  updateTokens: (updates: Partial<JllTokens>) => void
+  syncWithFigma: () => Promise<void>
+  isSynced: boolean
+  lastSyncTime?: Date
+}
+```
+

@@ -5,34 +5,136 @@ import { Drawer as DrawerPrimitive } from "vaul"
 
 import { cn } from "../../lib/utils"
 
+/**
+ * Drawer component props interface
+ * Extends vaul Drawer Root props
+ */
+export type DrawerProps = React.ComponentProps<typeof DrawerPrimitive.Root>
+
+/**
+ * DrawerTrigger component props interface
+ * Extends vaul Drawer Trigger props
+ */
+export interface DrawerTriggerProps extends React.ComponentProps<typeof DrawerPrimitive.Trigger> {}
+
+/**
+ * DrawerPortal component props interface
+ * Extends vaul Drawer Portal props
+ */
+export interface DrawerPortalProps extends React.ComponentProps<typeof DrawerPrimitive.Portal> {}
+
+/**
+ * DrawerClose component props interface
+ * Extends vaul Drawer Close props
+ */
+export interface DrawerCloseProps extends React.ComponentProps<typeof DrawerPrimitive.Close> {}
+
+/**
+ * DrawerOverlay component props interface
+ * Extends vaul Drawer Overlay props
+ */
+export interface DrawerOverlayProps extends React.ComponentProps<typeof DrawerPrimitive.Overlay> {}
+
+/**
+ * DrawerContent component props interface
+ * Extends vaul Drawer Content props
+ */
+export interface DrawerContentProps extends React.ComponentProps<typeof DrawerPrimitive.Content> {}
+
+/**
+ * DrawerHeader component props interface
+ * Extends native div element props
+ */
+export interface DrawerHeaderProps extends React.ComponentProps<"div"> {}
+
+/**
+ * DrawerFooter component props interface
+ * Extends native div element props
+ */
+export interface DrawerFooterProps extends React.ComponentProps<"div"> {}
+
+/**
+ * DrawerTitle component props interface
+ * Extends vaul Drawer Title props
+ */
+export interface DrawerTitleProps extends React.ComponentProps<typeof DrawerPrimitive.Title> {}
+
+/**
+ * DrawerDescription component props interface
+ * Extends vaul Drawer Description props
+ */
+export interface DrawerDescriptionProps extends React.ComponentProps<typeof DrawerPrimitive.Description> {}
+
+/**
+ * Drawer component - A drawer/sheet component
+ * 
+ * Provides a drawer component that slides in from the edges of the screen.
+ * Built on vaul library for smooth animations.
+ * 
+ * @param props - Drawer props including open, onOpenChange, and standard vaul Drawer attributes
+ * @returns A Drawer component
+ * 
+ * @example
+ * ```tsx
+ * <Drawer>
+ *   <DrawerTrigger>Open</DrawerTrigger>
+ *   <DrawerContent>
+ *     <DrawerHeader>
+ *       <DrawerTitle>Title</DrawerTitle>
+ *       <DrawerDescription>Description</DrawerDescription>
+ *     </DrawerHeader>
+ *   </DrawerContent>
+ * </Drawer>
+ * ```
+ */
 function Drawer({
   ...props
-}: React.ComponentProps<typeof DrawerPrimitive.Root>) {
+}: DrawerProps): React.ReactElement {
   return <DrawerPrimitive.Root data-slot="drawer" {...props} />
 }
 
+/**
+ * DrawerTrigger component - A trigger button for the drawer
+ * @param props - DrawerTrigger props
+ * @returns A DrawerTrigger component
+ */
 function DrawerTrigger({
   ...props
-}: React.ComponentProps<typeof DrawerPrimitive.Trigger>) {
+}: DrawerTriggerProps): React.ReactElement {
   return <DrawerPrimitive.Trigger data-slot="drawer-trigger" {...props} />
 }
 
+/**
+ * DrawerPortal component - A portal for drawer content
+ * @param props - DrawerPortal props
+ * @returns A DrawerPortal component
+ */
 function DrawerPortal({
   ...props
-}: React.ComponentProps<typeof DrawerPrimitive.Portal>) {
+}: DrawerPortalProps): React.ReactElement {
   return <DrawerPrimitive.Portal data-slot="drawer-portal" {...props} />
 }
 
+/**
+ * DrawerClose component - A close button for the drawer
+ * @param props - DrawerClose props
+ * @returns A DrawerClose component
+ */
 function DrawerClose({
   ...props
-}: React.ComponentProps<typeof DrawerPrimitive.Close>) {
+}: DrawerCloseProps): React.ReactElement {
   return <DrawerPrimitive.Close data-slot="drawer-close" {...props} />
 }
 
+/**
+ * DrawerOverlay component - An overlay backdrop for the drawer
+ * @param props - DrawerOverlay props
+ * @returns A DrawerOverlay component
+ */
 function DrawerOverlay({
   className,
   ...props
-}: React.ComponentProps<typeof DrawerPrimitive.Overlay>) {
+}: DrawerOverlayProps): React.ReactElement {
   return (
     <DrawerPrimitive.Overlay
       data-slot="drawer-overlay"
@@ -45,11 +147,16 @@ function DrawerOverlay({
   )
 }
 
+/**
+ * DrawerContent component - The main content area of the drawer
+ * @param props - DrawerContent props
+ * @returns A DrawerContent component
+ */
 function DrawerContent({
   className,
   children,
   ...props
-}: React.ComponentProps<typeof DrawerPrimitive.Content>) {
+}: DrawerContentProps): React.ReactElement {
   return (
     <DrawerPortal data-slot="drawer-portal">
       <DrawerOverlay />
@@ -72,7 +179,12 @@ function DrawerContent({
   )
 }
 
-function DrawerHeader({ className, ...props }: React.ComponentProps<"div">) {
+/**
+ * DrawerHeader component - A header section for the drawer
+ * @param props - DrawerHeader props
+ * @returns A DrawerHeader component
+ */
+function DrawerHeader({ className, ...props }: DrawerHeaderProps): React.ReactElement {
   return (
     <div
       data-slot="drawer-header"
@@ -85,7 +197,12 @@ function DrawerHeader({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-function DrawerFooter({ className, ...props }: React.ComponentProps<"div">) {
+/**
+ * DrawerFooter component - A footer section for the drawer
+ * @param props - DrawerFooter props
+ * @returns A DrawerFooter component
+ */
+function DrawerFooter({ className, ...props }: DrawerFooterProps): React.ReactElement {
   return (
     <div
       data-slot="drawer-footer"
@@ -95,10 +212,15 @@ function DrawerFooter({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
+/**
+ * DrawerTitle component - A title for the drawer
+ * @param props - DrawerTitle props
+ * @returns A DrawerTitle component
+ */
 function DrawerTitle({
   className,
   ...props
-}: React.ComponentProps<typeof DrawerPrimitive.Title>) {
+}: DrawerTitleProps): React.ReactElement {
   return (
     <DrawerPrimitive.Title
       data-slot="drawer-title"
@@ -108,10 +230,15 @@ function DrawerTitle({
   )
 }
 
+/**
+ * DrawerDescription component - A description for the drawer
+ * @param props - DrawerDescription props
+ * @returns A DrawerDescription component
+ */
 function DrawerDescription({
   className,
   ...props
-}: React.ComponentProps<typeof DrawerPrimitive.Description>) {
+}: DrawerDescriptionProps): React.ReactElement {
   return (
     <DrawerPrimitive.Description
       data-slot="drawer-description"

@@ -6,34 +6,138 @@ import { XIcon } from "lucide-react"
 
 import { cn } from "../../lib/utils"
 
+/**
+ * Dialog component props interface
+ * Extends Radix UI Dialog primitive props
+ */
+export interface DialogProps extends React.ComponentProps<typeof DialogPrimitive.Root> {}
+
+/**
+ * DialogTrigger component props interface
+ * Extends Radix UI DialogTrigger primitive props
+ */
+export interface DialogTriggerProps extends React.ComponentProps<typeof DialogPrimitive.Trigger> {}
+
+/**
+ * DialogPortal component props interface
+ * Extends Radix UI DialogPortal primitive props
+ */
+export interface DialogPortalProps extends React.ComponentProps<typeof DialogPrimitive.Portal> {}
+
+/**
+ * DialogClose component props interface
+ * Extends Radix UI DialogClose primitive props
+ */
+export interface DialogCloseProps extends React.ComponentProps<typeof DialogPrimitive.Close> {}
+
+/**
+ * DialogOverlay component props interface
+ * Extends Radix UI DialogOverlay primitive props
+ */
+export interface DialogOverlayProps extends React.ComponentProps<typeof DialogPrimitive.Overlay> {}
+
+/**
+ * DialogContent component props interface
+ * Extends Radix UI DialogContent primitive props and adds showCloseButton prop
+ */
+export interface DialogContentProps extends React.ComponentProps<typeof DialogPrimitive.Content> {
+  showCloseButton?: boolean
+}
+
+/**
+ * DialogHeader component props interface
+ * Extends native div element props
+ */
+export interface DialogHeaderProps extends React.ComponentProps<"div"> {}
+
+/**
+ * DialogFooter component props interface
+ * Extends native div element props
+ */
+export interface DialogFooterProps extends React.ComponentProps<"div"> {}
+
+/**
+ * DialogTitle component props interface
+ * Extends Radix UI DialogTitle primitive props
+ */
+export interface DialogTitleProps extends React.ComponentProps<typeof DialogPrimitive.Title> {}
+
+/**
+ * DialogDescription component props interface
+ * Extends Radix UI DialogDescription primitive props
+ */
+export interface DialogDescriptionProps extends React.ComponentProps<typeof DialogPrimitive.Description> {}
+
+/**
+ * Dialog component - A modal dialog
+ * 
+ * Provides an accessible modal dialog for displaying content.
+ * Built on Radix UI primitives for accessibility.
+ * 
+ * @param props - Dialog props including open, onOpenChange, and standard Radix UI Dialog attributes
+ * @returns A Dialog component
+ * 
+ * @example
+ * ```tsx
+ * <Dialog>
+ *   <DialogTrigger>Open Dialog</DialogTrigger>
+ *   <DialogContent>
+ *     <DialogHeader>
+ *       <DialogTitle>Title</DialogTitle>
+ *       <DialogDescription>Description</DialogDescription>
+ *     </DialogHeader>
+ *   </DialogContent>
+ * </Dialog>
+ * ```
+ */
 function Dialog({
   ...props
-}: React.ComponentProps<typeof DialogPrimitive.Root>) {
+}: DialogProps): React.ReactElement {
   return <DialogPrimitive.Root data-slot="dialog" {...props} />
 }
 
+/**
+ * DialogTrigger component - The element that opens the dialog
+ * @param props - DialogTrigger props
+ * @returns A DialogTrigger component
+ */
 function DialogTrigger({
   ...props
-}: React.ComponentProps<typeof DialogPrimitive.Trigger>) {
+}: DialogTriggerProps): React.ReactElement {
   return <DialogPrimitive.Trigger data-slot="dialog-trigger" {...props} />
 }
 
+/**
+ * DialogPortal component - Portals the dialog content
+ * @param props - DialogPortal props
+ * @returns A DialogPortal component
+ */
 function DialogPortal({
   ...props
-}: React.ComponentProps<typeof DialogPrimitive.Portal>) {
+}: DialogPortalProps): React.ReactElement {
   return <DialogPrimitive.Portal data-slot="dialog-portal" {...props} />
 }
 
+/**
+ * DialogClose component - The element that closes the dialog
+ * @param props - DialogClose props
+ * @returns A DialogClose component
+ */
 function DialogClose({
   ...props
-}: React.ComponentProps<typeof DialogPrimitive.Close>) {
+}: DialogCloseProps): React.ReactElement {
   return <DialogPrimitive.Close data-slot="dialog-close" {...props} />
 }
 
+/**
+ * DialogOverlay component - The backdrop overlay for the dialog
+ * @param props - DialogOverlay props
+ * @returns A DialogOverlay component
+ */
 function DialogOverlay({
   className,
   ...props
-}: React.ComponentProps<typeof DialogPrimitive.Overlay>) {
+}: DialogOverlayProps): React.ReactElement {
   return (
     <DialogPrimitive.Overlay
       data-slot="dialog-overlay"
@@ -46,14 +150,17 @@ function DialogOverlay({
   )
 }
 
+/**
+ * DialogContent component - The main content container of the dialog
+ * @param props - DialogContent props including showCloseButton
+ * @returns A DialogContent component
+ */
 function DialogContent({
   className,
   children,
   showCloseButton = true,
   ...props
-}: React.ComponentProps<typeof DialogPrimitive.Content> & {
-  showCloseButton?: boolean
-}) {
+}: DialogContentProps): React.ReactElement {
   return (
     <DialogPortal data-slot="dialog-portal">
       <DialogOverlay />
@@ -80,7 +187,7 @@ function DialogContent({
   )
 }
 
-function DialogHeader({ className, ...props }: React.ComponentProps<"div">) {
+function DialogHeader({ className, ...props }: React.ComponentProps<"div">): React.ReactElement {
   return (
     <div
       data-slot="dialog-header"
@@ -90,7 +197,12 @@ function DialogHeader({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-function DialogFooter({ className, ...props }: React.ComponentProps<"div">) {
+/**
+ * DialogFooter component - The footer section of the dialog
+ * @param props - DialogFooter props
+ * @returns A DialogFooter component
+ */
+function DialogFooter({ className, ...props }: DialogFooterProps): React.ReactElement {
   return (
     <div
       data-slot="dialog-footer"
@@ -103,10 +215,15 @@ function DialogFooter({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
+/**
+ * DialogTitle component - The title of the dialog
+ * @param props - DialogTitle props
+ * @returns A DialogTitle component
+ */
 function DialogTitle({
   className,
   ...props
-}: React.ComponentProps<typeof DialogPrimitive.Title>) {
+}: DialogTitleProps): React.ReactElement {
   return (
     <DialogPrimitive.Title
       data-slot="dialog-title"
@@ -116,10 +233,15 @@ function DialogTitle({
   )
 }
 
+/**
+ * DialogDescription component - The description text of the dialog
+ * @param props - DialogDescription props
+ * @returns A DialogDescription component
+ */
 function DialogDescription({
   className,
   ...props
-}: React.ComponentProps<typeof DialogPrimitive.Description>) {
+}: DialogDescriptionProps): React.ReactElement {
   return (
     <DialogPrimitive.Description
       data-slot="dialog-description"

@@ -1,0 +1,201 @@
+---
+description: Security-focused rules for React TypeScript SPAs, emphasizing authentication, authorization, input validation, XSS prevention, and secure coding practices
+globs: ["**/*.{ts,tsx}", "**/*.jsx", "**/package.json", "**/tsconfig.json", "**/vite.config.*", "**/webpack.config.*"]
+alwaysApply: false
+---
+
+# React TypeScript SPA Security-Focused Rules
+
+**Version:** 1.0
+**Last Updated:** 2025-10-02
+**Maintained by:** JLL Apex Team
+**Use Case:** Building secure React TypeScript single page applications with enterprise-grade security measures
+
+## AI Assistant Instructions
+
+You are a security-focused React TypeScript developer specializing in building secure enterprise applications. Prioritize security in all recommendations, implementing defense-in-depth strategies, secure coding practices, and compliance with security standards. Every code suggestion must consider potential security vulnerabilities and mitigations.
+
+### Core Security Principles
+- Implement zero-trust architecture principles
+- Apply defense-in-depth security layers
+- Validate and sanitize all inputs
+- Implement secure authentication and authorization
+- Prevent common web vulnerabilities (XSS, CSRF, injection attacks)
+- Use secure communication protocols
+- Implement proper session management
+- Log security events for monitoring and auditing
+
+### Security Response Guidelines
+- Always include input validation and sanitization
+- Implement proper error handling without information leakage
+- Use secure coding patterns by default
+- Recommend security headers and CSP implementation
+- Provide secure alternatives to potentially vulnerable patterns
+- Explain security implications of architectural decisions
+
+## Authentication and Authorization
+
+### Authentication Implementation
+- Use JWT tokens with proper expiration and refresh mechanisms
+- Implement secure token storage (HttpOnly cookies, not localStorage)
+- Validate tokens on every protected route
+- Implement proper logout with token invalidation
+- Use multi-factor authentication when available
+
+### Authorization Patterns
+- Implement role-based access control (RBAC)
+- Use permission-based component rendering
+- Validate permissions on both client and server side
+- Implement proper route protection guards
+- Use secure session management
+
+## Input Validation and Sanitization
+
+### Client-Side Validation
+- Validate all user inputs using schema validation libraries (Zod, Yup)
+- Implement real-time validation feedback
+- Use proper input constraints (maxlength, pattern, etc.)
+- Sanitize HTML content to prevent XSS attacks
+- Validate file uploads for type, size, and content
+
+### Data Sanitization
+- Sanitize all dynamic content before rendering
+- Use DOMPurify for HTML sanitization
+- Implement proper URL validation and encoding
+- Sanitize database queries to prevent injection attacks
+- Validate and sanitize API responses
+
+## XSS Prevention
+
+### Content Security Policy
+- Implement strict CSP headers
+- Use nonce-based CSP for inline scripts/styles
+- Restrict external resource loading
+- Implement CSP violation reporting
+- Use Subresource Integrity (SRI) for external scripts
+
+### Safe Content Rendering
+- Never use `dangerouslySetInnerHTML` without sanitization
+- Implement proper text escaping for user content
+- Use React's built-in XSS protection mechanisms
+- Validate and sanitize markdown content
+- Implement safe URL handling
+
+## Secure API Communication
+
+### HTTPS and Certificate Pinning
+- Enforce HTTPS for all external communications
+- Implement certificate pinning when possible
+- Validate SSL/TLS certificates properly
+- Use secure cipher suites and protocols
+
+### API Security
+- Implement proper API authentication headers
+- Use API keys securely (environment variables, not hardcoded)
+- Implement rate limiting and request throttling
+- Validate API responses for expected structure
+- Handle API errors without exposing sensitive information
+
+## CSRF Protection
+
+### Token-Based Protection
+- Implement CSRF tokens for state-changing operations
+- Include tokens in all forms and AJAX requests
+- Validate tokens on server-side for all mutations
+- Use SameSite cookie attributes
+- Implement proper CORS policies
+
+## Secure State Management
+
+### Sensitive Data Handling
+- Never store sensitive data in localStorage or sessionStorage
+- Use secure storage mechanisms for tokens and sensitive data
+- Implement proper data encryption at rest
+- Clear sensitive data from memory when no longer needed
+- Use secure random generators for tokens and nonces
+
+### State Security
+- Validate state integrity and prevent tampering
+- Implement secure state serialization/deserialization
+- Protect against state-based attacks
+- Use immutable state updates to prevent race conditions
+
+## Secure Coding Practices
+
+### Secure Dependencies
+- Regularly audit dependencies for vulnerabilities
+- Use dependency scanning tools (npm audit, Snyk)
+- Pin dependency versions to prevent automatic malicious updates
+- Implement proper dependency isolation
+- Monitor for deprecated or vulnerable packages
+
+### Code Security
+- Avoid eval() and other dangerous functions
+- Implement proper error boundaries without information disclosure
+- Use secure random number generation
+- Implement secure password policies and hashing
+- Validate all configuration values
+
+## Security Monitoring and Logging
+
+### Security Event Logging
+- Log all authentication attempts (success/failure)
+- Implement audit trails for sensitive operations
+- Log security-relevant events (CSRF attempts, XSS attempts)
+- Implement proper log sanitization
+- Use structured logging for security events
+
+### Error Handling Security
+- Implement secure error pages without information leakage
+- Use generic error messages for security-related errors
+- Log detailed errors internally while showing user-friendly messages
+- Implement proper error tracking and monitoring
+- Handle unhandled promise rejections securely
+
+## Compliance and Standards
+
+### Security Standards
+- Follow OWASP security guidelines
+- Implement GDPR compliance for data handling
+- Follow industry security standards and best practices
+- Implement proper data retention policies
+- Conduct regular security assessments
+
+### Privacy Protection
+- Minimize data collection and retention
+- Implement proper data anonymization
+- Provide user consent management for data usage
+- Implement right to erasure (data deletion) functionality
+- Follow privacy-by-design principles
+
+## Security Testing
+
+### Security Testing Practices
+- Implement unit tests for security-critical functions
+- Conduct penetration testing regularly
+- Implement automated security scanning in CI/CD
+- Test for common vulnerabilities (OWASP Top 10)
+- Implement fuzz testing for input validation
+
+### Secure Development Lifecycle
+- Include security in code reviews
+- Implement security-focused testing
+- Conduct threat modeling for new features
+- Implement security champions in development teams
+- Provide security training and awareness programs
+
+## Secure Configuration
+
+### Environment Security
+- Use environment variables for all secrets and configuration
+- Implement proper secret management (vaults, key management)
+- Validate configuration on application startup
+- Implement secure defaults for all settings
+- Use configuration validation schemas
+
+### Build Security
+- Secure the build pipeline against tampering
+- Implement code signing for releases
+- Use secure artifact repositories
+- Implement dependency verification
+- Secure the deployment process

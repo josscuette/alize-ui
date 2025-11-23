@@ -8,21 +8,95 @@ import { MaterialSymbol } from "../material-symbol"
 import { cn } from "../../lib/utils"
 import { states, radius, animation, shadow } from "../../styles"
 
+/**
+ * Select component props interface
+ * Extends Radix UI Select primitive props
+ */
+export interface SelectProps extends React.ComponentProps<typeof SelectPrimitive.Root> {}
+
+/**
+ * SelectTrigger component props interface
+ * Extends Radix UI SelectTrigger primitive props and adds size prop
+ */
+export interface SelectTriggerProps extends React.ComponentProps<typeof SelectPrimitive.Trigger> {
+  size?: "sm" | "default"
+}
+
+/**
+ * SelectContent component props interface
+ * Extends Radix UI SelectContent primitive props
+ */
+export interface SelectContentProps extends React.ComponentProps<typeof SelectPrimitive.Content> {}
+
+/**
+ * SelectItem component props interface
+ * Extends Radix UI SelectItem primitive props
+ */
+export interface SelectItemProps extends React.ComponentProps<typeof SelectPrimitive.Item> {}
+
+/**
+ * SelectLabel component props interface
+ * Extends Radix UI SelectLabel primitive props
+ */
+export interface SelectLabelProps extends React.ComponentProps<typeof SelectPrimitive.Label> {}
+
+/**
+ * SelectSeparator component props interface
+ * Extends Radix UI SelectSeparator primitive props
+ */
+export interface SelectSeparatorProps extends React.ComponentProps<typeof SelectPrimitive.Separator> {}
+
+/**
+ * SelectScrollUpButton component props interface
+ * Extends Radix UI SelectScrollUpButton primitive props
+ */
+export interface SelectScrollUpButtonProps extends React.ComponentProps<typeof SelectPrimitive.ScrollUpButton> {}
+
+/**
+ * SelectScrollDownButton component props interface
+ * Extends Radix UI SelectScrollDownButton primitive props
+ */
+export interface SelectScrollDownButtonProps extends React.ComponentProps<typeof SelectPrimitive.ScrollDownButton> {}
+
+/**
+ * Select component - A custom select input built on Radix UI
+ * 
+ * Provides an accessible and customizable dropdown for selecting options.
+ * 
+ * @param props - Select props
+ * @returns A Select component
+ * 
+ * @example
+ * ```tsx
+ * <Select>
+ *   <SelectTrigger>
+ *     <SelectValue placeholder="Select a fruit" />
+ *   </SelectTrigger>
+ *   <SelectContent>
+ *     <SelectGroup>
+ *       <SelectLabel>Fruits</SelectLabel>
+ *       <SelectItem value="apple">Apple</SelectItem>
+ *       <SelectItem value="banana">Banana</SelectItem>
+ *     </SelectGroup>
+ *   </SelectContent>
+ * </Select>
+ * ```
+ */
 function Select({
   ...props
-}: React.ComponentProps<typeof SelectPrimitive.Root>) {
+}: SelectProps): React.ReactElement {
   return <SelectPrimitive.Root data-slot="select" {...props} />
 }
 
 function SelectGroup({
   ...props
-}: React.ComponentProps<typeof SelectPrimitive.Group>) {
+}: React.ComponentProps<typeof SelectPrimitive.Group>): React.ReactElement {
   return <SelectPrimitive.Group data-slot="select-group" {...props} />
 }
 
 function SelectValue({
   ...props
-}: React.ComponentProps<typeof SelectPrimitive.Value>) {
+}: React.ComponentProps<typeof SelectPrimitive.Value>): React.ReactElement {
   return <SelectPrimitive.Value data-slot="select-value" {...props} />
 }
 
@@ -33,7 +107,7 @@ function SelectTrigger({
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Trigger> & {
   size?: "sm" | "default"
-}) {
+}): React.ReactElement {
   return (
     <SelectPrimitive.Trigger
       data-slot="select-trigger"
@@ -89,13 +163,18 @@ function SelectTrigger({
   )
 }
 
+/**
+ * SelectContent component - The popover content containing select items
+ * @param props - SelectContent props
+ * @returns A SelectContent component
+ */
 function SelectContent({
   className,
   children,
   position = "popper",
   align = "center",
   ...props
-}: React.ComponentProps<typeof SelectPrimitive.Content>) {
+}: SelectContentProps): React.ReactElement {
   return (
     <SelectPrimitive.Portal>
       <SelectPrimitive.Content
@@ -141,7 +220,7 @@ function SelectContent({
 function SelectLabel({
   className,
   ...props
-}: React.ComponentProps<typeof SelectPrimitive.Label>) {
+}: React.ComponentProps<typeof SelectPrimitive.Label>): React.ReactElement {
   return (
     <SelectPrimitive.Label
       data-slot="select-label"
@@ -151,11 +230,16 @@ function SelectLabel({
   )
 }
 
+/**
+ * SelectItem component - An individual selectable item within the select content
+ * @param props - SelectItem props
+ * @returns A SelectItem component
+ */
 function SelectItem({
   className,
   children,
   ...props
-}: React.ComponentProps<typeof SelectPrimitive.Item>) {
+}: SelectItemProps): React.ReactElement {
   return (
     <SelectPrimitive.Item
       data-slot="select-item"
@@ -175,10 +259,15 @@ function SelectItem({
   )
 }
 
+/**
+ * SelectSeparator component - A visual separator between select groups or items
+ * @param props - SelectSeparator props
+ * @returns A SelectSeparator component
+ */
 function SelectSeparator({
   className,
   ...props
-}: React.ComponentProps<typeof SelectPrimitive.Separator>) {
+}: SelectSeparatorProps): React.ReactElement {
   return (
     <SelectPrimitive.Separator
       data-slot="select-separator"
@@ -188,10 +277,15 @@ function SelectSeparator({
   )
 }
 
+/**
+ * SelectScrollUpButton component - Button to scroll up in the select content
+ * @param props - SelectScrollUpButton props
+ * @returns A SelectScrollUpButton component
+ */
 function SelectScrollUpButton({
   className,
   ...props
-}: React.ComponentProps<typeof SelectPrimitive.ScrollUpButton>) {
+}: SelectScrollUpButtonProps): React.ReactElement {
   return (
     <SelectPrimitive.ScrollUpButton
       data-slot="select-scroll-up-button"
@@ -206,10 +300,15 @@ function SelectScrollUpButton({
   )
 }
 
+/**
+ * SelectScrollDownButton component - Button to scroll down in the select content
+ * @param props - SelectScrollDownButton props
+ * @returns A SelectScrollDownButton component
+ */
 function SelectScrollDownButton({
   className,
   ...props
-}: React.ComponentProps<typeof SelectPrimitive.ScrollDownButton>) {
+}: SelectScrollDownButtonProps): React.ReactElement {
   return (
     <SelectPrimitive.ScrollDownButton
       data-slot="select-scroll-down-button"

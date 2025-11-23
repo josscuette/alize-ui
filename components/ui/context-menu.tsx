@@ -6,45 +6,186 @@ import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react"
 
 import { cn } from "../../lib/utils"
 
+/**
+ * ContextMenu component props interface
+ * Extends Radix UI ContextMenu primitive props
+ */
+export interface ContextMenuProps extends React.ComponentProps<typeof ContextMenuPrimitive.Root> {}
+
+/**
+ * ContextMenuTrigger component props interface
+ * Extends Radix UI ContextMenuTrigger primitive props
+ */
+export interface ContextMenuTriggerProps extends React.ComponentProps<typeof ContextMenuPrimitive.Trigger> {}
+
+/**
+ * ContextMenuContent component props interface
+ * Extends Radix UI ContextMenuContent primitive props
+ */
+export interface ContextMenuContentProps extends React.ComponentProps<typeof ContextMenuPrimitive.Content> {}
+
+/**
+ * ContextMenuItem component props interface
+ * Extends Radix UI ContextMenuItem primitive props and adds inset and variant props
+ */
+export interface ContextMenuItemProps extends React.ComponentProps<typeof ContextMenuPrimitive.Item> {
+  inset?: boolean
+  variant?: "default" | "destructive"
+}
+
+/**
+ * ContextMenuCheckboxItem component props interface
+ * Extends Radix UI ContextMenuCheckboxItem primitive props
+ */
+export interface ContextMenuCheckboxItemProps extends React.ComponentProps<typeof ContextMenuPrimitive.CheckboxItem> {}
+
+/**
+ * ContextMenuRadioItem component props interface
+ * Extends Radix UI ContextMenuRadioItem primitive props
+ */
+export interface ContextMenuRadioItemProps extends React.ComponentProps<typeof ContextMenuPrimitive.RadioItem> {}
+
+/**
+ * ContextMenuLabel component props interface
+ * Extends Radix UI ContextMenuLabel primitive props and adds inset prop
+ */
+export interface ContextMenuLabelProps extends React.ComponentProps<typeof ContextMenuPrimitive.Label> {
+  inset?: boolean
+}
+
+/**
+ * ContextMenuSeparator component props interface
+ * Extends Radix UI ContextMenuSeparator primitive props
+ */
+export interface ContextMenuSeparatorProps extends React.ComponentProps<typeof ContextMenuPrimitive.Separator> {}
+
+/**
+ * ContextMenuShortcut component props interface
+ * Extends native span element props
+ */
+export interface ContextMenuShortcutProps extends React.ComponentProps<"span"> {}
+
+/**
+ * ContextMenuGroup component props interface
+ * Extends Radix UI ContextMenuGroup primitive props
+ */
+export interface ContextMenuGroupProps extends React.ComponentProps<typeof ContextMenuPrimitive.Group> {}
+
+/**
+ * ContextMenuPortal component props interface
+ * Extends Radix UI ContextMenuPortal primitive props
+ */
+export interface ContextMenuPortalProps extends React.ComponentProps<typeof ContextMenuPrimitive.Portal> {}
+
+/**
+ * ContextMenuSub component props interface
+ * Extends Radix UI ContextMenuSub primitive props
+ */
+export interface ContextMenuSubProps extends React.ComponentProps<typeof ContextMenuPrimitive.Sub> {}
+
+/**
+ * ContextMenuSubTrigger component props interface
+ * Extends Radix UI ContextMenuSubTrigger primitive props and adds inset prop
+ */
+export interface ContextMenuSubTriggerProps extends React.ComponentProps<typeof ContextMenuPrimitive.SubTrigger> {
+  inset?: boolean
+}
+
+/**
+ * ContextMenuSubContent component props interface
+ * Extends Radix UI ContextMenuSubContent primitive props
+ */
+export interface ContextMenuSubContentProps extends React.ComponentProps<typeof ContextMenuPrimitive.SubContent> {}
+
+/**
+ * ContextMenuRadioGroup component props interface
+ * Extends Radix UI ContextMenuRadioGroup primitive props
+ */
+export interface ContextMenuRadioGroupProps extends React.ComponentProps<typeof ContextMenuPrimitive.RadioGroup> {}
+
+/**
+ * ContextMenu component - A context menu (right-click menu)
+ * 
+ * Provides an accessible context menu that appears on right-click.
+ * Built on Radix UI primitives for accessibility.
+ * 
+ * @param props - ContextMenu props including open, onOpenChange, and standard Radix UI ContextMenu attributes
+ * @returns A ContextMenu component
+ * 
+ * @example
+ * ```tsx
+ * <ContextMenu>
+ *   <ContextMenuTrigger>Right-click me</ContextMenuTrigger>
+ *   <ContextMenuContent>
+ *     <ContextMenuItem>Item 1</ContextMenuItem>
+ *   </ContextMenuContent>
+ * </ContextMenu>
+ * ```
+ */
 function ContextMenu({
   ...props
-}: React.ComponentProps<typeof ContextMenuPrimitive.Root>) {
+}: ContextMenuProps): React.ReactElement {
   return <ContextMenuPrimitive.Root data-slot="context-menu" {...props} />
 }
 
+/**
+ * ContextMenuTrigger component - The element that triggers the context menu
+ * @param props - ContextMenuTrigger props
+ * @returns A ContextMenuTrigger component
+ */
 function ContextMenuTrigger({
   ...props
-}: React.ComponentProps<typeof ContextMenuPrimitive.Trigger>) {
+}: ContextMenuTriggerProps): React.ReactElement {
   return (
     <ContextMenuPrimitive.Trigger data-slot="context-menu-trigger" {...props} />
   )
 }
 
+/**
+ * ContextMenuGroup component - A group of related context menu items
+ * @param props - ContextMenuGroup props
+ * @returns A ContextMenuGroup component
+ */
 function ContextMenuGroup({
   ...props
-}: React.ComponentProps<typeof ContextMenuPrimitive.Group>) {
+}: ContextMenuGroupProps): React.ReactElement {
   return (
     <ContextMenuPrimitive.Group data-slot="context-menu-group" {...props} />
   )
 }
 
+/**
+ * ContextMenuPortal component - Portals the context menu content
+ * @param props - ContextMenuPortal props
+ * @returns A ContextMenuPortal component
+ */
 function ContextMenuPortal({
   ...props
-}: React.ComponentProps<typeof ContextMenuPrimitive.Portal>) {
+}: ContextMenuPortalProps): React.ReactElement {
   return (
     <ContextMenuPrimitive.Portal data-slot="context-menu-portal" {...props} />
   )
 }
 
+/**
+ * ContextMenuSub component - A submenu container
+ * @param props - ContextMenuSub props
+ * @returns A ContextMenuSub component
+ */
 function ContextMenuSub({
   ...props
-}: React.ComponentProps<typeof ContextMenuPrimitive.Sub>) {
+}: ContextMenuSubProps): React.ReactElement {
   return <ContextMenuPrimitive.Sub data-slot="context-menu-sub" {...props} />
 }
 
+/**
+ * ContextMenuRadioGroup component - A radio group within the context menu
+ * @param props - ContextMenuRadioGroup props
+ * @returns A ContextMenuRadioGroup component
+ */
 function ContextMenuRadioGroup({
   ...props
-}: React.ComponentProps<typeof ContextMenuPrimitive.RadioGroup>) {
+}: ContextMenuRadioGroupProps): React.ReactElement {
   return (
     <ContextMenuPrimitive.RadioGroup
       data-slot="context-menu-radio-group"
@@ -53,14 +194,17 @@ function ContextMenuRadioGroup({
   )
 }
 
+/**
+ * ContextMenuSubTrigger component - The trigger for a submenu
+ * @param props - ContextMenuSubTrigger props including inset
+ * @returns A ContextMenuSubTrigger component
+ */
 function ContextMenuSubTrigger({
   className,
   inset,
   children,
   ...props
-}: React.ComponentProps<typeof ContextMenuPrimitive.SubTrigger> & {
-  inset?: boolean
-}) {
+}: ContextMenuSubTriggerProps): React.ReactElement {
   return (
     <ContextMenuPrimitive.SubTrigger
       data-slot="context-menu-sub-trigger"
@@ -77,10 +221,15 @@ function ContextMenuSubTrigger({
   )
 }
 
+/**
+ * ContextMenuSubContent component - The content container of a submenu
+ * @param props - ContextMenuSubContent props
+ * @returns A ContextMenuSubContent component
+ */
 function ContextMenuSubContent({
   className,
   ...props
-}: React.ComponentProps<typeof ContextMenuPrimitive.SubContent>) {
+}: ContextMenuSubContentProps): React.ReactElement {
   return (
     <ContextMenuPrimitive.SubContent
       data-slot="context-menu-sub-content"
@@ -93,10 +242,15 @@ function ContextMenuSubContent({
   )
 }
 
+/**
+ * ContextMenuContent component - The content container of the context menu
+ * @param props - ContextMenuContent props
+ * @returns A ContextMenuContent component
+ */
 function ContextMenuContent({
   className,
   ...props
-}: React.ComponentProps<typeof ContextMenuPrimitive.Content>) {
+}: ContextMenuContentProps): React.ReactElement {
   return (
     <ContextMenuPrimitive.Portal>
       <ContextMenuPrimitive.Content
@@ -111,15 +265,17 @@ function ContextMenuContent({
   )
 }
 
+/**
+ * ContextMenuItem component - An individual selectable item in the context menu
+ * @param props - ContextMenuItem props including inset and variant
+ * @returns A ContextMenuItem component
+ */
 function ContextMenuItem({
   className,
   inset,
   variant = "default",
   ...props
-}: React.ComponentProps<typeof ContextMenuPrimitive.Item> & {
-  inset?: boolean
-  variant?: "default" | "destructive"
-}) {
+}: ContextMenuItemProps): React.ReactElement {
   return (
     <ContextMenuPrimitive.Item
       data-slot="context-menu-item"
@@ -134,12 +290,17 @@ function ContextMenuItem({
   )
 }
 
+/**
+ * ContextMenuCheckboxItem component - A checkbox item in the context menu
+ * @param props - ContextMenuCheckboxItem props
+ * @returns A ContextMenuCheckboxItem component
+ */
 function ContextMenuCheckboxItem({
   className,
   children,
   checked,
   ...props
-}: React.ComponentProps<typeof ContextMenuPrimitive.CheckboxItem>) {
+}: ContextMenuCheckboxItemProps): React.ReactElement {
   return (
     <ContextMenuPrimitive.CheckboxItem
       data-slot="context-menu-checkbox-item"
@@ -160,11 +321,16 @@ function ContextMenuCheckboxItem({
   )
 }
 
+/**
+ * ContextMenuRadioItem component - A radio item in the context menu
+ * @param props - ContextMenuRadioItem props
+ * @returns A ContextMenuRadioItem component
+ */
 function ContextMenuRadioItem({
   className,
   children,
   ...props
-}: React.ComponentProps<typeof ContextMenuPrimitive.RadioItem>) {
+}: ContextMenuRadioItemProps): React.ReactElement {
   return (
     <ContextMenuPrimitive.RadioItem
       data-slot="context-menu-radio-item"
@@ -184,13 +350,16 @@ function ContextMenuRadioItem({
   )
 }
 
+/**
+ * ContextMenuLabel component - A non-interactive label in the context menu
+ * @param props - ContextMenuLabel props including inset
+ * @returns A ContextMenuLabel component
+ */
 function ContextMenuLabel({
   className,
   inset,
   ...props
-}: React.ComponentProps<typeof ContextMenuPrimitive.Label> & {
-  inset?: boolean
-}) {
+}: ContextMenuLabelProps): React.ReactElement {
   return (
     <ContextMenuPrimitive.Label
       data-slot="context-menu-label"
@@ -204,10 +373,15 @@ function ContextMenuLabel({
   )
 }
 
+/**
+ * ContextMenuSeparator component - A visual separator in the context menu
+ * @param props - ContextMenuSeparator props
+ * @returns A ContextMenuSeparator component
+ */
 function ContextMenuSeparator({
   className,
   ...props
-}: React.ComponentProps<typeof ContextMenuPrimitive.Separator>) {
+}: ContextMenuSeparatorProps): React.ReactElement {
   return (
     <ContextMenuPrimitive.Separator
       data-slot="context-menu-separator"
@@ -217,10 +391,15 @@ function ContextMenuSeparator({
   )
 }
 
+/**
+ * ContextMenuShortcut component - A keyboard shortcut indicator
+ * @param props - ContextMenuShortcut props
+ * @returns A ContextMenuShortcut component
+ */
 function ContextMenuShortcut({
   className,
   ...props
-}: React.ComponentProps<"span">) {
+}: ContextMenuShortcutProps): React.ReactElement {
   return (
     <span
       data-slot="context-menu-shortcut"

@@ -14,7 +14,7 @@ function Empty({
   icon,
   children,
   ...props
-}: EmptyProps) {
+}: EmptyProps): React.ReactElement {
   return (
     <div
       data-slot="empty"

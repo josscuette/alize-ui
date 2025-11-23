@@ -147,3 +147,52 @@ className={cn(
 3. **Gérer le focus** avec `focus-visible:ring-*`
 4. **Support clavier** pour tous les composants interactifs
 
+## Règles Critiques du Projet
+
+### Gestion des Serveurs de Développement
+
+⚠️ **RÈGLE CRITIQUE** : Toujours arrêter le serveur avant de modifier le code
+
+1. **Avant toute modification de code** :
+   - Vérifier les processus en cours : `ps aux | grep -i "next dev" | grep -v grep`
+   - Arrêter tous les serveurs en cours d'exécution avant d'éditer des fichiers
+   - Cela évite la corruption du cache `.next`
+
+2. **Avant de démarrer un serveur** :
+   - Vérifier s'il existe déjà des processus Next.js en cours
+   - Si plusieurs serveurs sont détectés, tous les arrêter d'abord
+   - Ne jamais lancer plusieurs instances de serveur en même temps
+
+3. **Procédure de démarrage du serveur** :
+   ```bash
+   # 1. Vérifier les processus existants
+   ps aux | grep -i "next dev" | grep -v grep
+   
+   # 2. Arrêter tous les processus trouvés
+   # 3. Libérer le port si nécessaire
+   lsof -ti:3000 | xargs kill -9 2>/dev/null
+   
+   # 4. Démarrer le serveur
+   npm run dev
+   ```
+
+**Raison** : Les modifications de code pendant l'exécution du serveur peuvent corrompre le cache Next.js et causer des erreurs. Plusieurs instances de serveur peuvent entrer en conflit et bloquer le port.
+
+### Dossiers à Ne Jamais Modifier
+
+⚠️ **RÈGLE CRITIQUE** : Ne jamais modifier ou supprimer les dossiers suivants :
+
+1. **`.next/`** - Cache de build Next.js
+   - Géré automatiquement par Next.js
+   - Se régénère lors de `npm run dev` ou `npm run build`
+   - Ne jamais exécuter `rm -rf .next` ou commandes similaires
+   - Si des problèmes de build surviennent, relancer `npm run dev` pour régénérer
+
+2. **`node_modules/`** - Dépendances npm
+   - Géré par le gestionnaire de paquets (npm/yarn)
+   - Se régénère lors de `npm install`
+   - Ne jamais modifier ou supprimer manuellement
+   - Si des problèmes surviennent, utiliser `npm install` pour réinstaller
+
+**Raison** : Ces dossiers sont générés automatiquement et leur modification peut corrompre l'installation du projet.
+
