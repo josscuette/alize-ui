@@ -84,3 +84,10 @@ export function MyComponent() {
 
 For detailed information, see [INSTALLATION.md](./INSTALLATION.md).
 
+### Additional Features Available
+
+Alize also provides:
+- **Validation**: Zod schemas for form validation - see [VALIDATION.md](./docs/VALIDATION.md)
+- **Security**: Sanitization utilities - see [SECURITY.md](./docs/SECURITY.md)
+- **Error Handling**: Error handling patterns - see [ERROR_HANDLING.md](./docs/ERROR_HANDLING.md)
+

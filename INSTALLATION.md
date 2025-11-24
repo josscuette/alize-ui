@@ -59,6 +59,14 @@ Make sure you have the required peer dependencies installed:
 npm install react react-dom tailwindcss
 ```
 
+**Optional**: If you plan to use validation utilities, you may also need:
+
+```bash
+npm install zod react-hook-form @hookform/resolvers
+```
+
+Note: These are already included as dependencies in Alize, but you may need them in your project if you're using validation schemas.
+
 ### Step 3: Configure TypeScript Path Aliases
 
 **IMPORTANT**: Alize components use path aliases (`@/`) internally. You need to configure your `tsconfig.json` to resolve these aliases so TypeScript can properly type-check Alize components:
@@ -220,6 +228,66 @@ export function MyComponent() {
 }
 ```
 
+## Additional Utilities
+
+Alize provides additional utilities for security, validation, and error handling:
+
+### Validation Schemas
+
+Use Zod validation schemas for form validation:
+
+```tsx
+import { emailSchema, passwordSchema } from "alize/lib/validation";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+
+const formSchema = z.object({
+  email: emailSchema,
+  password: passwordSchema,
+});
+
+const form = useForm({
+  resolver: zodResolver(formSchema),
+});
+```
+
+See [VALIDATION.md](./docs/VALIDATION.md) for complete validation guide.
+
+### Sanitization Utilities
+
+Sanitize user input to prevent XSS attacks:
+
+```tsx
+import { sanitizeHtml, sanitizeUrl } from "alize/lib/sanitization";
+
+const safeHtml = sanitizeHtml(userContent);
+const safeUrl = sanitizeUrl(userUrl);
+```
+
+See [SECURITY.md](./docs/SECURITY.md) for security best practices.
+
+### Error Handling
+
+Use error handling utilities for async operations:
+
+```tsx
+import { ErrorBoundary, handleAsyncError, safeAsync } from "alize";
+
+// Wrap components with ErrorBoundary
+<ErrorBoundary>
+  <YourComponent />
+</ErrorBoundary>
+
+// Handle async errors
+const result = await safeAsync(asyncOperation);
+if (!result.success) {
+  console.error(result.error);
+}
+```
+
+See [ERROR_HANDLING.md](./docs/ERROR_HANDLING.md) for complete error handling guide.
+
 ## Troubleshooting
 
 ### TypeScript Errors with Path Aliases
@@ -251,6 +319,9 @@ If you get module resolution errors:
 - Check out the [Component Documentation](./components/DOCUMENTATION.md) for detailed usage examples
 - Review [Conventions](./CONVENTIONS.md) to understand the design system
 - Explore the component showcase at `/components` when running the dev server
+- Read the [Security Guide](./docs/SECURITY.md) for security best practices
+- Learn about [Form Validation](./docs/VALIDATION.md) with Zod schemas
+- Understand [Error Handling](./docs/ERROR_HANDLING.md) patterns
 
 ## Support
 

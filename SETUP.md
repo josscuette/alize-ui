@@ -45,12 +45,21 @@ Ajoutez ces paramètres dans votre `.vscode/settings.json` :
 
 ## Scripts disponibles
 
+### Qualité de code
 - `npm run lint` - Vérifie le code avec ESLint
 - `npm run lint:fix` - Corrige automatiquement les erreurs ESLint
 - `npm run format` - Formate le code avec Prettier
 - `npm run format:check` - Vérifie le formatage sans modifier les fichiers
 - `npm run type-check` - Vérifie les types TypeScript
 - `npm run check` - Exécute toutes les vérifications (lint + format + types)
+
+### Tests
+- `npm test` - Lance les tests avec Vitest
+- `npm run test:ui` - Lance les tests avec l'interface UI
+- `npm run test:coverage` - Lance les tests avec rapport de couverture
+
+### Sécurité
+- `npm run security:audit` - Exécute un audit de sécurité (npm audit)
 
 ## Utilisation avec Cursor / AI
 
