@@ -188,9 +188,6 @@ var states = {
   // Invalid/Error states
   invalidRing: "aria-invalid:ring-semantic-surface-rag-danger-strong/20 dark:aria-invalid:ring-semantic-surface-rag-danger-strong/40",
   invalidBorder: "aria-invalid:border-semantic-surface-rag-danger-strong"};
-function cn2(...inputs) {
-  return tailwindMerge.twMerge(clsx.clsx(inputs));
-}
 
 // src/foundation/radius.ts
 var radius = {
@@ -206,7 +203,7 @@ var radius = {
 // src/foundation/size.ts
 var size = {
   // Extra small
-  xs: cn2(
+  xs: cn(
     "h-5 px-1 gap-1",
     "text-xs leading-4",
     "[&_svg]:size-3 [&_.material-symbols-outlined]:!text-[12px]",
@@ -214,7 +211,7 @@ var size = {
     // rounded-[4px]
   ),
   // Small
-  sm: cn2(
+  sm: cn(
     "h-7 px-2 gap-2",
     "text-sm leading-5",
     "[&_svg]:size-4 [&_.material-symbols-outlined]:!text-[16px]",
@@ -222,7 +219,7 @@ var size = {
     // rounded-md
   ),
   // Medium (default)
-  md: cn2(
+  md: cn(
     "h-9 px-3 gap-2",
     "text-sm leading-5",
     "[&_svg]:size-5 [&_.material-symbols-outlined]:!text-[20px]",
@@ -230,7 +227,7 @@ var size = {
     // rounded-md
   ),
   // Large
-  lg: cn2(
+  lg: cn(
     "h-11 px-4 gap-2",
     "text-base leading-6",
     "[&_svg]:size-5 [&_.material-symbols-outlined]:!text-[20px]",
@@ -238,25 +235,25 @@ var size = {
     // rounded-md
   ),
   // Icon-only sizes (square)
-  iconXs: cn2(
+  iconXs: cn(
     "size-5",
     "[&_svg]:size-3 [&_.material-symbols-outlined]:!text-[12px]",
     radius.sm
     // rounded-[4px]
   ),
-  iconSm: cn2(
+  iconSm: cn(
     "size-7",
     "[&_svg]:size-4 [&_.material-symbols-outlined]:!text-[16px]",
     radius.md
     // rounded-md
   ),
-  iconMd: cn2(
+  iconMd: cn(
     "size-9",
     "[&_svg]:size-5 [&_.material-symbols-outlined]:!text-[20px]",
     radius.md
     // rounded-md
   ),
-  iconLg: cn2(
+  iconLg: cn(
     "size-11",
     "[&_svg]:size-5 [&_.material-symbols-outlined]:!text-[20px]",
     radius.md
@@ -1459,7 +1456,7 @@ function MaterialSymbol(_a) {
   return /* @__PURE__ */ jsxRuntime.jsx(
     "span",
     __spreadProps(__spreadValues({
-      className: cn2("material-symbols-outlined", className),
+      className: cn("material-symbols-outlined", className),
       style: __spreadValues(__spreadProps(__spreadValues({}, size2 !== void 0 && { fontSize: `${size2}px` }), {
         fontVariationSettings: `'FILL' ${fill}, 'wght' ${weight}, 'GRAD' ${grade}, 'opsz' ${finalOpticalSize}`
       }), style)
@@ -6112,26 +6109,6 @@ function sanitizeEmail(email) {
   }
   return trimmed;
 }
-
-// lib/error-handling.ts
-var DefaultErrorLogger2 = class {
-  log(error, context) {
-    const errorInfo = __spreadProps(__spreadValues({
-      message: error.message,
-      stack: error.stack,
-      name: error.name
-    }, context), {
-      timestamp: (/* @__PURE__ */ new Date()).toISOString()
-    });
-    if (process.env.NODE_ENV === "development") {
-      console.error("Error logged:", errorInfo);
-    }
-  }
-  async logAsync(error, context) {
-    this.log(error, context);
-  }
-};
-var ErrorLogger2 = new DefaultErrorLogger2();
 function DefaultErrorFallback({ error, resetError }) {
   return /* @__PURE__ */ jsxRuntime.jsx("div", { className: "flex min-h-screen flex-col items-center justify-center gap-4 p-4", children: /* @__PURE__ */ jsxRuntime.jsxs("div", { className: "flex flex-col items-center gap-4 text-center", children: [
     /* @__PURE__ */ jsxRuntime.jsx(
@@ -6182,7 +6159,7 @@ var ErrorBoundary = class extends React21__namespace.Component {
     };
   }
   componentDidCatch(error, errorInfo) {
-    ErrorLogger2.log(error, {
+    ErrorLogger.log(error, {
       component: "ErrorBoundary",
       action: "componentDidCatch",
       metadata: {

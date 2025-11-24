@@ -12,6 +12,7 @@ export default defineConfig({
     "react",
     "react-dom",
     "react/jsx-runtime",
+    "react-hook-form",
     "@radix-ui/react-accordion",
     "@radix-ui/react-alert-dialog",
     "@radix-ui/react-aspect-ratio",
