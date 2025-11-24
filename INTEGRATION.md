@@ -13,8 +13,10 @@ npm install alize
 ### 2. Install Peer Dependencies
 
 ```bash
-npm install react react-dom tailwindcss
+npm install react react-dom tailwindcss react-hook-form
 ```
+
+**Note**: `react-hook-form` is required if you use the `Form` component from Alize.
 
 ### 3. Configure Tailwind
 

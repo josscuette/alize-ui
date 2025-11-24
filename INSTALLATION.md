@@ -56,13 +56,15 @@ npm install git+https://github.com/josscuette/alize-ui.git#<commit-hash>
 Make sure you have the required peer dependencies installed:
 
 ```bash
-npm install react react-dom tailwindcss
+npm install react react-dom tailwindcss react-hook-form
 ```
+
+**Note**: `react-hook-form` is required if you plan to use the `Form` component from Alize.
 
 **Optional**: If you plan to use validation utilities, you may also need:
 
 ```bash
-npm install zod react-hook-form @hookform/resolvers
+npm install zod @hookform/resolvers
 ```
 
 Note: These are already included as dependencies in Alize, but you may need them in your project if you're using validation schemas.
