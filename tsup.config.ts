@@ -7,7 +7,7 @@ export default defineConfig({
     resolve: true,
   },
   outDir: "dist",
-  tsconfig: "./tsconfig.json",
+  tsconfig: "./tsconfig.build.json",
   external: [
     "react",
     "react-dom",
