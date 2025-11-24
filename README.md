@@ -25,9 +25,29 @@ To use Alize in your project, install it via GitHub:
 npm install git+https://github.com/josscuette/alize-ui.git
 ```
 
+Then configure Tailwind and import the CSS:
+
+```ts
+// tailwind.config.ts
+import alizePreset from "alize/preset";
+import alizePlugin from "alize/plugin";
+
+export default {
+  presets: [alizePreset],
+  plugins: [alizePlugin],
+  content: ["./app/**/*.{ts,tsx}"],
+};
+```
+
+```tsx
+// app/layout.tsx
+import "alize/dist/alize.css";
+import { MaterialSymbolsProvider } from "alize";
+```
+
 **Quick Start**: See [QUICKSTART.md](./QUICKSTART.md) for a 5-minute setup guide.
 
-**Full Guide**: See [INSTALLATION.md](./INSTALLATION.md) for detailed setup instructions and troubleshooting.
+**Full Guide**: See [INSTALLATION.md](./INSTALLATION.md) for detailed setup instructions and [INTEGRATION.md](./INTEGRATION.md) for complete integration guide.
 
 ### Development (Local)
 
@@ -51,17 +71,23 @@ npm start
 
 ```
 alize/
-├── app/
-│   ├── components/     # Component showcase page
-│   ├── globals.css    # Global styles and theme variables
-│   └── theme.css      # Design tokens
-├── components/
-│   ├── ui/            # UI components (shadcn/ui based)
-│   ├── component-showcase.tsx  # Component documentation
-│   └── material-symbol.tsx     # Material Symbols wrapper
-└── lib/
-    ├── components-config.ts    # Component registry
-    └── utils.ts                # Utility functions
+├── src/                    # Source code
+│   ├── components/         # React components
+│   │   └── ui/            # UI components (shadcn/ui based)
+│   ├── foundation/        # Foundation Layer (design tokens)
+│   ├── lib/               # Utilities (validation, sanitization, etc.)
+│   ├── hooks/             # React hooks
+│   ├── contexts/          # React contexts
+│   ├── styles/            # CSS source (alize.css)
+│   ├── tailwind/          # Tailwind preset and plugin
+│   └── index.ts           # Main entry point
+├── dist/                  # Build output (for npm package)
+│   ├── alize.css          # Compiled CSS with all tokens
+│   ├── index.js/mjs       # Component bundles
+│   ├── tailwind.preset.js # Tailwind preset
+│   └── plugin.js          # Tailwind plugin
+├── app/                   # Next.js showcase app (development)
+└── examples/              # Example integrations
 ```
 
 ## Available Scripts
@@ -96,8 +122,10 @@ alize/
 - [Performance Guide](./PERFORMANCE.md) - Performance optimization patterns
 
 ### Reference
-- [Component Documentation](./components/DOCUMENTATION.md) - Documentation principles and guidelines
+- [Component Documentation](./src/components/DOCUMENTATION.md) - Documentation principles and guidelines
 - [Conventions](./CONVENTIONS.md) - Code conventions and best practices
+- [Integration Guide](./INTEGRATION.md) - Complete integration guide for consumers
+- [Architecture](./ARCHITECTURE.md) - Project architecture and build system
 
 ## Components
 
@@ -112,9 +140,19 @@ All components are located in `src/components/ui/` and follow the shadcn/ui patt
 
 Alize provides additional utilities for common development needs:
 
-- **Validation**: Zod schemas for email, password, URLs, files, and common form patterns (`lib/validation.ts`)
-- **Sanitization**: HTML, URL, text, and file name sanitization utilities (`lib/sanitization.ts`)
-- **Error Handling**: ErrorLogger, async error handling patterns, and custom error classes (`lib/error-handling.ts`)
+- **Validation**: Zod schemas for email, password, URLs, files, and common form patterns
+- **Sanitization**: HTML, URL, text, and file name sanitization utilities
+- **Error Handling**: ErrorLogger, async error handling patterns, and custom error classes
+
+All utilities are exported from the main package:
+
+```tsx
+import { 
+  emailSchema, 
+  sanitizeHtml, 
+  ErrorLogger 
+} from "alize";
+```
 
 See the [documentation guides](#documentation) for detailed usage examples.
 
