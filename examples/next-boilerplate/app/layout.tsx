@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import "alize/dist/alize.css";
-import { MaterialSymbolsProvider } from "alize";
+import "alize-ui/dist/alize.css";
+import { MaterialSymbolsProvider } from "alize-ui";
 
 export const metadata: Metadata = {
   title: "Alize Next.js Boilerplate",

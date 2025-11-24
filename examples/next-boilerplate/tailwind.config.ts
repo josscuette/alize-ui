@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
-import alizePreset from "alize/preset";
-import alizePlugin from "alize/plugin";
+import alizePreset from "alize-ui/preset";
+import alizePlugin from "alize-ui/plugin";
 
 export default {
   presets: [alizePreset],

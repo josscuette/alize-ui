@@ -7,7 +7,7 @@ Complete guide for integrating Alize into your project with zero configuration.
 ### 1. Install Alize
 
 ```bash
-npm install alize
+npm install alize-ui
 ```
 
 ### 2. Install Peer Dependencies
@@ -24,8 +24,8 @@ Create or update `tailwind.config.ts`:
 
 ```ts
 import type { Config } from "tailwindcss";
-import alizePreset from "alize/preset";
-import alizePlugin from "alize/plugin";
+import alizePreset from "alize-ui/preset";
+import alizePlugin from "alize-ui/plugin";
 
 export default {
   presets: [alizePreset],
@@ -43,8 +43,8 @@ In your main layout or CSS file:
 
 ```tsx
 // app/layout.tsx (Next.js App Router)
-import "alize/dist/alize.css";
-import { MaterialSymbolsProvider } from "alize";
+import "alize-ui/dist/alize.css";
+import { MaterialSymbolsProvider } from "alize-ui";
 
 export default function RootLayout({ children }) {
   return (
@@ -61,7 +61,7 @@ export default function RootLayout({ children }) {
 ### 5. Use Components
 
 ```tsx
-import { Button, Input, Card } from "alize";
+import { Button, Input, Card } from "alize-ui";
 
 export function MyComponent() {
   return (
@@ -91,8 +91,8 @@ Similar setup, but import CSS in `pages/_app.tsx`:
 
 ```tsx
 // pages/_app.tsx
-import "alize/dist/alize.css";
-import { MaterialSymbolsProvider } from "alize";
+import "alize-ui/dist/alize.css";
+import { MaterialSymbolsProvider } from "alize-ui";
 
 export default function App({ Component, pageProps }) {
   return (
@@ -111,8 +111,8 @@ export default function App({ Component, pageProps }) {
 
 ```tsx
 // main.tsx
-import "alize/dist/alize.css";
-import { MaterialSymbolsProvider } from "alize";
+import "alize-ui/dist/alize.css";
+import { MaterialSymbolsProvider } from "alize-ui";
 ```
 
 ### Remix
@@ -150,7 +150,7 @@ import {
   Select,
   Dialog,
   // ... and many more
-} from "alize";
+} from "alize-ui";
 ```
 
 ### Utilities

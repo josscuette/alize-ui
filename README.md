@@ -29,8 +29,8 @@ Then configure Tailwind and import the CSS:
 
 ```ts
 // tailwind.config.ts
-import alizePreset from "alize/preset";
-import alizePlugin from "alize/plugin";
+import alizePreset from "alize-ui/preset";
+import alizePlugin from "alize-ui/plugin";
 
 export default {
   presets: [alizePreset],
@@ -41,8 +41,8 @@ export default {
 
 ```tsx
 // app/layout.tsx
-import "alize/dist/alize.css";
-import { MaterialSymbolsProvider } from "alize";
+import "alize-ui/dist/alize.css";
+import { MaterialSymbolsProvider } from "alize-ui";
 ```
 
 **Quick Start**: See [QUICKSTART.md](./QUICKSTART.md) for a 5-minute setup guide.
@@ -151,7 +151,7 @@ import {
   emailSchema, 
   sanitizeHtml, 
   ErrorLogger 
-} from "alize";
+} from "alize-ui";
 ```
 
 See the [documentation guides](#documentation) for detailed usage examples.

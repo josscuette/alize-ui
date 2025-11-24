@@ -133,8 +133,8 @@ Import the Alize CSS file in your main layout or CSS file:
 
 ```tsx
 // app/layout.tsx (Next.js App Router)
-import "alize/dist/alize.css";
-import { MaterialSymbolsProvider } from "alize";
+import "alize-ui/dist/alize.css";
+import { MaterialSymbolsProvider } from "alize-ui";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -152,7 +152,7 @@ Or in your main CSS file:
 
 ```css
 /* In your globals.css or main CSS file */
-@import "alize/dist/alize.css";
+@import "alize-ui/dist/alize.css";
 ```
 
 **Important**: The CSS file includes all design tokens, theme configuration, and base styles. The preset handles content scanning, and the plugin adds custom utilities and variants.
@@ -166,7 +166,7 @@ You can import components in two ways:
 **Option 1: Import from the main entry point** (recommended)
 
 ```tsx
-import { Button, Input, Card } from "alize";
+import { Button, Input, Card } from "alize-ui";
 ```
 
 **Option 2: Import individual components** (not recommended, use main entry point)
@@ -176,7 +176,7 @@ All components are available from the main entry point. Individual imports are n
 ### Example Usage
 
 ```tsx
-import { Button, Input, Card, CardHeader, CardTitle, CardContent } from "alize";
+import { Button, Input, Card, CardHeader, CardTitle, CardContent } from "alize-ui";
 import { MaterialSymbol } from "alize/components/material-symbol";
 
 export function MyComponent() {
@@ -241,7 +241,7 @@ See [SECURITY.md](./docs/SECURITY.md) for security best practices.
 Use error handling utilities for async operations:
 
 ```tsx
-import { ErrorBoundary, handleAsyncError, safeAsync } from "alize";
+import { ErrorBoundary, handleAsyncError, safeAsync } from "alize-ui";
 
 // Wrap components with ErrorBoundary
 <ErrorBoundary>
@@ -301,7 +301,7 @@ import "alize/dist/alize.css";
 
 3. **Use components**:
 ```tsx
-import { Button, Input, Card } from "alize";
+import { Button, Input, Card } from "alize-ui";
 ```
 
 That's it! All tokens, styles, and components work out of the box.

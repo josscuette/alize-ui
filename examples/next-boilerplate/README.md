@@ -33,8 +33,8 @@ npm run dev
 The `tailwind.config.ts` uses Alize preset and plugin:
 
 ```ts
-import alizePreset from "alize/preset";
-import alizePlugin from "alize/plugin";
+import alizePreset from "alize-ui/preset";
+import alizePlugin from "alize-ui/plugin";
 
 export default {
   presets: [alizePreset],
@@ -48,7 +48,7 @@ export default {
 The `app/layout.tsx` imports Alize CSS:
 
 ```tsx
-import "alize/dist/alize.css";
+import "alize-ui/dist/alize.css";
 ```
 
 ### Components
@@ -56,7 +56,7 @@ import "alize/dist/alize.css";
 All Alize components are available:
 
 ```tsx
-import { Button, Input, Card } from "alize";
+import { Button, Input, Card } from "alize-ui";
 ```
 
 ## What's Demonstrated

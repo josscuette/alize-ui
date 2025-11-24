@@ -1,10 +1,10 @@
 "use client";
 
-import { Button } from "alize";
-import { Input } from "alize";
-import { Checkbox } from "alize";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "alize";
-import { MaterialSymbol } from "alize";
+import { Button } from "alize-ui";
+import { Input } from "alize-ui";
+import { Checkbox } from "alize-ui";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "alize-ui";
+import { MaterialSymbol } from "alize-ui";
 
 export default function Home() {
   return (
