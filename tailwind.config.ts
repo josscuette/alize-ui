@@ -7,19 +7,19 @@ const config: Config = {
     "./app/page.tsx",
     "./app/components/page.tsx",
     
-    // Composants UI
-    "./components/ui/**/*.tsx",
+    // Composants UI (depuis /src)
+    "./src/components/ui/**/*.tsx",
     
-    // Composants utilitaires essentiels
-    "./components/global-header.tsx",
-    "./components/theme-toggle.tsx",
-    "./components/material-symbol.tsx",
-    "./components/material-symbols-provider.tsx",
-    "./components/component-showcase.tsx",
+    // Composants utilitaires essentiels (depuis /src)
+    "./src/components/global-header.tsx",
+    "./src/components/theme-toggle.tsx",
+    "./src/components/material-symbol.tsx",
+    "./src/components/material-symbols-provider.tsx",
+    "./src/components/component-showcase.tsx",
     
-    // Utilitaires
-    "./lib/utils.ts",
-    "./hooks/use-mobile.ts",
+    // Utilitaires (depuis /src)
+    "./src/lib/utils.ts",
+    "./src/hooks/use-mobile.ts",
     
     // Exclure le dossier cleaning pour éviter que Tailwind scanne les scripts de migration
     // qui contiennent des patterns dans les commentaires

@@ -67,62 +67,72 @@ npm install zod react-hook-form @hookform/resolvers
 
 Note: These are already included as dependencies in Alize, but you may need them in your project if you're using validation schemas.
 
-### Step 3: Configure TypeScript Path Aliases
+### Step 3: Configure TypeScript (Optional)
 
-**IMPORTANT**: Alize components use path aliases (`@/`) internally. You need to configure your `tsconfig.json` to resolve these aliases so TypeScript can properly type-check Alize components:
-
-```json
-{
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./node_modules/alize/*"]
-    }
-  }
-}
-```
-
-**For Next.js projects**, you can extend your existing paths:
+TypeScript configuration is optional but recommended. Alize components are fully typed and work out of the box. If you want to extend TypeScript paths for your own convenience, you can add:
 
 ```json
 {
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"],
-      "alize/*": ["./node_modules/alize/*"]
+      "@/*": ["./*"]
     }
   }
 }
 ```
 
-**Note**: Your bundler (Next.js, Vite, etc.) should automatically resolve these imports at build time. If you encounter runtime errors, ensure your bundler configuration supports TypeScript path aliases.
+**Note**: This is optional. Alize components work without any TypeScript path configuration.
 
-### Step 4: Import CSS Files
+### Step 4: Configure Tailwind CSS
 
-Import the required CSS files in your main CSS file or `_app.tsx` / `layout.tsx`:
+**Use Alize Tailwind Preset and Plugin** (zero configuration required)
 
-```css
-/* In your globals.css or main CSS file */
-@import "alize/app/globals.css";
-@import "alize/app/theme.css";
+Alize provides a Tailwind preset and plugin that automatically configure everything you need. This ensures that only one instance of Tailwind runs in your application and prevents conflicts.
+
+**For Tailwind CSS v4**, configure your `tailwind.config.ts`:
+
+```ts
+import type { Config } from "tailwindcss";
+import alizePreset from "alize/preset";
+import alizePlugin from "alize/plugin";
+
+export default {
+  presets: [alizePreset],
+  plugins: [alizePlugin],
+  content: [
+    // Your app content
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+    // The preset already includes Alize components, so you don't need to add them here
+  ],
+} satisfies Config;
 ```
 
-Or in your Next.js app:
+**For Tailwind CSS v3**, use the preset and plugin similarly:
 
-```tsx
-// app/layout.tsx or pages/_app.tsx
-import "alize/app/globals.css";
-import "alize/app/theme.css";
+```js
+import alizePreset from "alize/preset";
+import alizePlugin from "alize/plugin";
+
+export default {
+  presets: [alizePreset],
+  plugins: [alizePlugin],
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+  ],
+};
 ```
 
-**⚠️ Important: Material Symbols Font**
+### Step 5: Import CSS
 
-Some bundlers may not process the Google Fonts `@import` correctly. Add `MaterialSymbolsProvider` to your root layout:
+Import the Alize CSS file in your main layout or CSS file:
 
 ```tsx
 // app/layout.tsx (Next.js App Router)
-import { MaterialSymbolsProvider } from "alize"
+import "alize/dist/alize.css";
+import { MaterialSymbolsProvider } from "alize";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -136,42 +146,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 }
 ```
 
-This ensures Material Symbols font loads correctly even if CSS `@import` fails.
-
-### Step 5: Configure Tailwind CSS
-
-**For Tailwind CSS v4**, the CSS variables are already included when you import `alize/app/globals.css` and `alize/app/theme.css`. However, you need to ensure Tailwind scans Alize components for classes:
-
-```js
-// tailwind.config.js (if using Tailwind v3)
-export default {
-  content: [
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/alize/**/*.{js,ts,jsx,tsx}", // Include Alize components
-  ],
-  // ... rest of your config
-}
-```
-
-**For Tailwind CSS v4**, add this to your main CSS file:
+Or in your main CSS file:
 
 ```css
-@import "tailwindcss";
-@source "../node_modules/alize/**/*.{js,ts,jsx,tsx}";
+/* In your globals.css or main CSS file */
+@import "alize/dist/alize.css";
 ```
 
-Or configure it in your `tailwind.config.ts`:
-
-```ts
-export default {
-  content: [
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/alize/**/*.{js,ts,jsx,tsx}",
-  ],
-}
-```
+**Important**: The CSS file includes all design tokens, theme configuration, and base styles. The preset handles content scanning, and the plugin adds custom utilities and variants.
 
 ## Usage
 
@@ -185,24 +167,9 @@ You can import components in two ways:
 import { Button, Input, Card } from "alize";
 ```
 
-**Option 2: Import individual components**
+**Option 2: Import individual components** (not recommended, use main entry point)
 
-```tsx
-import { Button } from "alize/components/ui/button";
-import { Input } from "alize/components/ui/input";
-```
-
-### Import Utilities
-
-```tsx
-import { cn } from "alize/lib/utils";
-```
-
-### Import Material Symbols Component
-
-```tsx
-import { MaterialSymbol } from "alize/components/material-symbol";
-```
+All components are available from the main entry point. Individual imports are not necessary.
 
 ### Example Usage
 
@@ -314,8 +281,32 @@ If you get module resolution errors:
 2. Check that your bundler (Next.js, Vite, etc.) supports TypeScript path aliases
 3. For Next.js, ensure `next.config.js` doesn't override module resolution
 
+## Quick Integration Summary
+
+After installation, you only need **three things**:
+
+1. **Tailwind config** with preset and plugin:
+```ts
+import alizePreset from "alize/preset";
+import alizePlugin from "alize/plugin";
+export default { presets: [alizePreset], plugins: [alizePlugin], content: [...] };
+```
+
+2. **CSS import** in your layout:
+```tsx
+import "alize/dist/alize.css";
+```
+
+3. **Use components**:
+```tsx
+import { Button, Input, Card } from "alize";
+```
+
+That's it! All tokens, styles, and components work out of the box.
+
 ## Next Steps
 
+- See [INTEGRATION.md](./INTEGRATION.md) for detailed integration guide and framework-specific examples
 - Check out the [Component Documentation](./components/DOCUMENTATION.md) for detailed usage examples
 - Review [Conventions](./CONVENTIONS.md) to understand the design system
 - Explore the component showcase at `/components` when running the dev server

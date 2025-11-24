@@ -119,7 +119,7 @@ className={cn(
 
 ## Composants shadcn/ui
 
-1. **Ne pas modifier directement** les composants de base dans `components/ui/`
+1. **Ne pas modifier directement** les composants de base dans `src/components/ui/`
 2. **Créer des variantes** si nécessaire plutôt que de modifier les composants existants
 3. **Respecter la structure** avec `data-slot` pour les éléments principaux
 4. **Utiliser CVA** pour les variants complexes

@@ -101,7 +101,7 @@ alize/
 
 ## Components
 
-All components are located in `components/ui/` and follow the shadcn/ui pattern. Each component includes:
+All components are located in `src/components/ui/` and follow the shadcn/ui pattern. Each component includes:
 
 - Full TypeScript support
 - Custom design tokens integration
