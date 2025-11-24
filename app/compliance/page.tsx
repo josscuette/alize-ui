@@ -129,13 +129,22 @@ export default function CompliancePage() {
                       </div>
                     </div>
                     <div className="text-right space-y-1">
-                      <Badge variant={overallScore >= 80 ? "default" : overallScore >= 60 ? "secondary" : "outline"}>
+                      <Badge 
+                        variant={overallScore >= 80 ? "default" : overallScore >= 60 ? "secondary" : "outline"}
+                        className={overallScore >= 80 ? "bg-semantic-surface-rag-success-default text-semantic-text-reversedpersistent border-semantic-stroke-rag-success-default" : ""}
+                      >
                         {overallScore >= 80 ? "Excellent" : overallScore >= 60 ? "Good" : "Needs Improvement"}
                       </Badge>
                       <div className="text-xs text-semantic-text-subdued">Target: 85%</div>
                     </div>
                   </div>
-                  <Progress value={overallScore} className="h-2" />
+                  <Progress 
+                    value={overallScore} 
+                    className={cn(
+                      "h-2",
+                      overallScore === 100 && "[&_[data-slot=progress-indicator]]:bg-semantic-surface-rag-success-bright"
+                    )}
+                  />
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-semantic-text-subdued">
                     <div>
                       <strong>Before:</strong> 60% (1.8 / 3.0)
@@ -198,17 +207,21 @@ export default function CompliancePage() {
             {complianceData.map((category) => (
               <Card key={category.name} className="border-semantic-stroke-default hover:border-semantic-stroke-interaction-default transition-colors">
                 <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2 flex-1 min-w-0">
-                      <CardTitle className="text-lg truncate">{category.name}</CardTitle>
-                      <Badge variant={getStatusVariant(category.status)} className="shrink-0">
-                        {category.status === "complete" ? "Complete" : category.status === "in-progress" ? "In Progress" : "Not Started"}
-                      </Badge>
-                    </div>
+                  <div className="flex items-start justify-between gap-2 mb-2">
+                    <CardTitle className="text-lg flex-1 min-w-0">{category.name}</CardTitle>
+                    <Badge 
+                      variant={getStatusVariant(category.status)} 
+                      className={cn(
+                        "shrink-0",
+                        category.status === "complete" && "bg-semantic-surface-rag-success-default text-semantic-text-reversedpersistent border-semantic-stroke-rag-success-default"
+                      )}
+                    >
+                      {category.status === "complete" ? "Complete" : category.status === "in-progress" ? "In Progress" : "Not Started"}
+                    </Badge>
                   </div>
-                  <div className="flex items-center justify-between mt-2">
-                    <CardDescription className="text-xs">{category.description}</CardDescription>
-                    <div className="text-right shrink-0 ml-2">
+                  <div className="flex items-center justify-between gap-4">
+                    <CardDescription className="text-xs flex-1 min-w-0">{category.description}</CardDescription>
+                    <div className="text-right shrink-0">
                       <div className="text-2xl font-semibold">{category.percentage}%</div>
                       <div className="text-xs text-semantic-text-subdued">
                         {category.score.toFixed(1)} / {category.maxScore.toFixed(1)}
@@ -218,7 +231,13 @@ export default function CompliancePage() {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
-                    <Progress value={category.percentage} className="h-2" />
+                    <Progress 
+                      value={category.percentage} 
+                      className={cn(
+                        "h-2",
+                        (category.status === "complete" || category.percentage === 100) && "[&_[data-slot=progress-indicator]]:bg-semantic-surface-rag-success-bright"
+                      )}
+                    />
                     
                     <div className="space-y-2">
                       <div className="flex items-center justify-between text-sm">

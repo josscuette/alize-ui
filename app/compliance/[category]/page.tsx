@@ -171,7 +171,12 @@ export default function ComplianceCategoryPage() {
                   {category.description}
                 </p>
               </div>
-              <Badge variant={getStatusVariant(category.status)}>
+              <Badge 
+                variant={getStatusVariant(category.status)}
+                className={cn(
+                  category.status === "complete" && "bg-semantic-surface-rag-success-default text-semantic-text-reversedpersistent border-semantic-stroke-rag-success-default"
+                )}
+              >
                 {category.status === "complete" ? "Complete" : category.status === "in-progress" ? "In Progress" : "Not Started"}
               </Badge>
             </div>
@@ -195,7 +200,13 @@ export default function ComplianceCategoryPage() {
                     </div>
                   </div>
                 </div>
-                <Progress value={category.percentage} className="h-2" />
+                <Progress 
+                  value={category.percentage} 
+                  className={cn(
+                    "h-2",
+                    (category.status === "complete" || category.percentage === 100) && "[&_[data-slot=progress-indicator]]:bg-semantic-surface-rag-success-bright"
+                  )}
+                />
               </div>
             </CardContent>
           </Card>
@@ -227,7 +238,13 @@ export default function ComplianceCategoryPage() {
                     <div className="flex-1 space-y-2 min-w-0">
                       <div className="flex items-center justify-between gap-2">
                         <div className="text-base font-medium">{req.name}</div>
-                        <Badge variant={getStatusVariant(req.status)} className="shrink-0">
+                        <Badge 
+                          variant={getStatusVariant(req.status)} 
+                          className={cn(
+                            "shrink-0",
+                            req.status === "complete" && "bg-semantic-surface-rag-success-default text-semantic-text-reversedpersistent border-semantic-stroke-rag-success-default"
+                          )}
+                        >
                           {req.status === "complete" ? "Complete" : req.status === "in-progress" ? "In Progress" : "Not Started"}
                         </Badge>
                       </div>
