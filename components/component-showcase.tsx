@@ -15011,15 +15011,28 @@ function Component() {
               <Button
                 variant="outline"
                 className="w-full"
-                onClick={() => {
-                  toast.promise(
-                    fetch("/api/data").then(() => new Promise((resolve) => setTimeout(resolve, 2000))),
-                    {
-                      loading: "Fetching data...",
-                      success: "Data fetched successfully",
-                      error: "Failed to fetch data",
-                    }
-                  );
+                onClick={async () => {
+                  try {
+                    const { handleAsyncError } = await import("../lib/error-handling");
+                    await toast.promise(
+                      handleAsyncError(
+                        async () => {
+                          const response = await fetch("/api/data");
+                          if (!response.ok) throw new Error("Failed to fetch data");
+                          await new Promise((resolve) => setTimeout(resolve, 2000));
+                          return response.json();
+                        },
+                        { component: "SonnerDemo", action: "fetchData" }
+                      ),
+                      {
+                        loading: "Fetching data...",
+                        success: "Data fetched successfully",
+                        error: "Failed to fetch data",
+                      }
+                    );
+                  } catch (error) {
+                    toast.error("Failed to fetch data");
+                  }
                 }}
               >
                 Fetch data

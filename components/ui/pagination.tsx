@@ -126,8 +126,22 @@ function PaginationLink({
   className,
   isActive,
   size = "icon",
+  children,
   ...props
 }: PaginationLinkProps): React.ReactElement {
+  // Check if link is icon-only (no visible text)
+  const isIconOnly = size?.toString().includes('icon') || false
+  const hasText = React.Children.toArray(children).some((child) => {
+    if (typeof child === 'string') return child.trim().length > 0
+    if (typeof child === 'number') return true
+    return false
+  })
+  
+  // Add aria-label for icon-only links if not provided and no text content
+  const iconOnlyProps = isIconOnly && !hasText && !props['aria-label'] && !props['aria-labelledby']
+    ? { 'aria-label': 'Go to page' } // Fallback, but should be provided by developer
+    : {}
+
   return (
     <a
       aria-current={isActive ? "page" : undefined}
@@ -140,8 +154,11 @@ function PaginationLink({
         }),
         className
       )}
+      {...iconOnlyProps}
       {...props}
-    />
+    >
+      {children}
+    </a>
   )
 }
 

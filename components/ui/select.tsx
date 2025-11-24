@@ -82,11 +82,11 @@ export interface SelectScrollDownButtonProps extends React.ComponentProps<typeof
  * </Select>
  * ```
  */
-function Select({
+const Select = React.memo(function Select({
   ...props
 }: SelectProps): React.ReactElement {
   return <SelectPrimitive.Root data-slot="select" {...props} />
-}
+})
 
 function SelectGroup({
   ...props

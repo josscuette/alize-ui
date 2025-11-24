@@ -84,7 +84,7 @@ export function DocumentationSidebar({
     }
   }, []);
 
-  const SidebarContent = () => (
+  const SidebarContent = useMemo(() => (
     <div className="flex flex-col h-full">
       {/* Header */}
       <div className="px-4 md:px-8 py-8 border-b space-y-3">
@@ -125,7 +125,10 @@ export function DocumentationSidebar({
             type="text"
             placeholder={searchPlaceholder}
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={(e) => {
+              const newValue = e.target.value;
+              setSearchQuery(newValue);
+            }}
             className="pl-9 pr-9 h-8 text-sm"
           />
           {searchQuery && (
@@ -195,7 +198,19 @@ export function DocumentationSidebar({
         })}
       </nav>
     </div>
-  );
+  ), [
+    title,
+    showModifiedFilter,
+    showModifiedOnly,
+    modifiedCount,
+    onModifiedToggle,
+    searchPlaceholder,
+    searchQuery,
+    handleClearSearch,
+    filteredSections,
+    pathname,
+    isMobile,
+  ]);
 
   // On mobile, the sidebar is handled by MobileNavigation in GlobalNavigation
   if (isMobile) {
@@ -204,7 +219,7 @@ export function DocumentationSidebar({
 
   return (
     <aside className="hidden md:flex w-64 border-r bg-background flex-col shrink-0">
-      <SidebarContent />
+      {SidebarContent}
     </aside>
   );
 }

@@ -100,7 +100,7 @@ function useCarousel(): CarouselContextProps {
  * </Carousel>
  * ```
  */
-function Carousel({
+const Carousel = React.memo(function Carousel({
   orientation = "horizontal",
   opts,
   setApi,
@@ -188,7 +188,7 @@ function Carousel({
       </div>
     </CarouselContext.Provider>
   )
-}
+})
 
 /**
  * CarouselContent component - The content container for carousel items

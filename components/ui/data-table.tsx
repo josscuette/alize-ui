@@ -25,7 +25,7 @@ export interface DataTableProps<T> {
   emptyMessage?: string
 }
 
-export function DataTable<T extends Record<string, any>>({
+export const DataTable = React.memo(function DataTable<T extends Record<string, any>>({
   data,
   columns,
   className,
@@ -65,5 +65,5 @@ export function DataTable<T extends Record<string, any>>({
       </Table>
     </div>
   )
-}
+}) as <T extends Record<string, any>>(props: DataTableProps<T>) => React.ReactElement
 

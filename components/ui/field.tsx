@@ -196,7 +196,7 @@ const fieldVariants = cva(
  * </Field>
  * ```
  */
-function Field({
+const Field = React.memo(function Field({
   className,
   orientation = "vertical",
   ...props
@@ -210,7 +210,7 @@ function Field({
       {...props}
     />
   )
-}
+})
 
 /**
  * FieldContent component - The content area of a field

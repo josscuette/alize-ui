@@ -300,5 +300,65 @@ export { MaterialSymbol } from './components/material-symbol'
 export { MaterialSymbolsProvider } from './components/material-symbols-provider'
 export { cn } from './lib/utils'
 
+// Error Handling
+export {
+  ErrorLogger,
+  AppError,
+  NetworkError,
+  ValidationError,
+  handleAsyncError,
+  safeAsync,
+  retryAsync,
+  withTimeout,
+  formatErrorMessage,
+  isRetryableError,
+} from './lib/error-handling'
+export type { ErrorContext } from './lib/error-handling'
+
+// Validation
+export {
+  emailSchema,
+  passwordSchema,
+  strongPasswordSchema,
+  usernameSchema,
+  urlSchema,
+  phoneSchema,
+  dateSchema,
+  numberSchema,
+  positiveNumberSchema,
+  integerSchema,
+  requiredStringSchema,
+  optionalStringSchema,
+  textareaSchema,
+  checkboxSchema,
+  selectSchema,
+  fileSchema,
+  fileSizeSchema,
+  fileTypeSchema,
+  commonSchemas,
+} from './lib/validation'
+export type {
+  EmailInput,
+  PasswordInput,
+  UsernameInput,
+  LoginFormInput,
+  RegistrationFormInput,
+  ContactFormInput,
+  ProfileFormInput,
+} from './lib/validation'
+
+// Sanitization
+export {
+  sanitizeHtml,
+  sanitizeUrl,
+  sanitizeText,
+  sanitizeObjectKeys,
+  sanitizeFileName,
+  sanitizeEmail,
+} from './lib/sanitization'
+
+// Error Boundary
+export { ErrorBoundary } from './components/error-boundary'
+
 // Re-export types
 export type { VariantProps } from 'class-variance-authority'

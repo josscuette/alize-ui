@@ -124,11 +124,11 @@ export interface DropdownMenuSubContentProps extends React.ComponentProps<typeof
  * </DropdownMenu>
  * ```
  */
-function DropdownMenu({
+const DropdownMenu = React.memo(function DropdownMenu({
   ...props
 }: DropdownMenuProps): React.ReactElement {
   return <DropdownMenuPrimitive.Root data-slot="dropdown-menu" {...props} />
-}
+})
 
 /**
  * DropdownMenuPortal component - Portals the dropdown menu content

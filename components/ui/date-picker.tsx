@@ -68,8 +68,10 @@ export function DatePicker({
               className="absolute right-0 top-0 h-full"
               onClick={() => setOpen(!open)}
               disabled={disabled}
+              aria-label="Open calendar"
             >
               <MaterialSymbol name="calendar_today" size={14} weight={300} />
+              <span className="sr-only">Open calendar</span>
             </Button>
           </PopoverTrigger>
         </div>

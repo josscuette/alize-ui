@@ -90,11 +90,11 @@ export interface DialogDescriptionProps extends React.ComponentProps<typeof Dial
  * </Dialog>
  * ```
  */
-function Dialog({
+const Dialog = React.memo(function Dialog({
   ...props
 }: DialogProps): React.ReactElement {
   return <DialogPrimitive.Root data-slot="dialog" {...props} />
-}
+})
 
 /**
  * DialogTrigger component - The element that opens the dialog
@@ -155,7 +155,7 @@ function DialogOverlay({
  * @param props - DialogContent props including showCloseButton
  * @returns A DialogContent component
  */
-function DialogContent({
+const DialogContent = React.memo(function DialogContent({
   className,
   children,
   showCloseButton = true,
@@ -185,7 +185,7 @@ function DialogContent({
       </DialogPrimitive.Content>
     </DialogPortal>
   )
-}
+})
 
 function DialogHeader({ className, ...props }: React.ComponentProps<"div">): React.ReactElement {
   return (

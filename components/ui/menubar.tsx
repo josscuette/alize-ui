@@ -130,7 +130,7 @@ export interface MenubarSubContentProps extends React.ComponentProps<typeof Menu
  * </Menubar>
  * ```
  */
-function Menubar({
+const Menubar = React.memo(function Menubar({
   className,
   ...props
 }: MenubarProps): React.ReactElement {
@@ -144,7 +144,7 @@ function Menubar({
       {...props}
     />
   )
-}
+})
 
 /**
  * MenubarMenu component - A menu within the menubar

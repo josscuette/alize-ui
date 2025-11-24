@@ -3,6 +3,7 @@
 import * as React from "react"
 import { Button } from "./ui/button"
 import { MaterialSymbol } from "./material-symbol"
+import { ErrorLogger } from "../lib/error-handling"
 
 interface ErrorBoundaryProps {
   children: React.ReactNode
@@ -87,11 +88,15 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
   }
 
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
-    // Log error to error reporting service
-    console.error("ErrorBoundary caught an error:", error, errorInfo)
-    
-    // In production, you would send this to an error tracking service
-    // Example: Sentry.captureException(error, { contexts: { react: errorInfo } })
+    // Log error using ErrorLogger (ready for production error tracking integration)
+    ErrorLogger.log(error, {
+      component: "ErrorBoundary",
+      action: "componentDidCatch",
+      metadata: {
+        componentStack: errorInfo.componentStack,
+        errorBoundary: true,
+      },
+    })
   }
 
   resetError = () => {

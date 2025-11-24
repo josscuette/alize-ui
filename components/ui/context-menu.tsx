@@ -122,11 +122,11 @@ export interface ContextMenuRadioGroupProps extends React.ComponentProps<typeof 
  * </ContextMenu>
  * ```
  */
-function ContextMenu({
+const ContextMenu = React.memo(function ContextMenu({
   ...props
 }: ContextMenuProps): React.ReactElement {
   return <ContextMenuPrimitive.Root data-slot="context-menu" {...props} />
-}
+})
 
 /**
  * ContextMenuTrigger component - The element that triggers the context menu
