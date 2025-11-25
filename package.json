@@ -38,7 +38,7 @@
     "dev": "next dev --webpack",
     "build": "npm run build:components && npm run build:css && npm run build:copy",
     "build:components": "tsup",
-    "build:css": "tailwindcss -i src/styles/alize.css -o dist/alize.css --minify",
+    "build:css": "npx tailwindcss -i src/styles/alize.css -o dist/alize.css --minify",
     "build:copy": "node scripts/build.mjs",
     "start": "next start",
     "lint": "eslint .",
