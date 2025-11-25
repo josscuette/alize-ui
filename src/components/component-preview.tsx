@@ -205,7 +205,7 @@ export function ComponentPreview({ componentId, className }: ComponentPreviewPro
       <Breadcrumb className="text-xs">
         <BreadcrumbList>
           <BreadcrumbItem>
-            <BreadcrumbLink href="#">Home</BreadcrumbLink>
+            <BreadcrumbLink asChild><span>Home</span></BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
@@ -227,16 +227,20 @@ export function ComponentPreview({ componentId, className }: ComponentPreviewPro
       <Pagination>
         <PaginationContent>
           <PaginationItem>
-            <PaginationPrevious href="#" className="h-7 w-7" />
+            <span className="h-7 w-7 inline-flex items-center justify-center">
+              <MaterialSymbol name="chevron_left" size={14} weight={300} />
+            </span>
           </PaginationItem>
           <PaginationItem>
-            <PaginationLink href="#" className="h-7 w-7 text-xs">1</PaginationLink>
+            <span className="h-7 w-7 inline-flex items-center justify-center rounded-md border text-xs">1</span>
           </PaginationItem>
           <PaginationItem>
-            <PaginationLink href="#" className="h-7 w-7 text-xs">2</PaginationLink>
+            <span className="h-7 w-7 inline-flex items-center justify-center text-xs">2</span>
           </PaginationItem>
           <PaginationItem>
-            <PaginationNext href="#" className="h-7 w-7" />
+            <span className="h-7 w-7 inline-flex items-center justify-center">
+              <MaterialSymbol name="chevron_right" size={14} weight={300} />
+            </span>
           </PaginationItem>
         </PaginationContent>
       </Pagination>
