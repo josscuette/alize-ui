@@ -23,26 +23,18 @@ if (!existsSync(distDir)) {
   mkdirSync(distDir, { recursive: true });
 }
 
-// Copy preset files
+// Copy preset files (only .js, not .ts to avoid type-checking issues)
 console.log("Copying preset files...");
 copyFileSync(
   join(rootDir, "src/tailwind/preset.js"),
   join(distDir, "tailwind.preset.js")
 );
-copyFileSync(
-  join(rootDir, "src/tailwind/preset.ts"),
-  join(distDir, "tailwind.preset.ts")
-);
 
-// Copy plugin files
+// Copy plugin files (only .js, not .ts to avoid type-checking issues)
 console.log("Copying plugin files...");
 copyFileSync(
   join(rootDir, "src/tailwind/plugin.js"),
   join(distDir, "plugin.js")
-);
-copyFileSync(
-  join(rootDir, "src/tailwind/plugin.ts"),
-  join(distDir, "plugin.ts")
 );
 
 console.log("Build copy complete!");
