@@ -5,17 +5,9 @@
  * It ensures that when consumers use Alize, they get access to all semantic tokens,
  * spacing, radii, and other design system values.
  * 
- * @example
- * ```ts
- * // tailwind.config.ts
- * import type { Config } from "tailwindcss";
- * import alizePreset from "alize/preset";
- * 
- * export default {
- *   presets: [alizePreset],
- *   content: ["./app/**/*.{ts,tsx}"],
- * } satisfies Config;
- * ```
+ * Usage in tailwind.config.ts:
+ *   import alizePreset from "alize-ui/preset";
+ *   export default { presets: [alizePreset], content: ["./app/**\/*.{ts,tsx}"] };
  */
 
 import type { Config } from "tailwindcss";
