@@ -15,7 +15,14 @@
  * ```
  */
 
-import type { PluginAPI } from "tailwindcss/types/config";
+/**
+ * Tailwind Plugin API interface (compatible with v4)
+ */
+interface TailwindPluginAPI {
+  addBase: (styles: Record<string, Record<string, string>>) => void;
+  addUtilities: (utilities: Record<string, Record<string, string | Record<string, string>>>) => void;
+  addVariant: (name: string, selector: string) => void;
+}
 
 /**
  * Alize Tailwind Plugin
@@ -27,7 +34,7 @@ import type { PluginAPI } from "tailwindcss/types/config";
  * - Transition utilities
  */
 const alizePlugin = {
-  handler(api: PluginAPI) {
+  handler(api: TailwindPluginAPI) {
     // Add base styles for Material Symbols
     api.addBase({
       ".material-symbols-outlined": {
