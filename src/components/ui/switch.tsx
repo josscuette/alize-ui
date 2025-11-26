@@ -69,8 +69,8 @@ function Switch({
           "pointer-events-none absolute top-1/2 -translate-y-1/2 size-3 rounded-full ring-0 transition-transform",
           // Active state: white thumb, positioned right (2px from right edge)
           "data-[state=checked]:bg-white data-[state=checked]:right-[2px]",
-          // Inactive state: glacier-400 thumb, positioned left (2px from left edge)
-          "data-[state=unchecked]:bg-[var(--color-solstice-glacier-400)] data-[state=unchecked]:left-[2px]"
+          // Inactive state: glacier-400 thumb, positioned left (1px from left edge)
+          "data-[state=unchecked]:bg-[var(--color-solstice-glacier-400)] data-[state=unchecked]:left-[1px]"
         )}
       />
     </SwitchPrimitive.Root>
@@ -174,8 +174,8 @@ function SwitchCard({
               "pointer-events-none absolute top-1/2 -translate-y-1/2 size-3 rounded-full ring-0 transition-transform",
               // Active state: white thumb, positioned right (2px from right edge)
               "data-[state=checked]:bg-white data-[state=checked]:right-[2px]",
-              // Inactive state: glacier-400 thumb, positioned left (2px from left edge)
-              "data-[state=unchecked]:bg-[var(--color-solstice-glacier-400)] data-[state=unchecked]:left-[2px]"
+              // Inactive state: glacier-400 thumb, positioned left (1px from left edge)
+              "data-[state=unchecked]:bg-[var(--color-solstice-glacier-400)] data-[state=unchecked]:left-[1px]"
             )}
           />
         </SwitchPrimitive.Root>
