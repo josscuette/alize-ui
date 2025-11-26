@@ -10,7 +10,7 @@ import { radius } from "./radius"
 export const size = {
   // Extra small
   xs: cn(
-    "h-5 px-1 gap-1",
+    "h-5 px-1 gap-1 pt-px",
     "text-xs leading-none",
     "[&_svg]:size-3 [&_.material-symbols-outlined]:!text-[12px]",
     radius.sm // rounded-[4px]
