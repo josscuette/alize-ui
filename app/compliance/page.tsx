@@ -98,12 +98,34 @@ export default function CompliancePage() {
       {/* Main Content */}
       <main className="flex-1 overflow-y-auto bg-background">
         <div className="container mx-auto px-4 md:px-8 py-8">
-          <header className="space-y-2 mb-8">
+          <header className="space-y-4 mb-8">
             <h1 className="text-3xl font-normal text-foreground">Engineering Compliance</h1>
             <p className="text-muted-foreground max-w-3xl leading-relaxed">
               Track compliance with JLL Enterprise Standards for React TypeScript Component Libraries. 
               Click on any category to see detailed requirements and progress.
             </p>
+            <div className="flex flex-col gap-2 p-4 rounded-lg bg-semantic-surface-subdued border border-semantic-stroke-subdued">
+              <div className="flex items-center gap-2 text-sm">
+                <MaterialSymbol name="policy" size={18} weight={300} className="text-semantic-icon-subdued" />
+                <span className="text-semantic-text-subdued">
+                  Compliance rules based on{" "}
+                  <a 
+                    href="https://github.com/JLLT-Apps/jll-cursorrules" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-semantic-text-interaction-default hover:underline"
+                  >
+                    JLLT-Apps/jll-cursorrules
+                  </a>
+                </span>
+              </div>
+              <div className="flex items-center gap-2 text-xs text-semantic-text-subdued">
+                <MaterialSymbol name="group" size={16} weight={300} className="text-semantic-icon-subdued" />
+                <span>
+                  Contributors: Leah Zhao, Eyal Ella, Jan Konopasek, Fernando Rivas
+                </span>
+              </div>
+            </div>
           </header>
 
           {/* Dashboard Grid Layout */}
