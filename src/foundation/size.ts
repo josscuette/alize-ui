@@ -11,7 +11,7 @@ export const size = {
   // Extra small
   xs: cn(
     "h-5 px-1 gap-1",
-    "text-xs leading-4",
+    "text-xs leading-none",
     "[&_svg]:size-3 [&_.material-symbols-outlined]:!text-[12px]",
     radius.sm // rounded-[4px]
   ),
