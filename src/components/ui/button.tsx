@@ -76,11 +76,11 @@ const buttonVariants = cva(
           icon.subdued
         ),
         link: cn(
-          text.primary,
+          text.interactionDefault,
           "underline-offset-4",
           states.hoverUnderline,
           "hover:text-semantic-text-interaction-bright",
-          icon.subdued,
+          icon.interactionDefault,
           icon.interactionBrightHover
         ),
         tertiary: cn(
