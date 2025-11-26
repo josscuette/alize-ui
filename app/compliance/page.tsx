@@ -131,7 +131,7 @@ export default function CompliancePage() {
                     <div className="text-right space-y-1">
                       <Badge 
                         variant={overallScore >= 80 ? "default" : overallScore >= 60 ? "secondary" : "outline"}
-                        className={overallScore >= 80 ? "bg-semantic-surface-rag-success-default text-semantic-text-reversedpersistent border-semantic-stroke-rag-success-default" : ""}
+                        className={overallScore >= 80 ? "bg-semantic-surface-rag-success-strong text-semantic-text-reversedpersistent border-semantic-stroke-rag-success-strong" : ""}
                       >
                         {overallScore >= 80 ? "Excellent" : overallScore >= 60 ? "Good" : "Needs Improvement"}
                       </Badge>
@@ -213,7 +213,7 @@ export default function CompliancePage() {
                       variant={getStatusVariant(category.status)} 
                       className={cn(
                         "shrink-0",
-                        category.status === "complete" && "bg-semantic-surface-rag-success-default text-semantic-text-reversedpersistent border-semantic-stroke-rag-success-default"
+                        category.status === "complete" && "bg-semantic-surface-rag-success-strong text-semantic-text-reversedpersistent border-semantic-stroke-rag-success-strong"
                       )}
                     >
                       {category.status === "complete" ? "Complete" : category.status === "in-progress" ? "In Progress" : "Not Started"}

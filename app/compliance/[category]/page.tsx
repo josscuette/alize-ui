@@ -174,7 +174,7 @@ export default function ComplianceCategoryPage() {
               <Badge 
                 variant={getStatusVariant(category.status)}
                 className={cn(
-                  category.status === "complete" && "bg-semantic-surface-rag-success-default text-semantic-text-reversedpersistent border-semantic-stroke-rag-success-default"
+                  category.status === "complete" && "bg-semantic-surface-rag-success-strong text-semantic-text-reversedpersistent border-semantic-stroke-rag-success-strong"
                 )}
               >
                 {category.status === "complete" ? "Complete" : category.status === "in-progress" ? "In Progress" : "Not Started"}
@@ -242,7 +242,7 @@ export default function ComplianceCategoryPage() {
                           variant={getStatusVariant(req.status)} 
                           className={cn(
                             "shrink-0",
-                            req.status === "complete" && "bg-semantic-surface-rag-success-default text-semantic-text-reversedpersistent border-semantic-stroke-rag-success-default"
+                            req.status === "complete" && "bg-semantic-surface-rag-success-strong text-semantic-text-reversedpersistent border-semantic-stroke-rag-success-strong"
                           )}
                         >
                           {req.status === "complete" ? "Complete" : req.status === "in-progress" ? "In Progress" : "Not Started"}
