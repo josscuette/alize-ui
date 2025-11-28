@@ -97,9 +97,8 @@ var text = {
   // Default text colors
   default: "text-semantic-text-default",
   subdued: "text-semantic-text-subdued",
+  interactionDefault: "text-semantic-text-interaction-default",
   reversedPersistent: "text-semantic-text-reversedpersistent",
-  // Legacy shadcn colors (TODO: migrate to semantic?)
-  primary: "text-primary",
   destructiveLegacy: "text-[var(--destructive-foreground)]"
 };
 
@@ -108,6 +107,7 @@ var icon = {
   subdued: "[&_.material-symbols-outlined]:text-semantic-icon-subdued",
   // Interaction icon colors
   interactionBright: "[&_.material-symbols-outlined]:text-semantic-icon-interaction-bright",
+  interactionDefault: "[&_.material-symbols-outlined]:text-semantic-icon-interaction-default",
   interactionBrightHover: "[&_.material-symbols-outlined]:hover:text-semantic-icon-interaction-bright",
   reversedPersistent: "[&_.material-symbols-outlined]:text-semantic-text-reversedpersistent",
   // Legacy shadcn colors (TODO: migrate to semantic?)
@@ -141,10 +141,10 @@ var states = {
 
 // src/foundation/radius.ts
 var radius = {
-  // Small radius
-  sm: "rounded-[4px]",
-  // Medium radius (default)
-  md: "rounded-md",
+  // Small radius - utilise le token --radius-reduced
+  sm: "rounded-[var(--radius-reduced)]",
+  // Medium radius (default) - utilise le token --radius
+  md: "rounded-[var(--radius)]",
   // Full circle/rounded
   full: "rounded-full",
   // 3xl (used in some components like radio-group)
@@ -154,8 +154,8 @@ var radius = {
 var size = {
   // Extra small
   xs: cn(
-    "h-5 px-1 gap-1",
-    "text-xs leading-4",
+    "h-5 px-1 gap-1 pt-px",
+    "text-xs leading-none",
     "[&_svg]:size-3 [&_.material-symbols-outlined]:!text-[12px]",
     radius.sm
     // rounded-[4px]
@@ -275,11 +275,11 @@ var buttonVariants = cva(
           icon.subdued
         ),
         link: cn(
-          text.primary,
+          text.interactionDefault,
           "underline-offset-4",
           states.hoverUnderline,
           "hover:text-semantic-text-interaction-bright",
-          icon.subdued,
+          icon.interactionDefault,
           icon.interactionBrightHover
         ),
         tertiary: cn(
@@ -1104,8 +1104,8 @@ function Switch(_a) {
             "pointer-events-none absolute top-1/2 -translate-y-1/2 size-3 rounded-full ring-0 transition-transform",
             // Active state: white thumb, positioned right (2px from right edge)
             "data-[state=checked]:bg-white data-[state=checked]:right-[2px]",
-            // Inactive state: glacier-400 thumb, positioned left (2px from left edge)
-            "data-[state=unchecked]:bg-[var(--color-solstice-glacier-400)] data-[state=unchecked]:left-[2px]"
+            // Inactive state: glacier-400 thumb, positioned left (1px from left edge)
+            "data-[state=unchecked]:bg-[var(--color-solstice-glacier-400)] data-[state=unchecked]:left-[1px]"
           )
         }
       )
@@ -1201,8 +1201,8 @@ function SwitchCard(_a) {
                   "pointer-events-none absolute top-1/2 -translate-y-1/2 size-3 rounded-full ring-0 transition-transform",
                   // Active state: white thumb, positioned right (2px from right edge)
                   "data-[state=checked]:bg-white data-[state=checked]:right-[2px]",
-                  // Inactive state: glacier-400 thumb, positioned left (2px from left edge)
-                  "data-[state=unchecked]:bg-[var(--color-solstice-glacier-400)] data-[state=unchecked]:left-[2px]"
+                  // Inactive state: glacier-400 thumb, positioned left (1px from left edge)
+                  "data-[state=unchecked]:bg-[var(--color-solstice-glacier-400)] data-[state=unchecked]:left-[1px]"
                 )
               }
             )
@@ -3899,7 +3899,7 @@ function SheetDescription(_a) {
     }, props)
   );
 }
-var MOBILE_BREAKPOINT = 768;
+var MOBILE_BREAKPOINT = 1024;
 function useIsMobile() {
   const [isMobile, setIsMobile] = React21.useState(void 0);
   React21.useEffect(() => {
@@ -5788,6 +5788,113 @@ function MaterialSymbolsProvider() {
   }, []);
   return null;
 }
+var FidelityContext = React21.createContext(
+  void 0
+);
+var STORAGE_KEY = "alize-fidelity";
+function FidelityProvider({
+  children,
+  defaultFidelity = "alize"
+}) {
+  const [fidelity, setFidelityState] = React21.useState(defaultFidelity);
+  const [mounted, setMounted] = React21.useState(false);
+  React21.useEffect(() => {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored === "alize" || stored === "lofi") {
+      setFidelityState(stored);
+    }
+    setMounted(true);
+  }, []);
+  React21.useEffect(() => {
+    if (!mounted) return;
+    const root = document.documentElement;
+    if (fidelity === "lofi") {
+      root.classList.add("theme-lofi");
+    } else {
+      root.classList.remove("theme-lofi");
+    }
+  }, [fidelity, mounted]);
+  const setFidelity = React21.useCallback((newFidelity) => {
+    setFidelityState(newFidelity);
+    localStorage.setItem(STORAGE_KEY, newFidelity);
+  }, []);
+  const value = React21.useMemo(
+    () => ({ fidelity, setFidelity }),
+    [fidelity, setFidelity]
+  );
+  return /* @__PURE__ */ jsx(FidelityContext.Provider, { value, children });
+}
+function useFidelity() {
+  const context = React21.useContext(FidelityContext);
+  if (context === void 0) {
+    throw new Error("useFidelity must be used within a FidelityProvider");
+  }
+  return context;
+}
+function FidelityToggle() {
+  const { fidelity, setFidelity } = useFidelity();
+  const [mounted, setMounted] = React21.useState(false);
+  React21.useEffect(() => {
+    setMounted(true);
+  }, []);
+  if (!mounted) {
+    return /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-2", children: [
+      /* @__PURE__ */ jsx(MaterialSymbol, { name: "deployed_code", size: 16 }),
+      /* @__PURE__ */ jsx(Switch, { disabled: true }),
+      /* @__PURE__ */ jsx(MaterialSymbol, { name: "frame_inspect", size: 16 })
+    ] });
+  }
+  const isLofi = fidelity === "lofi";
+  return /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-2", children: [
+    /* @__PURE__ */ jsx(MaterialSymbol, { name: "deployed_code", size: 16, className: text.subdued }),
+    /* @__PURE__ */ jsx(
+      Switch,
+      {
+        checked: isLofi,
+        onCheckedChange: (checked) => {
+          setFidelity(checked ? "lofi" : "alize");
+        },
+        "aria-label": "Toggle fidelity mode"
+      }
+    ),
+    /* @__PURE__ */ jsx(MaterialSymbol, { name: "frame_inspect", size: 16, className: text.subdued })
+  ] });
+}
+function ThemeToggle() {
+  const { theme, setTheme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = React21.useState(false);
+  React21.useEffect(() => {
+    setMounted(true);
+  }, []);
+  React21.useEffect(() => {
+    if (mounted) {
+      console.log("Theme:", theme, "Resolved:", resolvedTheme);
+      console.log("HTML class:", document.documentElement.className);
+    }
+  }, [theme, resolvedTheme, mounted]);
+  if (!mounted) {
+    return /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-2", children: [
+      /* @__PURE__ */ jsx(MaterialSymbol, { name: "light_mode", size: 16 }),
+      /* @__PURE__ */ jsx(Switch, { disabled: true }),
+      /* @__PURE__ */ jsx(MaterialSymbol, { name: "dark_mode", size: 16 })
+    ] });
+  }
+  const isDark = resolvedTheme === "dark";
+  return /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-2", children: [
+    /* @__PURE__ */ jsx(MaterialSymbol, { name: "light_mode", size: 16, className: text.subdued }),
+    /* @__PURE__ */ jsx(
+      Switch,
+      {
+        checked: isDark,
+        onCheckedChange: (checked) => {
+          setTheme(checked ? "dark" : "light");
+        },
+        "aria-label": "Toggle theme"
+      }
+    ),
+    /* @__PURE__ */ jsx(MaterialSymbol, { name: "dark_mode", size: 16, className: text.subdued })
+  ] });
+}
 
 // src/lib/error-handling.ts
 var DefaultErrorLogger = class {
@@ -6133,4 +6240,4 @@ var ErrorBoundary = class extends React21.Component {
   }
 };
 
-export { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Alert, AlertDescription, AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger, AlertTitle, AppError, AspectRatio, Avatar, AvatarFallback, AvatarImage, Badge, Breadcrumb, BreadcrumbEllipsis, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator, Button, ButtonGroup, ButtonGroupSeparator, ButtonGroupText, Calendar, CalendarDayButton, Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, Chart, Checkbox, CheckboxCard, Collapsible, CollapsibleContent2 as CollapsibleContent, CollapsibleTrigger2 as CollapsibleTrigger, Combobox, Command, CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator, CommandShortcut, ContextMenu, ContextMenuCheckboxItem, ContextMenuContent, ContextMenuItem, ContextMenuLabel, ContextMenuRadioGroup, ContextMenuRadioItem, ContextMenuSeparator, ContextMenuShortcut, ContextMenuSub, ContextMenuSubContent, ContextMenuSubTrigger, ContextMenuTrigger, DataTable, DatePicker, Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogOverlay, DialogPortal, DialogTitle, DialogTrigger, Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerOverlay, DrawerPortal, DrawerTitle, DrawerTrigger, DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger, Empty, ErrorBoundary, ErrorLogger, Field, FieldContent, FieldDescription, FieldError, FieldGroup, FieldLabel, FieldLegend, FieldSeparator, FieldSet, FieldTitle, Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, HoverCard, HoverCardContent, HoverCardTrigger, Input, InputGroup, InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot, Item2 as Item, Kbd, KbdGroup, Label, MaterialSymbol, MaterialSymbolsProvider, Menubar, MenubarCheckboxItem, MenubarContent, MenubarItem, MenubarLabel, MenubarMenu, MenubarRadioGroup, MenubarRadioItem, MenubarSeparator, MenubarShortcut, MenubarSub, MenubarSubContent, MenubarSubTrigger, MenubarTrigger, NativeSelect, NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, NetworkError, Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious, Popover, PopoverAnchor, PopoverContent, PopoverTrigger, Progress, RadioGroup, RadioGroupCardItem, RadioGroupItem, ResizableHandle, ResizablePanel, ResizablePanelGroup, ScrollArea, ScrollBar, Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectSeparator, SelectTrigger, SelectValue, Separator, Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger, Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupAction, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarInput, SidebarInset, SidebarMenu, SidebarMenuAction, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarMenuSkeleton, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem, SidebarProvider, SidebarRail, SidebarSeparator, SidebarTrigger, Skeleton, Slider, Spinner, Switch, SwitchCard, Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow, Tabs, TabsContent, TabsList, TabsTrigger, Textarea, Toaster, Toggle, ToggleGroup, ToggleGroupItem, Tooltip, TooltipContent, TooltipTrigger, TypographyBlockquote, TypographyCode, TypographyH1, TypographyH2, TypographyH3, TypographyH4, TypographyP, ValidationError, avatarVariants, buttonVariants, checkboxSchema, cn, commonSchemas, dateSchema, emailSchema, fileSchema, fileSizeSchema, fileTypeSchema, formatErrorMessage, handleAsyncError, integerSchema, isRetryableError, navigationMenuTriggerStyle, numberSchema, optionalStringSchema, passwordSchema, phoneSchema, positiveNumberSchema, requiredStringSchema, retryAsync, safeAsync, sanitizeEmail, sanitizeFileName, sanitizeHtml, sanitizeObjectKeys, sanitizeText, sanitizeUrl, selectSchema, strongPasswordSchema, textareaSchema, urlSchema, useFormField, useSidebar, usernameSchema, withTimeout };
+export { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Alert, AlertDescription, AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger, AlertTitle, AppError, AspectRatio, Avatar, AvatarFallback, AvatarImage, Badge, Breadcrumb, BreadcrumbEllipsis, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator, Button, ButtonGroup, ButtonGroupSeparator, ButtonGroupText, Calendar, CalendarDayButton, Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, Chart, Checkbox, CheckboxCard, Collapsible, CollapsibleContent2 as CollapsibleContent, CollapsibleTrigger2 as CollapsibleTrigger, Combobox, Command, CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator, CommandShortcut, ContextMenu, ContextMenuCheckboxItem, ContextMenuContent, ContextMenuItem, ContextMenuLabel, ContextMenuRadioGroup, ContextMenuRadioItem, ContextMenuSeparator, ContextMenuShortcut, ContextMenuSub, ContextMenuSubContent, ContextMenuSubTrigger, ContextMenuTrigger, DataTable, DatePicker, Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogOverlay, DialogPortal, DialogTitle, DialogTrigger, Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerOverlay, DrawerPortal, DrawerTitle, DrawerTrigger, DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger, Empty, ErrorBoundary, ErrorLogger, FidelityProvider, FidelityToggle, Field, FieldContent, FieldDescription, FieldError, FieldGroup, FieldLabel, FieldLegend, FieldSeparator, FieldSet, FieldTitle, Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, HoverCard, HoverCardContent, HoverCardTrigger, Input, InputGroup, InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot, Item2 as Item, Kbd, KbdGroup, Label, MaterialSymbol, MaterialSymbolsProvider, Menubar, MenubarCheckboxItem, MenubarContent, MenubarItem, MenubarLabel, MenubarMenu, MenubarRadioGroup, MenubarRadioItem, MenubarSeparator, MenubarShortcut, MenubarSub, MenubarSubContent, MenubarSubTrigger, MenubarTrigger, NativeSelect, NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, NetworkError, Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious, Popover, PopoverAnchor, PopoverContent, PopoverTrigger, Progress, RadioGroup, RadioGroupCardItem, RadioGroupItem, ResizableHandle, ResizablePanel, ResizablePanelGroup, ScrollArea, ScrollBar, Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectSeparator, SelectTrigger, SelectValue, Separator, Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger, Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupAction, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarInput, SidebarInset, SidebarMenu, SidebarMenuAction, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarMenuSkeleton, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem, SidebarProvider, SidebarRail, SidebarSeparator, SidebarTrigger, Skeleton, Slider, Spinner, Switch, SwitchCard, Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow, Tabs, TabsContent, TabsList, TabsTrigger, Textarea, ThemeToggle, Toaster, Toggle, ToggleGroup, ToggleGroupItem, Tooltip, TooltipContent, TooltipTrigger, TypographyBlockquote, TypographyCode, TypographyH1, TypographyH2, TypographyH3, TypographyH4, TypographyP, ValidationError, avatarVariants, buttonVariants, checkboxSchema, cn, commonSchemas, dateSchema, emailSchema, fileSchema, fileSizeSchema, fileTypeSchema, formatErrorMessage, handleAsyncError, integerSchema, isRetryableError, navigationMenuTriggerStyle, numberSchema, optionalStringSchema, passwordSchema, phoneSchema, positiveNumberSchema, requiredStringSchema, retryAsync, safeAsync, sanitizeEmail, sanitizeFileName, sanitizeHtml, sanitizeObjectKeys, sanitizeText, sanitizeUrl, selectSchema, strongPasswordSchema, textareaSchema, urlSchema, useFidelity, useFormField, useSidebar, usernameSchema, withTimeout };

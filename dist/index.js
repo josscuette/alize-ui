@@ -147,9 +147,8 @@ var text = {
   // Default text colors
   default: "text-semantic-text-default",
   subdued: "text-semantic-text-subdued",
+  interactionDefault: "text-semantic-text-interaction-default",
   reversedPersistent: "text-semantic-text-reversedpersistent",
-  // Legacy shadcn colors (TODO: migrate to semantic?)
-  primary: "text-primary",
   destructiveLegacy: "text-[var(--destructive-foreground)]"
 };
 
@@ -158,6 +157,7 @@ var icon = {
   subdued: "[&_.material-symbols-outlined]:text-semantic-icon-subdued",
   // Interaction icon colors
   interactionBright: "[&_.material-symbols-outlined]:text-semantic-icon-interaction-bright",
+  interactionDefault: "[&_.material-symbols-outlined]:text-semantic-icon-interaction-default",
   interactionBrightHover: "[&_.material-symbols-outlined]:hover:text-semantic-icon-interaction-bright",
   reversedPersistent: "[&_.material-symbols-outlined]:text-semantic-text-reversedpersistent",
   // Legacy shadcn colors (TODO: migrate to semantic?)
@@ -191,10 +191,10 @@ var states = {
 
 // src/foundation/radius.ts
 var radius = {
-  // Small radius
-  sm: "rounded-[4px]",
-  // Medium radius (default)
-  md: "rounded-md",
+  // Small radius - utilise le token --radius-reduced
+  sm: "rounded-[var(--radius-reduced)]",
+  // Medium radius (default) - utilise le token --radius
+  md: "rounded-[var(--radius)]",
   // Full circle/rounded
   full: "rounded-full",
   // 3xl (used in some components like radio-group)
@@ -204,8 +204,8 @@ var radius = {
 var size = {
   // Extra small
   xs: cn(
-    "h-5 px-1 gap-1",
-    "text-xs leading-4",
+    "h-5 px-1 gap-1 pt-px",
+    "text-xs leading-none",
     "[&_svg]:size-3 [&_.material-symbols-outlined]:!text-[12px]",
     radius.sm
     // rounded-[4px]
@@ -325,11 +325,11 @@ var buttonVariants = classVarianceAuthority.cva(
           icon.subdued
         ),
         link: cn(
-          text.primary,
+          text.interactionDefault,
           "underline-offset-4",
           states.hoverUnderline,
           "hover:text-semantic-text-interaction-bright",
-          icon.subdued,
+          icon.interactionDefault,
           icon.interactionBrightHover
         ),
         tertiary: cn(
@@ -1154,8 +1154,8 @@ function Switch(_a) {
             "pointer-events-none absolute top-1/2 -translate-y-1/2 size-3 rounded-full ring-0 transition-transform",
             // Active state: white thumb, positioned right (2px from right edge)
             "data-[state=checked]:bg-white data-[state=checked]:right-[2px]",
-            // Inactive state: glacier-400 thumb, positioned left (2px from left edge)
-            "data-[state=unchecked]:bg-[var(--color-solstice-glacier-400)] data-[state=unchecked]:left-[2px]"
+            // Inactive state: glacier-400 thumb, positioned left (1px from left edge)
+            "data-[state=unchecked]:bg-[var(--color-solstice-glacier-400)] data-[state=unchecked]:left-[1px]"
           )
         }
       )
@@ -1251,8 +1251,8 @@ function SwitchCard(_a) {
                   "pointer-events-none absolute top-1/2 -translate-y-1/2 size-3 rounded-full ring-0 transition-transform",
                   // Active state: white thumb, positioned right (2px from right edge)
                   "data-[state=checked]:bg-white data-[state=checked]:right-[2px]",
-                  // Inactive state: glacier-400 thumb, positioned left (2px from left edge)
-                  "data-[state=unchecked]:bg-[var(--color-solstice-glacier-400)] data-[state=unchecked]:left-[2px]"
+                  // Inactive state: glacier-400 thumb, positioned left (1px from left edge)
+                  "data-[state=unchecked]:bg-[var(--color-solstice-glacier-400)] data-[state=unchecked]:left-[1px]"
                 )
               }
             )
@@ -3949,7 +3949,7 @@ function SheetDescription(_a) {
     }, props)
   );
 }
-var MOBILE_BREAKPOINT = 768;
+var MOBILE_BREAKPOINT = 1024;
 function useIsMobile() {
   const [isMobile, setIsMobile] = React21__namespace.useState(void 0);
   React21__namespace.useEffect(() => {
@@ -5838,6 +5838,113 @@ function MaterialSymbolsProvider() {
   }, []);
   return null;
 }
+var FidelityContext = React21__namespace.createContext(
+  void 0
+);
+var STORAGE_KEY = "alize-fidelity";
+function FidelityProvider({
+  children,
+  defaultFidelity = "alize"
+}) {
+  const [fidelity, setFidelityState] = React21__namespace.useState(defaultFidelity);
+  const [mounted, setMounted] = React21__namespace.useState(false);
+  React21__namespace.useEffect(() => {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored === "alize" || stored === "lofi") {
+      setFidelityState(stored);
+    }
+    setMounted(true);
+  }, []);
+  React21__namespace.useEffect(() => {
+    if (!mounted) return;
+    const root = document.documentElement;
+    if (fidelity === "lofi") {
+      root.classList.add("theme-lofi");
+    } else {
+      root.classList.remove("theme-lofi");
+    }
+  }, [fidelity, mounted]);
+  const setFidelity = React21__namespace.useCallback((newFidelity) => {
+    setFidelityState(newFidelity);
+    localStorage.setItem(STORAGE_KEY, newFidelity);
+  }, []);
+  const value = React21__namespace.useMemo(
+    () => ({ fidelity, setFidelity }),
+    [fidelity, setFidelity]
+  );
+  return /* @__PURE__ */ jsxRuntime.jsx(FidelityContext.Provider, { value, children });
+}
+function useFidelity() {
+  const context = React21__namespace.useContext(FidelityContext);
+  if (context === void 0) {
+    throw new Error("useFidelity must be used within a FidelityProvider");
+  }
+  return context;
+}
+function FidelityToggle() {
+  const { fidelity, setFidelity } = useFidelity();
+  const [mounted, setMounted] = React21__namespace.useState(false);
+  React21__namespace.useEffect(() => {
+    setMounted(true);
+  }, []);
+  if (!mounted) {
+    return /* @__PURE__ */ jsxRuntime.jsxs("div", { className: "flex items-center gap-2", children: [
+      /* @__PURE__ */ jsxRuntime.jsx(MaterialSymbol, { name: "deployed_code", size: 16 }),
+      /* @__PURE__ */ jsxRuntime.jsx(Switch, { disabled: true }),
+      /* @__PURE__ */ jsxRuntime.jsx(MaterialSymbol, { name: "frame_inspect", size: 16 })
+    ] });
+  }
+  const isLofi = fidelity === "lofi";
+  return /* @__PURE__ */ jsxRuntime.jsxs("div", { className: "flex items-center gap-2", children: [
+    /* @__PURE__ */ jsxRuntime.jsx(MaterialSymbol, { name: "deployed_code", size: 16, className: text.subdued }),
+    /* @__PURE__ */ jsxRuntime.jsx(
+      Switch,
+      {
+        checked: isLofi,
+        onCheckedChange: (checked) => {
+          setFidelity(checked ? "lofi" : "alize");
+        },
+        "aria-label": "Toggle fidelity mode"
+      }
+    ),
+    /* @__PURE__ */ jsxRuntime.jsx(MaterialSymbol, { name: "frame_inspect", size: 16, className: text.subdued })
+  ] });
+}
+function ThemeToggle() {
+  const { theme, setTheme, resolvedTheme } = nextThemes.useTheme();
+  const [mounted, setMounted] = React21__namespace.useState(false);
+  React21__namespace.useEffect(() => {
+    setMounted(true);
+  }, []);
+  React21__namespace.useEffect(() => {
+    if (mounted) {
+      console.log("Theme:", theme, "Resolved:", resolvedTheme);
+      console.log("HTML class:", document.documentElement.className);
+    }
+  }, [theme, resolvedTheme, mounted]);
+  if (!mounted) {
+    return /* @__PURE__ */ jsxRuntime.jsxs("div", { className: "flex items-center gap-2", children: [
+      /* @__PURE__ */ jsxRuntime.jsx(MaterialSymbol, { name: "light_mode", size: 16 }),
+      /* @__PURE__ */ jsxRuntime.jsx(Switch, { disabled: true }),
+      /* @__PURE__ */ jsxRuntime.jsx(MaterialSymbol, { name: "dark_mode", size: 16 })
+    ] });
+  }
+  const isDark = resolvedTheme === "dark";
+  return /* @__PURE__ */ jsxRuntime.jsxs("div", { className: "flex items-center gap-2", children: [
+    /* @__PURE__ */ jsxRuntime.jsx(MaterialSymbol, { name: "light_mode", size: 16, className: text.subdued }),
+    /* @__PURE__ */ jsxRuntime.jsx(
+      Switch,
+      {
+        checked: isDark,
+        onCheckedChange: (checked) => {
+          setTheme(checked ? "dark" : "light");
+        },
+        "aria-label": "Toggle theme"
+      }
+    ),
+    /* @__PURE__ */ jsxRuntime.jsx(MaterialSymbol, { name: "dark_mode", size: 16, className: text.subdued })
+  ] });
+}
 
 // src/lib/error-handling.ts
 var DefaultErrorLogger = class {
@@ -6298,6 +6405,8 @@ exports.DropdownMenuTrigger = DropdownMenuTrigger;
 exports.Empty = Empty;
 exports.ErrorBoundary = ErrorBoundary;
 exports.ErrorLogger = ErrorLogger;
+exports.FidelityProvider = FidelityProvider;
+exports.FidelityToggle = FidelityToggle;
 exports.Field = Field;
 exports.FieldContent = FieldContent;
 exports.FieldDescription = FieldDescription;
@@ -6430,6 +6539,7 @@ exports.TabsContent = TabsContent;
 exports.TabsList = TabsList;
 exports.TabsTrigger = TabsTrigger;
 exports.Textarea = Textarea;
+exports.ThemeToggle = ThemeToggle;
 exports.Toaster = Toaster;
 exports.Toggle = Toggle;
 exports.ToggleGroup = ToggleGroup;
@@ -6478,6 +6588,7 @@ exports.selectSchema = selectSchema;
 exports.strongPasswordSchema = strongPasswordSchema;
 exports.textareaSchema = textareaSchema;
 exports.urlSchema = urlSchema;
+exports.useFidelity = useFidelity;
 exports.useFormField = useFormField;
 exports.useSidebar = useSidebar;
 exports.usernameSchema = usernameSchema;
