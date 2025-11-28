@@ -4,7 +4,7 @@
 export interface ComponentConfig {
   id: string;
   name: string;
-  category: "atoms" | "molecules" | "organisms";
+  category: "atoms" | "molecules" | "organisms" | "dataviz";
   modified?: boolean;
 }
 
@@ -73,11 +73,18 @@ export const componentsConfig: ComponentConfig[] = [
   { id: "sonner", name: "Sonner", category: "organisms" },
   { id: "scroll-area", name: "Scroll Area", category: "organisms" },
   { id: "resizable", name: "Resizable", category: "organisms" },
+
+  // Data Visualization
+  { id: "dataviz-colors", name: "Colors", category: "dataviz", modified: true },
+  { id: "dataviz-line-charts", name: "Line Charts", category: "dataviz", modified: true },
+  { id: "dataviz-bar-charts", name: "Bar Charts", category: "dataviz", modified: true },
+  { id: "dataviz-pie-charts", name: "Pie Charts", category: "dataviz", modified: true },
+  { id: "dataviz-advanced", name: "Advanced Patterns", category: "dataviz", modified: true },
 ];
 
 export const categories = {
   atoms: "Atoms",
   molecules: "Molecules",
   organisms: "Organisms",
+  dataviz: "Data Visualization",
 } as const;
-

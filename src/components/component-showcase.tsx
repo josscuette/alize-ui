@@ -230,6 +230,8 @@ import {
   MenubarTrigger,
 } from "./ui/menubar";
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip as RechartsTooltip, XAxis, YAxis } from "recharts";
+import * as Highcharts from "highcharts";
+import { Highchart, useAlizeChartColors, useSequentialPalette, useDivergentPalette, useDivergentColors, getContrastTextColor } from "./ui/highchart";
 
 interface ComponentShowcaseProps {
   componentId: ComponentConfig["id"] | "foundation-layer";
@@ -15378,7 +15380,1430 @@ function Component() {
       </>
     ),
   },
+  "dataviz-colors": {
+    title: "Data Visualization Colors",
+    description: "Semantic color tokens designed specifically for charts and data visualization. Includes categorical, sequential, and divergent palettes.",
+    body: <DatavizColorsShowcase />,
+  },
+  "dataviz-line-charts": {
+    title: "Line Charts",
+    description: "Line, spline, and area charts for visualizing trends and changes over time. Ideal for time series data and continuous data comparisons.",
+    body: <LineChartsShowcase />,
+  },
+  "dataviz-bar-charts": {
+    title: "Bar Charts",
+    description: "Bar and column charts for comparing values across categories. Perfect for discrete data comparisons and rankings.",
+    body: <BarChartsShowcase />,
+  },
+  "dataviz-pie-charts": {
+    title: "Pie Charts",
+    description: "Pie and donut charts for showing proportional data and part-to-whole relationships. Best for displaying composition and distribution.",
+    body: <PieChartsShowcase />,
+  },
+  "dataviz-advanced": {
+    title: "Advanced Patterns",
+    description: "Advanced visualization patterns including heatmaps, treemaps, and more. Leverages sequential and divergent color palettes.",
+    body: <AdvancedPatternsShowcase />,
+  },
 };
+
+// Sample data for Highcharts demos
+const monthlyData = [
+  { month: "Jan", value: 31, previous: 28 },
+  { month: "Feb", value: 40, previous: 35 },
+  { month: "Mar", value: 28, previous: 32 },
+  { month: "Apr", value: 51, previous: 42 },
+  { month: "May", value: 42, previous: 38 },
+  { month: "Jun", value: 67, previous: 55 },
+  { month: "Jul", value: 78, previous: 62 },
+  { month: "Aug", value: 85, previous: 70 },
+  { month: "Sep", value: 72, previous: 65 },
+  { month: "Oct", value: 58, previous: 52 },
+  { month: "Nov", value: 45, previous: 40 },
+  { month: "Dec", value: 52, previous: 48 },
+];
+
+const pieData = [
+  { name: "Office Space", y: 35 },
+  { name: "Retail", y: 25 },
+  { name: "Industrial", y: 20 },
+  { name: "Residential", y: 12 },
+  { name: "Other", y: 8 },
+];
+
+const areaData = [
+  { quarter: "Q1 2023", revenue: 150, expenses: 120, profit: 30 },
+  { quarter: "Q2 2023", revenue: 180, expenses: 130, profit: 50 },
+  { quarter: "Q3 2023", revenue: 210, expenses: 145, profit: 65 },
+  { quarter: "Q4 2023", revenue: 250, expenses: 160, profit: 90 },
+  { quarter: "Q1 2024", revenue: 280, expenses: 170, profit: 110 },
+  { quarter: "Q2 2024", revenue: 320, expenses: 190, profit: 130 },
+];
+
+// Color swatch component for dataviz colors documentation
+function ColorSwatch({ 
+  name, 
+  token, 
+  className 
+}: { 
+  name: string; 
+  token: string; 
+  className?: string;
+}): React.ReactElement {
+  const [copied, setCopied] = React.useState(false);
+  
+  const handleCopy = (): void => {
+    navigator.clipboard.writeText(`var(${token})`);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
+  };
+
+  return (
+    <button
+      onClick={handleCopy}
+      className={cn(
+        "group flex flex-col items-center gap-2 p-2 rounded-lg transition-all hover:bg-muted/50",
+        className
+      )}
+    >
+      <div
+        className="size-12 rounded-lg border border-semantic-stroke-subdued shadow-sm transition-transform group-hover:scale-105"
+        style={{ backgroundColor: `var(${token})` }}
+      />
+      <div className="text-center">
+        <div className="text-xs font-medium">{name}</div>
+        <div className="text-[10px] text-muted-foreground font-mono">
+          {copied ? "Copied!" : token.replace("--semantic-dataviz-", "")}
+        </div>
+      </div>
+    </button>
+  );
+}
+
+function DatavizColorsShowcase(): React.ReactElement {
+  const colors = useAlizeChartColors();
+  const sequentialFromCt1 = useSequentialPalette(1, 7);
+  const sequentialFromCt2 = useSequentialPalette(2, 7);
+  const [selectedCategorical, setSelectedCategorical] = React.useState(1);
+  const dynamicSequential = useSequentialPalette(selectedCategorical, 7);
+  const divergentPalette = useDivergentPalette(7);
+  const divergentColors = useDivergentColors();
+
+  return (
+    <>
+      <Section
+        title="Overview"
+        description="Data visualization color tokens provide consistent, accessible palettes for charts and graphs. They automatically adapt to light and dark themes."
+      >
+        <div className="p-6 rounded-lg border bg-card">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="flex items-center gap-3">
+              <div className="size-10 rounded shrink-0 bg-[var(--semantic-dataviz-ct-1)]" />
+              <div>
+                <h4 className="text-sm font-medium">Categorical</h4>
+                <p className="text-xs text-muted-foreground">10 couleurs distinctes</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <div 
+                className="size-10 rounded shrink-0"
+                style={{ background: `linear-gradient(to bottom, ${sequentialFromCt1[0]}, ${sequentialFromCt1[6]})` }}
+              />
+              <div>
+                <h4 className="text-sm font-medium">Sequential</h4>
+                <p className="text-xs text-muted-foreground">Généré automatiquement</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <div 
+                className="size-10 rounded shrink-0"
+                style={{ background: `linear-gradient(to right, ${divergentColors.negative}, ${divergentColors.neutral}, ${divergentColors.positive})` }}
+              />
+              <div>
+                <h4 className="text-sm font-medium">Divergent</h4>
+                <p className="text-xs text-muted-foreground">Ocean ↔ Orange</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="size-10 rounded shrink-0 bg-[var(--semantic-dataviz-ct-nodata)]" />
+              <div>
+                <h4 className="text-sm font-medium">No Data</h4>
+                <p className="text-xs text-muted-foreground">Données manquantes</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      <Section
+        title="Categorical Palette"
+        description="10 couleurs pour pie charts, bar charts multi-séries, et toute visualisation comparant des catégories distinctes."
+      >
+        <div className="p-6 rounded-lg border bg-card">
+          <div className="grid grid-cols-5 md:grid-cols-11 gap-2">
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => (
+              <ColorSwatch key={n} name={`${n}`} token={`--semantic-dataviz-ct-${n}`} />
+            ))}
+            <ColorSwatch name="∅" token="--semantic-dataviz-ct-nodata" />
+          </div>
+          <div className="mt-6 p-4 bg-muted rounded-lg">
+            <h4 className="text-sm font-medium mb-2">Usage</h4>
+            <pre className="text-xs overflow-x-auto">
+{`// CSS
+background-color: var(--semantic-dataviz-ct-1);
+
+// Le composant Highchart utilise automatiquement ces couleurs`}
+            </pre>
+          </div>
+        </div>
+      </Section>
+
+      <Section
+        title="RAG Colors (Red-Amber-Green)"
+        description="Couleurs sémantiques pour danger, warning et success avec 3 niveaux d'intensité chacun."
+      >
+        <div className="p-6 rounded-lg border bg-card space-y-6">
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Danger */}
+            <div className="space-y-3">
+              <h4 className="text-sm font-medium text-[var(--semantic-dataviz-rag-dangermedium)]">Danger</h4>
+              <div className="flex gap-2">
+                <div className="flex-1 space-y-1">
+                  <div className="h-10 rounded bg-[var(--semantic-dataviz-rag-dangerweak)]" />
+                  <p className="text-xs text-center text-muted-foreground">weak</p>
+                </div>
+                <div className="flex-1 space-y-1">
+                  <div className="h-10 rounded bg-[var(--semantic-dataviz-rag-dangermedium)]" />
+                  <p className="text-xs text-center text-muted-foreground">medium</p>
+                </div>
+                <div className="flex-1 space-y-1">
+                  <div className="h-10 rounded bg-[var(--semantic-dataviz-rag-dangerstrong)]" />
+                  <p className="text-xs text-center text-muted-foreground">strong</p>
+                </div>
+              </div>
+            </div>
+            {/* Warning */}
+            <div className="space-y-3">
+              <h4 className="text-sm font-medium text-[var(--semantic-dataviz-rag-warningmedium)]">Warning</h4>
+              <div className="flex gap-2">
+                <div className="flex-1 space-y-1">
+                  <div className="h-10 rounded bg-[var(--semantic-dataviz-rag-warningweak)]" />
+                  <p className="text-xs text-center text-muted-foreground">weak</p>
+                </div>
+                <div className="flex-1 space-y-1">
+                  <div className="h-10 rounded bg-[var(--semantic-dataviz-rag-warningmedium)]" />
+                  <p className="text-xs text-center text-muted-foreground">medium</p>
+                </div>
+                <div className="flex-1 space-y-1">
+                  <div className="h-10 rounded bg-[var(--semantic-dataviz-rag-warningstrong)]" />
+                  <p className="text-xs text-center text-muted-foreground">strong</p>
+                </div>
+              </div>
+            </div>
+            {/* Success */}
+            <div className="space-y-3">
+              <h4 className="text-sm font-medium text-[var(--semantic-dataviz-rag-successmedium)]">Success</h4>
+              <div className="flex gap-2">
+                <div className="flex-1 space-y-1">
+                  <div className="h-10 rounded bg-[var(--semantic-dataviz-rag-successweak)]" />
+                  <p className="text-xs text-center text-muted-foreground">weak</p>
+                </div>
+                <div className="flex-1 space-y-1">
+                  <div className="h-10 rounded bg-[var(--semantic-dataviz-rag-successmedium)]" />
+                  <p className="text-xs text-center text-muted-foreground">medium</p>
+                </div>
+                <div className="flex-1 space-y-1">
+                  <div className="h-10 rounded bg-[var(--semantic-dataviz-rag-successstrong)]" />
+                  <p className="text-xs text-center text-muted-foreground">strong</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      <Section
+        title="Sequential Palette (Auto-generated)"
+        description="Palettes séquentielles générées automatiquement à partir des couleurs catégorielles. Idéal pour heatmaps et visualisations d'intensité."
+      >
+        <div className="p-6 rounded-lg border bg-card space-y-6">
+          {/* Interactive selector */}
+          <div className="space-y-3">
+            <div className="flex items-center justify-between">
+              <h4 className="text-sm font-medium">Sélectionne une couleur de base</h4>
+              <span className="text-xs text-muted-foreground">ct-{selectedCategorical}</span>
+            </div>
+            <div className="flex gap-1">
+              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => (
+                <button
+                  key={n}
+                  onClick={() => setSelectedCategorical(n)}
+                  className={cn(
+                    "flex-1 h-8 rounded transition-all",
+                    selectedCategorical === n ? "ring-2 ring-offset-2 ring-semantic-stroke-interaction-default" : ""
+                  )}
+                  style={{ backgroundColor: `var(--semantic-dataviz-ct-${n})` }}
+                />
+              ))}
+            </div>
+          </div>
+          
+          {/* Generated palette */}
+          <div className="space-y-2">
+            <h4 className="text-sm font-medium">Palette séquentielle générée</h4>
+            <div className="flex gap-0 rounded-lg overflow-hidden">
+              {dynamicSequential.map((color, i) => (
+                <div
+                  key={i}
+                  className="flex-1 h-16 flex items-end justify-center pb-2"
+                  style={{ backgroundColor: color }}
+                >
+                  <span className={cn(
+                    "text-xs font-medium",
+                    i <= 2 ? "text-[var(--semantic-text-default)]" : "text-white"
+                  )}>
+                    {i + 1}
+                  </span>
+                </div>
+              ))}
+            </div>
+            <div className="flex justify-between text-xs text-muted-foreground">
+              <span>Faible intensité</span>
+              <span>Forte intensité</span>
+            </div>
+          </div>
+
+          {/* Code example */}
+          <div className="p-4 bg-muted rounded-lg">
+            <h4 className="text-sm font-medium mb-2">Usage</h4>
+            <pre className="text-xs overflow-x-auto">
+{`import { useSequentialPalette, generateSequentialPalette } from "@/components/ui/highchart";
+
+// Hook React (réactif au thème)
+const palette = useSequentialPalette(1, 7); // basé sur ct-1, 7 steps
+
+// Fonction pure (pour usage hors React)
+const palette = generateSequentialPalette("#3e778b", 7);`}
+            </pre>
+          </div>
+        </div>
+      </Section>
+
+      <Section
+        title="Divergent Palette (Auto-generated)"
+        description="Palette divergente générée automatiquement avec Ocean (négatif) et Orange (positif). Idéal pour visualiser les variations autour d'un point central."
+      >
+        <div className="p-6 rounded-lg border bg-card space-y-6">
+          {/* Base colors display */}
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="flex items-center gap-3 p-3 rounded-lg border">
+              <div
+                className="size-10 rounded"
+                style={{ backgroundColor: divergentColors.negative }}
+              />
+              <div>
+                <div className="text-sm font-medium">Négatif (Ocean)</div>
+                <div className="text-xs text-muted-foreground font-mono">ocean-600</div>
+              </div>
+            </div>
+            <div className="flex items-center gap-3 p-3 rounded-lg border">
+              <div
+                className="size-10 rounded"
+                style={{ backgroundColor: divergentColors.neutral }}
+              />
+              <div>
+                <div className="text-sm font-medium">Neutre (Glacier)</div>
+                <div className="text-xs text-muted-foreground font-mono">glacier-300</div>
+              </div>
+            </div>
+            <div className="flex items-center gap-3 p-3 rounded-lg border">
+              <div
+                className="size-10 rounded"
+                style={{ backgroundColor: divergentColors.positive }}
+              />
+              <div>
+                <div className="text-sm font-medium">Positif (Orange)</div>
+                <div className="text-xs text-muted-foreground font-mono">orange-500</div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Generated divergent palette */}
+          <div className="space-y-2">
+            <h4 className="text-sm font-medium">Palette divergente générée (7 steps)</h4>
+            <div className="flex gap-0 rounded-lg overflow-hidden">
+              {divergentPalette.map((color, i) => (
+                <div
+                  key={i}
+                  className="flex-1 h-16 flex items-end justify-center pb-2"
+                  style={{ backgroundColor: color }}
+                >
+                  <span className={cn(
+                    "text-xs font-medium",
+                    i === 3 ? "text-[var(--semantic-text-default)]" : "text-white"
+                  )}>
+                    {i - 3 === 0 ? "0" : (i - 3 > 0 ? `+${i - 3}` : i - 3)}
+                  </span>
+                </div>
+              ))}
+            </div>
+            <div className="flex justify-between text-xs text-muted-foreground">
+              <span>← Négatif</span>
+              <span>Neutre</span>
+              <span>Positif →</span>
+            </div>
+          </div>
+
+          {/* Use case examples */}
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="p-4 rounded-lg border">
+              <h4 className="text-sm font-medium mb-2">Use Cases</h4>
+              <ul className="text-xs text-muted-foreground space-y-1">
+                <li>• Variation par rapport à une cible</li>
+                <li>• Performance vs benchmark</li>
+                <li>• Écart à la moyenne</li>
+                <li>• Heatmaps avec valeurs positives/négatives</li>
+              </ul>
+            </div>
+            <div className="p-4 bg-muted rounded-lg">
+              <h4 className="text-sm font-medium mb-2">Accessibilité</h4>
+              <p className="text-xs text-muted-foreground">
+                Ocean/Orange offre un bon contraste pour les personnes daltoniennes 
+                (deutéranopie, protanopie) contrairement au rouge/vert traditionnel.
+              </p>
+            </div>
+          </div>
+
+          {/* Code example */}
+          <div className="p-4 bg-muted rounded-lg">
+            <h4 className="text-sm font-medium mb-2">Usage</h4>
+            <pre className="text-xs overflow-x-auto">
+{`import { useDivergentPalette, useDivergentColors, generateDivergentPalette } from "@/components/ui/highchart";
+
+// Hook React (réactif au thème)
+const palette = useDivergentPalette(7); // 7 steps
+
+// Accès aux couleurs de base
+const { negative, neutral, positive } = useDivergentColors();
+
+// Fonction pure (pour usage hors React)
+const palette = generateDivergentPalette(negativeHex, positiveHex, neutralHex, 7);`}
+            </pre>
+          </div>
+        </div>
+      </Section>
+
+      <Section
+        title="Chart UI Colors"
+        description="Couleurs d'interface pour grilles, axes et labels. Utilise les tokens sémantiques existants."
+      >
+        <div className="p-6 rounded-lg border bg-card">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="flex items-center gap-3 p-3 rounded-lg border">
+              <div
+                className="w-16 h-1 rounded"
+                style={{ backgroundColor: "var(--semantic-stroke-subdued)" }}
+              />
+              <div>
+                <div className="text-sm font-medium">Grid</div>
+                <div className="text-xs text-muted-foreground font-mono">stroke-subdued</div>
+              </div>
+            </div>
+            <div className="flex items-center gap-3 p-3 rounded-lg border">
+              <div
+                className="w-16 h-1 rounded"
+                style={{ backgroundColor: "var(--semantic-stroke-default)" }}
+              />
+              <div>
+                <div className="text-sm font-medium">Axis</div>
+                <div className="text-xs text-muted-foreground font-mono">stroke-default</div>
+              </div>
+            </div>
+            <div className="flex items-center gap-3 p-3 rounded-lg border">
+              <div
+                className="size-6 rounded flex items-center justify-center text-xs font-medium"
+                style={{ color: "var(--semantic-text-subdued)" }}
+              >
+                Aa
+              </div>
+              <div>
+                <div className="text-sm font-medium">Label</div>
+                <div className="text-xs text-muted-foreground font-mono">text-subdued</div>
+              </div>
+            </div>
+            <div className="flex items-center gap-3 p-3 rounded-lg border">
+              <div className="size-6 rounded border-2 border-dashed border-semantic-stroke-subdued" />
+              <div>
+                <div className="text-sm font-medium">Background</div>
+                <div className="text-xs text-muted-foreground font-mono">transparent</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      <Section
+        title="Token Reference"
+        description="Liste complète des tokens dataviz disponibles."
+      >
+        <div className="p-6 rounded-lg border bg-card">
+          <div className="p-4 bg-muted rounded-lg overflow-x-auto">
+            <pre className="text-xs">
+{`/* Categorical (10 colors) */
+--semantic-dataviz-ct-1 through --semantic-dataviz-ct-10
+--semantic-dataviz-ct-nodata
+
+/* RAG (Red-Amber-Green) */
+--semantic-dataviz-rag-danger[weak|medium|strong]
+--semantic-dataviz-rag-warning[weak|medium|strong]
+--semantic-dataviz-rag-success[weak|medium|strong]
+
+/* Sequential (auto-generated from categorical) */
+useSequentialPalette(colorIndex, steps)
+generateSequentialPalette(hexColor, steps)
+
+/* Divergent (Ocean/Orange auto-generated) */
+useDivergentPalette(steps)
+useDivergentColors() // { negative, neutral, positive }
+generateDivergentPalette(negativeHex, positiveHex, neutralHex, steps)
+
+/* Chart UI (from existing semantic tokens) */
+Grid: --semantic-stroke-subdued
+Axis: --semantic-stroke-default
+Labels: --semantic-text-subdued
+Title: --semantic-text-default`}
+            </pre>
+          </div>
+        </div>
+      </Section>
+    </>
+  );
+}
+
+function LineChartsShowcase(): React.ReactElement {
+  // Basic line chart with 5 series
+  const basicLineOptions: Highcharts.Options = {
+    chart: { type: "line", height: 350 },
+    title: { text: "Monthly Performance by Product" },
+    xAxis: { categories: monthlyData.map((d) => d.month) },
+    yAxis: { title: { text: "Value" } },
+    series: [
+      { name: "Product A", data: monthlyData.map((d) => d.value), type: "line" },
+      { name: "Product B", data: monthlyData.map((d) => d.previous), type: "line" },
+      { name: "Product C", data: monthlyData.map((d) => Math.round(d.value * 0.7)), type: "line" },
+      { name: "Product D", data: monthlyData.map((d) => Math.round(d.previous * 1.2)), type: "line" },
+      { name: "Product E", data: monthlyData.map((d) => Math.round(d.value * 0.5 + 10)), type: "line" },
+    ],
+  };
+
+  // Spline chart (smooth curves) with multiple series
+  const splineOptions: Highcharts.Options = {
+    chart: { type: "spline", height: 350 },
+    title: { text: "Regional Trend Analysis" },
+    xAxis: { categories: monthlyData.map((d) => d.month) },
+    yAxis: { title: { text: "Performance Index" } },
+    plotOptions: {
+      spline: { marker: { enabled: true, radius: 4 } },
+    },
+    series: [
+      { name: "North", data: monthlyData.map((d) => d.value), type: "spline" },
+      { name: "South", data: monthlyData.map((d) => Math.round(d.value * 0.85)), type: "spline" },
+      { name: "East", data: monthlyData.map((d) => Math.round(d.previous * 1.1)), type: "spline" },
+      { name: "West", data: monthlyData.map((d) => Math.round(d.value * 0.6 + 15)), type: "spline" },
+      { name: "Central", data: monthlyData.map((d) => Math.round(d.previous * 0.9)), type: "spline" },
+    ],
+  };
+
+  // Area chart with 5 series
+  const areaOptions: Highcharts.Options = {
+    chart: { type: "area", height: 350 },
+    title: { text: "Revenue by Channel" },
+    xAxis: { categories: areaData.map((d) => d.quarter) },
+    yAxis: { title: { text: "Amount (thousands)" } },
+    plotOptions: { area: { fillOpacity: 0.3 } },
+    series: [
+      { name: "Direct Sales", data: areaData.map((d) => d.revenue), type: "area" },
+      { name: "Online", data: areaData.map((d) => Math.round(d.revenue * 0.6)), type: "area" },
+      { name: "Partners", data: areaData.map((d) => d.expenses), type: "area" },
+      { name: "Retail", data: areaData.map((d) => Math.round(d.expenses * 0.7)), type: "area" },
+      { name: "Wholesale", data: areaData.map((d) => d.profit), type: "area" },
+    ],
+  };
+
+  // Stacked area chart with 6 regions
+  const stackedAreaOptions: Highcharts.Options = {
+    chart: { type: "area", height: 350 },
+    title: { text: "Revenue by Region" },
+    xAxis: { categories: ["Q1", "Q2", "Q3", "Q4"] },
+    yAxis: { title: { text: "Revenue" } },
+    plotOptions: { area: { stacking: "normal", fillOpacity: 0.6 } },
+    series: [
+      { name: "EMEA", data: [50, 60, 70, 80], type: "area" },
+      { name: "Americas", data: [80, 90, 100, 120], type: "area" },
+      { name: "APAC", data: [30, 40, 50, 60], type: "area" },
+      { name: "LATAM", data: [20, 25, 35, 45], type: "area" },
+      { name: "MEA", data: [15, 20, 25, 30], type: "area" },
+      { name: "ANZ", data: [10, 15, 20, 25], type: "area" },
+    ],
+  };
+
+  // Area spline with multiple series
+  const areaSplineOptions: Highcharts.Options = {
+    chart: { type: "areaspline", height: 350 },
+    title: { text: "Sales by Category" },
+    xAxis: { categories: monthlyData.slice(0, 6).map((d) => d.month) },
+    yAxis: { title: { text: "Units" } },
+    plotOptions: { areaspline: { fillOpacity: 0.2 } },
+    series: [
+      { name: "Electronics", data: [31, 40, 28, 51, 42, 67], type: "areaspline" },
+      { name: "Furniture", data: [25, 35, 32, 45, 38, 55], type: "areaspline" },
+      { name: "Services", data: [18, 22, 20, 30, 28, 40], type: "areaspline" },
+      { name: "Software", data: [12, 18, 15, 25, 22, 35], type: "areaspline" },
+      { name: "Consulting", data: [8, 12, 10, 18, 15, 25], type: "areaspline" },
+    ],
+  };
+
+  return (
+    <>
+      <Section
+        title="Overview"
+        description="Line charts display data points connected by lines. Ideal for showing trends over time, comparing multiple series, and tracking continuous data."
+      >
+        <div className="p-6 rounded-lg border bg-card">
+          <div className="grid md:grid-cols-3 gap-4 text-sm">
+            <div className="space-y-1">
+              <h4 className="font-medium">Line</h4>
+              <p className="text-muted-foreground">Basic connected data points</p>
+            </div>
+            <div className="space-y-1">
+              <h4 className="font-medium">Spline</h4>
+              <p className="text-muted-foreground">Smooth curved lines</p>
+            </div>
+            <div className="space-y-1">
+              <h4 className="font-medium">Area</h4>
+              <p className="text-muted-foreground">Filled area below the line</p>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      <Section title="Basic Line Chart" description="Standard line chart for tracking values over time.">
+        <div className="p-4 rounded-lg border bg-card">
+          <Highchart options={basicLineOptions} />
+        </div>
+      </Section>
+
+      <Section title="Spline Chart" description="Uses curved lines for a smoother, more organic visualization.">
+        <div className="p-4 rounded-lg border bg-card">
+          <Highchart options={splineOptions} />
+        </div>
+      </Section>
+
+      <Section title="Area Chart" description="Emphasizes the magnitude of change with filled areas.">
+        <div className="p-4 rounded-lg border bg-card">
+          <Highchart options={areaOptions} />
+        </div>
+      </Section>
+
+      <Section title="Stacked Area" description="Shows contribution of each series to the total.">
+        <div className="p-4 rounded-lg border bg-card">
+          <Highchart options={stackedAreaOptions} />
+        </div>
+      </Section>
+
+      <Section title="Area Spline" description="Combines smooth curves with filled areas.">
+        <div className="p-4 rounded-lg border bg-card">
+          <Highchart options={areaSplineOptions} />
+        </div>
+      </Section>
+
+      <Section title="Usage" description="How to create line charts.">
+        <div className="p-4 bg-muted rounded-lg">
+          <pre className="text-xs overflow-x-auto">
+{`const options = {
+  chart: { type: "line" }, // or "spline", "area", "areaspline"
+  title: { text: "My Line Chart" },
+  xAxis: { categories: ["Jan", "Feb", "Mar"] },
+  yAxis: { title: { text: "Value" } },
+  series: [{ name: "Series 1", data: [10, 20, 30] }]
+};
+
+<Highchart options={options} />`}
+          </pre>
+        </div>
+      </Section>
+    </>
+  );
+}
+
+function BarChartsShowcase(): React.ReactElement {
+  // Basic column chart with 5 years
+  const columnOptions: Highcharts.Options = {
+    chart: { type: "column", height: 350 },
+    title: { text: "Quarterly Revenue by Year" },
+    xAxis: { categories: ["Q1", "Q2", "Q3", "Q4"] },
+    yAxis: { title: { text: "Revenue (millions)" } },
+    series: [
+      { name: "2020", data: [90, 110, 130, 150], type: "column" },
+      { name: "2021", data: [100, 125, 155, 175], type: "column" },
+      { name: "2022", data: [110, 140, 170, 190], type: "column" },
+      { name: "2023", data: [120, 150, 180, 200], type: "column" },
+      { name: "2024", data: [150, 180, 210, 250], type: "column" },
+    ],
+  };
+
+  // Horizontal bar chart with multiple metrics
+  const barOptions: Highcharts.Options = {
+    chart: { type: "bar", height: 400 },
+    title: { text: "Top Markets Performance" },
+    xAxis: { categories: ["New York", "London", "Tokyo", "Singapore", "Paris", "Sydney"] },
+    yAxis: { title: { text: "Value ($M)" } },
+    series: [
+      { name: "Revenue", data: [450, 380, 320, 290, 250, 220], type: "bar" },
+      { name: "Profit", data: [120, 95, 85, 75, 60, 55], type: "bar" },
+      { name: "Investment", data: [80, 70, 60, 55, 45, 40], type: "bar" },
+      { name: "Expenses", data: [250, 215, 175, 160, 145, 125], type: "bar" },
+      { name: "Growth YoY", data: [35, 28, 22, 18, 15, 12], type: "bar" },
+    ],
+  };
+
+  // Stacked column chart with 6 products
+  const stackedColumnOptions: Highcharts.Options = {
+    chart: { type: "column", height: 350 },
+    title: { text: "Revenue by Product Line" },
+    xAxis: { categories: ["Q1", "Q2", "Q3", "Q4"] },
+    yAxis: { title: { text: "Revenue" } },
+    plotOptions: { column: { stacking: "normal" } },
+    series: [
+      { name: "Office", data: [50, 60, 70, 80], type: "column" },
+      { name: "Retail", data: [30, 40, 50, 60], type: "column" },
+      { name: "Industrial", data: [20, 30, 40, 50], type: "column" },
+      { name: "Residential", data: [25, 35, 45, 55], type: "column" },
+      { name: "Logistics", data: [15, 20, 30, 40], type: "column" },
+      { name: "Data Centers", data: [10, 15, 25, 35], type: "column" },
+    ],
+  };
+
+  // Percentage stacked with more competitors
+  const percentStackedOptions: Highcharts.Options = {
+    chart: { type: "column", height: 350 },
+    title: { text: "Market Share Evolution" },
+    xAxis: { categories: ["Q1", "Q2", "Q3", "Q4"] },
+    yAxis: { title: { text: "Percentage" } },
+    plotOptions: { column: { stacking: "percent" } },
+    tooltip: { pointFormat: "{series.name}: {point.percentage:.1f}%" },
+    series: [
+      { name: "Our Company", data: [40, 42, 45, 48], type: "column" },
+      { name: "Competitor A", data: [25, 24, 22, 20], type: "column" },
+      { name: "Competitor B", data: [15, 14, 13, 12], type: "column" },
+      { name: "Competitor C", data: [10, 10, 10, 10], type: "column" },
+      { name: "Others", data: [10, 10, 10, 10], type: "column" },
+    ],
+  };
+
+  // Grouped with positive and negative values
+  const negativeOptions: Highcharts.Options = {
+    chart: { type: "column", height: 350 },
+    title: { text: "Profit/Loss by Region" },
+    xAxis: { categories: ["EMEA", "Americas", "APAC", "LATAM", "MEA", "ANZ"] },
+    yAxis: { title: { text: "Profit ($M)" }, plotLines: [{ value: 0, width: 1, color: "var(--semantic-stroke-default)" }] },
+    series: [
+      { name: "2022", data: [100, -20, 60, -25, 15, 30], type: "column" },
+      { name: "2023", data: [120, -30, 80, -15, 25, 40], type: "column" },
+      { name: "2024", data: [150, 45, 100, 20, 35, 55], type: "column" },
+      { name: "2025 (Forecast)", data: [180, 80, 120, 45, 50, 70], type: "column" },
+      { name: "Target", data: [200, 100, 150, 60, 60, 80], type: "column" },
+    ],
+  };
+
+  return (
+    <>
+      <Section
+        title="Overview"
+        description="Bar and column charts compare values across categories. Columns are vertical, bars are horizontal. Ideal for rankings, comparisons, and categorical data."
+      >
+        <div className="p-6 rounded-lg border bg-card">
+          <div className="grid md:grid-cols-3 gap-4 text-sm">
+            <div className="space-y-1">
+              <h4 className="font-medium">Column</h4>
+              <p className="text-muted-foreground">Vertical bars for time series</p>
+            </div>
+            <div className="space-y-1">
+              <h4 className="font-medium">Bar</h4>
+              <p className="text-muted-foreground">Horizontal for rankings</p>
+            </div>
+            <div className="space-y-1">
+              <h4 className="font-medium">Stacked</h4>
+              <p className="text-muted-foreground">Show composition</p>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      <Section title="Column Chart" description="Vertical bars for comparing values across categories.">
+        <div className="p-4 rounded-lg border bg-card">
+          <Highchart options={columnOptions} />
+        </div>
+      </Section>
+
+      <Section title="Bar Chart (Horizontal)" description="Horizontal bars, ideal for rankings and long category names.">
+        <div className="p-4 rounded-lg border bg-card">
+          <Highchart options={barOptions} />
+        </div>
+      </Section>
+
+      <Section title="Stacked Column" description="Shows how parts contribute to the whole.">
+        <div className="p-4 rounded-lg border bg-card">
+          <Highchart options={stackedColumnOptions} />
+        </div>
+      </Section>
+
+      <Section title="Percentage Stacked" description="Normalizes data to 100% for easy comparison.">
+        <div className="p-4 rounded-lg border bg-card">
+          <Highchart options={percentStackedOptions} />
+        </div>
+      </Section>
+
+      <Section title="Positive & Negative Values" description="Show gains and losses with bars crossing the zero line.">
+        <div className="p-4 rounded-lg border bg-card">
+          <Highchart options={negativeOptions} />
+        </div>
+      </Section>
+
+      <Section title="Usage" description="How to create bar/column charts.">
+        <div className="p-4 bg-muted rounded-lg">
+          <pre className="text-xs overflow-x-auto">
+{`const options = {
+  chart: { type: "column" }, // or "bar" for horizontal
+  title: { text: "My Bar Chart" },
+  xAxis: { categories: ["A", "B", "C"] },
+  yAxis: { title: { text: "Value" } },
+  plotOptions: { column: { stacking: "normal" } }, // optional stacking
+  series: [{ name: "Series 1", data: [10, 20, 30] }]
+};
+
+<Highchart options={options} />`}
+          </pre>
+        </div>
+      </Section>
+    </>
+  );
+}
+
+function PieChartsShowcase(): React.ReactElement {
+  const colors = useAlizeChartColors();
+
+  // Helper to create pie data with contrast-aware labels for inside labels
+  const createPieDataWithContrast = (data: Array<{ name: string; y: number }>) => {
+    return data.map((item, index) => ({
+      ...item,
+      dataLabels: {
+        style: { color: getContrastTextColor(colors.categorical[index % colors.categorical.length]) },
+      },
+    }));
+  };
+
+  // Basic pie chart
+  const pieOptions: Highcharts.Options = {
+    chart: { type: "pie", height: 350 },
+    title: { text: "Portfolio Distribution" },
+    plotOptions: {
+      pie: {
+        allowPointSelect: true,
+        cursor: "pointer",
+        dataLabels: {
+          enabled: true,
+          format: "<b>{point.name}</b>: {point.percentage:.1f}%",
+          style: { color: colors.text },
+        },
+      },
+    },
+    series: [{ name: "Share", data: pieData, type: "pie" }],
+  };
+
+  // Donut chart
+  const donutOptions: Highcharts.Options = {
+    chart: { type: "pie", height: 350 },
+    title: { text: "Market Segments" },
+    plotOptions: {
+      pie: {
+        innerSize: "60%",
+        allowPointSelect: true,
+        cursor: "pointer",
+        dataLabels: {
+          enabled: true,
+          format: "{point.name}: {point.y}%",
+          distance: 20,
+          style: { color: colors.text },
+        },
+      },
+    },
+    series: [{ name: "Market Share", data: pieData, type: "pie" }],
+  };
+
+  // Semi-circle donut with contrast-aware labels
+  const semiCircleData = createPieDataWithContrast([
+    { name: "Complete", y: 75 },
+    { name: "Remaining", y: 25 },
+  ]);
+
+  const semiCircleOptions: Highcharts.Options = {
+    chart: { type: "pie", height: 300 },
+    title: { text: "Completion Rate" },
+    plotOptions: {
+      pie: {
+        innerSize: "50%",
+        startAngle: -90,
+        endAngle: 90,
+        center: ["50%", "75%"],
+        dataLabels: {
+          enabled: true,
+          distance: -30,
+          style: { fontWeight: "500" },
+        },
+      },
+    },
+    series: [{
+      name: "Status",
+      data: semiCircleData,
+      type: "pie",
+    }],
+  };
+
+  // Pie with legend
+  const legendPieOptions: Highcharts.Options = {
+    chart: { type: "pie", height: 350 },
+    title: { text: "Asset Allocation" },
+    legend: { enabled: true, align: "right", verticalAlign: "middle", layout: "vertical" },
+    plotOptions: {
+      pie: {
+        allowPointSelect: true,
+        cursor: "pointer",
+        dataLabels: { enabled: false },
+        showInLegend: true,
+      },
+    },
+    series: [{
+      name: "Allocation",
+      data: [
+        { name: "Equities", y: 45 },
+        { name: "Bonds", y: 25 },
+        { name: "Real Estate", y: 15 },
+        { name: "Cash", y: 10 },
+        { name: "Alternatives", y: 5 },
+      ],
+      type: "pie",
+    }],
+  };
+
+  // Nested donut with contrast-aware labels
+  const nestedInnerData = createPieDataWithContrast([
+    { name: "Americas", y: 50 },
+    { name: "EMEA", y: 30 },
+    { name: "APAC", y: 20 },
+  ]);
+
+  const nestedDonutOptions: Highcharts.Options = {
+    chart: { type: "pie", height: 400 },
+    title: { text: "Revenue Breakdown" },
+    plotOptions: { pie: { dataLabels: { enabled: true, distance: 20 } } },
+    series: [
+      {
+        name: "Region",
+        size: "45%",
+        data: nestedInnerData,
+        type: "pie",
+        dataLabels: { distance: -30 },
+      },
+      {
+        name: "Product",
+        size: "80%",
+        innerSize: "60%",
+        data: [
+          { name: "Product A", y: 25 },
+          { name: "Product B", y: 15 },
+          { name: "Product C", y: 10 },
+          { name: "Product D", y: 18 },
+          { name: "Product E", y: 12 },
+          { name: "Product F", y: 8 },
+          { name: "Product G", y: 12 },
+        ],
+        type: "pie",
+      },
+    ],
+  };
+
+  return (
+    <>
+      <Section
+        title="Overview"
+        description="Pie and donut charts show part-to-whole relationships. Best for displaying composition, proportions, and distribution of a total."
+      >
+        <div className="p-6 rounded-lg border bg-card">
+          <div className="grid md:grid-cols-3 gap-4 text-sm">
+            <div className="space-y-1">
+              <h4 className="font-medium">Pie</h4>
+              <p className="text-muted-foreground">Classic proportional display</p>
+            </div>
+            <div className="space-y-1">
+              <h4 className="font-medium">Donut</h4>
+              <p className="text-muted-foreground">Pie with center space</p>
+            </div>
+            <div className="space-y-1">
+              <h4 className="font-medium">Semi-circle</h4>
+              <p className="text-muted-foreground">Gauge-like display</p>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      <Section title="Pie Chart" description="Classic pie chart for showing proportions.">
+        <div className="p-4 rounded-lg border bg-card">
+          <Highchart options={pieOptions} />
+        </div>
+      </Section>
+
+      <Section title="Donut Chart" description="Pie with hollow center for additional context or KPIs.">
+        <div className="p-4 rounded-lg border bg-card">
+          <Highchart options={donutOptions} />
+        </div>
+      </Section>
+
+      <Section title="Semi-Circle Donut" description="Half donut, perfect for progress or completion rates.">
+        <div className="p-4 rounded-lg border bg-card">
+          <Highchart options={semiCircleOptions} />
+        </div>
+      </Section>
+
+      <Section title="Pie with Legend" description="Labels moved to legend for cleaner appearance.">
+        <div className="p-4 rounded-lg border bg-card">
+          <Highchart options={legendPieOptions} />
+        </div>
+      </Section>
+
+      <Section title="Nested Donut" description="Multiple levels showing hierarchical data.">
+        <div className="p-4 rounded-lg border bg-card">
+          <Highchart options={nestedDonutOptions} />
+        </div>
+      </Section>
+
+      <Section title="Usage" description="How to create pie/donut charts.">
+        <div className="p-4 bg-muted rounded-lg">
+          <pre className="text-xs overflow-x-auto">
+{`const options = {
+  chart: { type: "pie" },
+  title: { text: "My Pie Chart" },
+  plotOptions: {
+    pie: {
+      innerSize: "50%", // Makes it a donut (omit for pie)
+      dataLabels: { enabled: true, format: "{point.name}: {point.y}%" }
+    }
+  },
+  series: [{
+    name: "Share",
+    data: [
+      { name: "Category A", y: 40 },
+      { name: "Category B", y: 30 },
+      { name: "Category C", y: 30 }
+    ]
+  }]
+};
+
+<Highchart options={options} />`}
+          </pre>
+        </div>
+      </Section>
+    </>
+  );
+}
+
+function AdvancedPatternsShowcase(): React.ReactElement {
+  const colors = useAlizeChartColors();
+  const sequentialPalette = useSequentialPalette(1, 13);
+  const divergentPalette = useDivergentPalette(13);
+  const divergentColors = useDivergentColors();
+
+  // Heatmap data (rows x columns) - more granular
+  const heatmapData: [number, number, number][] = [];
+  const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  const hours = ["6AM", "7AM", "8AM", "9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM", "6PM", "7PM", "8PM"];
+  
+  for (let day = 0; day < days.length; day++) {
+    for (let hour = 0; hour < hours.length; hour++) {
+      // Simulate activity data
+      const value = Math.round(Math.random() * 100);
+      heatmapData.push([hour, day, value]);
+    }
+  }
+
+  // Sequential heatmap
+  const sequentialHeatmapOptions: Highcharts.Options = {
+    chart: { type: "heatmap", height: 400 },
+    title: { text: "Office Activity by Hour (Weekly)" },
+    xAxis: { categories: hours, title: { text: "Hour" } },
+    yAxis: { categories: days, title: { text: "Day" }, reversed: true },
+    colorAxis: {
+      min: 0,
+      max: 100,
+      stops: sequentialPalette.map((color, i) => [i / (sequentialPalette.length - 1), color]),
+      labels: { style: { color: colors.textSubdued } },
+    },
+    legend: { align: "right", layout: "vertical", verticalAlign: "middle" },
+    series: [{
+      name: "Activity",
+      type: "heatmap",
+      data: heatmapData,
+      dataLabels: { enabled: false },
+      borderWidth: 1,
+      borderColor: colors.background,
+    }],
+    tooltip: { format: "<b>{series.yAxis.categories.(point.y)}</b> {series.xAxis.categories.(point.x)}<br>Activity: <b>{point.value}%</b>" },
+  };
+
+  // Divergent heatmap data (performance vs target) - more granular
+  const divergentHeatmapData: [number, number, number][] = [];
+  const regions = ["North America", "South America", "Western Europe", "Eastern Europe", "Middle East", "Africa", "South Asia", "East Asia", "Southeast Asia", "Oceania"];
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  
+  for (let region = 0; region < regions.length; region++) {
+    for (let month = 0; month < months.length; month++) {
+      // Values from -50 to +50 (deviation from target) with some patterns
+      const seasonalFactor = Math.sin((month / 12) * Math.PI * 2) * 15;
+      const regionalBias = (region - 5) * 3;
+      const noise = (Math.random() - 0.5) * 40;
+      const value = Math.round(seasonalFactor + regionalBias + noise);
+      divergentHeatmapData.push([month, region, Math.max(-50, Math.min(50, value))]);
+    }
+  }
+
+  // Divergent heatmap
+  const divergentHeatmapOptions: Highcharts.Options = {
+    chart: { type: "heatmap", height: 500 },
+    title: { text: "Performance vs Target by Region (Monthly)" },
+    xAxis: { categories: months, title: { text: "Month" } },
+    yAxis: { categories: regions, title: { text: "Region" }, reversed: true },
+    colorAxis: {
+      min: -50,
+      max: 50,
+      stops: divergentPalette.map((color, i) => [i / (divergentPalette.length - 1), color]),
+      labels: { style: { color: colors.textSubdued } },
+    },
+    legend: { align: "right", layout: "vertical", verticalAlign: "middle" },
+    series: [{
+      name: "Deviation",
+      type: "heatmap",
+      data: divergentHeatmapData,
+      dataLabels: { 
+        enabled: false, // Too many cells for labels
+      },
+      borderWidth: 1,
+      borderColor: colors.background,
+    }],
+    tooltip: {
+      format: "<b>{series.yAxis.categories.(point.y)}</b><br>{series.xAxis.categories.(point.x)}: <b>{point.value}%</b>",
+    },
+  };
+
+  // Treemap data
+  // Helper to get treemap data with contrast-aware text colors
+  const treemapData = [
+    { name: "Real Estate", value: 35, colorValue: 85 },
+    { name: "Office", value: 15, colorValue: 75, parent: "Real Estate" },
+    { name: "Retail", value: 10, colorValue: 60, parent: "Real Estate" },
+    { name: "Industrial", value: 10, colorValue: 90, parent: "Real Estate" },
+    { name: "Equities", value: 30, colorValue: 65 },
+    { name: "Tech", value: 12, colorValue: 80, parent: "Equities" },
+    { name: "Finance", value: 10, colorValue: 55, parent: "Equities" },
+    { name: "Healthcare", value: 8, colorValue: 70, parent: "Equities" },
+    { name: "Bonds", value: 20, colorValue: 40 },
+    { name: "Government", value: 12, colorValue: 30, parent: "Bonds" },
+    { name: "Corporate", value: 8, colorValue: 50, parent: "Bonds" },
+    { name: "Cash", value: 15, colorValue: 20 },
+  ].map(item => {
+    // Calculate color from colorValue using sequential palette
+    const colorIndex = Math.round((item.colorValue / 100) * (sequentialPalette.length - 1));
+    const bgColor = sequentialPalette[colorIndex] || sequentialPalette[0];
+    return {
+      ...item,
+      dataLabels: {
+        style: { color: getContrastTextColor(bgColor) },
+      },
+    };
+  });
+
+  const treemapOptions: Highcharts.Options = {
+    chart: { type: "treemap", height: 400 },
+    title: { text: "Portfolio Allocation" },
+    colorAxis: {
+      min: 0,
+      max: 100,
+      stops: sequentialPalette.map((color, i) => [i / (sequentialPalette.length - 1), color]),
+      labels: { style: { color: colors.textSubdued } },
+    },
+    series: [{
+      type: "treemap",
+      layoutAlgorithm: "squarified",
+      data: treemapData,
+      dataLabels: {
+        enabled: true,
+        format: "{point.name}<br>{point.value}%",
+        style: { fontSize: "11px", fontWeight: "normal" },
+      },
+    }],
+  };
+
+  // Bubble chart
+  const bubbleOptions: Highcharts.Options = {
+    chart: { type: "bubble", height: 400 },
+    title: { text: "Market Analysis" },
+    xAxis: { title: { text: "Risk Score" }, min: 0, max: 100 },
+    yAxis: { title: { text: "Return (%)" }, min: -10, max: 30 },
+    legend: { enabled: true },
+    series: [
+      {
+        name: "Real Estate",
+        type: "bubble",
+        data: [
+          { x: 35, y: 12, z: 500, name: "Office" },
+          { x: 45, y: 8, z: 300, name: "Retail" },
+          { x: 25, y: 15, z: 400, name: "Industrial" },
+        ],
+      },
+      {
+        name: "Equities",
+        type: "bubble",
+        data: [
+          { x: 70, y: 22, z: 600, name: "Tech" },
+          { x: 55, y: 14, z: 350, name: "Finance" },
+          { x: 50, y: 18, z: 450, name: "Healthcare" },
+        ],
+      },
+      {
+        name: "Bonds",
+        type: "bubble",
+        data: [
+          { x: 15, y: 4, z: 700, name: "Government" },
+          { x: 30, y: 6, z: 250, name: "Corporate" },
+        ],
+      },
+      {
+        name: "Alternatives",
+        type: "bubble",
+        data: [
+          { x: 80, y: 25, z: 200, name: "Crypto" },
+          { x: 60, y: 10, z: 300, name: "Commodities" },
+        ],
+      },
+    ],
+    tooltip: {
+      format: "<b>{point.name}</b><br>Risk: {point.x}<br>Return: {point.y}%<br>Size: ${point.z}M",
+    },
+  };
+
+  // Gauge chart
+  const gaugeOptions: Highcharts.Options = {
+    chart: { type: "solidgauge", height: 300 },
+    title: { text: "Occupancy Rate" },
+    pane: {
+      center: ["50%", "70%"],
+      size: "100%",
+      startAngle: -90,
+      endAngle: 90,
+      background: [{
+        backgroundColor: colors.grid,
+        innerRadius: "60%",
+        outerRadius: "100%",
+        shape: "arc",
+        borderWidth: 0,
+      }],
+    },
+    yAxis: {
+      min: 0,
+      max: 100,
+      stops: [
+        [0.3, divergentColors.negative],
+        [0.5, divergentColors.neutral],
+        [0.8, divergentColors.positive],
+      ],
+      lineWidth: 0,
+      tickWidth: 0,
+      minorTickInterval: undefined,
+      tickAmount: 2,
+      labels: { y: 16, style: { color: colors.textSubdued } },
+    },
+    series: [{
+      name: "Occupancy",
+      type: "solidgauge",
+      data: [78],
+      dataLabels: {
+        format: `<div style="text-align:center"><span style="font-size:24px;color:${colors.text}">{y}%</span></div>`,
+        borderWidth: 0,
+        y: -20,
+      },
+    }],
+    tooltip: { enabled: false },
+  };
+
+  // Waterfall chart
+  // Waterfall with contrast-aware labels
+  const waterfallData = [
+    { name: "Q1 Start", y: 100, color: colors.categorical[0] },
+    { name: "New Clients", y: 25, color: divergentColors.positive },
+    { name: "Upsells", y: 15, color: divergentColors.positive },
+    { name: "Churn", y: -12, color: divergentColors.negative },
+    { name: "Downgrades", y: -8, color: divergentColors.negative },
+    { name: "Price Changes", y: 5, color: divergentColors.positive },
+    { name: "Q1 End", isSum: true, color: colors.categorical[0] },
+  ].map(item => ({
+    ...item,
+    dataLabels: {
+      style: { color: getContrastTextColor(item.color) },
+    },
+  }));
+
+  const waterfallOptions: Highcharts.Options = {
+    chart: { type: "waterfall", height: 350 },
+    title: { text: "Quarterly Revenue Bridge" },
+    xAxis: { type: "category" },
+    yAxis: { title: { text: "Revenue ($M)" } },
+    legend: { enabled: false },
+    series: [{
+      type: "waterfall",
+      upColor: divergentColors.positive,
+      color: divergentColors.negative,
+      data: waterfallData,
+      dataLabels: {
+        enabled: true,
+        format: "{point.y:,.0f}",
+        style: { fontWeight: "normal" },
+      },
+      pointPadding: 0,
+    }],
+  };
+
+  return (
+    <>
+      <Section
+        title="Overview"
+        description="Advanced visualization patterns for complex data analysis. These charts leverage sequential and divergent palettes for encoding quantitative values."
+      >
+        <div className="p-6 rounded-lg border bg-card">
+          <div className="grid md:grid-cols-3 gap-4 text-sm">
+            <div className="space-y-1">
+              <h4 className="font-medium">Heatmap</h4>
+              <p className="text-muted-foreground">Matrix of color-encoded values</p>
+            </div>
+            <div className="space-y-1">
+              <h4 className="font-medium">Treemap</h4>
+              <p className="text-muted-foreground">Hierarchical data as nested rectangles</p>
+            </div>
+            <div className="space-y-1">
+              <h4 className="font-medium">Waterfall</h4>
+              <p className="text-muted-foreground">Cumulative effect of values</p>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      <Section
+        title="Heatmap (Sequential)"
+        description="Heatmaps use sequential palettes to show intensity. Ideal for correlation matrices, activity patterns, and density visualization."
+      >
+        <div className="p-4 rounded-lg border bg-card space-y-4">
+          <Highchart options={sequentialHeatmapOptions} />
+          <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
+            <span>Low</span>
+            <div className="flex h-4 w-32 rounded overflow-hidden">
+              {sequentialPalette.map((color, i) => (
+                <div key={i} className="flex-1" style={{ backgroundColor: color }} />
+              ))}
+            </div>
+            <span>High</span>
+          </div>
+        </div>
+      </Section>
+
+      <Section
+        title="Heatmap (Divergent)"
+        description="Divergent heatmaps show deviation from a center point (e.g., target, average). Ocean represents negative, orange represents positive."
+      >
+        <div className="p-4 rounded-lg border bg-card space-y-4">
+          <Highchart options={divergentHeatmapOptions} />
+          <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
+            <span>Below target</span>
+            <div className="flex h-4 w-32 rounded overflow-hidden">
+              {divergentPalette.map((color, i) => (
+                <div key={i} className="flex-1" style={{ backgroundColor: color }} />
+              ))}
+            </div>
+            <span>Above target</span>
+          </div>
+        </div>
+      </Section>
+
+      <Section
+        title="Treemap"
+        description="Treemaps display hierarchical data using nested rectangles. Size represents quantity, color can encode a secondary metric."
+      >
+        <div className="p-4 rounded-lg border bg-card">
+          <Highchart options={treemapOptions} />
+        </div>
+      </Section>
+
+      <Section
+        title="Bubble Chart"
+        description="Bubble charts encode three dimensions: x position, y position, and bubble size. Useful for multi-variable analysis."
+      >
+        <div className="p-4 rounded-lg border bg-card">
+          <Highchart options={bubbleOptions} />
+        </div>
+      </Section>
+
+      <Section
+        title="Waterfall Chart"
+        description="Waterfall charts show the cumulative effect of sequential positive and negative values. Uses divergent colors for up/down movements."
+      >
+        <div className="p-4 rounded-lg border bg-card">
+          <Highchart options={waterfallOptions} />
+        </div>
+      </Section>
+
+      <Section
+        title="Solid Gauge"
+        description="Gauges show progress or status with color stops from the divergent palette."
+      >
+        <div className="p-4 rounded-lg border bg-card">
+          <div className="max-w-md mx-auto">
+            <Highchart options={gaugeOptions} />
+          </div>
+        </div>
+      </Section>
+
+      <Section title="Usage" description="How to use advanced chart patterns.">
+        <div className="p-4 bg-muted rounded-lg">
+          <pre className="text-xs overflow-x-auto">
+{`import { useSequentialPalette, useDivergentPalette } from "@/components/ui/highchart";
+
+// Get palettes (more steps = smoother gradients)
+const sequential = useSequentialPalette(1, 13); // 13 steps from ct-1
+const divergent = useDivergentPalette(13);      // 13 steps ocean↔orange
+
+// Heatmap colorAxis
+colorAxis: {
+  stops: sequential.map((color, i) => [i / (sequential.length - 1), color]),
+}
+
+// Divergent colorAxis (centered at 0)
+colorAxis: {
+  min: -50, max: 50,
+  stops: divergent.map((color, i) => [i / (divergent.length - 1), color]),
+}`}
+          </pre>
+        </div>
+      </Section>
+    </>
+  );
+}
 
 function SliderDemo() {
   const [value, setValue] = useState<number[]>([35]);

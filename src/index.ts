@@ -287,6 +287,8 @@ export {
 } from './components/ui/carousel'
 export { Chart } from './components/ui/chart'
 export type { ChartProps } from './components/ui/chart'
+export { Highchart, useHighchartsTheme, useAlizeChartColors, useSequentialPalette, generateSequentialPalette, useDivergentPalette, useDivergentColors, generateDivergentPalette, getContrastTextColor } from './components/ui/highchart'
+export type { HighchartProps, AlizeChartColors, DivergentColors } from './components/ui/highchart'
 export { Toaster } from './components/ui/sonner'
 export { ScrollArea, ScrollBar } from './components/ui/scroll-area'
 export {
