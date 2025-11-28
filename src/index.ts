@@ -300,6 +300,11 @@ export { MaterialSymbol } from './components/material-symbol'
 export { MaterialSymbolsProvider } from './components/material-symbols-provider'
 export { cn } from './lib/utils'
 
+// Theme
+export { FidelityProvider, useFidelity } from './components/fidelity-provider'
+export { FidelityToggle } from './components/fidelity-toggle'
+export { ThemeToggle } from './components/theme-toggle'
+
 // Error Handling
 export {
   ErrorLogger,
