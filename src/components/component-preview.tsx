@@ -463,6 +463,136 @@ export function ComponentPreview({ componentId, className }: ComponentPreviewPro
         <span className="text-xs">Notification</span>
       </div>
     ),
+    "dataviz-colors": (
+      <div className="w-full space-y-2">
+        <div className="flex gap-1">
+          {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+            <div
+              key={i}
+              className="flex-1 h-6 rounded"
+              style={{ backgroundColor: `var(--semantic-dataviz-ct-${i})` }}
+            />
+          ))}
+        </div>
+        <div className="flex gap-1">
+          <div className="flex-1 h-3 rounded" style={{ backgroundColor: "var(--semantic-dataviz-rag-dangermedium)" }} />
+          <div className="flex-1 h-3 rounded" style={{ backgroundColor: "var(--semantic-dataviz-rag-warningmedium)" }} />
+          <div className="flex-1 h-3 rounded" style={{ backgroundColor: "var(--semantic-dataviz-rag-successmedium)" }} />
+        </div>
+      </div>
+    ),
+    "dataviz-line-charts": (
+      <div className="w-full h-16 flex items-end">
+        <svg viewBox="0 0 100 40" className="w-full h-full" preserveAspectRatio="none">
+          <polyline
+            fill="none"
+            stroke="var(--semantic-dataviz-ct-1)"
+            strokeWidth="2"
+            points="0,35 20,25 40,30 60,15 80,20 100,10"
+          />
+          <polyline
+            fill="none"
+            stroke="var(--semantic-dataviz-ct-2)"
+            strokeWidth="2"
+            points="0,30 20,32 40,20 60,25 80,12 100,18"
+          />
+          <polyline
+            fill="none"
+            stroke="var(--semantic-dataviz-ct-3)"
+            strokeWidth="2"
+            points="0,38 20,35 40,38 60,30 80,28 100,25"
+          />
+        </svg>
+      </div>
+    ),
+    "dataviz-bar-charts": (
+      <div className="w-full h-16 flex items-end justify-center gap-1">
+        {[
+          { h: 60, color: 1 },
+          { h: 85, color: 2 },
+          { h: 45, color: 3 },
+          { h: 70, color: 4 },
+          { h: 55, color: 5 },
+          { h: 90, color: 6 },
+        ].map((bar, i) => (
+          <div
+            key={i}
+            className="w-4 rounded-t"
+            style={{
+              height: `${bar.h}%`,
+              backgroundColor: `var(--semantic-dataviz-ct-${bar.color})`,
+            }}
+          />
+        ))}
+      </div>
+    ),
+    "dataviz-pie-charts": (
+      <div className="w-16 h-16 relative">
+        <svg viewBox="0 0 32 32" className="w-full h-full -rotate-90">
+          <circle
+            r="16"
+            cx="16"
+            cy="16"
+            fill="transparent"
+            stroke="var(--semantic-dataviz-ct-1)"
+            strokeWidth="32"
+            strokeDasharray="40 60"
+          />
+          <circle
+            r="16"
+            cx="16"
+            cy="16"
+            fill="transparent"
+            stroke="var(--semantic-dataviz-ct-2)"
+            strokeWidth="32"
+            strokeDasharray="25 75"
+            strokeDashoffset="-40"
+          />
+          <circle
+            r="16"
+            cx="16"
+            cy="16"
+            fill="transparent"
+            stroke="var(--semantic-dataviz-ct-3)"
+            strokeWidth="32"
+            strokeDasharray="20 80"
+            strokeDashoffset="-65"
+          />
+          <circle
+            r="16"
+            cx="16"
+            cy="16"
+            fill="transparent"
+            stroke="var(--semantic-dataviz-ct-4)"
+            strokeWidth="32"
+            strokeDasharray="15 85"
+            strokeDashoffset="-85"
+          />
+        </svg>
+      </div>
+    ),
+    "dataviz-advanced": (
+      <div className="w-full space-y-1">
+        {/* Mini heatmap grid */}
+        <div className="grid grid-cols-6 gap-0.5">
+          {[
+            [0.2, 0.4, 0.6, 0.3, 0.8, 0.5],
+            [0.5, 0.7, 0.4, 0.9, 0.6, 0.3],
+            [0.3, 0.5, 0.8, 0.6, 0.4, 0.7],
+          ].flat().map((opacity, i) => (
+            <div
+              key={i}
+              className="h-3 rounded-sm"
+              style={{
+                backgroundColor: `var(--semantic-dataviz-ct-1)`,
+                opacity: 0.3 + opacity * 0.7,
+              }}
+            />
+          ))}
+        </div>
+        <div className="text-[8px] text-center text-muted-foreground">Heatmap • Treemap • Gauge</div>
+      </div>
+    ),
   };
 
   const preview = previews[componentId];
