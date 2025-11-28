@@ -95,7 +95,7 @@ export function MobileNavigation({
         variant="ghost"
         size="icon"
         onClick={() => setIsOpen(true)}
-        className="md:hidden"
+        className="lg:hidden"
       >
         <MaterialSymbol name="menu" size={20} weight={300} />
         <span className="sr-only">Open menu</span>

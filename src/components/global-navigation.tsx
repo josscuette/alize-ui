@@ -56,7 +56,7 @@ export function GlobalNavigation() {
           <h1 className="text-xl font-normal">Alize</h1>
         </Link>
         
-        <nav className="hidden md:flex items-center gap-1">
+        <nav className="hidden lg:flex items-center gap-1 flex-nowrap whitespace-nowrap">
           {navigationItems.map((item) => {
             const isActive = pathname === item.href || 
               (item.href === "/components" && pathname?.startsWith("/components")) ||
@@ -82,6 +82,7 @@ export function GlobalNavigation() {
         </nav>
 
         <div className="flex items-center gap-4">
+          <GlobalHeader />
           <MobileNavigation
             sidebarSections={sidebarSections}
             showSearch={showSearch}
@@ -91,7 +92,6 @@ export function GlobalNavigation() {
             onModifiedToggle={onModifiedToggle}
             showModifiedOnly={showModifiedOnly}
           />
-          <GlobalHeader />
         </div>
       </div>
     </header>
