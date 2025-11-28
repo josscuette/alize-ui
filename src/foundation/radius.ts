@@ -4,11 +4,11 @@
  */
 
 export const radius = {
-  // Small radius
-  sm: "rounded-[4px]",
+  // Small radius - utilise le token --radius-reduced
+  sm: "rounded-[var(--radius-reduced)]",
   
-  // Medium radius (default)
-  md: "rounded-md",
+  // Medium radius (default) - utilise le token --radius
+  md: "rounded-[var(--radius)]",
   
   // Large radius
   lg: "rounded-lg",
