@@ -40,6 +40,10 @@ var dateFns = require('date-fns');
 var useEmblaCarousel = require('embla-carousel-react');
 var Highcharts = require('highcharts');
 var HighchartsReact = require('highcharts-react-official');
+var HighchartsMore = require('highcharts/highcharts-more');
+var HighchartsHeatmap = require('highcharts/modules/heatmap');
+var HighchartsTreemap = require('highcharts/modules/treemap');
+var HighchartsSolidGauge = require('highcharts/modules/solid-gauge');
 var nextThemes = require('next-themes');
 var sonner = require('sonner');
 var ScrollAreaPrimitive = require('@radix-ui/react-scroll-area');
@@ -93,8 +97,12 @@ var NavigationMenuPrimitive__namespace = /*#__PURE__*/_interopNamespace(Navigati
 var MenubarPrimitive__namespace = /*#__PURE__*/_interopNamespace(MenubarPrimitive);
 var ReactHookForm__namespace = /*#__PURE__*/_interopNamespace(ReactHookForm);
 var useEmblaCarousel__default = /*#__PURE__*/_interopDefault(useEmblaCarousel);
-var Highcharts__namespace = /*#__PURE__*/_interopNamespace(Highcharts);
+var Highcharts__default = /*#__PURE__*/_interopDefault(Highcharts);
 var HighchartsReact__default = /*#__PURE__*/_interopDefault(HighchartsReact);
+var HighchartsMore__default = /*#__PURE__*/_interopDefault(HighchartsMore);
+var HighchartsHeatmap__default = /*#__PURE__*/_interopDefault(HighchartsHeatmap);
+var HighchartsTreemap__default = /*#__PURE__*/_interopDefault(HighchartsTreemap);
+var HighchartsSolidGauge__default = /*#__PURE__*/_interopDefault(HighchartsSolidGauge);
 var ScrollAreaPrimitive__namespace = /*#__PURE__*/_interopNamespace(ScrollAreaPrimitive);
 var ResizablePrimitive__namespace = /*#__PURE__*/_interopNamespace(ResizablePrimitive);
 
@@ -5709,34 +5717,24 @@ function CarouselNext(_a) {
   );
 }
 var modulesInitialized = false;
-var modulesPromise = null;
 function initHighchartsModules() {
-  if (modulesInitialized) return Promise.resolve();
-  if (typeof window === "undefined") return Promise.resolve();
-  if (!modulesPromise) {
-    modulesPromise = (async () => {
-      try {
-        const [moreModule, heatmapModule, treemapModule, solidGaugeModule] = await Promise.all([
-          import('highcharts/highcharts-more'),
-          import('highcharts/modules/heatmap'),
-          import('highcharts/modules/treemap'),
-          import('highcharts/modules/solid-gauge')
-        ]);
-        const initMore = moreModule.default;
-        const initHeatmap = heatmapModule.default;
-        const initTreemap = treemapModule.default;
-        const initSolidGauge = solidGaugeModule.default;
-        if (typeof initMore === "function") initMore(Highcharts__namespace);
-        if (typeof initHeatmap === "function") initHeatmap(Highcharts__namespace);
-        if (typeof initTreemap === "function") initTreemap(Highcharts__namespace);
-        if (typeof initSolidGauge === "function") initSolidGauge(Highcharts__namespace);
-        modulesInitialized = true;
-      } catch (e) {
-        console.warn("Failed to load Highcharts modules:", e);
-      }
-    })();
+  if (modulesInitialized || typeof window === "undefined") return;
+  try {
+    const initMore = HighchartsMore__default.default;
+    const initHeatmap = HighchartsHeatmap__default.default;
+    const initTreemap = HighchartsTreemap__default.default;
+    const initSolidGauge = HighchartsSolidGauge__default.default;
+    if (typeof initMore === "function") initMore(Highcharts__default.default);
+    if (typeof initHeatmap === "function") initHeatmap(Highcharts__default.default);
+    if (typeof initTreemap === "function") initTreemap(Highcharts__default.default);
+    if (typeof initSolidGauge === "function") initSolidGauge(Highcharts__default.default);
+    modulesInitialized = true;
+  } catch (e) {
+    console.warn("Failed to initialize Highcharts modules:", e);
   }
-  return modulesPromise;
+}
+if (typeof window !== "undefined") {
+  initHighchartsModules();
 }
 function getCSSVariable(name) {
   if (typeof window === "undefined") return "";
@@ -6082,33 +6080,15 @@ function Highchart(_a) {
     "callback",
     "containerProps"
   ]);
-  var _a2, _b2;
-  const [modulesReady, setModulesReady] = React21__namespace.useState(modulesInitialized);
   const theme = useHighchartsTheme();
   const chartRef = React21__namespace.useRef(null);
   React21__namespace.useEffect(() => {
-    initHighchartsModules().then(() => setModulesReady(true));
+    initHighchartsModules();
   }, []);
   const mergedOptions = React21__namespace.useMemo(
-    () => Highcharts__namespace.merge(theme, options),
+    () => Highcharts__default.default.merge(theme, options),
     [theme, options]
   );
-  const chartType = (_a2 = options == null ? void 0 : options.chart) == null ? void 0 : _a2.type;
-  const seriesTypes = ((_b2 = options == null ? void 0 : options.series) == null ? void 0 : _b2.map((s) => s.type)) || [];
-  const allTypes = [chartType, ...seriesTypes].filter(Boolean);
-  const advancedTypes = ["heatmap", "treemap", "solidgauge", "bubble", "waterfall", "gauge", "columnrange", "arearange"];
-  const needsAdvancedModules = allTypes.some((t) => advancedTypes.includes(t));
-  if (needsAdvancedModules && !modulesReady) {
-    return /* @__PURE__ */ jsxRuntime.jsx(
-      "div",
-      __spreadProps(__spreadValues({
-        "data-slot": "highchart",
-        className: cn("w-full flex items-center justify-center min-h-[200px]", className)
-      }, props), {
-        children: /* @__PURE__ */ jsxRuntime.jsx("span", { className: "text-sm text-muted-foreground", children: "Loading chart..." })
-      })
-    );
-  }
   return /* @__PURE__ */ jsxRuntime.jsx(
     "div",
     __spreadProps(__spreadValues({
@@ -6119,7 +6099,7 @@ function Highchart(_a) {
         HighchartsReact__default.default,
         {
           ref: chartRef,
-          highcharts: Highcharts__namespace,
+          highcharts: Highcharts__default.default,
           options: mergedOptions,
           immutable,
           allowChartUpdate,

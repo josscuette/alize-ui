@@ -1,48 +1,42 @@
 "use client"
 
 import * as React from "react"
-import * as Highcharts from "highcharts"
+import Highcharts from "highcharts"
 import HighchartsReact from "highcharts-react-official"
+import HighchartsMore from "highcharts/highcharts-more"
+import HighchartsHeatmap from "highcharts/modules/heatmap"
+import HighchartsTreemap from "highcharts/modules/treemap"
+import HighchartsSolidGauge from "highcharts/modules/solid-gauge"
 
 import { cn } from "../../lib/utils"
 
-// Initialize Highcharts modules
+// Initialize Highcharts modules (static imports, initialized once)
 let modulesInitialized = false
-let modulesPromise: Promise<void> | null = null
 type HighchartsModuleInit = (hc: typeof Highcharts) => void
 
-function initHighchartsModules(): Promise<void> {
-  if (modulesInitialized) return Promise.resolve()
-  if (typeof window === "undefined") return Promise.resolve()
+function initHighchartsModules(): void {
+  if (modulesInitialized || typeof window === "undefined") return
   
-  if (!modulesPromise) {
-    modulesPromise = (async () => {
-      try {
-        const [moreModule, heatmapModule, treemapModule, solidGaugeModule] = await Promise.all([
-          import("highcharts/highcharts-more"),
-          import("highcharts/modules/heatmap"),
-          import("highcharts/modules/treemap"),
-          import("highcharts/modules/solid-gauge"),
-        ])
-        
-        const initMore = moreModule.default as unknown as HighchartsModuleInit
-        const initHeatmap = heatmapModule.default as unknown as HighchartsModuleInit
-        const initTreemap = treemapModule.default as unknown as HighchartsModuleInit
-        const initSolidGauge = solidGaugeModule.default as unknown as HighchartsModuleInit
-        
-        if (typeof initMore === "function") initMore(Highcharts)
-        if (typeof initHeatmap === "function") initHeatmap(Highcharts)
-        if (typeof initTreemap === "function") initTreemap(Highcharts)
-        if (typeof initSolidGauge === "function") initSolidGauge(Highcharts)
-        
-        modulesInitialized = true
-      } catch (e) {
-        console.warn("Failed to load Highcharts modules:", e)
-      }
-    })()
+  try {
+    const initMore = HighchartsMore as unknown as HighchartsModuleInit
+    const initHeatmap = HighchartsHeatmap as unknown as HighchartsModuleInit
+    const initTreemap = HighchartsTreemap as unknown as HighchartsModuleInit
+    const initSolidGauge = HighchartsSolidGauge as unknown as HighchartsModuleInit
+    
+    if (typeof initMore === "function") initMore(Highcharts)
+    if (typeof initHeatmap === "function") initHeatmap(Highcharts)
+    if (typeof initTreemap === "function") initTreemap(Highcharts)
+    if (typeof initSolidGauge === "function") initSolidGauge(Highcharts)
+    
+    modulesInitialized = true
+  } catch (e) {
+    console.warn("Failed to initialize Highcharts modules:", e)
   }
-  
-  return modulesPromise
+}
+
+// Initialize modules immediately on client side
+if (typeof window !== "undefined") {
+  initHighchartsModules()
 }
 
 /**
@@ -564,13 +558,12 @@ function Highchart({
   containerProps,
   ...props
 }: HighchartProps): React.ReactElement {
-  const [modulesReady, setModulesReady] = React.useState(modulesInitialized)
   const theme = useHighchartsTheme()
   const chartRef = React.useRef<HighchartsReact.RefObject>(null)
   
-  // Initialize Highcharts modules on first render
+  // Ensure modules are initialized
   React.useEffect(() => {
-    initHighchartsModules().then(() => setModulesReady(true))
+    initHighchartsModules()
   }, [])
 
   // Merge theme with provided options
@@ -578,25 +571,6 @@ function Highchart({
     () => Highcharts.merge(theme, options),
     [theme, options]
   )
-
-  // Check if chart needs advanced modules
-  const chartType = options?.chart?.type as string | undefined
-  const seriesTypes = (options?.series as Array<{ type?: string }> | undefined)?.map(s => s.type) || []
-  const allTypes = [chartType, ...seriesTypes].filter(Boolean)
-  const advancedTypes = ["heatmap", "treemap", "solidgauge", "bubble", "waterfall", "gauge", "columnrange", "arearange"]
-  const needsAdvancedModules = allTypes.some(t => advancedTypes.includes(t as string))
-  
-  if (needsAdvancedModules && !modulesReady) {
-    return (
-      <div
-        data-slot="highchart"
-        className={cn("w-full flex items-center justify-center min-h-[200px]", className)}
-        {...props}
-      >
-        <span className="text-sm text-muted-foreground">Loading chart...</span>
-      </div>
-    )
-  }
 
   return (
     <div

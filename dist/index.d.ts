@@ -35,7 +35,7 @@ import * as ReactHookForm from 'react-hook-form';
 import { FieldValues, FieldPath, ControllerProps } from 'react-hook-form';
 import { DayPicker, DayButton } from 'react-day-picker';
 import useEmblaCarousel, { UseEmblaCarouselType } from 'embla-carousel-react';
-import * as Highcharts from 'highcharts';
+import Highcharts from 'highcharts';
 import { ToasterProps as ToasterProps$1 } from 'sonner';
 import * as ScrollAreaPrimitive from '@radix-ui/react-scroll-area';
 import * as ResizablePrimitive from 'react-resizable-panels';
