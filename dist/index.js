@@ -34,7 +34,7 @@ var AlertDialogPrimitive = require('@radix-ui/react-alert-dialog');
 var vaul = require('vaul');
 var NavigationMenuPrimitive = require('@radix-ui/react-navigation-menu');
 var MenubarPrimitive = require('@radix-ui/react-menubar');
-var reactHookForm = require('react-hook-form');
+var ReactHookForm = require('react-hook-form');
 var reactDayPicker = require('react-day-picker');
 var dateFns = require('date-fns');
 var useEmblaCarousel = require('embla-carousel-react');
@@ -91,6 +91,7 @@ var SheetPrimitive__namespace = /*#__PURE__*/_interopNamespace(SheetPrimitive);
 var AlertDialogPrimitive__namespace = /*#__PURE__*/_interopNamespace(AlertDialogPrimitive);
 var NavigationMenuPrimitive__namespace = /*#__PURE__*/_interopNamespace(NavigationMenuPrimitive);
 var MenubarPrimitive__namespace = /*#__PURE__*/_interopNamespace(MenubarPrimitive);
+var ReactHookForm__namespace = /*#__PURE__*/_interopNamespace(ReactHookForm);
 var useEmblaCarousel__default = /*#__PURE__*/_interopDefault(useEmblaCarousel);
 var Highcharts__namespace = /*#__PURE__*/_interopNamespace(Highcharts);
 var HighchartsReact__default = /*#__PURE__*/_interopDefault(HighchartsReact);
@@ -5004,7 +5005,8 @@ function MenubarSubContent(_a) {
     }, props)
   );
 }
-var Form = reactHookForm.FormProvider;
+var { FormProvider, useFormContext, useFormState, useController } = ReactHookForm__namespace;
+var Form = FormProvider;
 var FormFieldContext = React21__namespace.createContext(
   {}
 );
@@ -5016,7 +5018,7 @@ var FormField = ({
   shouldUnregister,
   render
 }) => {
-  const { field, fieldState, formState } = reactHookForm.useController({
+  const { field, fieldState, formState } = useController({
     name,
     control,
     defaultValue,
@@ -5028,8 +5030,8 @@ var FormField = ({
 var useFormField = () => {
   const fieldContext = React21__namespace.useContext(FormFieldContext);
   const itemContext = React21__namespace.useContext(FormItemContext);
-  const { getFieldState } = reactHookForm.useFormContext();
-  const formState = reactHookForm.useFormState({ name: fieldContext.name });
+  const { getFieldState } = useFormContext();
+  const formState = useFormState({ name: fieldContext.name });
   const fieldState = getFieldState(fieldContext.name, formState);
   if (!fieldContext) {
     throw new Error("useFormField should be used within <FormField>");

@@ -30,9 +30,9 @@ import { Drawer as Drawer$1 } from 'vaul';
 import * as react_jsx_runtime from 'react/jsx-runtime';
 import * as NavigationMenuPrimitive from '@radix-ui/react-navigation-menu';
 import * as MenubarPrimitive from '@radix-ui/react-menubar';
-import * as react_hook_form from 'react-hook-form';
-import { FieldValues, FieldPath, ControllerProps } from 'react-hook-form';
 import { Slot } from '@radix-ui/react-slot';
+import * as ReactHookForm from 'react-hook-form';
+import { FieldValues, FieldPath, ControllerProps } from 'react-hook-form';
 import { DayPicker, DayButton } from 'react-day-picker';
 import useEmblaCarousel, { UseEmblaCarouselType } from 'embla-carousel-react';
 import * as Highcharts from 'highcharts';
@@ -3521,7 +3521,7 @@ declare function MenubarSubTrigger({ className, inset, children, ...props }: Men
  */
 declare function MenubarSubContent({ className, ...props }: MenubarSubContentProps): React.ReactElement;
 
-declare const Form: <TFieldValues extends FieldValues, TContext = any, TTransformedValues = TFieldValues>(props: react_hook_form.FormProviderProps<TFieldValues, TContext, TTransformedValues>) => React.JSX.Element;
+declare const Form: <TFieldValues extends FieldValues, TContext = any, TTransformedValues = TFieldValues>(props: ReactHookForm.FormProviderProps<TFieldValues, TContext, TTransformedValues>) => React.JSX.Element;
 /**
  * FormItem component props interface
  * Extends native div element props
@@ -3558,7 +3558,7 @@ declare const useFormField: () => {
     isDirty: boolean;
     isTouched: boolean;
     isValidating: boolean;
-    error?: react_hook_form.FieldError;
+    error?: ReactHookForm.FieldError;
     id: string;
     name: string;
     formItemId: string;

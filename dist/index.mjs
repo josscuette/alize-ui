@@ -33,7 +33,7 @@ import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
 import { Drawer as Drawer$1 } from 'vaul';
 import * as NavigationMenuPrimitive from '@radix-ui/react-navigation-menu';
 import * as MenubarPrimitive from '@radix-ui/react-menubar';
-import { FormProvider, useController, useFormContext, useFormState } from 'react-hook-form';
+import * as ReactHookForm from 'react-hook-form';
 import { getDefaultClassNames, DayPicker } from 'react-day-picker';
 import { format } from 'date-fns';
 import useEmblaCarousel from 'embla-carousel-react';
@@ -4952,6 +4952,7 @@ function MenubarSubContent(_a) {
     }, props)
   );
 }
+var { FormProvider, useFormContext, useFormState, useController } = ReactHookForm;
 var Form = FormProvider;
 var FormFieldContext = React21.createContext(
   {}
