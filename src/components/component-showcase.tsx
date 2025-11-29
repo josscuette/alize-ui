@@ -229,7 +229,6 @@ import {
   MenubarSeparator,
   MenubarTrigger,
 } from "./ui/menubar";
-import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip as RechartsTooltip, XAxis, YAxis } from "recharts";
 import * as Highcharts from "highcharts";
 import { Highchart, useAlizeChartColors, useSequentialPalette, useDivergentPalette, useDivergentColors, getContrastTextColor } from "./ui/highchart";
 
@@ -264,12 +263,6 @@ function Section({ title, description, children }: SectionProps) {
   );
 }
 
-const chartData = [
-  { label: "Q1", main: 21, secondary: 16 },
-  { label: "Q2", main: 28, secondary: 22 },
-  { label: "Q3", main: 31, secondary: 18 },
-  { label: "Q4", main: 36, secondary: 25 },
-];
 
 const showcaseRegistry: Partial<Record<ComponentConfig["id"] | "foundation-layer", ShowcaseEntry>> = {
   "foundation-layer": {
@@ -10603,26 +10596,6 @@ const buttonVariants = cva(
           </div>
         </Section>
       </>
-    ),
-  },
-  chart: {
-    title: "Chart",
-    description: "Recharts primitives styled with the same semantic palette.",
-    body: (
-      <Section title="Quarterly view">
-        <div className="h-64">
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={chartData} barGap={6}>
-              <CartesianGrid strokeDasharray="3 3" strokeOpacity={0.2} />
-              <XAxis dataKey="label" tickLine={false} axisLine={false} />
-              <YAxis tickLine={false} axisLine={false} />
-              <RechartsTooltip cursor={{ fill: "var(--semantic-surface-subdued)" }} />
-              <Bar dataKey="main" radius={[6, 6, 0, 0]} fill="var(--semantic-surface-interaction-strong)" />
-              <Bar dataKey="secondary" radius={[6, 6, 0, 0]} fill="var(--semantic-surface-interaction-subtle)" />
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
-      </Section>
     ),
   },
   kbd: {

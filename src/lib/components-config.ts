@@ -68,7 +68,6 @@ export const componentsConfig: ComponentConfig[] = [
   { id: "calendar", name: "Calendar", category: "organisms" },
   { id: "date-picker", name: "Date Picker", category: "organisms" },
   { id: "carousel", name: "Carousel", category: "organisms" },
-  { id: "chart", name: "Chart", category: "organisms", modified: true },
   { id: "toast", name: "Toast", category: "organisms" },
   { id: "sonner", name: "Sonner", category: "organisms" },
   { id: "scroll-area", name: "Scroll Area", category: "organisms" },

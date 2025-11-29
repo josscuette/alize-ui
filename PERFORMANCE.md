@@ -55,7 +55,7 @@ function MyComponent() {
 
 ### Components Recommended for Lazy Loading
 
-- `Chart` - Heavy dependency on recharts library
+- `Highchart` - Heavy dependency on Highcharts library
 - `DataTable` - Can handle large datasets
 - `Dialog` - Overlay component, not always visible
 - `Calendar` - Heavy dependency on react-day-picker

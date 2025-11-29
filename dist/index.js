@@ -38,7 +38,6 @@ var reactHookForm = require('react-hook-form');
 var reactDayPicker = require('react-day-picker');
 var dateFns = require('date-fns');
 var useEmblaCarousel = require('embla-carousel-react');
-var recharts = require('recharts');
 var Highcharts = require('highcharts');
 var HighchartsReact = require('highcharts-react-official');
 var nextThemes = require('next-themes');
@@ -5700,10 +5699,6 @@ function CarouselNext(_a) {
     })
   );
 }
-var Chart = React21__namespace.memo(function Chart2(_a) {
-  var _b = _a, { className, children } = _b, props = __objRest(_b, ["className", "children"]);
-  return /* @__PURE__ */ jsxRuntime.jsx("div", __spreadProps(__spreadValues({ className: cn("w-full", className) }, props), { children: /* @__PURE__ */ jsxRuntime.jsx(recharts.ResponsiveContainer, { width: "100%", height: "100%", children }) }));
-});
 if (typeof window !== "undefined") {
   const HighchartsMore = __require("highcharts/highcharts-more");
   const HighchartsHeatmap = __require("highcharts/modules/heatmap");
@@ -6734,7 +6729,6 @@ exports.CarouselContent = CarouselContent;
 exports.CarouselItem = CarouselItem;
 exports.CarouselNext = CarouselNext;
 exports.CarouselPrevious = CarouselPrevious;
-exports.Chart = Chart;
 exports.Checkbox = Checkbox;
 exports.CheckboxCard = CheckboxCard;
 exports.Collapsible = Collapsible;

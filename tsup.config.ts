@@ -58,7 +58,6 @@ export default defineConfig({
     "lucide-react",
     
     // Charts
-    "recharts",
     "highcharts",
     "highcharts-react-official",
     "highcharts/modules/heatmap",
