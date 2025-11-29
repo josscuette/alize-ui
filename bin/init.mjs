@@ -31,7 +31,7 @@ const clearLine = "\x1b[2K\r";
 const groups = [
   {
     name: "Core UI",
-    desc: "Radix UI primitives",
+    desc: "Radix UI primitives + internal icons",
     selected: true,
     packages: [
       "@radix-ui/react-accordion", "@radix-ui/react-alert-dialog", "@radix-ui/react-aspect-ratio",
@@ -43,6 +43,7 @@ const groups = [
       "@radix-ui/react-separator", "@radix-ui/react-slider", "@radix-ui/react-slot",
       "@radix-ui/react-switch", "@radix-ui/react-tabs", "@radix-ui/react-toggle",
       "@radix-ui/react-toggle-group", "@radix-ui/react-tooltip",
+      "lucide-react", // Used internally by some components
     ],
   },
   {
@@ -53,31 +54,25 @@ const groups = [
   },
   {
     name: "Charts",
-    desc: "Highcharts",
+    desc: "Highcharts data visualization",
     selected: true,
     packages: ["highcharts", "highcharts-react-official"],
   },
   {
     name: "Calendar",
-    desc: "date-fns, react-day-picker",
+    desc: "Date picker components",
     selected: true,
     packages: ["date-fns", "react-day-picker"],
   },
   {
-    name: "Icons",
-    desc: "lucide-react",
-    selected: true,
-    packages: ["lucide-react"],
-  },
-  {
     name: "Advanced UI",
-    desc: "carousel, drawers, toasts",
+    desc: "Carousel, drawers, toasts, cmdk",
     selected: true,
     packages: ["embla-carousel-react", "react-resizable-panels", "vaul", "sonner", "cmdk", "input-otp"],
   },
   {
     name: "Theming",
-    desc: "next-themes",
+    desc: "Dark/light mode support",
     selected: true,
     packages: ["next-themes"],
   },
