@@ -572,6 +572,22 @@ function Highchart({
     [theme, options]
   )
 
+  // Don't render advanced charts until modules are loaded
+  const needsAdvancedModules = options?.chart?.type && 
+    ["heatmap", "treemap", "solidgauge", "bubble", "waterfall", "gauge"].includes(options.chart.type as string)
+  
+  if (needsAdvancedModules && !modulesReady) {
+    return (
+      <div
+        data-slot="highchart"
+        className={cn("w-full flex items-center justify-center", className)}
+        {...props}
+      >
+        <span className="text-sm text-muted-foreground">Loading chart...</span>
+      </div>
+    )
+  }
+
   return (
     <div
       data-slot="highchart"

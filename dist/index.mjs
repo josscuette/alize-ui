@@ -6021,6 +6021,7 @@ function Highchart(_a) {
     "callback",
     "containerProps"
   ]);
+  var _a2;
   const [modulesReady, setModulesReady] = React21.useState(modulesInitialized);
   const theme = useHighchartsTheme();
   const chartRef = React21.useRef(null);
@@ -6033,6 +6034,18 @@ function Highchart(_a) {
     () => Highcharts.merge(theme, options),
     [theme, options]
   );
+  const needsAdvancedModules = ((_a2 = options == null ? void 0 : options.chart) == null ? void 0 : _a2.type) && ["heatmap", "treemap", "solidgauge", "bubble", "waterfall", "gauge"].includes(options.chart.type);
+  if (needsAdvancedModules && !modulesReady) {
+    return /* @__PURE__ */ jsx(
+      "div",
+      __spreadProps(__spreadValues({
+        "data-slot": "highchart",
+        className: cn("w-full flex items-center justify-center", className)
+      }, props), {
+        children: /* @__PURE__ */ jsx("span", { className: "text-sm text-muted-foreground", children: "Loading chart..." })
+      })
+    );
+  }
   return /* @__PURE__ */ jsx(
     "div",
     __spreadProps(__spreadValues({
