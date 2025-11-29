@@ -285,8 +285,10 @@ export {
   CarouselNext,
   type CarouselApi,
 } from './components/ui/carousel'
-export { Highchart, useHighchartsTheme, useAlizeChartColors, useSequentialPalette, generateSequentialPalette, useDivergentPalette, useDivergentColors, generateDivergentPalette, getContrastTextColor } from './components/ui/highchart'
-export type { HighchartProps, AlizeChartColors, DivergentColors } from './components/ui/highchart'
+// Highcharts exports removed from main bundle to prevent errors in projects without highcharts
+// Projects using charts should install highcharts directly and use it with Alize theme tokens
+// export { Highchart, useHighchartsTheme, useAlizeChartColors, useSequentialPalette, generateSequentialPalette, useDivergentPalette, useDivergentColors, generateDivergentPalette, getContrastTextColor } from './components/ui/highchart'
+// export type { HighchartProps, AlizeChartColors, DivergentColors } from './components/ui/highchart'
 export { Toaster } from './components/ui/sonner'
 export { ScrollArea, ScrollBar } from './components/ui/scroll-area'
 export {
