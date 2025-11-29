@@ -8,7 +8,7 @@
 import { execSync, spawn } from "child_process";
 import fs from "fs";
 import path from "path";
-import { createInterface } from "readline";
+import { checkbox, confirm } from "@inquirer/prompts";
 
 // Colors
 const c = {
@@ -25,8 +25,8 @@ const c = {
 const groups = [
   {
     name: "Core UI",
-    desc: "Radix UI primitives",
-    selected: true,
+    value: "core",
+    description: "Radix UI primitives (dialogs, menus, tooltips...)",
     packages: [
       "@radix-ui/react-accordion", "@radix-ui/react-alert-dialog", "@radix-ui/react-aspect-ratio",
       "@radix-ui/react-avatar", "@radix-ui/react-checkbox", "@radix-ui/react-collapsible",
@@ -39,14 +39,39 @@ const groups = [
       "@radix-ui/react-toggle-group", "@radix-ui/react-tooltip", "lucide-react",
     ],
   },
-  { name: "Forms", desc: "react-hook-form, zod", selected: true, packages: ["react-hook-form", "@hookform/resolvers", "zod"] },
-  { name: "Charts", desc: "Highcharts", selected: true, packages: ["highcharts", "highcharts-react-official"] },
-  { name: "Calendar", desc: "Date picker", selected: true, packages: ["date-fns", "react-day-picker"] },
-  { name: "Advanced UI", desc: "Carousel, drawers, toasts", selected: true, packages: ["embla-carousel-react", "react-resizable-panels", "vaul", "sonner", "cmdk", "input-otp"] },
-  { name: "Theming", desc: "Dark/light mode", selected: true, packages: ["next-themes"] },
+  { 
+    name: "Forms", 
+    value: "forms",
+    description: "Form handling with validation",
+    packages: ["react-hook-form", "@hookform/resolvers", "zod"] 
+  },
+  { 
+    name: "Charts", 
+    value: "charts",
+    description: "Highcharts data visualization",
+    packages: ["highcharts", "highcharts-react-official"] 
+  },
+  { 
+    name: "Calendar", 
+    value: "calendar",
+    description: "Date picker components",
+    packages: ["date-fns", "react-day-picker"] 
+  },
+  { 
+    name: "Advanced UI", 
+    value: "advanced",
+    description: "Carousel, drawers, toasts, command palette",
+    packages: ["embla-carousel-react", "react-resizable-panels", "vaul", "sonner", "cmdk", "input-otp"] 
+  },
+  { 
+    name: "Theming", 
+    value: "theming",
+    description: "Dark/light mode support",
+    packages: ["next-themes"] 
+  },
 ];
 
-const basePackages = ["github:josscuette/alize-ui", "react", "react-dom", "tailwindcss"];
+const basePackages = ["github:josscuette/alize-ui", "react", "react-dom", "tailwindcss", "next"];
 
 function detectPM() {
   try { execSync("pnpm --version", { stdio: "ignore" }); return "pnpm"; } catch {}
@@ -57,16 +82,173 @@ function detectPM() {
 function ensurePackageJson() {
   const pkgPath = path.join(process.cwd(), "package.json");
   if (!fs.existsSync(pkgPath)) {
-    console.log(`${c.yellow}⚠ No package.json found. Creating one...${c.reset}`);
+    console.log(`\n${c.yellow}Creating package.json...${c.reset}`);
     execSync("npm init -y", { stdio: "ignore" });
-    console.log(`${c.green}✓${c.reset} Created package.json\n`);
+    
+    // Update package.json with scripts
+    const pkg = JSON.parse(fs.readFileSync(pkgPath, "utf-8"));
+    pkg.scripts = {
+      ...pkg.scripts,
+      dev: "next dev",
+      build: "next build",
+      start: "next start",
+    };
+    fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2));
+    console.log(`${c.green}✓${c.reset} Created package.json with Next.js scripts`);
+  }
+}
+
+function createProjectFiles() {
+  const cwd = process.cwd();
+  
+  // Create app directory if it doesn't exist
+  const appDir = path.join(cwd, "app");
+  if (!fs.existsSync(appDir)) {
+    fs.mkdirSync(appDir, { recursive: true });
+  }
+  
+  // Create layout.tsx
+  const layoutPath = path.join(appDir, "layout.tsx");
+  if (!fs.existsSync(layoutPath)) {
+    const layoutContent = `import type { Metadata } from "next";
+import "alize-ui/dist/alize.css";
+
+export const metadata: Metadata = {
+  title: "My Alize App",
+  description: "Built with Alize UI",
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <body>{children}</body>
+    </html>
+  );
+}
+`;
+    fs.writeFileSync(layoutPath, layoutContent);
+    console.log(`${c.green}✓${c.reset} Created app/layout.tsx`);
+  }
+  
+  // Create page.tsx with demo components
+  const pagePath = path.join(appDir, "page.tsx");
+  if (!fs.existsSync(pagePath)) {
+    const pageContent = `import { Button, Card, CardHeader, CardTitle, CardContent, Badge, Input } from "alize-ui";
+import { MaterialSymbol } from "alize-ui";
+
+export default function Home() {
+  return (
+    <main className="min-h-screen bg-background p-8">
+      <div className="max-w-2xl mx-auto space-y-8">
+        <header className="text-center space-y-2">
+          <h1 className="text-4xl font-bold text-foreground">
+            Welcome to Alize UI
+          </h1>
+          <p className="text-muted-foreground">
+            Your project is ready! Start building beautiful interfaces.
+          </p>
+        </header>
+
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <MaterialSymbol name="widgets" size={20} weight={300} />
+              Quick Start
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <p className="text-sm text-muted-foreground">
+              This is a demo page showing some Alize components.
+              Edit <code className="bg-muted px-1 rounded">app/page.tsx</code> to get started.
+            </p>
+            
+            <div className="flex flex-wrap gap-2">
+              <Button>Primary Button</Button>
+              <Button variant="outline">Outline</Button>
+              <Button variant="ghost">Ghost</Button>
+            </div>
+            
+            <div className="flex gap-2">
+              <Badge>Badge</Badge>
+              <Badge variant="secondary">Secondary</Badge>
+              <Badge variant="outline">Outline</Badge>
+            </div>
+            
+            <Input placeholder="Try typing here..." />
+          </CardContent>
+        </Card>
+        
+        <p className="text-center text-sm text-muted-foreground">
+          Read the docs at{" "}
+          <a 
+            href="https://github.com/josscuette/alize-ui" 
+            className="text-primary underline"
+            target="_blank"
+          >
+            github.com/josscuette/alize-ui
+          </a>
+        </p>
+      </div>
+    </main>
+  );
+}
+`;
+    fs.writeFileSync(pagePath, pageContent);
+    console.log(`${c.green}✓${c.reset} Created app/page.tsx with demo components`);
+  }
+  
+  // Create next.config.ts if it doesn't exist
+  const nextConfigPath = path.join(cwd, "next.config.ts");
+  if (!fs.existsSync(nextConfigPath)) {
+    const nextConfigContent = `import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  transpilePackages: ["alize-ui"],
+};
+
+export default nextConfig;
+`;
+    fs.writeFileSync(nextConfigPath, nextConfigContent);
+    console.log(`${c.green}✓${c.reset} Created next.config.ts`);
+  }
+  
+  // Create tsconfig.json if it doesn't exist
+  const tsconfigPath = path.join(cwd, "tsconfig.json");
+  if (!fs.existsSync(tsconfigPath)) {
+    const tsconfigContent = {
+      compilerOptions: {
+        target: "ES2017",
+        lib: ["dom", "dom.iterable", "esnext"],
+        allowJs: true,
+        skipLibCheck: true,
+        strict: true,
+        noEmit: true,
+        esModuleInterop: true,
+        module: "esnext",
+        moduleResolution: "bundler",
+        resolveJsonModule: true,
+        isolatedModules: true,
+        jsx: "preserve",
+        incremental: true,
+        plugins: [{ name: "next" }],
+        paths: { "@/*": ["./*"] }
+      },
+      include: ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+      exclude: ["node_modules"]
+    };
+    fs.writeFileSync(tsconfigPath, JSON.stringify(tsconfigContent, null, 2));
+    console.log(`${c.green}✓${c.reset} Created tsconfig.json`);
   }
 }
 
 async function install(packages) {
   const pm = detectPM();
   const cmd = pm === "npm" ? "install" : "add";
-  console.log(`${c.cyan}Installing with ${pm}...${c.reset}\n`);
+  console.log(`\n${c.cyan}Installing with ${pm}...${c.reset}\n`);
   
   return new Promise((resolve) => {
     const child = spawn(pm, [cmd, ...packages], { stdio: "inherit", shell: true });
@@ -74,61 +256,55 @@ async function install(packages) {
   });
 }
 
-async function prompt() {
-  const rl = createInterface({ input: process.stdin, output: process.stdout });
-  
+async function main() {
   console.log(`\n${c.cyan}${c.bold}  ╭──────────────────────────────────────╮${c.reset}`);
   console.log(`${c.cyan}${c.bold}  │${c.reset}       ${c.magenta}${c.bold}Alize UI${c.reset} - Installation      ${c.cyan}${c.bold}│${c.reset}`);
   console.log(`${c.cyan}${c.bold}  ╰──────────────────────────────────────╯${c.reset}\n`);
   
-  console.log(`  ${c.dim}Dependencies to install:${c.reset}\n`);
-  
-  groups.forEach((g, i) => {
-    console.log(`  ${c.green}${i + 1}.${c.reset} ${c.bold}${g.name}${c.reset} ${c.dim}— ${g.desc}${c.reset}`);
+  // Use inquirer checkbox with all checked by default
+  const selected = await checkbox({
+    message: "Select dependencies to install (all selected by default):",
+    choices: groups.map(g => ({
+      name: `${g.name} — ${g.description}`,
+      value: g.value,
+      checked: true,
+    })),
+    instructions: false,
   });
   
-  console.log(`\n  ${c.dim}Press Enter to install all, or type numbers to exclude (e.g., "3,5")${c.reset}`);
-  
-  return new Promise((resolve) => {
-    rl.question(`\n  ${c.cyan}Exclude:${c.reset} `, (answer) => {
-      rl.close();
-      
-      if (answer.trim()) {
-        const exclude = answer.split(",").map(n => parseInt(n.trim()) - 1).filter(n => !isNaN(n));
-        exclude.forEach(i => {
-          if (groups[i]) groups[i].selected = false;
-        });
-      }
-      
-      resolve();
-    });
-  });
-}
-
-async function main() {
-  await prompt();
-  
+  // Build package list
   const packages = [...basePackages];
-  const selected = groups.filter(g => g.selected);
-  selected.forEach(g => packages.push(...g.packages));
+  selected.forEach(value => {
+    const group = groups.find(g => g.value === value);
+    if (group) packages.push(...group.packages);
+  });
   
+  // Summary
   console.log(`\n${c.bold}Installing:${c.reset}`);
   if (selected.length === groups.length) {
-    console.log(`  ${c.green}✓${c.reset} Full installation\n`);
+    console.log(`  ${c.green}✓${c.reset} Full installation (all dependencies)`);
   } else {
-    selected.forEach(g => console.log(`  ${c.green}✓${c.reset} ${g.name}`));
-    groups.filter(g => !g.selected).forEach(g => console.log(`  ${c.dim}○ ${g.name} (skipped)${c.reset}`));
-    console.log();
+    groups.forEach(g => {
+      if (selected.includes(g.value)) {
+        console.log(`  ${c.green}✓${c.reset} ${g.name}`);
+      } else {
+        console.log(`  ${c.dim}○ ${g.name} (skipped)${c.reset}`);
+      }
+    });
   }
   
+  // Ensure package.json and install
   ensurePackageJson();
   const success = await install(packages);
   
   if (success) {
+    // Create project files
+    console.log(`\n${c.bold}Setting up project files...${c.reset}`);
+    createProjectFiles();
+    
     console.log(`\n${c.green}${c.bold}✓ Done!${c.reset}\n`);
-    console.log(`${c.dim}Next steps:${c.reset}`);
-    console.log(`  ${c.cyan}import "alize-ui/dist/alize.css"${c.reset}`);
-    console.log(`  ${c.cyan}import { Button } from "alize-ui"${c.reset}\n`);
+    console.log(`${c.dim}Start your dev server:${c.reset}`);
+    console.log(`  ${c.cyan}npm run dev${c.reset}\n`);
   }
 }
 
