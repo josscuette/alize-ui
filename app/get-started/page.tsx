@@ -123,7 +123,7 @@ export default function GetStartedPage(): React.ReactElement {
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    <CodeBlock>npx alize-ui</CodeBlock>
+                    <CodeBlock>npx github:josscuette/alize-ui</CodeBlock>
                     <p className="text-sm text-muted-foreground">
                       Press <kbd className="px-1.5 py-0.5 bg-muted rounded text-xs font-mono">Enter</kbd> to install everything, 
                       or <kbd className="px-1.5 py-0.5 bg-muted rounded text-xs font-mono">Space</kbd> to deselect 

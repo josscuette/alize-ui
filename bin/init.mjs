@@ -103,7 +103,8 @@ const dependencyGroups = [
 ];
 
 // Base packages (always installed)
-const basePackages = ["alize-ui", "react", "react-dom", "tailwindcss"];
+// Install alize-ui from GitHub
+const basePackages = ["github:josscuette/alize-ui", "react", "react-dom", "tailwindcss"];
 
 function clearLine() {
   process.stdout.write("\x1b[2K\x1b[0G");
@@ -213,10 +214,10 @@ function printSuccess() {
   console.log(`  2. Import components:`);
   console.log(`     ${colors.cyan}import { Button, Card } from "alize-ui"${colors.reset}`);
   console.log();
-  console.log(`  3. Wrap your app with providers (optional):`);
-  console.log(`     ${colors.cyan}import { MaterialSymbolsProvider } from "alize-ui"${colors.reset}`);
+  console.log(`  3. Set up theming (optional):`);
+  console.log(`     ${colors.cyan}import { ThemeProvider } from "next-themes"${colors.reset}`);
   console.log();
-  console.log(`${colors.dim}  Documentation: https://github.com/josscuette/alize-ui${colors.reset}`);
+  console.log(`${colors.dim}  Docs: ${colors.cyan}https://github.com/josscuette/alize-ui${colors.reset}`);
   console.log();
 }
 
