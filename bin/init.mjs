@@ -158,60 +158,40 @@ export default function RootLayout({
   // Create page.tsx with demo components
   const pagePath = path.join(appDir, "page.tsx");
   if (!fs.existsSync(pagePath)) {
-    const pageContent = `import { Button, Card, CardHeader, CardTitle, CardContent, Badge, Input } from "alize-ui";
-import { MaterialSymbol } from "alize-ui";
-
-export default function Home() {
+    const pageContent = `export default function Home() {
   return (
-    <main className="min-h-screen bg-background p-8">
+    <main className="min-h-screen bg-[var(--background)] p-8">
       <div className="max-w-2xl mx-auto space-y-8">
         <header className="text-center space-y-2">
-          <h1 className="text-4xl font-bold text-foreground">
+          <h1 className="text-4xl font-bold text-[var(--foreground)]">
             Welcome to Alize UI
           </h1>
-          <p className="text-muted-foreground">
+          <p className="text-[var(--muted-foreground)]">
             Your project is ready! Start building beautiful interfaces.
           </p>
         </header>
 
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <MaterialSymbol name="widgets" size={20} weight={300} />
-              Quick Start
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <p className="text-sm text-muted-foreground">
-              This is a demo page showing some Alize components.
-              Edit <code className="bg-muted px-1 rounded">app/page.tsx</code> to get started.
-            </p>
-            
-            <div className="flex flex-wrap gap-2">
-              <Button>Primary Button</Button>
-              <Button variant="outline">Outline</Button>
-              <Button variant="ghost">Ghost</Button>
-            </div>
-            
-            <div className="flex gap-2">
-              <Badge>Badge</Badge>
-              <Badge variant="secondary">Secondary</Badge>
-              <Badge variant="outline">Outline</Badge>
-            </div>
-            
-            <Input placeholder="Try typing here..." />
-          </CardContent>
-        </Card>
+        <div className="rounded-lg border border-[var(--border)] bg-[var(--card)] p-6 shadow-sm">
+          <h2 className="text-xl font-semibold mb-4">Quick Start</h2>
+          <p className="text-sm text-[var(--muted-foreground)] mb-4">
+            Edit <code className="bg-[var(--muted)] px-1 rounded">app/page.tsx</code> to get started.
+          </p>
+          
+          <div className="flex flex-wrap gap-2">
+            <button className="px-4 py-2 bg-[var(--primary)] text-[var(--primary-foreground)] rounded-md font-medium hover:opacity-90">
+              Primary Button
+            </button>
+            <button className="px-4 py-2 border border-[var(--border)] rounded-md font-medium hover:bg-[var(--accent)]">
+              Outline
+            </button>
+          </div>
+        </div>
         
-        <p className="text-center text-sm text-muted-foreground">
-          Read the docs at{" "}
-          <a 
-            href="https://github.com/josscuette/alize-ui" 
-            className="text-primary underline"
-            target="_blank"
-          >
-            github.com/josscuette/alize-ui
-          </a>
+        <p className="text-center text-sm text-[var(--muted-foreground)]">
+          Import components:{" "}
+          <code className="bg-[var(--muted)] px-1 rounded">
+            {"import { Button } from 'alize-ui'"}
+          </code>
         </p>
       </div>
     </main>
