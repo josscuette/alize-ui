@@ -132,7 +132,19 @@ function createProjectFiles() {
   const layoutPath = path.join(appDir, "layout.tsx");
   if (!fs.existsSync(layoutPath)) {
     const layoutContent = `import type { Metadata } from "next";
+import { Source_Sans_3, Geist_Mono } from "next/font/google";
 import "alize-ui/dist/alize.css";
+
+const sourceSans = Source_Sans_3({
+  variable: "--font-sans",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "My Alize App",
@@ -146,7 +158,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={\`\${sourceSans.variable} \${geistMono.variable} antialiased\`}>
+        {children}
+      </body>
     </html>
   );
 }
