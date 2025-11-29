@@ -3,41 +3,43 @@
 import * as React from "react"
 import { cn } from "../../lib/utils"
 
-// Lazy-loaded Highcharts references
-let Highcharts: typeof import("highcharts").default | null = null
-let HighchartsReact: typeof import("highcharts-react-official").default | null = null
+// Highcharts references - loaded on demand
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let Highcharts: any = null
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let HighchartsReact: any = null
 let modulesInitialized = false
 let highchartsLoaded = false
+let loadAttempted = false
 
-type HighchartsModuleInit = (hc: typeof import("highcharts").default) => void
-
-async function loadHighcharts(): Promise<boolean> {
+function loadHighchartsSync(): boolean {
   if (highchartsLoaded) return true
+  if (loadAttempted) return highchartsLoaded
   if (typeof window === "undefined") return false
   
+  loadAttempted = true
+  
   try {
-    const [hc, hcReact, more, heatmap, treemap, solidGauge] = await Promise.all([
-      import("highcharts"),
-      import("highcharts-react-official"),
-      import("highcharts/highcharts-more"),
-      import("highcharts/modules/heatmap"),
-      import("highcharts/modules/treemap"),
-      import("highcharts/modules/solid-gauge"),
-    ])
-    
-    Highcharts = hc.default
-    HighchartsReact = hcReact.default
+    // Use require for synchronous loading - works better with bundlers
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    Highcharts = require("highcharts")
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    HighchartsReact = require("highcharts-react-official").default
     
     if (!modulesInitialized && Highcharts) {
-      const initMore = more.default as unknown as HighchartsModuleInit
-      const initHeatmap = heatmap.default as unknown as HighchartsModuleInit
-      const initTreemap = treemap.default as unknown as HighchartsModuleInit
-      const initSolidGauge = solidGauge.default as unknown as HighchartsModuleInit
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      const more = require("highcharts/highcharts-more")
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      const heatmap = require("highcharts/modules/heatmap")
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      const treemap = require("highcharts/modules/treemap")
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      const solidGauge = require("highcharts/modules/solid-gauge")
       
-      if (typeof initMore === "function") initMore(Highcharts)
-      if (typeof initHeatmap === "function") initHeatmap(Highcharts)
-      if (typeof initTreemap === "function") initTreemap(Highcharts)
-      if (typeof initSolidGauge === "function") initSolidGauge(Highcharts)
+      if (typeof more === "function") more(Highcharts)
+      if (typeof heatmap === "function") heatmap(Highcharts)
+      if (typeof treemap === "function") treemap(Highcharts)
+      if (typeof solidGauge === "function") solidGauge(Highcharts)
       
       modulesInitialized = true
     }
@@ -45,13 +47,14 @@ async function loadHighcharts(): Promise<boolean> {
     highchartsLoaded = true
     return true
   } catch (e) {
-    console.warn("Highcharts not available:", e)
+    // Highcharts not installed - that's OK for projects not using charts
     return false
   }
 }
 
 // Helper to get Highcharts instance (for hooks)
-function getHighcharts(): typeof import("highcharts").default | null {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function getHighcharts(): any {
   return Highcharts
 }
 
@@ -580,19 +583,14 @@ function Highchart({
   const [isReady, setIsReady] = React.useState(false)
   const [error, setError] = React.useState<string | null>(null)
   
-  // Load Highcharts lazily
+  // Load Highcharts on mount
   React.useEffect(() => {
-    loadHighcharts()
-      .then((success) => {
-        if (success) {
-          setIsReady(true)
-        } else {
-          setError("Highcharts is not installed. Install it with: npm install highcharts highcharts-react-official")
-        }
-      })
-      .catch(() => {
-        setError("Failed to load Highcharts")
-      })
+    const success = loadHighchartsSync()
+    if (success) {
+      setIsReady(true)
+    } else {
+      setError("Highcharts is not installed. Install it with: npm install highcharts highcharts-react-official")
+    }
   }, [])
 
   // Merge theme with provided options
