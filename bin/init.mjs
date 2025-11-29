@@ -133,6 +133,7 @@ function createProjectFiles() {
   if (!fs.existsSync(layoutPath)) {
     const layoutContent = `import type { Metadata } from "next";
 import { Source_Sans_3, Geist_Mono } from "next/font/google";
+import { ThemeProvider } from "next-themes";
 import "alize-ui/dist/alize.css";
 
 const sourceSans = Source_Sans_3({
@@ -157,9 +158,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={\`\${sourceSans.variable} \${geistMono.variable} antialiased\`}>
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
@@ -174,6 +177,7 @@ export default function RootLayout({
   if (!fs.existsSync(pagePath)) {
     const pageContent = `"use client";
 
+import { useTheme } from "next-themes";
 import { 
   Button, 
   Card, 
@@ -189,6 +193,8 @@ import {
 } from "alize-ui";
 
 export default function Home() {
+  const { theme, setTheme } = useTheme();
+
   return (
     <main className="min-h-screen bg-background p-8">
       <div className="max-w-2xl mx-auto space-y-8">
@@ -241,7 +247,11 @@ export default function Home() {
                     <Checkbox /> Remember me
                   </label>
                   <label className="flex items-center gap-2 text-sm">
-                    <Switch /> Dark mode
+                    <Switch 
+                      checked={theme === "dark"} 
+                      onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")} 
+                    /> 
+                    Dark mode
                   </label>
                 </div>
               </div>
