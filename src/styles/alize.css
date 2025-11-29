@@ -117,7 +117,8 @@
 
 :root {
   --radius: 0.375rem;
-  --radius-reduced: calc(var(--radius) - 4px);
+  --radius-sm: 4px;
+  --radius-reduced: var(--radius-sm);
   --font-sans: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
