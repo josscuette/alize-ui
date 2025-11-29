@@ -3552,7 +3552,7 @@ interface FormDescriptionProps extends React.ComponentProps<"p"> {
  */
 interface FormMessageProps extends React.ComponentProps<"p"> {
 }
-declare const FormField: <TFieldValues extends FieldValues = FieldValues, TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>>({ ...props }: ControllerProps<TFieldValues, TName>) => react_jsx_runtime.JSX.Element;
+declare const FormField: <TFieldValues extends FieldValues = FieldValues, TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>>({ name, control, defaultValue, rules, shouldUnregister, render, }: ControllerProps<TFieldValues, TName>) => react_jsx_runtime.JSX.Element;
 declare const useFormField: () => {
     invalid: boolean;
     isDirty: boolean;

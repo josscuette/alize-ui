@@ -33,7 +33,7 @@ import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
 import { Drawer as Drawer$1 } from 'vaul';
 import * as NavigationMenuPrimitive from '@radix-ui/react-navigation-menu';
 import * as MenubarPrimitive from '@radix-ui/react-menubar';
-import { FormProvider, Controller, useFormContext, useFormState } from 'react-hook-form';
+import { FormProvider, useController, useFormContext, useFormState } from 'react-hook-form';
 import { getDefaultClassNames, DayPicker } from 'react-day-picker';
 import { format } from 'date-fns';
 import useEmblaCarousel from 'embla-carousel-react';
@@ -4956,9 +4956,22 @@ var Form = FormProvider;
 var FormFieldContext = React21.createContext(
   {}
 );
-var FormField = (_a) => {
-  var props = __objRest(_a, []);
-  return /* @__PURE__ */ jsx(FormFieldContext.Provider, { value: { name: props.name }, children: /* @__PURE__ */ jsx(Controller, __spreadValues({}, props)) });
+var FormField = ({
+  name,
+  control,
+  defaultValue,
+  rules,
+  shouldUnregister,
+  render
+}) => {
+  const { field, fieldState, formState } = useController({
+    name,
+    control,
+    defaultValue,
+    rules,
+    shouldUnregister
+  });
+  return /* @__PURE__ */ jsx(FormFieldContext.Provider, { value: { name }, children: render({ field, fieldState, formState }) });
 };
 var useFormField = () => {
   const fieldContext = React21.useContext(FormFieldContext);

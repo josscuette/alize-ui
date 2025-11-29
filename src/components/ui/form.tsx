@@ -4,10 +4,10 @@ import * as React from "react"
 import * as LabelPrimitive from "@radix-ui/react-label"
 import { Slot } from "@radix-ui/react-slot"
 import {
-  Controller,
   FormProvider,
   useFormContext,
   useFormState,
+  useController,
   type ControllerProps,
   type FieldPath,
   type FieldValues,
@@ -78,11 +78,24 @@ const FormField = <
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 >({
-  ...props
+  name,
+  control,
+  defaultValue,
+  rules,
+  shouldUnregister,
+  render,
 }: ControllerProps<TFieldValues, TName>) => {
+  const { field, fieldState, formState } = useController({
+    name,
+    control,
+    defaultValue,
+    rules,
+    shouldUnregister,
+  })
+  
   return (
-    <FormFieldContext.Provider value={{ name: props.name }}>
-      <Controller {...props} />
+    <FormFieldContext.Provider value={{ name }}>
+      {render({ field, fieldState, formState })}
     </FormFieldContext.Provider>
   )
 }

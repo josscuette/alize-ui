@@ -5008,9 +5008,22 @@ var Form = reactHookForm.FormProvider;
 var FormFieldContext = React21__namespace.createContext(
   {}
 );
-var FormField = (_a) => {
-  var props = __objRest(_a, []);
-  return /* @__PURE__ */ jsxRuntime.jsx(FormFieldContext.Provider, { value: { name: props.name }, children: /* @__PURE__ */ jsxRuntime.jsx(reactHookForm.Controller, __spreadValues({}, props)) });
+var FormField = ({
+  name,
+  control,
+  defaultValue,
+  rules,
+  shouldUnregister,
+  render
+}) => {
+  const { field, fieldState, formState } = reactHookForm.useController({
+    name,
+    control,
+    defaultValue,
+    rules,
+    shouldUnregister
+  });
+  return /* @__PURE__ */ jsxRuntime.jsx(FormFieldContext.Provider, { value: { name }, children: render({ field, fieldState, formState }) });
 };
 var useFormField = () => {
   const fieldContext = React21__namespace.useContext(FormFieldContext);
