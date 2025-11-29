@@ -16,6 +16,11 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
     },
+    "./charts": {
+      "types": "./dist/charts.d.ts",
+      "import": "./dist/charts.mjs",
+      "require": "./dist/charts.js"
+    },
     "./dist/alize.css": "./dist/alize.css",
     "./preset": {
       "types": "./dist/tailwind.preset.d.ts",
