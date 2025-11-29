@@ -40,10 +40,6 @@ var dateFns = require('date-fns');
 var useEmblaCarousel = require('embla-carousel-react');
 var Highcharts = require('highcharts');
 var HighchartsReact = require('highcharts-react-official');
-var HighchartsMore = require('highcharts/highcharts-more');
-var HighchartsHeatmap = require('highcharts/modules/heatmap');
-var HighchartsTreemap = require('highcharts/modules/treemap');
-var HighchartsSolidGauge = require('highcharts/modules/solid-gauge');
 var nextThemes = require('next-themes');
 var sonner = require('sonner');
 var ScrollAreaPrimitive = require('@radix-ui/react-scroll-area');
@@ -99,10 +95,6 @@ var ReactHookForm__namespace = /*#__PURE__*/_interopNamespace(ReactHookForm);
 var useEmblaCarousel__default = /*#__PURE__*/_interopDefault(useEmblaCarousel);
 var Highcharts__namespace = /*#__PURE__*/_interopNamespace(Highcharts);
 var HighchartsReact__default = /*#__PURE__*/_interopDefault(HighchartsReact);
-var HighchartsMore__default = /*#__PURE__*/_interopDefault(HighchartsMore);
-var HighchartsHeatmap__default = /*#__PURE__*/_interopDefault(HighchartsHeatmap);
-var HighchartsTreemap__default = /*#__PURE__*/_interopDefault(HighchartsTreemap);
-var HighchartsSolidGauge__default = /*#__PURE__*/_interopDefault(HighchartsSolidGauge);
 var ScrollAreaPrimitive__namespace = /*#__PURE__*/_interopNamespace(ScrollAreaPrimitive);
 var ResizablePrimitive__namespace = /*#__PURE__*/_interopNamespace(ResizablePrimitive);
 
@@ -5717,18 +5709,25 @@ function CarouselNext(_a) {
   );
 }
 var modulesInitialized = false;
-function initHighchartsModules() {
+async function initHighchartsModules() {
   if (modulesInitialized || typeof window === "undefined") return;
   modulesInitialized = true;
-  if (typeof Highcharts__namespace === "object") {
-    const initMore = HighchartsMore__default.default;
-    const initHeatmap = HighchartsHeatmap__default.default;
-    const initTreemap = HighchartsTreemap__default.default;
-    const initSolidGauge = HighchartsSolidGauge__default.default;
+  try {
+    const [moreModule, heatmapModule, treemapModule, solidGaugeModule] = await Promise.all([
+      import('highcharts/highcharts-more'),
+      import('highcharts/modules/heatmap'),
+      import('highcharts/modules/treemap'),
+      import('highcharts/modules/solid-gauge')
+    ]);
+    const initMore = moreModule.default;
+    const initHeatmap = heatmapModule.default;
+    const initTreemap = treemapModule.default;
+    const initSolidGauge = solidGaugeModule.default;
     if (typeof initMore === "function") initMore(Highcharts__namespace);
     if (typeof initHeatmap === "function") initHeatmap(Highcharts__namespace);
     if (typeof initTreemap === "function") initTreemap(Highcharts__namespace);
     if (typeof initSolidGauge === "function") initSolidGauge(Highcharts__namespace);
+  } catch (e) {
   }
 }
 function getCSSVariable(name) {
@@ -6075,9 +6074,14 @@ function Highchart(_a) {
     "callback",
     "containerProps"
   ]);
-  initHighchartsModules();
+  const [modulesReady, setModulesReady] = React21__namespace.useState(modulesInitialized);
   const theme = useHighchartsTheme();
   const chartRef = React21__namespace.useRef(null);
+  React21__namespace.useEffect(() => {
+    if (!modulesInitialized) {
+      initHighchartsModules().then(() => setModulesReady(true));
+    }
+  }, []);
   const mergedOptions = React21__namespace.useMemo(
     () => Highcharts__namespace.merge(theme, options),
     [theme, options]

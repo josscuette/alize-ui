@@ -3,31 +3,36 @@
 import * as React from "react"
 import * as Highcharts from "highcharts"
 import HighchartsReact from "highcharts-react-official"
-import HighchartsMore from "highcharts/highcharts-more"
-import HighchartsHeatmap from "highcharts/modules/heatmap"
-import HighchartsTreemap from "highcharts/modules/treemap"
-import HighchartsSolidGauge from "highcharts/modules/solid-gauge"
 
 import { cn } from "../../lib/utils"
 
-// Initialize Highcharts modules
+// Initialize Highcharts modules lazily
 let modulesInitialized = false
 type HighchartsModuleInit = (hc: typeof Highcharts) => void
 
-function initHighchartsModules(): void {
+async function initHighchartsModules(): Promise<void> {
   if (modulesInitialized || typeof window === "undefined") return
   modulesInitialized = true
   
-  if (typeof Highcharts === "object") {
-    const initMore = HighchartsMore as unknown as HighchartsModuleInit | undefined
-    const initHeatmap = HighchartsHeatmap as unknown as HighchartsModuleInit | undefined
-    const initTreemap = HighchartsTreemap as unknown as HighchartsModuleInit | undefined
-    const initSolidGauge = HighchartsSolidGauge as unknown as HighchartsModuleInit | undefined
+  try {
+    const [moreModule, heatmapModule, treemapModule, solidGaugeModule] = await Promise.all([
+      import("highcharts/highcharts-more"),
+      import("highcharts/modules/heatmap"),
+      import("highcharts/modules/treemap"),
+      import("highcharts/modules/solid-gauge"),
+    ])
+    
+    const initMore = moreModule.default as unknown as HighchartsModuleInit
+    const initHeatmap = heatmapModule.default as unknown as HighchartsModuleInit
+    const initTreemap = treemapModule.default as unknown as HighchartsModuleInit
+    const initSolidGauge = solidGaugeModule.default as unknown as HighchartsModuleInit
     
     if (typeof initMore === "function") initMore(Highcharts)
     if (typeof initHeatmap === "function") initHeatmap(Highcharts)
     if (typeof initTreemap === "function") initTreemap(Highcharts)
     if (typeof initSolidGauge === "function") initSolidGauge(Highcharts)
+  } catch {
+    // Modules not available, basic charts will still work
   }
 }
 
@@ -550,11 +555,16 @@ function Highchart({
   containerProps,
   ...props
 }: HighchartProps): React.ReactElement {
-  // Initialize Highcharts modules on first render
-  initHighchartsModules()
-  
+  const [modulesReady, setModulesReady] = React.useState(modulesInitialized)
   const theme = useHighchartsTheme()
   const chartRef = React.useRef<HighchartsReact.RefObject>(null)
+  
+  // Initialize Highcharts modules on first render
+  React.useEffect(() => {
+    if (!modulesInitialized) {
+      initHighchartsModules().then(() => setModulesReady(true))
+    }
+  }, [])
 
   // Merge theme with provided options
   const mergedOptions = React.useMemo(

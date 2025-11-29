@@ -39,10 +39,6 @@ import { format } from 'date-fns';
 import useEmblaCarousel from 'embla-carousel-react';
 import * as Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
-import HighchartsMore from 'highcharts/highcharts-more';
-import HighchartsHeatmap from 'highcharts/modules/heatmap';
-import HighchartsTreemap from 'highcharts/modules/treemap';
-import HighchartsSolidGauge from 'highcharts/modules/solid-gauge';
 import { useTheme } from 'next-themes';
 import { Toaster as Toaster$1 } from 'sonner';
 import * as ScrollAreaPrimitive from '@radix-ui/react-scroll-area';
@@ -5660,18 +5656,25 @@ function CarouselNext(_a) {
   );
 }
 var modulesInitialized = false;
-function initHighchartsModules() {
+async function initHighchartsModules() {
   if (modulesInitialized || typeof window === "undefined") return;
   modulesInitialized = true;
-  if (typeof Highcharts === "object") {
-    const initMore = HighchartsMore;
-    const initHeatmap = HighchartsHeatmap;
-    const initTreemap = HighchartsTreemap;
-    const initSolidGauge = HighchartsSolidGauge;
+  try {
+    const [moreModule, heatmapModule, treemapModule, solidGaugeModule] = await Promise.all([
+      import('highcharts/highcharts-more'),
+      import('highcharts/modules/heatmap'),
+      import('highcharts/modules/treemap'),
+      import('highcharts/modules/solid-gauge')
+    ]);
+    const initMore = moreModule.default;
+    const initHeatmap = heatmapModule.default;
+    const initTreemap = treemapModule.default;
+    const initSolidGauge = solidGaugeModule.default;
     if (typeof initMore === "function") initMore(Highcharts);
     if (typeof initHeatmap === "function") initHeatmap(Highcharts);
     if (typeof initTreemap === "function") initTreemap(Highcharts);
     if (typeof initSolidGauge === "function") initSolidGauge(Highcharts);
+  } catch (e) {
   }
 }
 function getCSSVariable(name) {
@@ -6018,9 +6021,14 @@ function Highchart(_a) {
     "callback",
     "containerProps"
   ]);
-  initHighchartsModules();
+  const [modulesReady, setModulesReady] = React21.useState(modulesInitialized);
   const theme = useHighchartsTheme();
   const chartRef = React21.useRef(null);
+  React21.useEffect(() => {
+    if (!modulesInitialized) {
+      initHighchartsModules().then(() => setModulesReady(true));
+    }
+  }, []);
   const mergedOptions = React21.useMemo(
     () => Highcharts.merge(theme, options),
     [theme, options]
