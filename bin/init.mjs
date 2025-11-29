@@ -6,9 +6,9 @@
  */
 
 import { execSync, spawn } from "child_process";
-import * as readline from "readline";
 import fs from "fs";
 import path from "path";
+import { createInterface } from "readline";
 
 // Colors
 const c = {
@@ -47,26 +47,6 @@ const groups = [
 ];
 
 const basePackages = ["github:josscuette/alize-ui", "react", "react-dom", "tailwindcss"];
-const TOTAL_LINES = groups.length + 2; // menu items + blank + help
-
-function formatLine(g, i, cursor) {
-  const arrow = i === cursor ? `${c.cyan}❯${c.reset}` : " ";
-  const check = g.selected ? `${c.green}◉${c.reset}` : `${c.dim}○${c.reset}`;
-  const name = i === cursor ? `${c.bold}${g.name}${c.reset}` : g.name;
-  return `  ${arrow} ${check} ${name} ${c.dim}— ${g.desc}${c.reset}`;
-}
-
-function drawMenu(cursor) {
-  // Move cursor up to beginning of menu area
-  process.stdout.write(`\x1b[${TOTAL_LINES}F`); // Move to start of line, N lines up
-  
-  // Redraw each line
-  for (let i = 0; i < groups.length; i++) {
-    process.stdout.write(`\x1b[2K${formatLine(groups[i], i, cursor)}\n`);
-  }
-  process.stdout.write(`\x1b[2K\n`);
-  process.stdout.write(`\x1b[2K  ${c.dim}↑↓${c.reset} Navigate  ${c.dim}Space${c.reset} Toggle  ${c.dim}a${c.reset} All  ${c.dim}Enter${c.reset} Install`);
-}
 
 function detectPM() {
   try { execSync("pnpm --version", { stdio: "ignore" }); return "pnpm"; } catch {}
@@ -94,84 +74,62 @@ async function install(packages) {
   });
 }
 
-async function main() {
-  // Header
+async function prompt() {
+  const rl = createInterface({ input: process.stdin, output: process.stdout });
+  
   console.log(`\n${c.cyan}${c.bold}  ╭──────────────────────────────────────╮${c.reset}`);
   console.log(`${c.cyan}${c.bold}  │${c.reset}       ${c.magenta}${c.bold}Alize UI${c.reset} - Installation      ${c.cyan}${c.bold}│${c.reset}`);
   console.log(`${c.cyan}${c.bold}  ╰──────────────────────────────────────╯${c.reset}\n`);
-  console.log(`  ${c.dim}All selected. Press Enter to install everything.${c.reset}\n`);
   
-  // Initial menu render
-  for (let i = 0; i < groups.length; i++) {
-    console.log(formatLine(groups[i], i, 0));
-  }
-  console.log();
-  console.log(`  ${c.dim}↑↓${c.reset} Navigate  ${c.dim}Space${c.reset} Toggle  ${c.dim}a${c.reset} All  ${c.dim}Enter${c.reset} Install`);
+  console.log(`  ${c.dim}Dependencies to install:${c.reset}\n`);
   
-  let cursor = 0;
+  groups.forEach((g, i) => {
+    console.log(`  ${c.green}${i + 1}.${c.reset} ${c.bold}${g.name}${c.reset} ${c.dim}— ${g.desc}${c.reset}`);
+  });
   
-  readline.emitKeypressEvents(process.stdin);
-  if (process.stdin.isTTY) process.stdin.setRawMode(true);
-  process.stdin.resume();
-  process.stdout.write("\x1b[?25l"); // Hide cursor
+  console.log(`\n  ${c.dim}Press Enter to install all, or type numbers to exclude (e.g., "3,5")${c.reset}`);
   
   return new Promise((resolve) => {
-    process.stdin.on("keypress", async (str, key) => {
-      if (!key) return;
+    rl.question(`\n  ${c.cyan}Exclude:${c.reset} `, (answer) => {
+      rl.close();
       
-      if (key.ctrl && key.name === "c") {
-        process.stdout.write("\x1b[?25h\n");
-        process.exit(0);
+      if (answer.trim()) {
+        const exclude = answer.split(",").map(n => parseInt(n.trim()) - 1).filter(n => !isNaN(n));
+        exclude.forEach(i => {
+          if (groups[i]) groups[i].selected = false;
+        });
       }
       
-      if (key.name === "up") {
-        cursor = cursor > 0 ? cursor - 1 : groups.length - 1;
-        drawMenu(cursor);
-      } else if (key.name === "down") {
-        cursor = cursor < groups.length - 1 ? cursor + 1 : 0;
-        drawMenu(cursor);
-      } else if (key.name === "space") {
-        groups[cursor].selected = !groups[cursor].selected;
-        drawMenu(cursor);
-      } else if (key.name === "a") {
-        const allSelected = groups.every(g => g.selected);
-        groups.forEach(g => g.selected = !allSelected);
-        drawMenu(cursor);
-      } else if (key.name === "return") {
-        process.stdout.write("\x1b[?25h"); // Show cursor
-        process.stdin.setRawMode(false);
-        process.stdin.removeAllListeners("keypress");
-        process.stdin.pause();
-        
-        console.log("\n\n");
-        
-        const packages = [...basePackages];
-        const selected = groups.filter(g => g.selected);
-        selected.forEach(g => packages.push(...g.packages));
-        
-        console.log(`${c.bold}Installing:${c.reset}`);
-        if (selected.length === groups.length) {
-          console.log(`  ${c.green}✓${c.reset} Full installation\n`);
-        } else {
-          selected.forEach(g => console.log(`  ${c.green}✓${c.reset} ${g.name}`));
-          groups.filter(g => !g.selected).forEach(g => console.log(`  ${c.dim}○ ${g.name} (skipped)${c.reset}`));
-          console.log();
-        }
-        
-        ensurePackageJson();
-        const success = await install(packages);
-        
-        if (success) {
-          console.log(`\n${c.green}${c.bold}✓ Done!${c.reset}\n`);
-          console.log(`${c.dim}Next steps:${c.reset}`);
-          console.log(`  ${c.cyan}import "alize-ui/dist/alize.css"${c.reset}`);
-          console.log(`  ${c.cyan}import { Button } from "alize-ui"${c.reset}\n`);
-        }
-        
-        resolve();
-      }
+      resolve();
     });
   });
+}
+
+async function main() {
+  await prompt();
+  
+  const packages = [...basePackages];
+  const selected = groups.filter(g => g.selected);
+  selected.forEach(g => packages.push(...g.packages));
+  
+  console.log(`\n${c.bold}Installing:${c.reset}`);
+  if (selected.length === groups.length) {
+    console.log(`  ${c.green}✓${c.reset} Full installation\n`);
+  } else {
+    selected.forEach(g => console.log(`  ${c.green}✓${c.reset} ${g.name}`));
+    groups.filter(g => !g.selected).forEach(g => console.log(`  ${c.dim}○ ${g.name} (skipped)${c.reset}`));
+    console.log();
+  }
+  
+  ensurePackageJson();
+  const success = await install(packages);
+  
+  if (success) {
+    console.log(`\n${c.green}${c.bold}✓ Done!${c.reset}\n`);
+    console.log(`${c.dim}Next steps:${c.reset}`);
+    console.log(`  ${c.cyan}import "alize-ui/dist/alize.css"${c.reset}`);
+    console.log(`  ${c.cyan}import { Button } from "alize-ui"${c.reset}\n`);
+  }
 }
 
 main().then(() => process.exit(0)).catch(e => { console.error(e); process.exit(1); });
