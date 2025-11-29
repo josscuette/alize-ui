@@ -1,42 +1,58 @@
 "use client"
 
 import * as React from "react"
-import Highcharts from "highcharts"
-import HighchartsReact from "highcharts-react-official"
-import HighchartsMore from "highcharts/highcharts-more"
-import HighchartsHeatmap from "highcharts/modules/heatmap"
-import HighchartsTreemap from "highcharts/modules/treemap"
-import HighchartsSolidGauge from "highcharts/modules/solid-gauge"
-
 import { cn } from "../../lib/utils"
 
-// Initialize Highcharts modules (static imports, initialized once)
+// Lazy-loaded Highcharts references
+let Highcharts: typeof import("highcharts").default | null = null
+let HighchartsReact: typeof import("highcharts-react-official").default | null = null
 let modulesInitialized = false
-type HighchartsModuleInit = (hc: typeof Highcharts) => void
+let highchartsLoaded = false
 
-function initHighchartsModules(): void {
-  if (modulesInitialized || typeof window === "undefined") return
+type HighchartsModuleInit = (hc: typeof import("highcharts").default) => void
+
+async function loadHighcharts(): Promise<boolean> {
+  if (highchartsLoaded) return true
+  if (typeof window === "undefined") return false
   
   try {
-    const initMore = HighchartsMore as unknown as HighchartsModuleInit
-    const initHeatmap = HighchartsHeatmap as unknown as HighchartsModuleInit
-    const initTreemap = HighchartsTreemap as unknown as HighchartsModuleInit
-    const initSolidGauge = HighchartsSolidGauge as unknown as HighchartsModuleInit
+    const [hc, hcReact, more, heatmap, treemap, solidGauge] = await Promise.all([
+      import("highcharts"),
+      import("highcharts-react-official"),
+      import("highcharts/highcharts-more"),
+      import("highcharts/modules/heatmap"),
+      import("highcharts/modules/treemap"),
+      import("highcharts/modules/solid-gauge"),
+    ])
     
-    if (typeof initMore === "function") initMore(Highcharts)
-    if (typeof initHeatmap === "function") initHeatmap(Highcharts)
-    if (typeof initTreemap === "function") initTreemap(Highcharts)
-    if (typeof initSolidGauge === "function") initSolidGauge(Highcharts)
+    Highcharts = hc.default
+    HighchartsReact = hcReact.default
     
-    modulesInitialized = true
+    if (!modulesInitialized && Highcharts) {
+      const initMore = more.default as unknown as HighchartsModuleInit
+      const initHeatmap = heatmap.default as unknown as HighchartsModuleInit
+      const initTreemap = treemap.default as unknown as HighchartsModuleInit
+      const initSolidGauge = solidGauge.default as unknown as HighchartsModuleInit
+      
+      if (typeof initMore === "function") initMore(Highcharts)
+      if (typeof initHeatmap === "function") initHeatmap(Highcharts)
+      if (typeof initTreemap === "function") initTreemap(Highcharts)
+      if (typeof initSolidGauge === "function") initSolidGauge(Highcharts)
+      
+      modulesInitialized = true
+    }
+    
+    highchartsLoaded = true
+    return true
   } catch (e) {
-    console.warn("Failed to initialize Highcharts modules:", e)
+    console.warn("Highcharts not available:", e)
+    return false
   }
 }
 
-// Initialize modules immediately on client side
-if (typeof window !== "undefined") {
-  initHighchartsModules()
+// Helper to get Highcharts instance (for hooks)
+function getHighcharts(): typeof import("highcharts").default | null {
+  return Highcharts
 }
 
 /**
@@ -520,13 +536,15 @@ export function useHighchartsTheme(): Highcharts.Options {
  */
 export interface HighchartProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Highcharts configuration options */
-  options: Highcharts.Options
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  options: any
   /** Whether to update the chart immutably */
   immutable?: boolean
   /** Whether to allow chart update */
   allowChartUpdate?: boolean
   /** Callback when chart is created */
-  callback?: (chart: Highcharts.Chart) => void
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  callback?: (chart: any) => void
   /** Container props */
   containerProps?: React.HTMLAttributes<HTMLDivElement>
 }
@@ -559,18 +577,52 @@ function Highchart({
   ...props
 }: HighchartProps): React.ReactElement {
   const theme = useHighchartsTheme()
-  const chartRef = React.useRef<HighchartsReact.RefObject>(null)
+  const [isReady, setIsReady] = React.useState(false)
+  const [error, setError] = React.useState<string | null>(null)
   
-  // Ensure modules are initialized
+  // Load Highcharts lazily
   React.useEffect(() => {
-    initHighchartsModules()
+    loadHighcharts()
+      .then((success) => {
+        if (success) {
+          setIsReady(true)
+        } else {
+          setError("Highcharts is not installed. Install it with: npm install highcharts highcharts-react-official")
+        }
+      })
+      .catch(() => {
+        setError("Failed to load Highcharts")
+      })
   }, [])
 
   // Merge theme with provided options
-  const mergedOptions = React.useMemo(
-    () => Highcharts.merge(theme, options),
-    [theme, options]
-  )
+  const mergedOptions = React.useMemo(() => {
+    if (!Highcharts) return options
+    return Highcharts.merge(theme, options)
+  }, [theme, options])
+
+  if (error) {
+    return (
+      <div
+        data-slot="highchart"
+        className={cn("w-full p-4 border border-dashed border-muted-foreground/50 rounded-md text-muted-foreground text-sm", className)}
+        {...props}
+      >
+        {error}
+      </div>
+    )
+  }
+
+  if (!isReady || !Highcharts || !HighchartsReact) {
+    return (
+      <div
+        data-slot="highchart"
+        className={cn("w-full animate-pulse bg-muted rounded-md", className)}
+        style={{ minHeight: "200px" }}
+        {...props}
+      />
+    )
+  }
 
   return (
     <div
@@ -579,7 +631,6 @@ function Highchart({
       {...props}
     >
       <HighchartsReact
-        ref={chartRef}
         highcharts={Highcharts}
         options={mergedOptions}
         immutable={immutable}

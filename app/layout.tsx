@@ -30,10 +30,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${sourceSans3.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="en" suppressHydrationWarning className={`${sourceSans3.variable} ${geistMono.variable}`}>
+      <body className="antialiased">
         <MaterialSymbolsProvider />
         <ThemeProvider
           attribute="class"

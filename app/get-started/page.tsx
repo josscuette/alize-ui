@@ -1,12 +1,40 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { MaterialSymbol } from "@/components/material-symbol";
 import { ShowcaseWrapper } from "@/components/showcase-wrapper";
 import { Separator } from "@/components/ui/separator";
 import { useNavigation } from "@/contexts/navigation-context";
 import { Badge } from "@/components/ui/badge";
+
+function CopyButton({ text }: { text: string }) {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    await navigator.clipboard.writeText(text);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <Button
+      variant="ghost"
+      size="icon"
+      onClick={handleCopy}
+      title="Copy to clipboard"
+      className="h-8 w-8 flex-shrink-0"
+    >
+      <MaterialSymbol 
+        name={copied ? "check" : "content_copy"} 
+        size={16} 
+        weight={300}
+        className={copied ? "text-semantic-icon-rag-success-default" : ""}
+      />
+    </Button>
+  );
+}
 
 function Section({ 
   id, 
@@ -33,12 +61,13 @@ function Section({
   );
 }
 
-function CodeBlock({ children, title }: { children: string; title?: string }): React.ReactElement {
+function CodeBlock({ children, title, copyable = true }: { children: string; title?: string; copyable?: boolean }): React.ReactElement {
   return (
     <div className="space-y-2">
       {title && <p className="text-sm font-medium">{title}</p>}
-      <div className="p-4 rounded-md bg-semantic-surface-subdued border border-semantic-stroke-default font-mono text-sm overflow-x-auto">
-        <pre className="text-semantic-text-default whitespace-pre-wrap">{children}</pre>
+      <div className="flex items-start justify-between gap-2 p-4 rounded-md bg-semantic-surface-subdued border border-semantic-stroke-default font-mono text-sm overflow-x-auto">
+        <pre className="text-semantic-text-default whitespace-pre-wrap flex-1">{children}</pre>
+        {copyable && <CopyButton text={children} />}
       </div>
     </div>
   );
@@ -65,7 +94,7 @@ export default function GetStartedPage(): React.ReactElement {
             <header className="space-y-2">
               <h1 className="text-3xl font-normal text-foreground">Get Started</h1>
               <p className="text-muted-foreground max-w-3xl leading-relaxed">
-                Welcome to Alize! This guide will help you get up and running with our component library.
+                Welcome to Alizé! This guide will help you get up and running with our component library.
               </p>
             </header>
 

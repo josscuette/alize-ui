@@ -613,7 +613,7 @@
   --semantic-dataviz-rag-warningmedium: var(--color-solstice-orange-600);
   --semantic-dataviz-rag-warningstrong: var(--color-solstice-orange-700);
   --semantic-dataviz-rag-warningweak: var(--color-solstice-orange-400);
-  --semantic-font-primary: var(--font-family-sans);
+  --semantic-font-primary: var(--font-sans);
   --semantic-icon-ai-default: var(--color-solstice-royal-600);
   --semantic-icon-default: var(--color-solstice-glacier-900);
   --semantic-icon-interaction-bright: var(--color-solstice-bahama-400);
@@ -703,7 +703,7 @@
   --semantic-dataviz-rag-warningmedium: var(--color-solstice-orange-400);
   --semantic-dataviz-rag-warningstrong: var(--color-solstice-orange-300);
   --semantic-dataviz-rag-warningweak: var(--color-solstice-orange-500);
-  --semantic-font-primary: var(--font-family-sans);
+  --semantic-font-primary: var(--font-sans);
   --semantic-icon-ai-default: var(--color-solstice-royal-200);
   --semantic-icon-default: var(--color-white);
   --semantic-icon-interaction-bright: var(--color-solstice-bahama-300);

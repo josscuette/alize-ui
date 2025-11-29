@@ -1,11 +1,38 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { MaterialSymbol } from "@/components/material-symbol";
 import { useNavigation } from "@/contexts/navigation-context";
+
+function CopyButton({ text }: { text: string }) {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    await navigator.clipboard.writeText(text);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <Button
+      variant="ghost"
+      size="icon"
+      onClick={handleCopy}
+      title="Copy to clipboard"
+      className="h-8 w-8"
+    >
+      <MaterialSymbol 
+        name={copied ? "check" : "content_copy"} 
+        size={16} 
+        weight={300}
+        className={copied ? "text-semantic-icon-rag-success-default" : ""}
+      />
+    </Button>
+  );
+}
 
 export default function Home() {
   const {
@@ -89,10 +116,11 @@ export default function Home() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="p-4 rounded-md bg-semantic-surface-subdued border border-semantic-stroke-default font-mono text-sm overflow-x-auto">
+              <div className="flex items-center justify-between p-4 rounded-md bg-semantic-surface-subdued border border-semantic-stroke-default font-mono text-sm">
                 <code className="text-semantic-text-default">
                   npx -y github:josscuette/alize-ui
                 </code>
+                <CopyButton text="npx -y github:josscuette/alize-ui" />
               </div>
             </CardContent>
           </Card>
