@@ -77,6 +77,7 @@ const basePackages = [
   "react-dom", 
   "next",
   "tailwindcss",
+  "@tailwindcss/postcss",
   "typescript",
   "@types/react",
   "@types/react-dom",
@@ -234,6 +235,19 @@ export default nextConfig;
 `;
     fs.writeFileSync(nextConfigPath, nextConfigContent);
     console.log(`${c.green}✓${c.reset} Created next.config.ts`);
+  }
+  
+  // Create postcss.config.mjs for Tailwind v4
+  const postcssPath = path.join(cwd, "postcss.config.mjs");
+  if (!fs.existsSync(postcssPath)) {
+    const postcssContent = `export default {
+  plugins: {
+    "@tailwindcss/postcss": {},
+  },
+};
+`;
+    fs.writeFileSync(postcssPath, postcssContent);
+    console.log(`${c.green}✓${c.reset} Created postcss.config.mjs`);
   }
   
   // Create tsconfig.json if it doesn't exist
