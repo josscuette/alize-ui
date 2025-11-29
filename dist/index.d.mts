@@ -35,6 +35,7 @@ import { FieldValues, FieldPath, ControllerProps } from 'react-hook-form';
 import { Slot } from '@radix-ui/react-slot';
 import { DayPicker, DayButton } from 'react-day-picker';
 import useEmblaCarousel, { UseEmblaCarouselType } from 'embla-carousel-react';
+import * as Highcharts from 'highcharts';
 import { ToasterProps as ToasterProps$1 } from 'sonner';
 import * as ScrollAreaPrimitive from '@radix-ui/react-scroll-area';
 import * as ResizablePrimitive from 'react-resizable-panels';
@@ -3905,6 +3906,134 @@ interface ChartProps extends React.HTMLAttributes<HTMLDivElement> {
 declare const Chart: React.NamedExoticComponent<ChartProps>;
 
 /**
+ * Get the best text color (white or dark) for a given background color
+ * Uses WCAG AA standard (4.5:1 for normal text)
+ * @param backgroundColor - Hex color of the background
+ * @param darkColor - Dark text color option (default: #0e1d23)
+ * @param lightColor - Light text color option (default: #ffffff)
+ */
+declare function getContrastTextColor(backgroundColor: string, darkColor?: string, lightColor?: string): string;
+/**
+ * Generate a sequential color palette from a base color
+ * Creates shades from light (low intensity) to dark (high intensity)
+ * @param baseColor - The base hex color
+ * @param steps - Number of steps in the palette (default 7)
+ */
+declare function generateSequentialPalette(baseColor: string, steps?: number): string[];
+/**
+ * Alize dataviz theme colors for Highcharts
+ * Uses semantic dataviz tokens for consistent theming
+ */
+interface AlizeChartColors {
+    /** Categorical palette (10 colors) for discrete categories */
+    categorical: string[];
+    /** No data color */
+    noData: string;
+    /** RAG colors (danger, warning, success) with weak/medium/strong variants */
+    rag: {
+        danger: {
+            weak: string;
+            medium: string;
+            strong: string;
+        };
+        warning: {
+            weak: string;
+            medium: string;
+            strong: string;
+        };
+        success: {
+            weak: string;
+            medium: string;
+            strong: string;
+        };
+    };
+    /** UI colors from semantic tokens */
+    text: string;
+    textSubdued: string;
+    grid: string;
+    axis: string;
+    background: string;
+    tooltipBackground: string;
+}
+/**
+ * Hook to get Alize dataviz theme colors for Highcharts
+ * Reads CSS variables and returns color values
+ */
+declare function useAlizeChartColors(): AlizeChartColors;
+/**
+ * Hook to generate a sequential palette from a categorical color
+ * @param colorIndex - Index of the categorical color (1-10)
+ * @param steps - Number of steps in the palette (default 7)
+ */
+declare function useSequentialPalette(colorIndex?: number, steps?: number): string[];
+/**
+ * Generate a divergent palette from two base colors
+ * Center is a light blend of both colors (not gray), extremes are saturated
+ * @param negativeColor - Color for negative values (left side)
+ * @param positiveColor - Color for positive values (right side)
+ * @param _neutralColor - Unused, kept for API compatibility
+ * @param steps - Total number of steps (should be odd, default 7)
+ */
+declare function generateDivergentPalette(negativeColor: string, positiveColor: string, _neutralColor: string, steps?: number): string[];
+/**
+ * Divergent palette colors interface
+ */
+interface DivergentColors {
+    negative: string;
+    positive: string;
+    neutral: string;
+}
+/**
+ * Hook to get divergent palette base colors from CSS variables
+ * Uses Ocean for negative and Orange for positive
+ */
+declare function useDivergentColors(): DivergentColors;
+/**
+ * Hook to generate a divergent palette
+ * Uses Ocean for negative values and Orange for positive values
+ * @param steps - Total number of steps (should be odd, default 7)
+ */
+declare function useDivergentPalette(steps?: number): string[];
+/**
+ * Generate Highcharts theme options based on Alize dataviz tokens
+ */
+declare function useHighchartsTheme(): Highcharts.Options;
+/**
+ * Highchart component props interface
+ */
+interface HighchartProps extends React.HTMLAttributes<HTMLDivElement> {
+    /** Highcharts configuration options */
+    options: Highcharts.Options;
+    /** Whether to update the chart immutably */
+    immutable?: boolean;
+    /** Whether to allow chart update */
+    allowChartUpdate?: boolean;
+    /** Callback when chart is created */
+    callback?: (chart: Highcharts.Chart) => void;
+    /** Container props */
+    containerProps?: React.HTMLAttributes<HTMLDivElement>;
+}
+/**
+ * Highchart component - A wrapper around Highcharts for React
+ *
+ * Provides a themed Highcharts instance with Alize design system integration.
+ * Automatically applies semantic dataviz tokens for consistent styling.
+ *
+ * @param props - Highchart props including options and container attributes
+ * @returns A Highcharts chart element
+ *
+ * @example
+ * ```tsx
+ * const options = {
+ *   chart: { type: 'line' },
+ *   series: [{ data: [1, 2, 3, 4, 5] }]
+ * };
+ * <Highchart options={options} className="h-64" />
+ * ```
+ */
+declare function Highchart({ className, options, immutable, allowChartUpdate, callback, containerProps, ...props }: HighchartProps): React.ReactElement;
+
+/**
  * Toaster component props interface
  * Extends sonner ToasterProps
  */
@@ -4559,4 +4688,4 @@ declare class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBou
     render(): string | number | bigint | boolean | Iterable<React.ReactNode> | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | react_jsx_runtime.JSX.Element | null | undefined;
 }
 
-export { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Alert, AlertDescription, AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger, AlertTitle, AppError, AspectRatio, Avatar, AvatarFallback, AvatarImage, Badge, Breadcrumb, BreadcrumbEllipsis, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator, Button, ButtonGroup, ButtonGroupSeparator, ButtonGroupText, type ButtonProps, Calendar, CalendarDayButton, Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Carousel, type CarouselApi, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, Chart, type ChartProps, Checkbox, CheckboxCard, type CheckboxCardProps, type CheckboxProps, Collapsible, CollapsibleContent, CollapsibleTrigger, Combobox, type ComboboxOption, type ComboboxProps, Command, CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator, CommandShortcut, type ContactFormInput, ContextMenu, ContextMenuCheckboxItem, ContextMenuContent, ContextMenuItem, ContextMenuLabel, ContextMenuRadioGroup, ContextMenuRadioItem, ContextMenuSeparator, ContextMenuShortcut, ContextMenuSub, ContextMenuSubContent, ContextMenuSubTrigger, ContextMenuTrigger, DataTable, type DataTableColumn, type DataTableProps, DatePicker, type DatePickerProps, Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogOverlay, DialogPortal, DialogTitle, DialogTrigger, Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerOverlay, DrawerPortal, DrawerTitle, DrawerTrigger, DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger, type EmailInput, Empty, ErrorBoundary, type ErrorContext, ErrorLogger, FidelityProvider, FidelityToggle, Field, FieldContent, FieldDescription, FieldError, FieldGroup, FieldLabel, FieldLegend, FieldSeparator, FieldSet, FieldTitle, Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, HoverCard, HoverCardContent, HoverCardTrigger, Input, InputGroup, InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot, type InputProps, Item, Kbd, KbdGroup, Label, type LoginFormInput, MaterialSymbol, MaterialSymbolsProvider, Menubar, MenubarCheckboxItem, MenubarContent, MenubarItem, MenubarLabel, MenubarMenu, MenubarRadioGroup, MenubarRadioItem, MenubarSeparator, MenubarShortcut, MenubarSub, MenubarSubContent, MenubarSubTrigger, MenubarTrigger, NativeSelect, NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, NetworkError, Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious, type PasswordInput, Popover, PopoverAnchor, PopoverContent, PopoverTrigger, type ProfileFormInput, Progress, RadioGroup, RadioGroupCardItem, RadioGroupItem, type RegistrationFormInput, ResizableHandle, ResizablePanel, ResizablePanelGroup, ScrollArea, ScrollBar, Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectSeparator, SelectTrigger, SelectValue, Separator, Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger, Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupAction, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarInput, SidebarInset, SidebarMenu, SidebarMenuAction, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarMenuSkeleton, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem, SidebarProvider, SidebarRail, SidebarSeparator, SidebarTrigger, Skeleton, Slider, Spinner, Switch, SwitchCard, Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow, Tabs, TabsContent, TabsList, TabsTrigger, Textarea, ThemeToggle, Toaster, Toggle, ToggleGroup, ToggleGroupItem, Tooltip, TooltipContent, TooltipTrigger, TypographyBlockquote, TypographyCode, TypographyH1, TypographyH2, TypographyH3, TypographyH4, TypographyP, type UsernameInput, ValidationError, avatarVariants, buttonVariants, checkboxSchema, cn, commonSchemas, dateSchema, emailSchema, fileSchema, fileSizeSchema, fileTypeSchema, formatErrorMessage, handleAsyncError, integerSchema, isRetryableError, navigationMenuTriggerStyle, numberSchema, optionalStringSchema, passwordSchema, phoneSchema, positiveNumberSchema, requiredStringSchema, retryAsync, safeAsync, sanitizeEmail, sanitizeFileName, sanitizeHtml, sanitizeObjectKeys, sanitizeText, sanitizeUrl, selectSchema, strongPasswordSchema, textareaSchema, urlSchema, useFidelity, useFormField, useSidebar, usernameSchema, withTimeout };
+export { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Alert, AlertDescription, AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger, AlertTitle, type AlizeChartColors, AppError, AspectRatio, Avatar, AvatarFallback, AvatarImage, Badge, Breadcrumb, BreadcrumbEllipsis, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator, Button, ButtonGroup, ButtonGroupSeparator, ButtonGroupText, type ButtonProps, Calendar, CalendarDayButton, Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Carousel, type CarouselApi, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, Chart, type ChartProps, Checkbox, CheckboxCard, type CheckboxCardProps, type CheckboxProps, Collapsible, CollapsibleContent, CollapsibleTrigger, Combobox, type ComboboxOption, type ComboboxProps, Command, CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator, CommandShortcut, type ContactFormInput, ContextMenu, ContextMenuCheckboxItem, ContextMenuContent, ContextMenuItem, ContextMenuLabel, ContextMenuRadioGroup, ContextMenuRadioItem, ContextMenuSeparator, ContextMenuShortcut, ContextMenuSub, ContextMenuSubContent, ContextMenuSubTrigger, ContextMenuTrigger, DataTable, type DataTableColumn, type DataTableProps, DatePicker, type DatePickerProps, Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogOverlay, DialogPortal, DialogTitle, DialogTrigger, type DivergentColors, Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerOverlay, DrawerPortal, DrawerTitle, DrawerTrigger, DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger, type EmailInput, Empty, ErrorBoundary, type ErrorContext, ErrorLogger, FidelityProvider, FidelityToggle, Field, FieldContent, FieldDescription, FieldError, FieldGroup, FieldLabel, FieldLegend, FieldSeparator, FieldSet, FieldTitle, Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, Highchart, type HighchartProps, HoverCard, HoverCardContent, HoverCardTrigger, Input, InputGroup, InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot, type InputProps, Item, Kbd, KbdGroup, Label, type LoginFormInput, MaterialSymbol, MaterialSymbolsProvider, Menubar, MenubarCheckboxItem, MenubarContent, MenubarItem, MenubarLabel, MenubarMenu, MenubarRadioGroup, MenubarRadioItem, MenubarSeparator, MenubarShortcut, MenubarSub, MenubarSubContent, MenubarSubTrigger, MenubarTrigger, NativeSelect, NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, NetworkError, Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious, type PasswordInput, Popover, PopoverAnchor, PopoverContent, PopoverTrigger, type ProfileFormInput, Progress, RadioGroup, RadioGroupCardItem, RadioGroupItem, type RegistrationFormInput, ResizableHandle, ResizablePanel, ResizablePanelGroup, ScrollArea, ScrollBar, Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectSeparator, SelectTrigger, SelectValue, Separator, Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger, Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupAction, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarInput, SidebarInset, SidebarMenu, SidebarMenuAction, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarMenuSkeleton, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem, SidebarProvider, SidebarRail, SidebarSeparator, SidebarTrigger, Skeleton, Slider, Spinner, Switch, SwitchCard, Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow, Tabs, TabsContent, TabsList, TabsTrigger, Textarea, ThemeToggle, Toaster, Toggle, ToggleGroup, ToggleGroupItem, Tooltip, TooltipContent, TooltipTrigger, TypographyBlockquote, TypographyCode, TypographyH1, TypographyH2, TypographyH3, TypographyH4, TypographyP, type UsernameInput, ValidationError, avatarVariants, buttonVariants, checkboxSchema, cn, commonSchemas, dateSchema, emailSchema, fileSchema, fileSizeSchema, fileTypeSchema, formatErrorMessage, generateDivergentPalette, generateSequentialPalette, getContrastTextColor, handleAsyncError, integerSchema, isRetryableError, navigationMenuTriggerStyle, numberSchema, optionalStringSchema, passwordSchema, phoneSchema, positiveNumberSchema, requiredStringSchema, retryAsync, safeAsync, sanitizeEmail, sanitizeFileName, sanitizeHtml, sanitizeObjectKeys, sanitizeText, sanitizeUrl, selectSchema, strongPasswordSchema, textareaSchema, urlSchema, useAlizeChartColors, useDivergentColors, useDivergentPalette, useFidelity, useFormField, useHighchartsTheme, useSequentialPalette, useSidebar, usernameSchema, withTimeout };

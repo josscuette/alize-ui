@@ -8,11 +8,19 @@ export default defineConfig({
   },
   outDir: "dist",
   tsconfig: "./tsconfig.build.json",
+  // Mark all peer dependencies as external - they will be provided by the consumer
   external: [
+    // React
     "react",
     "react-dom",
     "react/jsx-runtime",
+    
+    // Forms
     "react-hook-form",
+    "@hookform/resolvers",
+    "zod",
+    
+    // Radix UI
     "@radix-ui/react-accordion",
     "@radix-ui/react-alert-dialog",
     "@radix-ui/react-aspect-ratio",
@@ -39,11 +47,46 @@ export default defineConfig({
     "@radix-ui/react-toggle",
     "@radix-ui/react-toggle-group",
     "@radix-ui/react-tooltip",
+    
+    // UI Libraries
+    "cmdk",
+    "input-otp",
+    "vaul",
+    "sonner",
+    "embla-carousel-react",
+    "react-resizable-panels",
+    "lucide-react",
+    
+    // Charts
+    "recharts",
+    "highcharts",
+    "highcharts-react-official",
+    "highcharts/modules/heatmap",
+    "highcharts/modules/treemap",
+    "highcharts/modules/solid-gauge",
+    "highcharts/highcharts-more",
+    
+    // Date
+    "date-fns",
+    "react-day-picker",
+    
+    // Theme
+    "next-themes",
+    
+    // Next.js (should not be bundled)
+    "next",
+    "next/link",
+    "next/image",
+    "next/navigation",
+    
+    // Tailwind (runtime)
+    "tailwindcss",
   ],
   treeshake: true,
   clean: true,
   splitting: false,
   sourcemap: false,
   minify: false, // Let consumers minify if needed
+  // Ensure we don't bundle node_modules
+  noExternal: [],
 });
-
