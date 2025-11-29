@@ -269,7 +269,7 @@ async function main() {
       value: g.value,
       checked: true,
     })),
-    instructions: false,
+    instructions: `\n${c.dim}  ↑↓ navigate  •  space toggle  •  enter confirm${c.reset}\n`,
   });
   
   // Build package list
