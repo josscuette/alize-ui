@@ -44,6 +44,7 @@ const groups = [
   { name: "Calendar", desc: "Date picker", selected: true, packages: ["date-fns", "react-day-picker"] },
   { name: "Advanced UI", desc: "Carousel, drawers, toasts", selected: true, packages: ["embla-carousel-react", "react-resizable-panels", "vaul", "sonner", "cmdk", "input-otp"] },
   { name: "Theming", desc: "Dark/light mode", selected: true, packages: ["next-themes"] },
+  { name: "Fidelity", desc: "Lofi/Hifi mode toggle", selected: true, packages: [] },
 ];
 
 const basePackages = ["github:josscuette/alize-ui", "react", "react-dom", "tailwindcss"];
@@ -165,7 +166,16 @@ async function main() {
           console.log(`\n${c.green}${c.bold}✓ Done!${c.reset}\n`);
           console.log(`${c.dim}Next steps:${c.reset}`);
           console.log(`  ${c.cyan}import "alize-ui/dist/alize.css"${c.reset}`);
-          console.log(`  ${c.cyan}import { Button } from "alize-ui"${c.reset}\n`);
+          console.log(`  ${c.cyan}import { Button } from "alize-ui"${c.reset}`);
+          
+          // Show fidelity setup if selected
+          const fidelitySelected = groups.find(g => g.name === "Fidelity")?.selected;
+          if (fidelitySelected) {
+            console.log(`\n${c.dim}Fidelity (Lofi/Hifi) setup:${c.reset}`);
+            console.log(`  ${c.cyan}import { FidelityProvider, FidelityToggle } from "alize-ui"${c.reset}`);
+            console.log(`  ${c.dim}// Wrap your app with <FidelityProvider>${c.reset}`);
+          }
+          console.log();
         }
         
         resolve();
