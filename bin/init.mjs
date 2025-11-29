@@ -158,7 +158,9 @@ export default function RootLayout({
   // Create page.tsx with demo components
   const pagePath = path.join(appDir, "page.tsx");
   if (!fs.existsSync(pagePath)) {
-    const pageContent = `export default function Home() {
+    const pageContent = `"use client";
+
+export default function Home() {
   return (
     <main className="min-h-screen bg-[var(--background)] p-8">
       <div className="max-w-2xl mx-auto space-y-8">
