@@ -109,6 +109,20 @@ function detectPM() {
   return "npm";
 }
 
+import fs from "fs";
+import path from "path";
+
+function ensurePackageJson() {
+  const pkgPath = path.join(process.cwd(), "package.json");
+  
+  if (!fs.existsSync(pkgPath)) {
+    console.log(`${c.yellow}⚠ No package.json found. Creating one...${c.reset}`);
+    execSync("npm init -y", { stdio: "ignore" });
+    console.log(`${c.green}✓${c.reset} Created package.json`);
+    console.log();
+  }
+}
+
 function install(packages) {
   const pm = detectPM();
   const cmd = pm === "npm" ? "install" : "add";
@@ -211,6 +225,9 @@ async function main() {
             console.log(`  ${c.dim}○ ${g.name} (skipped)${c.reset}`);
           });
         }
+        
+        // Ensure package.json exists
+        ensurePackageJson();
         
         const success = await install(packages);
         if (success) printSuccess();
