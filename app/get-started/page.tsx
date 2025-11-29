@@ -148,7 +148,7 @@ export default function GetStartedPage(): React.ReactElement {
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    <CodeBlock>{`npm install alize-ui react react-dom tailwindcss`}</CodeBlock>
+                    <CodeBlock>{`npm install github:josscuette/alize-ui react react-dom next tailwindcss @tailwindcss/postcss typescript @types/react @types/react-dom @types/node`}</CodeBlock>
                   </CardContent>
                 </Card>
 
@@ -293,7 +293,7 @@ export default function RootLayout({ children }) {
           attribute="class"
           defaultTheme="system"
           enableSystem
-          value={{ dark: "theme-dark" }}
+          value={{ light: "theme-light", dark: "theme-dark" }}
         >
           {children}
         </ThemeProvider>
