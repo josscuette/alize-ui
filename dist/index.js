@@ -5709,26 +5709,34 @@ function CarouselNext(_a) {
   );
 }
 var modulesInitialized = false;
-async function initHighchartsModules() {
-  if (modulesInitialized || typeof window === "undefined") return;
-  modulesInitialized = true;
-  try {
-    const [moreModule, heatmapModule, treemapModule, solidGaugeModule] = await Promise.all([
-      import('highcharts/highcharts-more'),
-      import('highcharts/modules/heatmap'),
-      import('highcharts/modules/treemap'),
-      import('highcharts/modules/solid-gauge')
-    ]);
-    const initMore = moreModule.default;
-    const initHeatmap = heatmapModule.default;
-    const initTreemap = treemapModule.default;
-    const initSolidGauge = solidGaugeModule.default;
-    if (typeof initMore === "function") initMore(Highcharts__namespace);
-    if (typeof initHeatmap === "function") initHeatmap(Highcharts__namespace);
-    if (typeof initTreemap === "function") initTreemap(Highcharts__namespace);
-    if (typeof initSolidGauge === "function") initSolidGauge(Highcharts__namespace);
-  } catch (e) {
+var modulesPromise = null;
+function initHighchartsModules() {
+  if (modulesInitialized) return Promise.resolve();
+  if (typeof window === "undefined") return Promise.resolve();
+  if (!modulesPromise) {
+    modulesPromise = (async () => {
+      try {
+        const [moreModule, heatmapModule, treemapModule, solidGaugeModule] = await Promise.all([
+          import('highcharts/highcharts-more'),
+          import('highcharts/modules/heatmap'),
+          import('highcharts/modules/treemap'),
+          import('highcharts/modules/solid-gauge')
+        ]);
+        const initMore = moreModule.default;
+        const initHeatmap = heatmapModule.default;
+        const initTreemap = treemapModule.default;
+        const initSolidGauge = solidGaugeModule.default;
+        if (typeof initMore === "function") initMore(Highcharts__namespace);
+        if (typeof initHeatmap === "function") initHeatmap(Highcharts__namespace);
+        if (typeof initTreemap === "function") initTreemap(Highcharts__namespace);
+        if (typeof initSolidGauge === "function") initSolidGauge(Highcharts__namespace);
+        modulesInitialized = true;
+      } catch (e) {
+        console.warn("Failed to load Highcharts modules:", e);
+      }
+    })();
   }
+  return modulesPromise;
 }
 function getCSSVariable(name) {
   if (typeof window === "undefined") return "";
@@ -6074,26 +6082,28 @@ function Highchart(_a) {
     "callback",
     "containerProps"
   ]);
-  var _a2;
+  var _a2, _b2;
   const [modulesReady, setModulesReady] = React21__namespace.useState(modulesInitialized);
   const theme = useHighchartsTheme();
   const chartRef = React21__namespace.useRef(null);
   React21__namespace.useEffect(() => {
-    if (!modulesInitialized) {
-      initHighchartsModules().then(() => setModulesReady(true));
-    }
+    initHighchartsModules().then(() => setModulesReady(true));
   }, []);
   const mergedOptions = React21__namespace.useMemo(
     () => Highcharts__namespace.merge(theme, options),
     [theme, options]
   );
-  const needsAdvancedModules = ((_a2 = options == null ? void 0 : options.chart) == null ? void 0 : _a2.type) && ["heatmap", "treemap", "solidgauge", "bubble", "waterfall", "gauge"].includes(options.chart.type);
+  const chartType = (_a2 = options == null ? void 0 : options.chart) == null ? void 0 : _a2.type;
+  const seriesTypes = ((_b2 = options == null ? void 0 : options.series) == null ? void 0 : _b2.map((s) => s.type)) || [];
+  const allTypes = [chartType, ...seriesTypes].filter(Boolean);
+  const advancedTypes = ["heatmap", "treemap", "solidgauge", "bubble", "waterfall", "gauge", "columnrange", "arearange"];
+  const needsAdvancedModules = allTypes.some((t) => advancedTypes.includes(t));
   if (needsAdvancedModules && !modulesReady) {
     return /* @__PURE__ */ jsxRuntime.jsx(
       "div",
       __spreadProps(__spreadValues({
         "data-slot": "highchart",
-        className: cn("w-full flex items-center justify-center", className)
+        className: cn("w-full flex items-center justify-center min-h-[200px]", className)
       }, props), {
         children: /* @__PURE__ */ jsxRuntime.jsx("span", { className: "text-sm text-muted-foreground", children: "Loading chart..." })
       })
