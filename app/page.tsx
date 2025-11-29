@@ -88,25 +88,11 @@ export default function Home() {
                 Installation
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="space-y-2">
-                <p className="text-sm font-medium">Interactive CLI:</p>
-                <div className="p-4 rounded-md bg-semantic-surface-subdued border border-semantic-stroke-default font-mono text-sm overflow-x-auto">
-                  <code className="text-semantic-text-default">
-                    npx -y github:josscuette/alize-ui
-                  </code>
-                </div>
-              </div>
-              
-              <div className="pt-4 border-t border-semantic-stroke-default">
-                <p className="text-sm text-semantic-text-subdued mb-4">
-                  Then import the components in your project:
-                </p>
-                <div className="p-4 rounded-md bg-semantic-surface-subdued border border-semantic-stroke-default font-mono text-sm overflow-x-auto">
-                  <code className="text-semantic-text-default">
-                    {`import { Button } from 'alize-ui'`}
-                  </code>
-                </div>
+            <CardContent>
+              <div className="p-4 rounded-md bg-semantic-surface-subdued border border-semantic-stroke-default font-mono text-sm overflow-x-auto">
+                <code className="text-semantic-text-default">
+                  npx -y github:josscuette/alize-ui
+                </code>
               </div>
             </CardContent>
           </Card>
