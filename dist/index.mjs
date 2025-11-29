@@ -39,6 +39,10 @@ import { format } from 'date-fns';
 import useEmblaCarousel from 'embla-carousel-react';
 import * as Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
+import HighchartsMore from 'highcharts/highcharts-more';
+import HighchartsHeatmap from 'highcharts/modules/heatmap';
+import HighchartsTreemap from 'highcharts/modules/treemap';
+import HighchartsSolidGauge from 'highcharts/modules/solid-gauge';
 import { useTheme } from 'next-themes';
 import { Toaster as Toaster$1 } from 'sonner';
 import * as ScrollAreaPrimitive from '@radix-ui/react-scroll-area';
@@ -64,12 +68,6 @@ var __spreadValues = (a, b) => {
   return a;
 };
 var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
-var __require = /* @__PURE__ */ ((x) => typeof require !== "undefined" ? require : typeof Proxy !== "undefined" ? new Proxy(x, {
-  get: (a, b) => (typeof require !== "undefined" ? require : a)[b]
-}) : x)(function(x) {
-  if (typeof require !== "undefined") return require.apply(this, arguments);
-  throw Error('Dynamic require of "' + x + '" is not supported');
-});
 var __objRest = (source, exclude) => {
   var target = {};
   for (var prop in source)
@@ -5661,16 +5659,15 @@ function CarouselNext(_a) {
     })
   );
 }
-if (typeof window !== "undefined") {
-  const HighchartsMore = __require("highcharts/highcharts-more");
-  const HighchartsHeatmap = __require("highcharts/modules/heatmap");
-  const HighchartsTreemap = __require("highcharts/modules/treemap");
-  const HighchartsSolidGauge = __require("highcharts/modules/solid-gauge");
+var modulesInitialized = false;
+function initHighchartsModules() {
+  if (modulesInitialized || typeof window === "undefined") return;
+  modulesInitialized = true;
   if (typeof Highcharts === "object") {
-    const initMore = HighchartsMore.default || HighchartsMore;
-    const initHeatmap = HighchartsHeatmap.default || HighchartsHeatmap;
-    const initTreemap = HighchartsTreemap.default || HighchartsTreemap;
-    const initSolidGauge = HighchartsSolidGauge.default || HighchartsSolidGauge;
+    const initMore = HighchartsMore;
+    const initHeatmap = HighchartsHeatmap;
+    const initTreemap = HighchartsTreemap;
+    const initSolidGauge = HighchartsSolidGauge;
     if (typeof initMore === "function") initMore(Highcharts);
     if (typeof initHeatmap === "function") initHeatmap(Highcharts);
     if (typeof initTreemap === "function") initTreemap(Highcharts);
@@ -6021,6 +6018,7 @@ function Highchart(_a) {
     "callback",
     "containerProps"
   ]);
+  initHighchartsModules();
   const theme = useHighchartsTheme();
   const chartRef = React21.useRef(null);
   const mergedOptions = React21.useMemo(

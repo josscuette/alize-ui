@@ -3,26 +3,26 @@
 import * as React from "react"
 import * as Highcharts from "highcharts"
 import HighchartsReact from "highcharts-react-official"
+import HighchartsMore from "highcharts/highcharts-more"
+import HighchartsHeatmap from "highcharts/modules/heatmap"
+import HighchartsTreemap from "highcharts/modules/treemap"
+import HighchartsSolidGauge from "highcharts/modules/solid-gauge"
 
 import { cn } from "../../lib/utils"
 
-// Initialize Highcharts modules only on client side
-if (typeof window !== "undefined") {
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const HighchartsMore = require("highcharts/highcharts-more")
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const HighchartsHeatmap = require("highcharts/modules/heatmap")
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const HighchartsTreemap = require("highcharts/modules/treemap")
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const HighchartsSolidGauge = require("highcharts/modules/solid-gauge")
+// Initialize Highcharts modules
+let modulesInitialized = false
+type HighchartsModuleInit = (hc: typeof Highcharts) => void
+
+function initHighchartsModules(): void {
+  if (modulesInitialized || typeof window === "undefined") return
+  modulesInitialized = true
   
   if (typeof Highcharts === "object") {
-    // Handle both ES module default exports and CommonJS exports
-    const initMore = HighchartsMore.default || HighchartsMore
-    const initHeatmap = HighchartsHeatmap.default || HighchartsHeatmap
-    const initTreemap = HighchartsTreemap.default || HighchartsTreemap
-    const initSolidGauge = HighchartsSolidGauge.default || HighchartsSolidGauge
+    const initMore = HighchartsMore as unknown as HighchartsModuleInit | undefined
+    const initHeatmap = HighchartsHeatmap as unknown as HighchartsModuleInit | undefined
+    const initTreemap = HighchartsTreemap as unknown as HighchartsModuleInit | undefined
+    const initSolidGauge = HighchartsSolidGauge as unknown as HighchartsModuleInit | undefined
     
     if (typeof initMore === "function") initMore(Highcharts)
     if (typeof initHeatmap === "function") initHeatmap(Highcharts)
@@ -550,6 +550,9 @@ function Highchart({
   containerProps,
   ...props
 }: HighchartProps): React.ReactElement {
+  // Initialize Highcharts modules on first render
+  initHighchartsModules()
+  
   const theme = useHighchartsTheme()
   const chartRef = React.useRef<HighchartsReact.RefObject>(null)
 
