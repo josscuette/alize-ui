@@ -71,7 +71,17 @@ const groups = [
   },
 ];
 
-const basePackages = ["github:josscuette/alize-ui", "react", "react-dom", "tailwindcss", "next"];
+const basePackages = [
+  "github:josscuette/alize-ui", 
+  "react", 
+  "react-dom", 
+  "next",
+  "tailwindcss",
+  "typescript",
+  "@types/react",
+  "@types/react-dom",
+  "@types/node",
+];
 
 function detectPM() {
   try { execSync("pnpm --version", { stdio: "ignore" }); return "pnpm"; } catch {}
