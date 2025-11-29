@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useCallback, useRef } from "react";
+import { useState, useMemo, useCallback, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { MaterialSymbol } from "@/components/material-symbol";
@@ -46,20 +46,20 @@ export function DocumentationSidebar({
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
-  const [collapsedSections, setCollapsedSections] = useState<Set<string>>(() => {
-    // Initialize from localStorage on client
-    if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("sidebar-collapsed-sections");
-      if (saved) {
-        try {
-          return new Set(JSON.parse(saved));
-        } catch {
-          return new Set();
-        }
+  // Start with empty set to avoid hydration mismatch
+  const [collapsedSections, setCollapsedSections] = useState<Set<string>>(new Set());
+
+  // Load collapsed state from localStorage after mount (client-side only)
+  useEffect(() => {
+    const saved = localStorage.getItem("sidebar-collapsed-sections");
+    if (saved) {
+      try {
+        setCollapsedSections(new Set(JSON.parse(saved)));
+      } catch {
+        // Invalid JSON, ignore
       }
     }
-    return new Set();
-  });
+  }, []);
 
   const toggleSection = useCallback((sectionTitle: string) => {
     setCollapsedSections(prev => {
