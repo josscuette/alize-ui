@@ -9,8 +9,10 @@
 
 import { execSync, spawn } from "child_process";
 import * as readline from "readline";
+import fs from "fs";
+import path from "path";
 
-// ANSI color codes
+// ANSI codes
 const c = {
   reset: "\x1b[0m",
   bright: "\x1b[1m",
@@ -19,14 +21,17 @@ const c = {
   cyan: "\x1b[36m",
   yellow: "\x1b[33m",
   magenta: "\x1b[35m",
-  red: "\x1b[31m",
 };
+
+// Move cursor
+const up = (n) => `\x1b[${n}A`;
+const clearLine = "\x1b[2K\r";
 
 // Dependency groups - ALL selected by default
 const groups = [
   {
     name: "Core UI",
-    desc: "Radix UI primitives (dialogs, menus, tooltips...)",
+    desc: "Radix UI primitives",
     selected: true,
     packages: [
       "@radix-ui/react-accordion", "@radix-ui/react-alert-dialog", "@radix-ui/react-aspect-ratio",
@@ -42,65 +47,64 @@ const groups = [
   },
   {
     name: "Forms",
-    desc: "Form handling with validation (react-hook-form, zod)",
+    desc: "react-hook-form, zod",
     selected: true,
     packages: ["react-hook-form", "@hookform/resolvers", "zod"],
   },
   {
     name: "Charts",
-    desc: "Data visualization (Highcharts)",
+    desc: "Highcharts",
     selected: true,
     packages: ["highcharts", "highcharts-react-official"],
   },
   {
     name: "Calendar",
-    desc: "Date picker components",
+    desc: "date-fns, react-day-picker",
     selected: true,
     packages: ["date-fns", "react-day-picker"],
   },
   {
     name: "Icons",
-    desc: "Lucide icons",
+    desc: "lucide-react",
     selected: true,
     packages: ["lucide-react"],
   },
   {
     name: "Advanced UI",
-    desc: "Carousel, drawers, toasts, command palette",
+    desc: "carousel, drawers, toasts",
     selected: true,
     packages: ["embla-carousel-react", "react-resizable-panels", "vaul", "sonner", "cmdk", "input-otp"],
   },
   {
     name: "Theming",
-    desc: "Dark/light mode (next-themes)",
+    desc: "next-themes",
     selected: true,
     packages: ["next-themes"],
   },
 ];
 
 const basePackages = ["github:josscuette/alize-ui", "react", "react-dom", "tailwindcss"];
+const MENU_LINES = groups.length + 2; // groups + blank + help line
 
-function printHeader() {
-  console.log();
-  console.log(`${c.cyan}${c.bright}  ╭──────────────────────────────────────╮${c.reset}`);
-  console.log(`${c.cyan}${c.bright}  │${c.reset}       ${c.magenta}${c.bright}Alize UI${c.reset} - Installation      ${c.cyan}${c.bright}│${c.reset}`);
-  console.log(`${c.cyan}${c.bright}  ╰──────────────────────────────────────╯${c.reset}`);
-  console.log();
+function renderLine(g, i, cursor) {
+  const arrow = i === cursor ? `${c.cyan}❯${c.reset}` : " ";
+  const check = g.selected ? `${c.green}◉${c.reset}` : `${c.dim}○${c.reset}`;
+  const name = i === cursor ? `${c.bright}${g.name}${c.reset}` : g.name;
+  return `  ${arrow} ${check} ${name} ${c.dim}— ${g.desc}${c.reset}`;
 }
 
 function printMenu(cursor) {
-  // Clear previous menu
-  process.stdout.write(`\x1b[${groups.length + 3}A`); // Move up
-  process.stdout.write("\x1b[0J"); // Clear to end
+  // Move to start of menu area
+  process.stdout.write(up(MENU_LINES));
   
+  // Redraw each line
   groups.forEach((g, i) => {
-    const arrow = i === cursor ? `${c.cyan}❯${c.reset}` : " ";
-    const check = g.selected ? `${c.green}◉${c.reset}` : `${c.dim}○${c.reset}`;
-    const name = i === cursor ? `${c.bright}${g.name}${c.reset}` : g.name;
-    console.log(`  ${arrow} ${check} ${name} ${c.dim}— ${g.desc}${c.reset}`);
+    process.stdout.write(clearLine + renderLine(g, i, cursor) + "\n");
   });
-  console.log();
-  console.log(`  ${c.dim}↑↓${c.reset} Navigate  ${c.dim}Space${c.reset} Toggle  ${c.dim}a${c.reset} All  ${c.dim}Enter${c.reset} Install`);
+  
+  // Blank line + help
+  process.stdout.write(clearLine + "\n");
+  process.stdout.write(clearLine + `  ${c.dim}↑↓${c.reset} Navigate  ${c.dim}Space${c.reset} Toggle  ${c.dim}a${c.reset} All  ${c.dim}Enter${c.reset} Install`);
 }
 
 function detectPM() {
@@ -109,17 +113,12 @@ function detectPM() {
   return "npm";
 }
 
-import fs from "fs";
-import path from "path";
-
 function ensurePackageJson() {
   const pkgPath = path.join(process.cwd(), "package.json");
-  
   if (!fs.existsSync(pkgPath)) {
-    console.log(`${c.yellow}⚠ No package.json found. Creating one...${c.reset}`);
+    console.log(`\n${c.yellow}⚠ No package.json found. Creating one...${c.reset}`);
     execSync("npm init -y", { stdio: "ignore" });
-    console.log(`${c.green}✓${c.reset} Created package.json`);
-    console.log();
+    console.log(`${c.green}✓${c.reset} Created package.json\n`);
   }
 }
 
@@ -127,67 +126,49 @@ function install(packages) {
   const pm = detectPM();
   const cmd = pm === "npm" ? "install" : "add";
   
-  console.log();
-  console.log(`${c.cyan}Installing with ${pm}...${c.reset}`);
-  console.log();
+  console.log(`\n${c.cyan}Installing with ${pm}...${c.reset}\n`);
   
   return new Promise((resolve) => {
-    const child = spawn(pm, [cmd, ...packages], { 
-      stdio: "inherit",
-      shell: true 
-    });
+    const child = spawn(pm, [cmd, ...packages], { stdio: "inherit", shell: true });
     child.on("close", (code) => resolve(code === 0));
   });
 }
 
 function printSuccess() {
-  console.log();
-  console.log(`${c.green}${c.bright}  ✓ Installation complete!${c.reset}`);
-  console.log();
-  console.log(`  ${c.dim}Next steps:${c.reset}`);
+  console.log(`\n${c.green}${c.bright}✓ Installation complete!${c.reset}\n`);
+  console.log(`${c.dim}Next steps:${c.reset}`);
   console.log(`  1. ${c.cyan}import "alize-ui/dist/alize.css"${c.reset}`);
-  console.log(`  2. ${c.cyan}import { Button } from "alize-ui"${c.reset}`);
-  console.log();
+  console.log(`  2. ${c.cyan}import { Button } from "alize-ui"${c.reset}\n`);
 }
 
 async function main() {
-  printHeader();
+  // Header
+  console.log(`\n${c.cyan}${c.bright}  ╭──────────────────────────────────────╮${c.reset}`);
+  console.log(`${c.cyan}${c.bright}  │${c.reset}       ${c.magenta}${c.bright}Alize UI${c.reset} - Installation      ${c.cyan}${c.bright}│${c.reset}`);
+  console.log(`${c.cyan}${c.bright}  ╰──────────────────────────────────────╯${c.reset}\n`);
+  console.log(`  ${c.dim}All selected by default. Enter = install all.${c.reset}\n`);
   
-  console.log(`  ${c.dim}All options selected. Press Enter to install everything.${c.reset}`);
-  console.log(`  ${c.dim}Or use arrows + space to customize.${c.reset}`);
-  console.log();
-  
-  // Print initial menu
-  groups.forEach((g, i) => {
-    const check = `${c.green}◉${c.reset}`;
-    const arrow = i === 0 ? `${c.cyan}❯${c.reset}` : " ";
-    const name = i === 0 ? `${c.bright}${g.name}${c.reset}` : g.name;
-    console.log(`  ${arrow} ${check} ${name} ${c.dim}— ${g.desc}${c.reset}`);
-  });
+  // Initial menu render
+  groups.forEach((g, i) => console.log(renderLine(g, i, 0)));
   console.log();
   console.log(`  ${c.dim}↑↓${c.reset} Navigate  ${c.dim}Space${c.reset} Toggle  ${c.dim}a${c.reset} All  ${c.dim}Enter${c.reset} Install`);
   
   let cursor = 0;
   
-  // Setup readline
+  // Setup input
   readline.emitKeypressEvents(process.stdin);
-  if (process.stdin.isTTY) {
-    process.stdin.setRawMode(true);
-  }
-  
+  if (process.stdin.isTTY) process.stdin.setRawMode(true);
   process.stdin.resume();
   
   return new Promise((resolve) => {
     process.stdin.on("keypress", async (str, key) => {
       if (!key) return;
       
-      // Ctrl+C
       if (key.ctrl && key.name === "c") {
-        console.log();
+        process.stdout.write("\n");
         process.exit(0);
       }
       
-      // Navigation
       if (key.name === "up") {
         cursor = cursor > 0 ? cursor - 1 : groups.length - 1;
         printMenu(cursor);
@@ -202,20 +183,19 @@ async function main() {
         groups.forEach(g => g.selected = !allSelected);
         printMenu(cursor);
       } else if (key.name === "return") {
-        // Cleanup
         process.stdin.setRawMode(false);
         process.stdin.removeAllListeners("keypress");
         process.stdin.pause();
         
-        // Clear menu
-        process.stdout.write(`\x1b[${groups.length + 3}A\x1b[0J`);
+        // Move past menu and clear it
+        process.stdout.write("\n\n");
         
         // Build package list
         const packages = [...basePackages];
         const selected = groups.filter(g => g.selected);
         selected.forEach(g => packages.push(...g.packages));
         
-        // Show summary
+        // Summary
         console.log(`${c.bright}Installing:${c.reset}`);
         if (selected.length === groups.length) {
           console.log(`  ${c.green}✓${c.reset} Full installation (all dependencies)`);
@@ -226,9 +206,7 @@ async function main() {
           });
         }
         
-        // Ensure package.json exists
         ensurePackageJson();
-        
         const success = await install(packages);
         if (success) printSuccess();
         
@@ -238,4 +216,4 @@ async function main() {
   });
 }
 
-main().then(() => process.exit(0)).catch(() => process.exit(1));
+main().then(() => process.exit(0)).catch((e) => { console.error(e); process.exit(1); });
