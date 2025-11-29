@@ -1,8 +1,12 @@
 {
   "name": "alize-ui",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "private": true,
   "main": "./dist/index.js",
+  "bin": {
+    "alize": "./bin/init.mjs",
+    "alize-ui": "./bin/init.mjs"
+  },
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "sideEffects": false,
