@@ -169,22 +169,21 @@ export default function CompliancePage() {
                   />
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-semantic-text-subdued">
                     <div>
-                      <strong>Before:</strong> 60% (1.8 / 3.0)
+                      <strong>Initial (Nov 2024):</strong> 65% (1.95 / 3.0)
                     </div>
                     <div>
-                      <strong>Current:</strong> {overallScore}% ({complianceData.reduce((sum, cat) => sum + cat.score, 0).toFixed(1)} / {complianceData.reduce((sum, cat) => sum + cat.maxScore, 0).toFixed(1)})
+                      <strong>Current (v0.2.0):</strong> {overallScore}% ({complianceData.reduce((sum, cat) => sum + cat.score, 0).toFixed(1)} / {complianceData.reduce((sum, cat) => sum + cat.maxScore, 0).toFixed(1)})
                     </div>
                   </div>
                   <div className="pt-2 border-t">
-                    <strong className="text-sm">Recent improvements:</strong>
+                    <strong className="text-sm">Current status (v0.2.0):</strong>
                     <ul className="list-disc list-inside mt-2 space-y-1 text-xs">
-                      <li>TypeScript Standards: 90% → 100% (Explicit return types for all 259 component functions)</li>
-                      <li>Type Exports: 0% → 100% (58/58 components with exported interfaces)</li>
-                      <li>JSDoc Documentation: 5% → 100% (58/58 components with comprehensive JSDoc)</li>
-                      <li>Testing: 0% → 83% (infrastructure + 101 tests, 88% coverage, 7 components)</li>
-                      <li>Code Quality: 67% → 83% (JSDoc completion)</li>
-                      <li>Documentation: 50% → 67% (JSDoc completion)</li>
-                      <li>Accessibility: 50% → 67% (tests for 7 components with jest-axe)</li>
+                      <li>TypeScript Standards: 100% (276 exported types/interfaces, 250+ explicit return types)</li>
+                      <li>Component Architecture: 100% (71 components, clean /src/ structure)</li>
+                      <li>Performance: 100% (10 React.memo components, 212KB ESM bundle)</li>
+                      <li>Testing: 83% (101 tests, 7 components, jest-axe accessibility)</li>
+                      <li>Documentation: 83% (98 @example blocks, comprehensive guides)</li>
+                      <li>Package Distribution: 100% (ESM+CJS, charts module, CLI tool)</li>
                     </ul>
                   </div>
                 </div>

@@ -407,13 +407,13 @@ export const complianceData: CategoryStatus[] = [
         id: "pkg-1",
         name: "Package naming and versioning",
         status: "complete",
-        description: "✅ Package named 'alize-ui', version 0.1.1"
+        description: "✅ Package named 'alize-ui', version 0.2.0"
       },
       {
         id: "pkg-2",
         name: "Exports map configuration",
         status: "complete",
-        description: "✅ package.json exports: main bundle, CSS, preset, plugin with types"
+        description: "✅ package.json exports: main bundle, charts bundle, CSS, preset, plugin with types"
       },
       {
         id: "pkg-3",
