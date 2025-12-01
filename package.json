@@ -8,19 +8,19 @@
     "alize": "./bin/init.mjs",
     "alize-ui": "./bin/init.mjs"
   },
-  "module": "./dist/index.mjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "sideEffects": false,
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     },
     "./charts": {
       "types": "./dist/charts.d.ts",
-      "import": "./dist/charts.mjs",
-      "require": "./dist/charts.js"
+      "import": "./dist/charts.js",
+      "require": "./dist/charts.cjs"
     },
     "./dist/alize.css": "./dist/alize.css",
     "./preset": {
