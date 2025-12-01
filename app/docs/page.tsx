@@ -70,8 +70,8 @@ function ComponentMiniPreview({ componentName }: { componentName: string }) {
     ),
     'Spinner': (
       <div className="flex items-center gap-3">
-        <Spinner size="sm" />
-        <Spinner size="default" />
+        <Spinner className="size-4" />
+        <Spinner className="size-6" />
       </div>
     ),
     'Separator': (
