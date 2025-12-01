@@ -1,13 +1,43 @@
-import * as React from 'react';
-import Highcharts from 'highcharts';
-import HighchartsReact from 'highcharts-react-official';
-import HighchartsMore from 'highcharts/highcharts-more';
-import HighchartsHeatmap from 'highcharts/modules/heatmap';
-import HighchartsTreemap from 'highcharts/modules/treemap';
-import HighchartsSolidGauge from 'highcharts/modules/solid-gauge';
-import { clsx } from 'clsx';
-import { twMerge } from 'tailwind-merge';
-import { jsx } from 'react/jsx-runtime';
+'use strict';
+
+var React = require('react');
+var Highcharts = require('highcharts');
+var HighchartsReact = require('highcharts-react-official');
+var HighchartsMore = require('highcharts/highcharts-more');
+var HighchartsHeatmap = require('highcharts/modules/heatmap');
+var HighchartsTreemap = require('highcharts/modules/treemap');
+var HighchartsSolidGauge = require('highcharts/modules/solid-gauge');
+var clsx = require('clsx');
+var tailwindMerge = require('tailwind-merge');
+var jsxRuntime = require('react/jsx-runtime');
+
+function _interopDefault (e) { return e && e.__esModule ? e : { default: e }; }
+
+function _interopNamespace(e) {
+  if (e && e.__esModule) return e;
+  var n = Object.create(null);
+  if (e) {
+    Object.keys(e).forEach(function (k) {
+      if (k !== 'default') {
+        var d = Object.getOwnPropertyDescriptor(e, k);
+        Object.defineProperty(n, k, d.get ? d : {
+          enumerable: true,
+          get: function () { return e[k]; }
+        });
+      }
+    });
+  }
+  n.default = e;
+  return Object.freeze(n);
+}
+
+var React__namespace = /*#__PURE__*/_interopNamespace(React);
+var Highcharts__default = /*#__PURE__*/_interopDefault(Highcharts);
+var HighchartsReact__default = /*#__PURE__*/_interopDefault(HighchartsReact);
+var HighchartsMore__default = /*#__PURE__*/_interopDefault(HighchartsMore);
+var HighchartsHeatmap__default = /*#__PURE__*/_interopDefault(HighchartsHeatmap);
+var HighchartsTreemap__default = /*#__PURE__*/_interopDefault(HighchartsTreemap);
+var HighchartsSolidGauge__default = /*#__PURE__*/_interopDefault(HighchartsSolidGauge);
 
 var __defProp = Object.defineProperty;
 var __defProps = Object.defineProperties;
@@ -41,20 +71,20 @@ var __objRest = (source, exclude) => {
   return target;
 };
 function cn(...inputs) {
-  return twMerge(clsx(inputs));
+  return tailwindMerge.twMerge(clsx.clsx(inputs));
 }
 var modulesInitialized = false;
 function initHighchartsModules() {
   if (modulesInitialized || typeof window === "undefined") return;
   try {
-    const initMore = HighchartsMore;
-    const initHeatmap = HighchartsHeatmap;
-    const initTreemap = HighchartsTreemap;
-    const initSolidGauge = HighchartsSolidGauge;
-    if (typeof initMore === "function") initMore(Highcharts);
-    if (typeof initHeatmap === "function") initHeatmap(Highcharts);
-    if (typeof initTreemap === "function") initTreemap(Highcharts);
-    if (typeof initSolidGauge === "function") initSolidGauge(Highcharts);
+    const initMore = HighchartsMore__default.default;
+    const initHeatmap = HighchartsHeatmap__default.default;
+    const initTreemap = HighchartsTreemap__default.default;
+    const initSolidGauge = HighchartsSolidGauge__default.default;
+    if (typeof initMore === "function") initMore(Highcharts__default.default);
+    if (typeof initHeatmap === "function") initHeatmap(Highcharts__default.default);
+    if (typeof initTreemap === "function") initTreemap(Highcharts__default.default);
+    if (typeof initSolidGauge === "function") initSolidGauge(Highcharts__default.default);
     modulesInitialized = true;
   } catch (e) {
     console.warn("Failed to initialize Highcharts modules:", e);
@@ -118,7 +148,7 @@ function generateSequentialPalette(baseColor, steps = 7) {
   return palette;
 }
 function useAlizeChartColors() {
-  const [colors, setColors] = React.useState({
+  const [colors, setColors] = React__namespace.useState({
     categorical: [
       "#aa9888",
       "#3e778b",
@@ -144,7 +174,7 @@ function useAlizeChartColors() {
     background: "transparent",
     tooltipBackground: "#ffffff"
   });
-  React.useEffect(() => {
+  React__namespace.useEffect(() => {
     const updateColors = () => {
       const categorical = [];
       for (let i = 1; i <= 10; i++) {
@@ -192,7 +222,7 @@ function useAlizeChartColors() {
 }
 function useSequentialPalette(colorIndex = 1, steps = 7) {
   const colors = useAlizeChartColors();
-  return React.useMemo(() => {
+  return React__namespace.useMemo(() => {
     const baseColor = colors.categorical[Math.min(Math.max(colorIndex - 1, 0), 9)];
     return generateSequentialPalette(baseColor, steps);
   }, [colors.categorical, colorIndex, steps]);
@@ -230,7 +260,7 @@ function generateDivergentPalette(negativeColor, positiveColor, _neutralColor, s
   return palette;
 }
 function useDivergentColors() {
-  const [colors, setColors] = React.useState({
+  const [colors, setColors] = React__namespace.useState({
     negative: "#3e778b",
     // ocean-600
     positive: "#be4501",
@@ -238,7 +268,7 @@ function useDivergentColors() {
     neutral: "#cad1d5"
     // glacier-300
   });
-  React.useEffect(() => {
+  React__namespace.useEffect(() => {
     const updateColors = () => {
       setColors({
         negative: getCSSVariable("--color-solstice-ocean-600") || "#3e778b",
@@ -258,13 +288,13 @@ function useDivergentColors() {
 }
 function useDivergentPalette(steps = 7) {
   const colors = useDivergentColors();
-  return React.useMemo(() => {
+  return React__namespace.useMemo(() => {
     return generateDivergentPalette(colors.negative, colors.positive, colors.neutral, steps);
   }, [colors.negative, colors.positive, colors.neutral, steps]);
 }
 function useHighchartsTheme() {
   const colors = useAlizeChartColors();
-  return React.useMemo(
+  return React__namespace.useMemo(
     () => ({
       colors: colors.categorical,
       chart: {
@@ -408,25 +438,25 @@ function Highchart(_a) {
     "containerProps"
   ]);
   const theme = useHighchartsTheme();
-  const chartRef = React.useRef(null);
-  React.useEffect(() => {
+  const chartRef = React__namespace.useRef(null);
+  React__namespace.useEffect(() => {
     initHighchartsModules();
   }, []);
-  const mergedOptions = React.useMemo(
-    () => Highcharts.merge(theme, options),
+  const mergedOptions = React__namespace.useMemo(
+    () => Highcharts__default.default.merge(theme, options),
     [theme, options]
   );
-  return /* @__PURE__ */ jsx(
+  return /* @__PURE__ */ jsxRuntime.jsx(
     "div",
     __spreadProps(__spreadValues({
       "data-slot": "highchart",
       className: cn("w-full", className)
     }, props), {
-      children: /* @__PURE__ */ jsx(
-        HighchartsReact,
+      children: /* @__PURE__ */ jsxRuntime.jsx(
+        HighchartsReact__default.default,
         {
           ref: chartRef,
-          highcharts: Highcharts,
+          highcharts: Highcharts__default.default,
           options: mergedOptions,
           immutable,
           allowChartUpdate,
@@ -438,4 +468,12 @@ function Highchart(_a) {
   );
 }
 
-export { Highchart, generateDivergentPalette, generateSequentialPalette, getContrastTextColor, useAlizeChartColors, useDivergentColors, useDivergentPalette, useHighchartsTheme, useSequentialPalette };
+exports.Highchart = Highchart;
+exports.generateDivergentPalette = generateDivergentPalette;
+exports.generateSequentialPalette = generateSequentialPalette;
+exports.getContrastTextColor = getContrastTextColor;
+exports.useAlizeChartColors = useAlizeChartColors;
+exports.useDivergentColors = useDivergentColors;
+exports.useDivergentPalette = useDivergentPalette;
+exports.useHighchartsTheme = useHighchartsTheme;
+exports.useSequentialPalette = useSequentialPalette;

@@ -144,6 +144,7 @@ function createProjectFiles() {
   if (!fs.existsSync(layoutPath)) {
     const layoutContent = `import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
+import { MaterialSymbolsProvider } from "alize-ui";
 import "alize-ui/dist/alize.css";
 
 export const metadata: Metadata = {
@@ -159,6 +160,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="antialiased">
+        <MaterialSymbolsProvider />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem value={{ light: "theme-light", dark: "theme-dark" }}>
           {children}
         </ThemeProvider>

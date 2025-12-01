@@ -151,7 +151,7 @@ interface LabelProps extends React.ComponentProps<typeof LabelPrimitive.Root> {
 declare function Label({ className, ...props }: LabelProps): React.ReactElement;
 
 declare const badgeVariants: (props?: ({
-    variant?: "default" | "destructive" | "outline" | "secondary" | null | undefined;
+    variant?: "default" | "destructive" | "outline" | "secondary" | "warning" | "success" | null | undefined;
 } & class_variance_authority_types.ClassProp) | undefined) => string;
 /**
  * Badge component props interface
@@ -167,7 +167,13 @@ interface BadgeProps extends React.ComponentProps<"span">, VariantProps<typeof b
 /**
  * Badge component - A small status indicator or label
  *
- * Displays a badge with multiple variants (default, secondary, destructive, outline).
+ * Displays a badge with multiple variants for different states:
+ * - `default` / `secondary`: Neutral badge for general use
+ * - `destructive`: Red/danger badge for errors or critical states
+ * - `warning`: Orange/amber badge for warnings or caution states
+ * - `success`: Green badge for success or positive states
+ * - `outline`: Outlined badge without background
+ *
  * Can be used as a link or other element via the asChild prop.
  *
  * @param props - Badge props including variant, asChild, and standard HTML span attributes
@@ -175,8 +181,16 @@ interface BadgeProps extends React.ComponentProps<"span">, VariantProps<typeof b
  *
  * @example
  * ```tsx
- * <Badge variant="default">New</Badge>
+ * // RAG status badges
+ * <Badge variant="success">Complete</Badge>
+ * <Badge variant="warning">Pending</Badge>
  * <Badge variant="destructive">Error</Badge>
+ *
+ * // Other variants
+ * <Badge variant="default">New</Badge>
+ * <Badge variant="outline">Draft</Badge>
+ *
+ * // As a link
  * <Badge asChild>
  *   <a href="/link">Link Badge</a>
  * </Badge>
@@ -206,6 +220,7 @@ interface AvatarImageProps extends React.ComponentProps<typeof AvatarPrimitive.I
  */
 interface AvatarFallbackProps extends React.ComponentProps<typeof AvatarPrimitive.Fallback> {
     size?: "xs" | "sm" | "md" | "lg";
+    delayMs?: number;
 }
 /**
  * Avatar component - A user avatar with image and fallback
@@ -239,7 +254,7 @@ declare function AvatarImage({ className, ...props }: AvatarImageProps): React.R
  * @param props - AvatarFallback props including size and standard Radix UI AvatarFallback attributes
  * @returns An avatar fallback element
  */
-declare function AvatarFallback({ className, size, ...props }: AvatarFallbackProps): React.ReactElement;
+declare function AvatarFallback({ className, size, delayMs, ...props }: AvatarFallbackProps): React.ReactElement;
 
 /**
  * Skeleton component props interface
