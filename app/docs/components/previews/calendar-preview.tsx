@@ -6,8 +6,10 @@ import { Calendar } from '@/components/ui/calendar';
 export function CalendarPreview({ title }: { title: string }): ReactNode {
   const [date, setDate] = useState<Date | undefined>(new Date());
 
-  const handleSelect = (selectedDate: Date | undefined) => {
-    setDate(selectedDate);
+  const handleSelect = (selectedDate: Date | { from?: Date; to?: Date } | Date[] | undefined) => {
+    if (selectedDate instanceof Date || selectedDate === undefined) {
+      setDate(selectedDate);
+    }
   };
 
   switch (title) {
