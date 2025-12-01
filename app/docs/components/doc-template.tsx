@@ -79,7 +79,7 @@ function ExampleCard({ example, renderPreview }: ExampleCardProps): ReactNode {
               <MaterialSymbol name="visibility" size={16} weight={300} />
               <span>Preview</span>
             </div>
-            <div className="p-4 sm:p-6 lg:p-8 border rounded-lg bg-semantic-surface-subdued overflow-x-auto">
+            <div className="p-4 sm:p-6 lg:p-8 border rounded-lg bg-[var(--semantic-surface-overlays-level1)] overflow-x-auto">
               <div className="flex items-center justify-center w-full min-h-[80px] sm:min-h-[100px] [&_button:disabled]:cursor-not-allowed">
                 {renderPreview({ title: example.title, code: example.code })}
               </div>
@@ -352,7 +352,7 @@ function InteractivePlayground({
             <MaterialSymbol name="visibility" size={16} weight={300} />
             <span>Preview</span>
           </div>
-          <div className="p-4 sm:p-6 lg:p-8 border rounded-lg bg-semantic-surface-subdued overflow-x-auto">
+          <div className="p-4 sm:p-6 lg:p-8 border rounded-lg bg-[var(--semantic-surface-overlays-level1)] overflow-x-auto">
             <div className="flex items-center justify-center w-full min-h-[80px] sm:min-h-[100px] [&_button:disabled]:cursor-not-allowed">
               {renderInteractivePreview(values)}
             </div>
