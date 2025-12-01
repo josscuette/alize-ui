@@ -355,6 +355,36 @@ const options: Highcharts.Options = {
 };
 
 <Highchart options={options} />`
+      },
+      {
+        title: "Interactive Playground",
+        description: "Experiment with different numbers of data series. Use the slider to add or remove categories and see how the chart scales.",
+        code: `import { useState } from 'react';
+import { Highchart } from 'alize-ui/charts';
+import { Slider } from 'alize-ui';
+import type * as Highcharts from 'highcharts';
+
+const allSeries = [
+  { name: "Product A", data: [31, 40, 28, 51, 42, 67], color: "var(--semantic-dataviz-ct-1)" },
+  { name: "Product B", data: [28, 35, 32, 42, 38, 55], color: "var(--semantic-dataviz-ct-2)" },
+  { name: "Product C", data: [22, 30, 25, 38, 35, 48], color: "var(--semantic-dataviz-ct-3)" },
+  { name: "Product D", data: [18, 25, 30, 35, 28, 42], color: "var(--semantic-dataviz-ct-4)" },
+  { name: "Product E", data: [35, 42, 38, 55, 48, 72], color: "var(--semantic-dataviz-ct-5)" },
+  { name: "Product F", data: [15, 22, 18, 28, 25, 35], color: "var(--semantic-dataviz-ct-6)" },
+  { name: "Product G", data: [42, 48, 45, 62, 55, 78], color: "var(--semantic-dataviz-ct-7)" },
+];
+
+const [count, setCount] = useState(2);
+const visibleSeries = allSeries.slice(0, count);
+
+<Slider min={2} max={7} value={[count]} onValueChange={(v) => setCount(v[0])} />
+<Highchart options={{
+  chart: { type: "line", height: 350 },
+  title: { text: "Monthly Performance by Product" },
+  xAxis: { categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"] },
+  yAxis: { title: { text: "Value" } },
+  series: visibleSeries.map(s => ({ ...s, type: "line" })),
+}} />`
       }
     ],
     do: [

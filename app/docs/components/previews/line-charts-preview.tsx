@@ -1,14 +1,27 @@
 'use client';
 
-import type { ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import { Highchart } from '@/components/ui/highchart';
-import * as Highcharts from 'highcharts';
+import { Slider } from '@/components/ui/slider';
+import { Label } from '@/components/ui/label';
+
+// All available series data for the playground
+const allSeriesData = [
+  { name: "Product A", data: [31, 40, 28, 51, 42, 67], color: "var(--semantic-dataviz-ct-1)" },
+  { name: "Product B", data: [28, 35, 32, 42, 38, 55], color: "var(--semantic-dataviz-ct-2)" },
+  { name: "Product C", data: [22, 30, 25, 38, 35, 48], color: "var(--semantic-dataviz-ct-3)" },
+  { name: "Product D", data: [18, 25, 30, 35, 28, 42], color: "var(--semantic-dataviz-ct-4)" },
+  { name: "Product E", data: [35, 42, 38, 55, 48, 72], color: "var(--semantic-dataviz-ct-5)" },
+  { name: "Product F", data: [15, 22, 18, 28, 25, 35], color: "var(--semantic-dataviz-ct-6)" },
+  { name: "Product G", data: [42, 48, 45, 62, 55, 78], color: "var(--semantic-dataviz-ct-7)" },
+];
 
 /**
  * Preview renderer for Line Charts component examples
  */
 export function LineChartsPreview({ title }: { title: string }): ReactNode {
   const monthlyData = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"];
+  const [categoryCount, setCategoryCount] = useState(2);
 
   switch (title) {
     case 'Basic Line Chart':
@@ -98,8 +111,64 @@ export function LineChartsPreview({ title }: { title: string }): ReactNode {
         />
       );
     
+    case 'Interactive Playground':
+      return (
+        <LineChartPlayground 
+          categoryCount={categoryCount} 
+          onCategoryCountChange={setCategoryCount} 
+        />
+      );
+    
     default:
       return null;
   }
+}
+
+/**
+ * Interactive playground for Line Charts
+ */
+function LineChartPlayground({ 
+  categoryCount, 
+  onCategoryCountChange 
+}: { 
+  categoryCount: number; 
+  onCategoryCountChange: (value: number) => void;
+}): ReactNode {
+  const monthlyData = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"];
+  const visibleSeries = allSeriesData.slice(0, categoryCount).map(s => ({
+    ...s,
+    type: "line" as const,
+  }));
+
+  return (
+    <div className="space-y-6">
+      <div className="flex items-center gap-4 p-4 bg-muted/50 rounded-lg">
+        <Label htmlFor="category-slider" className="text-sm font-medium whitespace-nowrap">
+          Categories: {categoryCount}
+        </Label>
+        <Slider
+          id="category-slider"
+          min={2}
+          max={7}
+          step={1}
+          value={[categoryCount]}
+          onValueChange={(value) => onCategoryCountChange(value[0])}
+          className="w-48"
+        />
+        <span className="text-xs text-muted-foreground">(2-7)</span>
+      </div>
+      
+      <Highchart 
+        options={{
+          chart: { type: "line", height: 350 },
+          title: { text: "Monthly Performance by Product" },
+          xAxis: { categories: monthlyData },
+          yAxis: { title: { text: "Value" } },
+          series: visibleSeries,
+          legend: { enabled: true },
+        }} 
+      />
+    </div>
+  );
 }
 
