@@ -139,12 +139,39 @@ function createProjectFiles() {
     fs.mkdirSync(appDir, { recursive: true });
   }
   
-  // Create layout.tsx
+  // Create providers.tsx (Client Component for context providers)
+  const providersPath = path.join(appDir, "providers.tsx");
+  if (!fs.existsSync(providersPath)) {
+    const providersContent = `"use client";
+
+import { ThemeProvider } from "next-themes";
+import { MaterialSymbolsProvider } from "alize-ui";
+
+export function Providers({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <MaterialSymbolsProvider />
+      <ThemeProvider 
+        attribute="class" 
+        defaultTheme="system" 
+        enableSystem 
+        value={{ light: "theme-light", dark: "theme-dark" }}
+      >
+        {children}
+      </ThemeProvider>
+    </>
+  );
+}
+`;
+    fs.writeFileSync(providersPath, providersContent);
+    console.log(`${c.green}✓${c.reset} Created app/providers.tsx`);
+  }
+
+  // Create layout.tsx (Server Component)
   const layoutPath = path.join(appDir, "layout.tsx");
   if (!fs.existsSync(layoutPath)) {
     const layoutContent = `import type { Metadata } from "next";
-import { ThemeProvider } from "next-themes";
-import { MaterialSymbolsProvider } from "alize-ui";
+import { Providers } from "./providers";
 import "alize-ui/dist/alize.css";
 
 export const metadata: Metadata = {
@@ -160,10 +187,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="antialiased">
-        <MaterialSymbolsProvider />
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem value={{ light: "theme-light", dark: "theme-dark" }}>
-          {children}
-        </ThemeProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

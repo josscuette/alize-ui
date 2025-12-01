@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
+import { Providers } from "./providers";
 import "alize-ui/dist/alize.css";
-import { MaterialSymbolsProvider } from "alize-ui";
 
 export const metadata: Metadata = {
   title: "Alize Next.js Boilerplate",
@@ -13,12 +13,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
-        <MaterialSymbolsProvider />
-        {children}
+    <html lang="en" suppressHydrationWarning>
+      <body className="antialiased">
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
 }
-
