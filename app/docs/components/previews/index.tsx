@@ -90,6 +90,10 @@ const AdvancedPatternsPreview = dynamic(
 // Type for preview functions
 type PreviewFunction = (props: { title: string }) => ReactNode;
 
+// Type for dynamic preview components (loaded with next/dynamic)
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type DynamicPreviewComponent = any;
+
 // Type for interactive preview functions
 type InteractivePreviewFunction = (props: Record<string, string>) => ReactNode;
 
@@ -126,7 +130,7 @@ export function getInteractivePreviewRenderer(
  * The key is the `component` field from the component data (e.g., "Button", "Checkbox")
  * The value is the preview function
  */
-const PREVIEW_REGISTRY: Record<string, PreviewFunction> = {
+const PREVIEW_REGISTRY: Record<string, PreviewFunction | DynamicPreviewComponent> = {
   // Atoms
   'Button': ButtonPreview,
   'Checkbox': CheckboxPreview,
