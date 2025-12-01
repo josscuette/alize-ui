@@ -79,7 +79,7 @@ function ExampleCard({ example, renderPreview }: ExampleCardProps): ReactNode {
               <MaterialSymbol name="visibility" size={16} weight={300} />
               <span>Preview</span>
             </div>
-            <div className="p-4 sm:p-6 lg:p-8 border rounded-lg bg-[var(--semantic-surface-overlays-level1)] overflow-x-auto">
+            <div className="p-4 sm:p-6 lg:p-8 border rounded-lg bg-[var(--semantic-surface-overlays-level1)]/40 overflow-x-auto">
               <div className="flex items-center justify-center w-full min-h-[80px] sm:min-h-[100px] [&_button:disabled]:cursor-not-allowed">
                 {renderPreview({ title: example.title, code: example.code })}
               </div>
@@ -307,7 +307,7 @@ function InteractivePlayground({
         {/* Controls */}
         <div className="flex flex-wrap gap-4">
           {interactiveProps.map((prop) => (
-            <div key={prop.name} className="flex-1 min-w-[180px]">
+            <div key={prop.name} className="flex-1 min-w-[180px] max-w-[50%]">
               <label className="text-xs font-medium text-muted-foreground mb-2 block">
                 {prop.label}
               </label>
@@ -352,7 +352,7 @@ function InteractivePlayground({
             <MaterialSymbol name="visibility" size={16} weight={300} />
             <span>Preview</span>
           </div>
-          <div className="p-4 sm:p-6 lg:p-8 border rounded-lg bg-[var(--semantic-surface-overlays-level1)] overflow-x-auto">
+          <div className="p-4 sm:p-6 lg:p-8 border rounded-lg bg-[var(--semantic-surface-overlays-level1)]/40 overflow-x-auto">
             <div className="flex items-center justify-center w-full min-h-[80px] sm:min-h-[100px] [&_button:disabled]:cursor-not-allowed">
               {renderInteractivePreview(values)}
             </div>
