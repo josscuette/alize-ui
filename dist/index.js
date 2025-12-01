@@ -1,3 +1,4 @@
+"use client";
 import * as React24 from 'react';
 import { useMemo, useEffect } from 'react';
 import { Slot } from '@radix-ui/react-slot';

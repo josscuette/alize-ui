@@ -1,3 +1,4 @@
+"use client";
 'use strict';
 
 var React24 = require('react');

@@ -1,4 +1,22 @@
 import { defineConfig } from "tsup";
+import { readFileSync, writeFileSync } from "fs";
+import { join } from "path";
+
+// Post-build: prepend "use client" to JS files
+function addUseClient() {
+  const files = ["dist/index.js", "dist/index.cjs", "dist/charts.js", "dist/charts.cjs"];
+  for (const file of files) {
+    const filePath = join(process.cwd(), file);
+    try {
+      const content = readFileSync(filePath, "utf-8");
+      if (!content.startsWith('"use client"')) {
+        writeFileSync(filePath, `"use client";\n${content}`);
+      }
+    } catch {
+      // File might not exist yet
+    }
+  }
+}
 
 export default defineConfig({
   entry: {
@@ -91,4 +109,9 @@ export default defineConfig({
   minify: false, // Let consumers minify if needed
   // Ensure we don't bundle node_modules
   noExternal: [],
+  // Add "use client" directive for Next.js App Router compatibility after build
+  onSuccess: async () => {
+    addUseClient();
+    console.log('✓ Added "use client" directive to output files');
+  },
 });
