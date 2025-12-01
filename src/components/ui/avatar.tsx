@@ -8,7 +8,7 @@ import { cn } from "../../lib/utils"
 import { surface, text, radius } from "../../foundation"
 
 const avatarVariants = cva(
-  "relative flex shrink-0 overflow-hidden",
+  "relative flex shrink-0 overflow-hidden border border-semantic-surface-overlays-level2",
   {
     variants: {
       size: {

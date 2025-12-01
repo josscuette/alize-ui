@@ -182,7 +182,7 @@ function SheetContent({
           Sheet
         </SheetPrimitive.Title>
         {children}
-        <SheetPrimitive.Close className="absolute top-4 right-4 z-50 rounded-xs opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none flex items-center justify-center size-8">
+        <SheetPrimitive.Close className="absolute top-4 right-4 z-50 rounded-xs opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none disabled:cursor-not-allowed flex items-center justify-center size-8">
           <MaterialSymbol name="close" size={20} weight={300} className="text-muted-foreground" />
           <span className="sr-only">Close</span>
         </SheetPrimitive.Close>

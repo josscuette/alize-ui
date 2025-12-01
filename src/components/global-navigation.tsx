@@ -20,7 +20,7 @@ const navigationItems = [
     icon: "layers",
   },
   {
-    href: "/components",
+    href: "/docs",
     label: "Components",
     icon: "apps",
   },
@@ -44,22 +44,23 @@ export function GlobalNavigation() {
   } = useNavigation();
 
   return (
-    <header className="border-b bg-background">
+    <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60">
       <div className="w-full flex h-16 items-center justify-between px-4 md:px-8">
-        <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-          <MaterialSymbol 
-            name="widgets" 
-            size={24} 
-            weight={300} 
-            className="text-[var(--semantic-icon-interaction-default)]" 
-          />
-          <h1 className="text-xl font-normal">Alize</h1>
-        </Link>
-        
-        <nav className="hidden lg:flex items-center gap-1 flex-nowrap whitespace-nowrap">
+        <div className="flex items-center gap-6">
+          <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <MaterialSymbol 
+              name="widgets" 
+              size={24} 
+              weight={300} 
+              className="text-[var(--semantic-icon-interaction-default)]" 
+            />
+            <h1 className="text-xl font-normal">Alize</h1>
+          </Link>
+          
+          <nav className="hidden lg:flex items-center gap-1 flex-nowrap whitespace-nowrap">
           {navigationItems.map((item) => {
             const isActive = pathname === item.href || 
-              (item.href === "/components" && pathname?.startsWith("/components")) ||
+              (item.href === "/docs" && pathname?.startsWith("/docs")) ||
               (item.href === "/compliance/foundation-layer" && pathname === "/compliance/foundation-layer") ||
               (item.href === "/compliance" && pathname?.startsWith("/compliance") && pathname !== "/compliance/foundation-layer");
             
@@ -79,7 +80,8 @@ export function GlobalNavigation() {
               </Link>
             );
           })}
-        </nav>
+          </nav>
+        </div>
 
         <div className="flex items-center gap-4">
           <GlobalHeader />

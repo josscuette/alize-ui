@@ -98,7 +98,8 @@ function SwitchCard({
   id,
   ...props
 }: SwitchCardProps): React.ReactElement {
-  const itemId = id || `switch-card-${Math.random().toString(36).substr(2, 9)}`
+  const generatedId = React.useId()
+  const itemId = id || `switch-card-${generatedId}`
   
   return (
     <label

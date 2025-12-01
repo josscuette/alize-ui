@@ -118,7 +118,8 @@ function RadioGroupCardItem({
   id,
   ...props
 }: RadioGroupCardItemProps): React.ReactElement {
-  const itemId = id || `radio-card-${Math.random().toString(36).substr(2, 9)}`
+  const generatedId = React.useId()
+  const itemId = id || `radio-card-${generatedId}`
   
   return (
     <label

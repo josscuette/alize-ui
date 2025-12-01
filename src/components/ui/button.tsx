@@ -28,11 +28,14 @@ const buttonVariants = cva(
   cn(
     // Layout
     "inline-flex items-center justify-center whitespace-nowrap font-normal",
+    // Cursor
+    "cursor-pointer",
     // SVG handling
     "[&_svg]:pointer-events-none shrink-0 [&_svg]:shrink-0",
     // Focus
     "outline-none",
     // States from Foundation Layer
+    states.disabledCursor,
     states.disabled,
     states.focusRing,
     states.invalidRing,

@@ -1,0 +1,116 @@
+---
+title: Button
+description: A versatile button component with multiple variants and sizes. Supports all standard button variants and icon-only variants.
+category: atoms
+component: Button
+importPath: '@/components/ui/button'
+props:
+  - name: variant
+    type: "default | destructive | outline | secondary | ghost | link"
+    default: "default"
+    required: false
+    description: Visual style variant of the button
+  - name: size
+    type: "default | sm | lg | xs | icon | icon-sm | icon-lg | icon-xs"
+    default: "default"
+    required: false
+    description: Size of the button
+  - name: disabled
+    type: "boolean"
+    default: "false"
+    required: false
+    description: Whether the button is disabled
+  - name: asChild
+    type: "boolean"
+    default: "false"
+    required: false
+    description: Render as a different element using Radix UI Slot
+examples:
+  - title: Default Button
+    description: Basic button usage
+    code: |
+      import { Button } from '@/components/ui/button';
+      
+      <Button>Click me</Button>
+  - title: Variants
+    description: All available button variants
+    code: |
+      import { Button } from '@/components/ui/button';
+      
+      <div className="flex gap-2">
+        <Button variant="default">Default</Button>
+        <Button variant="destructive">Destructive</Button>
+        <Button variant="outline">Outline</Button>
+        <Button variant="secondary">Secondary</Button>
+        <Button variant="ghost">Ghost</Button>
+        <Button variant="link">Link</Button>
+      </div>
+  - title: Sizes
+    description: All available button sizes
+    code: |
+      import { Button } from '@/components/ui/button';
+      
+      <div className="flex items-center gap-2">
+        <Button size="xs">Extra Small</Button>
+        <Button size="sm">Small</Button>
+        <Button size="default">Default</Button>
+        <Button size="lg">Large</Button>
+      </div>
+  - title: Icon Buttons
+    description: Icon-only button variants
+    code: |
+      import { Button } from '@/components/ui/button';
+      import { MaterialSymbol } from '@/components/material-symbol';
+      
+      <div className="flex items-center gap-2">
+        <Button size="icon-xs" aria-label="Extra small">
+          <MaterialSymbol name="add" size={12} weight={300} />
+        </Button>
+        <Button size="icon-sm" aria-label="Small">
+          <MaterialSymbol name="add" size={16} weight={300} />
+        </Button>
+        <Button size="icon" aria-label="Default">
+          <MaterialSymbol name="add" size={20} weight={300} />
+        </Button>
+        <Button size="icon-lg" aria-label="Large">
+          <MaterialSymbol name="add" size={24} weight={300} />
+        </Button>
+      </div>
+  - title: With Icons
+    description: Buttons with icons and text
+    code: |
+      import { Button } from '@/components/ui/button';
+      import { MaterialSymbol } from '@/components/material-symbol';
+      
+      <div className="flex gap-2">
+        <Button>
+          <MaterialSymbol name="download" size={20} weight={300} />
+          Download
+        </Button>
+        <Button variant="outline">
+          <MaterialSymbol name="settings" size={20} weight={300} />
+          Settings
+        </Button>
+      </div>
+  - title: States
+    description: Button states
+    code: |
+      import { Button } from '@/components/ui/button';
+      
+      <div className="flex gap-2">
+        <Button>Normal</Button>
+        <Button disabled>Disabled</Button>
+      </div>
+bestPractices:
+  - Use `default` variant for primary actions
+  - Use `outline` or `secondary` for secondary actions
+  - Use `destructive` only for destructive actions
+  - Always include `aria-label` for icon-only buttons
+  - Ensure sufficient color contrast
+  - Provide clear focus states
+accessibility: |
+  - Icon-only buttons must have an `aria-label` for screen readers
+  - Buttons should have clear focus states
+  - Use semantic HTML (button element)
+  - Ensure sufficient color contrast ratios
+

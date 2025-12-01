@@ -118,7 +118,8 @@ function CheckboxCard({
   id,
   ...props
 }: CheckboxCardProps): React.ReactElement {
-  const itemId = id || `checkbox-card-${Math.random().toString(36).substr(2, 9)}`
+  const generatedId = React.useId()
+  const itemId = id || `checkbox-card-${generatedId}`
   
   return (
     <label
