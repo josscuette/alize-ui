@@ -103,9 +103,16 @@ function addNextScripts() {
   const pkgPath = path.join(process.cwd(), "package.json");
   if (fs.existsSync(pkgPath)) {
     const pkg = JSON.parse(fs.readFileSync(pkgPath, "utf-8"));
-    const hasNextScripts = pkg.scripts?.dev === "next dev";
+    let modified = false;
     
-    if (!hasNextScripts) {
+    // Add type: module for ESM support
+    if (pkg.type !== "module") {
+      pkg.type = "module";
+      modified = true;
+    }
+    
+    // Add Next.js scripts
+    if (pkg.scripts?.dev !== "next dev") {
       pkg.scripts = {
         ...pkg.scripts,
         dev: "next dev",
@@ -113,8 +120,12 @@ function addNextScripts() {
         start: "next start",
         lint: "next lint",
       };
+      modified = true;
+    }
+    
+    if (modified) {
       fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2));
-      console.log(`${c.green}✓${c.reset} Added Next.js scripts to package.json`);
+      console.log(`${c.green}✓${c.reset} Updated package.json (ESM + Next.js scripts)`);
     }
   }
 }
