@@ -2,7 +2,13 @@
 
 import { useState, type ReactNode } from 'react';
 import { Highchart } from '@/components/ui/highchart';
-import { Slider } from '@/components/ui/slider';
+import { 
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { Label } from '@/components/ui/label';
 
 // All available series data for the playground
@@ -141,21 +147,27 @@ function LineChartPlayground({
   }));
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center gap-4 p-4 bg-muted/50 rounded-lg">
-        <Label htmlFor="category-slider" className="text-sm font-medium whitespace-nowrap">
-          Categories: {categoryCount}
+    <div className="space-y-4 w-full">
+      <div className="flex items-center gap-3">
+        <Label htmlFor="category-select" className="text-sm font-medium whitespace-nowrap">
+          Number of categories:
         </Label>
-        <Slider
-          id="category-slider"
-          min={2}
-          max={7}
-          step={1}
-          value={[categoryCount]}
-          onValueChange={(value) => onCategoryCountChange(value[0])}
-          className="w-48"
-        />
-        <span className="text-xs text-muted-foreground">(2-7)</span>
+        <Select
+          value={categoryCount.toString()}
+          onValueChange={(value) => onCategoryCountChange(parseInt(value))}
+        >
+          <SelectTrigger id="category-select" className="w-24">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="2">2</SelectItem>
+            <SelectItem value="3">3</SelectItem>
+            <SelectItem value="4">4</SelectItem>
+            <SelectItem value="5">5</SelectItem>
+            <SelectItem value="6">6</SelectItem>
+            <SelectItem value="7">7</SelectItem>
+          </SelectContent>
+        </Select>
       </div>
       
       <Highchart 

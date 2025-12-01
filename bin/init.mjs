@@ -202,6 +202,7 @@ export default function RootLayout({
   if (!fs.existsSync(pagePath)) {
     const pageContent = `"use client";
 
+import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { 
   Button, 
@@ -219,6 +220,12 @@ import {
 
 export default function Home() {
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // Avoid hydration mismatch by only rendering theme UI after mount
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <main className="min-h-screen bg-background p-8">
@@ -271,13 +278,15 @@ export default function Home() {
                   <label className="flex items-center gap-2 text-sm">
                     <Checkbox /> Remember me
                   </label>
-                  <label className="flex items-center gap-2 text-sm">
-                    <Switch 
-                      checked={theme === "dark"} 
-                      onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")} 
-                    /> 
-                    Dark mode
-                  </label>
+                  {mounted && (
+                    <label className="flex items-center gap-2 text-sm">
+                      <Switch 
+                        checked={theme === "dark"} 
+                        onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")} 
+                      /> 
+                      Dark mode
+                    </label>
+                  )}
                 </div>
               </div>
             </div>
