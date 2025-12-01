@@ -14,7 +14,7 @@ export const components: Component[] = [
     description: "A versatile button component with multiple variants and sizes. Supports all standard button variants and icon-only variants.",
     category: "atoms",
     component: "Button",
-    importPath: "@/components/ui/button",
+    importPath: "alize-ui",
     props: [
       {
         name: "variant",
@@ -49,14 +49,14 @@ export const components: Component[] = [
       {
         title: "Default Button",
         description: "Basic button usage with a clear, actionable label",
-        code: `import { Button } from '@/components/ui/button';
+        code: `import { Button } from 'alize-ui';
 
 <Button>Save</Button>`
       },
       {
         title: "Variants",
         description: "All available button variants. Use primary (default) for main actions, outline/secondary for secondary actions, and destructive only for destructive actions.",
-        code: `import { Button } from '@/components/ui/button';
+        code: `import { Button } from 'alize-ui';
 
 <div className="flex gap-2">
   <Button variant="default">Save</Button>
@@ -70,7 +70,7 @@ export const components: Component[] = [
       {
         title: "Sizes",
         description: "All available button sizes. Use large size only for marketing purposes or empty states.",
-        code: `import { Button } from '@/components/ui/button';
+        code: `import { Button } from 'alize-ui';
 
 <div className="flex items-center gap-2">
   <Button size="xs">Add</Button>
@@ -949,7 +949,7 @@ const options: Highcharts.Options = {
     description: "Form controls aligned on the typography and focus ring tokens. Supports all standard HTML input types with validation states.",
     category: "atoms",
     component: "Input",
-    importPath: "@/components/ui/input",
+    importPath: "alize-ui",
     props: [
       {
         name: "type",
@@ -983,8 +983,8 @@ const options: Highcharts.Options = {
       {
         title: "Basic Input",
         description: "Standard text input with placeholder",
-        code: `import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+        code: `import { Input } from 'alize-ui';
+import { Label } from 'alize-ui';
 
 <div className="space-y-2">
   <Label htmlFor="name">Full name</Label>
@@ -994,8 +994,8 @@ import { Label } from '@/components/ui/label';
       {
         title: "Input Types",
         description: "Different input types provide appropriate keyboards and validation",
-        code: `import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+        code: `import { Input } from 'alize-ui';
+import { Label } from 'alize-ui';
 
 <div className="space-y-4">
   <div className="space-y-2">
@@ -1015,9 +1015,9 @@ import { Label } from '@/components/ui/label';
       {
         title: "With Icons",
         description: "Icons enhance input clarity and provide visual context",
-        code: `import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { MaterialSymbol } from '@/components/material-symbol';
+        code: `import { Input } from 'alize-ui';
+import { Label } from 'alize-ui';
+import { MaterialSymbol } from 'alize-ui';
 
 <div className="space-y-2">
   <Label htmlFor="search">Search</Label>
@@ -1035,8 +1035,8 @@ import { MaterialSymbol } from '@/components/material-symbol';
       {
         title: "Validation States",
         description: "Input states communicate validation and provide feedback",
-        code: `import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+        code: `import { Input } from 'alize-ui';
+import { Label } from 'alize-ui';
 
 <div className="space-y-4">
   <div className="space-y-2">
@@ -1116,7 +1116,7 @@ import { Label } from '@/components/ui/label';
     description: "Type ramp, spacing and accessibility baked in. Provides accessible form labels with consistent typography.",
     category: "atoms",
     component: "Label",
-    importPath: "@/components/ui/label",
+    importPath: "alize-ui",
     props: [
       {
         name: "htmlFor",
@@ -1129,8 +1129,8 @@ import { Label } from '@/components/ui/label';
       {
         title: "Basic Label",
         description: "Standard label for form inputs",
-        code: `import { Label } from '@/components/ui/label';
-import { Input } from '@/components/ui/input';
+        code: `import { Label } from 'alize-ui';
+import { Input } from 'alize-ui';
 
 <div className="space-y-2">
   <Label htmlFor="email">Email address</Label>
@@ -1140,8 +1140,8 @@ import { Input } from '@/components/ui/input';
       {
         title: "With Checkable Controls",
         description: "Labels enhance accessibility for checkboxes and switches",
-        code: `import { Label } from '@/components/ui/label';
-import { Checkbox } from '@/components/ui/checkbox';
+        code: `import { Label } from 'alize-ui';
+import { Checkbox } from 'alize-ui';
 
 <div className="flex items-start gap-2">
   <Checkbox id="terms" />
@@ -1154,8 +1154,8 @@ import { Checkbox } from '@/components/ui/checkbox';
       {
         title: "Required Fields",
         description: "Indicate required fields with visual markers",
-        code: `import { Label } from '@/components/ui/label';
-import { Input } from '@/components/ui/input';
+        code: `import { Label } from 'alize-ui';
+import { Input } from 'alize-ui';
 
 <div className="space-y-2">
   <Label htmlFor="required">
@@ -1194,7 +1194,7 @@ import { Input } from '@/components/ui/input';
     description: "Compact statuses using semantic color ramp only. Small status indicators and labels with semantic color tokens.",
     category: "atoms",
     component: "Badge",
-    importPath: "@/components/ui/badge",
+    importPath: "alize-ui",
     props: [
       {
         name: "variant",
@@ -1215,7 +1215,7 @@ import { Input } from '@/components/ui/input';
       {
         title: "Variants",
         description: "Different badge styles communicate different types of information",
-        code: `import { Badge } from '@/components/ui/badge';
+        code: `import { Badge } from 'alize-ui';
 
 <div className="flex gap-2">
   <Badge>Default</Badge>
@@ -1227,8 +1227,8 @@ import { Input } from '@/components/ui/input';
       {
         title: "With Icons",
         description: "Icons enhance badge clarity and provide visual context",
-        code: `import { Badge } from '@/components/ui/badge';
-import { MaterialSymbol } from '@/components/material-symbol';
+        code: `import { Badge } from 'alize-ui';
+import { MaterialSymbol } from 'alize-ui';
 
 <div className="flex gap-2">
   <Badge>
@@ -1244,8 +1244,8 @@ import { MaterialSymbol } from '@/components/material-symbol';
       {
         title: "Status Indicators",
         description: "Badges serve as visual status indicators",
-        code: `import { Badge } from '@/components/ui/badge';
-import { MaterialSymbol } from '@/components/material-symbol';
+        code: `import { Badge } from 'alize-ui';
+import { MaterialSymbol } from 'alize-ui';
 
 <div className="flex gap-2">
   <Badge>
@@ -1302,7 +1302,7 @@ import { MaterialSymbol } from '@/components/material-symbol';
     description: "Sizing scale and fallback tokenized for product surfaces. Displays user images, monograms, or pictograms with consistent sizing.",
     category: "atoms",
     component: "Avatar",
-    importPath: "@/components/ui/avatar",
+    importPath: "alize-ui",
     props: [
       {
         name: "size",
@@ -1323,7 +1323,7 @@ import { MaterialSymbol } from '@/components/material-symbol';
       {
         title: "Basic Avatar",
         description: "Avatar with image and fallback",
-        code: `import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+        code: `import { Avatar, AvatarImage, AvatarFallback } from 'alize-ui';
 
 <Avatar size="md">
   <AvatarImage src="/user.jpg" alt="User" />
@@ -1333,7 +1333,7 @@ import { MaterialSymbol } from '@/components/material-symbol';
       {
         title: "Sizes",
         description: "Avatar sizes adapt to different contexts",
-        code: `import { Avatar, AvatarFallback } from '@/components/ui/avatar';
+        code: `import { Avatar, AvatarFallback } from 'alize-ui';
 
 <div className="flex items-center gap-4">
   <Avatar size="xs">
@@ -1353,7 +1353,7 @@ import { MaterialSymbol } from '@/components/material-symbol';
       {
         title: "Shapes",
         description: "Avatars can be rounded or square",
-        code: `import { Avatar, AvatarFallback } from '@/components/ui/avatar';
+        code: `import { Avatar, AvatarFallback } from 'alize-ui';
 
 <div className="flex items-center gap-4">
   <Avatar size="md" shape="rounded">
@@ -1367,8 +1367,8 @@ import { MaterialSymbol } from '@/components/material-symbol';
       {
         title: "With Pictogram",
         description: "Use icons as fallback for generic avatars",
-        code: `import { Avatar, AvatarFallback } from '@/components/ui/avatar';
-import { MaterialSymbol } from '@/components/material-symbol';
+        code: `import { Avatar, AvatarFallback } from 'alize-ui';
+import { MaterialSymbol } from 'alize-ui';
 
 <Avatar size="md">
   <AvatarFallback size="md">
@@ -1436,7 +1436,7 @@ import { MaterialSymbol } from '@/components/material-symbol';
     description: "Allow users to select one or more options from a list. Checkboxes are ideal for multiple selections and provide clear visual feedback.",
     category: "atoms",
     component: "Checkbox",
-    importPath: "@/components/ui/checkbox",
+    importPath: "alize-ui",
     props: [
       {
         name: "checked",
@@ -1468,8 +1468,8 @@ import { MaterialSymbol } from '@/components/material-symbol';
       {
         title: "Basic Checkbox",
         description: "Simple checkbox with label",
-        code: `import { Checkbox } from '@/components/ui/checkbox';
-import { Label } from '@/components/ui/label';
+        code: `import { Checkbox } from 'alize-ui';
+import { Label } from 'alize-ui';
 
 <label htmlFor="terms" className="flex items-center gap-2 cursor-pointer">
   <Checkbox id="terms" />
@@ -1479,8 +1479,8 @@ import { Label } from '@/components/ui/label';
       {
         title: "States",
         description: "Checkboxes support checked, unchecked, and disabled states",
-        code: `import { Checkbox } from '@/components/ui/checkbox';
-import { Label } from '@/components/ui/label';
+        code: `import { Checkbox } from 'alize-ui';
+import { Label } from 'alize-ui';
 
 <div className="space-y-3">
   <label htmlFor="unchecked" className="flex items-center gap-2 cursor-pointer">
@@ -1500,8 +1500,8 @@ import { Label } from '@/components/ui/label';
       {
         title: "With Description",
         description: "Checkboxes can include descriptive text",
-        code: `import { Checkbox } from '@/components/ui/checkbox';
-import { Label } from '@/components/ui/label';
+        code: `import { Checkbox } from 'alize-ui';
+import { Label } from 'alize-ui';
 
 <label htmlFor="newsletter" className="flex items-start gap-2 cursor-pointer">
   <Checkbox id="newsletter" className="mt-0.5" />
@@ -1514,7 +1514,7 @@ import { Label } from '@/components/ui/label';
       {
         title: "Checkbox Cards",
         description: "CheckboxCard provides a card-style checkbox with enhanced visual feedback. Perfect for selecting items with descriptions.",
-        code: `import { CheckboxCard } from '@/components/ui/checkbox';
+        code: `import { CheckboxCard } from 'alize-ui';
 
 <div className="space-y-3">
   <CheckboxCard
@@ -1579,7 +1579,7 @@ import { Label } from '@/components/ui/label';
     description: "A loading placeholder that displays an animated placeholder while content is loading. Provides visual feedback during async operations.",
     category: "atoms",
     component: "Skeleton",
-    importPath: "@/components/ui/skeleton",
+    importPath: "alize-ui",
     props: [
       {
         name: "className",
@@ -1592,14 +1592,14 @@ import { Label } from '@/components/ui/label';
       {
         title: "Basic Skeleton",
         description: "Simple skeleton with custom dimensions",
-        code: `import { Skeleton } from '@/components/ui/skeleton';
+        code: `import { Skeleton } from 'alize-ui';
 
 <Skeleton className="h-4 w-32" />`
       },
       {
         title: "Card Skeleton",
         description: "Skeleton for card layouts",
-        code: `import { Skeleton } from '@/components/ui/skeleton';
+        code: `import { Skeleton } from 'alize-ui';
 
 <div className="space-y-3">
   <Skeleton className="h-4 w-full" />
@@ -1610,7 +1610,7 @@ import { Label } from '@/components/ui/label';
       {
         title: "Avatar Skeleton",
         description: "Skeleton for avatar placeholders",
-        code: `import { Skeleton } from '@/components/ui/skeleton';
+        code: `import { Skeleton } from 'alize-ui';
 
 <div className="flex items-center gap-3">
   <Skeleton className="h-10 w-10 rounded-full" />
@@ -1649,7 +1649,7 @@ import { Label } from '@/components/ui/label';
     description: "A loading spinner that displays an animated spinner to indicate loading state. Provides visual feedback during async operations.",
     category: "atoms",
     component: "Spinner",
-    importPath: "@/components/ui/spinner",
+    importPath: "alize-ui",
     props: [
       {
         name: "className",
@@ -1662,14 +1662,14 @@ import { Label } from '@/components/ui/label';
       {
         title: "Basic Spinner",
         description: "Standard loading spinner",
-        code: `import { Spinner } from '@/components/ui/spinner';
+        code: `import { Spinner } from 'alize-ui';
 
 <Spinner />`
       },
       {
         title: "Sized Spinners",
         description: "Spinners in different sizes",
-        code: `import { Spinner } from '@/components/ui/spinner';
+        code: `import { Spinner } from 'alize-ui';
 
 <div className="flex items-center gap-4">
   <Spinner className="size-4" />
@@ -1680,8 +1680,8 @@ import { Label } from '@/components/ui/label';
       {
         title: "In Buttons",
         description: "Spinner in button during loading",
-        code: `import { Spinner } from '@/components/ui/spinner';
-import { Button } from '@/components/ui/button';
+        code: `import { Spinner } from 'alize-ui';
+import { Button } from 'alize-ui';
 
 <Button disabled>
   <Spinner className="size-4 mr-2" />
@@ -1729,7 +1729,7 @@ import { Button } from '@/components/ui/button';
     description: "A visual separator line that displays a horizontal or vertical line to separate content. Built on Radix UI primitives.",
     category: "atoms",
     component: "Separator",
-    importPath: "@/components/ui/separator",
+    importPath: "alize-ui",
     props: [
       {
         name: "orientation",
@@ -1750,7 +1750,7 @@ import { Button } from '@/components/ui/button';
       {
         title: "Horizontal Separator",
         description: "Standard horizontal separator",
-        code: `import { Separator } from '@/components/ui/separator';
+        code: `import { Separator } from 'alize-ui';
 
 <div>
   <p>Content above</p>
@@ -1761,7 +1761,7 @@ import { Button } from '@/components/ui/button';
       {
         title: "Vertical Separator",
         description: "Vertical separator for side-by-side content",
-        code: `import { Separator } from '@/components/ui/separator';
+        code: `import { Separator } from 'alize-ui';
 
 <div className="flex items-center gap-4">
   <span>Left</span>
@@ -1797,7 +1797,7 @@ import { Button } from '@/components/ui/button';
     description: "A keyboard key indicator that displays a keyboard key or key combination for documentation or UI hints.",
     category: "atoms",
     component: "Kbd",
-    importPath: "@/components/ui/kbd",
+    importPath: "alize-ui",
     props: [
       {
         name: "className",
@@ -1810,14 +1810,14 @@ import { Button } from '@/components/ui/button';
       {
         title: "Single Key",
         description: "Display a single keyboard key",
-        code: `import { Kbd } from '@/components/ui/kbd';
+        code: `import { Kbd } from 'alize-ui';
 
 Press <Kbd>Ctrl</Kbd> to continue.`
       },
       {
         title: "Key Combinations",
         description: "Display key combinations using KbdGroup",
-        code: `import { Kbd, KbdGroup } from '@/components/ui/kbd';
+        code: `import { Kbd, KbdGroup } from 'alize-ui';
 
 <KbdGroup>
   <Kbd>Ctrl</Kbd>
@@ -1827,7 +1827,7 @@ Press <Kbd>Ctrl</Kbd> to continue.`
       {
         title: "In Tooltips",
         description: "Keyboard shortcuts in tooltips",
-        code: `import { Kbd } from '@/components/ui/kbd';
+        code: `import { Kbd } from 'alize-ui';
 
 <div>
   Search
@@ -1865,7 +1865,7 @@ Press <Kbd>Ctrl</Kbd> to continue.`
     description: "A toggle button that can be pressed on or off. Provides a toggle button with multiple variants and sizes. Built on Radix UI primitives.",
     category: "atoms",
     component: "Toggle",
-    importPath: "@/components/ui/toggle",
+    importPath: "alize-ui",
     props: [
       {
         name: "variant",
@@ -1905,8 +1905,8 @@ Press <Kbd>Ctrl</Kbd> to continue.`
       {
         title: "Basic Toggle",
         description: "Simple toggle button",
-        code: `import { Toggle } from '@/components/ui/toggle';
-import { MaterialSymbol } from '@/components/material-symbol';
+        code: `import { Toggle } from 'alize-ui';
+import { MaterialSymbol } from 'alize-ui';
 
 <Toggle>
   <MaterialSymbol name="format_bold" size={16} weight={300} />
@@ -1915,8 +1915,8 @@ import { MaterialSymbol } from '@/components/material-symbol';
       {
         title: "Variants",
         description: "Toggle with different variants",
-        code: `import { Toggle } from '@/components/ui/toggle';
-import { MaterialSymbol } from '@/components/material-symbol';
+        code: `import { Toggle } from 'alize-ui';
+import { MaterialSymbol } from 'alize-ui';
 
 <div className="flex gap-2">
   <Toggle variant="default">
@@ -1930,8 +1930,8 @@ import { MaterialSymbol } from '@/components/material-symbol';
       {
         title: "Sizes",
         description: "Toggle in different sizes",
-        code: `import { Toggle } from '@/components/ui/toggle';
-import { MaterialSymbol } from '@/components/material-symbol';
+        code: `import { Toggle } from 'alize-ui';
+import { MaterialSymbol } from 'alize-ui';
 
 <div className="flex items-center gap-2">
   <Toggle size="sm">
@@ -2011,7 +2011,7 @@ import { MaterialSymbol } from '@/components/material-symbol';
     description: "A group of toggle buttons that can be used together. Provides multiple toggles with shared styling and behavior.",
     category: "atoms",
     component: "ToggleGroup",
-    importPath: "@/components/ui/toggle-group",
+    importPath: "alize-ui",
     props: [
       {
         name: "variant",
@@ -2051,7 +2051,7 @@ import { MaterialSymbol } from '@/components/material-symbol';
       {
         title: "Single Selection",
         description: "Toggle group with single selection",
-        code: `import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
+        code: `import { ToggleGroup, ToggleGroupItem } from 'alize-ui';
 
 <ToggleGroup type="single" defaultValue="left">
   <ToggleGroupItem value="left">Left</ToggleGroupItem>
@@ -2062,8 +2062,8 @@ import { MaterialSymbol } from '@/components/material-symbol';
       {
         title: "Multiple Selection",
         description: "Toggle group allowing multiple selections",
-        code: `import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
-import { MaterialSymbol } from '@/components/material-symbol';
+        code: `import { ToggleGroup, ToggleGroupItem } from 'alize-ui';
+import { MaterialSymbol } from 'alize-ui';
 
 <ToggleGroup type="multiple">
   <ToggleGroupItem value="bold">
@@ -2108,7 +2108,7 @@ import { MaterialSymbol } from '@/components/material-symbol';
     description: "A tooltip that displays additional information on hover or focus. Built on Radix UI primitives for accessibility.",
     category: "atoms",
     component: "Tooltip",
-    importPath: "@/components/ui/tooltip",
+    importPath: "alize-ui",
     props: [
       {
         name: "delayDuration",
@@ -2136,8 +2136,8 @@ import { MaterialSymbol } from '@/components/material-symbol';
       {
         title: "Basic Tooltip",
         description: "Simple tooltip on hover",
-        code: `import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { Button } from '@/components/ui/button';
+        code: `import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from 'alize-ui';
+import { Button } from 'alize-ui';
 
 <TooltipProvider>
   <Tooltip>
@@ -2153,9 +2153,9 @@ import { Button } from '@/components/ui/button';
       {
         title: "With Icons",
         description: "Tooltip for icon buttons",
-        code: `import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { Button } from '@/components/ui/button';
-import { MaterialSymbol } from '@/components/material-symbol';
+        code: `import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from 'alize-ui';
+import { Button } from 'alize-ui';
+import { MaterialSymbol } from 'alize-ui';
 
 <TooltipProvider>
   <Tooltip>
@@ -2201,7 +2201,7 @@ import { MaterialSymbol } from '@/components/material-symbol';
     description: "Typography components for consistent text styling. Provides semantic heading and text components with consistent typography.",
     category: "atoms",
     component: "Typography",
-    importPath: "@/components/ui/typography",
+    importPath: "alize-ui",
     props: [
       {
         name: "className",
@@ -2214,7 +2214,7 @@ import { MaterialSymbol } from '@/components/material-symbol';
       {
         title: "Headings",
         description: "Semantic heading components",
-        code: `import { TypographyH1, TypographyH2, TypographyH3, TypographyH4 } from '@/components/ui/typography';
+        code: `import { TypographyH1, TypographyH2, TypographyH3, TypographyH4 } from 'alize-ui';
 
 <div className="space-y-4">
   <TypographyH1>Heading 1</TypographyH1>
@@ -2226,7 +2226,7 @@ import { MaterialSymbol } from '@/components/material-symbol';
       {
         title: "Text Elements",
         description: "Paragraph and other text components",
-        code: `import { TypographyP, TypographyBlockquote, TypographyCode } from '@/components/ui/typography';
+        code: `import { TypographyP, TypographyBlockquote, TypographyCode } from 'alize-ui';
 
 <div className="space-y-4">
   <TypographyP>This is a paragraph of text.</TypographyP>
@@ -2265,7 +2265,7 @@ import { MaterialSymbol } from '@/components/material-symbol';
     description: "Maintains a specific aspect ratio for its content. Provides a container that preserves aspect ratio for images and media.",
     category: "atoms",
     component: "AspectRatio",
-    importPath: "@/components/ui/aspect-ratio",
+    importPath: "alize-ui",
     props: [
       {
         name: "ratio",
@@ -2278,7 +2278,7 @@ import { MaterialSymbol } from '@/components/material-symbol';
       {
         title: "Image with Aspect Ratio",
         description: "Maintain aspect ratio for images",
-        code: `import { AspectRatio } from '@/components/ui/aspect-ratio';
+        code: `import { AspectRatio } from 'alize-ui';
 
 <AspectRatio ratio={16 / 9}>
   <img src="/image.jpg" alt="Description" className="h-full w-full object-cover" />
@@ -2287,7 +2287,7 @@ import { MaterialSymbol } from '@/components/material-symbol';
       {
         title: "Video with Aspect Ratio",
         description: "Maintain aspect ratio for videos",
-        code: `import { AspectRatio } from '@/components/ui/aspect-ratio';
+        code: `import { AspectRatio } from 'alize-ui';
 
 <AspectRatio ratio={16 / 9}>
   <iframe src="https://www.youtube.com/embed/..." className="h-full w-full" />
@@ -2321,7 +2321,7 @@ import { MaterialSymbol } from '@/components/material-symbol';
     description: "An empty state component that displays a message when there's no content to show. Provides consistent empty state patterns.",
     category: "atoms",
     component: "Empty",
-    importPath: "@/components/ui/empty",
+    importPath: "alize-ui",
     props: [
       {
         name: "title",
@@ -2347,7 +2347,7 @@ import { MaterialSymbol } from '@/components/material-symbol';
       {
         title: "Basic Empty State",
         description: "Simple empty state with title and description",
-        code: `import { Empty } from '@/components/ui/empty';
+        code: `import { Empty } from 'alize-ui';
 
 <Empty 
   title="No items found"
@@ -2357,8 +2357,8 @@ import { MaterialSymbol } from '@/components/material-symbol';
       {
         title: "With Icon",
         description: "Empty state with custom icon",
-        code: `import { Empty } from '@/components/ui/empty';
-import { MaterialSymbol } from '@/components/material-symbol';
+        code: `import { Empty } from 'alize-ui';
+import { MaterialSymbol } from 'alize-ui';
 
 <Empty 
   title="No results"
@@ -2369,9 +2369,9 @@ import { MaterialSymbol } from '@/components/material-symbol';
       {
         title: "With Action",
         description: "Empty state with action button",
-        code: `import { Empty } from '@/components/ui/empty';
-import { Button } from '@/components/ui/button';
-import { MaterialSymbol } from '@/components/material-symbol';
+        code: `import { Empty } from 'alize-ui';
+import { Button } from 'alize-ui';
+import { MaterialSymbol } from 'alize-ui';
 
 <Empty 
   title="No projects yet"
@@ -2411,7 +2411,7 @@ import { MaterialSymbol } from '@/components/material-symbol';
     description: "A list item component with selection state. Provides a consistent item component for lists and menus with hover and selection states.",
     category: "atoms",
     component: "Item",
-    importPath: "@/components/ui/item",
+    importPath: "alize-ui",
     props: [
       {
         name: "selected",
@@ -2431,22 +2431,22 @@ import { MaterialSymbol } from '@/components/material-symbol';
       {
         title: "Basic Item",
         description: "Simple list item",
-        code: `import { Item } from '@/components/ui/item';
+        code: `import { Item } from 'alize-ui';
 
 <Item>List item</Item>`
       },
       {
         title: "Selected Item",
         description: "Item with selected state",
-        code: `import { Item } from '@/components/ui/item';
+        code: `import { Item } from 'alize-ui';
 
 <Item selected>Selected item</Item>`
       },
       {
         title: "With Icons",
         description: "Item with icon and content",
-        code: `import { Item } from '@/components/ui/item';
-import { MaterialSymbol } from '@/components/material-symbol';
+        code: `import { Item } from 'alize-ui';
+import { MaterialSymbol } from 'alize-ui';
 
 <Item>
   <MaterialSymbol name="folder" size={16} weight={300} />
@@ -2484,7 +2484,7 @@ import { MaterialSymbol } from '@/components/material-symbol';
     description: "A toggle switch for binary choices. Provides a visual on/off toggle for settings and preferences.",
     category: "atoms",
     component: "Switch",
-    importPath: "@/components/ui/switch",
+    importPath: "alize-ui",
     props: [
       {
         name: "checked",
@@ -2516,8 +2516,8 @@ import { MaterialSymbol } from '@/components/material-symbol';
       {
         title: "Basic Switch",
         description: "Simple toggle switch",
-        code: `import { Switch } from '@/components/ui/switch';
-import { Label } from '@/components/ui/label';
+        code: `import { Switch } from 'alize-ui';
+import { Label } from 'alize-ui';
 
 <div className="flex items-center gap-2">
   <Switch id="airplane-mode" />
@@ -2527,7 +2527,7 @@ import { Label } from '@/components/ui/label';
       {
         title: "States",
         description: "Switch in different states",
-        code: `import { Switch } from '@/components/ui/switch';
+        code: `import { Switch } from 'alize-ui';
 
 <div className="space-y-4">
   <div className="flex items-center gap-2">
@@ -2547,7 +2547,7 @@ import { Label } from '@/components/ui/label';
       {
         title: "Switch Cards",
         description: "SwitchCard provides a card-style switch with enhanced visual feedback. Perfect for settings with descriptions.",
-        code: `import { SwitchCard } from '@/components/ui/switch';
+        code: `import { SwitchCard } from 'alize-ui';
 
 <div className="space-y-3">
   <SwitchCard
@@ -2610,7 +2610,7 @@ import { Label } from '@/components/ui/label';
     description: "A set of mutually exclusive options. Use radio groups when users must select exactly one option from a list.",
     category: "atoms",
     component: "RadioGroup",
-    importPath: "@/components/ui/radio-group",
+    importPath: "alize-ui",
     props: [
       {
         name: "value",
@@ -2642,8 +2642,8 @@ import { Label } from '@/components/ui/label';
       {
         title: "Basic Radio Group",
         description: "Simple radio button group",
-        code: `import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Label } from '@/components/ui/label';
+        code: `import { RadioGroup, RadioGroupItem } from 'alize-ui';
+import { Label } from 'alize-ui';
 
 <RadioGroup defaultValue="option-1">
   <div className="flex items-center gap-2">
@@ -2663,7 +2663,7 @@ import { Label } from '@/components/ui/label';
       {
         title: "Radio Cards",
         description: "RadioGroupCardItem provides a card-style radio button with enhanced visual feedback. Perfect for selecting options with descriptions.",
-        code: `import { RadioGroup, RadioGroupCardItem } from '@/components/ui/radio-group';
+        code: `import { RadioGroup, RadioGroupCardItem } from 'alize-ui';
 
 <RadioGroup defaultValue="basic">
   <RadioGroupCardItem
@@ -2719,7 +2719,7 @@ import { Label } from '@/components/ui/label';
     description: "A dropdown select component for choosing from a list of options. Built on Radix UI for accessibility.",
     category: "molecules",
     component: "Select",
-    importPath: "@/components/ui/select",
+    importPath: "alize-ui",
     props: [
       { name: "value", type: "string", required: false, description: "Controlled value" },
       { name: "defaultValue", type: "string", required: false, description: "Default value (uncontrolled)" },
@@ -2731,7 +2731,7 @@ import { Label } from '@/components/ui/label';
       {
         title: "Basic Select",
         description: "Simple select dropdown",
-        code: `import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+        code: `import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from 'alize-ui';
 
 <Select>
   <SelectTrigger className="w-[200px]">
@@ -2747,7 +2747,7 @@ import { Label } from '@/components/ui/label';
       {
         title: "With Groups",
         description: "Select with grouped options",
-        code: `import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select';
+        code: `import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from 'alize-ui';
 
 <Select>
   <SelectTrigger className="w-[200px]">
@@ -2794,7 +2794,7 @@ import { Label } from '@/components/ui/label';
     description: "A multi-line text input for longer content. Supports auto-sizing and validation states.",
     category: "molecules",
     component: "Textarea",
-    importPath: "@/components/ui/textarea",
+    importPath: "alize-ui",
     props: [
       { name: "placeholder", type: "string", required: false, description: "Placeholder text" },
       { name: "rows", type: "number", required: false, description: "Number of visible rows" },
@@ -2805,8 +2805,8 @@ import { Label } from '@/components/ui/label';
       {
         title: "Basic Textarea",
         description: "Simple multi-line input",
-        code: `import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
+        code: `import { Textarea } from 'alize-ui';
+import { Label } from 'alize-ui';
 
 <div className="space-y-2">
   <Label htmlFor="message">Message</Label>
@@ -2816,8 +2816,8 @@ import { Label } from '@/components/ui/label';
       {
         title: "With Validation",
         description: "Textarea with error state",
-        code: `import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
+        code: `import { Textarea } from 'alize-ui';
+import { Label } from 'alize-ui';
 
 <div className="space-y-2">
   <Label htmlFor="bio">Bio</Label>
@@ -2854,7 +2854,7 @@ import { Label } from '@/components/ui/label';
     description: "A range input slider for selecting values within a defined range.",
     category: "molecules",
     component: "Slider",
-    importPath: "@/components/ui/slider",
+    importPath: "alize-ui",
     props: [
       { name: "value", type: "number[]", required: false, description: "Controlled value" },
       { name: "defaultValue", type: "number[]", required: false, description: "Default value" },
@@ -2867,14 +2867,14 @@ import { Label } from '@/components/ui/label';
       {
         title: "Basic Slider",
         description: "Simple range slider",
-        code: `import { Slider } from '@/components/ui/slider';
+        code: `import { Slider } from 'alize-ui';
 
 <Slider defaultValue={[50]} max={100} step={1} className="w-[300px]" />`
       },
       {
         title: "Range Slider",
         description: "Slider with two handles for range selection",
-        code: `import { Slider } from '@/components/ui/slider';
+        code: `import { Slider } from 'alize-ui';
 
 <Slider defaultValue={[25, 75]} max={100} step={1} className="w-[300px]" />`
       }
@@ -2901,7 +2901,7 @@ import { Label } from '@/components/ui/label';
     description: "A progress bar for showing completion status of tasks or processes.",
     category: "molecules",
     component: "Progress",
-    importPath: "@/components/ui/progress",
+    importPath: "alize-ui",
     props: [
       { name: "value", type: "number", required: false, description: "Progress value (0-100)" },
       { name: "max", type: "number", default: "100", required: false, description: "Maximum value" }
@@ -2910,14 +2910,14 @@ import { Label } from '@/components/ui/label';
       {
         title: "Basic Progress",
         description: "Simple progress bar",
-        code: `import { Progress } from '@/components/ui/progress';
+        code: `import { Progress } from 'alize-ui';
 
 <Progress value={60} className="w-[300px]" />`
       },
       {
         title: "Progress States",
         description: "Different progress values",
-        code: `import { Progress } from '@/components/ui/progress';
+        code: `import { Progress } from 'alize-ui';
 
 <div className="space-y-4 w-[300px]">
   <Progress value={0} />
@@ -2964,7 +2964,7 @@ import { Label } from '@/components/ui/label';
     description: "Displays important messages to users. Supports different variants for info, success, warning, and error states.",
     category: "molecules",
     component: "Alert",
-    importPath: "@/components/ui/alert",
+    importPath: "alize-ui",
     props: [
       { name: "variant", type: "default | destructive", default: "default", required: false, description: "Visual variant" }
     ],
@@ -2972,8 +2972,8 @@ import { Label } from '@/components/ui/label';
       {
         title: "Default Alert",
         description: "Informational alert",
-        code: `import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { MaterialSymbol } from '@/components/material-symbol';
+        code: `import { Alert, AlertDescription, AlertTitle } from 'alize-ui';
+import { MaterialSymbol } from 'alize-ui';
 
 <Alert>
   <MaterialSymbol name="info" size={16} weight={300} />
@@ -2986,8 +2986,8 @@ import { MaterialSymbol } from '@/components/material-symbol';
       {
         title: "Destructive Alert",
         description: "Error or warning alert",
-        code: `import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { MaterialSymbol } from '@/components/material-symbol';
+        code: `import { Alert, AlertDescription, AlertTitle } from 'alize-ui';
+import { MaterialSymbol } from 'alize-ui';
 
 <Alert variant="destructive">
   <MaterialSymbol name="error" size={16} weight={300} />
@@ -3032,13 +3032,13 @@ import { MaterialSymbol } from '@/components/material-symbol';
     description: "A container component for grouping related content. Includes header, content, and footer sections.",
     category: "molecules",
     component: "Card",
-    importPath: "@/components/ui/card",
+    importPath: "alize-ui",
     props: [],
     examples: [
       {
         title: "Basic Card",
         description: "Simple card with content",
-        code: `import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+        code: `import { Card, CardContent, CardDescription, CardHeader, CardTitle } from 'alize-ui';
 
 <Card className="w-[350px]">
   <CardHeader>
@@ -3053,8 +3053,8 @@ import { MaterialSymbol } from '@/components/material-symbol';
       {
         title: "Card with Footer",
         description: "Card with action buttons",
-        code: `import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+        code: `import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from 'alize-ui';
+import { Button } from 'alize-ui';
 
 <Card className="w-[350px]">
   <CardHeader>
@@ -3094,7 +3094,7 @@ import { Button } from '@/components/ui/button';
     description: "Organizes content into multiple panels that are shown one at a time.",
     category: "molecules",
     component: "Tabs",
-    importPath: "@/components/ui/tabs",
+    importPath: "alize-ui",
     props: [
       { name: "value", type: "string", required: false, description: "Controlled active tab" },
       { name: "defaultValue", type: "string", required: false, description: "Default active tab" },
@@ -3104,7 +3104,7 @@ import { Button } from '@/components/ui/button';
       {
         title: "Basic Tabs",
         description: "Simple tab navigation",
-        code: `import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+        code: `import { Tabs, TabsContent, TabsList, TabsTrigger } from 'alize-ui';
 
 <Tabs defaultValue="account" className="w-[400px]">
   <TabsList>
@@ -3142,7 +3142,7 @@ import { Button } from '@/components/ui/button';
     description: "A vertically stacked set of interactive headings that reveal or hide associated content.",
     category: "molecules",
     component: "Accordion",
-    importPath: "@/components/ui/accordion",
+    importPath: "alize-ui",
     props: [
       { name: "type", type: "single | multiple", default: "single", required: false, description: "Single or multiple items open" },
       { name: "collapsible", type: "boolean", default: "false", required: false, description: "Allow all items to be collapsed" }
@@ -3151,7 +3151,7 @@ import { Button } from '@/components/ui/button';
       {
         title: "Basic Accordion",
         description: "Collapsible sections",
-        code: `import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+        code: `import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from 'alize-ui';
 
 <Accordion type="single" collapsible className="w-full">
   <AccordionItem value="item-1">
@@ -3191,7 +3191,7 @@ import { Button } from '@/components/ui/button';
     description: "Displays floating content triggered by a button or element.",
     category: "molecules",
     component: "Popover",
-    importPath: "@/components/ui/popover",
+    importPath: "alize-ui",
     props: [
       { name: "open", type: "boolean", required: false, description: "Controlled open state" },
       { name: "onOpenChange", type: "(open: boolean) => void", required: false, description: "Open state change callback" }
@@ -3200,8 +3200,8 @@ import { Button } from '@/components/ui/button';
       {
         title: "Basic Popover",
         description: "Click to show popover",
-        code: `import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { Button } from '@/components/ui/button';
+        code: `import { Popover, PopoverContent, PopoverTrigger } from 'alize-ui';
+import { Button } from 'alize-ui';
 
 <Popover>
   <PopoverTrigger asChild>
@@ -3243,14 +3243,14 @@ import { Button } from '@/components/ui/button';
     description: "A menu of actions or options displayed in a floating panel.",
     category: "molecules",
     component: "DropdownMenu",
-    importPath: "@/components/ui/dropdown-menu",
+    importPath: "alize-ui",
     props: [],
     examples: [
       {
         title: "Basic Dropdown",
         description: "Action menu",
-        code: `import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
-import { Button } from '@/components/ui/button';
+        code: `import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from 'alize-ui';
+import { Button } from 'alize-ui';
 
 <DropdownMenu>
   <DropdownMenuTrigger asChild>
@@ -3286,13 +3286,13 @@ import { Button } from '@/components/ui/button';
     description: "A command palette component for searching and executing actions.",
     category: "molecules",
     component: "Command",
-    importPath: "@/components/ui/command",
+    importPath: "alize-ui",
     props: [],
     examples: [
       {
         title: "Basic Command",
         description: "Searchable command list",
-        code: `import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command';
+        code: `import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from 'alize-ui';
 
 <Command className="rounded-lg border shadow-md">
   <CommandInput placeholder="Type a command or search..." />
@@ -3329,7 +3329,7 @@ import { Button } from '@/components/ui/button';
     description: "An autocomplete input with dropdown suggestions.",
     category: "molecules",
     component: "Combobox",
-    importPath: "@/components/ui/combobox",
+    importPath: "alize-ui",
     props: [
       { name: "options", type: "ComboboxOption[]", required: true, description: "List of options" },
       { name: "value", type: "string", required: false, description: "Selected value" },
@@ -3340,7 +3340,7 @@ import { Button } from '@/components/ui/button';
       {
         title: "Basic Combobox",
         description: "Searchable select",
-        code: `import { Combobox } from '@/components/ui/combobox';
+        code: `import { Combobox } from 'alize-ui';
 
 const frameworks = [
   { value: "next", label: "Next.js" },
@@ -3378,13 +3378,13 @@ const frameworks = [
     description: "Navigation component showing the current page location within a hierarchy.",
     category: "molecules",
     component: "Breadcrumb",
-    importPath: "@/components/ui/breadcrumb",
+    importPath: "alize-ui",
     props: [],
     examples: [
       {
         title: "Basic Breadcrumb",
         description: "Navigation path",
-        code: `import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
+        code: `import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from 'alize-ui';
 
 <Breadcrumb>
   <BreadcrumbList>
@@ -3425,13 +3425,13 @@ const frameworks = [
     description: "Navigation component for paginated content.",
     category: "molecules",
     component: "Pagination",
-    importPath: "@/components/ui/pagination",
+    importPath: "alize-ui",
     props: [],
     examples: [
       {
         title: "Basic Pagination",
         description: "Page navigation",
-        code: `import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '@/components/ui/pagination';
+        code: `import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from 'alize-ui';
 
 <Pagination>
   <PaginationContent>
@@ -3476,7 +3476,7 @@ const frameworks = [
     description: "Groups related buttons together with proper spacing and styling.",
     category: "molecules",
     component: "ButtonGroup",
-    importPath: "@/components/ui/button-group",
+    importPath: "alize-ui",
     props: [
       { name: "orientation", type: "horizontal | vertical", default: "horizontal", required: false, description: "Layout direction" }
     ],
@@ -3484,8 +3484,8 @@ const frameworks = [
       {
         title: "Basic Button Group",
         description: "Grouped actions",
-        code: `import { ButtonGroup, ButtonGroupText } from '@/components/ui/button-group';
-import { Button } from '@/components/ui/button';
+        code: `import { ButtonGroup, ButtonGroupText } from 'alize-ui';
+import { Button } from 'alize-ui';
 
 <ButtonGroup>
   <Button variant="outline">Left</Button>
@@ -3520,7 +3520,7 @@ import { Button } from '@/components/ui/button';
     description: "A modal dialog that interrupts the user with important content and expects a response.",
     category: "organisms",
     component: "Dialog",
-    importPath: "@/components/ui/dialog",
+    importPath: "alize-ui",
     props: [
       { name: "open", type: "boolean", required: false, description: "Controlled open state" },
       { name: "onOpenChange", type: "(open: boolean) => void", required: false, description: "Open state callback" }
@@ -3529,10 +3529,10 @@ import { Button } from '@/components/ui/button';
       {
         title: "Basic Dialog",
         description: "Modal with form",
-        code: `import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+        code: `import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from 'alize-ui';
+import { Button } from 'alize-ui';
+import { Input } from 'alize-ui';
+import { Label } from 'alize-ui';
 
 <Dialog>
   <DialogTrigger asChild>
@@ -3580,14 +3580,14 @@ import { Label } from '@/components/ui/label';
     description: "A modal dialog for confirming potentially destructive actions.",
     category: "organisms",
     component: "AlertDialog",
-    importPath: "@/components/ui/alert-dialog",
+    importPath: "alize-ui",
     props: [],
     examples: [
       {
         title: "Confirmation Dialog",
         description: "Delete confirmation",
-        code: `import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from '@/components/ui/alert-dialog';
-import { Button } from '@/components/ui/button';
+        code: `import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from 'alize-ui';
+import { Button } from 'alize-ui';
 
 <AlertDialog>
   <AlertDialogTrigger asChild>
@@ -3630,7 +3630,7 @@ import { Button } from '@/components/ui/button';
     description: "A slide-out panel that appears from the edge of the screen.",
     category: "organisms",
     component: "Sheet",
-    importPath: "@/components/ui/sheet",
+    importPath: "alize-ui",
     props: [
       { name: "side", type: "top | right | bottom | left", default: "right", required: false, description: "Side to appear from" }
     ],
@@ -3638,8 +3638,8 @@ import { Button } from '@/components/ui/button';
       {
         title: "Side Sheet",
         description: "Panel from the side",
-        code: `import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
-import { Button } from '@/components/ui/button';
+        code: `import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from 'alize-ui';
+import { Button } from 'alize-ui';
 
 <Sheet>
   <SheetTrigger asChild>
@@ -3681,13 +3681,13 @@ import { Button } from '@/components/ui/button';
     description: "A responsive table component for displaying tabular data.",
     category: "organisms",
     component: "Table",
-    importPath: "@/components/ui/table",
+    importPath: "alize-ui",
     props: [],
     examples: [
       {
         title: "Basic Table",
         description: "Simple data table",
-        code: `import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+        code: `import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from 'alize-ui';
 
 <Table>
   <TableHeader>
@@ -3734,7 +3734,7 @@ import { Button } from '@/components/ui/button';
     description: "A calendar component for date selection.",
     category: "organisms",
     component: "Calendar",
-    importPath: "@/components/ui/calendar",
+    importPath: "alize-ui",
     props: [
       { name: "selected", type: "Date | Date[]", required: false, description: "Selected date(s)" },
       { name: "onSelect", type: "(date: Date) => void", required: false, description: "Selection callback" },
@@ -3744,7 +3744,7 @@ import { Button } from '@/components/ui/button';
       {
         title: "Basic Calendar",
         description: "Date picker calendar",
-        code: `import { Calendar } from '@/components/ui/calendar';
+        code: `import { Calendar } from 'alize-ui';
 import { useState } from 'react';
 
 const [date, setDate] = useState<Date | undefined>(new Date());
@@ -3779,7 +3779,7 @@ const [date, setDate] = useState<Date | undefined>(new Date());
     description: "A slideshow component for cycling through elements.",
     category: "organisms",
     component: "Carousel",
-    importPath: "@/components/ui/carousel",
+    importPath: "alize-ui",
     props: [
       { name: "orientation", type: "horizontal | vertical", default: "horizontal", required: false, description: "Slide direction" },
       { name: "opts", type: "CarouselOptions", required: false, description: "Embla carousel options" }
@@ -3788,8 +3788,8 @@ const [date, setDate] = useState<Date | undefined>(new Date());
       {
         title: "Basic Carousel",
         description: "Image slideshow",
-        code: `import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import { Card, CardContent } from '@/components/ui/card';
+        code: `import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from 'alize-ui';
+import { Card, CardContent } from 'alize-ui';
 
 <Carousel className="w-full max-w-xs">
   <CarouselContent>
@@ -3829,7 +3829,7 @@ import { Card, CardContent } from '@/components/ui/card';
     description: "A component that can be expanded or collapsed to show or hide content.",
     category: "molecules",
     component: "Collapsible",
-    importPath: "@/components/ui/collapsible",
+    importPath: "alize-ui",
     props: [
       { name: "open", type: "boolean", required: false, description: "Controlled open state" },
       { name: "onOpenChange", type: "(open: boolean) => void", required: false, description: "Open state callback" },
@@ -3839,8 +3839,8 @@ import { Card, CardContent } from '@/components/ui/card';
       {
         title: "Basic Collapsible",
         description: "Simple expandable section",
-        code: `import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
-import { Button } from '@/components/ui/button';
+        code: `import { Collapsible, CollapsibleContent, CollapsibleTrigger } from 'alize-ui';
+import { Button } from 'alize-ui';
 
 <Collapsible>
   <CollapsibleTrigger asChild>
@@ -3875,7 +3875,7 @@ import { Button } from '@/components/ui/button';
     description: "A card that appears when hovering over a trigger element.",
     category: "molecules",
     component: "HoverCard",
-    importPath: "@/components/ui/hover-card",
+    importPath: "alize-ui",
     props: [
       { name: "openDelay", type: "number", default: "700", required: false, description: "Delay before opening (ms)" },
       { name: "closeDelay", type: "number", default: "300", required: false, description: "Delay before closing (ms)" }
@@ -3884,8 +3884,8 @@ import { Button } from '@/components/ui/button';
       {
         title: "Basic Hover Card",
         description: "Card on hover",
-        code: `import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+        code: `import { HoverCard, HoverCardContent, HoverCardTrigger } from 'alize-ui';
+import { Avatar, AvatarFallback, AvatarImage } from 'alize-ui';
 
 <HoverCard>
   <HoverCardTrigger asChild>
@@ -3928,13 +3928,13 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
     description: "A menu that appears on right-click or long-press.",
     category: "molecules",
     component: "ContextMenu",
-    importPath: "@/components/ui/context-menu",
+    importPath: "alize-ui",
     props: [],
     examples: [
       {
         title: "Basic Context Menu",
         description: "Right-click menu",
-        code: `import { ContextMenu, ContextMenuContent, ContextMenuItem, ContextMenuTrigger } from '@/components/ui/context-menu';
+        code: `import { ContextMenu, ContextMenuContent, ContextMenuItem, ContextMenuTrigger } from 'alize-ui';
 
 <ContextMenu>
   <ContextMenuTrigger className="flex h-32 w-64 items-center justify-center rounded-md border border-dashed text-sm">
@@ -3970,7 +3970,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
     description: "A slide-out panel from the bottom of the screen, ideal for mobile interactions.",
     category: "organisms",
     component: "Drawer",
-    importPath: "@/components/ui/drawer",
+    importPath: "alize-ui",
     props: [
       { name: "open", type: "boolean", required: false, description: "Controlled open state" },
       { name: "onOpenChange", type: "(open: boolean) => void", required: false, description: "Open state callback" }
@@ -3979,8 +3979,8 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
       {
         title: "Basic Drawer",
         description: "Bottom sheet drawer",
-        code: `import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle, DrawerTrigger } from '@/components/ui/drawer';
-import { Button } from '@/components/ui/button';
+        code: `import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle, DrawerTrigger } from 'alize-ui';
+import { Button } from 'alize-ui';
 
 <Drawer>
   <DrawerTrigger asChild>
@@ -4019,7 +4019,7 @@ import { Button } from '@/components/ui/button';
     description: "A scrollable area with custom scrollbars.",
     category: "organisms",
     component: "ScrollArea",
-    importPath: "@/components/ui/scroll-area",
+    importPath: "alize-ui",
     props: [
       { name: "orientation", type: "horizontal | vertical", default: "vertical", required: false, description: "Scroll direction" }
     ],
@@ -4027,7 +4027,7 @@ import { Button } from '@/components/ui/button';
       {
         title: "Basic Scroll Area",
         description: "Custom scrollable container",
-        code: `import { ScrollArea } from '@/components/ui/scroll-area';
+        code: `import { ScrollArea } from 'alize-ui';
 
 <ScrollArea className="h-72 w-48 rounded-md border">
   <div className="p-4">
@@ -4061,7 +4061,7 @@ import { Button } from '@/components/ui/button';
     description: "A date input with calendar popup for selecting dates.",
     category: "organisms",
     component: "DatePicker",
-    importPath: "@/components/ui/date-picker",
+    importPath: "alize-ui",
     props: [
       { name: "date", type: "Date", required: false, description: "Selected date" },
       { name: "onDateChange", type: "(date: Date) => void", required: false, description: "Date change callback" }
@@ -4070,7 +4070,7 @@ import { Button } from '@/components/ui/button';
       {
         title: "Basic Date Picker",
         description: "Date selection with calendar",
-        code: `import { DatePicker } from '@/components/ui/date-picker';
+        code: `import { DatePicker } from 'alize-ui';
 import { useState } from 'react';
 
 const [date, setDate] = useState<Date>();
@@ -4100,14 +4100,14 @@ const [date, setDate] = useState<Date>();
     description: "Brief notification messages that appear temporarily.",
     category: "organisms",
     component: "Toast",
-    importPath: "@/components/ui/sonner",
+    importPath: "alize-ui",
     props: [],
     examples: [
       {
         title: "Basic Toast",
         description: "Show notification",
         code: `import { toast } from 'sonner';
-import { Button } from '@/components/ui/button';
+import { Button } from 'alize-ui';
 
 <Button onClick={() => toast("Event created successfully!")}>
   Show Toast
@@ -4136,7 +4136,7 @@ import { Button } from '@/components/ui/button';
     description: "A one-time password input with individual character fields.",
     category: "molecules",
     component: "InputOTP",
-    importPath: "@/components/ui/input-otp",
+    importPath: "alize-ui",
     props: [
       { name: "maxLength", type: "number", required: true, description: "Number of OTP digits" },
       { name: "value", type: "string", required: false, description: "Controlled value" },
@@ -4146,7 +4146,7 @@ import { Button } from '@/components/ui/button';
       {
         title: "Basic OTP Input",
         description: "6-digit OTP field",
-        code: `import { InputOTP, InputOTPGroup, InputOTPSlot } from '@/components/ui/input-otp';
+        code: `import { InputOTP, InputOTPGroup, InputOTPSlot } from 'alize-ui';
 
 <InputOTP maxLength={6}>
   <InputOTPGroup>
@@ -4182,7 +4182,7 @@ import { Button } from '@/components/ui/button';
     description: "A component that allows resizing panels.",
     category: "organisms",
     component: "Resizable",
-    importPath: "@/components/ui/resizable",
+    importPath: "alize-ui",
     props: [
       { name: "direction", type: "horizontal | vertical", default: "horizontal", required: false, description: "Resize direction" }
     ],
@@ -4190,7 +4190,7 @@ import { Button } from '@/components/ui/button';
       {
         title: "Basic Resizable",
         description: "Resizable panels",
-        code: `import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable';
+        code: `import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from 'alize-ui';
 
 <ResizablePanelGroup direction="horizontal" className="min-h-[200px] max-w-md rounded-lg border">
   <ResizablePanel defaultSize={50}>
