@@ -13,8 +13,11 @@ export function AvatarInteractivePreview(props: Record<string, string>): ReactNo
   const { size, shape, showImage } = props;
   const hasImage = showImage === 'true';
   
+  // Using key prop to force re-mount when showImage changes
+  // This resets Radix's internal imageLoadingStatus context
   return (
     <Avatar 
+      key={`avatar-${hasImage}`}
       size={size as "xs" | "sm" | "md" | "lg"} 
       shape={shape as "rounded" | "square"}
     >

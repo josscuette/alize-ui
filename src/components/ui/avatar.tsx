@@ -133,7 +133,7 @@ function AvatarImage({
 function AvatarFallback({
   className,
   size = "md",
-  delayMs = 0,
+  delayMs,
   ...props
 }: AvatarFallbackProps): React.ReactElement {
   const textSizeMap = {
@@ -143,10 +143,14 @@ function AvatarFallback({
     lg: "text-base",
   }
   
+  // Only pass delayMs if it's explicitly set and greater than 0
+  // When undefined, Radix shows fallback immediately without setTimeout
+  const fallbackProps = delayMs && delayMs > 0 ? { delayMs } : {}
+  
   return (
     <AvatarPrimitive.Fallback
       data-slot="avatar-fallback"
-      delayMs={delayMs}
+      {...fallbackProps}
       className={cn(
         // Background & Surface (Foundation Layer)
         surface.subdued,
