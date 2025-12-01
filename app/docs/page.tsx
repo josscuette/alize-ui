@@ -174,7 +174,7 @@ function ComponentMiniPreview({ componentName }: { componentName: string }) {
   };
 
   return (
-    <div className="flex items-center justify-center aspect-video px-3 bg-muted/30 rounded-lg overflow-hidden">
+    <div className="flex items-center justify-center aspect-video px-3 bg-[var(--semantic-surface-overlays-level1)] rounded-lg overflow-hidden">
       {previews[componentName] || (
         <MaterialSymbol name="widgets" size={24} weight={300} className="text-muted-foreground" />
       )}
