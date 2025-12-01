@@ -224,7 +224,7 @@ export const components: Component[] = [
     description: "Line, spline, and area charts for visualizing trends and changes over time. Ideal for time series data and continuous data comparisons.",
     category: "dataviz",
     component: "line-charts",
-    importPath: "@/components/ui/highchart",
+    importPath: "alize-ui/charts",
     props: [
       {
         name: "options",
@@ -257,8 +257,8 @@ export const components: Component[] = [
       {
         title: "Basic Line Chart",
         description: "Standard line chart for tracking values over time.",
-        code: `import { Highchart } from '@/components/ui/highchart';
-import * as Highcharts from 'highcharts';
+        code: `import { Highchart } from 'alize-ui/charts';
+import type * as Highcharts from 'highcharts';
 
 const options: Highcharts.Options = {
   chart: { type: "line", height: 350 },
@@ -276,8 +276,8 @@ const options: Highcharts.Options = {
       {
         title: "Spline Chart",
         description: "Uses curved lines for a smoother, more organic visualization.",
-        code: `import { Highchart } from '@/components/ui/highchart';
-import * as Highcharts from 'highcharts';
+        code: `import { Highchart } from 'alize-ui/charts';
+import type * as Highcharts from 'highcharts';
 
 const options: Highcharts.Options = {
   chart: { type: "spline", height: 350 },
@@ -298,8 +298,8 @@ const options: Highcharts.Options = {
       {
         title: "Area Chart",
         description: "Emphasizes the magnitude of change with filled areas.",
-        code: `import { Highchart } from '@/components/ui/highchart';
-import * as Highcharts from 'highcharts';
+        code: `import { Highchart } from 'alize-ui/charts';
+import type * as Highcharts from 'highcharts';
 
 const options: Highcharts.Options = {
   chart: { type: "area", height: 350 },
@@ -318,8 +318,8 @@ const options: Highcharts.Options = {
       {
         title: "Stacked Area",
         description: "Shows contribution of each series to the total.",
-        code: `import { Highchart } from '@/components/ui/highchart';
-import * as Highcharts from 'highcharts';
+        code: `import { Highchart } from 'alize-ui/charts';
+import type * as Highcharts from 'highcharts';
 
 const options: Highcharts.Options = {
   chart: { type: "area", height: 350 },
@@ -339,8 +339,8 @@ const options: Highcharts.Options = {
       {
         title: "Area Spline",
         description: "Combines smooth curves with filled areas.",
-        code: `import { Highchart } from '@/components/ui/highchart';
-import * as Highcharts from 'highcharts';
+        code: `import { Highchart } from 'alize-ui/charts';
+import type * as Highcharts from 'highcharts';
 
 const options: Highcharts.Options = {
   chart: { type: "areaspline", height: 350 },
@@ -428,7 +428,7 @@ const options: Highcharts.Options = {
     description: "Bar and column charts for comparing values across categories. Perfect for discrete data comparisons and rankings.",
     category: "dataviz",
     component: "bar-charts",
-    importPath: "@/components/ui/highchart",
+    importPath: "alize-ui/charts",
     props: [
       {
         name: "options",
@@ -441,8 +441,8 @@ const options: Highcharts.Options = {
       {
         title: "Column Chart",
         description: "Vertical bars for comparing values across categories.",
-        code: `import { Highchart } from '@/components/ui/highchart';
-import * as Highcharts from 'highcharts';
+        code: `import { Highchart } from 'alize-ui/charts';
+import type * as Highcharts from 'highcharts';
 
 const options: Highcharts.Options = {
   chart: { type: "column", height: 350 },
@@ -461,8 +461,8 @@ const options: Highcharts.Options = {
       {
         title: "Bar Chart (Horizontal)",
         description: "Horizontal bars, ideal for rankings and long category names.",
-        code: `import { Highchart } from '@/components/ui/highchart';
-import * as Highcharts from 'highcharts';
+        code: `import { Highchart } from 'alize-ui/charts';
+import type * as Highcharts from 'highcharts';
 
 const options: Highcharts.Options = {
   chart: { type: "bar", height: 400 },
@@ -480,8 +480,8 @@ const options: Highcharts.Options = {
       {
         title: "Stacked Column",
         description: "Shows how parts contribute to the whole.",
-        code: `import { Highchart } from '@/components/ui/highchart';
-import * as Highcharts from 'highcharts';
+        code: `import { Highchart } from 'alize-ui/charts';
+import type * as Highcharts from 'highcharts';
 
 const options: Highcharts.Options = {
   chart: { type: "column", height: 350 },
@@ -501,8 +501,8 @@ const options: Highcharts.Options = {
       {
         title: "Percentage Stacked",
         description: "Normalizes data to 100% for easy comparison.",
-        code: `import { Highchart } from '@/components/ui/highchart';
-import * as Highcharts from 'highcharts';
+        code: `import { Highchart } from 'alize-ui/charts';
+import type * as Highcharts from 'highcharts';
 
 const options: Highcharts.Options = {
   chart: { type: "column", height: 350 },
@@ -581,7 +581,7 @@ const options: Highcharts.Options = {
     description: "Pie and donut charts for showing proportional data and part-to-whole relationships. Best for displaying composition and distribution.",
     category: "dataviz",
     component: "pie-charts",
-    importPath: "@/components/ui/highchart",
+    importPath: "alize-ui/charts",
     props: [
       {
         name: "options",
@@ -594,8 +594,8 @@ const options: Highcharts.Options = {
       {
         title: "Pie Chart",
         description: "Classic pie chart for showing proportions.",
-        code: `import { Highchart } from '@/components/ui/highchart';
-import * as Highcharts from 'highcharts';
+        code: `import { Highchart } from 'alize-ui/charts';
+import type * as Highcharts from 'highcharts';
 
 const data = [
   { name: "Office Space", y: 35 },
@@ -626,8 +626,8 @@ const options: Highcharts.Options = {
       {
         title: "Donut Chart",
         description: "Pie with hollow center for additional context or KPIs.",
-        code: `import { Highchart } from '@/components/ui/highchart';
-import * as Highcharts from 'highcharts';
+        code: `import { Highchart } from 'alize-ui/charts';
+import type * as Highcharts from 'highcharts';
 
 const data = [
   { name: "Office Space", y: 35 },
@@ -660,8 +660,8 @@ const options: Highcharts.Options = {
       {
         title: "Semi-Circle Donut",
         description: "Half donut, perfect for progress or completion rates.",
-        code: `import { Highchart } from '@/components/ui/highchart';
-import * as Highcharts from 'highcharts';
+        code: `import { Highchart } from 'alize-ui/charts';
+import type * as Highcharts from 'highcharts';
 
 const data = [
   { name: "Completed", y: 75, color: "#0066CC" },
@@ -740,7 +740,7 @@ const options: Highcharts.Options = {
     description: "Advanced visualization patterns including heatmaps, treemaps, and more. Leverages sequential and divergent color palettes.",
     category: "dataviz",
     component: "advanced-patterns",
-    importPath: "@/components/ui/highchart",
+    importPath: "alize-ui/charts",
     props: [
       {
         name: "options",
@@ -753,8 +753,8 @@ const options: Highcharts.Options = {
       {
         title: "Heatmap (Sequential)",
         description: "Heatmaps use sequential palettes to show intensity. Ideal for correlation matrices, activity patterns, and density visualization.",
-        code: `import { Highchart, useSequentialPalette } from '@/components/ui/highchart';
-import * as Highcharts from 'highcharts';
+        code: `import { Highchart, useSequentialPalette } from 'alize-ui/charts';
+import type * as Highcharts from 'highcharts';
 
 const sequentialPalette = useSequentialPalette(1, 13);
 const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
@@ -789,8 +789,8 @@ const options: Highcharts.Options = {
       {
         title: "Heatmap (Divergent)",
         description: "Divergent heatmaps show deviation from a center point. Ocean represents negative, orange represents positive.",
-        code: `import { Highchart, useDivergentPalette } from '@/components/ui/highchart';
-import * as Highcharts from 'highcharts';
+        code: `import { Highchart, useDivergentPalette } from 'alize-ui/charts';
+import type * as Highcharts from 'highcharts';
 
 const divergentPalette = useDivergentPalette(13);
 const regions = ["North America", "South America", "Western Europe"];
@@ -825,8 +825,8 @@ const options: Highcharts.Options = {
       {
         title: "Treemap",
         description: "Treemaps display hierarchical data using nested rectangles. Size represents quantity, color can encode a secondary metric.",
-        code: `import { Highchart, useSequentialPalette, getContrastTextColor } from '@/components/ui/highchart';
-import * as Highcharts from 'highcharts';
+        code: `import { Highchart, useSequentialPalette, getContrastTextColor } from 'alize-ui/charts';
+import type * as Highcharts from 'highcharts';
 
 const sequentialPalette = useSequentialPalette(1, 13);
 
