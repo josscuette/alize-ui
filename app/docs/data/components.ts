@@ -1191,17 +1191,17 @@ import { Input } from 'alize-ui';
   },
   {
     title: "Badge",
-    description: "Compact statuses using semantic color ramp only. Small status indicators and labels with semantic color tokens.",
+    description: "Compact status indicators with semantic RAG (Red/Amber/Green) color tokens for clear visual feedback.",
     category: "atoms",
     component: "Badge",
     importPath: "alize-ui",
     props: [
       {
         name: "variant",
-        type: "default | secondary | outline | destructive",
+        type: "default | secondary | outline | success | warning | destructive",
         default: "default",
         required: false,
-        description: "Visual style variant of the badge"
+        description: "Visual style variant of the badge. Use RAG variants (success, warning, destructive) for status indicators."
       },
       {
         name: "asChild",
@@ -1214,14 +1214,37 @@ import { Input } from 'alize-ui';
     examples: [
       {
         title: "Variants",
-        description: "Different badge styles communicate different types of information",
+        description: "Different badge styles for various contexts, including RAG status variants",
         code: `import { Badge } from 'alize-ui';
 
-<div className="flex gap-2">
+<div className="flex flex-wrap gap-2">
   <Badge>Default</Badge>
   <Badge variant="secondary">Secondary</Badge>
   <Badge variant="outline">Outline</Badge>
+  <Badge variant="success">Success</Badge>
+  <Badge variant="warning">Warning</Badge>
   <Badge variant="destructive">Destructive</Badge>
+</div>`
+      },
+      {
+        title: "RAG Status",
+        description: "Red/Amber/Green status badges for clear visual feedback",
+        code: `import { Badge } from 'alize-ui';
+import { MaterialSymbol } from 'alize-ui';
+
+<div className="flex gap-2">
+  <Badge variant="success">
+    <MaterialSymbol name="check_circle" size={12} weight={300} />
+    Complete
+  </Badge>
+  <Badge variant="warning">
+    <MaterialSymbol name="schedule" size={12} weight={300} />
+    Pending
+  </Badge>
+  <Badge variant="destructive">
+    <MaterialSymbol name="error" size={12} weight={300} />
+    Failed
+  </Badge>
 </div>`
       },
       {
@@ -1231,7 +1254,7 @@ import { Input } from 'alize-ui';
 import { MaterialSymbol } from 'alize-ui';
 
 <div className="flex gap-2">
-  <Badge>
+  <Badge variant="success">
     <MaterialSymbol name="check_circle" size={12} weight={300} />
     Success
   </Badge>
@@ -1243,23 +1266,23 @@ import { MaterialSymbol } from 'alize-ui';
       },
       {
         title: "Status Indicators",
-        description: "Badges serve as visual status indicators",
+        description: "Badges serve as visual status indicators with RAG colors",
         code: `import { Badge } from 'alize-ui';
 import { MaterialSymbol } from 'alize-ui';
 
 <div className="flex gap-2">
-  <Badge>
+  <Badge variant="success">
     <MaterialSymbol name="check_circle" size={12} weight={300} />
     Active
   </Badge>
-  <Badge variant="secondary">Pending</Badge>
+  <Badge variant="warning">Pending</Badge>
   <Badge variant="destructive">Failed</Badge>
 </div>`
       }
     ],
     do: [
       "Use badges for status indicators and metadata",
-      "Choose appropriate variants based on the information type",
+      "Use RAG variants (success, warning, destructive) for clear status communication",
       "Use icons to enhance clarity when appropriate",
       "Keep badge text concise and clear",
       "Use consistent badge styles throughout the interface"
@@ -1274,12 +1297,17 @@ import { MaterialSymbol } from 'alize-ui';
     accessibility: `- Badges should have sufficient color contrast
 - Use descriptive text that makes sense out of context
 - Consider screen reader announcements for status changes
-- Icons should be decorative or have appropriate alt text`,
+- Icons should be decorative or have appropriate alt text
+- RAG colors alone should not convey meaning - always include text`,
     tokens: [
       { name: "surface-secondary", category: "surface", cssVariable: "var(--semantic-surface-secondary)", usage: "Default badge background" },
-      { name: "surface-rag-danger-subtle", category: "surface", cssVariable: "var(--semantic-surface-rag-danger-subtle)", usage: "Destructive badge" },
-      { name: "surface-rag-success-subtle", category: "surface", cssVariable: "var(--semantic-surface-rag-success-subtle)", usage: "Success badge" },
-      { name: "text-subdued", category: "text", cssVariable: "var(--semantic-text-subdued)", usage: "Badge text" },
+      { name: "surface-rag-success-subdued", category: "surface", cssVariable: "var(--semantic-surface-rag-success-subdued)", usage: "Success badge background" },
+      { name: "surface-rag-warning-subdued", category: "surface", cssVariable: "var(--semantic-surface-rag-warning-subdued)", usage: "Warning badge background" },
+      { name: "surface-rag-danger-subdued", category: "surface", cssVariable: "var(--semantic-surface-rag-danger-subdued)", usage: "Destructive badge background" },
+      { name: "text-rag-success-default", category: "text", cssVariable: "var(--semantic-text-rag-success-default)", usage: "Success badge text" },
+      { name: "text-rag-warning-default", category: "text", cssVariable: "var(--semantic-text-rag-warning-default)", usage: "Warning badge text" },
+      { name: "text-rag-danger-default", category: "text", cssVariable: "var(--semantic-text-rag-danger-default)", usage: "Destructive badge text" },
+      { name: "stroke-rag-*-default", category: "stroke", cssVariable: "var(--semantic-stroke-rag-*-default)", usage: "RAG badge border" },
       { name: "radius-full", category: "radius", cssVariable: "var(--radius-full)", usage: "Pill shape" }
     ],
     interactiveProps: [
@@ -1292,6 +1320,8 @@ import { MaterialSymbol } from 'alize-ui';
           { value: "default", label: "Default" },
           { value: "secondary", label: "Secondary" },
           { value: "outline", label: "Outline" },
+          { value: "success", label: "Success" },
+          { value: "warning", label: "Warning" },
           { value: "destructive", label: "Destructive" },
         ]
       }

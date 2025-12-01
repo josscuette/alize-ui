@@ -14,7 +14,11 @@ const badgeVariants = cva(
         secondary:
           "border-transparent bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/90",
         destructive:
-          "border-transparent bg-destructive text-[var(--destructive-foreground)] [a&]:hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
+          "border-[var(--semantic-stroke-rag-danger-default)] bg-[var(--semantic-surface-rag-danger-subdued)] text-[var(--semantic-text-rag-danger-default)] [a&]:hover:bg-[var(--semantic-surface-rag-danger-subdued)]/80 focus-visible:ring-[var(--semantic-surface-rag-danger-subdued)]",
+        warning:
+          "border-[var(--semantic-stroke-rag-warning-default)] bg-[var(--semantic-surface-rag-warning-subdued)] text-[var(--semantic-text-rag-warning-default)] [a&]:hover:bg-[var(--semantic-surface-rag-warning-subdued)]/80 focus-visible:ring-[var(--semantic-surface-rag-warning-subdued)]",
+        success:
+          "border-[var(--semantic-stroke-rag-success-default)] bg-[var(--semantic-surface-rag-success-subdued)] text-[var(--semantic-text-rag-success-default)] [a&]:hover:bg-[var(--semantic-surface-rag-success-subdued)]/80 focus-visible:ring-[var(--semantic-surface-rag-success-subdued)]",
         outline:
           "text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground",
       },
@@ -40,7 +44,13 @@ export interface BadgeProps extends React.ComponentProps<"span">, VariantProps<t
 /**
  * Badge component - A small status indicator or label
  * 
- * Displays a badge with multiple variants (default, secondary, destructive, outline).
+ * Displays a badge with multiple variants for different states:
+ * - `default` / `secondary`: Neutral badge for general use
+ * - `destructive`: Red/danger badge for errors or critical states
+ * - `warning`: Orange/amber badge for warnings or caution states
+ * - `success`: Green badge for success or positive states
+ * - `outline`: Outlined badge without background
+ * 
  * Can be used as a link or other element via the asChild prop.
  * 
  * @param props - Badge props including variant, asChild, and standard HTML span attributes
@@ -48,8 +58,16 @@ export interface BadgeProps extends React.ComponentProps<"span">, VariantProps<t
  * 
  * @example
  * ```tsx
- * <Badge variant="default">New</Badge>
+ * // RAG status badges
+ * <Badge variant="success">Complete</Badge>
+ * <Badge variant="warning">Pending</Badge>
  * <Badge variant="destructive">Error</Badge>
+ * 
+ * // Other variants
+ * <Badge variant="default">New</Badge>
+ * <Badge variant="outline">Draft</Badge>
+ * 
+ * // As a link
  * <Badge asChild>
  *   <a href="/link">Link Badge</a>
  * </Badge>
