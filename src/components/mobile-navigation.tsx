@@ -24,7 +24,7 @@ const mainNavigationItems = [
     icon: "layers",
   },
   {
-    href: "/components",
+    href: "/docs",
     label: "Components",
     icon: "apps",
   },
@@ -181,7 +181,7 @@ export function MobileNavigation({
                 <ul className="space-y-1">
                   {mainNavigationItems.map((item) => {
                     const isActive = pathname === item.href || 
-                      (item.href === "/components" && pathname?.startsWith("/components")) ||
+                      (item.href === "/docs" && pathname?.startsWith("/docs")) ||
                       (item.href === "/compliance/foundation-layer" && pathname === "/compliance/foundation-layer") ||
                       (item.href === "/compliance" && pathname?.startsWith("/compliance") && pathname !== "/compliance/foundation-layer");
                     

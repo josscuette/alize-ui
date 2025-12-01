@@ -155,10 +155,13 @@ function InteractivePlayground({
       const value = values[prop.name];
       const defaultValue = prop.defaultValue;
       
+      // Skip internal props like showImage
+      if (prop.name === 'showImage') return;
+      
       // Skip if value is default
       if (value === defaultValue) return;
       
-      // Handle special cases
+      // Handle special cases for Button
       if (prop.name === 'iconOnly' && value === 'true') {
         isIconOnly = true;
         needsMaterialSymbol = true;
@@ -177,8 +180,8 @@ function InteractivePlayground({
       propsArr.push(`${prop.name}="${value}"`);
     });
     
-    // Handle icon-only size mapping
-    if (isIconOnly) {
+    // Handle icon-only size mapping for Button
+    if (isIconOnly && componentName === 'Button') {
       const sizeValue = values['size'] || 'default';
       const sizeMap: Record<string, string> = {
         'xs': 'icon-xs',
@@ -187,7 +190,6 @@ function InteractivePlayground({
         'lg': 'icon-lg',
       };
       const iconSize = sizeMap[sizeValue] || 'icon';
-      // Remove size prop if present and add icon size
       const sizeIndex = propsArr.findIndex(p => p.startsWith('size='));
       if (sizeIndex !== -1) {
         propsArr.splice(sizeIndex, 1);
@@ -200,19 +202,84 @@ function InteractivePlayground({
     
     const propsString = propsArr.length > 0 ? ` ${propsArr.join(' ')}` : '';
     
-    // Generate import statement
-    let importLine = `import { ${componentName} } from '${importPath}';`;
-    if (needsMaterialSymbol) {
-      importLine += `\nimport { MaterialSymbol } from '@/components/material-symbol';`;
-    }
+    // Generate component-specific code
+    const generateComponentCode = (): string => {
+      switch (componentName) {
+        case 'Button':
+          if (isIconOnly) {
+            return `import { Button } from '${importPath}';\nimport { MaterialSymbol } from '@/components/material-symbol';\n\n<Button${propsString}>\n  <MaterialSymbol name="add" size={20} weight={300} />\n</Button>`;
+          }
+          return `import { Button } from '${importPath}';\n\n<Button${propsString}>Click me</Button>`;
+        
+        case 'Avatar': {
+          const size = values['size'] || 'md';
+          const showImage = values['showImage'] === 'true';
+          const avatarProps = propsArr.filter(p => !p.startsWith('size=')).join(' ');
+          const avatarPropsStr = avatarProps ? ` ${avatarProps}` : '';
+          if (showImage) {
+            return `import { Avatar, AvatarImage, AvatarFallback } from '${importPath}';\n\n<Avatar size="${size}"${avatarPropsStr}>\n  <AvatarImage src="/user.jpg" alt="User" />\n  <AvatarFallback size="${size}">JD</AvatarFallback>\n</Avatar>`;
+          }
+          return `import { Avatar, AvatarFallback } from '${importPath}';\n\n<Avatar size="${size}"${avatarPropsStr}>\n  <AvatarFallback size="${size}">JD</AvatarFallback>\n</Avatar>`;
+        }
+        
+        case 'Badge':
+          return `import { Badge } from '${importPath}';\n\n<Badge${propsString}>Badge Label</Badge>`;
+        
+        case 'Checkbox': {
+          const isChecked = values['checked'] === 'true';
+          const isDisabled = values['disabled'] === 'true';
+          const checkboxProps = [isChecked && 'defaultChecked', isDisabled && 'disabled'].filter(Boolean).join(' ');
+          const checkboxPropsStr = checkboxProps ? ` ${checkboxProps}` : '';
+          return `import { Checkbox } from '${importPath}';\n\n<label className="flex items-center gap-2">\n  <Checkbox${checkboxPropsStr} />\n  <span>Label</span>\n</label>`;
+        }
+        
+        case 'Input': {
+          const inputType = values['type'] || 'text';
+          const isDisabled = values['disabled'] === 'true';
+          const isInvalid = values['invalid'] === 'true';
+          const inputPropsArr = [];
+          if (inputType !== 'text') inputPropsArr.push(`type="${inputType}"`);
+          if (isDisabled) inputPropsArr.push('disabled');
+          if (isInvalid) inputPropsArr.push('aria-invalid={true}');
+          const inputPropsStr = inputPropsArr.length > 0 ? ` ${inputPropsArr.join(' ')}` : '';
+          return `import { Input } from '${importPath}';\n\n<Input${inputPropsStr} placeholder="Enter text..." />`;
+        }
+        
+        case 'Switch': {
+          const isChecked = values['checked'] === 'true';
+          const isDisabled = values['disabled'] === 'true';
+          const switchProps = [isChecked && 'defaultChecked', isDisabled && 'disabled'].filter(Boolean).join(' ');
+          const switchPropsStr = switchProps ? ` ${switchProps}` : '';
+          return `import { Switch } from '${importPath}';\n\n<Switch${switchPropsStr} />`;
+        }
+        
+        case 'Toggle':
+          return `import { Toggle } from '${importPath}';\nimport { MaterialSymbol } from '@/components/material-symbol';\n\n<Toggle${propsString} aria-label="Toggle">\n  <MaterialSymbol name="format_bold" size={16} weight={300} />\n</Toggle>`;
+        
+        case 'Spinner': {
+          const size = values['size'] || 'default';
+          const sizeClass = size === 'sm' ? 'size-4' : size === 'lg' ? 'size-8' : 'size-6';
+          return `import { Spinner } from '${importPath}';\n\n<Spinner className="${sizeClass}" />`;
+        }
+        
+        case 'Progress': {
+          const progressValue = values['value'] || '50';
+          return `import { Progress } from '${importPath}';\n\n<Progress value={${progressValue}} />`;
+        }
+        
+        case 'Alert': {
+          const variant = values['variant'] || 'default';
+          const variantProp = variant !== 'default' ? ` variant="${variant}"` : '';
+          return `import { Alert, AlertTitle, AlertDescription } from '${importPath}';\n\n<Alert${variantProp}>\n  <AlertTitle>Heads up!</AlertTitle>\n  <AlertDescription>You can add components to your app.</AlertDescription>\n</Alert>`;
+        }
+        
+        default:
+          // Generic fallback
+          return `import { ${componentName} } from '${importPath}';\n\n<${componentName}${propsString} />`;
+      }
+    };
     
-    // Generate component content
-    let content = 'Click me';
-    if (isIconOnly) {
-      content = `\n  <MaterialSymbol name="add" size={20} weight={300} />`;
-    }
-    
-    return `${importLine}\n\n<${componentName}${propsString}>${content}\n</${componentName}>`;
+    return generateComponentCode();
   }, [values, componentDoc, interactiveProps]);
 
   const handleCopy = (): void => {

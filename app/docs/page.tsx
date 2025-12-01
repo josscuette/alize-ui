@@ -174,7 +174,7 @@ function ComponentMiniPreview({ componentName }: { componentName: string }) {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-[60px] p-4 bg-muted/30 rounded-lg">
+    <div className="flex items-center justify-center aspect-video px-3 bg-muted/30 rounded-lg overflow-hidden">
       {previews[componentName] || (
         <MaterialSymbol name="widgets" size={24} weight={300} className="text-muted-foreground" />
       )}
@@ -234,7 +234,7 @@ export default function DocsPage() {
       <DocsSidebar />
       
       <main className="flex-1 overflow-y-auto">
-        <div className="px-4 md:px-8 py-8 max-w-[1200px]">
+        <div className="px-4 md:px-8 py-8">
           {/* Header */}
           <header className="space-y-6 mb-8">
             <div className="space-y-2">
@@ -306,25 +306,23 @@ export default function DocsPage() {
                     href={`/docs/${component.component.toLowerCase().replace(/\s+/g, '')}`}
                     className="group block"
                   >
-                    <Card className="border-border hover:border-[var(--semantic-stroke-interaction-default)] transition-colors h-full flex flex-col cursor-pointer">
-                      <CardContent className="p-4 flex flex-col flex-1 gap-3">
+                    <Card className="border-border hover:border-[var(--semantic-stroke-interaction-default)] transition-colors h-full flex flex-col cursor-pointer py-0">
+                      <CardContent className="p-3 flex flex-col flex-1 gap-2">
                         {/* Preview */}
                         <ComponentMiniPreview componentName={component.component} />
                         
                         {/* Title */}
-                        <div className="flex items-center justify-between">
-                          <h3 className="text-sm font-medium group-hover:text-[var(--semantic-text-interaction-default)] transition-colors">
-                            {component.title}
-                          </h3>
-                        </div>
+                        <h3 className="text-sm font-medium group-hover:text-[var(--semantic-text-interaction-default)] transition-colors">
+                          {component.title}
+                        </h3>
                         
                         {/* Description */}
-                        <p className="text-xs text-muted-foreground line-clamp-2 flex-1">
+                        <p className="text-xs text-muted-foreground line-clamp-3 flex-1">
                           {component.description}
                         </p>
                         
                         {/* View button */}
-                        <Button variant="outline" size="sm" className="w-full mt-auto pointer-events-none">
+                        <Button variant="secondary" size="sm" className="w-full mt-auto pointer-events-none">
                           View details
                         </Button>
                       </CardContent>

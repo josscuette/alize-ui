@@ -20,7 +20,7 @@ import { CheckboxPreview, CheckboxInteractivePreview } from './checkbox-preview'
 import { InputPreview, InputInteractivePreview } from './input-preview';
 import { BadgePreview, BadgeInteractivePreview } from './badge-preview';
 import { LabelPreview } from './label-preview';
-import { AvatarPreview } from './avatar-preview';
+import { AvatarPreview, AvatarInteractivePreview } from './avatar-preview';
 import { SkeletonPreview } from './skeleton-preview';
 import { SpinnerPreview, SpinnerInteractivePreview } from './spinner-preview';
 import { SeparatorPreview } from './separator-preview';
@@ -105,6 +105,7 @@ const INTERACTIVE_PREVIEW_REGISTRY: Record<string, InteractivePreviewFunction> =
   'Switch': SwitchInteractivePreview,
   'Toggle': ToggleInteractivePreview,
   'Spinner': SpinnerInteractivePreview,
+  'Avatar': AvatarInteractivePreview,
   // Molecules
   'Progress': ProgressInteractivePreview,
   'Alert': AlertInteractivePreview,
@@ -227,6 +228,7 @@ export {
   BadgeInteractivePreview,
   LabelPreview,
   AvatarPreview,
+  AvatarInteractivePreview,
   SkeletonPreview,
   SpinnerPreview,
   SpinnerInteractivePreview,

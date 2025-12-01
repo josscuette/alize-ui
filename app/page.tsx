@@ -52,7 +52,7 @@ export default function Home() {
     {
       title: "Browse Components",
       description: "Explore all available components",
-      href: "/components",
+      href: "/docs",
       icon: "widgets",
       variant: "default" as const,
     },
@@ -145,7 +145,7 @@ export default function Home() {
                 <MaterialSymbol name="code" size={16} weight={300} />
                 GitHub
               </a>
-              <Link href="/components" className="hover:text-semantic-text-interaction-default transition-colors">
+              <Link href="/docs" className="hover:text-semantic-text-interaction-default transition-colors">
                 Components
               </Link>
             </div>

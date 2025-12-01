@@ -1399,6 +1399,36 @@ import { MaterialSymbol } from '@/components/material-symbol';
       { name: "surface-overlays-level2", category: "stroke", cssVariable: "var(--semantic-surface-overlays-level2)", usage: "Avatar border" },
       { name: "surface-subdued", category: "surface", cssVariable: "var(--semantic-surface-subdued)", usage: "Fallback background" },
       { name: "text-subdued", category: "text", cssVariable: "var(--semantic-text-subdued)", usage: "Fallback text color" }
+    ],
+    interactiveProps: [
+      {
+        name: "size",
+        label: "Size",
+        controlType: "select",
+        defaultValue: "md",
+        options: [
+          { value: "xs", label: "Extra Small" },
+          { value: "sm", label: "Small" },
+          { value: "md", label: "Medium" },
+          { value: "lg", label: "Large" },
+        ]
+      },
+      {
+        name: "shape",
+        label: "Shape",
+        controlType: "select",
+        defaultValue: "rounded",
+        options: [
+          { value: "rounded", label: "Rounded" },
+          { value: "square", label: "Square" },
+        ]
+      },
+      {
+        name: "showImage",
+        label: "Show Image",
+        controlType: "boolean",
+        defaultValue: "true"
+      }
     ]
   },
   {
