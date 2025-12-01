@@ -62,6 +62,7 @@ export interface AvatarImageProps extends React.ComponentProps<typeof AvatarPrim
  */
 export interface AvatarFallbackProps extends React.ComponentProps<typeof AvatarPrimitive.Fallback> {
   size?: "xs" | "sm" | "md" | "lg"
+  delayMs?: number
 }
 
 /**
@@ -132,6 +133,7 @@ function AvatarImage({
 function AvatarFallback({
   className,
   size = "md",
+  delayMs = 0,
   ...props
 }: AvatarFallbackProps): React.ReactElement {
   const textSizeMap = {
@@ -144,6 +146,7 @@ function AvatarFallback({
   return (
     <AvatarPrimitive.Fallback
       data-slot="avatar-fallback"
+      delayMs={delayMs}
       className={cn(
         // Background & Surface (Foundation Layer)
         surface.subdued,
