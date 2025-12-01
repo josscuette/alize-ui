@@ -877,12 +877,60 @@ const options: Highcharts.Options = {
 };
 
 <Highchart options={options} />`
+      },
+      {
+        title: "Bubble Chart",
+        description: "Bubble charts encode three dimensions: x position, y position, and bubble size. Useful for multi-variable analysis like risk vs return.",
+        code: `import { Highchart } from 'alize-ui/charts';
+import type * as Highcharts from 'highcharts';
+
+const options: Highcharts.Options = {
+  chart: { type: "bubble", height: 400 },
+  title: { text: "Market Analysis" },
+  xAxis: { title: { text: "Risk Score" }, min: 0, max: 100 },
+  yAxis: { title: { text: "Return (%)" }, min: -10, max: 30 },
+  legend: { enabled: true },
+  series: [
+    {
+      name: "Real Estate",
+      type: "bubble",
+      data: [
+        { x: 35, y: 12, z: 500, name: "Office" },
+        { x: 45, y: 8, z: 300, name: "Retail" },
+        { x: 25, y: 15, z: 400, name: "Industrial" },
+      ],
+    },
+    {
+      name: "Equities",
+      type: "bubble",
+      data: [
+        { x: 70, y: 22, z: 600, name: "Tech" },
+        { x: 55, y: 14, z: 350, name: "Finance" },
+        { x: 50, y: 18, z: 450, name: "Healthcare" },
+      ],
+    },
+    {
+      name: "Bonds",
+      type: "bubble",
+      data: [
+        { x: 15, y: 4, z: 700, name: "Government" },
+        { x: 30, y: 6, z: 250, name: "Corporate" },
+      ],
+    },
+  ],
+  tooltip: {
+    format: "<b>{point.name}</b><br>Risk: {point.x}<br>Return: {point.y}%<br>Size: \${point.z}M",
+  },
+};
+
+<Highchart options={options} />`
       }
     ],
     do: [
       "Use sequential heatmaps for showing intensity or density",
       "Use divergent heatmaps for showing deviation from a baseline",
       "Use treemaps for hierarchical data with size-based encoding",
+      "Use bubble charts for multi-variable analysis (3 dimensions)",
       "Leverage Alize's sequential and divergent color palettes",
       "Provide clear legends and color scales",
       "Use appropriate color scales for the data type"

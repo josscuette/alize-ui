@@ -118,6 +118,52 @@ export function AdvancedPatternsPreview({ title }: { title: string }): ReactNode
     );
   }
 
+  // Bubble Chart
+  if (title === 'Bubble Chart') {
+    return (
+      <Highchart 
+        options={{
+          chart: { type: "bubble", height: 400 },
+          title: { text: "Market Analysis" },
+          xAxis: { title: { text: "Risk Score" }, min: 0, max: 100 },
+          yAxis: { title: { text: "Return (%)" }, min: -10, max: 30 },
+          legend: { enabled: true },
+          series: [
+            {
+              name: "Real Estate",
+              type: "bubble",
+              data: [
+                { x: 35, y: 12, z: 500, name: "Office" },
+                { x: 45, y: 8, z: 300, name: "Retail" },
+                { x: 25, y: 15, z: 400, name: "Industrial" },
+              ],
+            },
+            {
+              name: "Equities",
+              type: "bubble",
+              data: [
+                { x: 70, y: 22, z: 600, name: "Tech" },
+                { x: 55, y: 14, z: 350, name: "Finance" },
+                { x: 50, y: 18, z: 450, name: "Healthcare" },
+              ],
+            },
+            {
+              name: "Bonds",
+              type: "bubble",
+              data: [
+                { x: 15, y: 4, z: 700, name: "Government" },
+                { x: 30, y: 6, z: 250, name: "Corporate" },
+              ],
+            },
+          ],
+          tooltip: {
+            format: "<b>{point.name}</b><br>Risk: {point.x}<br>Return: {point.y}%<br>Size: ${point.z}M",
+          },
+        }} 
+      />
+    );
+  }
+
   // Treemap
   if (title === 'Treemap') {
     const rawData = [
