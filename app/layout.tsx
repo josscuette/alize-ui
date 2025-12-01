@@ -5,6 +5,7 @@ import { MaterialSymbolsProvider } from "@/components/material-symbols-provider"
 import { FidelityProvider } from "@/components/fidelity-provider";
 import { GlobalNavigation } from "@/components/global-navigation";
 import { NavigationProvider } from "@/contexts/navigation-context";
+import { Toaster } from "@/components/ui/sonner";
 // import { ErrorBoundaryWrapper } from "@/components/error-boundary-wrapper"; // Temporairement désactivé pour debug
 import "./globals.css";
 
@@ -46,6 +47,7 @@ export default function RootLayout({
             <NavigationProvider>
               <GlobalNavigation />
               {children}
+              <Toaster />
               {/* <ErrorBoundaryWrapper> temporairement désactivé pour debug */}
             </NavigationProvider>
           </FidelityProvider>
