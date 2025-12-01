@@ -1,6 +1,7 @@
-/** @type {import("next").NextConfig} */
-const nextConfig = {
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
   // Removed invalid 'turbo' experimental option
 };
 
-module.exports = nextConfig;
+export default nextConfig;
