@@ -595,6 +595,67 @@ interface ItemProps extends React.HTMLAttributes<HTMLDivElement> {
 declare function Item({ className, selected, ...props }: ItemProps): React.ReactElement;
 
 /**
+ * JLL Logo SVG Component
+ * Uses semantic brand tokens for theming in light/dark mode:
+ * - brand-picto: Red "J" icon (always #de0614)
+ * - brand-text: "LL" text (black in light, white in dark)
+ */
+declare function JLLLogo({ className, ...props }: React.ComponentProps<"svg">): React.ReactElement;
+declare const logoVariants: (props?: ({
+    size?: "default" | "sm" | "lg" | null | undefined;
+} & class_variance_authority_types.ClassProp) | undefined) => string;
+/**
+ * Logo component props interface
+ *
+ * @example
+ * ```tsx
+ * // Logo only
+ * <Logo />
+ *
+ * // Logo with product name
+ * <Logo productName="Product Name" />
+ *
+ * // Different sizes
+ * <Logo size="sm" productName="Small" />
+ * <Logo size="lg" productName="Large" />
+ * ```
+ */
+interface LogoProps extends Omit<React.ComponentProps<"div">, "children">, VariantProps<typeof logoVariants> {
+    /**
+     * Optional product name to display next to the logo
+     */
+    productName?: string;
+    /**
+     * Show only the logo without the product name
+     * @default false
+     */
+    logoOnly?: boolean;
+}
+/**
+ * Logo component - JLL brand logo with optional product name
+ *
+ * Uses semantic brand tokens for theming:
+ * - `--semantic-brand-picto`: Red "J" icon (constant across themes)
+ * - `--semantic-brand-text`: "LL" text and product name (black/white based on theme)
+ *
+ * @param props - Logo props including productName, size, and standard HTML div attributes
+ * @returns A logo element with appropriate styling
+ *
+ * @example
+ * ```tsx
+ * // Basic usage
+ * <Logo productName="My Product" />
+ *
+ * // Logo only (no product name)
+ * <Logo logoOnly />
+ *
+ * // With custom className
+ * <Logo productName="Product" className="my-4" />
+ * ```
+ */
+declare function Logo({ className, size, productName, logoOnly, ...props }: LogoProps): React.ReactElement;
+
+/**
  * Checkbox component props interface
  * Extends Radix UI Checkbox primitive props
  */
@@ -4569,4 +4630,4 @@ declare class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBou
     render(): string | number | bigint | boolean | Iterable<React.ReactNode> | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | react_jsx_runtime.JSX.Element | null | undefined;
 }
 
-export { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Alert, AlertDescription, AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger, AlertTitle, AppError, AspectRatio, Avatar, AvatarFallback, AvatarImage, Badge, Breadcrumb, BreadcrumbEllipsis, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator, Button, ButtonGroup, ButtonGroupSeparator, ButtonGroupText, type ButtonProps, Calendar, CalendarDayButton, Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Carousel, type CarouselApi, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, Checkbox, CheckboxCard, type CheckboxCardProps, type CheckboxProps, Collapsible, CollapsibleContent, CollapsibleTrigger, Combobox, type ComboboxOption, type ComboboxProps, Command, CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator, CommandShortcut, type ContactFormInput, ContextMenu, ContextMenuCheckboxItem, ContextMenuContent, ContextMenuItem, ContextMenuLabel, ContextMenuRadioGroup, ContextMenuRadioItem, ContextMenuSeparator, ContextMenuShortcut, ContextMenuSub, ContextMenuSubContent, ContextMenuSubTrigger, ContextMenuTrigger, DataTable, type DataTableColumn, type DataTableProps, DatePicker, type DatePickerProps, Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogOverlay, DialogPortal, DialogTitle, DialogTrigger, Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerOverlay, DrawerPortal, DrawerTitle, DrawerTrigger, DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger, type EmailInput, Empty, ErrorBoundary, type ErrorContext, ErrorLogger, FidelityProvider, FidelityToggle, Field, FieldContent, FieldDescription, FieldError, FieldGroup, FieldLabel, FieldLegend, FieldSeparator, FieldSet, FieldTitle, Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, HoverCard, HoverCardContent, HoverCardTrigger, Input, InputGroup, InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot, type InputProps, Item, Kbd, KbdGroup, Label, type LoginFormInput, MaterialSymbol, MaterialSymbolsProvider, Menubar, MenubarCheckboxItem, MenubarContent, MenubarItem, MenubarLabel, MenubarMenu, MenubarRadioGroup, MenubarRadioItem, MenubarSeparator, MenubarShortcut, MenubarSub, MenubarSubContent, MenubarSubTrigger, MenubarTrigger, NativeSelect, NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, NetworkError, Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious, type PasswordInput, Popover, PopoverAnchor, PopoverContent, PopoverTrigger, type ProfileFormInput, Progress, RadioGroup, RadioGroupCardItem, RadioGroupItem, type RegistrationFormInput, ResizableHandle, ResizablePanel, ResizablePanelGroup, ScrollArea, ScrollBar, Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectSeparator, SelectTrigger, SelectValue, Separator, Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger, Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupAction, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarInput, SidebarInset, SidebarMenu, SidebarMenuAction, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarMenuSkeleton, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem, SidebarProvider, SidebarRail, SidebarSeparator, SidebarTrigger, Skeleton, Slider, Spinner, Switch, SwitchCard, Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow, Tabs, TabsContent, TabsList, TabsTrigger, Textarea, ThemeToggle, Toaster, Toggle, ToggleGroup, ToggleGroupItem, Tooltip, TooltipContent, TooltipTrigger, TypographyBlockquote, TypographyCode, TypographyH1, TypographyH2, TypographyH3, TypographyH4, TypographyP, type UsernameInput, ValidationError, avatarVariants, buttonVariants, checkboxSchema, cn, commonSchemas, dateSchema, emailSchema, fileSchema, fileSizeSchema, fileTypeSchema, formatErrorMessage, handleAsyncError, integerSchema, isRetryableError, navigationMenuTriggerStyle, numberSchema, optionalStringSchema, passwordSchema, phoneSchema, positiveNumberSchema, requiredStringSchema, retryAsync, safeAsync, sanitizeEmail, sanitizeFileName, sanitizeHtml, sanitizeObjectKeys, sanitizeText, sanitizeUrl, selectSchema, strongPasswordSchema, textareaSchema, urlSchema, useFidelity, useFormField, useSidebar, usernameSchema, withTimeout };
+export { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Alert, AlertDescription, AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger, AlertTitle, AppError, AspectRatio, Avatar, AvatarFallback, AvatarImage, Badge, Breadcrumb, BreadcrumbEllipsis, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator, Button, ButtonGroup, ButtonGroupSeparator, ButtonGroupText, type ButtonProps, Calendar, CalendarDayButton, Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Carousel, type CarouselApi, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, Checkbox, CheckboxCard, type CheckboxCardProps, type CheckboxProps, Collapsible, CollapsibleContent, CollapsibleTrigger, Combobox, type ComboboxOption, type ComboboxProps, Command, CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator, CommandShortcut, type ContactFormInput, ContextMenu, ContextMenuCheckboxItem, ContextMenuContent, ContextMenuItem, ContextMenuLabel, ContextMenuRadioGroup, ContextMenuRadioItem, ContextMenuSeparator, ContextMenuShortcut, ContextMenuSub, ContextMenuSubContent, ContextMenuSubTrigger, ContextMenuTrigger, DataTable, type DataTableColumn, type DataTableProps, DatePicker, type DatePickerProps, Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogOverlay, DialogPortal, DialogTitle, DialogTrigger, Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerOverlay, DrawerPortal, DrawerTitle, DrawerTrigger, DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger, type EmailInput, Empty, ErrorBoundary, type ErrorContext, ErrorLogger, FidelityProvider, FidelityToggle, Field, FieldContent, FieldDescription, FieldError, FieldGroup, FieldLabel, FieldLegend, FieldSeparator, FieldSet, FieldTitle, Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, HoverCard, HoverCardContent, HoverCardTrigger, Input, InputGroup, InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot, type InputProps, Item, JLLLogo, Kbd, KbdGroup, Label, type LoginFormInput, Logo, type LogoProps, MaterialSymbol, MaterialSymbolsProvider, Menubar, MenubarCheckboxItem, MenubarContent, MenubarItem, MenubarLabel, MenubarMenu, MenubarRadioGroup, MenubarRadioItem, MenubarSeparator, MenubarShortcut, MenubarSub, MenubarSubContent, MenubarSubTrigger, MenubarTrigger, NativeSelect, NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, NetworkError, Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious, type PasswordInput, Popover, PopoverAnchor, PopoverContent, PopoverTrigger, type ProfileFormInput, Progress, RadioGroup, RadioGroupCardItem, RadioGroupItem, type RegistrationFormInput, ResizableHandle, ResizablePanel, ResizablePanelGroup, ScrollArea, ScrollBar, Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectSeparator, SelectTrigger, SelectValue, Separator, Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger, Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupAction, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarInput, SidebarInset, SidebarMenu, SidebarMenuAction, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarMenuSkeleton, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem, SidebarProvider, SidebarRail, SidebarSeparator, SidebarTrigger, Skeleton, Slider, Spinner, Switch, SwitchCard, Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow, Tabs, TabsContent, TabsList, TabsTrigger, Textarea, ThemeToggle, Toaster, Toggle, ToggleGroup, ToggleGroupItem, Tooltip, TooltipContent, TooltipTrigger, TypographyBlockquote, TypographyCode, TypographyH1, TypographyH2, TypographyH3, TypographyH4, TypographyP, type UsernameInput, ValidationError, avatarVariants, buttonVariants, checkboxSchema, cn, commonSchemas, dateSchema, emailSchema, fileSchema, fileSizeSchema, fileTypeSchema, formatErrorMessage, handleAsyncError, integerSchema, isRetryableError, logoVariants, navigationMenuTriggerStyle, numberSchema, optionalStringSchema, passwordSchema, phoneSchema, positiveNumberSchema, requiredStringSchema, retryAsync, safeAsync, sanitizeEmail, sanitizeFileName, sanitizeHtml, sanitizeObjectKeys, sanitizeText, sanitizeUrl, selectSchema, strongPasswordSchema, textareaSchema, urlSchema, useFidelity, useFormField, useSidebar, usernameSchema, withTimeout };

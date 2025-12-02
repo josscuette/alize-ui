@@ -2596,6 +2596,124 @@ import { MaterialSymbol } from 'alize-ui';
     ]
   },
   {
+    title: "Logo",
+    description: "JLL brand logo component with optional product name. Supports light/dark themes using semantic brand tokens.",
+    category: "atoms",
+    component: "Logo",
+    importPath: "alize-ui",
+    props: [
+      {
+        name: "productName",
+        type: "string",
+        required: false,
+        description: "Optional product name to display next to the logo"
+      },
+      {
+        name: "logoOnly",
+        type: "boolean",
+        default: "false",
+        required: false,
+        description: "Show only the logo without the product name"
+      },
+      {
+        name: "size",
+        type: "default | sm | lg",
+        default: "default",
+        required: false,
+        description: "Size variant of the logo and text"
+      },
+      {
+        name: "className",
+        type: "string",
+        required: false,
+        description: "Additional CSS classes for custom styling"
+      }
+    ],
+    examples: [
+      {
+        title: "Basic Logo",
+        description: "Logo with product name",
+        code: `import { Logo } from 'alize-ui';
+
+<Logo productName="Product Name" />`
+      },
+      {
+        title: "Logo Only",
+        description: "Just the JLL logo without product name",
+        code: `import { Logo, JLLLogo } from 'alize-ui';
+
+{/* Using Logo component */}
+<Logo logoOnly />
+
+{/* Or using the SVG directly */}
+<JLLLogo className="h-6 w-auto" />`
+      },
+      {
+        title: "Sizes",
+        description: "Different size variants",
+        code: `import { Logo } from 'alize-ui';
+
+<div className="flex flex-col gap-4">
+  <Logo size="sm" productName="Small" />
+  <Logo size="default" productName="Default" />
+  <Logo size="lg" productName="Large" />
+</div>`
+      },
+      {
+        title: "In Navigation",
+        description: "Logo used in a navigation header",
+        code: `import { Logo } from 'alize-ui';
+
+<header className="flex items-center justify-between p-4">
+  <Logo productName="My Application" />
+  {/* Navigation items */}
+</header>`
+      }
+    ],
+    do: [
+      "Use Logo for consistent brand presentation",
+      "Include product name for application branding",
+      "Place in navigation headers or footers",
+      "Let the component handle theme switching",
+      "Use appropriate size for the context"
+    ],
+    dont: [
+      "Don't modify the JLL logo colors",
+      "Don't stretch or distort the logo proportions",
+      "Don't use logo-only in contexts requiring product identification",
+      "Don't override brand token colors",
+      "Don't use custom fonts for the product name"
+    ],
+    accessibility: `- Logo SVG uses aria-hidden="true" as it's decorative
+- Product name provides text context
+- Ensure sufficient contrast in all themes
+- Consider adding alt text for screen readers if logo-only`,
+    tokens: [
+      { name: "brand-picto", category: "brand", cssVariable: "var(--semantic-brand-picto)", usage: "Red J icon color (always #de0614)" },
+      { name: "brand-text", category: "brand", cssVariable: "var(--semantic-brand-text)", usage: "LL text and product name (black in light, white in dark)" }
+    ],
+    interactiveProps: [
+      {
+        name: "size",
+        label: "Size",
+        controlType: "select",
+        defaultValue: "default",
+        options: [
+          { value: "sm", label: "Small" },
+          { value: "default", label: "Default" },
+          { value: "lg", label: "Large" }
+        ]
+      },
+      {
+        name: "productName",
+        label: "Product Name",
+        controlType: "text",
+        defaultValue: "Product Name",
+        placeholder: "Enter product name..."
+      }
+    ]
+  },
+  {
     title: "Switch",
     description: "A toggle switch for binary choices. Provides a visual on/off toggle for settings and preferences.",
     category: "atoms",

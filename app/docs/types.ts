@@ -22,11 +22,13 @@ export interface InteractiveProp {
   /** Display label in the UI */
   label: string;
   /** Type of control to render */
-  controlType: 'select' | 'boolean';
+  controlType: 'select' | 'boolean' | 'text';
   /** Options for select control */
   options?: { value: string; label: string }[];
   /** Default value */
   defaultValue: string;
+  /** Placeholder text for text inputs */
+  placeholder?: string;
 }
 
 /**
@@ -36,7 +38,7 @@ export interface ComponentToken {
   /** Token name (e.g., "semantic-surface-interaction-strong") */
   name: string;
   /** Category of the token (e.g., "surface", "stroke", "text") */
-  category: 'surface' | 'stroke' | 'text' | 'icon' | 'radius' | 'shadow' | 'spacing' | 'animation';
+  category: 'surface' | 'stroke' | 'text' | 'icon' | 'radius' | 'shadow' | 'spacing' | 'animation' | 'brand';
   /** Description of how the token is used */
   usage: string;
   /** CSS variable name */

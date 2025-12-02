@@ -11,6 +11,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import { Input } from '@/components/ui/input';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -273,6 +274,16 @@ function InteractivePlayground({
           return `import { Alert, AlertTitle, AlertDescription } from '${importPath}';\n\n<Alert${variantProp}>\n  <AlertTitle>Heads up!</AlertTitle>\n  <AlertDescription>You can add components to your app.</AlertDescription>\n</Alert>`;
         }
         
+        case 'Logo': {
+          const size = values['size'] || 'default';
+          const productName = values['productName'] || '';
+          const logoPropsArr = [];
+          if (size !== 'default') logoPropsArr.push(`size="${size}"`);
+          if (productName) logoPropsArr.push(`productName="${productName}"`);
+          const logoPropsStr = logoPropsArr.length > 0 ? ` ${logoPropsArr.join(' ')}` : '';
+          return `import { Logo } from '${importPath}';\n\n<Logo${logoPropsStr} />`;
+        }
+        
         default:
           // Generic fallback
           return `import { ${componentName} } from '${importPath}';\n\n<${componentName}${propsString} />`;
@@ -341,6 +352,13 @@ function InteractivePlayground({
                     <SelectItem value="true">Yes</SelectItem>
                   </SelectContent>
                 </Select>
+              )}
+              {prop.controlType === 'text' && (
+                <Input
+                  value={values[prop.name]}
+                  onChange={(e) => setValues(prev => ({ ...prev, [prop.name]: e.target.value }))}
+                  placeholder={prop.placeholder || `Enter ${prop.label.toLowerCase()}...`}
+                />
               )}
             </div>
           ))}

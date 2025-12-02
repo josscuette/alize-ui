@@ -34,6 +34,7 @@ import { EmptyPreview } from './empty-preview';
 import { ItemPreview } from './item-preview';
 import { SwitchPreview, SwitchInteractivePreview } from './switch-preview';
 import { RadioGroupPreview } from './radio-group-preview';
+import { LogoPreview, LogoInteractivePreview } from './logo-preview';
 
 // Molecules
 import { SelectPreview } from './select-preview';
@@ -110,6 +111,7 @@ const INTERACTIVE_PREVIEW_REGISTRY: Record<string, InteractivePreviewFunction> =
   'Toggle': ToggleInteractivePreview,
   'Spinner': SpinnerInteractivePreview,
   'Avatar': AvatarInteractivePreview,
+  'Logo': LogoInteractivePreview,
   // Molecules
   'Progress': ProgressInteractivePreview,
   'Alert': AlertInteractivePreview,
@@ -151,6 +153,7 @@ const PREVIEW_REGISTRY: Record<string, PreviewFunction | DynamicPreviewComponent
   'Item': ItemPreview,
   'Switch': SwitchPreview,
   'RadioGroup': RadioGroupPreview,
+  'Logo': LogoPreview,
   
   // Molecules
   'Select': SelectPreview,
@@ -249,6 +252,8 @@ export {
   SwitchPreview,
   SwitchInteractivePreview,
   RadioGroupPreview,
+  LogoPreview,
+  LogoInteractivePreview,
   // Molecules
   SelectPreview,
   TextareaPreview,

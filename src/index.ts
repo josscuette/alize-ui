@@ -37,6 +37,8 @@ export {
 export { AspectRatio } from './components/ui/aspect-ratio'
 export { Empty } from './components/ui/empty'
 export { Item } from './components/ui/item'
+export { Logo, JLLLogo, logoVariants } from './components/ui/logo'
+export type { LogoProps } from './components/ui/logo'
 
 // Molecules
 export { Checkbox, CheckboxCard } from './components/ui/checkbox'
