@@ -110,7 +110,7 @@ export function MobileNavigation({
               <div className="flex items-center justify-between">
                 <Link 
                   href="/" 
-                  className="hover:opacity-80 transition-opacity"
+                  className="flex items-center hover:opacity-80 transition-opacity"
                   onClick={() => setIsOpen(false)}
                 >
                   <Logo productName="Alize" size="sm" />
