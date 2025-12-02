@@ -49,7 +49,7 @@ export function GlobalNavigation() {
       <div className="w-full flex h-16 items-center justify-between px-4 md:px-8">
         <div className="flex items-center gap-6">
           <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
-            <Logo productName="Alizé" />
+            <Logo productName="Solstice" />
           </Link>
           
           <nav className="hidden lg:flex items-center gap-1 flex-nowrap whitespace-nowrap">
