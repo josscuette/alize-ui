@@ -277,9 +277,11 @@ function InteractivePlayground({
         case 'Logo': {
           const size = values['size'] || 'default';
           const productName = values['productName'] || '';
+          const isCollapsed = values['collapsed'] === 'true';
           const logoPropsArr = [];
           if (size !== 'default') logoPropsArr.push(`size="${size}"`);
           if (productName) logoPropsArr.push(`productName="${productName}"`);
+          if (isCollapsed) logoPropsArr.push('collapsed');
           const logoPropsStr = logoPropsArr.length > 0 ? ` ${logoPropsArr.join(' ')}` : '';
           return `import { Logo } from '${importPath}';\n\n<Logo${logoPropsStr} />`;
         }

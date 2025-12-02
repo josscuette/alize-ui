@@ -2597,7 +2597,7 @@ import { MaterialSymbol } from 'alize-ui';
   },
   {
     title: "Logo",
-    description: "JLL brand logo component with optional product name. Supports light/dark themes using semantic brand tokens.",
+    description: "JLL brand logo component with optional product name. Supports light/dark themes using semantic brand tokens. Perfect for navigation headers with collapsible states.",
     category: "atoms",
     component: "Logo",
     importPath: "alize-ui",
@@ -2606,14 +2606,14 @@ import { MaterialSymbol } from 'alize-ui';
         name: "productName",
         type: "string",
         required: false,
-        description: "Optional product name to display next to the logo"
+        description: "Optional product name to display next to the logo. If not provided or empty, only the JLL logo is displayed."
       },
       {
-        name: "logoOnly",
+        name: "collapsed",
         type: "boolean",
         default: "false",
         required: false,
-        description: "Show only the logo without the product name"
+        description: "When true, hides the product name and shows only the logo. Useful for collapsed navigation states."
       },
       {
         name: "size",
@@ -2642,8 +2642,8 @@ import { MaterialSymbol } from 'alize-ui';
         description: "Just the JLL logo without product name",
         code: `import { Logo, JLLLogo } from 'alize-ui';
 
-{/* Using Logo component */}
-<Logo logoOnly />
+{/* Without productName - shows logo only */}
+<Logo />
 
 {/* Or using the SVG directly */}
 <JLLLogo className="h-6 w-auto" />`
@@ -2658,6 +2658,23 @@ import { MaterialSymbol } from 'alize-ui';
   <Logo size="default" productName="Default" />
   <Logo size="lg" productName="Large" />
 </div>`
+      },
+      {
+        title: "Collapsible Navigation",
+        description: "Toggle product name visibility for collapsed/expanded navigation states",
+        code: `import { Logo } from 'alize-ui';
+import { useState } from 'react';
+
+function Navigation() {
+  const [collapsed, setCollapsed] = useState(false);
+
+  return (
+    <nav>
+      <Logo productName="My Application" collapsed={collapsed} />
+      {/* Navigation items */}
+    </nav>
+  );
+}`
       },
       {
         title: "In Navigation",
@@ -2680,14 +2697,14 @@ import { MaterialSymbol } from 'alize-ui';
     dont: [
       "Don't modify the JLL logo colors",
       "Don't stretch or distort the logo proportions",
-      "Don't use logo-only in contexts requiring product identification",
+      "Don't use collapsed mode in contexts requiring product identification",
       "Don't override brand token colors",
       "Don't use custom fonts for the product name"
     ],
     accessibility: `- Logo SVG uses aria-hidden="true" as it's decorative
 - Product name provides text context
 - Ensure sufficient contrast in all themes
-- Consider adding alt text for screen readers if logo-only`,
+- Consider adding aria-label to the container when collapsed`,
     tokens: [
       { name: "brand-picto", category: "brand", cssVariable: "var(--semantic-brand-picto)", usage: "Red J icon color (always #de0614)" },
       { name: "brand-text", category: "brand", cssVariable: "var(--semantic-brand-text)", usage: "LL text and product name (black in light, white in dark)" }
@@ -2710,6 +2727,12 @@ import { MaterialSymbol } from 'alize-ui';
         controlType: "text",
         defaultValue: "Product Name",
         placeholder: "Enter product name..."
+      },
+      {
+        name: "collapsed",
+        label: "Collapsed",
+        controlType: "boolean",
+        defaultValue: "false"
       }
     ]
   },

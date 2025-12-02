@@ -1058,22 +1058,24 @@ function Logo(_a) {
     className,
     size: size2,
     productName,
-    logoOnly = false
+    collapsed = false
   } = _b, props = __objRest(_b, [
     "className",
     "size",
     "productName",
-    "logoOnly"
+    "collapsed"
   ]);
+  const showProductName = !collapsed && productName && productName.trim().length > 0;
   return /* @__PURE__ */ jsxRuntime.jsxs(
     "div",
     __spreadProps(__spreadValues({
       "data-slot": "logo",
+      "data-collapsed": collapsed ? "" : void 0,
       className: cn(logoVariants({ size: size2 }), className)
     }, props), {
       children: [
         /* @__PURE__ */ jsxRuntime.jsx(JLLLogo, { className: logoSvgVariants({ size: size2 }) }),
-        !logoOnly && productName && /* @__PURE__ */ jsxRuntime.jsx(
+        showProductName && /* @__PURE__ */ jsxRuntime.jsx(
           "span",
           {
             "data-slot": "logo-text",

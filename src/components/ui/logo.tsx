@@ -93,11 +93,14 @@ const logoSvgVariants = cva(
  * 
  * @example
  * ```tsx
- * // Logo only
+ * // Logo only (no product name)
  * <Logo />
  * 
  * // Logo with product name
  * <Logo productName="Product Name" />
+ * 
+ * // Collapsible navigation: toggle product name visibility
+ * <Logo productName="My App" collapsed={isNavCollapsed} />
  * 
  * // Different sizes
  * <Logo size="sm" productName="Small" />
@@ -108,14 +111,16 @@ export interface LogoProps
   extends Omit<React.ComponentProps<"div">, "children">,
     VariantProps<typeof logoVariants> {
   /**
-   * Optional product name to display next to the logo
+   * Optional product name to display next to the logo.
+   * If not provided or empty, only the JLL logo is displayed.
    */
   productName?: string
   /**
-   * Show only the logo without the product name
+   * When true, hides the product name and shows only the logo.
+   * Useful for collapsed navigation states.
    * @default false
    */
-  logoOnly?: boolean
+  collapsed?: boolean
 }
 
 /**
@@ -130,11 +135,14 @@ export interface LogoProps
  * 
  * @example
  * ```tsx
- * // Basic usage
+ * // Logo only (no product name provided)
+ * <Logo />
+ * 
+ * // Logo with product name
  * <Logo productName="My Product" />
  * 
- * // Logo only (no product name)
- * <Logo logoOnly />
+ * // Collapsible navigation
+ * <Logo productName="My App" collapsed={isNavCollapsed} />
  * 
  * // With custom className
  * <Logo productName="Product" className="my-4" />
@@ -144,17 +152,20 @@ function Logo({
   className,
   size,
   productName,
-  logoOnly = false,
+  collapsed = false,
   ...props
 }: LogoProps): React.ReactElement {
+  const showProductName = !collapsed && productName && productName.trim().length > 0
+
   return (
     <div
       data-slot="logo"
+      data-collapsed={collapsed ? "" : undefined}
       className={cn(logoVariants({ size }), className)}
       {...props}
     >
       <JLLLogo className={logoSvgVariants({ size })} />
-      {!logoOnly && productName && (
+      {showProductName && (
         <span
           data-slot="logo-text"
           className={logoTextVariants({ size })}

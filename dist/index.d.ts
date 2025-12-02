@@ -609,11 +609,14 @@ declare const logoVariants: (props?: ({
  *
  * @example
  * ```tsx
- * // Logo only
+ * // Logo only (no product name)
  * <Logo />
  *
  * // Logo with product name
  * <Logo productName="Product Name" />
+ *
+ * // Collapsible navigation: toggle product name visibility
+ * <Logo productName="My App" collapsed={isNavCollapsed} />
  *
  * // Different sizes
  * <Logo size="sm" productName="Small" />
@@ -622,14 +625,16 @@ declare const logoVariants: (props?: ({
  */
 interface LogoProps extends Omit<React.ComponentProps<"div">, "children">, VariantProps<typeof logoVariants> {
     /**
-     * Optional product name to display next to the logo
+     * Optional product name to display next to the logo.
+     * If not provided or empty, only the JLL logo is displayed.
      */
     productName?: string;
     /**
-     * Show only the logo without the product name
+     * When true, hides the product name and shows only the logo.
+     * Useful for collapsed navigation states.
      * @default false
      */
-    logoOnly?: boolean;
+    collapsed?: boolean;
 }
 /**
  * Logo component - JLL brand logo with optional product name
@@ -643,17 +648,20 @@ interface LogoProps extends Omit<React.ComponentProps<"div">, "children">, Varia
  *
  * @example
  * ```tsx
- * // Basic usage
+ * // Logo only (no product name provided)
+ * <Logo />
+ *
+ * // Logo with product name
  * <Logo productName="My Product" />
  *
- * // Logo only (no product name)
- * <Logo logoOnly />
+ * // Collapsible navigation
+ * <Logo productName="My App" collapsed={isNavCollapsed} />
  *
  * // With custom className
  * <Logo productName="Product" className="my-4" />
  * ```
  */
-declare function Logo({ className, size, productName, logoOnly, ...props }: LogoProps): React.ReactElement;
+declare function Logo({ className, size, productName, collapsed, ...props }: LogoProps): React.ReactElement;
 
 /**
  * Checkbox component props interface
