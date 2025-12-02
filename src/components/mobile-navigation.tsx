@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { MaterialSymbol } from "@/components/material-symbol";
+import { Logo } from "@/components/ui/logo";
 import { cn } from "@/lib/utils";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
@@ -109,10 +110,10 @@ export function MobileNavigation({
               <div className="flex items-center justify-between">
                 <Link 
                   href="/" 
-                  className="text-lg font-normal hover:text-semantic-text-interaction-default transition-colors"
+                  className="hover:opacity-80 transition-opacity"
                   onClick={() => setIsOpen(false)}
                 >
-                  Alize
+                  <Logo productName="Alize" size="sm" />
                 </Link>
               </div>
 

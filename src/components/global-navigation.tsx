@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { MaterialSymbol } from "@/components/material-symbol";
+import { Logo } from "@/components/ui/logo";
 import { GlobalHeader } from "@/components/global-header";
 import { MobileNavigation } from "@/components/mobile-navigation";
 import { useNavigation } from "@/contexts/navigation-context";
@@ -47,14 +48,8 @@ export function GlobalNavigation() {
     <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60">
       <div className="w-full flex h-16 items-center justify-between px-4 md:px-8">
         <div className="flex items-center gap-6">
-          <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-            <MaterialSymbol 
-              name="widgets" 
-              size={24} 
-              weight={300} 
-              className="text-[var(--semantic-icon-interaction-default)]" 
-            />
-            <h1 className="text-xl font-normal">Alize</h1>
+          <Link href="/" className="hover:opacity-80 transition-opacity">
+            <Logo productName="Alize" />
           </Link>
           
           <nav className="hidden lg:flex items-center gap-1 flex-nowrap whitespace-nowrap">
