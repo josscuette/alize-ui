@@ -8,6 +8,9 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
+  SelectGroup,
+  SelectLabel,
+  SelectSeparator,
 } from "./select"
 
 expect.extend(toHaveNoViolations)
@@ -171,6 +174,104 @@ describe("Select", () => {
       )
       const trigger = screen.getByRole("combobox")
       expect(trigger).toHaveClass("custom-class")
+    })
+  })
+
+  describe("SelectGroup", () => {
+    it("renders select group with items", () => {
+      render(
+        <Select open>
+          <SelectTrigger aria-label="Select option">
+            <SelectValue placeholder="Select" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectItem value="opt1">Option 1</SelectItem>
+              <SelectItem value="opt2">Option 2</SelectItem>
+            </SelectGroup>
+          </SelectContent>
+        </Select>
+      )
+      
+      expect(screen.getByText("Option 1")).toBeInTheDocument()
+      expect(screen.getByText("Option 2")).toBeInTheDocument()
+    })
+  })
+
+  describe("SelectLabel", () => {
+    it("renders select label within group", () => {
+      render(
+        <Select open>
+          <SelectTrigger aria-label="Select option">
+            <SelectValue placeholder="Select" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectLabel>Fruits</SelectLabel>
+              <SelectItem value="apple">Apple</SelectItem>
+              <SelectItem value="banana">Banana</SelectItem>
+            </SelectGroup>
+          </SelectContent>
+        </Select>
+      )
+      
+      expect(screen.getByText("Fruits")).toBeInTheDocument()
+    })
+
+    it("applies custom className to label", () => {
+      render(
+        <Select open>
+          <SelectTrigger aria-label="Select option">
+            <SelectValue placeholder="Select" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectLabel className="custom-label">Category</SelectLabel>
+              <SelectItem value="item1">Item 1</SelectItem>
+            </SelectGroup>
+          </SelectContent>
+        </Select>
+      )
+      
+      expect(screen.getByText("Category")).toHaveClass("custom-label")
+    })
+  })
+
+  describe("SelectSeparator", () => {
+    it("renders separator between groups", () => {
+      const { container } = render(
+        <Select open>
+          <SelectTrigger aria-label="Select option">
+            <SelectValue placeholder="Select" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectItem value="opt1">Option 1</SelectItem>
+            </SelectGroup>
+            <SelectSeparator data-testid="separator" />
+            <SelectGroup>
+              <SelectItem value="opt2">Option 2</SelectItem>
+            </SelectGroup>
+          </SelectContent>
+        </Select>
+      )
+      
+      expect(screen.getByTestId("separator")).toBeInTheDocument()
+    })
+
+    it("applies custom className to separator", () => {
+      render(
+        <Select open>
+          <SelectTrigger aria-label="Select option">
+            <SelectValue placeholder="Select" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectSeparator className="custom-separator" data-testid="separator" />
+          </SelectContent>
+        </Select>
+      )
+      
+      expect(screen.getByTestId("separator")).toHaveClass("custom-separator")
     })
   })
 })

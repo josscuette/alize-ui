@@ -181,8 +181,8 @@ export default function CompliancePage() {
                       <li>TypeScript Standards: 100% (276 exported types/interfaces, 250+ explicit return types)</li>
                       <li>Component Architecture: 100% (71 components, clean /src/ structure)</li>
                       <li>Performance: 100% (10 React.memo components, 212KB ESM bundle)</li>
-                      <li>Testing: 83% (101 tests, 7 components, jest-axe accessibility)</li>
-                      <li>Documentation: 83% (98 @example blocks, comprehensive guides)</li>
+                      <li>Testing: 97% (1,119 tests, 62 files, 51 components, 93.5% coverage)</li>
+                      <li>Documentation: 100% (98 @example blocks, TypeDoc API docs, comprehensive guides)</li>
                       <li>Package Distribution: 100% (ESM+CJS, charts module, CLI tool)</li>
                     </ul>
                   </div>

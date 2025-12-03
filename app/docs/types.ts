@@ -89,6 +89,8 @@ export interface Component {
   interactiveProps?: InteractiveProp[];
   /** Design tokens used by this component */
   tokens?: ComponentToken[];
+  /** Auto-generated API documentation from TypeDoc */
+  apiDocs?: string;
 }
 
 

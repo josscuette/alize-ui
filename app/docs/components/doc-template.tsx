@@ -1,6 +1,8 @@
 'use client';
 
 import { useState, useEffect, useMemo, type ReactNode } from 'react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { MaterialSymbol } from '@/components/material-symbol';
@@ -20,6 +22,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
+import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
 import { DocsSidebar } from '../docs-sidebar';
 import type { Component, ComponentExample, InteractiveProp, ComponentToken } from '../types';
@@ -418,6 +421,7 @@ const TABS = [
   'properties',
   'tokens',
   'usage',
+  'api',
 ] as const;
 
 export function DocTemplate({ 
@@ -431,9 +435,11 @@ export function DocTemplate({
   // Determine which tabs to show based on available content
   const hasPlayground = !!(componentDoc.interactiveProps?.length && renderInteractivePreview);
   const hasTokens = !!(componentDoc.tokens?.length);
+  const hasApiDocs = !!(componentDoc.apiDocs?.trim());
   const visibleTabs = TABS.filter(tab => {
     if (tab === 'playground') return hasPlayground;
     if (tab === 'tokens') return hasTokens;
+    if (tab === 'api') return hasApiDocs;
     return true;
   });
 
@@ -785,6 +791,94 @@ export function DocTemplate({
             )}
           </div>
         </section>
+
+        {/* API Section (if apiDocs are available) - At the end for advanced users */}
+        {hasApiDocs && (
+          <section id="api" className="mb-8 sm:mb-12 scroll-mt-[168px]">
+            <div className="flex items-center gap-2 mb-4 sm:mb-6">
+              <h2 className="text-xl sm:text-2xl font-bold">API Reference</h2>
+              <Badge variant="secondary" className="text-xs">
+                <MaterialSymbol name="auto_awesome" size={12} weight={300} className="mr-1" />
+                Auto-generated
+              </Badge>
+            </div>
+            <Card>
+              <CardHeader>
+                <CardDescription>
+                  TypeScript interfaces, types, and function signatures for the {componentDoc.component} component
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="api-docs-content">
+                  <ReactMarkdown 
+                    remarkPlugins={[remarkGfm]}
+                    components={{
+                      h2: ({ children }) => (
+                        <h2 className="text-lg font-semibold mt-8 mb-4 pb-2 border-b first:mt-0">{children}</h2>
+                      ),
+                      h3: ({ children }) => (
+                        <h3 className="text-base font-semibold mt-6 mb-3 text-[var(--semantic-text-interaction-default)]">{children}</h3>
+                      ),
+                      h4: ({ children }) => (
+                        <h4 className="text-sm font-medium mt-4 mb-2 text-muted-foreground">{children}</h4>
+                      ),
+                      p: ({ children }) => (
+                        <p className="text-sm leading-relaxed mb-3 text-muted-foreground">{children}</p>
+                      ),
+                      code: ({ className, children, ...props }) => {
+                        const isInline = !className;
+                        if (isInline) {
+                          return (
+                            <code className="text-xs bg-muted px-1.5 py-0.5 rounded font-mono" {...props}>
+                              {children}
+                            </code>
+                          );
+                        }
+                        return (
+                          <code className={cn("text-xs", className)} {...props}>
+                            {children}
+                          </code>
+                        );
+                      },
+                      pre: ({ children }) => (
+                        <pre className="bg-muted text-xs p-4 rounded-lg overflow-x-auto mb-4 border">
+                          {children}
+                        </pre>
+                      ),
+                      table: ({ children }) => (
+                        <div className="overflow-x-auto mb-6 border rounded-lg">
+                          <table className="w-full text-xs border-collapse">
+                            {children}
+                          </table>
+                        </div>
+                      ),
+                      thead: ({ children }) => (
+                        <thead className="bg-muted/50">{children}</thead>
+                      ),
+                      th: ({ children }) => (
+                        <th className="text-left p-3 font-semibold border-b whitespace-nowrap">{children}</th>
+                      ),
+                      td: ({ children }) => (
+                        <td className="p-3 border-b align-top">{children}</td>
+                      ),
+                      ul: ({ children }) => (
+                        <ul className="list-disc list-inside text-sm space-y-1 mb-4 text-muted-foreground">{children}</ul>
+                      ),
+                      li: ({ children }) => (
+                        <li className="text-sm">{children}</li>
+                      ),
+                      a: ({ href, children }) => (
+                        <a href={href} className="text-[var(--semantic-text-interaction-default)] hover:underline">{children}</a>
+                      ),
+                    }}
+                  >
+                    {componentDoc.apiDocs || ''}
+                  </ReactMarkdown>
+                </div>
+              </CardContent>
+            </Card>
+          </section>
+        )}
         </div>{/* End content wrapper */}
       </div>
     </div>

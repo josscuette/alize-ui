@@ -1,0 +1,32 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": ["src/components/ui/*.tsx"],
+  "entryPointStrategy": "expand",
+  "out": "docs/api",
+  "plugin": ["typedoc-plugin-markdown"],
+  "outputFileStrategy": "modules",
+  "exclude": [
+    "**/*.test.tsx",
+    "**/*.test.ts",
+    "**/*.spec.tsx",
+    "**/*.spec.ts",
+    "**/test-utils.tsx",
+    "**/__tests__/**"
+  ],
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "excludeInternal": true,
+  "excludeExternals": true,
+  "skipErrorChecking": true,
+  "readme": "none",
+  "name": "Alize UI API",
+  "hidePageHeader": true,
+  "hideBreadcrumbs": true,
+  "useCodeBlocks": true,
+  "expandObjects": true,
+  "parametersFormat": "table",
+  "propertiesFormat": "table",
+  "enumMembersFormat": "table",
+  "typeDeclarationFormat": "table"
+}
+

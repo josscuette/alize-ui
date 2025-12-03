@@ -1,6 +1,6 @@
 import { vi } from "vitest"
 import { render, screen, fireEvent } from "@/lib/test-utils"
-import { RadioGroup, RadioGroupItem } from "./radio-group"
+import { RadioGroup, RadioGroupItem, RadioGroupCardItem } from "./radio-group"
 import { axe, toHaveNoViolations } from "jest-axe"
 
 expect.extend(toHaveNoViolations)
@@ -257,6 +257,108 @@ describe("RadioGroup", () => {
       const results = await axe(container)
       expect(results).toHaveNoViolations()
     })
+  })
+})
+
+describe("RadioGroupCardItem", () => {
+  it("renders card item with label", () => {
+    render(
+      <RadioGroup aria-label="Choose plan">
+        <RadioGroupCardItem value="basic" label="Basic Plan" />
+      </RadioGroup>
+    )
+    expect(screen.getByText("Basic Plan")).toBeInTheDocument()
+    expect(screen.getByRole("radio")).toBeInTheDocument()
+  })
+
+  it("renders card item with description", () => {
+    render(
+      <RadioGroup aria-label="Choose plan">
+        <RadioGroupCardItem 
+          value="basic" 
+          label="Basic Plan" 
+          description="Perfect for small teams"
+        />
+      </RadioGroup>
+    )
+    expect(screen.getByText("Basic Plan")).toBeInTheDocument()
+    expect(screen.getByText("Perfect for small teams")).toBeInTheDocument()
+  })
+
+  it("selects card item when clicked", () => {
+    render(
+      <RadioGroup aria-label="Choose plan">
+        <RadioGroupCardItem value="basic" label="Basic Plan" />
+        <RadioGroupCardItem value="pro" label="Pro Plan" />
+      </RadioGroup>
+    )
+    const radios = screen.getAllByRole("radio")
+    
+    expect(radios[0]).not.toBeChecked()
+    fireEvent.click(screen.getByText("Basic Plan"))
+    expect(radios[0]).toBeChecked()
+  })
+
+  it("applies custom className", () => {
+    render(
+      <RadioGroup aria-label="Choose plan">
+        <RadioGroupCardItem 
+          value="basic" 
+          label="Basic Plan" 
+          className="custom-card"
+        />
+      </RadioGroup>
+    )
+    // The card is wrapped in a label element
+    const label = screen.getByText("Basic Plan").closest("label")
+    expect(label).toHaveClass("custom-card")
+  })
+
+  it("uses provided id", () => {
+    render(
+      <RadioGroup aria-label="Choose plan">
+        <RadioGroupCardItem 
+          value="basic" 
+          label="Basic Plan" 
+          id="my-radio-card"
+        />
+      </RadioGroup>
+    )
+    const radio = screen.getByRole("radio")
+    expect(radio).toHaveAttribute("id", "my-radio-card")
+  })
+
+  it("generates unique id when not provided", () => {
+    render(
+      <RadioGroup aria-label="Choose plan">
+        <RadioGroupCardItem value="basic" label="Basic Plan" />
+        <RadioGroupCardItem value="pro" label="Pro Plan" />
+      </RadioGroup>
+    )
+    const radios = screen.getAllByRole("radio")
+    expect(radios[0]).toHaveAttribute("id")
+    expect(radios[1]).toHaveAttribute("id")
+    expect(radios[0].id).not.toBe(radios[1].id)
+  })
+
+  it("applies disabled state", () => {
+    render(
+      <RadioGroup aria-label="Choose plan">
+        <RadioGroupCardItem value="basic" label="Basic Plan" disabled />
+      </RadioGroup>
+    )
+    expect(screen.getByRole("radio")).toBeDisabled()
+  })
+
+  it("has no accessibility violations", async () => {
+    const { container } = render(
+      <RadioGroup aria-label="Choose plan">
+        <RadioGroupCardItem value="basic" label="Basic Plan" description="For small teams" />
+        <RadioGroupCardItem value="pro" label="Pro Plan" description="For large teams" />
+      </RadioGroup>
+    )
+    const results = await axe(container)
+    expect(results).toHaveNoViolations()
   })
 })
 

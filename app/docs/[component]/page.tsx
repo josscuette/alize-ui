@@ -1,7 +1,7 @@
 'use client';
 
 import { use } from 'react';
-import { components } from '../data/components';
+import { componentsWithApiDocs as components } from '../data/with-api-docs';
 import { DocTemplate } from '../components/doc-template';
 import { getPreviewRenderer, getInteractivePreviewRenderer } from '../components/previews';
 import { DocsSidebar } from '../docs-sidebar';
