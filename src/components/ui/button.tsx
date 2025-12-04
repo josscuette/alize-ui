@@ -40,6 +40,8 @@ const buttonVariants = cva(
     states.focusRing,
     states.invalidRing,
     states.invalidBorder,
+    // Pressed state
+    states.pressed,
     // Animation
     animation.transitionAll
   ),

@@ -217,6 +217,38 @@ export const components: Component[] = [
         controlType: "boolean",
         defaultValue: "false",
       }
+    ],
+    interactionStates: [
+      {
+        state: "hover",
+        description: "Subtle opacity reduction on hover for default variant",
+        cssClass: "hover:opacity-90",
+        foundationToken: "states.hoverOpacity90"
+      },
+      {
+        state: "hover",
+        description: "Overlay background on hover for ghost/outline variants",
+        cssClass: "hover:bg-semantic-surface-overlays-level1",
+        foundationToken: "states.hoverOverlay1"
+      },
+      {
+        state: "focus",
+        description: "Ring around the button on focus for keyboard navigation",
+        cssClass: "focus-visible:ring-semantic-surface-interaction-strong/50 focus-visible:ring-[3px]",
+        foundationToken: "states.focusRing"
+      },
+      {
+        state: "pressed",
+        description: "Subtle scale reduction when button is pressed",
+        cssClass: "active:scale-[0.98]",
+        foundationToken: "states.pressed"
+      },
+      {
+        state: "disabled",
+        description: "Reduced opacity and no pointer events when disabled",
+        cssClass: "disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed",
+        foundationToken: "states.disabled"
+      }
     ]
   },
   {
@@ -2120,6 +2152,38 @@ import { MaterialSymbol } from 'alize-ui';
         controlType: "boolean",
         defaultValue: "false"
       }
+    ],
+    interactionStates: [
+      {
+        state: "hover",
+        description: "Overlay background on hover",
+        cssClass: "hover:bg-semantic-surface-overlays-level1",
+        foundationToken: "states.hoverOverlay1"
+      },
+      {
+        state: "focus",
+        description: "Focus ring for keyboard navigation",
+        cssClass: "focus-visible:ring-semantic-surface-interaction-strong/50 focus-visible:ring-[3px]",
+        foundationToken: "states.focusRing"
+      },
+      {
+        state: "pressed",
+        description: "Subtle scale reduction when pressed",
+        cssClass: "active:scale-[0.98]",
+        foundationToken: "states.pressed"
+      },
+      {
+        state: "checked",
+        description: "Visual state when toggle is on/pressed",
+        cssClass: "data-[state=on]:bg-semantic-surface-overlays-level2 data-[state=on]:text-foreground",
+        foundationToken: "states.dataStateOn"
+      },
+      {
+        state: "disabled",
+        description: "Reduced opacity and no pointer events when disabled",
+        cssClass: "disabled:pointer-events-none disabled:opacity-50",
+        foundationToken: "states.disabled"
+      }
     ]
   },
   {
@@ -3392,6 +3456,32 @@ import { Button } from 'alize-ui';
     tokens: [
       { name: "surface-secondary", category: "surface", cssVariable: "var(--semantic-surface-secondary)", usage: "Tab list background" },
       { name: "surface-default", category: "surface", cssVariable: "var(--semantic-surface-default)", usage: "Active tab background" }
+    ],
+    interactionStates: [
+      {
+        state: "selected",
+        description: "Background and shadow when tab is active",
+        cssClass: "data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm",
+        foundationToken: "states.tabActive"
+      },
+      {
+        state: "focus",
+        description: "Focus ring for keyboard navigation",
+        cssClass: "focus-visible:ring-semantic-surface-interaction-strong/50 focus-visible:ring-[3px]",
+        foundationToken: "states.focusRing"
+      },
+      {
+        state: "pressed",
+        description: "Subtle scale reduction when tab is pressed",
+        cssClass: "active:scale-[0.98]",
+        foundationToken: "states.pressed"
+      },
+      {
+        state: "disabled",
+        description: "Reduced opacity and no pointer events when disabled",
+        cssClass: "disabled:pointer-events-none disabled:opacity-50",
+        foundationToken: "states.disabled"
+      }
     ]
   },
   {
@@ -3441,6 +3531,32 @@ import { Button } from 'alize-ui';
     tokens: [
       { name: "stroke-subdued", category: "stroke", cssVariable: "var(--semantic-stroke-subdued)", usage: "Item borders" },
       { name: "text-default", category: "text", cssVariable: "var(--semantic-text-default)", usage: "Trigger text" }
+    ],
+    interactionStates: [
+      {
+        state: "hover",
+        description: "Underline on hover for the accordion trigger",
+        cssClass: "hover:underline",
+        foundationToken: "states.hoverUnderline"
+      },
+      {
+        state: "focus",
+        description: "Focus ring for keyboard navigation",
+        cssClass: "focus-visible:ring-semantic-surface-interaction-strong/50 focus-visible:ring-[3px]",
+        foundationToken: "states.focusRing"
+      },
+      {
+        state: "pressed",
+        description: "Subtle scale reduction when trigger is pressed",
+        cssClass: "active:scale-[0.98]",
+        foundationToken: "states.pressed"
+      },
+      {
+        state: "disabled",
+        description: "Reduced opacity and no pointer events when disabled",
+        cssClass: "disabled:pointer-events-none disabled:opacity-50",
+        foundationToken: "states.disabled"
+      }
     ]
   },
   {
@@ -3536,6 +3652,32 @@ import { Button } from 'alize-ui';
     tokens: [
       { name: "surface-default", category: "surface", cssVariable: "var(--semantic-surface-default)", usage: "Menu background" },
       { name: "surface-interaction-whisper", category: "surface", cssVariable: "var(--semantic-surface-interaction-whisper)", usage: "Item hover" }
+    ],
+    interactionStates: [
+      {
+        state: "focus",
+        description: "Overlay background when item is focused via keyboard",
+        cssClass: "focus:bg-semantic-surface-overlays-level1 focus:text-foreground",
+        foundationToken: "states.focusAccent"
+      },
+      {
+        state: "pressed",
+        description: "Subtle scale reduction when item is pressed",
+        cssClass: "active:scale-[0.98]",
+        foundationToken: "states.pressed"
+      },
+      {
+        state: "open",
+        description: "Background change when submenu is open",
+        cssClass: "data-[state=open]:bg-semantic-surface-overlays-level1",
+        foundationToken: "states.dataStateOpen"
+      },
+      {
+        state: "disabled",
+        description: "Reduced opacity and no pointer events when disabled",
+        cssClass: "data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+        foundationToken: "states.disabled"
+      }
     ]
   },
   {

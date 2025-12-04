@@ -4,6 +4,7 @@ import * as React from "react"
 import * as SliderPrimitive from "@radix-ui/react-slider"
 
 import { cn } from "../../lib/utils"
+import { states, animation } from "../../foundation"
 
 /**
  * Slider component props interface
@@ -74,7 +75,23 @@ function Slider({
         <SliderPrimitive.Thumb
           data-slot="slider-thumb"
           key={index}
-          className="border-semantic-surface-interaction-strong ring-ring/50 block size-4 shrink-0 rounded-full border bg-white shadow-sm transition-[color,box-shadow] hover:ring-4 focus-visible:ring-4 focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed"
+          className={cn(
+            // Layout
+            "block size-4 shrink-0 rounded-full border bg-white shadow-sm",
+            // Border
+            "border-semantic-surface-interaction-strong",
+            // Hover state
+            "ring-ring/50 hover:ring-4",
+            // Focus state
+            "focus-visible:ring-4 focus-visible:outline-hidden",
+            // Pressed state
+            states.pressed,
+            // Disabled state
+            states.disabled,
+            states.disabledCursor,
+            // Transition
+            animation.transitionFormControl
+          )}
         />
       ))}
     </SliderPrimitive.Root>

@@ -5,6 +5,54 @@ import { Toggle } from '@/components/ui/toggle';
 import { MaterialSymbol } from '@/components/material-symbol';
 
 /**
+ * States preview renderer for Toggle component
+ * Shows Toggle in different interaction states
+ */
+export function ToggleStatesPreview(activeState: 'hover' | 'focus' | 'pressed' | 'disabled'): ReactNode {
+  const isDisabled = activeState === 'disabled';
+  const isFocus = activeState === 'focus';
+  
+  // Force focus ring styles when focus state is selected
+  const focusRingClass = isFocus ? "ring-[3px] ring-[var(--semantic-surface-interaction-strong)]/50" : "";
+  
+  return (
+    <div className="flex flex-wrap items-center justify-center gap-6">
+      {/* Default variant - unpressed */}
+      <div className="text-center">
+        <p className="text-[10px] text-muted-foreground mb-2">Default (off)</p>
+        <Toggle aria-label="Toggle bold" disabled={isDisabled} className={focusRingClass}>
+          <MaterialSymbol name="format_bold" size={16} weight={300} />
+        </Toggle>
+      </div>
+      
+      {/* Default variant - pressed */}
+      <div className="text-center">
+        <p className="text-[10px] text-muted-foreground mb-2">Default (on)</p>
+        <Toggle aria-label="Toggle bold" pressed disabled={isDisabled} className={focusRingClass}>
+          <MaterialSymbol name="format_bold" size={16} weight={300} />
+        </Toggle>
+      </div>
+      
+      {/* Outline variant - unpressed */}
+      <div className="text-center">
+        <p className="text-[10px] text-muted-foreground mb-2">Outline (off)</p>
+        <Toggle variant="outline" aria-label="Toggle italic" disabled={isDisabled} className={focusRingClass}>
+          <MaterialSymbol name="format_italic" size={16} weight={300} />
+        </Toggle>
+      </div>
+      
+      {/* Outline variant - pressed */}
+      <div className="text-center">
+        <p className="text-[10px] text-muted-foreground mb-2">Outline (on)</p>
+        <Toggle variant="outline" aria-label="Toggle italic" pressed disabled={isDisabled} className={focusRingClass}>
+          <MaterialSymbol name="format_italic" size={16} weight={300} />
+        </Toggle>
+      </div>
+    </div>
+  );
+}
+
+/**
  * Interactive preview renderer for Toggle playground
  */
 export function ToggleInteractivePreview(props: Record<string, string>): ReactNode {

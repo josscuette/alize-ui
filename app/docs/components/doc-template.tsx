@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useMemo, type ReactNode } from 'react';
+import { useState, useEffect, useMemo, useRef, type ReactNode } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Button } from '@/components/ui/button';
@@ -25,7 +25,7 @@ import {
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
 import { DocsSidebar } from '../docs-sidebar';
-import type { Component, ComponentExample, InteractiveProp, ComponentToken } from '../types';
+import type { Component, ComponentExample, InteractiveProp, ComponentToken, InteractionState } from '../types';
 
 // ============================================================================
 // Types
@@ -45,6 +45,8 @@ export interface DocTemplateProps {
   renderPreview?: (props: PreviewRendererProps) => ReactNode;
   /** Function to render interactive playground preview */
   renderInteractivePreview?: (props: Record<string, string>) => ReactNode;
+  /** Function to render states playground preview for the specific component */
+  renderStatesPreview?: (activeState: 'hover' | 'focus' | 'pressed' | 'disabled') => ReactNode;
 }
 
 // ============================================================================
@@ -111,6 +113,166 @@ function ExampleCard({ example, renderPreview }: ExampleCardProps): ReactNode {
           <div className="p-3 sm:p-4 border rounded-lg bg-muted/50 overflow-x-auto">
             <pre className="text-xs sm:text-sm overflow-x-auto">
               <code>{example.code}</code>
+            </pre>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
+// ============================================================================
+// States Playground
+// ============================================================================
+
+interface StatesPlaygroundProps {
+  interactionStates: InteractionState[];
+  componentName: string;
+  renderStatesPreview?: (activeState: 'hover' | 'focus' | 'pressed' | 'disabled') => ReactNode;
+}
+
+function StatesPlayground({ interactionStates, componentName, renderStatesPreview }: StatesPlaygroundProps): ReactNode {
+  const [copied, setCopied] = useState(false);
+  const [activeDemo, setActiveDemo] = useState<'hover' | 'focus' | 'pressed' | 'disabled'>('hover');
+
+  // Generate code example for states
+  const generatedCode = useMemo(() => {
+    const relevantStates = interactionStates.filter(s => 
+      ['hover', 'focus', 'pressed', 'disabled'].includes(s.state)
+    );
+    
+    if (relevantStates.length === 0) {
+      return `// No interaction states defined for ${componentName}`;
+    }
+
+    const foundationImports = relevantStates
+      .filter(s => s.foundationToken)
+      .map(s => s.foundationToken?.split('.').pop())
+      .filter(Boolean);
+    
+    const uniqueTokens = [...new Set(foundationImports)];
+
+    return `import { states } from '@/foundation';
+import { cn } from '@/lib/utils';
+
+// Apply states using foundation layer
+className={cn(
+  // ... component styles
+  ${uniqueTokens.map(t => `states.${t}`).join(',\n  ')}
+)}`;
+  }, [interactionStates, componentName]);
+
+  const handleCopy = (): void => {
+    navigator.clipboard.writeText(generatedCode);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  // If no render function provided, don't show the playground
+  if (!renderStatesPreview) {
+    return null;
+  }
+
+  return (
+    <Card className="mt-6">
+      <CardHeader>
+        <CardTitle className="flex items-center gap-2">
+          <MaterialSymbol name="touch_app" size={20} weight={300} />
+          States Playground
+        </CardTitle>
+        <CardDescription>
+          Interact with the {componentName} below to see how states work. Hover, focus (tab), and click to see the visual feedback.
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-6">
+        {/* Interactive Demo */}
+        <div>
+          <div className="mb-3 flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
+            <MaterialSymbol name="visibility" size={16} weight={300} />
+            <span>Interactive Preview</span>
+          </div>
+          
+          {/* Demo Selector */}
+          <div className="flex flex-wrap gap-2 mb-4">
+            {(['hover', 'focus', 'pressed', 'disabled'] as const).map((state) => (
+              <Button
+                key={state}
+                variant={activeDemo === state ? 'default' : 'outline'}
+                size="sm"
+                onClick={() => setActiveDemo(state)}
+                className="capitalize"
+              >
+                {state}
+              </Button>
+            ))}
+          </div>
+
+          {/* Demo Area */}
+          <div className="p-6 sm:p-8 border rounded-lg bg-[var(--semantic-surface-overlays-level1)]/40">
+            <div className="flex flex-col items-center gap-4">
+              <p className="text-xs text-muted-foreground text-center">
+                {activeDemo === 'hover' && 'Hover over the component to see the hover state'}
+                {activeDemo === 'focus' && 'Click or press Tab to see the focus ring'}
+                {activeDemo === 'pressed' && 'Click and hold to see the pressed effect'}
+                {activeDemo === 'disabled' && 'Disabled state - cannot be interacted with'}
+              </p>
+              <div className="flex items-center justify-center min-h-[80px]">
+                {renderStatesPreview(activeDemo)}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Visual State Reference */}
+        <div>
+          <div className="mb-3 flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
+            <MaterialSymbol name="palette" size={16} weight={300} />
+            <span>State Visual Reference</span>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div className="p-4 rounded-lg border text-center">
+              <div className="w-full h-12 rounded bg-[var(--semantic-surface-overlays-level1)] mb-2" />
+              <p className="text-xs font-medium">Hover</p>
+              <p className="text-[10px] text-muted-foreground">Overlay background</p>
+            </div>
+            <div className="p-4 rounded-lg border text-center">
+              <div className="w-full h-12 rounded bg-muted ring-[3px] ring-[var(--semantic-surface-interaction-strong)]/50 mb-2" />
+              <p className="text-xs font-medium">Focus</p>
+              <p className="text-[10px] text-muted-foreground">Ring indicator</p>
+            </div>
+            <div className="p-4 rounded-lg border text-center">
+              <div className="w-full h-12 rounded bg-muted scale-[0.98] mb-2" />
+              <p className="text-xs font-medium">Pressed</p>
+              <p className="text-[10px] text-muted-foreground">Scale reduction</p>
+            </div>
+            <div className="p-4 rounded-lg border text-center">
+              <div className="w-full h-12 rounded bg-muted opacity-50 mb-2" />
+              <p className="text-xs font-medium">Disabled</p>
+              <p className="text-[10px] text-muted-foreground">50% opacity</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Code Preview */}
+        <div>
+          <div className="mb-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+            <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
+              <MaterialSymbol name="code" size={16} weight={300} />
+              <span>Usage Example</span>
+            </div>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={handleCopy}
+              className="h-7 sm:h-8 gap-1.5 text-xs self-start sm:self-auto"
+            >
+              <MaterialSymbol name={copied ? "check" : "content_copy"} size={14} weight={300} />
+              {copied ? 'Copied!' : 'Copy'}
+            </Button>
+          </div>
+          <div className="p-3 sm:p-4 border rounded-lg bg-muted/50 overflow-x-auto">
+            <pre className="text-xs sm:text-sm overflow-x-auto">
+              <code>{generatedCode}</code>
             </pre>
           </div>
         </div>
@@ -419,6 +581,7 @@ const TABS = [
   'playground',
   'examples', 
   'properties',
+  'states',
   'tokens',
   'usage',
   'api',
@@ -428,17 +591,21 @@ export function DocTemplate({
   componentDoc, 
   renderPreview,
   renderInteractivePreview,
+  renderStatesPreview,
 }: DocTemplateProps): ReactNode {
   const [activeTab, setActiveTab] = useState<string>('overview');
   const [isScrolled, setIsScrolled] = useState(false);
+  const isScrollingProgrammatically = useRef(false);
   
   // Determine which tabs to show based on available content
   const hasPlayground = !!(componentDoc.interactiveProps?.length && renderInteractivePreview);
   const hasTokens = !!(componentDoc.tokens?.length);
+  const hasInteractionStates = !!(componentDoc.interactionStates?.length);
   const hasApiDocs = !!(componentDoc.apiDocs?.trim());
   const visibleTabs = TABS.filter(tab => {
     if (tab === 'playground') return hasPlayground;
     if (tab === 'tokens') return hasTokens;
+    if (tab === 'states') return hasInteractionStates;
     if (tab === 'api') return hasApiDocs;
     return true;
   });
@@ -447,6 +614,9 @@ export function DocTemplate({
     const handleScroll = (): void => {
       const scrollY = window.scrollY;
       setIsScrolled(scrollY > 64);
+      
+      // Don't update active tab during programmatic scroll
+      if (isScrollingProgrammatically.current) return;
       
       const scrollPosition = scrollY + 150;
 
@@ -469,6 +639,9 @@ export function DocTemplate({
     setActiveTab(tabId);
     const element = document.getElementById(tabId);
     if (element) {
+      // Disable scroll-based tab updates during programmatic scroll
+      isScrollingProgrammatically.current = true;
+      
       // Header (64px) + Tabs bar (~72px) + desired spacing (32px) = 168px
       const offset = 168;
       const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
@@ -478,6 +651,11 @@ export function DocTemplate({
         top: offsetPosition,
         behavior: 'smooth'
       });
+      
+      // Re-enable scroll-based tab updates after animation completes
+      setTimeout(() => {
+        isScrollingProgrammatically.current = false;
+      }, 500);
     }
   };
 
@@ -629,6 +807,81 @@ export function DocTemplate({
             <p className="text-muted-foreground">No properties available.</p>
           )}
         </section>
+
+        {/* Interaction States Section (if interactionStates are defined) */}
+        {hasInteractionStates && (
+          <section id="states" className="mb-8 sm:mb-12 scroll-mt-[168px]">
+            <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Interaction States</h2>
+            
+            {/* States Playground */}
+            <StatesPlayground 
+              interactionStates={componentDoc.interactionStates || []}
+              componentName={componentDoc.component}
+              renderStatesPreview={renderStatesPreview}
+            />
+            
+            <Card className="mt-6">
+              <CardHeader>
+                <CardDescription>
+                  Visual states for hover, focus, press, and other interactions on the {componentDoc.component} component
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="overflow-x-auto -mx-4 sm:mx-0">
+                  <div className="inline-block min-w-full align-middle px-4 sm:px-0">
+                    <table className="min-w-full border-collapse">
+                      <thead>
+                        <tr className="border-b">
+                          <th className="text-left p-2 text-xs sm:text-sm font-semibold">State</th>
+                          <th className="text-left p-2 text-xs sm:text-sm font-semibold">Description</th>
+                          <th className="text-left p-2 text-xs sm:text-sm font-semibold">CSS Class</th>
+                          <th className="text-left p-2 text-xs sm:text-sm font-semibold">Foundation Token</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {componentDoc.interactionStates?.map((state, index) => (
+                          <tr key={`${state.state}-${index}`} className="border-b">
+                            <td className="p-2">
+                              <span className={cn(
+                                "inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium capitalize",
+                                state.state === 'hover' && "bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300",
+                                state.state === 'focus' && "bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300",
+                                state.state === 'pressed' && "bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300",
+                                state.state === 'disabled' && "bg-gray-100 text-gray-800 dark:bg-gray-900/30 dark:text-gray-300",
+                                state.state === 'checked' && "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300",
+                                state.state === 'open' && "bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300",
+                                state.state === 'selected' && "bg-teal-100 text-teal-800 dark:bg-teal-900/30 dark:text-teal-300",
+                              )}>
+                                {state.state}
+                              </span>
+                            </td>
+                            <td className="p-2 text-xs sm:text-sm text-muted-foreground break-words">
+                              {state.description}
+                            </td>
+                            <td className="p-2">
+                              <code className="text-xs sm:text-sm bg-muted px-1 rounded break-all">
+                                {state.cssClass}
+                              </code>
+                            </td>
+                            <td className="p-2">
+                              {state.foundationToken ? (
+                                <code className="text-xs sm:text-sm text-muted-foreground break-all">
+                                  {state.foundationToken}
+                                </code>
+                              ) : (
+                                <span className="text-muted-foreground">-</span>
+                              )}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </section>
+        )}
 
         {/* Tokens Section (if tokens are defined) */}
         {hasTokens && (

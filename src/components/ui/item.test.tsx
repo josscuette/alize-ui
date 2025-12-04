@@ -38,15 +38,15 @@ describe("Item", () => {
       render(<Item data-testid="item">Item</Item>)
 
       // Default state should not have selected styling
-      expect(screen.getByTestId("item")).not.toHaveClass("bg-accent")
+      expect(screen.getByTestId("item")).not.toHaveClass("bg-semantic-surface-overlays-level1")
     })
 
     it("applies selected styling when selected", () => {
       render(<Item selected data-testid="item">Selected Item</Item>)
 
       expect(screen.getByTestId("item")).toHaveClass(
-        "bg-accent",
-        "text-accent-foreground"
+        "bg-semantic-surface-overlays-level1",
+        "text-foreground"
       )
     })
 
@@ -54,7 +54,7 @@ describe("Item", () => {
       render(<Item selected={false} data-testid="item">Item</Item>)
 
       // Explicitly not selected
-      expect(screen.getByTestId("item")).not.toHaveClass("bg-accent")
+      expect(screen.getByTestId("item")).not.toHaveClass("bg-semantic-surface-overlays-level1")
     })
   })
 
@@ -106,8 +106,8 @@ describe("Item", () => {
       render(<Item data-testid="item">Item</Item>)
 
       expect(screen.getByTestId("item")).toHaveClass(
-        "hover:bg-accent",
-        "hover:text-accent-foreground"
+        "hover:bg-semantic-surface-overlays-level1",
+        "hover:text-foreground"
       )
     })
 
@@ -142,9 +142,9 @@ describe("Item", () => {
         </div>
       )
 
-      expect(screen.getByTestId("item-1")).not.toHaveClass("bg-accent")
-      expect(screen.getByTestId("item-2")).toHaveClass("bg-accent")
-      expect(screen.getByTestId("item-3")).not.toHaveClass("bg-accent")
+      expect(screen.getByTestId("item-1")).not.toHaveClass("bg-semantic-surface-overlays-level1")
+      expect(screen.getByTestId("item-2")).toHaveClass("bg-semantic-surface-overlays-level1")
+      expect(screen.getByTestId("item-3")).not.toHaveClass("bg-semantic-surface-overlays-level1")
     })
   })
 })

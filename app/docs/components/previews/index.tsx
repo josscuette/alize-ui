@@ -15,7 +15,7 @@ import dynamic from 'next/dynamic';
 import type { PreviewRendererProps } from '../doc-template';
 
 // Import all preview components
-import { ButtonPreview, ButtonInteractivePreview } from './button-preview';
+import { ButtonPreview, ButtonInteractivePreview, ButtonStatesPreview } from './button-preview';
 import { CheckboxPreview, CheckboxInteractivePreview } from './checkbox-preview';
 import { InputPreview, InputInteractivePreview } from './input-preview';
 import { BadgePreview, BadgeInteractivePreview } from './badge-preview';
@@ -25,7 +25,7 @@ import { SkeletonPreview } from './skeleton-preview';
 import { SpinnerPreview, SpinnerInteractivePreview } from './spinner-preview';
 import { SeparatorPreview } from './separator-preview';
 import { KbdPreview } from './kbd-preview';
-import { TogglePreview, ToggleInteractivePreview } from './toggle-preview';
+import { TogglePreview, ToggleInteractivePreview, ToggleStatesPreview } from './toggle-preview';
 import { ToggleGroupPreview } from './toggle-group-preview';
 import { TooltipPreview } from './tooltip-preview';
 import { TypographyPreview } from './typography-preview';
@@ -98,6 +98,9 @@ type DynamicPreviewComponent = any;
 // Type for interactive preview functions
 type InteractivePreviewFunction = (props: Record<string, string>) => ReactNode;
 
+// Type for states preview functions
+type StatesPreviewFunction = (activeState: 'hover' | 'focus' | 'pressed' | 'disabled') => ReactNode;
+
 /**
  * Registry mapping component IDs to their interactive preview functions
  */
@@ -124,6 +127,24 @@ export function getInteractivePreviewRenderer(
   componentId: string
 ): InteractivePreviewFunction | undefined {
   return INTERACTIVE_PREVIEW_REGISTRY[componentId];
+}
+
+/**
+ * Registry mapping component IDs to their states preview functions
+ */
+const STATES_PREVIEW_REGISTRY: Record<string, StatesPreviewFunction> = {
+  // Components with interactionStates defined
+  'Button': ButtonStatesPreview,
+  'Toggle': ToggleStatesPreview,
+};
+
+/**
+ * Get the states preview renderer function for a component
+ */
+export function getStatesPreviewRenderer(
+  componentId: string
+): StatesPreviewFunction | undefined {
+  return STATES_PREVIEW_REGISTRY[componentId];
 }
 
 /**
@@ -227,6 +248,7 @@ export {
   // Atoms
   ButtonPreview,
   ButtonInteractivePreview,
+  ButtonStatesPreview,
   CheckboxPreview,
   CheckboxInteractivePreview,
   InputPreview,
@@ -243,6 +265,7 @@ export {
   KbdPreview,
   TogglePreview,
   ToggleInteractivePreview,
+  ToggleStatesPreview,
   ToggleGroupPreview,
   TooltipPreview,
   TypographyPreview,

@@ -45,6 +45,20 @@ export interface ComponentToken {
   cssVariable: string;
 }
 
+/**
+ * Definition for interaction states used by a component
+ */
+export interface InteractionState {
+  /** Type of interaction state */
+  state: 'hover' | 'focus' | 'pressed' | 'disabled' | 'checked' | 'open' | 'selected';
+  /** Description of the state behavior */
+  description: string;
+  /** Tailwind CSS class(es) used */
+  cssClass: string;
+  /** Foundation layer token reference (e.g., "states.hoverOverlay1") */
+  foundationToken?: string;
+}
+
 export interface ComponentExample {
   title: string;
   description?: string;
@@ -89,6 +103,8 @@ export interface Component {
   interactiveProps?: InteractiveProp[];
   /** Design tokens used by this component */
   tokens?: ComponentToken[];
+  /** Interaction states (hover, focus, pressed, etc.) used by this component */
+  interactionStates?: InteractionState[];
   /** Auto-generated API documentation from TypeDoc */
   apiDocs?: string;
 }

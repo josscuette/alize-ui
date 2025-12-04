@@ -3,6 +3,7 @@
 import * as React from "react"
 
 import { cn } from "../../lib/utils"
+import { states } from "../../foundation"
 
 /**
  * Table component props interface
@@ -151,7 +152,12 @@ function TableRow({ className, ...props }: TableRowProps): React.ReactElement {
     <tr
       data-slot="table-row"
       className={cn(
-        "hover:bg-muted/50 data-[state=selected]:bg-muted border-b transition-colors",
+        // Base styles
+        "border-b transition-colors",
+        // Hover state using foundation
+        states.hoverOverlay1,
+        // Selected state
+        states.dataStateSelected,
         className
       )}
       {...props}

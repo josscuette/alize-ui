@@ -5,6 +5,7 @@ import * as DialogPrimitive from "@radix-ui/react-dialog"
 import { XIcon } from "lucide-react"
 
 import { cn } from "../../lib/utils"
+import { states } from "../../foundation"
 
 /**
  * Dialog component props interface
@@ -176,7 +177,23 @@ const DialogContent = React.memo(function DialogContent({
         {showCloseButton && (
           <DialogPrimitive.Close
             data-slot="dialog-close"
-            className="ring-offset-background focus:ring-ring data-[state=open]:bg-accent data-[state=open]:text-muted-foreground absolute top-4 right-4 rounded-xs opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none disabled:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
+            className={cn(
+              // Layout
+              "absolute top-4 right-4 rounded-xs opacity-70 transition-opacity",
+              // Hover state
+              "hover:opacity-100",
+              // Focus state
+              "ring-offset-background focus:ring-ring focus:ring-2 focus:ring-offset-2 focus:outline-hidden",
+              // Open state
+              states.dataStateOpen,
+              // Pressed state
+              states.pressed,
+              // Disabled state
+              states.disabled,
+              states.disabledCursor,
+              // SVG handling
+              "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
+            )}
           >
             <XIcon />
             <span className="sr-only">Close</span>

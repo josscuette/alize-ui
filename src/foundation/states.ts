@@ -14,6 +14,10 @@ export const states = {
   hoverOpacity80: "hover:opacity-80",
   hoverUnderline: "hover:underline",
   
+  // Menu/Item hover states (combined background + text for menu items)
+  hoverAccent: "hover:bg-semantic-surface-overlays-level1 hover:text-foreground",
+  focusAccent: "focus:bg-semantic-surface-overlays-level1 focus:text-foreground",
+  
   // Focus states
   focusRing: "focus-visible:ring-semantic-surface-interaction-strong/50 focus-visible:ring-[3px]",
   focusRingDestructive: "focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40",
@@ -38,5 +42,14 @@ export const states = {
   // Checked/Selected states
   checked: "data-[state=checked]:bg-semantic-surface-interaction-strong",
   unchecked: "data-[state=unchecked]:bg-transparent",
+  
+  // Data attribute states (for Radix UI components)
+  dataStateOn: "data-[state=on]:bg-semantic-surface-overlays-level2 data-[state=on]:text-foreground",
+  dataStateOpen: "data-[state=open]:bg-semantic-surface-overlays-level1",
+  dataStateActive: "data-[active=true]:bg-semantic-surface-overlays-level1 data-[active=true]:text-foreground",
+  dataStateSelected: "data-[state=selected]:bg-semantic-surface-overlays-level1",
+  
+  // Tab/Toggle active states
+  tabActive: "data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm",
 } as const
 

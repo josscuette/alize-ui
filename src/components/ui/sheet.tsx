@@ -5,6 +5,7 @@ import * as SheetPrimitive from "@radix-ui/react-dialog"
 import { MaterialSymbol } from "../material-symbol"
 
 import { cn } from "../../lib/utils"
+import { states } from "../../foundation"
 
 /**
  * Sheet component props interface
@@ -162,7 +163,7 @@ function SheetContent({
   return (
     <SheetPortal>
       <SheetOverlay />
-        <SheetPrimitive.Content
+      <SheetPrimitive.Content
         data-slot="sheet-content"
         className={cn(
           "bg-background data-[state=open]:animate-in data-[state=closed]:animate-out fixed z-[60] flex flex-col gap-4 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500",
@@ -182,7 +183,19 @@ function SheetContent({
           Sheet
         </SheetPrimitive.Title>
         {children}
-        <SheetPrimitive.Close className="absolute top-4 right-4 z-50 rounded-xs opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none disabled:cursor-not-allowed flex items-center justify-center size-8">
+        <SheetPrimitive.Close className={cn(
+          // Layout
+          "absolute top-4 right-4 z-50 rounded-xs flex items-center justify-center size-8 opacity-70 transition-opacity",
+          // Hover state
+          "hover:opacity-100",
+          // Focus state
+          "focus:ring-2 focus:ring-offset-2 focus:outline-hidden",
+          // Pressed state
+          states.pressed,
+          // Disabled state
+          states.disabled,
+          states.disabledCursor
+        )}>
           <MaterialSymbol name="close" size={20} weight={300} className="text-muted-foreground" />
           <span className="sr-only">Close</span>
         </SheetPrimitive.Close>

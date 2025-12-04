@@ -3,7 +3,7 @@
 import { use } from 'react';
 import { componentsWithApiDocs as components } from '../data/with-api-docs';
 import { DocTemplate } from '../components/doc-template';
-import { getPreviewRenderer, getInteractivePreviewRenderer } from '../components/previews';
+import { getPreviewRenderer, getInteractivePreviewRenderer, getStatesPreviewRenderer } from '../components/previews';
 import { DocsSidebar } from '../docs-sidebar';
 import Link from 'next/link';
 
@@ -68,12 +68,14 @@ export default function ComponentDocsPage({
   // Get the preview renderers for this component (may be undefined)
   const renderPreview = getPreviewRenderer(componentDoc.component);
   const renderInteractivePreview = getInteractivePreviewRenderer(componentDoc.component);
+  const renderStatesPreview = getStatesPreviewRenderer(componentDoc.component);
 
   return (
     <DocTemplate 
       componentDoc={componentDoc} 
       renderPreview={renderPreview}
       renderInteractivePreview={renderInteractivePreview}
+      renderStatesPreview={renderStatesPreview}
     />
   );
 }

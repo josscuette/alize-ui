@@ -5,6 +5,62 @@ import { Button } from '@/components/ui/button';
 import { MaterialSymbol } from '@/components/material-symbol';
 
 /**
+ * States preview renderer for Button component
+ * Shows the Button in different interaction states
+ */
+export function ButtonStatesPreview(activeState: 'hover' | 'focus' | 'pressed' | 'disabled'): ReactNode {
+  const isDisabled = activeState === 'disabled';
+  const isFocus = activeState === 'focus';
+  
+  // Force focus ring styles when focus state is selected
+  const focusRingClass = isFocus ? "ring-[3px] ring-[var(--semantic-surface-interaction-strong)]/50" : "";
+  
+  return (
+    <div className="flex flex-wrap items-center justify-center gap-4">
+      {/* Primary/Default variant */}
+      <div className="text-center">
+        <p className="text-[10px] text-muted-foreground mb-2">Default</p>
+        <Button disabled={isDisabled} className={focusRingClass}>
+          Save
+        </Button>
+      </div>
+      
+      {/* Outline variant */}
+      <div className="text-center">
+        <p className="text-[10px] text-muted-foreground mb-2">Outline</p>
+        <Button variant="outline" disabled={isDisabled} className={focusRingClass}>
+          Cancel
+        </Button>
+      </div>
+      
+      {/* Ghost variant */}
+      <div className="text-center">
+        <p className="text-[10px] text-muted-foreground mb-2">Ghost</p>
+        <Button variant="ghost" disabled={isDisabled} className={focusRingClass}>
+          Settings
+        </Button>
+      </div>
+      
+      {/* Icon button */}
+      <div className="text-center">
+        <p className="text-[10px] text-muted-foreground mb-2">Icon</p>
+        <Button size="icon" disabled={isDisabled} className={focusRingClass} aria-label="Add">
+          <MaterialSymbol name="add" size={20} weight={300} />
+        </Button>
+      </div>
+      
+      {/* Link variant */}
+      <div className="text-center">
+        <p className="text-[10px] text-muted-foreground mb-2">Link</p>
+        <Button variant="link" disabled={isDisabled} className={focusRingClass}>
+          Learn more
+        </Button>
+      </div>
+    </div>
+  );
+}
+
+/**
  * Interactive preview renderer for Button playground
  */
 export function ButtonInteractivePreview(props: Record<string, string>): ReactNode {
