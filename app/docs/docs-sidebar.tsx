@@ -65,6 +65,11 @@ export function DocsSidebar() {
       }
     });
     
+    // Sort each category alphabetically by title
+    Object.keys(grouped).forEach((category) => {
+      grouped[category].sort((a, b) => a.title.localeCompare(b.title));
+    });
+    
     return grouped;
   }, []);
 

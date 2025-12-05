@@ -122,7 +122,7 @@ export default function GetStartedPage(): React.ReactElement {
                         <li><strong>Type-safe:</strong> Full TypeScript support with exported types</li>
                         <li><strong>Customizable:</strong> Built on Tailwind CSS with semantic design tokens</li>
                         <li><strong>Accessible:</strong> Built on Radix UI primitives with built-in accessibility</li>
-                        <li><strong>Modern:</strong> Uses React 18+ and Next.js App Router patterns</li>
+                        <li><strong>Modern:</strong> Uses React 18/19 and Next.js App Router patterns</li>
                         <li><strong>Icon System:</strong> Integrated Material Symbols icon library</li>
                         <li><strong>Data Visualization:</strong> Highcharts integration with theme support</li>
                       </ul>
