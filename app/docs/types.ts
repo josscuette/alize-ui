@@ -84,6 +84,22 @@ export interface ComponentState {
   code: string;
 }
 
+/**
+ * Definition for changelog entries
+ */
+export interface ChangelogEntry {
+  /** Version number (e.g., "1.2.0") */
+  version: string;
+  /** Release date in ISO format (e.g., "2025-12-05") */
+  date: string;
+  /** Type of change */
+  type: 'added' | 'changed' | 'deprecated' | 'removed' | 'fixed' | 'security';
+  /** Description of the change */
+  description: string;
+  /** Whether this is a breaking change */
+  breaking?: boolean;
+}
+
 export interface Component {
   title: string;
   description: string;
@@ -107,6 +123,8 @@ export interface Component {
   interactionStates?: InteractionState[];
   /** Auto-generated API documentation from TypeDoc */
   apiDocs?: string;
+  /** Changelog entries for this component */
+  changelog?: ChangelogEntry[];
 }
 
 

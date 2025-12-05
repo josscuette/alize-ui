@@ -25,7 +25,7 @@ import {
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
 import { DocsSidebar } from '../docs-sidebar';
-import type { Component, ComponentExample, InteractiveProp, ComponentToken, InteractionState } from '../types';
+import type { Component, ComponentExample, InteractiveProp, ComponentToken, InteractionState, ChangelogEntry } from '../types';
 
 // ============================================================================
 // Types
@@ -585,6 +585,7 @@ const TABS = [
   'tokens',
   'usage',
   'api',
+  'changelog',
 ] as const;
 
 export function DocTemplate({ 
@@ -602,11 +603,13 @@ export function DocTemplate({
   const hasTokens = !!(componentDoc.tokens?.length);
   const hasInteractionStates = !!(componentDoc.interactionStates?.length);
   const hasApiDocs = !!(componentDoc.apiDocs?.trim());
+  const hasChangelog = !!(componentDoc.changelog?.length);
   const visibleTabs = TABS.filter(tab => {
     if (tab === 'playground') return hasPlayground;
     if (tab === 'tokens') return hasTokens;
     if (tab === 'states') return hasInteractionStates;
     if (tab === 'api') return hasApiDocs;
+    if (tab === 'changelog') return hasChangelog;
     return true;
   });
 
@@ -1127,6 +1130,72 @@ export function DocTemplate({
                   >
                     {componentDoc.apiDocs || ''}
                   </ReactMarkdown>
+                </div>
+              </CardContent>
+            </Card>
+          </section>
+        )}
+
+        {/* Changelog Section */}
+        {hasChangelog && (
+          <section id="changelog" className="mb-8 sm:mb-12 scroll-mt-[168px]">
+            <div className="flex items-center gap-2 mb-4 sm:mb-6">
+              <h2 className="text-xl sm:text-2xl font-bold">Changelog</h2>
+            </div>
+            <Card>
+              <CardHeader>
+                <CardDescription>
+                  History of changes and updates to the {componentDoc.component} component
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-6">
+                  {componentDoc.changelog?.map((entry, index) => (
+                    <div key={index} className="relative pl-6 pb-6 border-l-2 border-[var(--semantic-stroke-subdued)] last:pb-0">
+                      {/* Timeline dot */}
+                      <div className={cn(
+                        "absolute -left-[9px] top-0 w-4 h-4 rounded-full border-2 border-background",
+                        entry.type === 'added' && "bg-[var(--semantic-surface-rag-success-strong)]",
+                        entry.type === 'changed' && "bg-[var(--semantic-surface-interaction-strong)]",
+                        entry.type === 'deprecated' && "bg-[var(--semantic-surface-rag-warning-strong)]",
+                        entry.type === 'removed' && "bg-[var(--semantic-surface-rag-danger-strong)]",
+                        entry.type === 'fixed' && "bg-[var(--semantic-tonal-violet-strong)]",
+                        entry.type === 'security' && "bg-[var(--semantic-tonal-magenta-strong)]",
+                      )} />
+                      
+                      {/* Entry header */}
+                      <div className="flex flex-wrap items-center gap-2 mb-2">
+                        <span className="font-semibold text-sm">v{entry.version}</span>
+                        <span className="text-xs text-muted-foreground">
+                          {new Date(entry.date).toLocaleDateString('en-US', { 
+                            year: 'numeric', 
+                            month: 'short', 
+                            day: 'numeric' 
+                          })}
+                        </span>
+                        <Badge 
+                          variant={
+                            entry.type === 'added' ? 'success' :
+                            entry.type === 'removed' || entry.type === 'security' ? 'destructive' :
+                            entry.type === 'deprecated' ? 'warning' :
+                            'secondary'
+                          }
+                          className="text-xs capitalize"
+                        >
+                          {entry.type}
+                        </Badge>
+                        {entry.breaking && (
+                          <Badge variant="destructive" className="text-xs">
+                            <MaterialSymbol name="warning" size={10} weight={300} className="mr-1" />
+                            Breaking
+                          </Badge>
+                        )}
+                      </div>
+                      
+                      {/* Entry description */}
+                      <p className="text-sm text-muted-foreground">{entry.description}</p>
+                    </div>
+                  ))}
                 </div>
               </CardContent>
             </Card>

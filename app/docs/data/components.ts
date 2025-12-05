@@ -1309,7 +1309,7 @@ import { Input } from 'alize-ui';
   },
   {
     title: "Badge",
-    description: "Compact status indicators with semantic RAG (Red/Amber/Green) color tokens for clear visual feedback.",
+    description: "Compact status indicators with semantic RAG (Red/Amber/Green) color tokens and tonal color system for clear visual feedback and categorization.",
     category: "atoms",
     component: "Badge",
     importPath: "alize-ui",
@@ -1320,6 +1320,27 @@ import { Input } from 'alize-ui';
         default: "default",
         required: false,
         description: "Visual style variant of the badge. Use RAG variants (success, warning, destructive) for status indicators."
+      },
+      {
+        name: "tonal",
+        type: "default | sand | clay | lima | amber | forest | watercourse | atoll | royal | magenta | lavender | violet | lilac | science",
+        default: "undefined",
+        required: false,
+        description: "Tonal color scheme for the badge. When set, this takes precedence over the variant prop. Use for categorization and non-status use cases."
+      },
+      {
+        name: "badgeStyle",
+        type: "default | outline | reversed",
+        default: "default",
+        required: false,
+        description: "Style variant when using tonal colors. Default shows subdued background, outline shows transparent with border, reversed shows strong background with white text."
+      },
+      {
+        name: "numeric",
+        type: "boolean",
+        default: "false",
+        required: false,
+        description: "Optimizes the badge for displaying numbers with reduced horizontal padding and tabular numbers."
       },
       {
         name: "asChild",
@@ -1342,6 +1363,57 @@ import { Input } from 'alize-ui';
   <Badge variant="success">Success</Badge>
   <Badge variant="warning">Warning</Badge>
   <Badge variant="destructive">Destructive</Badge>
+</div>`
+      },
+      {
+        title: "Tonal Colors",
+        description: "Use tonal colors for categorization and non-status use cases. Each tonal supports default, outline, and reversed styles.",
+        code: `import { Badge } from 'alize-ui';
+
+<div className="flex flex-wrap gap-2">
+  <Badge tonal="sand">Sand</Badge>
+  <Badge tonal="clay">Clay</Badge>
+  <Badge tonal="lima">Lima</Badge>
+  <Badge tonal="amber">Amber</Badge>
+  <Badge tonal="forest">Forest</Badge>
+  <Badge tonal="watercourse">Watercourse</Badge>
+  <Badge tonal="atoll">Atoll</Badge>
+  <Badge tonal="royal">Royal</Badge>
+  <Badge tonal="magenta">Magenta</Badge>
+  <Badge tonal="lavender">Lavender</Badge>
+  <Badge tonal="violet">Violet</Badge>
+  <Badge tonal="lilac">Lilac</Badge>
+  <Badge tonal="science">Science</Badge>
+</div>`
+      },
+      {
+        title: "Tonal Styles",
+        description: "Each tonal color supports three styles: default (subdued), outline, and reversed (strong).",
+        code: `import { Badge } from 'alize-ui';
+
+<div className="space-y-2">
+  <div className="flex gap-2">
+    <Badge tonal="royal">Default</Badge>
+    <Badge tonal="royal" badgeStyle="outline">Outline</Badge>
+    <Badge tonal="royal" badgeStyle="reversed">Reversed</Badge>
+  </div>
+  <div className="flex gap-2">
+    <Badge tonal="magenta">Default</Badge>
+    <Badge tonal="magenta" badgeStyle="outline">Outline</Badge>
+    <Badge tonal="magenta" badgeStyle="reversed">Reversed</Badge>
+  </div>
+</div>`
+      },
+      {
+        title: "Numeric Badges",
+        description: "Use the numeric prop for number-only badges with optimized padding.",
+        code: `import { Badge } from 'alize-ui';
+
+<div className="flex gap-2">
+  <Badge tonal="science" numeric>42</Badge>
+  <Badge tonal="magenta" badgeStyle="reversed" numeric>99+</Badge>
+  <Badge tonal="forest" badgeStyle="outline" numeric>7</Badge>
+  <Badge variant="destructive" numeric>3</Badge>
 </div>`
       },
       {
@@ -1376,31 +1448,18 @@ import { MaterialSymbol } from 'alize-ui';
     <MaterialSymbol name="check_circle" size={12} weight={300} />
     Success
   </Badge>
-  <Badge variant="outline">
+  <Badge tonal="royal" badgeStyle="reversed">
     <MaterialSymbol name="bolt" size={12} weight={300} />
     Pro
   </Badge>
-</div>`
-      },
-      {
-        title: "Status Indicators",
-        description: "Badges serve as visual status indicators with RAG colors",
-        code: `import { Badge } from 'alize-ui';
-import { MaterialSymbol } from 'alize-ui';
-
-<div className="flex gap-2">
-  <Badge variant="success">
-    <MaterialSymbol name="check_circle" size={12} weight={300} />
-    Active
-  </Badge>
-  <Badge variant="warning">Pending</Badge>
-  <Badge variant="destructive">Failed</Badge>
 </div>`
       }
     ],
     do: [
       "Use badges for status indicators and metadata",
-      "Use RAG variants (success, warning, destructive) for clear status communication",
+      "Use RAG variants (success, warning, destructive) for status communication",
+      "Use tonal colors for categorization (e.g., tags, labels)",
+      "Use the numeric prop for count badges",
       "Use icons to enhance clarity when appropriate",
       "Keep badge text concise and clear",
       "Use consistent badge styles throughout the interface"
@@ -1410,18 +1469,23 @@ import { MaterialSymbol } from 'alize-ui';
       "Don't overload badges with too much text",
       "Don't use destructive variant for non-critical information",
       "Don't mix too many badge variants in the same context",
-      "Don't use badges as a replacement for proper labels"
+      "Don't use badges as a replacement for proper labels",
+      "Don't use tonal colors for status indication (use RAG variants)"
     ],
     accessibility: `- Badges should have sufficient color contrast
 - Use descriptive text that makes sense out of context
 - Consider screen reader announcements for status changes
 - Icons should be decorative or have appropriate alt text
-- RAG colors alone should not convey meaning - always include text`,
+- RAG colors alone should not convey meaning - always include text
+- Tonal colors provide categorization but should not be the only differentiator`,
     tokens: [
       { name: "surface-secondary", category: "surface", cssVariable: "var(--semantic-surface-secondary)", usage: "Default badge background" },
       { name: "surface-rag-success-subdued", category: "surface", cssVariable: "var(--semantic-surface-rag-success-subdued)", usage: "Success badge background" },
       { name: "surface-rag-warning-subdued", category: "surface", cssVariable: "var(--semantic-surface-rag-warning-subdued)", usage: "Warning badge background" },
       { name: "surface-rag-danger-subdued", category: "surface", cssVariable: "var(--semantic-surface-rag-danger-subdued)", usage: "Destructive badge background" },
+      { name: "tonal-*-subdued", category: "surface", cssVariable: "var(--semantic-tonal-*-subdued)", usage: "Tonal badge default background" },
+      { name: "tonal-*-strong", category: "surface", cssVariable: "var(--semantic-tonal-*-strong)", usage: "Tonal badge reversed background and text" },
+      { name: "tonal-*-default", category: "stroke", cssVariable: "var(--semantic-tonal-*-default)", usage: "Tonal badge outline border" },
       { name: "text-rag-success-default", category: "text", cssVariable: "var(--semantic-text-rag-success-default)", usage: "Success badge text" },
       { name: "text-rag-warning-default", category: "text", cssVariable: "var(--semantic-text-rag-warning-default)", usage: "Warning badge text" },
       { name: "text-rag-danger-default", category: "text", cssVariable: "var(--semantic-text-rag-danger-default)", usage: "Destructive badge text" },
@@ -1442,6 +1506,71 @@ import { MaterialSymbol } from 'alize-ui';
           { value: "warning", label: "Warning" },
           { value: "destructive", label: "Destructive" },
         ]
+      },
+      {
+        name: "tonal",
+        label: "Tonal Color",
+        controlType: "select",
+        defaultValue: "",
+        options: [
+          { value: "", label: "None" },
+          { value: "sand", label: "Sand" },
+          { value: "clay", label: "Clay" },
+          { value: "lima", label: "Lima" },
+          { value: "amber", label: "Amber" },
+          { value: "forest", label: "Forest" },
+          { value: "watercourse", label: "Watercourse" },
+          { value: "atoll", label: "Atoll" },
+          { value: "royal", label: "Royal" },
+          { value: "magenta", label: "Magenta" },
+          { value: "lavender", label: "Lavender" },
+          { value: "violet", label: "Violet" },
+          { value: "lilac", label: "Lilac" },
+          { value: "science", label: "Science" },
+        ]
+      },
+      {
+        name: "badgeStyle",
+        label: "Badge Style",
+        controlType: "select",
+        defaultValue: "default",
+        options: [
+          { value: "default", label: "Default" },
+          { value: "outline", label: "Outline" },
+          { value: "reversed", label: "Reversed" },
+        ]
+      },
+      {
+        name: "numeric",
+        label: "Numeric",
+        controlType: "boolean",
+        defaultValue: "false"
+      }
+    ],
+    changelog: [
+      {
+        version: "0.3.0",
+        date: "2025-12-05",
+        type: "added",
+        description: "Added tonal color system with 14 color options (sand, clay, lima, amber, forest, watercourse, atoll, royal, magenta, lavender, violet, lilac, science) for categorization use cases."
+      },
+      {
+        version: "0.3.0",
+        date: "2025-12-05",
+        type: "added",
+        description: "Added badgeStyle prop with three variants (default, outline, reversed) for tonal badges."
+      },
+      {
+        version: "0.3.0",
+        date: "2025-12-05",
+        type: "added",
+        description: "Added numeric prop for optimized number-only badges with reduced padding and tabular numbers."
+      },
+      {
+        version: "0.2.0",
+        date: "2025-11-15",
+        type: "added",
+        description: "Initial release with RAG status variants (success, warning, destructive) and basic variants (default, secondary, outline)."
       }
     ]
   },
