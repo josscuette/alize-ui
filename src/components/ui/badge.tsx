@@ -224,14 +224,15 @@ function Badge({
 }: BadgeProps): React.ReactElement {
   const Comp = asChild ? Slot : "span"
   
-  // If tonal is specified, use tonal styles instead of variant
-  const tonalClassName = tonal ? tonalStyles[tonal][badgeStyle] : undefined
+  // If tonal is specified and valid (not "none"), use tonal styles instead of variant
+  const hasValidTonal = tonal && tonal in tonalStyles
+  const tonalClassName = hasValidTonal ? tonalStyles[tonal][badgeStyle] : undefined
 
   return (
     <Comp
       data-slot="badge"
       className={cn(
-        badgeVariants({ variant: tonal ? undefined : variant, numeric }),
+        badgeVariants({ variant: hasValidTonal ? undefined : variant, numeric }),
         tonalClassName,
         className
       )}

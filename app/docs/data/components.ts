@@ -1511,9 +1511,9 @@ import { MaterialSymbol } from 'alize-ui';
         name: "tonal",
         label: "Tonal Color",
         controlType: "select",
-        defaultValue: "",
+        defaultValue: "none",
         options: [
-          { value: "", label: "None" },
+          { value: "none", label: "None" },
           { value: "sand", label: "Sand" },
           { value: "clay", label: "Clay" },
           { value: "lima", label: "Lima" },
