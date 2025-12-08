@@ -8,11 +8,12 @@ import { MaterialSymbol } from '@/components/material-symbol';
  * Interactive preview renderer for Badge playground
  */
 export function BadgeInteractivePreview(props: Record<string, string>): ReactNode {
-  const { variant, tonal, badgeStyle, numeric } = props;
+  const { variant, tonal, badgeStyle, numeric, deletable } = props;
   
   // Determine if tonal is being used (not "none")
   const tonalValue = tonal && tonal !== 'none' ? tonal as BadgeTonal : undefined;
   const isNumeric = numeric === 'true';
+  const isDeletable = deletable === 'true';
   
   return (
     <Badge 
@@ -20,6 +21,7 @@ export function BadgeInteractivePreview(props: Record<string, string>): ReactNod
       tonal={tonalValue}
       badgeStyle={badgeStyle as "default" | "outline" | "reversed"}
       numeric={isNumeric}
+      onDelete={isDeletable ? () => alert('Badge deleted!') : undefined}
     >
       {isNumeric ? '42' : 'Badge Label'}
     </Badge>
@@ -91,16 +93,22 @@ export function BadgePreview({ title }: { title: string }): ReactNode {
     case 'RAG Status':
       return (
         <div className="flex gap-2">
-          <Badge variant="success">
-            <MaterialSymbol name="check_circle" size={12} weight={300} />
+          <Badge 
+            variant="success"
+            iconLeft={<MaterialSymbol name="check_circle" size={12} weight={300} />}
+          >
             Complete
           </Badge>
-          <Badge variant="warning">
-            <MaterialSymbol name="schedule" size={12} weight={300} />
+          <Badge 
+            variant="warning"
+            iconLeft={<MaterialSymbol name="schedule" size={12} weight={300} />}
+          >
             Pending
           </Badge>
-          <Badge variant="destructive">
-            <MaterialSymbol name="error" size={12} weight={300} />
+          <Badge 
+            variant="destructive"
+            iconLeft={<MaterialSymbol name="error" size={12} weight={300} />}
+          >
             Failed
           </Badge>
         </div>
@@ -109,22 +117,51 @@ export function BadgePreview({ title }: { title: string }): ReactNode {
     case 'With Icons':
       return (
         <div className="flex gap-2">
-          <Badge variant="success">
-            <MaterialSymbol name="check_circle" size={12} weight={300} />
-            Success
+          <Badge 
+            iconLeft={<MaterialSymbol name="star" size={12} weight={300} />}
+          >
+            Featured
           </Badge>
-          <Badge tonal="royal" badgeStyle="reversed">
-            <MaterialSymbol name="bolt" size={12} weight={300} />
+          <Badge 
+            tonal="royal" 
+            badgeStyle="reversed"
+            iconLeft={<MaterialSymbol name="bolt" size={12} weight={300} />}
+          >
             Pro
           </Badge>
+          <Badge 
+            iconRight={<MaterialSymbol name="arrow_forward" size={12} weight={300} />}
+          >
+            Next
+          </Badge>
+        </div>
+      );
+    
+    case 'Deletable Badges':
+      return (
+        <div className="flex gap-2">
+          <Badge onDelete={() => alert('Deleted!')}>React</Badge>
+          <Badge tonal="royal" onDelete={() => alert('Deleted!')}>TypeScript</Badge>
+          <Badge tonal="magenta" badgeStyle="reversed" onDelete={() => alert('Deleted!')}>Tailwind</Badge>
+        </div>
+      );
+    
+    case 'Deletable with Tonal':
+      return (
+        <div className="flex gap-2">
+          <Badge tonal="royal" onDelete={() => {}}>Royal</Badge>
+          <Badge tonal="magenta" badgeStyle="reversed" onDelete={() => {}}>Magenta</Badge>
+          <Badge tonal="forest" badgeStyle="outline" onDelete={() => {}}>Forest</Badge>
         </div>
       );
     
     case 'Status Indicators':
       return (
         <div className="flex gap-2">
-          <Badge variant="success">
-            <MaterialSymbol name="check_circle" size={12} weight={300} />
+          <Badge 
+            variant="success"
+            iconLeft={<MaterialSymbol name="check_circle" size={12} weight={300} />}
+          >
             Active
           </Badge>
           <Badge variant="warning">Pending</Badge>

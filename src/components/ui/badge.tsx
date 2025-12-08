@@ -4,6 +4,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "../../lib/utils"
 import { states, animation } from "../../foundation"
+import { MaterialSymbol } from "../material-symbol"
 
 /**
  * Available tonal color options for badges
@@ -37,74 +38,74 @@ const tonalStyles: Record<BadgeTonal, { default: string; outline: string; revers
   sand: {
     default: "border-transparent bg-[var(--semantic-tonal-sand-subdued)] text-[var(--semantic-tonal-sand-strong)]",
     outline: "border-[var(--semantic-tonal-sand-default)] bg-transparent text-[var(--semantic-tonal-sand-strong)]",
-    reversed: "border-transparent bg-[var(--semantic-tonal-sand-strong)] text-[var(--semantic-text-reversedpersistent)]",
+    reversed: "border-transparent bg-[var(--semantic-tonal-sand-strong)] text-[var(--semantic-tonal-sand-subdued)]",
   },
   clay: {
     default: "border-transparent bg-[var(--semantic-tonal-clay-subdued)] text-[var(--semantic-tonal-clay-strong)]",
     outline: "border-[var(--semantic-tonal-clay-default)] bg-transparent text-[var(--semantic-tonal-clay-strong)]",
-    reversed: "border-transparent bg-[var(--semantic-tonal-clay-strong)] text-[var(--semantic-text-reversedpersistent)]",
+    reversed: "border-transparent bg-[var(--semantic-tonal-clay-strong)] text-[var(--semantic-tonal-clay-subdued)]",
   },
   lima: {
     default: "border-transparent bg-[var(--semantic-tonal-lima-subdued)] text-[var(--semantic-tonal-lima-strong)]",
     outline: "border-[var(--semantic-tonal-lima-default)] bg-transparent text-[var(--semantic-tonal-lima-strong)]",
-    reversed: "border-transparent bg-[var(--semantic-tonal-lima-strong)] text-[var(--semantic-text-reversedpersistent)]",
+    reversed: "border-transparent bg-[var(--semantic-tonal-lima-strong)] text-[var(--semantic-tonal-lima-subdued)]",
   },
   amber: {
     default: "border-transparent bg-[var(--semantic-tonal-amber-subdued)] text-[var(--semantic-tonal-amber-strong)]",
     outline: "border-[var(--semantic-tonal-amber-default)] bg-transparent text-[var(--semantic-tonal-amber-strong)]",
-    reversed: "border-transparent bg-[var(--semantic-tonal-amber-strong)] text-[var(--semantic-text-reversedpersistent)]",
+    reversed: "border-transparent bg-[var(--semantic-tonal-amber-strong)] text-[var(--semantic-tonal-amber-subdued)]",
   },
   forest: {
     default: "border-transparent bg-[var(--semantic-tonal-forest-subdued)] text-[var(--semantic-tonal-forest-strong)]",
     outline: "border-[var(--semantic-tonal-forest-default)] bg-transparent text-[var(--semantic-tonal-forest-strong)]",
-    reversed: "border-transparent bg-[var(--semantic-tonal-forest-strong)] text-[var(--semantic-text-reversedpersistent)]",
+    reversed: "border-transparent bg-[var(--semantic-tonal-forest-strong)] text-[var(--semantic-tonal-forest-subdued)]",
   },
   watercourse: {
     default: "border-transparent bg-[var(--semantic-tonal-watercourse-subdued)] text-[var(--semantic-tonal-watercourse-strong)]",
     outline: "border-[var(--semantic-tonal-watercourse-default)] bg-transparent text-[var(--semantic-tonal-watercourse-strong)]",
-    reversed: "border-transparent bg-[var(--semantic-tonal-watercourse-strong)] text-[var(--semantic-text-reversedpersistent)]",
+    reversed: "border-transparent bg-[var(--semantic-tonal-watercourse-strong)] text-[var(--semantic-tonal-watercourse-subdued)]",
   },
   atoll: {
     default: "border-transparent bg-[var(--semantic-tonal-atoll-subdued)] text-[var(--semantic-tonal-atoll-strong)]",
     outline: "border-[var(--semantic-tonal-atoll-default)] bg-transparent text-[var(--semantic-tonal-atoll-strong)]",
-    reversed: "border-transparent bg-[var(--semantic-tonal-atoll-strong)] text-[var(--semantic-text-reversedpersistent)]",
+    reversed: "border-transparent bg-[var(--semantic-tonal-atoll-strong)] text-[var(--semantic-tonal-atoll-subdued)]",
   },
   royal: {
     default: "border-transparent bg-[var(--semantic-tonal-royal-subdued)] text-[var(--semantic-tonal-royal-strong)]",
     outline: "border-[var(--semantic-tonal-royal-default)] bg-transparent text-[var(--semantic-tonal-royal-strong)]",
-    reversed: "border-transparent bg-[var(--semantic-tonal-royal-strong)] text-[var(--semantic-text-reversedpersistent)]",
+    reversed: "border-transparent bg-[var(--semantic-tonal-royal-strong)] text-[var(--semantic-tonal-royal-subdued)]",
   },
   magenta: {
     default: "border-transparent bg-[var(--semantic-tonal-magenta-subdued)] text-[var(--semantic-tonal-magenta-strong)]",
     outline: "border-[var(--semantic-tonal-magenta-default)] bg-transparent text-[var(--semantic-tonal-magenta-strong)]",
-    reversed: "border-transparent bg-[var(--semantic-tonal-magenta-strong)] text-[var(--semantic-text-reversedpersistent)]",
+    reversed: "border-transparent bg-[var(--semantic-tonal-magenta-strong)] text-[var(--semantic-tonal-magenta-subdued)]",
   },
   lavender: {
     default: "border-transparent bg-[var(--semantic-tonal-lavender-subdued)] text-[var(--semantic-tonal-lavender-strong)]",
     outline: "border-[var(--semantic-tonal-lavender-default)] bg-transparent text-[var(--semantic-tonal-lavender-strong)]",
-    reversed: "border-transparent bg-[var(--semantic-tonal-lavender-strong)] text-[var(--semantic-text-reversedpersistent)]",
+    reversed: "border-transparent bg-[var(--semantic-tonal-lavender-strong)] text-[var(--semantic-tonal-lavender-subdued)]",
   },
   violet: {
     default: "border-transparent bg-[var(--semantic-tonal-violet-subdued)] text-[var(--semantic-tonal-violet-strong)]",
     outline: "border-[var(--semantic-tonal-violet-default)] bg-transparent text-[var(--semantic-tonal-violet-strong)]",
-    reversed: "border-transparent bg-[var(--semantic-tonal-violet-strong)] text-[var(--semantic-text-reversedpersistent)]",
+    reversed: "border-transparent bg-[var(--semantic-tonal-violet-strong)] text-[var(--semantic-tonal-violet-subdued)]",
   },
   lilac: {
     default: "border-transparent bg-[var(--semantic-tonal-lilac-subdued)] text-[var(--semantic-tonal-lilac-strong)]",
     outline: "border-[var(--semantic-tonal-lilac-default)] bg-transparent text-[var(--semantic-tonal-lilac-strong)]",
-    reversed: "border-transparent bg-[var(--semantic-tonal-lilac-strong)] text-[var(--semantic-text-reversedpersistent)]",
+    reversed: "border-transparent bg-[var(--semantic-tonal-lilac-strong)] text-[var(--semantic-tonal-lilac-subdued)]",
   },
   science: {
     default: "border-transparent bg-[var(--semantic-tonal-science-subdued)] text-[var(--semantic-tonal-science-strong)]",
     outline: "border-[var(--semantic-tonal-science-default)] bg-transparent text-[var(--semantic-tonal-science-strong)]",
-    reversed: "border-transparent bg-[var(--semantic-tonal-science-strong)] text-[var(--semantic-text-reversedpersistent)]",
+    reversed: "border-transparent bg-[var(--semantic-tonal-science-strong)] text-[var(--semantic-tonal-science-subdued)]",
   },
 }
 
 const badgeVariants = cva(
   cn(
     // Layout
-    "inline-flex items-center justify-center rounded-full border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 overflow-hidden gap-1",
+    "inline-flex items-center justify-center rounded border px-1 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 overflow-hidden gap-1",
     // SVG handling
     "[&>svg]:size-3 [&>svg]:pointer-events-none [&_.material-symbols-outlined]:!text-[12px] [&_.material-symbols-outlined]:!size-3",
     // Focus state using foundation
@@ -120,6 +121,8 @@ const badgeVariants = cva(
       variant: {
         default:
           "border-transparent bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/90",
+        deletable:
+          "border-transparent bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/90 cursor-pointer",
         secondary:
           "border-transparent bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/90",
         destructive:
@@ -132,6 +135,8 @@ const badgeVariants = cva(
           "text-foreground",
           "[a&]:hover:bg-semantic-surface-overlays-level1 [a&]:hover:text-foreground"
         ),
+        // Used internally when tonal prop is set - no color styling applied
+        tonal: "",
       },
       numeric: {
         true: "px-1.5 min-w-5 tabular-nums",
@@ -169,6 +174,20 @@ export interface BadgeProps extends React.ComponentProps<"span">, VariantProps<t
    * @default "default"
    */
   badgeStyle?: "default" | "outline" | "reversed"
+  /**
+   * Optional icon to display on the left side of the badge
+   */
+  iconLeft?: React.ReactNode
+  /**
+   * Optional icon to display on the right side of the badge
+   */
+  iconRight?: React.ReactNode
+  /**
+   * Callback when the badge delete button is clicked.
+   * When provided, displays a close icon on the right (unless iconRight is specified)
+   * and makes the badge deletable.
+   */
+  onDelete?: (event: React.MouseEvent<HTMLButtonElement>) => void
 }
 
 /**
@@ -186,9 +205,14 @@ export interface BadgeProps extends React.ComponentProps<"span">, VariantProps<t
  * - Use `badgeStyle` prop for appearance (default, outline, reversed)
  * - Use `numeric` prop for number-only badges (optimized padding)
  * 
+ * Icons and deletable:
+ * - Use `iconLeft` for a left-side icon
+ * - Use `iconRight` for a right-side icon
+ * - Use `onDelete` to make the badge deletable (shows close icon and handles click)
+ * 
  * Can be used as a link or other element via the asChild prop.
  * 
- * @param props - Badge props including variant, tonal, badgeStyle, numeric, asChild, and standard HTML span attributes
+ * @param props - Badge props including variant, tonal, badgeStyle, numeric, asChild, icons, and standard HTML span attributes
  * @returns A badge element
  * 
  * @example
@@ -202,6 +226,13 @@ export interface BadgeProps extends React.ComponentProps<"span">, VariantProps<t
  * <Badge tonal="amber">New</Badge>
  * <Badge tonal="royal" badgeStyle="reversed">Featured</Badge>
  * <Badge tonal="forest" badgeStyle="outline">Eco</Badge>
+ * 
+ * // Badges with icons
+ * <Badge iconLeft={<MaterialSymbol name="star" size={12} />}>Featured</Badge>
+ * <Badge iconRight={<MaterialSymbol name="arrow_forward" size={12} />}>Next</Badge>
+ * 
+ * // Deletable badge
+ * <Badge onDelete={() => console.log('deleted')}>Removable</Badge>
  * 
  * // Numeric badges
  * <Badge tonal="science" numeric>42</Badge>
@@ -220,24 +251,45 @@ function Badge({
   tonal,
   badgeStyle = "default",
   asChild = false,
+  iconLeft,
+  iconRight,
+  onDelete,
+  children,
   ...props
 }: BadgeProps): React.ReactElement {
   const Comp = asChild ? Slot : "span"
   
-  // If tonal is specified and valid (not "none"), use tonal styles instead of variant
+  // If tonal is specified and valid (exists in tonalStyles), use tonal styles instead of variant
   const hasValidTonal = tonal && tonal in tonalStyles
   const tonalClassName = hasValidTonal ? tonalStyles[tonal][badgeStyle] : undefined
+  
+  // Show delete button only if onDelete is provided and no custom iconRight
+  const showDeleteButton = !!onDelete && !iconRight
 
   return (
     <Comp
       data-slot="badge"
       className={cn(
-        badgeVariants({ variant: hasValidTonal ? undefined : variant, numeric }),
+        badgeVariants({ variant: hasValidTonal ? "tonal" : variant, numeric }),
         tonalClassName,
         className
       )}
       {...props}
-    />
+    >
+      {iconLeft}
+      {children}
+      {iconRight}
+      {showDeleteButton && (
+        <button
+          type="button"
+          onClick={onDelete}
+          className="inline-flex items-center justify-center -mr-0.5 rounded-sm opacity-70 hover:opacity-100 focus:outline-none focus:ring-1 focus:ring-current cursor-pointer"
+          aria-label="Remove badge"
+        >
+          <MaterialSymbol name="close" size={12} weight={300} />
+        </button>
+      )}
+    </Comp>
   )
 }
 

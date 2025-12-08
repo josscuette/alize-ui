@@ -1348,6 +1348,27 @@ import { Input } from 'alize-ui';
         default: "false",
         required: false,
         description: "Render as a different element using Radix UI Slot"
+      },
+      {
+        name: "iconLeft",
+        type: "ReactNode",
+        default: "undefined",
+        required: false,
+        description: "Optional icon to display on the left side of the badge"
+      },
+      {
+        name: "iconRight",
+        type: "ReactNode",
+        default: "undefined",
+        required: false,
+        description: "Optional icon to display on the right side of the badge"
+      },
+      {
+        name: "onDelete",
+        type: "(event: MouseEvent) => void",
+        default: "undefined",
+        required: false,
+        description: "Callback when the badge delete button is clicked. When provided, displays a close icon on the right and makes the badge deletable."
       }
     ],
     examples: [
@@ -1439,19 +1460,57 @@ import { MaterialSymbol } from 'alize-ui';
       },
       {
         title: "With Icons",
-        description: "Icons enhance badge clarity and provide visual context",
+        description: "Use iconLeft and iconRight props for consistent icon placement",
         code: `import { Badge } from 'alize-ui';
 import { MaterialSymbol } from 'alize-ui';
 
 <div className="flex gap-2">
-  <Badge variant="success">
-    <MaterialSymbol name="check_circle" size={12} weight={300} />
-    Success
+  <Badge 
+    iconLeft={<MaterialSymbol name="star" size={12} weight={300} />}
+  >
+    Featured
   </Badge>
-  <Badge tonal="royal" badgeStyle="reversed">
-    <MaterialSymbol name="bolt" size={12} weight={300} />
+  <Badge 
+    tonal="royal" 
+    badgeStyle="reversed"
+    iconLeft={<MaterialSymbol name="bolt" size={12} weight={300} />}
+  >
     Pro
   </Badge>
+  <Badge
+    iconRight={<MaterialSymbol name="arrow_forward" size={12} weight={300} />}
+  >
+    Next
+  </Badge>
+</div>`
+      },
+      {
+        title: "Deletable Badges",
+        description: "Use onDelete prop to create removable tags. A close icon is automatically displayed.",
+        code: `import { Badge } from 'alize-ui';
+
+const [tags, setTags] = useState(['React', 'TypeScript', 'Tailwind']);
+
+<div className="flex gap-2">
+  {tags.map(tag => (
+    <Badge 
+      key={tag}
+      onDelete={() => setTags(tags.filter(t => t !== tag))}
+    >
+      {tag}
+    </Badge>
+  ))}
+</div>`
+      },
+      {
+        title: "Deletable with Tonal",
+        description: "Deletable badges work with all tonal colors and styles",
+        code: `import { Badge } from 'alize-ui';
+
+<div className="flex gap-2">
+  <Badge tonal="royal" onDelete={() => {}}>Royal</Badge>
+  <Badge tonal="magenta" badgeStyle="reversed" onDelete={() => {}}>Magenta</Badge>
+  <Badge tonal="forest" badgeStyle="outline" onDelete={() => {}}>Forest</Badge>
 </div>`
       }
     ],
@@ -1490,7 +1549,7 @@ import { MaterialSymbol } from 'alize-ui';
       { name: "text-rag-warning-default", category: "text", cssVariable: "var(--semantic-text-rag-warning-default)", usage: "Warning badge text" },
       { name: "text-rag-danger-default", category: "text", cssVariable: "var(--semantic-text-rag-danger-default)", usage: "Destructive badge text" },
       { name: "stroke-rag-*-default", category: "stroke", cssVariable: "var(--semantic-stroke-rag-*-default)", usage: "RAG badge border" },
-      { name: "radius-full", category: "radius", cssVariable: "var(--radius-full)", usage: "Pill shape" }
+      { name: "radius-reduced", category: "radius", cssVariable: "var(--shadcn-radius-reduced)", usage: "4px rounded corners" }
     ],
     interactiveProps: [
       {
@@ -1500,11 +1559,6 @@ import { MaterialSymbol } from 'alize-ui';
         defaultValue: "default",
         options: [
           { value: "default", label: "Default" },
-          { value: "secondary", label: "Secondary" },
-          { value: "outline", label: "Outline" },
-          { value: "success", label: "Success" },
-          { value: "warning", label: "Warning" },
-          { value: "destructive", label: "Destructive" },
         ]
       },
       {
@@ -1545,9 +1599,27 @@ import { MaterialSymbol } from 'alize-ui';
         label: "Numeric",
         controlType: "boolean",
         defaultValue: "false"
+      },
+      {
+        name: "deletable",
+        label: "Deletable",
+        controlType: "boolean",
+        defaultValue: "false"
       }
     ],
     changelog: [
+      {
+        version: "0.4.0",
+        date: "2025-12-08",
+        type: "added",
+        description: "Added iconLeft and iconRight props for consistent icon placement in badges."
+      },
+      {
+        version: "0.4.0",
+        date: "2025-12-08",
+        type: "added",
+        description: "Added onDelete prop for deletable badges. When provided, displays a close icon that triggers the callback on click."
+      },
       {
         version: "0.3.0",
         date: "2025-12-05",
