@@ -178,17 +178,31 @@ var states = {
   hoverOpacity90: "hover:opacity-90",
   hoverOpacity80: "hover:opacity-80",
   hoverUnderline: "hover:underline",
+  // Menu/Item hover states (combined background + text for menu items)
+  hoverAccent: "hover:bg-semantic-surface-overlays-level1 hover:text-foreground",
+  focusAccent: "focus:bg-semantic-surface-overlays-level1 focus:text-foreground",
   // Focus states
   focusRing: "focus-visible:ring-semantic-surface-interaction-strong/50 focus-visible:ring-[3px]",
   focusRingDestructive: "focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40",
   // Visual utilities
   outlineNone: "outline-none",
+  outlineHidden: "outline-hidden",
   // Disabled states
   disabled: "disabled:pointer-events-none disabled:opacity-50",
   disabledCursor: "disabled:cursor-not-allowed",
+  // Pressed/Active states
+  pressed: "active:scale-[0.98]",
   // Invalid/Error states
   invalidRing: "aria-invalid:ring-semantic-surface-rag-danger-strong/20 dark:aria-invalid:ring-semantic-surface-rag-danger-strong/40",
-  invalidBorder: "aria-invalid:border-semantic-surface-rag-danger-strong"};
+  invalidBorder: "aria-invalid:border-semantic-surface-rag-danger-strong",
+  // Data attribute states (for Radix UI components)
+  dataStateOn: "data-[state=on]:bg-semantic-surface-overlays-level2 data-[state=on]:text-foreground",
+  dataStateOpen: "data-[state=open]:bg-semantic-surface-overlays-level1",
+  dataStateActive: "data-[active=true]:bg-semantic-surface-overlays-level1 data-[active=true]:text-foreground",
+  dataStateSelected: "data-[state=selected]:bg-semantic-surface-overlays-level1",
+  // Tab/Toggle active states
+  tabActive: "data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm"
+};
 
 // src/foundation/radius.ts
 var radius = {
@@ -266,6 +280,7 @@ var size = {
 var animation = {
   // General transitions
   transitionAll: "transition-all duration-200 ease-in-out",
+  transitionColors: "transition-colors duration-200 ease-in-out",
   transitionFormControl: "transition-[color,box-shadow]"};
 
 // src/foundation/shadow.ts
@@ -290,6 +305,8 @@ var buttonVariants = classVarianceAuthority.cva(
     states.focusRing,
     states.invalidRing,
     states.invalidBorder,
+    // Pressed state
+    states.pressed,
     // Animation
     animation.transitionAll
   ),
@@ -458,21 +475,149 @@ function Label(_a) {
     }, props)
   );
 }
+function MaterialSymbol(_a) {
+  var _b = _a, {
+    name,
+    size: size2,
+    fill = 0,
+    weight = 300,
+    grade = 0,
+    opticalSize,
+    className,
+    style
+  } = _b, props = __objRest(_b, [
+    "name",
+    "size",
+    "fill",
+    "weight",
+    "grade",
+    "opticalSize",
+    "className",
+    "style"
+  ]);
+  const finalOpticalSize = opticalSize != null ? opticalSize : 24;
+  return /* @__PURE__ */ jsxRuntime.jsx(
+    "span",
+    __spreadProps(__spreadValues({
+      className: cn("material-symbols-outlined", className),
+      style: __spreadValues(__spreadProps(__spreadValues({}, size2 !== void 0 && { fontSize: `${size2}px` }), {
+        fontVariationSettings: `'FILL' ${fill}, 'wght' ${weight}, 'GRAD' ${grade}, 'opsz' ${finalOpticalSize}`
+      }), style)
+    }, props), {
+      children: name
+    })
+  );
+}
+var tonalStyles = {
+  default: {
+    default: "border-transparent bg-secondary text-secondary-foreground",
+    outline: "border-[var(--semantic-stroke-default)] bg-transparent text-foreground",
+    reversed: "border-transparent bg-[var(--semantic-surface-primary)] text-[var(--semantic-text-reversedpersistent)]"
+  },
+  sand: {
+    default: "border-transparent bg-[var(--semantic-tonal-sand-subdued)] text-[var(--semantic-tonal-sand-strong)]",
+    outline: "border-[var(--semantic-tonal-sand-default)] bg-transparent text-[var(--semantic-tonal-sand-strong)]",
+    reversed: "border-transparent bg-[var(--semantic-tonal-sand-strong)] text-[var(--semantic-tonal-sand-subdued)]"
+  },
+  clay: {
+    default: "border-transparent bg-[var(--semantic-tonal-clay-subdued)] text-[var(--semantic-tonal-clay-strong)]",
+    outline: "border-[var(--semantic-tonal-clay-default)] bg-transparent text-[var(--semantic-tonal-clay-strong)]",
+    reversed: "border-transparent bg-[var(--semantic-tonal-clay-strong)] text-[var(--semantic-tonal-clay-subdued)]"
+  },
+  lima: {
+    default: "border-transparent bg-[var(--semantic-tonal-lima-subdued)] text-[var(--semantic-tonal-lima-strong)]",
+    outline: "border-[var(--semantic-tonal-lima-default)] bg-transparent text-[var(--semantic-tonal-lima-strong)]",
+    reversed: "border-transparent bg-[var(--semantic-tonal-lima-strong)] text-[var(--semantic-tonal-lima-subdued)]"
+  },
+  amber: {
+    default: "border-transparent bg-[var(--semantic-tonal-amber-subdued)] text-[var(--semantic-tonal-amber-strong)]",
+    outline: "border-[var(--semantic-tonal-amber-default)] bg-transparent text-[var(--semantic-tonal-amber-strong)]",
+    reversed: "border-transparent bg-[var(--semantic-tonal-amber-strong)] text-[var(--semantic-tonal-amber-subdued)]"
+  },
+  forest: {
+    default: "border-transparent bg-[var(--semantic-tonal-forest-subdued)] text-[var(--semantic-tonal-forest-strong)]",
+    outline: "border-[var(--semantic-tonal-forest-default)] bg-transparent text-[var(--semantic-tonal-forest-strong)]",
+    reversed: "border-transparent bg-[var(--semantic-tonal-forest-strong)] text-[var(--semantic-tonal-forest-subdued)]"
+  },
+  watercourse: {
+    default: "border-transparent bg-[var(--semantic-tonal-watercourse-subdued)] text-[var(--semantic-tonal-watercourse-strong)]",
+    outline: "border-[var(--semantic-tonal-watercourse-default)] bg-transparent text-[var(--semantic-tonal-watercourse-strong)]",
+    reversed: "border-transparent bg-[var(--semantic-tonal-watercourse-strong)] text-[var(--semantic-tonal-watercourse-subdued)]"
+  },
+  atoll: {
+    default: "border-transparent bg-[var(--semantic-tonal-atoll-subdued)] text-[var(--semantic-tonal-atoll-strong)]",
+    outline: "border-[var(--semantic-tonal-atoll-default)] bg-transparent text-[var(--semantic-tonal-atoll-strong)]",
+    reversed: "border-transparent bg-[var(--semantic-tonal-atoll-strong)] text-[var(--semantic-tonal-atoll-subdued)]"
+  },
+  royal: {
+    default: "border-transparent bg-[var(--semantic-tonal-royal-subdued)] text-[var(--semantic-tonal-royal-strong)]",
+    outline: "border-[var(--semantic-tonal-royal-default)] bg-transparent text-[var(--semantic-tonal-royal-strong)]",
+    reversed: "border-transparent bg-[var(--semantic-tonal-royal-strong)] text-[var(--semantic-tonal-royal-subdued)]"
+  },
+  magenta: {
+    default: "border-transparent bg-[var(--semantic-tonal-magenta-subdued)] text-[var(--semantic-tonal-magenta-strong)]",
+    outline: "border-[var(--semantic-tonal-magenta-default)] bg-transparent text-[var(--semantic-tonal-magenta-strong)]",
+    reversed: "border-transparent bg-[var(--semantic-tonal-magenta-strong)] text-[var(--semantic-tonal-magenta-subdued)]"
+  },
+  lavender: {
+    default: "border-transparent bg-[var(--semantic-tonal-lavender-subdued)] text-[var(--semantic-tonal-lavender-strong)]",
+    outline: "border-[var(--semantic-tonal-lavender-default)] bg-transparent text-[var(--semantic-tonal-lavender-strong)]",
+    reversed: "border-transparent bg-[var(--semantic-tonal-lavender-strong)] text-[var(--semantic-tonal-lavender-subdued)]"
+  },
+  violet: {
+    default: "border-transparent bg-[var(--semantic-tonal-violet-subdued)] text-[var(--semantic-tonal-violet-strong)]",
+    outline: "border-[var(--semantic-tonal-violet-default)] bg-transparent text-[var(--semantic-tonal-violet-strong)]",
+    reversed: "border-transparent bg-[var(--semantic-tonal-violet-strong)] text-[var(--semantic-tonal-violet-subdued)]"
+  },
+  lilac: {
+    default: "border-transparent bg-[var(--semantic-tonal-lilac-subdued)] text-[var(--semantic-tonal-lilac-strong)]",
+    outline: "border-[var(--semantic-tonal-lilac-default)] bg-transparent text-[var(--semantic-tonal-lilac-strong)]",
+    reversed: "border-transparent bg-[var(--semantic-tonal-lilac-strong)] text-[var(--semantic-tonal-lilac-subdued)]"
+  },
+  science: {
+    default: "border-transparent bg-[var(--semantic-tonal-science-subdued)] text-[var(--semantic-tonal-science-strong)]",
+    outline: "border-[var(--semantic-tonal-science-default)] bg-transparent text-[var(--semantic-tonal-science-strong)]",
+    reversed: "border-transparent bg-[var(--semantic-tonal-science-strong)] text-[var(--semantic-tonal-science-subdued)]"
+  }
+};
 var badgeVariants = classVarianceAuthority.cva(
-  "inline-flex items-center justify-center rounded-full border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none [&_.material-symbols-outlined]:!text-[12px] [&_.material-symbols-outlined]:!size-3 focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden",
+  cn(
+    // Layout
+    "inline-flex items-center justify-center rounded border px-1 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 overflow-hidden gap-1",
+    // SVG handling
+    "[&>svg]:size-3 [&>svg]:pointer-events-none [&_.material-symbols-outlined]:!text-[12px] [&_.material-symbols-outlined]:!size-3",
+    // Focus state using foundation
+    states.focusRing,
+    // Invalid state
+    states.invalidRing,
+    states.invalidBorder,
+    // Transition
+    animation.transitionFormControl
+  ),
   {
     variants: {
       variant: {
         default: "border-transparent bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/90",
+        deletable: "border-transparent bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/90 cursor-pointer",
         secondary: "border-transparent bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/90",
         destructive: "border-[var(--semantic-stroke-rag-danger-default)] bg-[var(--semantic-surface-rag-danger-subdued)] text-[var(--semantic-text-rag-danger-default)] [a&]:hover:bg-[var(--semantic-surface-rag-danger-subdued)]/80 focus-visible:ring-[var(--semantic-surface-rag-danger-subdued)]",
         warning: "border-[var(--semantic-stroke-rag-warning-default)] bg-[var(--semantic-surface-rag-warning-subdued)] text-[var(--semantic-text-rag-warning-default)] [a&]:hover:bg-[var(--semantic-surface-rag-warning-subdued)]/80 focus-visible:ring-[var(--semantic-surface-rag-warning-subdued)]",
         success: "border-[var(--semantic-stroke-rag-success-default)] bg-[var(--semantic-surface-rag-success-subdued)] text-[var(--semantic-text-rag-success-default)] [a&]:hover:bg-[var(--semantic-surface-rag-success-subdued)]/80 focus-visible:ring-[var(--semantic-surface-rag-success-subdued)]",
-        outline: "text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground"
+        outline: cn(
+          "text-foreground",
+          "[a&]:hover:bg-semantic-surface-overlays-level1 [a&]:hover:text-foreground"
+        ),
+        // Used internally when tonal prop is set - no color styling applied
+        tonal: ""
+      },
+      numeric: {
+        true: "px-1.5 min-w-5 tabular-nums",
+        false: ""
       }
     },
     defaultVariants: {
-      variant: "default"
+      variant: "default",
+      numeric: false
     }
   }
 );
@@ -480,19 +625,56 @@ function Badge(_a) {
   var _b = _a, {
     className,
     variant,
-    asChild = false
+    numeric,
+    tonal,
+    badgeStyle = "default",
+    asChild = false,
+    iconLeft,
+    iconRight,
+    onDelete,
+    children
   } = _b, props = __objRest(_b, [
     "className",
     "variant",
-    "asChild"
+    "numeric",
+    "tonal",
+    "badgeStyle",
+    "asChild",
+    "iconLeft",
+    "iconRight",
+    "onDelete",
+    "children"
   ]);
   const Comp = asChild ? reactSlot.Slot : "span";
-  return /* @__PURE__ */ jsxRuntime.jsx(
+  const hasValidTonal = tonal && tonal in tonalStyles;
+  const tonalClassName = hasValidTonal ? tonalStyles[tonal][badgeStyle] : void 0;
+  const showDeleteButton = !!onDelete && !iconRight;
+  return /* @__PURE__ */ jsxRuntime.jsxs(
     Comp,
-    __spreadValues({
+    __spreadProps(__spreadValues({
       "data-slot": "badge",
-      className: cn(badgeVariants({ variant }), className)
-    }, props)
+      className: cn(
+        badgeVariants({ variant: hasValidTonal ? "tonal" : variant, numeric }),
+        tonalClassName,
+        className
+      )
+    }, props), {
+      children: [
+        iconLeft,
+        children,
+        iconRight,
+        showDeleteButton && /* @__PURE__ */ jsxRuntime.jsx(
+          "button",
+          {
+            type: "button",
+            onClick: onDelete,
+            className: "inline-flex items-center justify-center -mr-0.5 rounded-sm opacity-70 hover:opacity-100 focus:outline-none focus:ring-1 focus:ring-current cursor-pointer",
+            "aria-label": "Remove badge",
+            children: /* @__PURE__ */ jsxRuntime.jsx(MaterialSymbol, { name: "close", size: 12, weight: 300 })
+          }
+        )
+      ]
+    })
   );
 }
 var avatarVariants = classVarianceAuthority.cva(
@@ -675,12 +857,36 @@ function KbdGroup(_a) {
   );
 }
 var toggleVariants = classVarianceAuthority.cva(
-  "inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium hover:bg-muted hover:text-muted-foreground disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed data-[state=on]:bg-accent data-[state=on]:text-accent-foreground [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0 focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] outline-none transition-[color,box-shadow] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive whitespace-nowrap",
+  cn(
+    // Layout
+    "inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap",
+    // SVG handling
+    "[&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0",
+    // Focus & outline
+    states.outlineNone,
+    states.focusRing,
+    // Disabled states
+    states.disabled,
+    states.disabledCursor,
+    // Hover state
+    states.hoverOverlay1,
+    // On/Pressed state
+    states.dataStateOn,
+    states.pressed,
+    // Invalid states
+    states.invalidRing,
+    states.invalidBorder,
+    // Transition
+    animation.transitionFormControl
+  ),
   {
     variants: {
       variant: {
         default: "bg-transparent",
-        outline: "border border-input bg-transparent shadow-xs hover:bg-accent hover:text-accent-foreground"
+        outline: cn(
+          "border border-input bg-transparent shadow-xs",
+          states.hoverOverlay1
+        )
       },
       size: {
         default: "h-9 px-2 min-w-9",
@@ -958,9 +1164,14 @@ function Item2(_a) {
     __spreadValues({
       "data-slot": "item",
       className: cn(
+        // Layout
         "flex items-center gap-2 rounded-md px-3 py-2 text-sm transition-colors",
-        selected && "bg-accent text-accent-foreground",
-        "hover:bg-accent hover:text-accent-foreground",
+        // Selected state
+        selected && "bg-semantic-surface-overlays-level1 text-foreground",
+        // Hover state using foundation
+        states.hoverAccent,
+        // Pressed state
+        states.pressed,
         className
       )
     }, props)
@@ -1566,39 +1777,6 @@ function RadioGroupCardItem(_a) {
     }
   );
 }
-function MaterialSymbol(_a) {
-  var _b = _a, {
-    name,
-    size: size2,
-    fill = 0,
-    weight = 300,
-    grade = 0,
-    opticalSize,
-    className,
-    style
-  } = _b, props = __objRest(_b, [
-    "name",
-    "size",
-    "fill",
-    "weight",
-    "grade",
-    "opticalSize",
-    "className",
-    "style"
-  ]);
-  const finalOpticalSize = opticalSize != null ? opticalSize : 24;
-  return /* @__PURE__ */ jsxRuntime.jsx(
-    "span",
-    __spreadProps(__spreadValues({
-      className: cn("material-symbols-outlined", className),
-      style: __spreadValues(__spreadProps(__spreadValues({}, size2 !== void 0 && { fontSize: `${size2}px` }), {
-        fontVariationSettings: `'FILL' ${fill}, 'wght' ${weight}, 'GRAD' ${grade}, 'opsz' ${finalOpticalSize}`
-      }), style)
-    }, props), {
-      children: name
-    })
-  );
-}
 var Select = React24__namespace.memo(function Select2(_a) {
   var props = __objRest(_a, []);
   return /* @__PURE__ */ jsxRuntime.jsx(SelectPrimitive__namespace.Root, __spreadValues({ "data-slot": "select" }, props));
@@ -1921,7 +2099,23 @@ function Slider(_a) {
           SliderPrimitive__namespace.Thumb,
           {
             "data-slot": "slider-thumb",
-            className: "border-semantic-surface-interaction-strong ring-ring/50 block size-4 shrink-0 rounded-full border bg-white shadow-sm transition-[color,box-shadow] hover:ring-4 focus-visible:ring-4 focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed"
+            className: cn(
+              // Layout
+              "block size-4 shrink-0 rounded-full border bg-white shadow-sm",
+              // Border
+              "border-semantic-surface-interaction-strong",
+              // Hover state
+              "ring-ring/50 hover:ring-4",
+              // Focus state
+              "focus-visible:ring-4 focus-visible:outline-hidden",
+              // Pressed state
+              states.pressed,
+              // Disabled state
+              states.disabled,
+              states.disabledCursor,
+              // Transition
+              animation.transitionFormControl
+            )
           },
           index
         ))
@@ -2151,7 +2345,25 @@ function TabsTrigger(_a) {
     __spreadValues({
       "data-slot": "tabs-trigger",
       className: cn(
-        "data-[state=active]:bg-background dark:data-[state=active]:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring dark:data-[state=active]:border-transparent dark:data-[state=active]:bg-input/30 text-foreground dark:text-muted-foreground inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-md border border-transparent px-2 py-1 text-sm font-medium whitespace-nowrap transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed data-[state=active]:shadow-sm [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        // Layout
+        "inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-md border border-transparent px-2 py-1 text-sm font-medium whitespace-nowrap",
+        // Colors
+        "text-foreground dark:text-muted-foreground",
+        // Active state using foundation
+        states.tabActive,
+        "dark:data-[state=active]:border-transparent dark:data-[state=active]:bg-input/30",
+        // Focus state
+        states.focusRing,
+        "focus-visible:border-ring focus-visible:outline-1",
+        // Pressed state
+        states.pressed,
+        // Disabled state
+        states.disabled,
+        states.disabledCursor,
+        // SVG handling
+        "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        // Transition
+        animation.transitionFormControl,
         className
       )
     }, props)
@@ -2211,7 +2423,21 @@ function AccordionTrigger(_a) {
     __spreadProps(__spreadValues({
       "data-slot": "accordion-trigger",
       className: cn(
-        "focus-visible:border-ring focus-visible:ring-ring/50 flex flex-1 items-start justify-between gap-4 rounded-md py-4 text-left text-sm font-medium transition-all outline-none hover:underline focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed [&[data-state=open]>svg]:rotate-180",
+        // Layout
+        "flex flex-1 items-start justify-between gap-4 rounded-md py-4 text-left text-sm font-medium transition-all",
+        // Focus state using foundation
+        states.focusRing,
+        states.outlineNone,
+        "focus-visible:border-ring",
+        // Hover state
+        states.hoverUnderline,
+        // Pressed state
+        states.pressed,
+        // Disabled state
+        states.disabled,
+        states.disabledCursor,
+        // Chevron rotation on open
+        "[&[data-state=open]>svg]:rotate-180",
         className
       )
     }, props), {
@@ -2382,7 +2608,20 @@ function DropdownMenuItem(_a) {
       "data-inset": inset,
       "data-variant": variant,
       className: cn(
-        "focus:bg-accent focus:text-accent-foreground data-[variant=destructive]:text-[var(--destructive-foreground)] data-[variant=destructive]:focus:bg-destructive/10 dark:data-[variant=destructive]:focus:bg-destructive/20 data-[variant=destructive]:focus:text-[var(--destructive-foreground)] data-[variant=destructive]:*:[svg]:!text-[var(--destructive-foreground)] [&_svg:not([class*='text-'])]:text-muted-foreground relative flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed data-[inset]:pl-8 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        // Layout
+        "relative flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm select-none",
+        // Focus state using foundation
+        states.focusAccent,
+        states.pressed,
+        states.outlineHidden,
+        // Destructive variant
+        "data-[variant=destructive]:text-[var(--destructive-foreground)] data-[variant=destructive]:focus:bg-destructive/10 dark:data-[variant=destructive]:focus:bg-destructive/20 data-[variant=destructive]:focus:text-[var(--destructive-foreground)] data-[variant=destructive]:*:[svg]:!text-[var(--destructive-foreground)]",
+        // SVG handling
+        "[&_svg:not([class*='text-'])]:text-muted-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        // Disabled state
+        "data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed",
+        // Inset
+        "data-[inset]:pl-8",
         className
       )
     }, props)
@@ -2403,7 +2642,16 @@ function DropdownMenuCheckboxItem(_a) {
     __spreadProps(__spreadValues({
       "data-slot": "dropdown-menu-checkbox-item",
       className: cn(
-        "focus:bg-accent focus:text-accent-foreground relative flex cursor-default items-center gap-2 rounded-sm py-1.5 pr-2 pl-8 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        // Layout
+        "relative flex cursor-default items-center gap-2 rounded-sm py-1.5 pr-2 pl-8 text-sm select-none",
+        // Focus state using foundation
+        states.focusAccent,
+        states.pressed,
+        states.outlineHidden,
+        // SVG handling
+        "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        // Disabled state
+        "data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed",
         className
       ),
       checked
@@ -2437,7 +2685,16 @@ function DropdownMenuRadioItem(_a) {
     __spreadProps(__spreadValues({
       "data-slot": "dropdown-menu-radio-item",
       className: cn(
-        "focus:bg-accent focus:text-accent-foreground relative flex cursor-default items-center gap-2 rounded-sm py-1.5 pr-2 pl-8 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        // Layout
+        "relative flex cursor-default items-center gap-2 rounded-sm py-1.5 pr-2 pl-8 text-sm select-none",
+        // Focus state using foundation
+        states.focusAccent,
+        states.pressed,
+        states.outlineHidden,
+        // SVG handling
+        "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        // Disabled state
+        "data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed",
         className
       )
     }, props), {
@@ -2519,7 +2776,17 @@ function DropdownMenuSubTrigger(_a) {
       "data-slot": "dropdown-menu-sub-trigger",
       "data-inset": inset,
       className: cn(
-        "focus:bg-accent focus:text-accent-foreground data-[state=open]:bg-accent data-[state=open]:text-accent-foreground [&_svg:not([class*='text-'])]:text-muted-foreground flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden select-none data-[inset]:pl-8 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        // Layout
+        "flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm select-none",
+        // Focus & open state using foundation
+        states.focusAccent,
+        states.dataStateOpen,
+        states.pressed,
+        states.outlineHidden,
+        // SVG handling
+        "[&_svg:not([class*='text-'])]:text-muted-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        // Inset
+        "data-[inset]:pl-8",
         className
       )
     }, props), {
@@ -2584,7 +2851,17 @@ function ContextMenuSubTrigger(_a) {
       "data-slot": "context-menu-sub-trigger",
       "data-inset": inset,
       className: cn(
-        "focus:bg-accent focus:text-accent-foreground data-[state=open]:bg-accent data-[state=open]:text-accent-foreground [&_svg:not([class*='text-'])]:text-muted-foreground flex cursor-default items-center rounded-sm px-2 py-1.5 text-sm outline-hidden select-none data-[inset]:pl-8 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        // Layout
+        "flex cursor-default items-center rounded-sm px-2 py-1.5 text-sm select-none",
+        // Focus & open state using foundation
+        states.focusAccent,
+        states.dataStateOpen,
+        states.pressed,
+        states.outlineHidden,
+        // SVG handling
+        "[&_svg:not([class*='text-'])]:text-muted-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        // Inset
+        "data-[inset]:pl-8",
         className
       )
     }, props), {
@@ -2646,7 +2923,20 @@ function ContextMenuItem(_a) {
       "data-inset": inset,
       "data-variant": variant,
       className: cn(
-        "focus:bg-accent focus:text-accent-foreground data-[variant=destructive]:text-[var(--destructive-foreground)] data-[variant=destructive]:focus:bg-destructive/10 dark:data-[variant=destructive]:focus:bg-destructive/20 data-[variant=destructive]:focus:text-[var(--destructive-foreground)] data-[variant=destructive]:*:[svg]:!text-[var(--destructive-foreground)] [&_svg:not([class*='text-'])]:text-muted-foreground relative flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed data-[inset]:pl-8 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        // Layout
+        "relative flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm select-none",
+        // Focus state using foundation
+        states.focusAccent,
+        states.pressed,
+        states.outlineHidden,
+        // Destructive variant
+        "data-[variant=destructive]:text-[var(--destructive-foreground)] data-[variant=destructive]:focus:bg-destructive/10 dark:data-[variant=destructive]:focus:bg-destructive/20 data-[variant=destructive]:focus:text-[var(--destructive-foreground)] data-[variant=destructive]:*:[svg]:!text-[var(--destructive-foreground)]",
+        // SVG handling
+        "[&_svg:not([class*='text-'])]:text-muted-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        // Disabled state
+        "data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed",
+        // Inset
+        "data-[inset]:pl-8",
         className
       )
     }, props)
@@ -2667,7 +2957,16 @@ function ContextMenuCheckboxItem(_a) {
     __spreadProps(__spreadValues({
       "data-slot": "context-menu-checkbox-item",
       className: cn(
-        "focus:bg-accent focus:text-accent-foreground relative flex cursor-default items-center gap-2 rounded-sm py-1.5 pr-2 pl-8 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        // Layout
+        "relative flex cursor-default items-center gap-2 rounded-sm py-1.5 pr-2 pl-8 text-sm select-none",
+        // Focus state using foundation
+        states.focusAccent,
+        states.pressed,
+        states.outlineHidden,
+        // SVG handling
+        "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        // Disabled state
+        "data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed",
         className
       ),
       checked
@@ -2692,7 +2991,16 @@ function ContextMenuRadioItem(_a) {
     __spreadProps(__spreadValues({
       "data-slot": "context-menu-radio-item",
       className: cn(
-        "focus:bg-accent focus:text-accent-foreground relative flex cursor-default items-center gap-2 rounded-sm py-1.5 pr-2 pl-8 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        // Layout
+        "relative flex cursor-default items-center gap-2 rounded-sm py-1.5 pr-2 pl-8 text-sm select-none",
+        // Focus state using foundation
+        states.focusAccent,
+        states.pressed,
+        states.outlineHidden,
+        // SVG handling
+        "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        // Disabled state
+        "data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed",
         className
       )
     }, props), {
@@ -2814,7 +3122,23 @@ var DialogContent = React24__namespace.memo(function DialogContent2(_a) {
             SheetPrimitive__namespace.Close,
             {
               "data-slot": "dialog-close",
-              className: "ring-offset-background focus:ring-ring data-[state=open]:bg-accent data-[state=open]:text-muted-foreground absolute top-4 right-4 rounded-xs opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none disabled:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+              className: cn(
+                // Layout
+                "absolute top-4 right-4 rounded-xs opacity-70 transition-opacity",
+                // Hover state
+                "hover:opacity-100",
+                // Focus state
+                "ring-offset-background focus:ring-ring focus:ring-2 focus:ring-offset-2 focus:outline-hidden",
+                // Open state
+                states.dataStateOpen,
+                // Pressed state
+                states.pressed,
+                // Disabled state
+                states.disabled,
+                states.disabledCursor,
+                // SVG handling
+                "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
+              ),
               children: [
                 /* @__PURE__ */ jsxRuntime.jsx(lucideReact.XIcon, {}),
                 /* @__PURE__ */ jsxRuntime.jsx("span", { className: "sr-only", children: "Close" })
@@ -3204,7 +3528,13 @@ function BreadcrumbLink(_a) {
     Comp,
     __spreadValues({
       "data-slot": "breadcrumb-link",
-      className: cn("hover:text-foreground transition-colors", className)
+      className: cn(
+        // Hover state
+        "hover:text-foreground",
+        // Transition
+        animation.transitionColors,
+        className
+      )
     }, props)
   );
 }
@@ -3473,9 +3803,24 @@ function NativeSelect(_a) {
           __spreadValues({
             "data-slot": "native-select",
             className: cn(
-              "border-input placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 dark:hover:bg-input/50 h-9 w-full min-w-0 appearance-none rounded-md border bg-transparent px-3 py-2 pr-9 text-sm shadow-xs transition-[color,box-shadow] outline-none disabled:pointer-events-none disabled:cursor-not-allowed",
-              "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]",
-              "aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+              // Layout
+              "h-9 w-full min-w-0 appearance-none rounded-md border bg-transparent px-3 py-2 pr-9 text-sm shadow-xs",
+              // Colors
+              "border-input placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground",
+              // Dark mode hover
+              "dark:bg-input/30 dark:hover:bg-input/50",
+              // Focus state using foundation
+              states.focusRing,
+              "focus-visible:border-ring",
+              states.outlineNone,
+              // Invalid state using foundation
+              states.invalidRing,
+              states.invalidBorder,
+              // Disabled state
+              states.disabled,
+              states.disabledCursor,
+              // Transition
+              animation.transitionFormControl,
               className
             )
           }, props)
@@ -4026,7 +4371,19 @@ function SheetContent(_a) {
         children: [
           /* @__PURE__ */ jsxRuntime.jsx(SheetPrimitive__namespace.Title, { className: "sr-only", children: "Sheet" }),
           children,
-          /* @__PURE__ */ jsxRuntime.jsxs(SheetPrimitive__namespace.Close, { className: "absolute top-4 right-4 z-50 rounded-xs opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none disabled:cursor-not-allowed flex items-center justify-center size-8", children: [
+          /* @__PURE__ */ jsxRuntime.jsxs(SheetPrimitive__namespace.Close, { className: cn(
+            // Layout
+            "absolute top-4 right-4 z-50 rounded-xs flex items-center justify-center size-8 opacity-70 transition-opacity",
+            // Hover state
+            "hover:opacity-100",
+            // Focus state
+            "focus:ring-2 focus:ring-offset-2 focus:outline-hidden",
+            // Pressed state
+            states.pressed,
+            // Disabled state
+            states.disabled,
+            states.disabledCursor
+          ), children: [
             /* @__PURE__ */ jsxRuntime.jsx(MaterialSymbol, { name: "close", size: 20, weight: 300, className: "text-muted-foreground" }),
             /* @__PURE__ */ jsxRuntime.jsx("span", { className: "sr-only", children: "Close" })
           ] })
@@ -4794,7 +5151,27 @@ function NavigationMenuItem(_a) {
   );
 }
 var navigationMenuTriggerStyle = classVarianceAuthority.cva(
-  "group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed data-[state=open]:hover:bg-accent data-[state=open]:text-accent-foreground data-[state=open]:focus:bg-accent data-[state=open]:bg-accent/50 focus-visible:ring-ring/50 outline-none transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1"
+  cn(
+    // Layout
+    "group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium",
+    // Hover & Focus states using foundation
+    states.hoverAccent,
+    states.focusAccent,
+    // Open state
+    states.dataStateOpen,
+    "data-[state=open]:hover:bg-semantic-surface-overlays-level1 data-[state=open]:focus:bg-semantic-surface-overlays-level1",
+    // Pressed state
+    states.pressed,
+    // Focus ring
+    states.focusRing,
+    states.outlineNone,
+    "focus-visible:outline-1",
+    // Disabled state
+    states.disabled,
+    states.disabledCursor,
+    // Transition
+    animation.transitionFormControl
+  )
 );
 function NavigationMenuTrigger(_a) {
   var _b = _a, {
@@ -4878,7 +5255,22 @@ function NavigationMenuLink(_a) {
     __spreadValues({
       "data-slot": "navigation-menu-link",
       className: cn(
-        "data-[active=true]:focus:bg-accent data-[active=true]:hover:bg-accent data-[active=true]:bg-accent/50 data-[active=true]:text-accent-foreground hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus-visible:ring-ring/50 [&_svg:not([class*='text-'])]:text-muted-foreground flex flex-col gap-1 rounded-sm p-2 text-sm transition-all outline-none focus-visible:ring-[3px] focus-visible:outline-1 [&_svg:not([class*='size-'])]:size-4",
+        // Layout
+        "flex flex-col gap-1 rounded-sm p-2 text-sm transition-all",
+        // Hover & Focus states using foundation
+        states.hoverAccent,
+        states.focusAccent,
+        // Active state
+        states.dataStateActive,
+        "data-[active=true]:hover:bg-semantic-surface-overlays-level1 data-[active=true]:focus:bg-semantic-surface-overlays-level1",
+        // Pressed state
+        states.pressed,
+        // Focus ring
+        states.focusRing,
+        states.outlineNone,
+        "focus-visible:outline-1",
+        // SVG handling
+        "[&_svg:not([class*='text-'])]:text-muted-foreground [&_svg:not([class*='size-'])]:size-4",
         className
       )
     }, props)
@@ -4924,7 +5316,13 @@ function MenubarTrigger(_a) {
     __spreadValues({
       "data-slot": "menubar-trigger",
       className: cn(
-        "focus:bg-accent focus:text-accent-foreground data-[state=open]:bg-accent data-[state=open]:text-accent-foreground flex items-center rounded-sm px-2 py-1 text-sm font-medium outline-hidden select-none",
+        // Layout
+        "flex items-center rounded-sm px-2 py-1 text-sm font-medium select-none",
+        // Focus & open state using foundation
+        states.focusAccent,
+        states.dataStateOpen,
+        states.pressed,
+        states.outlineHidden,
         className
       )
     }, props)
@@ -4973,7 +5371,20 @@ function MenubarItem(_a) {
       "data-inset": inset,
       "data-variant": variant,
       className: cn(
-        "focus:bg-accent focus:text-accent-foreground data-[variant=destructive]:text-destructive data-[variant=destructive]:focus:bg-destructive/10 dark:data-[variant=destructive]:focus:bg-destructive/20 data-[variant=destructive]:focus:text-destructive data-[variant=destructive]:*:[svg]:!text-destructive [&_svg:not([class*='text-'])]:text-muted-foreground relative flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed data-[inset]:pl-8 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        // Layout
+        "relative flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm select-none",
+        // Focus state using foundation
+        states.focusAccent,
+        states.pressed,
+        states.outlineHidden,
+        // Destructive variant
+        "data-[variant=destructive]:text-destructive data-[variant=destructive]:focus:bg-destructive/10 dark:data-[variant=destructive]:focus:bg-destructive/20 data-[variant=destructive]:focus:text-destructive data-[variant=destructive]:*:[svg]:!text-destructive",
+        // SVG handling
+        "[&_svg:not([class*='text-'])]:text-muted-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        // Disabled state
+        "data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed",
+        // Inset
+        "data-[inset]:pl-8",
         className
       )
     }, props)
@@ -4994,7 +5405,16 @@ function MenubarCheckboxItem(_a) {
     __spreadProps(__spreadValues({
       "data-slot": "menubar-checkbox-item",
       className: cn(
-        "focus:bg-accent focus:text-accent-foreground relative flex cursor-default items-center gap-2 rounded-xs py-1.5 pr-2 pl-8 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        // Layout
+        "relative flex cursor-default items-center gap-2 rounded-xs py-1.5 pr-2 pl-8 text-sm select-none",
+        // Focus state using foundation
+        states.focusAccent,
+        states.pressed,
+        states.outlineHidden,
+        // SVG handling
+        "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        // Disabled state
+        "data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed",
         className
       ),
       checked
@@ -5019,7 +5439,16 @@ function MenubarRadioItem(_a) {
     __spreadProps(__spreadValues({
       "data-slot": "menubar-radio-item",
       className: cn(
-        "focus:bg-accent focus:text-accent-foreground relative flex cursor-default items-center gap-2 rounded-xs py-1.5 pr-2 pl-8 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        // Layout
+        "relative flex cursor-default items-center gap-2 rounded-xs py-1.5 pr-2 pl-8 text-sm select-none",
+        // Focus state using foundation
+        states.focusAccent,
+        states.pressed,
+        states.outlineHidden,
+        // SVG handling
+        "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        // Disabled state
+        "data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed",
         className
       )
     }, props), {
@@ -5101,7 +5530,15 @@ function MenubarSubTrigger(_a) {
       "data-slot": "menubar-sub-trigger",
       "data-inset": inset,
       className: cn(
-        "focus:bg-accent focus:text-accent-foreground data-[state=open]:bg-accent data-[state=open]:text-accent-foreground flex cursor-default items-center rounded-sm px-2 py-1.5 text-sm outline-none select-none data-[inset]:pl-8",
+        // Layout
+        "flex cursor-default items-center rounded-sm px-2 py-1.5 text-sm select-none",
+        // Focus & open state using foundation
+        states.focusAccent,
+        states.dataStateOpen,
+        states.pressed,
+        states.outlineNone,
+        // Inset
+        "data-[inset]:pl-8",
         className
       )
     }, props), {
@@ -5301,7 +5738,12 @@ function TableRow(_a) {
     __spreadValues({
       "data-slot": "table-row",
       className: cn(
-        "hover:bg-muted/50 data-[state=selected]:bg-muted border-b transition-colors",
+        // Base styles
+        "border-b transition-colors",
+        // Hover state using foundation
+        states.hoverOverlay1,
+        // Selected state
+        states.dataStateSelected,
         className
       )
     }, props)
@@ -6701,6 +7143,7 @@ exports.TypographyH4 = TypographyH4;
 exports.TypographyP = TypographyP;
 exports.ValidationError = ValidationError;
 exports.avatarVariants = avatarVariants;
+exports.badgeVariants = badgeVariants;
 exports.buttonVariants = buttonVariants;
 exports.checkboxSchema = checkboxSchema;
 exports.cn = cn;

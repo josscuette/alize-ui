@@ -150,12 +150,17 @@ interface LabelProps extends React.ComponentProps<typeof LabelPrimitive.Root> {
  */
 declare function Label({ className, ...props }: LabelProps): React.ReactElement;
 
+/**
+ * Available tonal color options for badges
+ */
+type BadgeTonal = "default" | "sand" | "clay" | "lima" | "amber" | "forest" | "watercourse" | "atoll" | "royal" | "magenta" | "lavender" | "violet" | "lilac" | "science";
 declare const badgeVariants: (props?: ({
-    variant?: "default" | "destructive" | "outline" | "secondary" | "warning" | "success" | null | undefined;
+    variant?: "default" | "destructive" | "outline" | "secondary" | "deletable" | "warning" | "success" | "tonal" | null | undefined;
+    numeric?: boolean | null | undefined;
 } & class_variance_authority_types.ClassProp) | undefined) => string;
 /**
  * Badge component props interface
- * Extends native span element props and adds variant and asChild props
+ * Extends native span element props and adds variant, tonal, style, numeric, and asChild props
  */
 interface BadgeProps extends React.ComponentProps<"span">, VariantProps<typeof badgeVariants> {
     /**
@@ -163,6 +168,34 @@ interface BadgeProps extends React.ComponentProps<"span">, VariantProps<typeof b
      * @default false
      */
     asChild?: boolean;
+    /**
+     * Tonal color scheme for the badge.
+     * When set, this takes precedence over the variant prop for styling.
+     * Available colors: default, sand, clay, lima, amber, forest, watercourse, atoll, royal, magenta, lavender, violet, lilac, science
+     */
+    tonal?: BadgeTonal;
+    /**
+     * Style variant when using tonal colors.
+     * - "default": Subdued background with strong text
+     * - "outline": Transparent background with colored border
+     * - "reversed": Strong background with white text
+     * @default "default"
+     */
+    badgeStyle?: "default" | "outline" | "reversed";
+    /**
+     * Optional icon to display on the left side of the badge
+     */
+    iconLeft?: React.ReactNode;
+    /**
+     * Optional icon to display on the right side of the badge
+     */
+    iconRight?: React.ReactNode;
+    /**
+     * Callback when the badge delete button is clicked.
+     * When provided, displays a close icon on the right (unless iconRight is specified)
+     * and makes the badge deletable.
+     */
+    onDelete?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 /**
  * Badge component - A small status indicator or label
@@ -174,9 +207,19 @@ interface BadgeProps extends React.ComponentProps<"span">, VariantProps<typeof b
  * - `success`: Green badge for success or positive states
  * - `outline`: Outlined badge without background
  *
+ * NEW: Tonal color system with 14 color options and 3 style variants:
+ * - Use `tonal` prop for color (sand, clay, lima, amber, forest, etc.)
+ * - Use `badgeStyle` prop for appearance (default, outline, reversed)
+ * - Use `numeric` prop for number-only badges (optimized padding)
+ *
+ * Icons and deletable:
+ * - Use `iconLeft` for a left-side icon
+ * - Use `iconRight` for a right-side icon
+ * - Use `onDelete` to make the badge deletable (shows close icon and handles click)
+ *
  * Can be used as a link or other element via the asChild prop.
  *
- * @param props - Badge props including variant, asChild, and standard HTML span attributes
+ * @param props - Badge props including variant, tonal, badgeStyle, numeric, asChild, icons, and standard HTML span attributes
  * @returns A badge element
  *
  * @example
@@ -186,9 +229,21 @@ interface BadgeProps extends React.ComponentProps<"span">, VariantProps<typeof b
  * <Badge variant="warning">Pending</Badge>
  * <Badge variant="destructive">Error</Badge>
  *
- * // Other variants
- * <Badge variant="default">New</Badge>
- * <Badge variant="outline">Draft</Badge>
+ * // Tonal badges
+ * <Badge tonal="amber">New</Badge>
+ * <Badge tonal="royal" badgeStyle="reversed">Featured</Badge>
+ * <Badge tonal="forest" badgeStyle="outline">Eco</Badge>
+ *
+ * // Badges with icons
+ * <Badge iconLeft={<MaterialSymbol name="star" size={12} />}>Featured</Badge>
+ * <Badge iconRight={<MaterialSymbol name="arrow_forward" size={12} />}>Next</Badge>
+ *
+ * // Deletable badge
+ * <Badge onDelete={() => console.log('deleted')}>Removable</Badge>
+ *
+ * // Numeric badges
+ * <Badge tonal="science" numeric>42</Badge>
+ * <Badge tonal="magenta" badgeStyle="reversed" numeric>99+</Badge>
  *
  * // As a link
  * <Badge asChild>
@@ -196,7 +251,7 @@ interface BadgeProps extends React.ComponentProps<"span">, VariantProps<typeof b
  * </Badge>
  * ```
  */
-declare function Badge({ className, variant, asChild, ...props }: BadgeProps): React.ReactElement;
+declare function Badge({ className, variant, numeric, tonal, badgeStyle, asChild, iconLeft, iconRight, onDelete, children, ...props }: BadgeProps): React.ReactElement;
 
 declare const avatarVariants: (props?: ({
     size?: "sm" | "lg" | "xs" | "md" | null | undefined;
@@ -4638,4 +4693,4 @@ declare class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBou
     render(): string | number | bigint | boolean | Iterable<React.ReactNode> | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | react_jsx_runtime.JSX.Element | null | undefined;
 }
 
-export { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Alert, AlertDescription, AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger, AlertTitle, AppError, AspectRatio, Avatar, AvatarFallback, AvatarImage, Badge, Breadcrumb, BreadcrumbEllipsis, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator, Button, ButtonGroup, ButtonGroupSeparator, ButtonGroupText, type ButtonProps, Calendar, CalendarDayButton, Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Carousel, type CarouselApi, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, Checkbox, CheckboxCard, type CheckboxCardProps, type CheckboxProps, Collapsible, CollapsibleContent, CollapsibleTrigger, Combobox, type ComboboxOption, type ComboboxProps, Command, CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator, CommandShortcut, type ContactFormInput, ContextMenu, ContextMenuCheckboxItem, ContextMenuContent, ContextMenuItem, ContextMenuLabel, ContextMenuRadioGroup, ContextMenuRadioItem, ContextMenuSeparator, ContextMenuShortcut, ContextMenuSub, ContextMenuSubContent, ContextMenuSubTrigger, ContextMenuTrigger, DataTable, type DataTableColumn, type DataTableProps, DatePicker, type DatePickerProps, Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogOverlay, DialogPortal, DialogTitle, DialogTrigger, Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerOverlay, DrawerPortal, DrawerTitle, DrawerTrigger, DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger, type EmailInput, Empty, ErrorBoundary, type ErrorContext, ErrorLogger, FidelityProvider, FidelityToggle, Field, FieldContent, FieldDescription, FieldError, FieldGroup, FieldLabel, FieldLegend, FieldSeparator, FieldSet, FieldTitle, Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, HoverCard, HoverCardContent, HoverCardTrigger, Input, InputGroup, InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot, type InputProps, Item, JLLLogo, Kbd, KbdGroup, Label, type LoginFormInput, Logo, type LogoProps, MaterialSymbol, MaterialSymbolsProvider, Menubar, MenubarCheckboxItem, MenubarContent, MenubarItem, MenubarLabel, MenubarMenu, MenubarRadioGroup, MenubarRadioItem, MenubarSeparator, MenubarShortcut, MenubarSub, MenubarSubContent, MenubarSubTrigger, MenubarTrigger, NativeSelect, NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, NetworkError, Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious, type PasswordInput, Popover, PopoverAnchor, PopoverContent, PopoverTrigger, type ProfileFormInput, Progress, RadioGroup, RadioGroupCardItem, RadioGroupItem, type RegistrationFormInput, ResizableHandle, ResizablePanel, ResizablePanelGroup, ScrollArea, ScrollBar, Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectSeparator, SelectTrigger, SelectValue, Separator, Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger, Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupAction, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarInput, SidebarInset, SidebarMenu, SidebarMenuAction, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarMenuSkeleton, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem, SidebarProvider, SidebarRail, SidebarSeparator, SidebarTrigger, Skeleton, Slider, Spinner, Switch, SwitchCard, Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow, Tabs, TabsContent, TabsList, TabsTrigger, Textarea, ThemeToggle, Toaster, Toggle, ToggleGroup, ToggleGroupItem, Tooltip, TooltipContent, TooltipTrigger, TypographyBlockquote, TypographyCode, TypographyH1, TypographyH2, TypographyH3, TypographyH4, TypographyP, type UsernameInput, ValidationError, avatarVariants, buttonVariants, checkboxSchema, cn, commonSchemas, dateSchema, emailSchema, fileSchema, fileSizeSchema, fileTypeSchema, formatErrorMessage, handleAsyncError, integerSchema, isRetryableError, logoVariants, navigationMenuTriggerStyle, numberSchema, optionalStringSchema, passwordSchema, phoneSchema, positiveNumberSchema, requiredStringSchema, retryAsync, safeAsync, sanitizeEmail, sanitizeFileName, sanitizeHtml, sanitizeObjectKeys, sanitizeText, sanitizeUrl, selectSchema, strongPasswordSchema, textareaSchema, urlSchema, useFidelity, useFormField, useSidebar, usernameSchema, withTimeout };
+export { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Alert, AlertDescription, AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger, AlertTitle, AppError, AspectRatio, Avatar, AvatarFallback, AvatarImage, Badge, type BadgeProps, type BadgeTonal, Breadcrumb, BreadcrumbEllipsis, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator, Button, ButtonGroup, ButtonGroupSeparator, ButtonGroupText, type ButtonProps, Calendar, CalendarDayButton, Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Carousel, type CarouselApi, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, Checkbox, CheckboxCard, type CheckboxCardProps, type CheckboxProps, Collapsible, CollapsibleContent, CollapsibleTrigger, Combobox, type ComboboxOption, type ComboboxProps, Command, CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator, CommandShortcut, type ContactFormInput, ContextMenu, ContextMenuCheckboxItem, ContextMenuContent, ContextMenuItem, ContextMenuLabel, ContextMenuRadioGroup, ContextMenuRadioItem, ContextMenuSeparator, ContextMenuShortcut, ContextMenuSub, ContextMenuSubContent, ContextMenuSubTrigger, ContextMenuTrigger, DataTable, type DataTableColumn, type DataTableProps, DatePicker, type DatePickerProps, Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogOverlay, DialogPortal, DialogTitle, DialogTrigger, Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerOverlay, DrawerPortal, DrawerTitle, DrawerTrigger, DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger, type EmailInput, Empty, ErrorBoundary, type ErrorContext, ErrorLogger, FidelityProvider, FidelityToggle, Field, FieldContent, FieldDescription, FieldError, FieldGroup, FieldLabel, FieldLegend, FieldSeparator, FieldSet, FieldTitle, Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, HoverCard, HoverCardContent, HoverCardTrigger, Input, InputGroup, InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot, type InputProps, Item, JLLLogo, Kbd, KbdGroup, Label, type LoginFormInput, Logo, type LogoProps, MaterialSymbol, MaterialSymbolsProvider, Menubar, MenubarCheckboxItem, MenubarContent, MenubarItem, MenubarLabel, MenubarMenu, MenubarRadioGroup, MenubarRadioItem, MenubarSeparator, MenubarShortcut, MenubarSub, MenubarSubContent, MenubarSubTrigger, MenubarTrigger, NativeSelect, NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, NetworkError, Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious, type PasswordInput, Popover, PopoverAnchor, PopoverContent, PopoverTrigger, type ProfileFormInput, Progress, RadioGroup, RadioGroupCardItem, RadioGroupItem, type RegistrationFormInput, ResizableHandle, ResizablePanel, ResizablePanelGroup, ScrollArea, ScrollBar, Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectSeparator, SelectTrigger, SelectValue, Separator, Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger, Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupAction, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarInput, SidebarInset, SidebarMenu, SidebarMenuAction, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarMenuSkeleton, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem, SidebarProvider, SidebarRail, SidebarSeparator, SidebarTrigger, Skeleton, Slider, Spinner, Switch, SwitchCard, Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow, Tabs, TabsContent, TabsList, TabsTrigger, Textarea, ThemeToggle, Toaster, Toggle, ToggleGroup, ToggleGroupItem, Tooltip, TooltipContent, TooltipTrigger, TypographyBlockquote, TypographyCode, TypographyH1, TypographyH2, TypographyH3, TypographyH4, TypographyP, type UsernameInput, ValidationError, avatarVariants, badgeVariants, buttonVariants, checkboxSchema, cn, commonSchemas, dateSchema, emailSchema, fileSchema, fileSizeSchema, fileTypeSchema, formatErrorMessage, handleAsyncError, integerSchema, isRetryableError, logoVariants, navigationMenuTriggerStyle, numberSchema, optionalStringSchema, passwordSchema, phoneSchema, positiveNumberSchema, requiredStringSchema, retryAsync, safeAsync, sanitizeEmail, sanitizeFileName, sanitizeHtml, sanitizeObjectKeys, sanitizeText, sanitizeUrl, selectSchema, strongPasswordSchema, textareaSchema, urlSchema, useFidelity, useFormField, useSidebar, usernameSchema, withTimeout };
