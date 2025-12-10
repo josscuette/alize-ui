@@ -252,6 +252,24 @@ export const components: Component[] = [
     ],
     changelog: [
       {
+        version: "0.3.0",
+        date: "2025-12-04",
+        type: "changed",
+        description: "Harmonized hover/pressed states with foundation layer tokens"
+      },
+      {
+        version: "0.2.0",
+        date: "2025-11-26",
+        type: "fixed",
+        description: "Fixed xs size text alignment and link variant semantic tokens"
+      },
+      {
+        version: "0.1.1",
+        date: "2025-11-20",
+        type: "changed",
+        description: "Refactored button component with foundation layer styles"
+      },
+      {
         version: "0.1.0",
         date: "2025-11-17",
         type: "added",
@@ -1953,6 +1971,18 @@ import { MaterialSymbol } from 'alize-ui';
     ],
     changelog: [
       {
+        version: "0.1.2",
+        date: "2025-11-30",
+        type: "fixed",
+        description: "Avatar fallback now displays correctly when switching showImage in playground"
+      },
+      {
+        version: "0.1.1",
+        date: "2025-11-30",
+        type: "changed",
+        description: "AvatarFallback now shows immediately with delayMs=0 by default"
+      },
+      {
         version: "0.1.0",
         date: "2025-11-17",
         type: "added",
@@ -2269,6 +2299,18 @@ import { Button } from 'alize-ui';
       }
     ],
     changelog: [
+      {
+        version: "0.1.2",
+        date: "2025-11-30",
+        type: "changed",
+        description: "Spinner now uses className instead of size prop for sizing"
+      },
+      {
+        version: "0.1.1",
+        date: "2025-11-23",
+        type: "fixed",
+        description: "Removed invalid size prop from Spinner component"
+      },
       {
         version: "0.1.0",
         date: "2025-11-17",
@@ -3278,10 +3320,16 @@ function Navigation() {
     ],
     changelog: [
       {
-        version: "0.1.0",
-        date: "2025-11-17",
+        version: "0.1.1",
+        date: "2025-12-01",
         type: "added",
-        description: "Initial release of Logo"
+        description: "Added collapsed prop for collapsible navigation support"
+      },
+      {
+        version: "0.1.0",
+        date: "2025-12-01",
+        type: "added",
+        description: "Initial release of JLL brand Logo component with theme support"
       }
     ]
   },
@@ -3411,6 +3459,18 @@ import { Label } from 'alize-ui';
       }
     ],
     changelog: [
+      {
+        version: "0.1.2",
+        date: "2025-12-01",
+        type: "fixed",
+        description: "Fixed hydration error on theme Switch"
+      },
+      {
+        version: "0.1.1",
+        date: "2025-11-26",
+        type: "fixed",
+        description: "Adjusted thumb position in unchecked state (2px → 1px)"
+      },
       {
         version: "0.1.0",
         date: "2025-11-17",
@@ -4713,6 +4773,12 @@ import { Button } from 'alize-ui';
     ],
     changelog: [
       {
+        version: "0.1.1",
+        date: "2025-11-20",
+        type: "fixed",
+        description: "Added SheetTitle for accessibility in SheetContent"
+      },
+      {
         version: "0.1.0",
         date: "2025-11-17",
         type: "added",
@@ -4826,6 +4892,12 @@ const [date, setDate] = useState<Date | undefined>(new Date());
       { name: "text-subdued", category: "text", cssVariable: "var(--semantic-text-subdued)", usage: "Disabled dates" }
     ],
     changelog: [
+      {
+        version: "0.1.1",
+        date: "2025-11-30",
+        type: "fixed",
+        description: "Fixed onSelect type compatibility"
+      },
       {
         version: "0.1.0",
         date: "2025-11-17",
@@ -5219,6 +5291,12 @@ const [date, setDate] = useState<Date>();
     importPath: "alize-ui",
     props: [],
     changelog: [
+      {
+        version: "0.1.1",
+        date: "2025-11-30",
+        type: "added",
+        description: "Added Toaster component to layout for toast notifications"
+      },
       {
         version: "0.1.0",
         date: "2025-11-17",
