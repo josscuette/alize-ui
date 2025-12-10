@@ -62,6 +62,8 @@
     "@radix-ui/react-toggle": "^1.1.0",
     "@radix-ui/react-toggle-group": "^1.1.0",
     "@radix-ui/react-tooltip": "^1.2.0",
+    "ag-grid-community": "^35.0.0",
+    "ag-grid-react": "^35.0.0",
     "cmdk": "^1.0.0",
     "date-fns": "^4.0.0",
     "embla-carousel-react": "^8.0.0",
@@ -81,6 +83,12 @@
     "zod": "^3.0.0 || ^4.0.0"
   },
   "peerDependenciesMeta": {
+    "ag-grid-community": {
+      "optional": true
+    },
+    "ag-grid-react": {
+      "optional": true
+    },
     "@hookform/resolvers": {
       "optional": true
     },
@@ -151,6 +159,7 @@
     "@swc/helpers": "^0.5.17",
     "@tailwindcss/cli": "^4",
     "@tailwindcss/postcss": "^4",
+    "@tanstack/react-table": "^8.21.3",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",
@@ -159,6 +168,8 @@
     "@types/react-dom": "^19",
     "@vitest/coverage-v8": "^4.0.13",
     "@vitest/ui": "^4.0.13",
+    "ag-grid-community": "^35.0.0",
+    "ag-grid-react": "^35.0.0",
     "browserslist": "^4.28.0",
     "caniuse-lite": "^1.0.30001756",
     "cmdk": "^1.1.1",

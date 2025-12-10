@@ -1063,6 +1063,108 @@ const options: Highcharts.Options = {
     ]
   },
   {
+    title: "Sparklines",
+    description: "Compact inline charts designed for embedding in tables, cards, and dashboards. Includes line sparklines, bar sparklines with RAG thresholds, bullet charts, and trend indicators. Built on Highcharts with full Alize token integration.",
+    category: "dataviz",
+    component: "sparklines",
+    importPath: "alize-ui",
+    props: [
+      {
+        name: "data",
+        type: "number[]",
+        required: true,
+        description: "Array of numeric data points"
+      },
+      {
+        name: "type",
+        type: "line | area",
+        default: "line",
+        required: false,
+        description: "Chart type for Sparkline component"
+      },
+      {
+        name: "color",
+        type: "string",
+        required: false,
+        description: "Chart color (CSS variable or hex)"
+      },
+      {
+        name: "thresholds",
+        type: "{ warning?: number, danger?: number }",
+        required: false,
+        description: "RAG thresholds for Sparkbar (auto-colors bars)"
+      },
+      {
+        name: "width",
+        type: "number",
+        default: "120",
+        required: false,
+        description: "Width in pixels"
+      },
+      {
+        name: "height",
+        type: "number",
+        default: "32",
+        required: false,
+        description: "Height in pixels"
+      }
+    ],
+    examples: [
+      {
+        title: "Sparkline",
+        description: "Line or area sparklines for showing trends",
+        code: "import { Sparkline } from 'alize-ui';\n\n// Simple line\n<Sparkline data={[10, 25, 15, 30, 20, 35]} />\n\n// Area with color\n<Sparkline\n  data={cpuHistory}\n  type=\"area\"\n  color=\"var(--semantic-dataviz-rag-successmedium)\"\n  width={100}\n  height={28}\n/>"
+      },
+      {
+        title: "Sparkbar",
+        description: "Bar sparklines with optional RAG thresholds",
+        code: "import { Sparkbar } from 'alize-ui';\n\n// With RAG coloring\n<Sparkbar\n  data={[30, 45, 80, 65, 90, 50]}\n  thresholds={{ warning: 60, danger: 80 }}\n  width={100}\n  height={28}\n/>\n\n// Custom color\n<Sparkbar\n  data={memoryUsage}\n  color=\"var(--semantic-dataviz-ct-3)\"\n/>"
+      },
+      {
+        title: "Spark Bullet",
+        description: "Bullet chart showing value against target and ranges",
+        code: "import { SparkBullet } from 'alize-ui';\n\n<SparkBullet\n  value={75}\n  target={80}\n  ranges={[30, 70, 100]}\n  width={120}\n  height={24}\n/>"
+      },
+      {
+        title: "Spark Trend",
+        description: "Value with trend indicator and optional sparkline",
+        code: "import { SparkTrend } from 'alize-ui';\n\n<SparkTrend\n  value={1250}\n  change={12.5}\n  formatValue={(v) => `$${v.toLocaleString()}`}\n  history={[1000, 1100, 1150, 1200, 1250]}\n/>"
+      },
+      {
+        title: "In Table",
+        description: "Sparklines embedded in table cells for dashboards",
+        code: "import { DataTable, Sparkline, Sparkbar, SparkTrend } from 'alize-ui';\n\nconst columns: ColumnDef<Server>[] = [\n  { accessorKey: 'name', header: 'Server' },\n  {\n    accessorKey: 'cpuHistory',\n    header: 'CPU',\n    cell: ({ row }) => (\n      <Sparkline\n        data={row.getValue('cpuHistory')}\n        type=\"area\"\n        width={100}\n        height={28}\n      />\n    ),\n  },\n  {\n    accessorKey: 'memoryHistory',\n    header: 'Memory',\n    cell: ({ row }) => (\n      <Sparkbar\n        data={row.getValue('memoryHistory')}\n        thresholds={{ warning: 70, danger: 85 }}\n        width={100}\n        height={28}\n      />\n    ),\n  },\n];\n\n<DataTable columns={columns} data={servers} />"
+      }
+    ],
+    bestPractices: [
+      "Keep sparklines small (80-150px wide, 24-40px tall)",
+      "Use consistent sizing across a table or dashboard",
+      "Use RAG thresholds to highlight important values",
+      "Combine with SparkTrend for KPI displays"
+    ],
+    do: [
+      "Use in table cells for compact data visualization",
+      "Use area type for cumulative or volume data",
+      "Use Sparkbar with thresholds for resource monitoring",
+      "Use SparkTrend for KPIs with change indicators",
+      "Match colors to the semantic meaning of the data"
+    ],
+    dont: [
+      "Don't use for detailed analysis (use full charts)",
+      "Don't add too many sparklines in one row",
+      "Don't use without providing context (labels, headers)"
+    ],
+    accessibility: "- Each sparkline has an aria-label\n- Colors are from accessible Alize palettes\n- Trend indicators include text values",
+    tokens: [
+      { name: "dataviz-rag-successmedium", category: "surface", cssVariable: "var(--semantic-dataviz-rag-successmedium)", usage: "Good/positive values" },
+      { name: "dataviz-rag-warningmedium", category: "surface", cssVariable: "var(--semantic-dataviz-rag-warningmedium)", usage: "Warning threshold" },
+      { name: "dataviz-rag-dangermedium", category: "surface", cssVariable: "var(--semantic-dataviz-rag-dangermedium)", usage: "Danger threshold" },
+      { name: "dataviz-ct-2", category: "surface", cssVariable: "var(--semantic-dataviz-ct-2)", usage: "Default chart color" },
+      { name: "text-default", category: "text", cssVariable: "var(--semantic-text-default)", usage: "Value text" },
+      { name: "text-subdued", category: "text", cssVariable: "var(--semantic-text-subdued)", usage: "Trend percentages" }
+    ]
+  },
+  {
     title: "Input",
     description: "Form controls aligned on the typography and focus ring tokens. Supports all standard HTML input types with validation states.",
     category: "atoms",
@@ -4822,6 +4924,410 @@ import { Button } from 'alize-ui';
     tokens: [
       { name: "stroke-subdued", category: "stroke", cssVariable: "var(--semantic-stroke-subdued)", usage: "Panel borders" },
       { name: "surface-secondary", category: "surface", cssVariable: "var(--semantic-surface-secondary)", usage: "Handle background" }
+    ]
+  },
+  {
+    title: "Data Table",
+    description: "A flexible, headless data table built on TanStack Table that uses existing shadcn/ui components. Provides sorting, filtering, pagination, and row selection while maintaining full design consistency with the rest of the library.",
+    category: "organisms",
+    component: "DataTable",
+    importPath: "alize-ui",
+    props: [
+      {
+        name: "columns",
+        type: "ColumnDef<TData, TValue>[]",
+        required: true,
+        description: "Column definitions using TanStack Table's ColumnDef type"
+      },
+      {
+        name: "data",
+        type: "TData[]",
+        required: true,
+        description: "Array of data objects to display"
+      },
+      {
+        name: "enableRowSelection",
+        type: "boolean",
+        default: "false",
+        required: false,
+        description: "Enable row selection with checkboxes"
+      },
+      {
+        name: "enableFiltering",
+        type: "boolean",
+        default: "false",
+        required: false,
+        description: "Show filter input above the table"
+      },
+      {
+        name: "filterColumn",
+        type: "string",
+        required: false,
+        description: "Column key to filter by (default: first column)"
+      },
+      {
+        name: "filterPlaceholder",
+        type: "string",
+        default: "Filter...",
+        required: false,
+        description: "Placeholder text for filter input"
+      },
+      {
+        name: "enablePagination",
+        type: "boolean",
+        default: "false",
+        required: false,
+        description: "Enable pagination controls"
+      },
+      {
+        name: "pageSize",
+        type: "number",
+        default: "10",
+        required: false,
+        description: "Number of rows per page"
+      },
+      {
+        name: "emptyMessage",
+        type: "string",
+        default: "No results.",
+        required: false,
+        description: "Message shown when no data"
+      },
+      {
+        name: "onRowSelectionChange",
+        type: "(selectedRows: TData[]) => void",
+        required: false,
+        description: "Callback when row selection changes"
+      },
+      {
+        name: "enableGlobalFilter",
+        type: "boolean",
+        default: "false",
+        required: false,
+        description: "Enable global search across all columns"
+      },
+      {
+        name: "enableColumnVisibility",
+        type: "boolean",
+        default: "false",
+        required: false,
+        description: "Show column visibility toggle dropdown"
+      },
+      {
+        name: "enableColumnReordering",
+        type: "boolean",
+        default: "false",
+        required: false,
+        description: "Enable drag-and-drop column reordering"
+      },
+      {
+        name: "enableColumnPinning",
+        type: "boolean",
+        default: "false",
+        required: false,
+        description: "Enable column pinning (sticky columns on left)"
+      },
+      {
+        name: "pinnedColumns",
+        type: "string[]",
+        default: "[]",
+        required: false,
+        description: "Array of column IDs to pin to the left initially"
+      },
+      {
+        name: "variant",
+        type: '"bordered" | "plain"',
+        default: '"bordered"',
+        required: false,
+        description: "Table border style - bordered has borders around all edges, plain only has row separators"
+      },
+      {
+        name: "density",
+        type: '"default" | "comfortable"',
+        default: '"default"',
+        required: false,
+        description: "Row density - controls row height and padding"
+      },
+      {
+        name: "pageSizeOptions",
+        type: "number[]",
+        default: "[5, 10, 20, 50]",
+        required: false,
+        description: "Available page size options"
+      }
+    ],
+    examples: [
+      {
+        title: "Basic Table",
+        description: "Simple table with columns and data",
+        code: "import { DataTable } from 'alize-ui';\nimport type { ColumnDef } from 'alize-ui';\n\nconst columns: ColumnDef<Employee>[] = [\n  { accessorKey: 'name', header: 'Name' },\n  { accessorKey: 'email', header: 'Email' },\n  { accessorKey: 'department', header: 'Department' },\n  { accessorKey: 'role', header: 'Role' },\n  { accessorKey: 'status', header: 'Status' },\n];\n\n<DataTable columns={columns} data={employees} />"
+      },
+      {
+        title: "With Sorting",
+        description: "Add sortable headers using the SortableHeader component",
+        code: "import { DataTable, SortableHeader } from 'alize-ui';\n\nconst columns: ColumnDef<Employee>[] = [\n  {\n    accessorKey: 'name',\n    header: ({ column }) => <SortableHeader column={column}>Name</SortableHeader>,\n  },\n  {\n    accessorKey: 'salary',\n    header: ({ column }) => <SortableHeader column={column}>Salary</SortableHeader>,\n    cell: ({ row }) => formatCurrency(row.getValue('salary')),\n  },\n];\n\n<DataTable columns={columns} data={employees} />"
+      },
+      {
+        title: "With Pagination",
+        description: "Enable pagination with page size selector",
+        code: "<DataTable\n  columns={columns}\n  data={employees}\n  enablePagination\n  pageSize={10}\n  pageSizeOptions={[5, 10, 20, 50]}\n/>"
+      },
+      {
+        title: "With Filtering",
+        description: "Global search across all columns",
+        code: "<DataTable\n  columns={columns}\n  data={employees}\n  enableGlobalFilter\n/>"
+      },
+      {
+        title: "Row Selection",
+        description: "Enable row selection with checkboxes",
+        code: "import { DataTable, createSelectionColumn } from 'alize-ui';\n\nconst columns: ColumnDef<Employee>[] = [\n  createSelectionColumn<Employee>(),\n  { accessorKey: 'name', header: 'Name' },\n  { accessorKey: 'email', header: 'Email' },\n];\n\n<DataTable\n  columns={columns}\n  data={employees}\n  enableRowSelection\n  onRowSelectionChange={(rows) => console.log(rows)}\n/>"
+      },
+      {
+        title: "Column Visibility",
+        description: "Toggle column visibility with dropdown",
+        code: "<DataTable\n  columns={columns}\n  data={employees}\n  enableColumnVisibility\n/>"
+      },
+      {
+        title: "Column Reordering",
+        description: "Drag and drop to reorder columns",
+        code: "<DataTable\n  columns={columns}\n  data={employees}\n  enableColumnReordering\n/>"
+      },
+      {
+        title: "Full Featured",
+        description: "All features combined",
+        code: "<DataTable\n  columns={columns}\n  data={employees}\n  enableRowSelection\n  enableGlobalFilter\n  enablePagination\n  enableColumnVisibility\n  enableColumnReordering\n  pageSize={10}\n/>"
+      },
+      {
+        title: "With Sparklines",
+        description: "Embed sparkline charts in table cells for dashboards",
+        code: "import { DataTable, Sparkline, Sparkbar, SparkTrend, SparkBullet } from 'alize-ui';\n\nconst columns: ColumnDef<Server>[] = [\n  { accessorKey: 'name', header: 'Server' },\n  {\n    accessorKey: 'cpuHistory',\n    header: 'CPU',\n    cell: ({ row }) => (\n      <Sparkline\n        data={row.getValue('cpuHistory')}\n        type=\"area\"\n        width={90}\n        height={28}\n      />\n    ),\n  },\n  {\n    accessorKey: 'memoryHistory',\n    header: 'Memory',\n    cell: ({ row }) => (\n      <Sparkbar\n        data={row.getValue('memoryHistory')}\n        thresholds={{ warning: 70, danger: 85 }}\n        width={90}\n        height={28}\n      />\n    ),\n  },\n  {\n    accessorKey: 'requests',\n    header: 'Requests',\n    cell: ({ row }) => (\n      <SparkTrend\n        value={row.getValue('requests')}\n        history={row.original.requestsHistory}\n        formatValue={(v) => v.toLocaleString()}\n      />\n    ),\n  },\n];\n\n<DataTable columns={columns} data={servers} />"
+      }
+    ],
+    bestPractices: [
+      "Use SortableHeader for columns that should be sortable",
+      "Use createSelectionColumn() helper for row selection",
+      "Set filterColumn to the most commonly searched field",
+      "Use pageSize appropriate for your viewport size"
+    ],
+    do: [
+      "Use for moderate-sized datasets (< 10,000 rows)",
+      "Combine with existing shadcn/ui components for custom cells",
+      "Use TypeScript generics for type-safe column definitions",
+      "Leverage TanStack Table's full API for advanced customization"
+    ],
+    dont: [
+      "Don't use for very large datasets (use AG Grid or virtualized solutions)",
+      "Don't forget to memoize columns to prevent unnecessary re-renders",
+      "Don't mix accessorKey and accessorFn in the same column"
+    ],
+    accessibility: "- Full keyboard navigation\n- ARIA labels on checkboxes\n- Focus management\n- Screen reader compatible",
+    tokens: [
+      { name: "card", category: "surface", cssVariable: "var(--card)", usage: "Table background" },
+      { name: "card-foreground", category: "text", cssVariable: "var(--card-foreground)", usage: "Table text" },
+      { name: "border", category: "stroke", cssVariable: "var(--border)", usage: "Table borders" },
+      { name: "muted", category: "surface", cssVariable: "var(--muted)", usage: "Header background" },
+      { name: "muted-foreground", category: "text", cssVariable: "var(--muted-foreground)", usage: "Header text" },
+      { name: "accent", category: "surface", cssVariable: "var(--accent)", usage: "Row hover and selection" }
+    ],
+    interactiveProps: [
+      {
+        name: "sorting",
+        label: "Sorting",
+        controlType: "boolean",
+        defaultValue: "true"
+      },
+      {
+        name: "filtering",
+        label: "Global Filter",
+        controlType: "boolean",
+        defaultValue: "true"
+      },
+      {
+        name: "pagination",
+        label: "Pagination",
+        controlType: "boolean",
+        defaultValue: "true"
+      },
+      {
+        name: "rowSelection",
+        label: "Row Selection",
+        controlType: "boolean",
+        defaultValue: "true"
+      },
+      {
+        name: "columnVisibility",
+        label: "Column Visibility",
+        controlType: "boolean",
+        defaultValue: "true"
+      },
+      {
+        name: "columnReordering",
+        label: "Column Reordering",
+        controlType: "boolean",
+        defaultValue: "false"
+      },
+      {
+        name: "columnPinning",
+        label: "Column Pinning",
+        controlType: "boolean",
+        defaultValue: "true"
+      },
+      {
+        name: "variant",
+        label: "Variant",
+        controlType: "select",
+        options: [
+          { value: "bordered", label: "Bordered" },
+          { value: "plain", label: "Plain" }
+        ],
+        defaultValue: "bordered"
+      },
+      {
+        name: "density",
+        label: "Density",
+        controlType: "select",
+        options: [
+          { value: "default", label: "Default" },
+          { value: "comfortable", label: "Comfortable" }
+        ],
+        defaultValue: "default"
+      }
+    ],
+    changelog: [
+      {
+        version: "0.2.0",
+        date: "2025-12-10",
+        type: "added",
+        description: "Initial release of DataTable with sorting, filtering, pagination, row selection, column visibility, and column reordering"
+      }
+    ]
+  },
+  {
+    title: "Data List",
+    description: "A flexible list component for displaying items with thumbnails, titles, subtitles, and actions. Perfect for property listings, contact lists, file browsers, and other card-like list views.",
+    category: "organisms",
+    component: "DataList",
+    importPath: "alize-ui",
+    props: [
+      {
+        name: "children",
+        type: "ReactNode",
+        required: true,
+        description: "DataListItem or DataListGroup components"
+      },
+      {
+        name: "density",
+        type: '"default" | "comfortable" | "compact"',
+        default: '"default"',
+        required: false,
+        description: "Row density - controls item height and padding"
+      },
+      {
+        name: "dividers",
+        type: "boolean",
+        default: "true",
+        required: false,
+        description: "Whether to show dividers between items"
+      },
+      {
+        name: "bordered",
+        type: "boolean",
+        default: "false",
+        required: false,
+        description: "Whether the list has a border and rounded corners"
+      }
+    ],
+    examples: [
+      {
+        title: "File Manager",
+        description: "List files with type icons, sizes, and sharing indicators",
+        code: "import { DataList, DataListItem } from 'alize-ui';\n\nconst FileIcon = ({ type }) => (\n  <div className={cn('flex h-10 w-10 items-center justify-center rounded-lg bg-muted', iconColors[type])}>\n    <MaterialSymbol name={iconNames[type]} size={24} />\n  </div>\n);\n\n<DataList bordered>\n  {files.map((file) => (\n    <DataListItem\n      key={file.id}\n      id={file.id}\n      title={file.name}\n      subtitle={`${file.size} • ${file.modified}`}\n      thumbnail={<FileIcon type={file.type} />}\n      metadata={file.shared && <MaterialSymbol name=\"group\" size={16} />}\n      actions={[\n        { label: 'Download', icon: 'download', onClick: () => {} },\n        { label: 'Share', icon: 'share', onClick: () => {} },\n        { label: 'Delete', icon: 'delete', onClick: () => {}, destructive: true },\n      ]}\n    />\n  ))}\n</DataList>"
+      },
+      {
+        title: "Notification Center",
+        description: "Notifications with unread indicators and avatars",
+        code: "<DataList>\n  {notifications.map((notif) => (\n    <DataListItem\n      key={notif.id}\n      id={notif.id}\n      title={notif.title}\n      subtitle={notif.message}\n      thumbnail={notif.avatar}\n      className={cn(!notif.read && 'bg-blue-50 dark:bg-blue-950/20')}\n      metadata={\n        <div className=\"flex items-center gap-2\">\n          <span className=\"text-xs\">{notif.time}</span>\n          {!notif.read && <div className=\"h-2 w-2 rounded-full bg-blue-500\" />}\n        </div>\n      }\n      actions={[\n        { label: 'Mark as read', icon: 'check', onClick: () => {} },\n        { label: 'Delete', icon: 'delete', onClick: () => {}, destructive: true },\n      ]}\n    />\n  ))}\n</DataList>"
+      },
+      {
+        title: "Product Catalog",
+        description: "E-commerce products with pricing, stock, and ratings",
+        code: "<DataList bordered density=\"comfortable\">\n  {products.map((product) => (\n    <DataListItem\n      key={product.id}\n      id={product.id}\n      title={product.name}\n      thumbnail={product.image}\n      actions={productActions}\n    >\n      <div className=\"space-y-1\">\n        <div className=\"font-medium\">{product.name}</div>\n        <div className=\"flex items-center gap-3 text-sm\">\n          <span className=\"font-semibold\">${product.price}</span>\n          <span className=\"text-muted-foreground\">{product.category}</span>\n          <div className=\"flex items-center gap-1\">\n            <MaterialSymbol name=\"star\" size={14} className=\"text-amber-500\" />\n            <span>{product.rating}</span>\n          </div>\n        </div>\n        <Badge variant={product.stock > 0 ? 'outline' : 'destructive'}>\n          {product.stock > 0 ? 'In stock' : 'Out of stock'}\n        </Badge>\n      </div>\n    </DataListItem>\n  ))}\n</DataList>"
+      },
+      {
+        title: "Task List",
+        description: "Todo items with priority indicators and due dates",
+        code: "const PriorityIndicator = ({ priority }) => (\n  <div className={cn('h-full w-1 rounded-full', priorityColors[priority])} />\n);\n\n<DataList bordered>\n  {tasks.map((task) => (\n    <DataListItem\n      key={task.id}\n      id={task.id}\n      title={task.title}\n      selectable\n      selected={completedTasks.has(task.id)}\n      onSelectChange={(checked) => toggleTask(task.id, checked)}\n      thumbnail={<PriorityIndicator priority={task.priority} />}\n    >\n      <div className={cn('space-y-1', isCompleted && 'opacity-50 line-through')}>\n        <div className=\"font-medium\">{task.title}</div>\n        <div className=\"flex items-center gap-3 text-xs text-muted-foreground\">\n          <span>{task.project}</span>\n          <span className={cn(task.dueDate === 'Overdue' && 'text-red-500')}>\n            {task.dueDate}\n          </span>\n        </div>\n      </div>\n    </DataListItem>\n  ))}\n</DataList>"
+      },
+      {
+        title: "Email Inbox",
+        description: "Messages with subject preview, stars, and attachments",
+        code: "<DataList>\n  {messages.map((msg) => (\n    <DataListItem\n      key={msg.id}\n      id={msg.id}\n      title={msg.from}\n      thumbnail={msg.avatar}\n      className={cn(msg.unread && 'bg-blue-50')}\n      actions={messageActions}\n    >\n      <div className=\"space-y-0.5 min-w-0\">\n        <div className=\"flex items-center gap-2\">\n          <span className={cn('truncate', msg.unread && 'font-semibold')}>{msg.from}</span>\n          {msg.starred && <MaterialSymbol name=\"star\" size={14} className=\"text-amber-500\" />}\n          {msg.hasAttachment && <MaterialSymbol name=\"attach_file\" size={14} />}\n          <span className=\"text-xs text-muted-foreground ml-auto\">{msg.time}</span>\n        </div>\n        <div className=\"text-sm truncate\">{msg.subject}</div>\n        <div className=\"text-xs text-muted-foreground truncate\">{msg.preview}</div>\n      </div>\n    </DataListItem>\n  ))}\n</DataList>"
+      },
+      {
+        title: "Media Gallery",
+        description: "Videos and images with duration, resolution, and size",
+        code: "const MediaThumbnail = ({ item }) => (\n  <div className=\"relative h-16 w-24 overflow-hidden rounded-lg\">\n    <img src={item.thumbnail} className=\"h-full w-full object-cover\" />\n    {item.type === 'video' && (\n      <>\n        <div className=\"absolute inset-0 flex items-center justify-center bg-black/30\">\n          <MaterialSymbol name=\"play_circle\" size={24} className=\"text-white\" />\n        </div>\n        <div className=\"absolute bottom-1 right-1 rounded bg-black/70 px-1 text-[10px] text-white\">\n          {item.duration}\n        </div>\n      </>\n    )}\n  </div>\n);\n\n<DataList bordered density=\"comfortable\">\n  {mediaItems.map((item) => (\n    <DataListItem\n      key={item.id}\n      id={item.id}\n      title={item.name}\n      thumbnail={<MediaThumbnail item={item} />}\n      actions={mediaActions}\n    >\n      <div className=\"space-y-1\">\n        <div className=\"font-medium\">{item.name}</div>\n        <div className=\"flex gap-3 text-xs text-muted-foreground\">\n          <span>{item.resolution}</span>\n          <span>{item.size}</span>\n          <span>{item.date}</span>\n        </div>\n      </div>\n    </DataListItem>\n  ))}\n</DataList>"
+      },
+      {
+        title: "Grouped List",
+        description: "Items organized into collapsible groups",
+        code: "<DataList bordered>\n  <DataListGroup title=\"Active\" icon=\"check_circle\" collapsible>\n    {activeItems.map((item) => (\n      <DataListItem key={item.id} {...item} />\n    ))}\n  </DataListGroup>\n  <DataListGroup title=\"Pending\" icon=\"pending\" collapsible>\n    {pendingItems.map((item) => (\n      <DataListItem key={item.id} {...item} />\n    ))}\n  </DataListGroup>\n</DataList>"
+      },
+      {
+        title: "Empty State",
+        description: "Show when there are no items",
+        code: "<DataList bordered>\n  <DataListEmpty\n    icon=\"folder_open\"\n    title=\"No files here yet\"\n    description=\"Upload your first file or create a new folder.\"\n    action={\n      <div className=\"flex gap-2\">\n        <Button><MaterialSymbol name=\"upload\" /> Upload</Button>\n        <Button variant=\"outline\"><MaterialSymbol name=\"create_new_folder\" /> New Folder</Button>\n      </div>\n    }\n  />\n</DataList>"
+      },
+      {
+        title: "Loading State",
+        description: "Skeleton loading placeholder",
+        code: "<DataList bordered>\n  <DataListSkeleton count={4} showThumbnail />\n</DataList>"
+      }
+    ],
+    bestPractices: [
+      "Use thumbnails consistently - either all items have them or none do",
+      "Keep action menus to 4-5 options maximum",
+      "Use groups to organize large lists logically",
+      "Use the comfortable density for touch interfaces"
+    ],
+    do: [
+      "Use for displaying lists of similar items with rich content",
+      "Use groups to categorize items logically",
+      "Provide meaningful empty states",
+      "Include loading skeletons for async data"
+    ],
+    dont: [
+      "Don't use for tabular data with many columns - use DataTable instead",
+      "Don't nest DataLists within DataLists",
+      "Don't use for navigation - use NavigationMenu instead"
+    ],
+    accessibility: `- Uses proper list semantics (role="list", role="listitem")
+- Expandable items have aria-expanded attributes
+- Selection checkboxes have proper labels
+- Action menus are keyboard accessible`,
+    interactiveProps: [
+      {
+        name: "useCase",
+        label: "Use Case",
+        controlType: "select",
+        options: [
+          { value: "files", label: "📁 File Manager" },
+          { value: "notifications", label: "🔔 Notifications" },
+          { value: "products", label: "🛒 Products" },
+          { value: "tasks", label: "✅ Tasks" },
+          { value: "messages", label: "✉️ Messages" },
+          { value: "media", label: "🎬 Media Gallery" }
+        ],
+        defaultValue: "files"
+      }
+    ],
+    changelog: [
+      {
+        version: "0.2.0",
+        date: "2025-12-10",
+        type: "added",
+        description: "Initial release of DataList with grouping, selection, expandable items, and custom content support"
+      }
     ]
   }
 ];

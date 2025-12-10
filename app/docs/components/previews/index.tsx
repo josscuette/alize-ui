@@ -70,6 +70,21 @@ import { DatePickerPreview } from './date-picker-preview';
 import { ToastPreview } from './toast-preview';
 import { ResizablePreview } from './resizable-preview';
 
+// Data Table preview
+import { DataTablePreview, DataTableInteractivePreview } from './data-table-preview';
+
+// DataList preview
+import { 
+  DataListDefaultPreview, 
+  DataListInteractivePreview 
+} from './data-list-preview';
+
+// Sparklines preview - loaded dynamically for Highcharts
+const SparklinesPreview = dynamic(
+  () => import('./sparklines-preview').then(mod => mod.SparklinesPreview),
+  { ssr: false, loading: () => <div className="animate-pulse h-[100px] bg-muted rounded-lg" /> }
+);
+
 // DataViz previews - loaded dynamically to avoid SSR issues with Highcharts
 const LineChartsPreview = dynamic(
   () => import('./line-charts-preview').then(mod => mod.LineChartsPreview),
@@ -118,6 +133,9 @@ const INTERACTIVE_PREVIEW_REGISTRY: Record<string, InteractivePreviewFunction> =
   // Molecules
   'Progress': ProgressInteractivePreview,
   'Alert': AlertInteractivePreview,
+  // Organisms
+  'DataTable': DataTableInteractivePreview as InteractivePreviewFunction,
+  'DataList': DataListInteractivePreview as InteractivePreviewFunction,
 };
 
 /**
@@ -209,12 +227,15 @@ const PREVIEW_REGISTRY: Record<string, PreviewFunction | DynamicPreviewComponent
   'DatePicker': DatePickerPreview,
   'Toast': ToastPreview,
   'Resizable': ResizablePreview,
+  'DataTable': DataTablePreview,
+  'DataList': DataListDefaultPreview,
   
   // DataViz (loaded dynamically - no SSR)
   'line-charts': LineChartsPreview,
   'bar-charts': BarChartsPreview,
   'pie-charts': PieChartsPreview,
   'advanced-patterns': AdvancedPatternsPreview,
+  'sparklines': SparklinesPreview,
 };
 
 /**
@@ -316,5 +337,11 @@ export {
   BarChartsPreview,
   PieChartsPreview,
   AdvancedPatternsPreview,
+  // AG Grid (dynamic)
+  // DataTable
+  DataTablePreview,
+  DataTableInteractivePreview,
+  // Sparklines
+  SparklinesPreview,
 };
 

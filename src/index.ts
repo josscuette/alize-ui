@@ -275,8 +275,39 @@ export {
   TableHeader,
   TableRow,
 } from './components/ui/table'
-export { DataTable } from './components/ui/data-table'
-export type { DataTableColumn, DataTableProps } from './components/ui/data-table'
+export { DataTable, createSelectionColumn, SortableHeader } from './components/ui/data-table'
+export type { DataTableProps, ColumnDef } from './components/ui/data-table'
+export { 
+  DataList, 
+  DataListGroup, 
+  DataListItem, 
+  DataListEmpty, 
+  DataListSkeleton 
+} from './components/ui/data-list'
+export type { 
+  DataListProps, 
+  DataListGroupProps, 
+  DataListItemProps, 
+  DataListEmptyProps, 
+  DataListSkeletonProps,
+  DataListAction 
+} from './components/ui/data-list'
+export { 
+  Sparkline, 
+  Sparkbar, 
+  SparkBullet, 
+  SparkTrend,
+  SparklineCell,
+  SparkbarCell,
+  SparkBulletCell,
+  SparkTrendCell,
+} from './components/ui/sparkline'
+export type { 
+  SparklineProps, 
+  SparkbarProps, 
+  SparkBulletProps, 
+  SparkTrendProps,
+} from './components/ui/sparkline'
 export { Calendar, CalendarDayButton } from './components/ui/calendar'
 export { DatePicker } from './components/ui/date-picker'
 export type { DatePickerProps } from './components/ui/date-picker'
