@@ -253,7 +253,7 @@ export const components: Component[] = [
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Button component with variants, sizes, and icon support"
       }
@@ -503,7 +503,7 @@ const options: Highcharts.Options = {
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-06-01",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Line Charts with line, spline, and area variants"
       }
@@ -664,7 +664,7 @@ const options: Highcharts.Options = {
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-06-01",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Bar Charts with vertical and horizontal variants"
       }
@@ -831,7 +831,7 @@ const options: Highcharts.Options = {
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Pie Charts"
       }
@@ -1096,7 +1096,7 @@ const options: Highcharts.Options = {
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Advanced Patterns"
       }
@@ -1381,7 +1381,7 @@ import { Label } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Input component"
       }
@@ -1467,7 +1467,7 @@ import { Input } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Label component"
       }
@@ -1806,9 +1806,15 @@ const [tags, setTags] = useState(['React', 'TypeScript', 'Tailwind']);
       },
       {
         version: "0.2.0",
-        date: "2025-11-15",
+        date: "2025-11-30",
         type: "added",
-        description: "Initial release with RAG status variants (success, warning, destructive) and basic variants (default, secondary, outline)."
+        description: "Added success and warning RAG variants for status communication."
+      },
+      {
+        version: "0.1.0",
+        date: "2025-11-17",
+        type: "added",
+        description: "Initial release with default, secondary, outline, and destructive variants."
       }
     ]
   },
@@ -1948,7 +1954,7 @@ import { MaterialSymbol } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Avatar component"
       }
@@ -2099,7 +2105,7 @@ import { Label } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Checkbox component"
       }
@@ -2177,7 +2183,7 @@ import { Label } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Skeleton component"
       }
@@ -2265,7 +2271,7 @@ import { Button } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Spinner component"
       }
@@ -2341,7 +2347,7 @@ import { Button } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Separator component"
       }
@@ -2417,7 +2423,7 @@ Press <Kbd>Ctrl</Kbd> to continue.`
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Kbd component"
       }
@@ -2603,7 +2609,7 @@ import { MaterialSymbol } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Toggle component"
       }
@@ -2708,7 +2714,7 @@ import { MaterialSymbol } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Toggle Group"
       }
@@ -2809,7 +2815,7 @@ import { MaterialSymbol } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Tooltip component"
       }
@@ -2881,7 +2887,7 @@ import { MaterialSymbol } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Typography"
       }
@@ -2945,7 +2951,7 @@ import { MaterialSymbol } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Aspect Ratio"
       }
@@ -3043,7 +3049,7 @@ import { MaterialSymbol } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Empty state"
       }
@@ -3124,7 +3130,7 @@ import { MaterialSymbol } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Item"
       }
@@ -3273,7 +3279,7 @@ function Navigation() {
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Logo"
       }
@@ -3407,7 +3413,7 @@ import { Label } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Switch"
       }
@@ -3519,7 +3525,7 @@ import { Label } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Radio Group"
       }
@@ -3607,7 +3613,7 @@ import { Label } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Select"
       }
@@ -3675,7 +3681,7 @@ import { Label } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Textarea"
       }
@@ -3730,7 +3736,7 @@ import { Label } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Slider component"
       }
@@ -3801,7 +3807,7 @@ import { Label } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Progress"
       }
@@ -3877,7 +3883,7 @@ import { MaterialSymbol } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Alert"
       }
@@ -3900,7 +3906,7 @@ import { MaterialSymbol } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Card component"
       }
@@ -4029,7 +4035,7 @@ import { Button } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Tabs"
       }
@@ -4112,7 +4118,7 @@ import { Button } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Accordion"
       }
@@ -4172,7 +4178,7 @@ import { Button } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Popover"
       }
@@ -4249,7 +4255,7 @@ import { Button } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Dropdown Menu"
       }
@@ -4265,7 +4271,7 @@ import { Button } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Command palette component"
       }
@@ -4357,7 +4363,7 @@ const frameworks = [
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Combobox component"
       }
@@ -4373,7 +4379,7 @@ const frameworks = [
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Breadcrumb navigation"
       }
@@ -4428,7 +4434,7 @@ const frameworks = [
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Pagination component"
       }
@@ -4518,7 +4524,7 @@ import { Button } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-03-01",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Button Group"
       }
@@ -4591,7 +4597,7 @@ import { Label } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Dialog"
       }
@@ -4649,7 +4655,7 @@ import { Button } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Alert Dialog"
       }
@@ -4708,7 +4714,7 @@ import { Button } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Sheet"
       }
@@ -4724,7 +4730,7 @@ import { Button } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Table component"
       }
@@ -4822,7 +4828,7 @@ const [date, setDate] = useState<Date | undefined>(new Date());
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Calendar component"
       }
@@ -4880,7 +4886,7 @@ import { Card, CardContent } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Carousel"
       }
@@ -4934,7 +4940,7 @@ import { Button } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Collapsible"
       }
@@ -4995,7 +5001,7 @@ import { Avatar, AvatarFallback, AvatarImage } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Hover Card"
       }
@@ -5045,7 +5051,7 @@ import { Avatar, AvatarFallback, AvatarImage } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Context Menu"
       }
@@ -5102,7 +5108,7 @@ import { Button } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Drawer"
       }
@@ -5152,7 +5158,7 @@ import { Button } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Scroll Area"
       }
@@ -5199,7 +5205,7 @@ const [date, setDate] = useState<Date>();
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Date Picker"
       }
@@ -5215,7 +5221,7 @@ const [date, setDate] = useState<Date>();
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Toast notification component"
       }
@@ -5297,7 +5303,7 @@ import { Button } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Input OTP"
       }
@@ -5352,7 +5358,7 @@ import { Button } from 'alize-ui';
     changelog: [
       {
         version: "0.1.0",
-        date: "2024-01-15",
+        date: "2025-11-17",
         type: "added",
         description: "Initial release of Resizable"
       }
