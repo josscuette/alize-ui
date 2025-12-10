@@ -249,6 +249,14 @@ export const components: Component[] = [
         cssClass: "disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed",
         foundationToken: "states.disabled"
       }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Button component with variants, sizes, and icon support"
+      }
     ]
   },
   {
@@ -491,6 +499,14 @@ const options: Highcharts.Options = {
         cssVariable: "var(--semantic-surface-default)",
         usage: "Tooltip background"
       }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-06-01",
+        type: "added",
+        description: "Initial release of Line Charts with line, spline, and area variants"
+      }
     ]
   },
   {
@@ -643,6 +659,14 @@ const options: Highcharts.Options = {
         category: "text",
         cssVariable: "var(--semantic-text-default)",
         usage: "Chart title and data labels"
+      }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-06-01",
+        type: "added",
+        description: "Initial release of Bar Charts with vertical and horizontal variants"
       }
     ]
   },
@@ -802,6 +826,14 @@ const options: Highcharts.Options = {
         category: "surface",
         cssVariable: "var(--semantic-surface-default)",
         usage: "Tooltip background"
+      }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Pie Charts"
       }
     ]
   },
@@ -1060,6 +1092,14 @@ const options: Highcharts.Options = {
         cssVariable: "var(--semantic-text-default)",
         usage: "Chart titles and labels"
       }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Advanced Patterns"
+      }
     ]
   },
   {
@@ -1162,6 +1202,14 @@ const options: Highcharts.Options = {
       { name: "dataviz-ct-2", category: "surface", cssVariable: "var(--semantic-dataviz-ct-2)", usage: "Default chart color" },
       { name: "text-default", category: "text", cssVariable: "var(--semantic-text-default)", usage: "Value text" },
       { name: "text-subdued", category: "text", cssVariable: "var(--semantic-text-subdued)", usage: "Trend percentages" }
+    ],
+    changelog: [
+      {
+        version: "0.2.0",
+        date: "2024-12-10",
+        type: "added",
+        description: "Initial release of Sparklines with line, bar, bullet, and trend variants"
+      }
     ]
   },
   {
@@ -1329,6 +1377,14 @@ import { Label } from 'alize-ui';
         controlType: "boolean",
         defaultValue: "false"
       }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Input component"
+      }
     ]
   },
   {
@@ -1407,6 +1463,14 @@ import { Input } from 'alize-ui';
     tokens: [
       { name: "text-default", category: "text", cssVariable: "var(--semantic-text-default)", usage: "Label text color" },
       { name: "text-rag-danger-default", category: "text", cssVariable: "var(--semantic-text-rag-danger-default)", usage: "Required indicator color" }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Label component"
+      }
     ]
   },
   {
@@ -1880,6 +1944,14 @@ import { MaterialSymbol } from 'alize-ui';
         controlType: "boolean",
         defaultValue: "true"
       }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Avatar component"
+      }
     ]
   },
   {
@@ -2023,6 +2095,14 @@ import { Label } from 'alize-ui';
         controlType: "boolean",
         defaultValue: "false"
       }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Checkbox component"
+      }
     ]
   },
   {
@@ -2093,6 +2173,14 @@ import { Label } from 'alize-ui';
     tokens: [
       { name: "surface-secondary", category: "surface", cssVariable: "var(--semantic-surface-secondary)", usage: "Skeleton background" },
       { name: "radius-md", category: "radius", cssVariable: "var(--radius)", usage: "Skeleton border radius" }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Skeleton component"
+      }
     ]
   },
   {
@@ -2173,6 +2261,14 @@ import { Button } from 'alize-ui';
           { value: "lg", label: "Large" },
         ]
       }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Spinner component"
+      }
     ]
   },
   {
@@ -2241,6 +2337,14 @@ import { Button } from 'alize-ui';
 - Don't rely solely on separators for content structure`,
     tokens: [
       { name: "stroke-subdued", category: "stroke", cssVariable: "var(--semantic-stroke-subdued)", usage: "Separator color" }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Separator component"
+      }
     ]
   },
   {
@@ -2309,6 +2413,14 @@ Press <Kbd>Ctrl</Kbd> to continue.`
       { name: "stroke-subdued", category: "stroke", cssVariable: "var(--semantic-stroke-subdued)", usage: "Key border" },
       { name: "text-default", category: "text", cssVariable: "var(--semantic-text-default)", usage: "Key text" },
       { name: "radius-sm", category: "radius", cssVariable: "var(--radius-sm)", usage: "Key border radius" }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Kbd component"
+      }
     ]
   },
   {
@@ -2487,6 +2599,14 @@ import { MaterialSymbol } from 'alize-ui';
         cssClass: "disabled:pointer-events-none disabled:opacity-50",
         foundationToken: "states.disabled"
       }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Toggle component"
+      }
     ]
   },
   {
@@ -2584,6 +2704,14 @@ import { MaterialSymbol } from 'alize-ui';
       { name: "surface-secondary", category: "surface", cssVariable: "var(--semantic-surface-secondary)", usage: "Group background" },
       { name: "surface-default", category: "surface", cssVariable: "var(--semantic-surface-default)", usage: "Active toggle background" },
       { name: "radius-md", category: "radius", cssVariable: "var(--radius)", usage: "Group border radius" }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Toggle Group"
+      }
     ]
   },
   {
@@ -2677,6 +2805,14 @@ import { MaterialSymbol } from 'alize-ui';
       { name: "surface-reversed", category: "surface", cssVariable: "var(--semantic-surface-reversed)", usage: "Tooltip background" },
       { name: "text-reversedpersistent", category: "text", cssVariable: "var(--semantic-text-reversedpersistent)", usage: "Tooltip text" },
       { name: "radius-md", category: "radius", cssVariable: "var(--radius)", usage: "Tooltip border radius" }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Tooltip component"
+      }
     ]
   },
   {
@@ -2741,6 +2877,14 @@ import { MaterialSymbol } from 'alize-ui';
       { name: "text-default", category: "text", cssVariable: "var(--semantic-text-default)", usage: "Heading and paragraph text" },
       { name: "text-subdued", category: "text", cssVariable: "var(--semantic-text-subdued)", usage: "Muted text" },
       { name: "text-interaction-default", category: "text", cssVariable: "var(--semantic-text-interaction-default)", usage: "Link text" }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Typography"
+      }
     ]
   },
   {
@@ -2797,6 +2941,14 @@ import { MaterialSymbol } from 'alize-ui';
 - Consider loading states and placeholders`,
     tokens: [
       { name: "surface-subdued", category: "surface", cssVariable: "var(--semantic-surface-subdued)", usage: "Placeholder background" }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Aspect Ratio"
+      }
     ]
   },
   {
@@ -2887,6 +3039,14 @@ import { MaterialSymbol } from 'alize-ui';
     tokens: [
       { name: "text-subdued", category: "text", cssVariable: "var(--semantic-text-subdued)", usage: "Empty state text" },
       { name: "icon-subdued", category: "icon", cssVariable: "var(--semantic-icon-subdued)", usage: "Empty state icon" }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Empty state"
+      }
     ]
   },
   {
@@ -2960,6 +3120,14 @@ import { MaterialSymbol } from 'alize-ui';
       { name: "surface-interaction-whisper", category: "surface", cssVariable: "var(--semantic-surface-interaction-whisper)", usage: "Hover background" },
       { name: "surface-interaction-bright", category: "surface", cssVariable: "var(--semantic-surface-interaction-bright)", usage: "Selected background" },
       { name: "text-default", category: "text", cssVariable: "var(--semantic-text-default)", usage: "Item text" }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Item"
+      }
     ]
   },
   {
@@ -3101,6 +3269,14 @@ function Navigation() {
         controlType: "boolean",
         defaultValue: "false"
       }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Logo"
+      }
     ]
   },
   {
@@ -3227,6 +3403,14 @@ import { Label } from 'alize-ui';
         controlType: "boolean",
         defaultValue: "false"
       }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Switch"
+      }
     ]
   },
   {
@@ -3331,6 +3515,14 @@ import { Label } from 'alize-ui';
       { name: "surface-interaction-strong", category: "surface", cssVariable: "var(--semantic-surface-interaction-strong)", usage: "Selected radio indicator" },
       { name: "stroke-default", category: "stroke", cssVariable: "var(--semantic-stroke-default)", usage: "Radio border" },
       { name: "surface-whisper", category: "surface", cssVariable: "var(--semantic-surface-whisper)", usage: "RadioCard active background" }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Radio Group"
+      }
     ]
   },
 
@@ -3411,6 +3603,14 @@ import { Label } from 'alize-ui';
       { name: "surface-default", category: "surface", cssVariable: "var(--semantic-surface-default)", usage: "Dropdown background" },
       { name: "surface-interaction-strong", category: "surface", cssVariable: "var(--semantic-surface-interaction-strong)", usage: "Selected item highlight" },
       { name: "text-subdued", category: "text", cssVariable: "var(--semantic-text-subdued)", usage: "Placeholder text" }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Select"
+      }
     ]
   },
   {
@@ -3471,6 +3671,14 @@ import { Label } from 'alize-ui';
       { name: "stroke-default", category: "stroke", cssVariable: "var(--semantic-stroke-default)", usage: "Border color" },
       { name: "text-subdued", category: "text", cssVariable: "var(--semantic-text-subdued)", usage: "Placeholder text" },
       { name: "radius-md", category: "radius", cssVariable: "var(--radius)", usage: "Border radius" }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Textarea"
+      }
     ]
   },
   {
@@ -3518,6 +3726,14 @@ import { Label } from 'alize-ui';
     tokens: [
       { name: "surface-interaction-strong", category: "surface", cssVariable: "var(--semantic-surface-interaction-strong)", usage: "Track fill and thumb border" },
       { name: "surface-secondary", category: "surface", cssVariable: "var(--semantic-surface-secondary)", usage: "Track background" }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Slider component"
+      }
     ]
   },
   {
@@ -3580,6 +3796,14 @@ import { Label } from 'alize-ui';
           { value: "75", label: "75%" },
           { value: "100", label: "100%" },
         ]
+      }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Progress"
       }
     ]
   },
@@ -3649,6 +3873,14 @@ import { MaterialSymbol } from 'alize-ui';
           { value: "destructive", label: "Destructive" },
         ]
       }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Alert"
+      }
     ]
   },
   {
@@ -3664,7 +3896,15 @@ import { MaterialSymbol } from 'alize-ui';
         description: "Simple card with content",
         code: `import { Card, CardContent, CardDescription, CardHeader, CardTitle } from 'alize-ui';
 
-<Card className="w-[350px]">
+<Card className="w-[350px],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Card component"
+      }
+    ]">
   <CardHeader>
     <CardTitle>Card Title</CardTitle>
     <CardDescription>Card description goes here</CardDescription>
@@ -3785,6 +4025,14 @@ import { Button } from 'alize-ui';
         cssClass: "disabled:pointer-events-none disabled:opacity-50",
         foundationToken: "states.disabled"
       }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Tabs"
+      }
     ]
   },
   {
@@ -3860,6 +4108,14 @@ import { Button } from 'alize-ui';
         cssClass: "disabled:pointer-events-none disabled:opacity-50",
         foundationToken: "states.disabled"
       }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Accordion"
+      }
     ]
   },
   {
@@ -3912,6 +4168,14 @@ import { Button } from 'alize-ui';
       { name: "surface-default", category: "surface", cssVariable: "var(--semantic-surface-default)", usage: "Popover background" },
       { name: "stroke-subdued", category: "stroke", cssVariable: "var(--semantic-stroke-subdued)", usage: "Popover border" },
       { name: "shadow-md", category: "shadow", cssVariable: "var(--shadow-md)", usage: "Popover shadow" }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Popover"
+      }
     ]
   },
   {
@@ -3981,6 +4245,14 @@ import { Button } from 'alize-ui';
         cssClass: "data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
         foundationToken: "states.disabled"
       }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Dropdown Menu"
+      }
     ]
   },
   {
@@ -3990,6 +4262,14 @@ import { Button } from 'alize-ui';
     component: "Command",
     importPath: "alize-ui",
     props: [],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Command palette component"
+      }
+    ],
     examples: [
       {
         title: "Basic Command",
@@ -4073,6 +4353,14 @@ const frameworks = [
     tokens: [
       { name: "surface-default", category: "surface", cssVariable: "var(--semantic-surface-default)", usage: "Dropdown background" },
       { name: "surface-interaction-strong", category: "surface", cssVariable: "var(--semantic-surface-interaction-strong)", usage: "Selected item" }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Combobox component"
+      }
     ]
   },
   {
@@ -4082,6 +4370,14 @@ const frameworks = [
     component: "Breadcrumb",
     importPath: "alize-ui",
     props: [],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Breadcrumb navigation"
+      }
+    ],
     examples: [
       {
         title: "Basic Breadcrumb",
@@ -4129,6 +4425,14 @@ const frameworks = [
     component: "Pagination",
     importPath: "alize-ui",
     props: [],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Pagination component"
+      }
+    ],
     examples: [
       {
         title: "Basic Pagination",
@@ -4210,6 +4514,14 @@ import { Button } from 'alize-ui';
 - Keyboard navigation`,
     tokens: [
       { name: "stroke-default", category: "stroke", cssVariable: "var(--semantic-stroke-default)", usage: "Button borders" }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-03-01",
+        type: "added",
+        description: "Initial release of Button Group"
+      }
     ]
   },
 
@@ -4275,6 +4587,14 @@ import { Label } from 'alize-ui';
     tokens: [
       { name: "surface-default", category: "surface", cssVariable: "var(--semantic-surface-default)", usage: "Dialog background" },
       { name: "shadow-lg", category: "shadow", cssVariable: "var(--shadow-lg)", usage: "Dialog shadow" }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Dialog"
+      }
     ]
   },
   {
@@ -4325,6 +4645,14 @@ import { Button } from 'alize-ui';
     tokens: [
       { name: "surface-default", category: "surface", cssVariable: "var(--semantic-surface-default)", usage: "Dialog background" },
       { name: "text-rag-danger-default", category: "text", cssVariable: "var(--semantic-text-rag-danger-default)", usage: "Warning text" }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Alert Dialog"
+      }
     ]
   },
   {
@@ -4376,6 +4704,14 @@ import { Button } from 'alize-ui';
     tokens: [
       { name: "surface-default", category: "surface", cssVariable: "var(--semantic-surface-default)", usage: "Sheet background" },
       { name: "shadow-lg", category: "shadow", cssVariable: "var(--shadow-lg)", usage: "Sheet shadow" }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Sheet"
+      }
     ]
   },
   {
@@ -4385,6 +4721,14 @@ import { Button } from 'alize-ui';
     component: "Table",
     importPath: "alize-ui",
     props: [],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Table component"
+      }
+    ],
     examples: [
       {
         title: "Basic Table",
@@ -4474,6 +4818,14 @@ const [date, setDate] = useState<Date | undefined>(new Date());
     tokens: [
       { name: "surface-interaction-strong", category: "surface", cssVariable: "var(--semantic-surface-interaction-strong)", usage: "Selected date" },
       { name: "text-subdued", category: "text", cssVariable: "var(--semantic-text-subdued)", usage: "Disabled dates" }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Calendar component"
+      }
     ]
   },
   {
@@ -4524,6 +4876,14 @@ import { Card, CardContent } from 'alize-ui';
 - Slide announcements`,
     tokens: [
       { name: "stroke-default", category: "stroke", cssVariable: "var(--semantic-stroke-default)", usage: "Navigation button borders" }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Carousel"
+      }
     ]
   },
   {
@@ -4570,6 +4930,14 @@ import { Button } from 'alize-ui';
 - Focus management`,
     tokens: [
       { name: "animation-transition", category: "animation", cssVariable: "transition", usage: "Expand/collapse animation" }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Collapsible"
+      }
     ]
   },
   {
@@ -4623,6 +4991,14 @@ import { Avatar, AvatarFallback, AvatarImage } from 'alize-ui';
     tokens: [
       { name: "surface-default", category: "surface", cssVariable: "var(--semantic-surface-default)", usage: "Card background" },
       { name: "shadow-md", category: "shadow", cssVariable: "var(--shadow-md)", usage: "Card shadow" }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Hover Card"
+      }
     ]
   },
   {
@@ -4665,6 +5041,14 @@ import { Avatar, AvatarFallback, AvatarImage } from 'alize-ui';
     tokens: [
       { name: "surface-default", category: "surface", cssVariable: "var(--semantic-surface-default)", usage: "Menu background" },
       { name: "surface-interaction-whisper", category: "surface", cssVariable: "var(--semantic-surface-interaction-whisper)", usage: "Item hover" }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Context Menu"
+      }
     ]
   },
   {
@@ -4714,6 +5098,14 @@ import { Button } from 'alize-ui';
 - ARIA dialog role`,
     tokens: [
       { name: "surface-default", category: "surface", cssVariable: "var(--semantic-surface-default)", usage: "Drawer background" }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Drawer"
+      }
     ]
   },
   {
@@ -4756,6 +5148,14 @@ import { Button } from 'alize-ui';
     tokens: [
       { name: "surface-secondary", category: "surface", cssVariable: "var(--semantic-surface-secondary)", usage: "Scrollbar track" },
       { name: "surface-interaction-default", category: "surface", cssVariable: "var(--semantic-surface-interaction-default)", usage: "Scrollbar thumb" }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Scroll Area"
+      }
     ]
   },
   {
@@ -4795,6 +5195,14 @@ const [date, setDate] = useState<Date>();
     tokens: [
       { name: "surface-interaction-strong", category: "surface", cssVariable: "var(--semantic-surface-interaction-strong)", usage: "Selected date" },
       { name: "stroke-default", category: "stroke", cssVariable: "var(--semantic-stroke-default)", usage: "Input border" }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Date Picker"
+      }
     ]
   },
   {
@@ -4804,6 +5212,14 @@ const [date, setDate] = useState<Date>();
     component: "Toast",
     importPath: "alize-ui",
     props: [],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Toast notification component"
+      }
+    ],
     examples: [
       {
         title: "Basic Toast",
@@ -4877,6 +5293,14 @@ import { Button } from 'alize-ui';
     tokens: [
       { name: "stroke-default", category: "stroke", cssVariable: "var(--semantic-stroke-default)", usage: "Slot borders" },
       { name: "surface-interaction-strong", category: "surface", cssVariable: "var(--semantic-surface-interaction-strong)", usage: "Active slot indicator" }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Input OTP"
+      }
     ]
   },
   {
@@ -4924,6 +5348,14 @@ import { Button } from 'alize-ui';
     tokens: [
       { name: "stroke-subdued", category: "stroke", cssVariable: "var(--semantic-stroke-subdued)", usage: "Panel borders" },
       { name: "surface-secondary", category: "surface", cssVariable: "var(--semantic-surface-secondary)", usage: "Handle background" }
+    ],
+    changelog: [
+      {
+        version: "0.1.0",
+        date: "2024-01-15",
+        type: "added",
+        description: "Initial release of Resizable"
+      }
     ]
   },
   {
