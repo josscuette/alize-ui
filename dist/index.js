@@ -1,6 +1,6 @@
 "use client";
 import * as React32 from 'react';
-import { useMemo, useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { Slot } from '@radix-ui/react-slot';
 import { cva } from 'class-variance-authority';
 import { clsx } from 'clsx';
@@ -78,8 +78,6 @@ var __objRest = (source, exclude) => {
     }
   return target;
 };
-
-// src/lib/devtools-auto-inject.ts
 var ALIZE_SLOT_NAMES = /* @__PURE__ */ new Set([
   // Atoms
   "button",
@@ -365,10 +363,15 @@ var ALIZE_SLOT_NAMES = /* @__PURE__ */ new Set([
   "resizable-handle",
   "material-symbol"
 ]);
-var isInjected = false;
-var highlightMode = "off";
-var isVisible = true;
-var isCollapsed = false;
+function getState() {
+  if (typeof window === "undefined") {
+    return { isInjected: false, highlightMode: "off", isVisible: true, isCollapsed: false };
+  }
+  if (!window.__ALIZE_DEVTOOLS__) {
+    window.__ALIZE_DEVTOOLS__ = { isInjected: false, highlightMode: "off", isVisible: true, isCollapsed: false };
+  }
+  return window.__ALIZE_DEVTOOLS__;
+}
 function isAlizeSlot(slotName) {
   return ALIZE_SLOT_NAMES.has(slotName);
 }
@@ -665,7 +668,8 @@ function updateStats() {
   if (otherCount) otherCount.textContent = String(nonAlizeElements.length);
 }
 function setMode(mode) {
-  highlightMode = mode;
+  const state = getState();
+  state.highlightMode = mode;
   applyHighlights(mode);
   document.querySelectorAll(".alize-devtools-btn").forEach((btn) => {
     btn.classList.remove("active");
@@ -733,25 +737,26 @@ function renderCollapsed() {
 }
 function render() {
   var _a, _b, _c;
+  const state = getState();
   const bar = document.getElementById("alize-devtools-bar");
   if (!bar) return;
-  if (!isVisible) {
+  if (!state.isVisible) {
     bar.innerHTML = "";
     return;
   }
-  bar.innerHTML = isCollapsed ? renderCollapsed() : renderPanel();
-  if (isCollapsed) {
+  bar.innerHTML = state.isCollapsed ? renderCollapsed() : renderPanel();
+  if (state.isCollapsed) {
     (_a = document.getElementById("alize-devtools-expand")) == null ? void 0 : _a.addEventListener("click", () => {
-      isCollapsed = false;
+      state.isCollapsed = false;
       render();
     });
   } else {
     (_b = document.getElementById("alize-devtools-minimize")) == null ? void 0 : _b.addEventListener("click", () => {
-      isCollapsed = true;
+      state.isCollapsed = true;
       render();
     });
     (_c = document.getElementById("alize-devtools-close")) == null ? void 0 : _c.addEventListener("click", () => {
-      isVisible = false;
+      state.isVisible = false;
       applyHighlights("off");
       render();
     });
@@ -765,9 +770,10 @@ function render() {
   }
 }
 function injectDevTools() {
-  if (isInjected) return;
+  const state = getState();
+  if (state.isInjected) return;
   if (typeof document === "undefined") return;
-  isInjected = true;
+  state.isInjected = true;
   injectStyles();
   const bar = document.createElement("div");
   bar.id = "alize-devtools-bar";
@@ -776,8 +782,8 @@ function injectDevTools() {
   render();
   setInterval(updateStats, 2e3);
   const observer = new MutationObserver(() => {
-    if (highlightMode !== "off") {
-      applyHighlights(highlightMode);
+    if (state.highlightMode !== "off") {
+      applyHighlights(state.highlightMode);
     }
     updateStats();
   });
@@ -785,8 +791,8 @@ function injectDevTools() {
   document.addEventListener("keydown", (e) => {
     if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === "a") {
       e.preventDefault();
-      isVisible = !isVisible;
-      if (!isVisible) {
+      state.isVisible = !state.isVisible;
+      if (!state.isVisible) {
         applyHighlights("off");
       }
       render();
@@ -799,26 +805,13 @@ function shouldInjectDevTools() {
   const urlParams = new URLSearchParams(window.location.search);
   return urlParams.get("alize-devtools") === "true";
 }
-function scheduleAutoInject() {
-  if (typeof window === "undefined") return;
-  if (!shouldInjectDevTools()) return;
-  if (document.readyState === "complete" || document.readyState === "interactive") {
-    requestAnimationFrame(() => {
-      setTimeout(injectDevTools, 100);
-    });
-  } else {
-    window.addEventListener("load", () => {
-      setTimeout(injectDevTools, 100);
-    });
-  }
-}
-scheduleAutoInject();
-if (typeof window !== "undefined") {
-  window.addEventListener("popstate", () => {
-    if (shouldInjectDevTools() && !isInjected) {
-      setTimeout(injectDevTools, 100);
+function useAlizeDevToolsAutoInject() {
+  useEffect(() => {
+    if (shouldInjectDevTools()) {
+      const timer = setTimeout(injectDevTools, 50);
+      return () => clearTimeout(timer);
     }
-  });
+  }, []);
 }
 function cn(...inputs) {
   return twMerge(clsx(inputs));
@@ -1084,6 +1077,7 @@ function Button(_a) {
     "asChild",
     "children"
   ]);
+  useAlizeDevToolsAutoInject();
   const Comp = asChild ? Slot : "button";
   React32.Children.toArray(children).some((child) => {
     if (typeof child === "string") return child.trim().length > 0;
@@ -11934,15 +11928,15 @@ var modeButtons = [
   { mode: "both", label: "Both", icon: "compare" }
 ];
 function DevToolsBar() {
-  const { highlightMode: highlightMode2, setHighlightMode, isEnabled, setIsEnabled, alizeCount, nonAlizeCount } = useAlizeDevTools();
-  const [isCollapsed2, setIsCollapsed] = React32.useState(false);
+  const { highlightMode, setHighlightMode, isEnabled, setIsEnabled, alizeCount, nonAlizeCount } = useAlizeDevTools();
+  const [isCollapsed, setIsCollapsed] = React32.useState(false);
   if (!isEnabled) return null;
   return /* @__PURE__ */ jsx(
     "div",
     {
       "data-alize-devtools": true,
       className: "fixed bottom-4 right-4 z-[99999] font-sans text-sm",
-      children: isCollapsed2 ? /* @__PURE__ */ jsxs(Tooltip, { children: [
+      children: isCollapsed ? /* @__PURE__ */ jsxs(Tooltip, { children: [
         /* @__PURE__ */ jsx(TooltipTrigger, { asChild: true, children: /* @__PURE__ */ jsx(
           Button,
           {
@@ -12007,7 +12001,7 @@ function DevToolsBar() {
             onClick: () => setHighlightMode(mode),
             className: cn(
               "flex-col gap-0.5 h-auto py-2",
-              highlightMode2 === mode ? "bg-[var(--semantic-surface-overlays-level1)] border-[var(--semantic-stroke-default)] text-[var(--semantic-text-default)]" : "text-[var(--semantic-text-subdued)]"
+              highlightMode === mode ? "bg-[var(--semantic-surface-overlays-level1)] border-[var(--semantic-stroke-default)] text-[var(--semantic-text-default)]" : "text-[var(--semantic-text-subdued)]"
             ),
             children: [
               /* @__PURE__ */ jsx(MaterialSymbol, { name: icon2, size: 16, weight: 300 }),
@@ -12102,7 +12096,7 @@ function AlizeDevToolsProvider({
 }) {
   const isAvailable = useDevToolsAvailable();
   const [isEnabled, setIsEnabled] = React32.useState(false);
-  const [highlightMode2, setHighlightMode] = React32.useState("off");
+  const [highlightMode, setHighlightMode] = React32.useState("off");
   const [counts, setCounts] = React32.useState({ alizeCount: 0, nonAlizeCount: 0 });
   React32.useEffect(() => {
     if (enabled === void 0) {
@@ -12116,13 +12110,13 @@ function AlizeDevToolsProvider({
     updateCounts();
     const interval = setInterval(updateCounts, 2e3);
     return () => clearInterval(interval);
-  }, [highlightMode2]);
+  }, [highlightMode]);
   React32.useEffect(() => {
     if (typeof document === "undefined") return;
-    applyHighlights2(highlightMode2);
+    applyHighlights2(highlightMode);
     const observer = new MutationObserver(() => {
-      if (highlightMode2 !== "off") {
-        applyHighlights2(highlightMode2);
+      if (highlightMode !== "off") {
+        applyHighlights2(highlightMode);
       }
     });
     observer.observe(document.body, {
@@ -12133,7 +12127,7 @@ function AlizeDevToolsProvider({
       observer.disconnect();
       applyHighlights2("off");
     };
-  }, [highlightMode2]);
+  }, [highlightMode]);
   React32.useEffect(() => {
     if (!isAvailable && enabled === void 0) return;
     const handleKeyDown = (e) => {
@@ -12147,14 +12141,14 @@ function AlizeDevToolsProvider({
   }, [isAvailable, enabled]);
   const contextValue = React32.useMemo(
     () => ({
-      highlightMode: highlightMode2,
+      highlightMode,
       setHighlightMode,
       isEnabled,
       setIsEnabled,
       alizeCount: counts.alizeCount,
       nonAlizeCount: counts.nonAlizeCount
     }),
-    [highlightMode2, isEnabled, counts]
+    [highlightMode, isEnabled, counts]
   );
   return /* @__PURE__ */ jsxs(AlizeDevToolsContext.Provider, { value: contextValue, children: [
     isEnabled && /* @__PURE__ */ jsx("style", { dangerouslySetInnerHTML: { __html: devToolsStyles } }),

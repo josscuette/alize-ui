@@ -4,6 +4,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "../../lib/utils"
 import { surface, text, icon, states, stroke, size, radius, animation } from "../../foundation"
+import { useAlizeDevToolsAutoInject } from "../../lib/devtools-auto-inject"
 
 /**
  * Button component props interface
@@ -143,6 +144,9 @@ function Button({
   children,
   ...props
 }: ButtonProps): React.ReactElement {
+  // Auto-inject DevTools if ?alize-devtools=true is in URL
+  useAlizeDevToolsAutoInject()
+  
   const Comp = asChild ? Slot : "button"
   
   // Check if button has text (not just icons) - simple check

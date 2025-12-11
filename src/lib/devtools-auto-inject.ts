@@ -1,15 +1,14 @@
 "use client"
 
+import { useEffect } from "react"
+
 /**
  * Alizé DevTools Auto-Injection Script
  * 
  * This script automatically injects the DevTools when the URL contains
- * ?alize-devtools=true - NO Provider needed!
+ * ?alize-devtools=true
  * 
- * It works by:
- * 1. Checking the URL for the alize-devtools parameter
- * 2. Injecting a standalone DevTools UI via DOM manipulation
- * 3. Using the same detection logic as the React component
+ * It uses a hook that should be called from Alizé components.
  */
 
 // Known Alizé component slot names
@@ -84,11 +83,27 @@ const ALIZE_SLOT_NAMES = new Set([
 
 type HighlightMode = "off" | "alize" | "non-alize" | "both"
 
-// Global state
-let isInjected = false
-let highlightMode: HighlightMode = "off"
-let isVisible = true
-let isCollapsed = false
+// Global state stored on window to persist across re-renders
+declare global {
+  interface Window {
+    __ALIZE_DEVTOOLS__?: {
+      isInjected: boolean
+      highlightMode: HighlightMode
+      isVisible: boolean
+      isCollapsed: boolean
+    }
+  }
+}
+
+function getState() {
+  if (typeof window === "undefined") {
+    return { isInjected: false, highlightMode: "off" as HighlightMode, isVisible: true, isCollapsed: false }
+  }
+  if (!window.__ALIZE_DEVTOOLS__) {
+    window.__ALIZE_DEVTOOLS__ = { isInjected: false, highlightMode: "off", isVisible: true, isCollapsed: false }
+  }
+  return window.__ALIZE_DEVTOOLS__
+}
 
 function isAlizeSlot(slotName: string): boolean {
   return ALIZE_SLOT_NAMES.has(slotName)
@@ -401,7 +416,8 @@ function updateStats(): void {
 }
 
 function setMode(mode: HighlightMode): void {
-  highlightMode = mode
+  const state = getState()
+  state.highlightMode = mode
   applyHighlights(mode)
   
   // Update button states
@@ -473,30 +489,31 @@ function renderCollapsed(): string {
 }
 
 function render(): void {
+  const state = getState()
   const bar = document.getElementById("alize-devtools-bar")
   if (!bar) return
   
-  if (!isVisible) {
+  if (!state.isVisible) {
     bar.innerHTML = ""
     return
   }
   
-  bar.innerHTML = isCollapsed ? renderCollapsed() : renderPanel()
+  bar.innerHTML = state.isCollapsed ? renderCollapsed() : renderPanel()
   
   // Attach event listeners
-  if (isCollapsed) {
+  if (state.isCollapsed) {
     document.getElementById("alize-devtools-expand")?.addEventListener("click", () => {
-      isCollapsed = false
+      state.isCollapsed = false
       render()
     })
   } else {
     document.getElementById("alize-devtools-minimize")?.addEventListener("click", () => {
-      isCollapsed = true
+      state.isCollapsed = true
       render()
     })
     
     document.getElementById("alize-devtools-close")?.addEventListener("click", () => {
-      isVisible = false
+      state.isVisible = false
       applyHighlights("off")
       render()
     })
@@ -513,10 +530,11 @@ function render(): void {
 }
 
 function injectDevTools(): void {
-  if (isInjected) return
+  const state = getState()
+  if (state.isInjected) return
   if (typeof document === "undefined") return
   
-  isInjected = true
+  state.isInjected = true
   
   injectStyles()
   
@@ -533,8 +551,8 @@ function injectDevTools(): void {
   
   // Set up mutation observer for dynamic content
   const observer = new MutationObserver(() => {
-    if (highlightMode !== "off") {
-      applyHighlights(highlightMode)
+    if (state.highlightMode !== "off") {
+      applyHighlights(state.highlightMode)
     }
     updateStats()
   })
@@ -545,8 +563,8 @@ function injectDevTools(): void {
   document.addEventListener("keydown", (e) => {
     if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === "a") {
       e.preventDefault()
-      isVisible = !isVisible
-      if (!isVisible) {
+      state.isVisible = !state.isVisible
+      if (!state.isVisible) {
         applyHighlights("off")
       }
       render()
@@ -564,40 +582,18 @@ function shouldInjectDevTools(): boolean {
   return urlParams.get("alize-devtools") === "true"
 }
 
-// For Next.js SSR compatibility, we need to delay the check
-// until we're sure we're on the client and the DOM is ready
-function scheduleAutoInject(): void {
-  // Skip if we're on the server
-  if (typeof window === "undefined") return
-  
-  // Check if we should inject
-  if (!shouldInjectDevTools()) return
-  
-  // If DOM is ready, inject immediately
-  if (document.readyState === "complete" || document.readyState === "interactive") {
-    // Use requestAnimationFrame to ensure we're after React hydration
-    requestAnimationFrame(() => {
-      setTimeout(injectDevTools, 100)
-    })
-  } else {
-    // Wait for DOM to be ready
-    window.addEventListener("load", () => {
-      setTimeout(injectDevTools, 100)
-    })
-  }
-}
-
-// Schedule auto-inject - this runs when the module is imported
-scheduleAutoInject()
-
-// Also listen for client-side navigation (Next.js App Router)
-if (typeof window !== "undefined") {
-  // Re-check on popstate (browser back/forward)
-  window.addEventListener("popstate", () => {
-    if (shouldInjectDevTools() && !isInjected) {
-      setTimeout(injectDevTools, 100)
+/**
+ * Hook to be called from Alizé components to auto-inject DevTools
+ * This runs in useEffect, guaranteeing client-side execution
+ */
+export function useAlizeDevToolsAutoInject(): void {
+  useEffect(() => {
+    if (shouldInjectDevTools()) {
+      // Small delay to ensure DOM is ready
+      const timer = setTimeout(injectDevTools, 50)
+      return () => clearTimeout(timer)
     }
-  })
+  }, [])
 }
 
 // Export for manual use

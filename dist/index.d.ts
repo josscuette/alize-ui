@@ -41,6 +41,18 @@ import * as ResizablePrimitive from 'react-resizable-panels';
 import { ClassValue } from 'clsx';
 import { z } from 'zod';
 
+type HighlightMode$1 = "off" | "alize" | "non-alize" | "both";
+declare global {
+    interface Window {
+        __ALIZE_DEVTOOLS__?: {
+            isInjected: boolean;
+            highlightMode: HighlightMode$1;
+            isVisible: boolean;
+            isCollapsed: boolean;
+        };
+    }
+}
+
 /**
  * Button component props interface
  *
