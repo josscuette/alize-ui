@@ -11148,8 +11148,8 @@ var devToolsStyles = `
     position: absolute !important;
     top: -22px !important;
     left: 0 !important;
-    background: var(--semantic-tonal-lilac-subdued, #f6effd) !important;
-    color: var(--semantic-tonal-lilac-strong, #9333ea) !important;
+    background: var(--semantic-tonal-lilac-strong, #69359d) !important;
+    color: var(--semantic-tonal-lilac-subdued, #f6effd) !important;
     font-size: 10px !important;
     font-weight: 600 !important;
     padding: 2px 8px !important;
