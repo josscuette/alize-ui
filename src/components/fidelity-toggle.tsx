@@ -19,7 +19,7 @@ export function FidelityToggle(): React.ReactElement {
     return (
       <div className="flex items-center gap-2">
         <MaterialSymbol name="deployed_code" size={16} />
-        <Switch disabled />
+        <Switch checked={false} disabled />
         <MaterialSymbol name="frame_inspect" size={16} />
       </div>
     );

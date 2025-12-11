@@ -27,7 +27,7 @@ export function ThemeToggle(): React.ReactElement {
     return (
       <div className="flex items-center gap-2">
         <MaterialSymbol name="light_mode" size={16} />
-        <Switch disabled />
+        <Switch checked={false} disabled />
         <MaterialSymbol name="dark_mode" size={16} />
       </div>
     );

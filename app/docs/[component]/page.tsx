@@ -20,17 +20,25 @@ import Link from 'next/link';
  * 4. (Optional) Add interactiveProps to component data for playground
  * 5. (Optional) Create an interactive preview function
  */
+/**
+ * Normalize a component slug by removing hyphens and converting to lowercase
+ * This allows URLs like /docs/button-group to match "ButtonGroup"
+ */
+function normalizeSlug(slug: string): string {
+  return slug.toLowerCase().replace(/-/g, '');
+}
+
 export default function ComponentDocsPage({ 
   params 
 }: { 
   params: Promise<{ component: string }> 
 }): React.ReactNode {
   const resolvedParams = use(params);
-  const componentSlug = resolvedParams.component.toLowerCase();
+  const componentSlug = normalizeSlug(resolvedParams.component);
   
-  // Find component by slug (case-insensitive)
+  // Find component by slug (case-insensitive, hyphen-tolerant)
   const componentDoc = components.find(
-    (c) => c.component.toLowerCase() === componentSlug
+    (c) => normalizeSlug(c.component) === componentSlug
   );
 
   // Handle not found
