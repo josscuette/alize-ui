@@ -23,6 +23,7 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
 import { Badge } from '@/components/ui/badge';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { cn } from '@/lib/utils';
 import { DocsSidebar } from '../docs-sidebar';
 import type { Component, ComponentExample, InteractiveProp, ComponentToken, InteractionState, ChangelogEntry } from '../types';
@@ -688,27 +689,25 @@ export function DocTemplate({
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold break-words">{componentDoc.title}</h1>
         </div>
 
-        {/* Fixed Tabs Navigation */}
+        {/* Fixed Tabs Navigation - Using Alizé Tabs components */}
         <div className={cn(
           "sticky top-16 z-40 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 mb-8 border-b bg-background/80 backdrop-blur-sm overflow-hidden transition-[padding]",
           isScrolled ? "pt-5 pb-5" : "pt-8 pb-8"
         )}>
-          <div className="bg-muted text-muted-foreground flex h-9 w-full items-center rounded-lg p-[3px] overflow-x-auto">
-            {visibleTabs.map((tab) => (
-              <button
-                key={tab}
-                onClick={() => handleTabClick(tab)}
-                className={cn(
-                  "inline-flex h-[calc(100%-1px)] flex-shrink-0 items-center justify-center gap-1 rounded-md border border-transparent px-3 py-1 text-sm font-medium whitespace-nowrap transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50",
-                  activeTab === tab
-                    ? "bg-background text-foreground shadow-sm"
-                    : "text-foreground hover:text-foreground"
-                )}
-              >
-                {tab.charAt(0).toUpperCase() + tab.slice(1).replace('-', ' ')}
-              </button>
-            ))}
-          </div>
+          <Tabs value={activeTab} className="w-full">
+            <TabsList className="w-full justify-start overflow-x-auto">
+              {visibleTabs.map((tab) => (
+                <TabsTrigger
+                  key={tab}
+                  value={tab}
+                  onClick={() => handleTabClick(tab)}
+                  className="flex-shrink-0"
+                >
+                  {tab.charAt(0).toUpperCase() + tab.slice(1).replace('-', ' ')}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+          </Tabs>
         </div>
 
         {/* Content wrapper with max-width */}

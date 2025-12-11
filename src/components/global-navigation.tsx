@@ -8,6 +8,12 @@ import { GlobalHeader } from "@/components/global-header";
 import { MobileNavigation } from "@/components/mobile-navigation";
 import { useNavigation } from "@/contexts/navigation-context";
 import { cn } from "@/lib/utils";
+import {
+  NavigationMenu,
+  NavigationMenuList,
+  NavigationMenuItem,
+  NavigationMenuLink,
+} from "@/components/ui/navigation-menu";
 
 const navigationItems = [
   {
@@ -52,30 +58,35 @@ export function GlobalNavigation() {
             <Logo productName="Solstice" />
           </Link>
           
-          <nav className="hidden lg:flex items-center gap-1 flex-nowrap whitespace-nowrap">
-          {navigationItems.map((item) => {
-            const isActive = pathname === item.href || 
-              (item.href === "/docs" && pathname?.startsWith("/docs")) ||
-              (item.href === "/compliance/foundation-layer" && pathname === "/compliance/foundation-layer") ||
-              (item.href === "/compliance" && pathname?.startsWith("/compliance") && pathname !== "/compliance/foundation-layer");
-            
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "flex items-center gap-2 px-4 py-2 rounded-md text-sm transition-colors",
-                  isActive
-                    ? "bg-accent text-accent-foreground font-medium"
-                    : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
-                )}
-              >
-                <MaterialSymbol name={item.icon} size={16} weight={300} />
-                <span>{item.label}</span>
-              </Link>
-            );
-          })}
-          </nav>
+          <NavigationMenu className="hidden lg:flex" viewport={false}>
+            <NavigationMenuList className="gap-1">
+              {navigationItems.map((item) => {
+                const isActive = pathname === item.href || 
+                  (item.href === "/docs" && pathname?.startsWith("/docs")) ||
+                  (item.href === "/compliance/foundation-layer" && pathname === "/compliance/foundation-layer") ||
+                  (item.href === "/compliance" && pathname?.startsWith("/compliance") && pathname !== "/compliance/foundation-layer");
+                
+                return (
+                  <NavigationMenuItem key={item.href}>
+                    <NavigationMenuLink asChild active={isActive} className="flex-row items-center gap-2 p-0">
+                      <Link
+                        href={item.href}
+                        className={cn(
+                          "flex items-center gap-2 px-4 py-2 rounded-md text-sm transition-colors",
+                          isActive
+                            ? "bg-accent text-accent-foreground font-medium"
+                            : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
+                        )}
+                      >
+                        <MaterialSymbol name={item.icon} size={16} weight={300} />
+                        <span>{item.label}</span>
+                      </Link>
+                    </NavigationMenuLink>
+                  </NavigationMenuItem>
+                );
+              })}
+            </NavigationMenuList>
+          </NavigationMenu>
         </div>
 
         <div className="flex items-center gap-4">

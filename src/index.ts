@@ -401,6 +401,10 @@ export {
 // Error Boundary
 export { ErrorBoundary } from './components/error-boundary'
 
+// DevTools
+export { AlizeDevToolsProvider, useAlizeDevTools } from './components/alize-dev-tools'
+export type { AlizeDevToolsProviderProps, HighlightMode, AlizeDevToolsContextValue } from './components/alize-dev-tools'
+
 // Re-export types
 export type { VariantProps } from 'class-variance-authority'
 

@@ -116,6 +116,7 @@ function addNextScripts() {
       pkg.scripts = {
         ...pkg.scripts,
         dev: "next dev",
+        "dev:devtools": "NEXT_PUBLIC_ALIZE_DEVTOOLS=true next dev",
         build: "next build",
         start: "next start",
         lint: "next lint",
@@ -145,7 +146,7 @@ function createProjectFiles() {
     const providersContent = `"use client";
 
 import { ThemeProvider } from "next-themes";
-import { MaterialSymbolsProvider } from "alize-ui";
+import { MaterialSymbolsProvider, AlizeDevToolsProvider } from "alize-ui";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
@@ -157,7 +158,14 @@ export function Providers({ children }: { children: React.ReactNode }) {
         enableSystem 
         value={{ light: "theme-light", dark: "theme-dark" }}
       >
-        {children}
+        {/* 
+          Alizé DevTools - Component Inspector
+          Activation: npm run dev:devtools OR add ?alize-devtools=true to URL
+          Toggle: Ctrl+Shift+A (Cmd+Shift+A on Mac)
+        */}
+        <AlizeDevToolsProvider>
+          {children}
+        </AlizeDevToolsProvider>
       </ThemeProvider>
     </>
   );
@@ -421,8 +429,27 @@ async function main() {
     createProjectFiles();
     
     console.log(`\n${c.green}${c.bold}✓ Done!${c.reset}\n`);
-    console.log(`${c.dim}Start your dev server:${c.reset}`);
-    console.log(`  ${c.cyan}npm run dev${c.reset}\n`);
+    
+    console.log(`${c.cyan}${c.bold}  ╭──────────────────────────────────────╮${c.reset}`);
+    console.log(`${c.cyan}${c.bold}  │${c.reset}            ${c.bold}Getting Started${c.reset}            ${c.cyan}${c.bold}│${c.reset}`);
+    console.log(`${c.cyan}${c.bold}  ╰──────────────────────────────────────╯${c.reset}\n`);
+    
+    console.log(`${c.bold}Start your dev server:${c.reset}`);
+    console.log(`  ${c.green}$${c.reset} ${c.cyan}npm run dev${c.reset}\n`);
+    
+    console.log(`${c.bold}Start with Alizé DevTools ${c.dim}(component inspector)${c.reset}${c.bold}:${c.reset}`);
+    console.log(`  ${c.green}$${c.reset} ${c.cyan}npm run dev:devtools${c.reset}\n`);
+    
+    console.log(`${c.dim}┌─────────────────────────────────────────────────────────┐${c.reset}`);
+    console.log(`${c.dim}│${c.reset} ${c.magenta}Alizé DevTools${c.reset} helps identify which components use    ${c.dim}│${c.reset}`);
+    console.log(`${c.dim}│${c.reset} the Alizé design system vs custom implementations.     ${c.dim}│${c.reset}`);
+    console.log(`${c.dim}│${c.reset}                                                         ${c.dim}│${c.reset}`);
+    console.log(`${c.dim}│${c.reset} ${c.bold}Activation:${c.reset}                                           ${c.dim}│${c.reset}`);
+    console.log(`${c.dim}│${c.reset}   • ${c.cyan}npm run dev:devtools${c.reset}                              ${c.dim}│${c.reset}`);
+    console.log(`${c.dim}│${c.reset}   • Add ${c.yellow}?alize-devtools=true${c.reset} to any URL              ${c.dim}│${c.reset}`);
+    console.log(`${c.dim}│${c.reset}                                                         ${c.dim}│${c.reset}`);
+    console.log(`${c.dim}│${c.reset} ${c.bold}Toggle:${c.reset} ${c.yellow}⌘/Ctrl + Shift + A${c.reset}                           ${c.dim}│${c.reset}`);
+    console.log(`${c.dim}└─────────────────────────────────────────────────────────┘${c.reset}\n`);
   }
 }
 

@@ -206,6 +206,7 @@
   },
   "scripts": {
     "dev": "next dev --turbopack",
+    "dev:devtools": "NEXT_PUBLIC_ALIZE_DEVTOOLS=true next dev --turbopack",
     "dev:webpack": "next dev --webpack",
     "build": "npm run build:components && npm run build:css && npm run build:copy && next build",
     "build:lib": "npm run build:components && npm run build:css && npm run build:copy",
