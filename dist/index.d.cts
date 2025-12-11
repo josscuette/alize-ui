@@ -7541,7 +7541,7 @@ declare class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBou
 /**
  * Highlight mode for the DevTools
  */
-type HighlightMode = "off" | "alize" | "non-alize" | "both";
+type HighlightMode = "off" | "alize";
 interface AlizeDevToolsContextValue {
     highlightMode: HighlightMode;
     setHighlightMode: (mode: HighlightMode) => void;

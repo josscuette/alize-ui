@@ -11161,38 +11161,13 @@ var devToolsStyles = `
     line-height: 1.4 !important;
   }
   
-  [data-alize-component="false"] {
-    outline: 3px solid var(--color-tailwind-slate-500, #64748b) !important;
-    outline-offset: 2px !important;
-    position: relative !important;
-  }
-  
-  [data-alize-component="false"]::before {
-    content: "Not Aliz\xE9";
-    position: absolute !important;
-    top: -22px !important;
-    left: 0 !important;
-    background: var(--color-tailwind-slate-500, #64748b) !important;
-    color: white !important;
-    font-size: 10px !important;
-    font-weight: 500 !important;
-    padding: 2px 8px !important;
-    border-radius: 4px !important;
-    font-family: ui-monospace, SFMono-Regular, monospace !important;
-    z-index: 99999 !important;
-    white-space: nowrap !important;
-    pointer-events: none !important;
-    line-height: 1.4 !important;
-  }
 `;
 var modeButtons = [
   { mode: "off", label: "Off", icon: "visibility_off" },
-  { mode: "alize", label: "Aliz\xE9", icon: "check_circle" },
-  { mode: "non-alize", label: "Other", icon: "cancel" },
-  { mode: "both", label: "Both", icon: "compare" }
+  { mode: "alize", label: "Aliz\xE9", icon: "check_circle" }
 ];
 function DevToolsBar() {
-  const { highlightMode, setHighlightMode, isEnabled, setIsEnabled, alizeCount, nonAlizeCount } = useAlizeDevTools();
+  const { highlightMode, setHighlightMode, isEnabled, setIsEnabled, alizeCount } = useAlizeDevTools();
   const [isCollapsed, setIsCollapsed] = React32.useState(false);
   if (!isEnabled) return null;
   return /* @__PURE__ */ jsx(
@@ -11245,19 +11220,12 @@ function DevToolsBar() {
           ] })
         ] }),
         /* @__PURE__ */ jsx(Separator, { className: "mb-3" }),
-        /* @__PURE__ */ jsxs("div", { className: "mb-3 flex gap-4", children: [
-          /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-2", children: [
-            /* @__PURE__ */ jsx("div", { className: "size-2.5 rounded-full bg-[var(--semantic-tonal-lilac-strong)]" }),
-            /* @__PURE__ */ jsx("span", { className: "text-[var(--semantic-text-subdued)]", children: "Aliz\xE9:" }),
-            /* @__PURE__ */ jsx(Badge, { tonal: "lilac", badgeStyle: "reversed", numeric: true, children: alizeCount })
-          ] }),
-          /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-2", children: [
-            /* @__PURE__ */ jsx("div", { className: "size-2.5 rounded-full bg-[var(--color-tailwind-slate-500)]" }),
-            /* @__PURE__ */ jsx("span", { className: "text-[var(--semantic-text-subdued)]", children: "Other:" }),
-            /* @__PURE__ */ jsx(Badge, { numeric: true, className: "bg-[var(--color-tailwind-slate-500)] text-white border-transparent", children: nonAlizeCount })
-          ] })
+        /* @__PURE__ */ jsxs("div", { className: "mb-3 flex items-center gap-2", children: [
+          /* @__PURE__ */ jsx("div", { className: "size-2.5 rounded-full bg-[var(--semantic-tonal-lilac-strong)]" }),
+          /* @__PURE__ */ jsx("span", { className: "text-[var(--semantic-text-subdued)]", children: "Aliz\xE9 components:" }),
+          /* @__PURE__ */ jsx(Badge, { tonal: "lilac", badgeStyle: "reversed", numeric: true, children: alizeCount })
         ] }),
-        /* @__PURE__ */ jsx("div", { className: "grid grid-cols-4 gap-1.5", children: modeButtons.map(({ mode, label, icon: icon2 }) => /* @__PURE__ */ jsxs(
+        /* @__PURE__ */ jsx("div", { className: "grid grid-cols-2 gap-1.5", children: modeButtons.map(({ mode, label, icon: icon2 }) => /* @__PURE__ */ jsxs(
           Button,
           {
             variant: "outline",
@@ -11331,17 +11299,10 @@ function applyHighlights(mode) {
     el.removeAttribute("data-alize-component");
   });
   if (mode === "off") return;
-  const { alizeElements, nonAlizeElements } = getComponents();
-  if (mode === "alize" || mode === "both") {
-    alizeElements.forEach((el) => {
-      el.setAttribute("data-alize-component", "true");
-    });
-  }
-  if (mode === "non-alize" || mode === "both") {
-    nonAlizeElements.forEach((el) => {
-      el.setAttribute("data-alize-component", "false");
-    });
-  }
+  const { alizeElements } = getComponents();
+  alizeElements.forEach((el) => {
+    el.setAttribute("data-alize-component", "true");
+  });
 }
 function useDevToolsAvailable() {
   const [isAvailable, setIsAvailable] = React32.useState(false);

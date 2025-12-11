@@ -311,7 +311,7 @@ function isAlizeSlot(slotName: string): boolean {
 /**
  * Highlight mode for the DevTools
  */
-type HighlightMode = "off" | "alize" | "non-alize" | "both"
+type HighlightMode = "off" | "alize"
 
 interface AlizeDevToolsContextValue {
   highlightMode: HighlightMode
@@ -386,29 +386,6 @@ const devToolsStyles = `
     line-height: 1.4 !important;
   }
   
-  [data-alize-component="false"] {
-    outline: 3px solid var(--color-tailwind-slate-500, #64748b) !important;
-    outline-offset: 2px !important;
-    position: relative !important;
-  }
-  
-  [data-alize-component="false"]::before {
-    content: "Not Alizé";
-    position: absolute !important;
-    top: -22px !important;
-    left: 0 !important;
-    background: var(--color-tailwind-slate-500, #64748b) !important;
-    color: white !important;
-    font-size: 10px !important;
-    font-weight: 500 !important;
-    padding: 2px 8px !important;
-    border-radius: 4px !important;
-    font-family: ui-monospace, SFMono-Regular, monospace !important;
-    z-index: 99999 !important;
-    white-space: nowrap !important;
-    pointer-events: none !important;
-    line-height: 1.4 !important;
-  }
 `
 
 /**
@@ -417,21 +394,19 @@ const devToolsStyles = `
 interface ModeButtonConfig {
   mode: HighlightMode
   label: string
-  icon: "visibility_off" | "check_circle" | "cancel" | "compare"
+  icon: "visibility_off" | "check_circle"
 }
 
 const modeButtons: ModeButtonConfig[] = [
   { mode: "off", label: "Off", icon: "visibility_off" },
   { mode: "alize", label: "Alizé", icon: "check_circle" },
-  { mode: "non-alize", label: "Other", icon: "cancel" },
-  { mode: "both", label: "Both", icon: "compare" },
 ]
 
 /**
  * DevTools debug bar component - Built with Alizé components
  */
 function DevToolsBar(): React.ReactElement | null {
-  const { highlightMode, setHighlightMode, isEnabled, setIsEnabled, alizeCount, nonAlizeCount } = useAlizeDevTools()
+  const { highlightMode, setHighlightMode, isEnabled, setIsEnabled, alizeCount } = useAlizeDevTools()
   const [isCollapsed, setIsCollapsed] = React.useState(false)
 
   if (!isEnabled) return null
@@ -495,21 +470,14 @@ function DevToolsBar(): React.ReactElement | null {
           <Separator className="mb-3" />
 
           {/* Stats */}
-          <div className="mb-3 flex gap-4">
-            <div className="flex items-center gap-2">
-              <div className="size-2.5 rounded-full bg-[var(--semantic-tonal-lilac-strong)]" />
-              <span className="text-[var(--semantic-text-subdued)]">Alizé:</span>
-              <Badge tonal="lilac" badgeStyle="reversed" numeric>{alizeCount}</Badge>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="size-2.5 rounded-full bg-[var(--color-tailwind-slate-500)]" />
-              <span className="text-[var(--semantic-text-subdued)]">Other:</span>
-              <Badge numeric className="bg-[var(--color-tailwind-slate-500)] text-white border-transparent">{nonAlizeCount}</Badge>
-            </div>
+          <div className="mb-3 flex items-center gap-2">
+            <div className="size-2.5 rounded-full bg-[var(--semantic-tonal-lilac-strong)]" />
+            <span className="text-[var(--semantic-text-subdued)]">Alizé components:</span>
+            <Badge tonal="lilac" badgeStyle="reversed" numeric>{alizeCount}</Badge>
           </div>
 
           {/* Mode Buttons */}
-          <div className="grid grid-cols-4 gap-1.5">
+          <div className="grid grid-cols-2 gap-1.5">
             {modeButtons.map(({ mode, label, icon }) => (
               <Button
                 key={mode}
@@ -622,19 +590,11 @@ function applyHighlights(mode: HighlightMode): void {
   
   if (mode === "off") return
   
-  const { alizeElements, nonAlizeElements } = getComponents()
+  const { alizeElements } = getComponents()
   
-  if (mode === "alize" || mode === "both") {
-    alizeElements.forEach((el) => {
-      el.setAttribute("data-alize-component", "true")
-    })
-  }
-  
-  if (mode === "non-alize" || mode === "both") {
-    nonAlizeElements.forEach((el) => {
-      el.setAttribute("data-alize-component", "false")
-    })
-  }
+  alizeElements.forEach((el) => {
+    el.setAttribute("data-alize-component", "true")
+  })
 }
 
 /**
