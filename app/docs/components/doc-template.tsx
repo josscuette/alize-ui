@@ -694,7 +694,7 @@ export function DocTemplate({
           "sticky top-16 z-40 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 mb-8 border-b bg-background/80 backdrop-blur-sm overflow-hidden transition-[padding]",
           isScrolled ? "pt-5 pb-5" : "pt-8 pb-8"
         )}>
-          <Tabs value={activeTab} className="w-full">
+          <Tabs value={activeTab} className="w-full max-w-[1200px]">
             <TabsList className="w-full justify-start overflow-x-auto">
             {visibleTabs.map((tab) => (
                 <TabsTrigger

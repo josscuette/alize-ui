@@ -711,6 +711,10 @@
   --semantic-text-reversedpersistent: var(--color-white);
   --semantic-text-subdued: var(--color-solstice-glacier-500);
   --semantic-text-tonal-science-default: var(--color-solstice-science-600);
+  /* Tonal Lilac tokens - used by Badge and DevTools */
+  --semantic-tonal-lilac-subdued: var(--color-solstice-lilac-100);
+  --semantic-tonal-lilac-default: var(--color-solstice-lilac-300);
+  --semantic-tonal-lilac-strong: var(--color-solstice-lilac-600);
 }
 .theme-dark,
 [data-theme="dark"] {
@@ -780,6 +784,10 @@
   --semantic-text-reversedpersistent: var(--color-white);
   --semantic-text-subdued: var(--color-solstice-glacier-300);
   --semantic-text-tonal-science-default: var(--color-solstice-science-200);
+  /* Tonal Lilac tokens - used by Badge and DevTools */
+  --semantic-tonal-lilac-subdued: var(--color-solstice-lilac-900);
+  --semantic-tonal-lilac-default: var(--color-solstice-lilac-500);
+  --semantic-tonal-lilac-strong: var(--color-solstice-lilac-400);
 }
 
 
