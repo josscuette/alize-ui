@@ -11201,10 +11201,10 @@ var devToolsStyles = `
     position: absolute !important;
     top: -22px !important;
     left: 0 !important;
-    background: var(--semantic-tonal-lilac-strong, #9333ea) !important;
-    color: white !important;
+    background: var(--semantic-tonal-lilac-subdued, #f6effd) !important;
+    color: var(--semantic-tonal-lilac-strong, #9333ea) !important;
     font-size: 10px !important;
-    font-weight: 500 !important;
+    font-weight: 600 !important;
     padding: 2px 8px !important;
     border-radius: 4px !important;
     font-family: ui-monospace, SFMono-Regular, monospace !important;
