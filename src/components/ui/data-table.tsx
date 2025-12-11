@@ -499,7 +499,7 @@ export function DataTable<TData, TValue>({
                       enableColumnReordering && header.column.getCanHide() && !isPinned && "cursor-grab",
                       draggedColumn === header.column.id && "opacity-50",
                       isPinned && "bg-[var(--card)]",
-                      isPinned === 'left' && pinnedIndex === leftPinnedHeaders.length - 1 && "shadow-[inset_-3px_0_0_0_var(--border)]",
+                      isPinned === 'left' && pinnedIndex === leftPinnedHeaders.length - 1 && "shadow-[inset_-2px_0_0_0_var(--semantic-stroke-subdued)]",
                       isFirstUnpinned && "pl-8",
                       // Bordered variant: extra padding on first/last columns
                       variant === "bordered" && isFirst && "pl-4",
@@ -566,7 +566,7 @@ export function DataTable<TData, TValue>({
                       }}
                       className={cn(
                         isPinned && "bg-[var(--card)]",
-                        isPinned === 'left' && pinnedIndex === leftPinnedCells.length - 1 && "shadow-[inset_-3px_0_0_0_var(--border)]",
+                        isPinned === 'left' && pinnedIndex === leftPinnedCells.length - 1 && "shadow-[inset_-2px_0_0_0_var(--semantic-stroke-subdued)]",
                         isFirstUnpinned && "pl-8",
                         // Bordered variant: extra padding on first/last columns
                         variant === "bordered" && isFirst && "pl-4",
