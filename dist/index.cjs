@@ -819,6 +819,7 @@ function render() {
 }
 function injectDevTools() {
   if (isInjected) return;
+  if (typeof document === "undefined") return;
   isInjected = true;
   injectStyles();
   const bar = document.createElement("div");
@@ -844,20 +845,34 @@ function injectDevTools() {
       render();
     }
   });
+  console.log("[Aliz\xE9 DevTools] Injected successfully! Press \u2318+Shift+A to toggle.");
 }
-function autoInject() {
-  if (typeof window === "undefined") return;
+function shouldInjectDevTools() {
+  if (typeof window === "undefined") return false;
   const urlParams = new URLSearchParams(window.location.search);
-  const shouldInject = urlParams.get("alize-devtools") === "true";
-  if (shouldInject) {
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", injectDevTools);
-    } else {
-      injectDevTools();
-    }
+  return urlParams.get("alize-devtools") === "true";
+}
+function scheduleAutoInject() {
+  if (typeof window === "undefined") return;
+  if (!shouldInjectDevTools()) return;
+  if (document.readyState === "complete" || document.readyState === "interactive") {
+    requestAnimationFrame(() => {
+      setTimeout(injectDevTools, 100);
+    });
+  } else {
+    window.addEventListener("load", () => {
+      setTimeout(injectDevTools, 100);
+    });
   }
 }
-autoInject();
+scheduleAutoInject();
+if (typeof window !== "undefined") {
+  window.addEventListener("popstate", () => {
+    if (shouldInjectDevTools() && !isInjected) {
+      setTimeout(injectDevTools, 100);
+    }
+  });
+}
 function cn(...inputs) {
   return tailwindMerge.twMerge(clsx.clsx(inputs));
 }

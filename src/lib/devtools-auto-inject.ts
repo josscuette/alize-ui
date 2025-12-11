@@ -514,6 +514,8 @@ function render(): void {
 
 function injectDevTools(): void {
   if (isInjected) return
+  if (typeof document === "undefined") return
+  
   isInjected = true
   
   injectStyles()
@@ -550,27 +552,53 @@ function injectDevTools(): void {
       render()
     }
   })
+  
+  // eslint-disable-next-line no-console
+  console.log("[Alizé DevTools] Injected successfully! Press ⌘+Shift+A to toggle.")
 }
 
-// Auto-inject on load if URL param is present
-function autoInject(): void {
-  if (typeof window === "undefined") return
+function shouldInjectDevTools(): boolean {
+  if (typeof window === "undefined") return false
   
   const urlParams = new URLSearchParams(window.location.search)
-  const shouldInject = urlParams.get("alize-devtools") === "true"
+  return urlParams.get("alize-devtools") === "true"
+}
+
+// For Next.js SSR compatibility, we need to delay the check
+// until we're sure we're on the client and the DOM is ready
+function scheduleAutoInject(): void {
+  // Skip if we're on the server
+  if (typeof window === "undefined") return
   
-  if (shouldInject) {
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", injectDevTools)
-    } else {
-      injectDevTools()
-    }
+  // Check if we should inject
+  if (!shouldInjectDevTools()) return
+  
+  // If DOM is ready, inject immediately
+  if (document.readyState === "complete" || document.readyState === "interactive") {
+    // Use requestAnimationFrame to ensure we're after React hydration
+    requestAnimationFrame(() => {
+      setTimeout(injectDevTools, 100)
+    })
+  } else {
+    // Wait for DOM to be ready
+    window.addEventListener("load", () => {
+      setTimeout(injectDevTools, 100)
+    })
   }
 }
 
-// Run auto-inject
-autoInject()
+// Schedule auto-inject - this runs when the module is imported
+scheduleAutoInject()
+
+// Also listen for client-side navigation (Next.js App Router)
+if (typeof window !== "undefined") {
+  // Re-check on popstate (browser back/forward)
+  window.addEventListener("popstate", () => {
+    if (shouldInjectDevTools() && !isInjected) {
+      setTimeout(injectDevTools, 100)
+    }
+  })
+}
 
 // Export for manual use
 export { injectDevTools }
-
