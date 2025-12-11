@@ -457,20 +457,27 @@ function getComponents() {
   return { alizeElements, nonAlizeElements };
 }
 function applyHighlights(mode) {
-  document.querySelectorAll("[data-alize-component]").forEach((el) => {
-    el.removeAttribute("data-alize-component");
-  });
-  if (mode === "off") return;
-  const { alizeElements, nonAlizeElements } = getComponents();
-  if (mode === "alize" || mode === "both") {
-    alizeElements.forEach((el) => {
-      el.setAttribute("data-alize-component", "true");
+  isApplyingHighlights = true;
+  try {
+    document.querySelectorAll("[data-alize-component]").forEach((el) => {
+      el.removeAttribute("data-alize-component");
     });
-  }
-  if (mode === "non-alize" || mode === "both") {
-    nonAlizeElements.forEach((el) => {
-      el.setAttribute("data-alize-component", "false");
-    });
+    if (mode === "off") return;
+    const { alizeElements, nonAlizeElements } = getComponents();
+    if (mode === "alize" || mode === "both") {
+      alizeElements.forEach((el) => {
+        el.setAttribute("data-alize-component", "true");
+      });
+    }
+    if (mode === "non-alize" || mode === "both") {
+      nonAlizeElements.forEach((el) => {
+        el.setAttribute("data-alize-component", "false");
+      });
+    }
+  } finally {
+    setTimeout(() => {
+      isApplyingHighlights = false;
+    }, 50);
   }
 }
 function injectStyles() {
@@ -829,6 +836,7 @@ function debounce(fn, delay) {
     timeoutId = setTimeout(() => fn(...args), delay);
   });
 }
+var isApplyingHighlights = false;
 function injectDevTools() {
   const state = getState();
   if (state.isInjected) return;
@@ -841,6 +849,7 @@ function injectDevTools() {
   document.body.appendChild(bar);
   render();
   const debouncedUpdate = debounce(() => {
+    if (isApplyingHighlights) return;
     if (state.highlightMode !== "off") {
       applyHighlights(state.highlightMode);
     }

@@ -46,12 +46,12 @@ export default function RootLayout({
         >
           <FidelityProvider>
             <AlizeDevToolsProvider>
-              <NavigationProvider>
-                <GlobalNavigation />
-                {children}
-                <Toaster />
-                {/* <ErrorBoundaryWrapper> temporairement désactivé pour debug */}
-              </NavigationProvider>
+            <NavigationProvider>
+              <GlobalNavigation />
+              {children}
+              <Toaster />
+              {/* <ErrorBoundaryWrapper> temporairement désactivé pour debug */}
+            </NavigationProvider>
             </AlizeDevToolsProvider>
           </FidelityProvider>
         </ThemeProvider>

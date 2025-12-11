@@ -144,24 +144,34 @@ function getComponents(): { alizeElements: Element[]; nonAlizeElements: Element[
 }
 
 function applyHighlights(mode: HighlightMode): void {
-  document.querySelectorAll("[data-alize-component]").forEach((el) => {
-    el.removeAttribute("data-alize-component")
-  })
+  // Set flag to prevent MutationObserver infinite loop
+  isApplyingHighlights = true
   
-  if (mode === "off") return
-  
-  const { alizeElements, nonAlizeElements } = getComponents()
-  
-  if (mode === "alize" || mode === "both") {
-    alizeElements.forEach((el) => {
-      el.setAttribute("data-alize-component", "true")
+  try {
+    document.querySelectorAll("[data-alize-component]").forEach((el) => {
+      el.removeAttribute("data-alize-component")
     })
-  }
-  
-  if (mode === "non-alize" || mode === "both") {
-    nonAlizeElements.forEach((el) => {
-      el.setAttribute("data-alize-component", "false")
-    })
+    
+    if (mode === "off") return
+    
+    const { alizeElements, nonAlizeElements } = getComponents()
+    
+    if (mode === "alize" || mode === "both") {
+      alizeElements.forEach((el) => {
+        el.setAttribute("data-alize-component", "true")
+      })
+    }
+    
+    if (mode === "non-alize" || mode === "both") {
+      nonAlizeElements.forEach((el) => {
+        el.setAttribute("data-alize-component", "false")
+      })
+    }
+  } finally {
+    // Reset flag after a small delay to let MutationObserver settle
+    setTimeout(() => {
+      isApplyingHighlights = false
+    }, 50)
   }
 }
 
@@ -538,6 +548,9 @@ function debounce<T extends (...args: unknown[]) => void>(fn: T, delay: number):
   }) as T
 }
 
+// Flag to prevent infinite loops when applying highlights
+let isApplyingHighlights = false
+
 function injectDevTools(): void {
   const state = getState()
   if (state.isInjected) return
@@ -557,6 +570,9 @@ function injectDevTools(): void {
   
   // Debounced update function to prevent freezing
   const debouncedUpdate = debounce(() => {
+    // Skip if we're currently applying highlights (prevents infinite loop)
+    if (isApplyingHighlights) return
+    
     if (state.highlightMode !== "off") {
       applyHighlights(state.highlightMode)
     }

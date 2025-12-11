@@ -696,16 +696,16 @@ export function DocTemplate({
         )}>
           <Tabs value={activeTab} className="w-full">
             <TabsList className="w-full justify-start overflow-x-auto">
-              {visibleTabs.map((tab) => (
+            {visibleTabs.map((tab) => (
                 <TabsTrigger
-                  key={tab}
+                key={tab}
                   value={tab}
-                  onClick={() => handleTabClick(tab)}
+                onClick={() => handleTabClick(tab)}
                   className="flex-shrink-0"
-                >
-                  {tab.charAt(0).toUpperCase() + tab.slice(1).replace('-', ' ')}
+              >
+                {tab.charAt(0).toUpperCase() + tab.slice(1).replace('-', ' ')}
                 </TabsTrigger>
-              ))}
+            ))}
             </TabsList>
           </Tabs>
         </div>

@@ -164,7 +164,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
           Toggle: Ctrl+Shift+A (Cmd+Shift+A on Mac)
         */}
         <AlizeDevToolsProvider>
-          {children}
+        {children}
         </AlizeDevToolsProvider>
       </ThemeProvider>
     </>
