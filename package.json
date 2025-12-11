@@ -10,11 +10,7 @@
   },
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "sideEffects": [
-    "./src/lib/devtools-auto-inject.ts",
-    "./dist/index.js",
-    "./dist/index.cjs"
-  ],
+  "sideEffects": false,
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
