@@ -11180,6 +11180,21 @@ var ALIZE_SLOT_NAMES = /* @__PURE__ */ new Set([
 function isAlizeSlot(slotName) {
   return ALIZE_SLOT_NAMES.has(slotName);
 }
+var TONAL_COLORS = [
+  "lilac",
+  "royal",
+  "science",
+  "atoll",
+  "forest",
+  "lima",
+  "amber",
+  "sand",
+  "clay",
+  "lavender",
+  "magenta",
+  "violet",
+  "watercourse"
+];
 var AlizeDevToolsContext = React32__namespace.createContext(null);
 function useAlizeDevTools() {
   const context = React32__namespace.useContext(AlizeDevToolsContext);
@@ -11188,10 +11203,11 @@ function useAlizeDevTools() {
   }
   return context;
 }
-var devToolsStyles = `
+function getDevToolsStyles(tonal) {
+  return `
   /* Aliz\xE9 DevTools Styles */
   [data-alize-component="true"] {
-    outline: 3px solid var(--semantic-tonal-lilac-strong, #9333ea) !important;
+    outline: 3px solid var(--semantic-tonal-${tonal}-strong) !important;
     outline-offset: 2px !important;
     position: relative !important;
   }
@@ -11201,8 +11217,8 @@ var devToolsStyles = `
     position: absolute !important;
     top: -22px !important;
     left: 0 !important;
-    background: var(--semantic-tonal-lilac-strong, #69359d) !important;
-    color: var(--semantic-tonal-lilac-subdued, #f6effd) !important;
+    background: var(--semantic-tonal-${tonal}-strong) !important;
+    color: var(--semantic-tonal-${tonal}-subdued) !important;
     font-size: 10px !important;
     font-weight: 600 !important;
     padding: 2px 8px !important;
@@ -11213,14 +11229,14 @@ var devToolsStyles = `
     pointer-events: none !important;
     line-height: 1.4 !important;
   }
-  
 `;
+}
 var modeButtons = [
   { mode: "off", label: "Off", icon: "visibility_off" },
   { mode: "alize", label: "Aliz\xE9", icon: "check_circle" }
 ];
 function DevToolsBar() {
-  const { highlightMode, setHighlightMode, isEnabled, setIsEnabled, alizeCount } = useAlizeDevTools();
+  const { highlightMode, setHighlightMode, tonalColor, setTonalColor, isEnabled, setIsEnabled, alizeCount } = useAlizeDevTools();
   const [isCollapsed, setIsCollapsed] = React32__namespace.useState(false);
   if (!isEnabled) return null;
   return /* @__PURE__ */ jsxRuntime.jsx(
@@ -11274,9 +11290,15 @@ function DevToolsBar() {
         ] }),
         /* @__PURE__ */ jsxRuntime.jsx(Separator, { className: "mb-3" }),
         /* @__PURE__ */ jsxRuntime.jsxs("div", { className: "mb-3 flex items-center gap-2", children: [
-          /* @__PURE__ */ jsxRuntime.jsx("div", { className: "size-2.5 rounded-full bg-[var(--semantic-tonal-lilac-strong)]" }),
+          /* @__PURE__ */ jsxRuntime.jsx(
+            "div",
+            {
+              className: "size-2.5 rounded-full",
+              style: { background: `var(--semantic-tonal-${tonalColor}-strong)` }
+            }
+          ),
           /* @__PURE__ */ jsxRuntime.jsx("span", { className: "text-[var(--semantic-text-subdued)]", children: "Aliz\xE9 components:" }),
-          /* @__PURE__ */ jsxRuntime.jsx(Badge, { tonal: "lilac", badgeStyle: "reversed", numeric: true, children: alizeCount })
+          /* @__PURE__ */ jsxRuntime.jsx(Badge, { tonal: tonalColor, badgeStyle: "reversed", numeric: true, children: alizeCount })
         ] }),
         /* @__PURE__ */ jsxRuntime.jsx("div", { className: "grid grid-cols-2 gap-1.5", children: modeButtons.map(({ mode, label, icon: icon2 }) => /* @__PURE__ */ jsxRuntime.jsxs(
           Button,
@@ -11295,6 +11317,20 @@ function DevToolsBar() {
           },
           mode
         )) }),
+        /* @__PURE__ */ jsxRuntime.jsx("div", { className: "mt-3 flex flex-wrap gap-1.5 justify-center", children: TONAL_COLORS.map((color) => /* @__PURE__ */ jsxRuntime.jsxs(Tooltip, { children: [
+          /* @__PURE__ */ jsxRuntime.jsx(TooltipTrigger, { asChild: true, children: /* @__PURE__ */ jsxRuntime.jsx(
+            "button",
+            {
+              onClick: () => setTonalColor(color),
+              className: cn(
+                "size-5 rounded-full transition-all",
+                tonalColor === color ? "ring-2 ring-offset-2 ring-[var(--semantic-stroke-default)] ring-offset-[var(--semantic-surface-default)]" : "hover:scale-110"
+              ),
+              style: { background: `var(--semantic-tonal-${color}-strong)` }
+            }
+          ) }),
+          /* @__PURE__ */ jsxRuntime.jsx(TooltipContent, { children: color })
+        ] }, color)) }),
         /* @__PURE__ */ jsxRuntime.jsx(Separator, { className: "my-3" }),
         /* @__PURE__ */ jsxRuntime.jsxs("div", { className: "flex items-center justify-center gap-1.5 text-[11px] text-[var(--semantic-text-subdued)]", children: [
           /* @__PURE__ */ jsxRuntime.jsx("span", { children: "Press" }),
@@ -11375,6 +11411,7 @@ function AlizeDevToolsProvider({
   const isAvailable = useDevToolsAvailable();
   const [isEnabled, setIsEnabled] = React32__namespace.useState(false);
   const [highlightMode, setHighlightMode] = React32__namespace.useState("off");
+  const [tonalColor, setTonalColor] = React32__namespace.useState("lilac");
   const [counts, setCounts] = React32__namespace.useState({ alizeCount: 0, nonAlizeCount: 0 });
   React32__namespace.useEffect(() => {
     if (enabled === void 0) {
@@ -11421,15 +11458,17 @@ function AlizeDevToolsProvider({
     () => ({
       highlightMode,
       setHighlightMode,
+      tonalColor,
+      setTonalColor,
       isEnabled,
       setIsEnabled,
       alizeCount: counts.alizeCount,
       nonAlizeCount: counts.nonAlizeCount
     }),
-    [highlightMode, isEnabled, counts]
+    [highlightMode, tonalColor, isEnabled, counts]
   );
   return /* @__PURE__ */ jsxRuntime.jsxs(AlizeDevToolsContext.Provider, { value: contextValue, children: [
-    isEnabled && /* @__PURE__ */ jsxRuntime.jsx("style", { dangerouslySetInnerHTML: { __html: devToolsStyles } }),
+    isEnabled && /* @__PURE__ */ jsxRuntime.jsx("style", { dangerouslySetInnerHTML: { __html: getDevToolsStyles(tonalColor) } }),
     children,
     /* @__PURE__ */ jsxRuntime.jsx(DevToolsBar, {})
   ] });

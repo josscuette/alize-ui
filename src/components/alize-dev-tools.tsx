@@ -313,9 +313,21 @@ function isAlizeSlot(slotName: string): boolean {
  */
 type HighlightMode = "off" | "alize"
 
+/**
+ * Available tonal colors for highlighting
+ */
+type TonalColor = "lilac" | "amber" | "atoll" | "clay" | "forest" | "lavender" | "lima" | "magenta" | "royal" | "sand" | "science" | "violet" | "watercourse"
+
+const TONAL_COLORS: TonalColor[] = [
+  "lilac", "royal", "science", "atoll", "forest", "lima", 
+  "amber", "sand", "clay", "lavender", "magenta", "violet", "watercourse"
+]
+
 interface AlizeDevToolsContextValue {
   highlightMode: HighlightMode
   setHighlightMode: (mode: HighlightMode) => void
+  tonalColor: TonalColor
+  setTonalColor: (color: TonalColor) => void
   isEnabled: boolean
   setIsEnabled: (enabled: boolean) => void
   alizeCount: number
@@ -355,15 +367,13 @@ export interface AlizeDevToolsProviderProps {
 }
 
 /**
- * CSS styles for the debug overlay and highlighting
- * Uses Alizé semantic tokens for consistent styling
- * - Lilac for Alizé components (stands out from typical UI)
- * - Slate for non-Alizé components (neutral but visible)
+ * Generate CSS styles for the debug overlay based on selected tonal color
  */
-const devToolsStyles = `
+function getDevToolsStyles(tonal: TonalColor): string {
+  return `
   /* Alizé DevTools Styles */
   [data-alize-component="true"] {
-    outline: 3px solid var(--semantic-tonal-lilac-strong, #9333ea) !important;
+    outline: 3px solid var(--semantic-tonal-${tonal}-strong) !important;
     outline-offset: 2px !important;
     position: relative !important;
   }
@@ -373,8 +383,8 @@ const devToolsStyles = `
     position: absolute !important;
     top: -22px !important;
     left: 0 !important;
-    background: var(--semantic-tonal-lilac-strong, #69359d) !important;
-    color: var(--semantic-tonal-lilac-subdued, #f6effd) !important;
+    background: var(--semantic-tonal-${tonal}-strong) !important;
+    color: var(--semantic-tonal-${tonal}-subdued) !important;
     font-size: 10px !important;
     font-weight: 600 !important;
     padding: 2px 8px !important;
@@ -385,8 +395,8 @@ const devToolsStyles = `
     pointer-events: none !important;
     line-height: 1.4 !important;
   }
-  
 `
+}
 
 /**
  * Mode button configuration
@@ -406,7 +416,7 @@ const modeButtons: ModeButtonConfig[] = [
  * DevTools debug bar component - Built with Alizé components
  */
 function DevToolsBar(): React.ReactElement | null {
-  const { highlightMode, setHighlightMode, isEnabled, setIsEnabled, alizeCount } = useAlizeDevTools()
+  const { highlightMode, setHighlightMode, tonalColor, setTonalColor, isEnabled, setIsEnabled, alizeCount } = useAlizeDevTools()
   const [isCollapsed, setIsCollapsed] = React.useState(false)
 
   if (!isEnabled) return null
@@ -471,9 +481,12 @@ function DevToolsBar(): React.ReactElement | null {
 
           {/* Stats */}
           <div className="mb-3 flex items-center gap-2">
-            <div className="size-2.5 rounded-full bg-[var(--semantic-tonal-lilac-strong)]" />
+            <div 
+              className="size-2.5 rounded-full" 
+              style={{ background: `var(--semantic-tonal-${tonalColor}-strong)` }}
+            />
             <span className="text-[var(--semantic-text-subdued)]">Alizé components:</span>
-            <Badge tonal="lilac" badgeStyle="reversed" numeric>{alizeCount}</Badge>
+            <Badge tonal={tonalColor} badgeStyle="reversed" numeric>{alizeCount}</Badge>
           </div>
 
           {/* Mode Buttons */}
@@ -494,6 +507,27 @@ function DevToolsBar(): React.ReactElement | null {
                 <MaterialSymbol name={icon} size={16} weight={300} />
                 <span className="text-[11px]">{label}</span>
               </Button>
+            ))}
+          </div>
+
+          {/* Tonal Color Selector */}
+          <div className="mt-3 flex flex-wrap gap-1.5 justify-center">
+            {TONAL_COLORS.map((color) => (
+              <Tooltip key={color}>
+                <TooltipTrigger asChild>
+                  <button
+                    onClick={() => setTonalColor(color)}
+                    className={cn(
+                      "size-5 rounded-full transition-all",
+                      tonalColor === color 
+                        ? "ring-2 ring-offset-2 ring-[var(--semantic-stroke-default)] ring-offset-[var(--semantic-surface-default)]" 
+                        : "hover:scale-110"
+                    )}
+                    style={{ background: `var(--semantic-tonal-${color}-strong)` }}
+                  />
+                </TooltipTrigger>
+                <TooltipContent>{color}</TooltipContent>
+              </Tooltip>
             ))}
           </div>
 
@@ -669,6 +703,7 @@ export function AlizeDevToolsProvider({
   
   const [isEnabled, setIsEnabled] = React.useState(false)
   const [highlightMode, setHighlightMode] = React.useState<HighlightMode>("off")
+  const [tonalColor, setTonalColor] = React.useState<TonalColor>("lilac")
   const [counts, setCounts] = React.useState({ alizeCount: 0, nonAlizeCount: 0 })
   
   // Sync enabled state when availability changes
@@ -737,18 +772,20 @@ export function AlizeDevToolsProvider({
     () => ({
       highlightMode,
       setHighlightMode,
+      tonalColor,
+      setTonalColor,
       isEnabled,
       setIsEnabled,
       alizeCount: counts.alizeCount,
       nonAlizeCount: counts.nonAlizeCount,
     }),
-    [highlightMode, isEnabled, counts]
+    [highlightMode, tonalColor, isEnabled, counts]
   )
 
   return (
     <AlizeDevToolsContext.Provider value={contextValue}>
-      {/* Inject styles */}
-      {isEnabled && <style dangerouslySetInnerHTML={{ __html: devToolsStyles }} />}
+      {/* Inject styles with selected tonal color */}
+      {isEnabled && <style dangerouslySetInnerHTML={{ __html: getDevToolsStyles(tonalColor) }} />}
       {children}
       <DevToolsBar />
     </AlizeDevToolsContext.Provider>

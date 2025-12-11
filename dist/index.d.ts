@@ -7542,9 +7542,15 @@ declare class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBou
  * Highlight mode for the DevTools
  */
 type HighlightMode = "off" | "alize";
+/**
+ * Available tonal colors for highlighting
+ */
+type TonalColor = "lilac" | "amber" | "atoll" | "clay" | "forest" | "lavender" | "lima" | "magenta" | "royal" | "sand" | "science" | "violet" | "watercourse";
 interface AlizeDevToolsContextValue {
     highlightMode: HighlightMode;
     setHighlightMode: (mode: HighlightMode) => void;
+    tonalColor: TonalColor;
+    setTonalColor: (color: TonalColor) => void;
     isEnabled: boolean;
     setIsEnabled: (enabled: boolean) => void;
     alizeCount: number;
