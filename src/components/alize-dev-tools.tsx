@@ -363,7 +363,7 @@ export interface AlizeDevToolsProviderProps {
 const devToolsStyles = `
   /* Alizé DevTools Styles */
   [data-alize-component="true"] {
-    outline: 3px solid var(--semantic-tonal-lilac-strong) !important;
+    outline: 3px solid var(--semantic-tonal-lilac-strong, #9333ea) !important;
     outline-offset: 2px !important;
     position: relative !important;
   }
@@ -373,7 +373,7 @@ const devToolsStyles = `
     position: absolute !important;
     top: -22px !important;
     left: 0 !important;
-    background: var(--semantic-tonal-lilac-strong) !important;
+    background: var(--semantic-tonal-lilac-strong, #9333ea) !important;
     color: white !important;
     font-size: 10px !important;
     font-weight: 500 !important;
@@ -387,7 +387,7 @@ const devToolsStyles = `
   }
   
   [data-alize-component="false"] {
-    outline: 3px solid var(--color-tailwind-slate-500) !important;
+    outline: 3px solid var(--color-tailwind-slate-500, #64748b) !important;
     outline-offset: 2px !important;
     position: relative !important;
   }
@@ -397,7 +397,7 @@ const devToolsStyles = `
     position: absolute !important;
     top: -22px !important;
     left: 0 !important;
-    background: var(--color-tailwind-slate-500) !important;
+    background: var(--color-tailwind-slate-500, #64748b) !important;
     color: white !important;
     font-size: 10px !important;
     font-weight: 500 !important;
