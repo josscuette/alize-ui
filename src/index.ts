@@ -10,6 +10,10 @@
  * ```
  */
 
+// Auto-inject DevTools when ?alize-devtools=true is in URL
+// This runs automatically - no Provider needed!
+import './lib/devtools-auto-inject'
+
 // Atoms
 export { Button, buttonVariants } from './components/ui/button'
 export type { ButtonProps } from './components/ui/button'
