@@ -457,27 +457,20 @@ function getComponents() {
   return { alizeElements, nonAlizeElements };
 }
 function applyHighlights(mode) {
-  isApplyingHighlights = true;
-  try {
-    document.querySelectorAll("[data-alize-component]").forEach((el) => {
-      el.removeAttribute("data-alize-component");
+  document.querySelectorAll("[data-alize-component]").forEach((el) => {
+    el.removeAttribute("data-alize-component");
+  });
+  if (mode === "off") return;
+  const { alizeElements, nonAlizeElements } = getComponents();
+  if (mode === "alize" || mode === "both") {
+    alizeElements.forEach((el) => {
+      el.setAttribute("data-alize-component", "true");
     });
-    if (mode === "off") return;
-    const { alizeElements, nonAlizeElements } = getComponents();
-    if (mode === "alize" || mode === "both") {
-      alizeElements.forEach((el) => {
-        el.setAttribute("data-alize-component", "true");
-      });
-    }
-    if (mode === "non-alize" || mode === "both") {
-      nonAlizeElements.forEach((el) => {
-        el.setAttribute("data-alize-component", "false");
-      });
-    }
-  } finally {
-    setTimeout(() => {
-      isApplyingHighlights = false;
-    }, 50);
+  }
+  if (mode === "non-alize" || mode === "both") {
+    nonAlizeElements.forEach((el) => {
+      el.setAttribute("data-alize-component", "false");
+    });
   }
 }
 function injectStyles() {
@@ -829,14 +822,6 @@ function render() {
     updateStats();
   }
 }
-function debounce(fn, delay) {
-  let timeoutId = null;
-  return ((...args) => {
-    if (timeoutId) clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => fn(...args), delay);
-  });
-}
-var isApplyingHighlights = false;
 function injectDevTools() {
   const state = getState();
   if (state.isInjected) return;
@@ -848,15 +833,6 @@ function injectDevTools() {
   bar.setAttribute("data-alize-devtools-standalone", "true");
   document.body.appendChild(bar);
   render();
-  const debouncedUpdate = debounce(() => {
-    if (isApplyingHighlights) return;
-    if (state.highlightMode !== "off") {
-      applyHighlights(state.highlightMode);
-    }
-    updateStats();
-  }, 300);
-  const observer = new MutationObserver(debouncedUpdate);
-  observer.observe(document.body, { childList: true, subtree: true, attributes: false });
   document.addEventListener("keydown", (e) => {
     if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === "a") {
       e.preventDefault();

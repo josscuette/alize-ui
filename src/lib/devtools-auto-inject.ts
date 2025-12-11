@@ -144,34 +144,24 @@ function getComponents(): { alizeElements: Element[]; nonAlizeElements: Element[
 }
 
 function applyHighlights(mode: HighlightMode): void {
-  // Set flag to prevent MutationObserver infinite loop
-  isApplyingHighlights = true
+  document.querySelectorAll("[data-alize-component]").forEach((el) => {
+    el.removeAttribute("data-alize-component")
+  })
   
-  try {
-    document.querySelectorAll("[data-alize-component]").forEach((el) => {
-      el.removeAttribute("data-alize-component")
+  if (mode === "off") return
+  
+  const { alizeElements, nonAlizeElements } = getComponents()
+  
+  if (mode === "alize" || mode === "both") {
+    alizeElements.forEach((el) => {
+      el.setAttribute("data-alize-component", "true")
     })
-    
-    if (mode === "off") return
-    
-    const { alizeElements, nonAlizeElements } = getComponents()
-    
-    if (mode === "alize" || mode === "both") {
-      alizeElements.forEach((el) => {
-        el.setAttribute("data-alize-component", "true")
-      })
-    }
-    
-    if (mode === "non-alize" || mode === "both") {
-      nonAlizeElements.forEach((el) => {
-        el.setAttribute("data-alize-component", "false")
-      })
-    }
-  } finally {
-    // Reset flag after a small delay to let MutationObserver settle
-    setTimeout(() => {
-      isApplyingHighlights = false
-    }, 50)
+  }
+  
+  if (mode === "non-alize" || mode === "both") {
+    nonAlizeElements.forEach((el) => {
+      el.setAttribute("data-alize-component", "false")
+    })
   }
 }
 
@@ -539,18 +529,6 @@ function render(): void {
   }
 }
 
-// Debounce helper
-function debounce<T extends (...args: unknown[]) => void>(fn: T, delay: number): T {
-  let timeoutId: ReturnType<typeof setTimeout> | null = null
-  return ((...args: unknown[]) => {
-    if (timeoutId) clearTimeout(timeoutId)
-    timeoutId = setTimeout(() => fn(...args), delay)
-  }) as T
-}
-
-// Flag to prevent infinite loops when applying highlights
-let isApplyingHighlights = false
-
 function injectDevTools(): void {
   const state = getState()
   if (state.isInjected) return
@@ -567,22 +545,6 @@ function injectDevTools(): void {
   document.body.appendChild(bar)
   
   render()
-  
-  // Debounced update function to prevent freezing
-  const debouncedUpdate = debounce(() => {
-    // Skip if we're currently applying highlights (prevents infinite loop)
-    if (isApplyingHighlights) return
-    
-    if (state.highlightMode !== "off") {
-      applyHighlights(state.highlightMode)
-    }
-    updateStats()
-  }, 300)
-  
-  // Set up mutation observer for dynamic content (debounced)
-  const observer = new MutationObserver(debouncedUpdate)
-  
-  observer.observe(document.body, { childList: true, subtree: true, attributes: false })
   
   // Keyboard shortcut
   document.addEventListener("keydown", (e) => {
