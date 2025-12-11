@@ -452,6 +452,64 @@ function InteractivePlayground({
           return `import { Logo } from '${importPath}';\n\n<Logo${logoPropsStr} />`;
         }
         
+        case 'DataTable': {
+          // Map playground props to actual DataTable props
+          const dataTablePropsArr: string[] = [];
+          
+          // Sorting affects columns, not a direct prop - but we show it as a comment
+          const hasSorting = values['sorting'] === 'true';
+          const hasFiltering = values['filtering'] === 'true';
+          const hasPagination = values['pagination'] === 'true';
+          const hasRowSelection = values['rowSelection'] === 'true';
+          const hasColumnVisibility = values['columnVisibility'] === 'true';
+          const hasColumnReordering = values['columnReordering'] === 'true';
+          const hasColumnPinning = values['columnPinning'] === 'true';
+          const variant = values['variant'] || 'bordered';
+          const density = values['density'] || 'default';
+          
+          // Only add props that differ from defaults
+          if (hasRowSelection) dataTablePropsArr.push('enableRowSelection');
+          if (hasFiltering) dataTablePropsArr.push('enableGlobalFilter');
+          if (hasPagination) dataTablePropsArr.push('enablePagination');
+          if (hasColumnVisibility) dataTablePropsArr.push('enableColumnVisibility');
+          if (hasColumnReordering) dataTablePropsArr.push('enableColumnReordering');
+          if (hasColumnPinning) {
+            dataTablePropsArr.push('enableColumnPinning');
+            dataTablePropsArr.push('pinnedColumns={["id", "name"]}');
+          }
+          if (variant !== 'bordered') dataTablePropsArr.push(`variant="${variant}"`);
+          if (density !== 'default') dataTablePropsArr.push(`density="${density}"`);
+          
+          const propsStr = dataTablePropsArr.length > 0 
+            ? `\n      ${dataTablePropsArr.join('\n      ')}`
+            : '';
+          
+          const sortingComment = hasSorting 
+            ? '\n// Note: Sorting is enabled via column definitions with enableSorting: true'
+            : '';
+          
+          return `import { DataTable, createSelectionColumn } from '${importPath}';
+import type { ColumnDef } from '@tanstack/react-table';
+${sortingComment}
+
+// Define your columns
+const columns: ColumnDef<YourDataType>[] = [${hasRowSelection ? '\n  createSelectionColumn(),' : ''}
+  {
+    accessorKey: "name",
+    header: "Name",${hasSorting ? '\n    enableSorting: true,' : ''}
+  },
+  // ... more columns
+];
+
+// Your data
+const data: YourDataType[] = [...];
+
+<DataTable
+      columns={columns}
+      data={data}${propsStr}
+    />`;
+        }
+        
         default:
           // Generic fallback
           return `import { ${componentName} } from '${importPath}';\n\n<${componentName}${propsString} />`;
