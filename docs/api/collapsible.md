@@ -4,7 +4,7 @@
 
 ### CollapsibleContentProps
 
-Defined in: [src/components/ui/collapsible.tsx:22](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/collapsible.tsx#L22)
+Defined in: [src/components/ui/collapsible.tsx:22](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/collapsible.tsx#L22)
 
 CollapsibleContent component props interface
 Extends Radix UI CollapsibleContent primitive props
@@ -17,7 +17,7 @@ Extends Radix UI CollapsibleContent primitive props
 
 ### CollapsibleProps
 
-Defined in: [src/components/ui/collapsible.tsx:10](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/collapsible.tsx#L10)
+Defined in: [src/components/ui/collapsible.tsx:10](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/collapsible.tsx#L10)
 
 Collapsible component props interface
 Extends Radix UI Collapsible primitive props
@@ -30,7 +30,7 @@ Extends Radix UI Collapsible primitive props
 
 ### CollapsibleTriggerProps
 
-Defined in: [src/components/ui/collapsible.tsx:16](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/collapsible.tsx#L16)
+Defined in: [src/components/ui/collapsible.tsx:16](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/collapsible.tsx#L16)
 
 CollapsibleTrigger component props interface
 Extends Radix UI CollapsibleTrigger primitive props
@@ -47,7 +47,7 @@ Extends Radix UI CollapsibleTrigger primitive props
 function Collapsible(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/collapsible.tsx:41](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/collapsible.tsx#L41)
+Defined in: [src/components/ui/collapsible.tsx:41](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/collapsible.tsx#L41)
 
 Collapsible component - A collapsible content section
 
@@ -83,7 +83,7 @@ A Collapsible component
 function CollapsibleContent(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/collapsible.tsx:68](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/collapsible.tsx#L68)
+Defined in: [src/components/ui/collapsible.tsx:68](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/collapsible.tsx#L68)
 
 CollapsibleContent component - The collapsible content
 
@@ -107,7 +107,7 @@ A CollapsibleContent component
 function CollapsibleTrigger(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/collapsible.tsx:52](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/collapsible.tsx#L52)
+Defined in: [src/components/ui/collapsible.tsx:52](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/collapsible.tsx#L52)
 
 CollapsibleTrigger component - The element that toggles the collapsible
 

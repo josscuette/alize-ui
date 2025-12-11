@@ -4,7 +4,7 @@
 
 ### CardActionProps
 
-Defined in: [src/components/ui/card.tsx:33](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/card.tsx#L33)
+Defined in: [src/components/ui/card.tsx:33](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/card.tsx#L33)
 
 CardAction component props interface
 Extends native div element props
@@ -17,7 +17,7 @@ Extends native div element props
 
 ### CardContentProps
 
-Defined in: [src/components/ui/card.tsx:39](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/card.tsx#L39)
+Defined in: [src/components/ui/card.tsx:39](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/card.tsx#L39)
 
 CardContent component props interface
 Extends native div element props
@@ -30,7 +30,7 @@ Extends native div element props
 
 ### CardDescriptionProps
 
-Defined in: [src/components/ui/card.tsx:27](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/card.tsx#L27)
+Defined in: [src/components/ui/card.tsx:27](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/card.tsx#L27)
 
 CardDescription component props interface
 Extends native div element props
@@ -43,7 +43,7 @@ Extends native div element props
 
 ### CardFooterProps
 
-Defined in: [src/components/ui/card.tsx:45](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/card.tsx#L45)
+Defined in: [src/components/ui/card.tsx:45](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/card.tsx#L45)
 
 CardFooter component props interface
 Extends native div element props
@@ -56,7 +56,7 @@ Extends native div element props
 
 ### CardHeaderProps
 
-Defined in: [src/components/ui/card.tsx:15](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/card.tsx#L15)
+Defined in: [src/components/ui/card.tsx:15](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/card.tsx#L15)
 
 CardHeader component props interface
 Extends native div element props
@@ -69,7 +69,7 @@ Extends native div element props
 
 ### CardProps
 
-Defined in: [src/components/ui/card.tsx:9](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/card.tsx#L9)
+Defined in: [src/components/ui/card.tsx:9](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/card.tsx#L9)
 
 Card component props interface
 Extends native div element props
@@ -82,7 +82,7 @@ Extends native div element props
 
 ### CardTitleProps
 
-Defined in: [src/components/ui/card.tsx:21](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/card.tsx#L21)
+Defined in: [src/components/ui/card.tsx:21](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/card.tsx#L21)
 
 CardTitle component props interface
 Extends native div element props
@@ -99,7 +99,7 @@ Extends native div element props
 function Card(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/card.tsx:68](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/card.tsx#L68)
+Defined in: [src/components/ui/card.tsx:68](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/card.tsx#L68)
 
 Card component - A container for content with header, body, and footer sections
 
@@ -139,7 +139,7 @@ A card container element
 function CardAction(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/card.tsx:156](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/card.tsx#L156)
+Defined in: [src/components/ui/card.tsx:156](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/card.tsx#L156)
 
 CardAction component - An action button area within a CardHeader
 
@@ -163,7 +163,7 @@ A card action element
 function CardContent(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/card.tsx:181](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/card.tsx#L181)
+Defined in: [src/components/ui/card.tsx:181](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/card.tsx#L181)
 
 CardContent component - The main content section of a Card
 
@@ -187,7 +187,7 @@ A card content element
 function CardDescription(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/card.tsx:134](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/card.tsx#L134)
+Defined in: [src/components/ui/card.tsx:134](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/card.tsx#L134)
 
 CardDescription component - The description within a CardHeader
 
@@ -211,7 +211,7 @@ A card description element
 function CardFooter(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/card.tsx:203](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/card.tsx#L203)
+Defined in: [src/components/ui/card.tsx:203](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/card.tsx#L203)
 
 CardFooter component - The footer section of a Card
 
@@ -235,7 +235,7 @@ A card footer element
 function CardHeader(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/card.tsx:87](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/card.tsx#L87)
+Defined in: [src/components/ui/card.tsx:87](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/card.tsx#L87)
 
 CardHeader component - The header section of a Card
 
@@ -259,7 +259,7 @@ A card header element
 function CardTitle(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/card.tsx:112](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/card.tsx#L112)
+Defined in: [src/components/ui/card.tsx:112](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/card.tsx#L112)
 
 CardTitle component - The title within a CardHeader
 

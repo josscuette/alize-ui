@@ -4,7 +4,7 @@
 
 ### NavigationMenuContentProps
 
-Defined in: [src/components/ui/navigation-menu.tsx:38](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/navigation-menu.tsx#L38)
+Defined in: [src/components/ui/navigation-menu.tsx:38](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/navigation-menu.tsx#L38)
 
 NavigationMenuContent component props interface
 Extends Radix UI NavigationMenuContent primitive props
@@ -17,7 +17,7 @@ Extends Radix UI NavigationMenuContent primitive props
 
 ### NavigationMenuIndicatorProps
 
-Defined in: [src/components/ui/navigation-menu.tsx:56](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/navigation-menu.tsx#L56)
+Defined in: [src/components/ui/navigation-menu.tsx:56](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/navigation-menu.tsx#L56)
 
 NavigationMenuIndicator component props interface
 Extends Radix UI NavigationMenuIndicator primitive props
@@ -30,7 +30,7 @@ Extends Radix UI NavigationMenuIndicator primitive props
 
 ### NavigationMenuItemProps
 
-Defined in: [src/components/ui/navigation-menu.tsx:26](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/navigation-menu.tsx#L26)
+Defined in: [src/components/ui/navigation-menu.tsx:26](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/navigation-menu.tsx#L26)
 
 NavigationMenuItem component props interface
 Extends Radix UI NavigationMenuItem primitive props
@@ -43,7 +43,7 @@ Extends Radix UI NavigationMenuItem primitive props
 
 ### NavigationMenuLinkProps
 
-Defined in: [src/components/ui/navigation-menu.tsx:50](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/navigation-menu.tsx#L50)
+Defined in: [src/components/ui/navigation-menu.tsx:50](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/navigation-menu.tsx#L50)
 
 NavigationMenuLink component props interface
 Extends Radix UI NavigationMenuLink primitive props
@@ -56,7 +56,7 @@ Extends Radix UI NavigationMenuLink primitive props
 
 ### NavigationMenuListProps
 
-Defined in: [src/components/ui/navigation-menu.tsx:20](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/navigation-menu.tsx#L20)
+Defined in: [src/components/ui/navigation-menu.tsx:20](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/navigation-menu.tsx#L20)
 
 NavigationMenuList component props interface
 Extends Radix UI NavigationMenuList primitive props
@@ -69,7 +69,7 @@ Extends Radix UI NavigationMenuList primitive props
 
 ### NavigationMenuProps
 
-Defined in: [src/components/ui/navigation-menu.tsx:12](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/navigation-menu.tsx#L12)
+Defined in: [src/components/ui/navigation-menu.tsx:12](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/navigation-menu.tsx#L12)
 
 NavigationMenu component props interface
 Extends Radix UI NavigationMenu primitive props and adds viewport prop
@@ -82,13 +82,13 @@ Extends Radix UI NavigationMenu primitive props and adds viewport prop
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="viewport"></a> `viewport?` | `boolean` | [src/components/ui/navigation-menu.tsx:13](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/navigation-menu.tsx#L13) |
+| <a id="viewport"></a> `viewport?` | `boolean` | [src/components/ui/navigation-menu.tsx:13](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/navigation-menu.tsx#L13) |
 
 ***
 
 ### NavigationMenuTriggerProps
 
-Defined in: [src/components/ui/navigation-menu.tsx:32](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/navigation-menu.tsx#L32)
+Defined in: [src/components/ui/navigation-menu.tsx:32](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/navigation-menu.tsx#L32)
 
 NavigationMenuTrigger component props interface
 Extends Radix UI NavigationMenuTrigger primitive props
@@ -101,7 +101,7 @@ Extends Radix UI NavigationMenuTrigger primitive props
 
 ### NavigationMenuViewportProps
 
-Defined in: [src/components/ui/navigation-menu.tsx:44](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/navigation-menu.tsx#L44)
+Defined in: [src/components/ui/navigation-menu.tsx:44](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/navigation-menu.tsx#L44)
 
 NavigationMenuViewport component props interface
 Extends Radix UI NavigationMenuViewport primitive props
@@ -118,7 +118,7 @@ Extends Radix UI NavigationMenuViewport primitive props
 const navigationMenuTriggerStyle: (props?) => string;
 ```
 
-Defined in: [src/components/ui/navigation-menu.tsx:140](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/navigation-menu.tsx#L140)
+Defined in: [src/components/ui/navigation-menu.tsx:140](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/navigation-menu.tsx#L140)
 
 #### Parameters
 
@@ -138,7 +138,7 @@ Defined in: [src/components/ui/navigation-menu.tsx:140](https://github.com/jossc
 function NavigationMenu(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/navigation-menu.tsx:79](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/navigation-menu.tsx#L79)
+Defined in: [src/components/ui/navigation-menu.tsx:79](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/navigation-menu.tsx#L79)
 
 NavigationMenu component - A navigation menu
 
@@ -178,7 +178,7 @@ A NavigationMenu component
 function NavigationMenuContent(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/navigation-menu.tsx:174](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/navigation-menu.tsx#L174)
+Defined in: [src/components/ui/navigation-menu.tsx:174](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/navigation-menu.tsx#L174)
 
 NavigationMenuContent component - Content displayed in navigation menu dropdowns
 
@@ -202,7 +202,7 @@ A NavigationMenuContent component
 function NavigationMenuIndicator(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/navigation-menu.tsx:244](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/navigation-menu.tsx#L244)
+Defined in: [src/components/ui/navigation-menu.tsx:244](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/navigation-menu.tsx#L244)
 
 NavigationMenuIndicator component - An indicator for active navigation menu items
 
@@ -226,7 +226,7 @@ A NavigationMenuIndicator component
 function NavigationMenuItem(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/navigation-menu.tsx:127](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/navigation-menu.tsx#L127)
+Defined in: [src/components/ui/navigation-menu.tsx:127](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/navigation-menu.tsx#L127)
 
 NavigationMenuItem component - An individual navigation menu item
 
@@ -250,7 +250,7 @@ A NavigationMenuItem component
 function NavigationMenuLink(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/navigation-menu.tsx:223](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/navigation-menu.tsx#L223)
+Defined in: [src/components/ui/navigation-menu.tsx:223](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/navigation-menu.tsx#L223)
 
 NavigationMenuLink component - A link within a navigation menu
 
@@ -274,7 +274,7 @@ A NavigationMenuLink component
 function NavigationMenuList(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/navigation-menu.tsx:106](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/navigation-menu.tsx#L106)
+Defined in: [src/components/ui/navigation-menu.tsx:106](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/navigation-menu.tsx#L106)
 
 NavigationMenuList component - A list container for navigation menu items
 
@@ -298,7 +298,7 @@ A NavigationMenuList component
 function NavigationMenuTrigger(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/navigation-menu.tsx:149](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/navigation-menu.tsx#L149)
+Defined in: [src/components/ui/navigation-menu.tsx:149](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/navigation-menu.tsx#L149)
 
 NavigationMenuTrigger component - A trigger button for navigation menu items
 
@@ -322,7 +322,7 @@ A NavigationMenuTrigger component
 function NavigationMenuViewport(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/navigation-menu.tsx:196](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/navigation-menu.tsx#L196)
+Defined in: [src/components/ui/navigation-menu.tsx:196](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/navigation-menu.tsx#L196)
 
 NavigationMenuViewport component - A viewport container for navigation menu content
 

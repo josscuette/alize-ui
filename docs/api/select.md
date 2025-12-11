@@ -4,7 +4,7 @@
 
 ### SelectContentProps
 
-Defined in: [src/components/ui/select.tsx:29](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/select.tsx#L29)
+Defined in: [src/components/ui/select.tsx:29](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/select.tsx#L29)
 
 SelectContent component props interface
 Extends Radix UI SelectContent primitive props
@@ -17,7 +17,7 @@ Extends Radix UI SelectContent primitive props
 
 ### SelectItemProps
 
-Defined in: [src/components/ui/select.tsx:35](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/select.tsx#L35)
+Defined in: [src/components/ui/select.tsx:35](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/select.tsx#L35)
 
 SelectItem component props interface
 Extends Radix UI SelectItem primitive props
@@ -30,7 +30,7 @@ Extends Radix UI SelectItem primitive props
 
 ### SelectLabelProps
 
-Defined in: [src/components/ui/select.tsx:41](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/select.tsx#L41)
+Defined in: [src/components/ui/select.tsx:41](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/select.tsx#L41)
 
 SelectLabel component props interface
 Extends Radix UI SelectLabel primitive props
@@ -43,7 +43,7 @@ Extends Radix UI SelectLabel primitive props
 
 ### SelectProps
 
-Defined in: [src/components/ui/select.tsx:15](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/select.tsx#L15)
+Defined in: [src/components/ui/select.tsx:15](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/select.tsx#L15)
 
 Select component props interface
 Extends Radix UI Select primitive props
@@ -56,7 +56,7 @@ Extends Radix UI Select primitive props
 
 ### SelectScrollDownButtonProps
 
-Defined in: [src/components/ui/select.tsx:59](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/select.tsx#L59)
+Defined in: [src/components/ui/select.tsx:59](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/select.tsx#L59)
 
 SelectScrollDownButton component props interface
 Extends Radix UI SelectScrollDownButton primitive props
@@ -69,7 +69,7 @@ Extends Radix UI SelectScrollDownButton primitive props
 
 ### SelectScrollUpButtonProps
 
-Defined in: [src/components/ui/select.tsx:53](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/select.tsx#L53)
+Defined in: [src/components/ui/select.tsx:53](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/select.tsx#L53)
 
 SelectScrollUpButton component props interface
 Extends Radix UI SelectScrollUpButton primitive props
@@ -82,7 +82,7 @@ Extends Radix UI SelectScrollUpButton primitive props
 
 ### SelectSeparatorProps
 
-Defined in: [src/components/ui/select.tsx:47](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/select.tsx#L47)
+Defined in: [src/components/ui/select.tsx:47](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/select.tsx#L47)
 
 SelectSeparator component props interface
 Extends Radix UI SelectSeparator primitive props
@@ -95,7 +95,7 @@ Extends Radix UI SelectSeparator primitive props
 
 ### SelectTriggerProps
 
-Defined in: [src/components/ui/select.tsx:21](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/select.tsx#L21)
+Defined in: [src/components/ui/select.tsx:21](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/select.tsx#L21)
 
 SelectTrigger component props interface
 Extends Radix UI SelectTrigger primitive props and adds size prop
@@ -108,7 +108,7 @@ Extends Radix UI SelectTrigger primitive props and adds size prop
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="size"></a> `size?` | `"default"` \| `"sm"` | [src/components/ui/select.tsx:22](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/select.tsx#L22) |
+| <a id="size"></a> `size?` | `"default"` \| `"sm"` | [src/components/ui/select.tsx:22](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/select.tsx#L22) |
 
 ## Variables
 
@@ -118,7 +118,7 @@ Extends Radix UI SelectTrigger primitive props and adds size prop
 const Select: NamedExoticComponent<SelectProps>;
 ```
 
-Defined in: [src/components/ui/select.tsx:85](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/select.tsx#L85)
+Defined in: [src/components/ui/select.tsx:85](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/select.tsx#L85)
 
 Select component - A custom select input built on Radix UI
 
@@ -157,7 +157,7 @@ A Select component
 function SelectContent(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/select.tsx:171](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/select.tsx#L171)
+Defined in: [src/components/ui/select.tsx:171](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/select.tsx#L171)
 
 SelectContent component - The popover content containing select items
 
@@ -181,7 +181,7 @@ A SelectContent component
 function SelectGroup(__namedParameters): ReactElement;
 ```
 
-Defined in: [src/components/ui/select.tsx:91](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/select.tsx#L91)
+Defined in: [src/components/ui/select.tsx:91](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/select.tsx#L91)
 
 #### Parameters
 
@@ -201,7 +201,7 @@ Defined in: [src/components/ui/select.tsx:91](https://github.com/josscuette/aliz
 function SelectItem(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/select.tsx:238](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/select.tsx#L238)
+Defined in: [src/components/ui/select.tsx:238](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/select.tsx#L238)
 
 SelectItem component - An individual selectable item within the select content
 
@@ -225,7 +225,7 @@ A SelectItem component
 function SelectLabel(__namedParameters): ReactElement;
 ```
 
-Defined in: [src/components/ui/select.tsx:220](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/select.tsx#L220)
+Defined in: [src/components/ui/select.tsx:220](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/select.tsx#L220)
 
 #### Parameters
 
@@ -245,7 +245,7 @@ Defined in: [src/components/ui/select.tsx:220](https://github.com/josscuette/ali
 function SelectScrollDownButton(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/select.tsx:308](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/select.tsx#L308)
+Defined in: [src/components/ui/select.tsx:308](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/select.tsx#L308)
 
 SelectScrollDownButton component - Button to scroll down in the select content
 
@@ -269,7 +269,7 @@ A SelectScrollDownButton component
 function SelectScrollUpButton(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/select.tsx:285](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/select.tsx#L285)
+Defined in: [src/components/ui/select.tsx:285](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/select.tsx#L285)
 
 SelectScrollUpButton component - Button to scroll up in the select content
 
@@ -293,7 +293,7 @@ A SelectScrollUpButton component
 function SelectSeparator(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/select.tsx:267](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/select.tsx#L267)
+Defined in: [src/components/ui/select.tsx:267](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/select.tsx#L267)
 
 SelectSeparator component - A visual separator between select groups or items
 
@@ -317,7 +317,7 @@ A SelectSeparator component
 function SelectTrigger(__namedParameters): ReactElement;
 ```
 
-Defined in: [src/components/ui/select.tsx:103](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/select.tsx#L103)
+Defined in: [src/components/ui/select.tsx:103](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/select.tsx#L103)
 
 #### Parameters
 
@@ -337,7 +337,7 @@ Defined in: [src/components/ui/select.tsx:103](https://github.com/josscuette/ali
 function SelectValue(__namedParameters): ReactElement;
 ```
 
-Defined in: [src/components/ui/select.tsx:97](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/select.tsx#L97)
+Defined in: [src/components/ui/select.tsx:97](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/select.tsx#L97)
 
 #### Parameters
 

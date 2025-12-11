@@ -4,7 +4,7 @@
 
 ### PopoverAnchorProps
 
-Defined in: [src/components/ui/popover.tsx:33](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/popover.tsx#L33)
+Defined in: [src/components/ui/popover.tsx:33](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/popover.tsx#L33)
 
 PopoverAnchor component props interface
 Extends Radix UI PopoverAnchor primitive props
@@ -17,7 +17,7 @@ Extends Radix UI PopoverAnchor primitive props
 
 ### PopoverContentProps
 
-Defined in: [src/components/ui/popover.tsx:24](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/popover.tsx#L24)
+Defined in: [src/components/ui/popover.tsx:24](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/popover.tsx#L24)
 
 PopoverContent component props interface
 Extends Radix UI PopoverContent primitive props
@@ -30,14 +30,14 @@ Extends Radix UI PopoverContent primitive props
 
 | Property | Type | Overrides | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="align"></a> `align?` | `"center"` \| `"start"` \| `"end"` | `React.ComponentProps.align` | [src/components/ui/popover.tsx:25](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/popover.tsx#L25) |
-| <a id="sideoffset"></a> `sideOffset?` | `number` | `React.ComponentProps.sideOffset` | [src/components/ui/popover.tsx:26](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/popover.tsx#L26) |
+| <a id="align"></a> `align?` | `"center"` \| `"start"` \| `"end"` | `React.ComponentProps.align` | [src/components/ui/popover.tsx:25](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/popover.tsx#L25) |
+| <a id="sideoffset"></a> `sideOffset?` | `number` | `React.ComponentProps.sideOffset` | [src/components/ui/popover.tsx:26](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/popover.tsx#L26) |
 
 ***
 
 ### PopoverProps
 
-Defined in: [src/components/ui/popover.tsx:12](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/popover.tsx#L12)
+Defined in: [src/components/ui/popover.tsx:12](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/popover.tsx#L12)
 
 Popover component props interface
 Extends Radix UI Popover primitive props
@@ -50,7 +50,7 @@ Extends Radix UI Popover primitive props
 
 ### PopoverTriggerProps
 
-Defined in: [src/components/ui/popover.tsx:18](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/popover.tsx#L18)
+Defined in: [src/components/ui/popover.tsx:18](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/popover.tsx#L18)
 
 PopoverTrigger component props interface
 Extends Radix UI PopoverTrigger primitive props
@@ -67,7 +67,7 @@ Extends Radix UI PopoverTrigger primitive props
 function Popover(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/popover.tsx:52](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/popover.tsx#L52)
+Defined in: [src/components/ui/popover.tsx:52](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/popover.tsx#L52)
 
 Popover component - A popover for displaying content
 
@@ -103,7 +103,7 @@ A Popover component
 function PopoverAnchor(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/popover.tsx:101](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/popover.tsx#L101)
+Defined in: [src/components/ui/popover.tsx:101](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/popover.tsx#L101)
 
 PopoverAnchor component - The anchor element for the popover
 
@@ -127,7 +127,7 @@ A PopoverAnchor component
 function PopoverContent(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/popover.tsx:74](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/popover.tsx#L74)
+Defined in: [src/components/ui/popover.tsx:74](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/popover.tsx#L74)
 
 PopoverContent component - The content container of the popover
 
@@ -151,7 +151,7 @@ A PopoverContent component
 function PopoverTrigger(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/popover.tsx:63](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/popover.tsx#L63)
+Defined in: [src/components/ui/popover.tsx:63](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/popover.tsx#L63)
 
 PopoverTrigger component - The element that opens the popover
 

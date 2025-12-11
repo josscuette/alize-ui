@@ -4,7 +4,7 @@
 
 ### SidebarContentProps
 
-Defined in: [src/components/ui/sidebar.tsx:126](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L126)
+Defined in: [src/components/ui/sidebar.tsx:126](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L126)
 
 SidebarContent component props interface
 Extends native div element props
@@ -17,7 +17,7 @@ Extends native div element props
 
 ### SidebarFooterProps
 
-Defined in: [src/components/ui/sidebar.tsx:114](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L114)
+Defined in: [src/components/ui/sidebar.tsx:114](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L114)
 
 SidebarFooter component props interface
 Extends native div element props
@@ -30,7 +30,7 @@ Extends native div element props
 
 ### SidebarGroupActionProps
 
-Defined in: [src/components/ui/sidebar.tsx:146](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L146)
+Defined in: [src/components/ui/sidebar.tsx:146](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L146)
 
 SidebarGroupAction component props interface
 Extends native button element props and adds asChild prop
@@ -43,13 +43,13 @@ Extends native button element props and adds asChild prop
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="aschild"></a> `asChild?` | `boolean` | [src/components/ui/sidebar.tsx:147](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L147) |
+| <a id="aschild"></a> `asChild?` | `boolean` | [src/components/ui/sidebar.tsx:147](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L147) |
 
 ***
 
 ### SidebarGroupContentProps
 
-Defined in: [src/components/ui/sidebar.tsx:154](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L154)
+Defined in: [src/components/ui/sidebar.tsx:154](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L154)
 
 SidebarGroupContent component props interface
 Extends native div element props
@@ -62,7 +62,7 @@ Extends native div element props
 
 ### SidebarGroupLabelProps
 
-Defined in: [src/components/ui/sidebar.tsx:138](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L138)
+Defined in: [src/components/ui/sidebar.tsx:138](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L138)
 
 SidebarGroupLabel component props interface
 Extends native div element props and adds asChild prop
@@ -75,13 +75,13 @@ Extends native div element props and adds asChild prop
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="aschild-1"></a> `asChild?` | `boolean` | [src/components/ui/sidebar.tsx:139](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L139) |
+| <a id="aschild-1"></a> `asChild?` | `boolean` | [src/components/ui/sidebar.tsx:139](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L139) |
 
 ***
 
 ### SidebarGroupProps
 
-Defined in: [src/components/ui/sidebar.tsx:132](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L132)
+Defined in: [src/components/ui/sidebar.tsx:132](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L132)
 
 SidebarGroup component props interface
 Extends native div element props
@@ -94,7 +94,7 @@ Extends native div element props
 
 ### SidebarHeaderProps
 
-Defined in: [src/components/ui/sidebar.tsx:108](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L108)
+Defined in: [src/components/ui/sidebar.tsx:108](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L108)
 
 SidebarHeader component props interface
 Extends native div element props
@@ -107,7 +107,7 @@ Extends native div element props
 
 ### SidebarInputProps
 
-Defined in: [src/components/ui/sidebar.tsx:102](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L102)
+Defined in: [src/components/ui/sidebar.tsx:102](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L102)
 
 SidebarInput component props interface
 Extends Input props
@@ -120,7 +120,7 @@ Extends Input props
 
 ### SidebarInsetProps
 
-Defined in: [src/components/ui/sidebar.tsx:96](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L96)
+Defined in: [src/components/ui/sidebar.tsx:96](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L96)
 
 SidebarInset component props interface
 Extends native main element props
@@ -133,7 +133,7 @@ Extends native main element props
 
 ### SidebarMenuActionProps
 
-Defined in: [src/components/ui/sidebar.tsx:182](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L182)
+Defined in: [src/components/ui/sidebar.tsx:182](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L182)
 
 SidebarMenuAction component props interface
 Extends native button element props and adds sidebar-specific props
@@ -146,14 +146,14 @@ Extends native button element props and adds sidebar-specific props
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="aschild-2"></a> `asChild?` | `boolean` | [src/components/ui/sidebar.tsx:183](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L183) |
-| <a id="showonhover"></a> `showOnHover?` | `boolean` | [src/components/ui/sidebar.tsx:184](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L184) |
+| <a id="aschild-2"></a> `asChild?` | `boolean` | [src/components/ui/sidebar.tsx:183](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L183) |
+| <a id="showonhover"></a> `showOnHover?` | `boolean` | [src/components/ui/sidebar.tsx:184](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L184) |
 
 ***
 
 ### SidebarMenuBadgeProps
 
-Defined in: [src/components/ui/sidebar.tsx:191](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L191)
+Defined in: [src/components/ui/sidebar.tsx:191](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L191)
 
 SidebarMenuBadge component props interface
 Extends native div element props
@@ -166,7 +166,7 @@ Extends native div element props
 
 ### SidebarMenuButtonProps
 
-Defined in: [src/components/ui/sidebar.tsx:172](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L172)
+Defined in: [src/components/ui/sidebar.tsx:172](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L172)
 
 SidebarMenuButton component props interface
 Extends native button element props and adds sidebar-specific props
@@ -179,17 +179,17 @@ Extends native button element props and adds sidebar-specific props
 
 | Property | Type | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="aschild-3"></a> `asChild?` | `boolean` | - | [src/components/ui/sidebar.tsx:173](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L173) |
-| <a id="isactive"></a> `isActive?` | `boolean` | - | [src/components/ui/sidebar.tsx:174](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L174) |
-| <a id="size"></a> `size?` | `"default"` \| `"sm"` \| `"lg"` \| `null` | `VariantProps.size` | [src/components/ui/sidebar.tsx:748](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L748) |
-| <a id="tooltip"></a> `tooltip?` | `string` \| [`TooltipContentProps`](tooltip.md#tooltipcontentprops) | - | [src/components/ui/sidebar.tsx:175](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L175) |
-| <a id="variant"></a> `variant?` | `"default"` \| `"outline"` \| `null` | `VariantProps.variant` | [src/components/ui/sidebar.tsx:743](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L743) |
+| <a id="aschild-3"></a> `asChild?` | `boolean` | - | [src/components/ui/sidebar.tsx:173](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L173) |
+| <a id="isactive"></a> `isActive?` | `boolean` | - | [src/components/ui/sidebar.tsx:174](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L174) |
+| <a id="size"></a> `size?` | `"default"` \| `"sm"` \| `"lg"` \| `null` | `VariantProps.size` | [src/components/ui/sidebar.tsx:748](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L748) |
+| <a id="tooltip"></a> `tooltip?` | `string` \| [`TooltipContentProps`](tooltip.md#tooltipcontentprops) | - | [src/components/ui/sidebar.tsx:175](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L175) |
+| <a id="variant"></a> `variant?` | `"default"` \| `"outline"` \| `null` | `VariantProps.variant` | [src/components/ui/sidebar.tsx:743](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L743) |
 
 ***
 
 ### SidebarMenuItemProps
 
-Defined in: [src/components/ui/sidebar.tsx:166](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L166)
+Defined in: [src/components/ui/sidebar.tsx:166](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L166)
 
 SidebarMenuItem component props interface
 Extends native li element props
@@ -202,7 +202,7 @@ Extends native li element props
 
 ### SidebarMenuProps
 
-Defined in: [src/components/ui/sidebar.tsx:160](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L160)
+Defined in: [src/components/ui/sidebar.tsx:160](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L160)
 
 SidebarMenu component props interface
 Extends native ul element props
@@ -215,7 +215,7 @@ Extends native ul element props
 
 ### SidebarMenuSkeletonProps
 
-Defined in: [src/components/ui/sidebar.tsx:197](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L197)
+Defined in: [src/components/ui/sidebar.tsx:197](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L197)
 
 SidebarMenuSkeleton component props interface
 Extends native div element props and adds showIcon prop
@@ -228,13 +228,13 @@ Extends native div element props and adds showIcon prop
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="showicon"></a> `showIcon?` | `boolean` | [src/components/ui/sidebar.tsx:198](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L198) |
+| <a id="showicon"></a> `showIcon?` | `boolean` | [src/components/ui/sidebar.tsx:198](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L198) |
 
 ***
 
 ### SidebarMenuSubButtonProps
 
-Defined in: [src/components/ui/sidebar.tsx:217](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L217)
+Defined in: [src/components/ui/sidebar.tsx:217](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L217)
 
 SidebarMenuSubButton component props interface
 Extends native a element props and adds sidebar-specific props
@@ -247,15 +247,15 @@ Extends native a element props and adds sidebar-specific props
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="aschild-4"></a> `asChild?` | `boolean` | [src/components/ui/sidebar.tsx:218](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L218) |
-| <a id="isactive-1"></a> `isActive?` | `boolean` | [src/components/ui/sidebar.tsx:220](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L220) |
-| <a id="size-1"></a> `size?` | `"sm"` \| `"md"` | [src/components/ui/sidebar.tsx:219](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L219) |
+| <a id="aschild-4"></a> `asChild?` | `boolean` | [src/components/ui/sidebar.tsx:218](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L218) |
+| <a id="isactive-1"></a> `isActive?` | `boolean` | [src/components/ui/sidebar.tsx:220](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L220) |
+| <a id="size-1"></a> `size?` | `"sm"` \| `"md"` | [src/components/ui/sidebar.tsx:219](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L219) |
 
 ***
 
 ### SidebarMenuSubItemProps
 
-Defined in: [src/components/ui/sidebar.tsx:211](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L211)
+Defined in: [src/components/ui/sidebar.tsx:211](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L211)
 
 SidebarMenuSubItem component props interface
 Extends native li element props
@@ -268,7 +268,7 @@ Extends native li element props
 
 ### SidebarMenuSubProps
 
-Defined in: [src/components/ui/sidebar.tsx:205](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L205)
+Defined in: [src/components/ui/sidebar.tsx:205](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L205)
 
 SidebarMenuSub component props interface
 Extends native ul element props
@@ -281,7 +281,7 @@ Extends native ul element props
 
 ### SidebarProps
 
-Defined in: [src/components/ui/sidebar.tsx:74](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L74)
+Defined in: [src/components/ui/sidebar.tsx:74](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L74)
 
 Sidebar component props interface
 Extends native div element props and adds sidebar-specific props
@@ -294,15 +294,15 @@ Extends native div element props and adds sidebar-specific props
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="collapsible"></a> `collapsible?` | `"none"` \| `"icon"` \| `"offcanvas"` | [src/components/ui/sidebar.tsx:77](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L77) |
-| <a id="side"></a> `side?` | `"right"` \| `"left"` | [src/components/ui/sidebar.tsx:75](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L75) |
-| <a id="variant-1"></a> `variant?` | `"sidebar"` \| `"floating"` \| `"inset"` | [src/components/ui/sidebar.tsx:76](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L76) |
+| <a id="collapsible"></a> `collapsible?` | `"none"` \| `"icon"` \| `"offcanvas"` | [src/components/ui/sidebar.tsx:77](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L77) |
+| <a id="side"></a> `side?` | `"right"` \| `"left"` | [src/components/ui/sidebar.tsx:75](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L75) |
+| <a id="variant-1"></a> `variant?` | `"sidebar"` \| `"floating"` \| `"inset"` | [src/components/ui/sidebar.tsx:76](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L76) |
 
 ***
 
 ### SidebarProviderProps
 
-Defined in: [src/components/ui/sidebar.tsx:64](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L64)
+Defined in: [src/components/ui/sidebar.tsx:64](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L64)
 
 SidebarProvider component props interface
 Extends native div element props and adds sidebar control props
@@ -315,15 +315,15 @@ Extends native div element props and adds sidebar control props
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="defaultopen"></a> `defaultOpen?` | `boolean` | [src/components/ui/sidebar.tsx:65](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L65) |
-| <a id="onopenchange"></a> `onOpenChange?` | (`open`) => `void` | [src/components/ui/sidebar.tsx:67](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L67) |
-| <a id="open"></a> `open?` | `boolean` | [src/components/ui/sidebar.tsx:66](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L66) |
+| <a id="defaultopen"></a> `defaultOpen?` | `boolean` | [src/components/ui/sidebar.tsx:65](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L65) |
+| <a id="onopenchange"></a> `onOpenChange?` | (`open`) => `void` | [src/components/ui/sidebar.tsx:67](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L67) |
+| <a id="open"></a> `open?` | `boolean` | [src/components/ui/sidebar.tsx:66](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L66) |
 
 ***
 
 ### SidebarRailProps
 
-Defined in: [src/components/ui/sidebar.tsx:90](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L90)
+Defined in: [src/components/ui/sidebar.tsx:90](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L90)
 
 SidebarRail component props interface
 Extends native button element props
@@ -336,7 +336,7 @@ Extends native button element props
 
 ### SidebarSeparatorProps
 
-Defined in: [src/components/ui/sidebar.tsx:120](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L120)
+Defined in: [src/components/ui/sidebar.tsx:120](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L120)
 
 SidebarSeparator component props interface
 Extends Separator props
@@ -349,7 +349,7 @@ Extends Separator props
 
 ### SidebarTriggerProps
 
-Defined in: [src/components/ui/sidebar.tsx:84](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L84)
+Defined in: [src/components/ui/sidebar.tsx:84](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L84)
 
 SidebarTrigger component props interface
 Extends Button props
@@ -362,9 +362,9 @@ Extends Button props
 
 | Property | Type | Description | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ | ------ |
-| <a id="aschild-5"></a> `asChild?` | `boolean` | Render as a different element using Radix UI Slot **Default** `false` | `React.ComponentProps.asChild` | [src/components/ui/button.tsx:24](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button.tsx#L24) |
-| <a id="size-2"></a> `size?` | \| `"default"` \| `"xs"` \| `"sm"` \| `"lg"` \| `"icon"` \| `"icon-sm"` \| `"icon-lg"` \| `"icon-xs"` \| `null` | - | `React.ComponentProps.size` | [src/components/ui/button.tsx:95](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button.tsx#L95) |
-| <a id="variant-2"></a> `variant?` | \| `"link"` \| `"default"` \| `"destructive"` \| `"secondary"` \| `"outline"` \| `"ghost"` \| `"tertiary"` \| `null` | - | `React.ComponentProps.variant` | [src/components/ui/button.tsx:48](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button.tsx#L48) |
+| <a id="aschild-5"></a> `asChild?` | `boolean` | Render as a different element using Radix UI Slot **Default** `false` | `React.ComponentProps.asChild` | [src/components/ui/button.tsx:24](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button.tsx#L24) |
+| <a id="size-2"></a> `size?` | \| `"default"` \| `"xs"` \| `"sm"` \| `"lg"` \| `"icon"` \| `"icon-sm"` \| `"icon-lg"` \| `"icon-xs"` \| `null` | - | `React.ComponentProps.size` | [src/components/ui/button.tsx:95](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button.tsx#L95) |
+| <a id="variant-2"></a> `variant?` | \| `"link"` \| `"default"` \| `"destructive"` \| `"secondary"` \| `"outline"` \| `"ghost"` \| `"tertiary"` \| `null` | - | `React.ComponentProps.variant` | [src/components/ui/button.tsx:48](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button.tsx#L48) |
 
 ## Functions
 
@@ -374,7 +374,7 @@ Extends Button props
 function Sidebar(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/sidebar.tsx:351](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L351)
+Defined in: [src/components/ui/sidebar.tsx:351](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L351)
 
 Sidebar component - A sidebar navigation component
 
@@ -409,7 +409,7 @@ A Sidebar component
 function SidebarContent(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/sidebar.tsx:604](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L604)
+Defined in: [src/components/ui/sidebar.tsx:604](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L604)
 
 SidebarContent component - The main content area of the sidebar
 
@@ -433,7 +433,7 @@ A SidebarContent component
 function SidebarFooter(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/sidebar.tsx:569](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L569)
+Defined in: [src/components/ui/sidebar.tsx:569](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L569)
 
 SidebarFooter component - A footer section for the sidebar
 
@@ -457,7 +457,7 @@ A SidebarFooter component
 function SidebarGroup(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/sidebar.tsx:623](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L623)
+Defined in: [src/components/ui/sidebar.tsx:623](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L623)
 
 SidebarGroup component - A group of sidebar items
 
@@ -481,7 +481,7 @@ A SidebarGroup component
 function SidebarGroupAction(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/sidebar.tsx:665](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L665)
+Defined in: [src/components/ui/sidebar.tsx:665](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L665)
 
 SidebarGroupAction component - An action button for a sidebar group
 
@@ -505,7 +505,7 @@ A SidebarGroupAction component
 function SidebarGroupContent(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/sidebar.tsx:693](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L693)
+Defined in: [src/components/ui/sidebar.tsx:693](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L693)
 
 SidebarGroupContent component - Content for a sidebar group
 
@@ -529,7 +529,7 @@ A SidebarGroupContent component
 function SidebarGroupLabel(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/sidebar.tsx:639](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L639)
+Defined in: [src/components/ui/sidebar.tsx:639](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L639)
 
 SidebarGroupLabel component - A label for a sidebar group
 
@@ -553,7 +553,7 @@ A SidebarGroupLabel component
 function SidebarHeader(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/sidebar.tsx:553](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L553)
+Defined in: [src/components/ui/sidebar.tsx:553](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L553)
 
 SidebarHeader component - A header section for the sidebar
 
@@ -577,7 +577,7 @@ A SidebarHeader component
 function SidebarInput(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/sidebar.tsx:534](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L534)
+Defined in: [src/components/ui/sidebar.tsx:534](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L534)
 
 SidebarInput component - An input field for the sidebar
 
@@ -601,7 +601,7 @@ A SidebarInput component
 function SidebarInset(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/sidebar.tsx:515](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L515)
+Defined in: [src/components/ui/sidebar.tsx:515](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L515)
 
 SidebarInset component - The main content area next to the sidebar
 
@@ -625,7 +625,7 @@ A SidebarInset component
 function SidebarMenu(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/sidebar.tsx:712](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L712)
+Defined in: [src/components/ui/sidebar.tsx:712](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L712)
 
 SidebarMenu component - A menu container in the sidebar
 
@@ -649,7 +649,7 @@ A SidebarMenu component
 function SidebarMenuAction(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/sidebar.tsx:817](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L817)
+Defined in: [src/components/ui/sidebar.tsx:817](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L817)
 
 SidebarMenuAction component - An action button for sidebar menu items
 
@@ -673,7 +673,7 @@ A SidebarMenuAction component
 function SidebarMenuBadge(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/sidebar.tsx:851](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L851)
+Defined in: [src/components/ui/sidebar.tsx:851](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L851)
 
 SidebarMenuBadge component - A badge for sidebar menu items
 
@@ -697,7 +697,7 @@ A SidebarMenuBadge component
 function SidebarMenuButton(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/sidebar.tsx:766](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L766)
+Defined in: [src/components/ui/sidebar.tsx:766](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L766)
 
 SidebarMenuButton component - A button for sidebar menu items
 
@@ -721,7 +721,7 @@ A SidebarMenuButton component
 function SidebarMenuItem(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/sidebar.tsx:728](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L728)
+Defined in: [src/components/ui/sidebar.tsx:728](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L728)
 
 SidebarMenuItem component - An individual menu item in the sidebar
 
@@ -745,7 +745,7 @@ A SidebarMenuItem component
 function SidebarMenuSkeleton(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/sidebar.tsx:878](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L878)
+Defined in: [src/components/ui/sidebar.tsx:878](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L878)
 
 SidebarMenuSkeleton component - A skeleton loader for sidebar menu items
 
@@ -769,7 +769,7 @@ A SidebarMenuSkeleton component
 function SidebarMenuSub(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/sidebar.tsx:919](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L919)
+Defined in: [src/components/ui/sidebar.tsx:919](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L919)
 
 SidebarMenuSub component - A submenu container in the sidebar
 
@@ -793,7 +793,7 @@ A SidebarMenuSub component
 function SidebarMenuSubButton(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/sidebar.tsx:958](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L958)
+Defined in: [src/components/ui/sidebar.tsx:958](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L958)
 
 SidebarMenuSubButton component - A button for sidebar submenu items
 
@@ -817,7 +817,7 @@ A SidebarMenuSubButton component
 function SidebarMenuSubItem(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/sidebar.tsx:939](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L939)
+Defined in: [src/components/ui/sidebar.tsx:939](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L939)
 
 SidebarMenuSubItem component - An individual submenu item
 
@@ -841,7 +841,7 @@ A SidebarMenuSubItem component
 function SidebarProvider(props): Element;
 ```
 
-Defined in: [src/components/ui/sidebar.tsx:241](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L241)
+Defined in: [src/components/ui/sidebar.tsx:241](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L241)
 
 SidebarProvider component - A provider for sidebar state
 
@@ -878,7 +878,7 @@ A SidebarProvider component
 function SidebarRail(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/sidebar.tsx:485](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L485)
+Defined in: [src/components/ui/sidebar.tsx:485](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L485)
 
 SidebarRail component - A rail for resizing the sidebar
 
@@ -902,7 +902,7 @@ A SidebarRail component
 function SidebarSeparator(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/sidebar.tsx:585](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L585)
+Defined in: [src/components/ui/sidebar.tsx:585](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L585)
 
 SidebarSeparator component - A separator in the sidebar
 
@@ -926,7 +926,7 @@ A SidebarSeparator component
 function SidebarTrigger(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/sidebar.tsx:454](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L454)
+Defined in: [src/components/ui/sidebar.tsx:454](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L454)
 
 SidebarTrigger component - A button to toggle the sidebar
 
@@ -950,7 +950,7 @@ A SidebarTrigger component
 function useSidebar(): SidebarContextProps;
 ```
 
-Defined in: [src/components/ui/sidebar.tsx:51](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L51)
+Defined in: [src/components/ui/sidebar.tsx:51](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/sidebar.tsx#L51)
 
 #### Returns
 

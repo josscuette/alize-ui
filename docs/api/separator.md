@@ -4,7 +4,7 @@
 
 ### SeparatorProps
 
-Defined in: [src/components/ui/separator.tsx:12](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/separator.tsx#L12)
+Defined in: [src/components/ui/separator.tsx:12](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/separator.tsx#L12)
 
 Separator component props interface
 Extends Radix UI Separator primitive props
@@ -21,7 +21,7 @@ Extends Radix UI Separator primitive props
 function Separator(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/separator.tsx:29](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/separator.tsx#L29)
+Defined in: [src/components/ui/separator.tsx:29](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/separator.tsx#L29)
 
 Separator component - A visual separator line
 

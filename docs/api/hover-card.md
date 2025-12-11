@@ -4,7 +4,7 @@
 
 ### HoverCardContentProps
 
-Defined in: [src/components/ui/hover-card.tsx:24](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/hover-card.tsx#L24)
+Defined in: [src/components/ui/hover-card.tsx:24](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/hover-card.tsx#L24)
 
 HoverCardContent component props interface
 Extends Radix UI HoverCardContent primitive props
@@ -17,14 +17,14 @@ Extends Radix UI HoverCardContent primitive props
 
 | Property | Type | Overrides | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="align"></a> `align?` | `"center"` \| `"start"` \| `"end"` | `React.ComponentProps.align` | [src/components/ui/hover-card.tsx:25](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/hover-card.tsx#L25) |
-| <a id="sideoffset"></a> `sideOffset?` | `number` | `React.ComponentProps.sideOffset` | [src/components/ui/hover-card.tsx:26](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/hover-card.tsx#L26) |
+| <a id="align"></a> `align?` | `"center"` \| `"start"` \| `"end"` | `React.ComponentProps.align` | [src/components/ui/hover-card.tsx:25](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/hover-card.tsx#L25) |
+| <a id="sideoffset"></a> `sideOffset?` | `number` | `React.ComponentProps.sideOffset` | [src/components/ui/hover-card.tsx:26](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/hover-card.tsx#L26) |
 
 ***
 
 ### HoverCardProps
 
-Defined in: [src/components/ui/hover-card.tsx:12](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/hover-card.tsx#L12)
+Defined in: [src/components/ui/hover-card.tsx:12](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/hover-card.tsx#L12)
 
 HoverCard component props interface
 Extends Radix UI HoverCard primitive props
@@ -37,7 +37,7 @@ Extends Radix UI HoverCard primitive props
 
 ### HoverCardTriggerProps
 
-Defined in: [src/components/ui/hover-card.tsx:18](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/hover-card.tsx#L18)
+Defined in: [src/components/ui/hover-card.tsx:18](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/hover-card.tsx#L18)
 
 HoverCardTrigger component props interface
 Extends Radix UI HoverCardTrigger primitive props
@@ -54,7 +54,7 @@ Extends Radix UI HoverCardTrigger primitive props
 function HoverCard(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/hover-card.tsx:46](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/hover-card.tsx#L46)
+Defined in: [src/components/ui/hover-card.tsx:46](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/hover-card.tsx#L46)
 
 HoverCard component - A hover card for displaying additional content
 
@@ -90,7 +90,7 @@ A HoverCard component
 function HoverCardContent(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/hover-card.tsx:70](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/hover-card.tsx#L70)
+Defined in: [src/components/ui/hover-card.tsx:70](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/hover-card.tsx#L70)
 
 HoverCardContent component - The content container of the hover card
 
@@ -114,7 +114,7 @@ A HoverCardContent component
 function HoverCardTrigger(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/hover-card.tsx:57](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/hover-card.tsx#L57)
+Defined in: [src/components/ui/hover-card.tsx:57](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/hover-card.tsx#L57)
 
 HoverCardTrigger component - The element that triggers the hover card
 

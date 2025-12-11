@@ -4,7 +4,7 @@
 
 ### AspectRatioProps
 
-Defined in: [src/components/ui/aspect-ratio.tsx:10](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/aspect-ratio.tsx#L10)
+Defined in: [src/components/ui/aspect-ratio.tsx:10](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/aspect-ratio.tsx#L10)
 
 AspectRatio component props interface
 Extends Radix UI AspectRatio primitive props
@@ -21,7 +21,7 @@ Extends Radix UI AspectRatio primitive props
 function AspectRatio(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/aspect-ratio.tsx:28](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/aspect-ratio.tsx#L28)
+Defined in: [src/components/ui/aspect-ratio.tsx:28](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/aspect-ratio.tsx#L28)
 
 AspectRatio component - Maintains a specific aspect ratio for its content
 

@@ -4,7 +4,7 @@
 
 ### CheckboxCardProps
 
-Defined in: [src/components/ui/checkbox.tsx:90](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/checkbox.tsx#L90)
+Defined in: [src/components/ui/checkbox.tsx:90](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/checkbox.tsx#L90)
 
 CheckboxCard component props interface
 Extends Radix UI Checkbox primitive props with label and description
@@ -17,14 +17,14 @@ Extends Radix UI Checkbox primitive props with label and description
 
 | Property | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="description"></a> `description?` | `string` | Optional description text displayed below the label | [src/components/ui/checkbox.tsx:94](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/checkbox.tsx#L94) |
-| <a id="label"></a> `label` | `string` | Label text displayed next to the checkbox | [src/components/ui/checkbox.tsx:92](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/checkbox.tsx#L92) |
+| <a id="description"></a> `description?` | `string` | Optional description text displayed below the label | [src/components/ui/checkbox.tsx:94](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/checkbox.tsx#L94) |
+| <a id="label"></a> `label` | `string` | Label text displayed next to the checkbox | [src/components/ui/checkbox.tsx:92](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/checkbox.tsx#L92) |
 
 ***
 
 ### CheckboxProps
 
-Defined in: [src/components/ui/checkbox.tsx:14](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/checkbox.tsx#L14)
+Defined in: [src/components/ui/checkbox.tsx:14](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/checkbox.tsx#L14)
 
 Checkbox component props interface
 Extends Radix UI Checkbox primitive props
@@ -41,7 +41,7 @@ Extends Radix UI Checkbox primitive props
 function Checkbox(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/checkbox.tsx:37](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/checkbox.tsx#L37)
+Defined in: [src/components/ui/checkbox.tsx:37](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/checkbox.tsx#L37)
 
 Checkbox component - A styled checkbox with validation states
 
@@ -81,7 +81,7 @@ A checkbox element with appropriate styling
 function CheckboxCard(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/checkbox.tsx:114](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/checkbox.tsx#L114)
+Defined in: [src/components/ui/checkbox.tsx:114](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/checkbox.tsx#L114)
 
 CheckboxCard component - A checkbox with integrated label and description
 

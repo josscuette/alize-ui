@@ -152,7 +152,7 @@ export default function GetStartedPage(): React.ReactElement {
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    <CodeBlock>npx -y github:josscuette/alize-ui</CodeBlock>
+                    <CodeBlock>npx -y github:Josselin-Cuette_JLLT/alize-ui</CodeBlock>
                     <p className="text-sm text-muted-foreground">
                       Press <kbd className="px-1.5 py-0.5 bg-muted rounded text-xs font-mono">Enter</kbd> to install everything, 
                       or <kbd className="px-1.5 py-0.5 bg-muted rounded text-xs font-mono">Space</kbd> to deselect 
@@ -177,7 +177,7 @@ export default function GetStartedPage(): React.ReactElement {
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    <CodeBlock>{`npm install github:josscuette/alize-ui react react-dom next tailwindcss @tailwindcss/postcss typescript @types/react @types/react-dom @types/node`}</CodeBlock>
+                    <CodeBlock>{`npm install github:Josselin-Cuette_JLLT/alize-ui react react-dom next tailwindcss @tailwindcss/postcss typescript @types/react @types/react-dom @types/node`}</CodeBlock>
                   </CardContent>
                 </Card>
 
@@ -354,7 +354,7 @@ export default function RootLayout({ children }) {
                       <p className="text-sm text-muted-foreground">
                         Report issues, suggest features, or contribute to the project on our{" "}
                         <a 
-                          href="https://github.com/josscuette/alize-ui" 
+                          href="https://github.com/Josselin-Cuette_JLLT/alize-ui" 
                           className="text-semantic-text-interaction-default hover:underline"
                           target="_blank"
                           rel="noopener noreferrer"

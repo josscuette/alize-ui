@@ -4,7 +4,7 @@
 
 ### TextareaProps
 
-Defined in: [src/components/ui/textarea.tsx:10](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/textarea.tsx#L10)
+Defined in: [src/components/ui/textarea.tsx:10](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/textarea.tsx#L10)
 
 Textarea component props interface
 Extends native HTML textarea element props
@@ -21,7 +21,7 @@ Extends native HTML textarea element props
 function Textarea(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/textarea.tsx:30](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/textarea.tsx#L30)
+Defined in: [src/components/ui/textarea.tsx:30](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/textarea.tsx#L30)
 
 Textarea component - A styled textarea field with validation states
 

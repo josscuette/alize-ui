@@ -4,7 +4,7 @@
 
 ### DrawerCloseProps
 
-Defined in: [src/components/ui/drawer.tsx:30](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L30)
+Defined in: [src/components/ui/drawer.tsx:30](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L30)
 
 DrawerClose component props interface
 Extends vaul Drawer Close props
@@ -17,7 +17,7 @@ Extends vaul Drawer Close props
 
 ### DrawerContentProps
 
-Defined in: [src/components/ui/drawer.tsx:42](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L42)
+Defined in: [src/components/ui/drawer.tsx:42](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L42)
 
 DrawerContent component props interface
 Extends vaul Drawer Content props
@@ -30,7 +30,7 @@ Extends vaul Drawer Content props
 
 ### DrawerDescriptionProps
 
-Defined in: [src/components/ui/drawer.tsx:66](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L66)
+Defined in: [src/components/ui/drawer.tsx:66](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L66)
 
 DrawerDescription component props interface
 Extends vaul Drawer Description props
@@ -43,7 +43,7 @@ Extends vaul Drawer Description props
 
 ### DrawerFooterProps
 
-Defined in: [src/components/ui/drawer.tsx:54](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L54)
+Defined in: [src/components/ui/drawer.tsx:54](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L54)
 
 DrawerFooter component props interface
 Extends native div element props
@@ -56,7 +56,7 @@ Extends native div element props
 
 ### DrawerHeaderProps
 
-Defined in: [src/components/ui/drawer.tsx:48](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L48)
+Defined in: [src/components/ui/drawer.tsx:48](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L48)
 
 DrawerHeader component props interface
 Extends native div element props
@@ -69,7 +69,7 @@ Extends native div element props
 
 ### DrawerOverlayProps
 
-Defined in: [src/components/ui/drawer.tsx:36](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L36)
+Defined in: [src/components/ui/drawer.tsx:36](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L36)
 
 DrawerOverlay component props interface
 Extends vaul Drawer Overlay props
@@ -82,7 +82,7 @@ Extends vaul Drawer Overlay props
 
 ### DrawerPortalProps
 
-Defined in: [src/components/ui/drawer.tsx:24](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L24)
+Defined in: [src/components/ui/drawer.tsx:24](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L24)
 
 DrawerPortal component props interface
 Extends vaul Drawer Portal props
@@ -95,7 +95,7 @@ Extends vaul Drawer Portal props
 
 ### DrawerTitleProps
 
-Defined in: [src/components/ui/drawer.tsx:60](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L60)
+Defined in: [src/components/ui/drawer.tsx:60](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L60)
 
 DrawerTitle component props interface
 Extends vaul Drawer Title props
@@ -108,7 +108,7 @@ Extends vaul Drawer Title props
 
 ### DrawerTriggerProps
 
-Defined in: [src/components/ui/drawer.tsx:18](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L18)
+Defined in: [src/components/ui/drawer.tsx:18](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L18)
 
 DrawerTrigger component props interface
 Extends vaul Drawer Trigger props
@@ -125,7 +125,7 @@ Extends vaul Drawer Trigger props
 type DrawerProps = React.ComponentProps<typeof DrawerPrimitive.Root>;
 ```
 
-Defined in: [src/components/ui/drawer.tsx:12](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L12)
+Defined in: [src/components/ui/drawer.tsx:12](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L12)
 
 Drawer component props interface
 Extends vaul Drawer Root props
@@ -138,7 +138,7 @@ Extends vaul Drawer Root props
 function Drawer(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/drawer.tsx:90](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L90)
+Defined in: [src/components/ui/drawer.tsx:90](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L90)
 
 Drawer component - A drawer/sheet component
 
@@ -179,7 +179,7 @@ A Drawer component
 function DrawerClose(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/drawer.tsx:123](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L123)
+Defined in: [src/components/ui/drawer.tsx:123](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L123)
 
 DrawerClose component - A close button for the drawer
 
@@ -203,7 +203,7 @@ A DrawerClose component
 function DrawerContent(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/drawer.tsx:155](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L155)
+Defined in: [src/components/ui/drawer.tsx:155](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L155)
 
 DrawerContent component - The main content area of the drawer
 
@@ -227,7 +227,7 @@ A DrawerContent component
 function DrawerDescription(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/drawer.tsx:238](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L238)
+Defined in: [src/components/ui/drawer.tsx:238](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L238)
 
 DrawerDescription component - A description for the drawer
 
@@ -251,7 +251,7 @@ A DrawerDescription component
 function DrawerFooter(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/drawer.tsx:205](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L205)
+Defined in: [src/components/ui/drawer.tsx:205](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L205)
 
 DrawerFooter component - A footer section for the drawer
 
@@ -275,7 +275,7 @@ A DrawerFooter component
 function DrawerHeader(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/drawer.tsx:187](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L187)
+Defined in: [src/components/ui/drawer.tsx:187](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L187)
 
 DrawerHeader component - A header section for the drawer
 
@@ -299,7 +299,7 @@ A DrawerHeader component
 function DrawerOverlay(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/drawer.tsx:134](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L134)
+Defined in: [src/components/ui/drawer.tsx:134](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L134)
 
 DrawerOverlay component - An overlay backdrop for the drawer
 
@@ -323,7 +323,7 @@ A DrawerOverlay component
 function DrawerPortal(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/drawer.tsx:112](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L112)
+Defined in: [src/components/ui/drawer.tsx:112](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L112)
 
 DrawerPortal component - A portal for drawer content
 
@@ -347,7 +347,7 @@ A DrawerPortal component
 function DrawerTitle(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/drawer.tsx:220](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L220)
+Defined in: [src/components/ui/drawer.tsx:220](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L220)
 
 DrawerTitle component - A title for the drawer
 
@@ -371,7 +371,7 @@ A DrawerTitle component
 function DrawerTrigger(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/drawer.tsx:101](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L101)
+Defined in: [src/components/ui/drawer.tsx:101](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/drawer.tsx#L101)
 
 DrawerTrigger component - A trigger button for the drawer
 

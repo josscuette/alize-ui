@@ -4,7 +4,7 @@
 
 ### ContextMenuCheckboxItemProps
 
-Defined in: [src/components/ui/context-menu.tsx:40](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L40)
+Defined in: [src/components/ui/context-menu.tsx:40](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L40)
 
 ContextMenuCheckboxItem component props interface
 Extends Radix UI ContextMenuCheckboxItem primitive props
@@ -17,7 +17,7 @@ Extends Radix UI ContextMenuCheckboxItem primitive props
 
 ### ContextMenuContentProps
 
-Defined in: [src/components/ui/context-menu.tsx:25](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L25)
+Defined in: [src/components/ui/context-menu.tsx:25](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L25)
 
 ContextMenuContent component props interface
 Extends Radix UI ContextMenuContent primitive props
@@ -30,7 +30,7 @@ Extends Radix UI ContextMenuContent primitive props
 
 ### ContextMenuGroupProps
 
-Defined in: [src/components/ui/context-menu.tsx:72](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L72)
+Defined in: [src/components/ui/context-menu.tsx:72](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L72)
 
 ContextMenuGroup component props interface
 Extends Radix UI ContextMenuGroup primitive props
@@ -43,7 +43,7 @@ Extends Radix UI ContextMenuGroup primitive props
 
 ### ContextMenuItemProps
 
-Defined in: [src/components/ui/context-menu.tsx:31](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L31)
+Defined in: [src/components/ui/context-menu.tsx:31](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L31)
 
 ContextMenuItem component props interface
 Extends Radix UI ContextMenuItem primitive props and adds inset and variant props
@@ -56,14 +56,14 @@ Extends Radix UI ContextMenuItem primitive props and adds inset and variant prop
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="inset"></a> `inset?` | `boolean` | [src/components/ui/context-menu.tsx:32](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L32) |
-| <a id="variant"></a> `variant?` | `"default"` \| `"destructive"` | [src/components/ui/context-menu.tsx:33](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L33) |
+| <a id="inset"></a> `inset?` | `boolean` | [src/components/ui/context-menu.tsx:32](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L32) |
+| <a id="variant"></a> `variant?` | `"default"` \| `"destructive"` | [src/components/ui/context-menu.tsx:33](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L33) |
 
 ***
 
 ### ContextMenuLabelProps
 
-Defined in: [src/components/ui/context-menu.tsx:52](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L52)
+Defined in: [src/components/ui/context-menu.tsx:52](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L52)
 
 ContextMenuLabel component props interface
 Extends Radix UI ContextMenuLabel primitive props and adds inset prop
@@ -76,13 +76,13 @@ Extends Radix UI ContextMenuLabel primitive props and adds inset prop
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="inset-1"></a> `inset?` | `boolean` | [src/components/ui/context-menu.tsx:53](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L53) |
+| <a id="inset-1"></a> `inset?` | `boolean` | [src/components/ui/context-menu.tsx:53](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L53) |
 
 ***
 
 ### ContextMenuPortalProps
 
-Defined in: [src/components/ui/context-menu.tsx:78](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L78)
+Defined in: [src/components/ui/context-menu.tsx:78](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L78)
 
 ContextMenuPortal component props interface
 Extends Radix UI ContextMenuPortal primitive props
@@ -95,7 +95,7 @@ Extends Radix UI ContextMenuPortal primitive props
 
 ### ContextMenuProps
 
-Defined in: [src/components/ui/context-menu.tsx:13](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L13)
+Defined in: [src/components/ui/context-menu.tsx:13](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L13)
 
 ContextMenu component props interface
 Extends Radix UI ContextMenu primitive props
@@ -108,7 +108,7 @@ Extends Radix UI ContextMenu primitive props
 
 ### ContextMenuRadioGroupProps
 
-Defined in: [src/components/ui/context-menu.tsx:104](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L104)
+Defined in: [src/components/ui/context-menu.tsx:104](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L104)
 
 ContextMenuRadioGroup component props interface
 Extends Radix UI ContextMenuRadioGroup primitive props
@@ -121,7 +121,7 @@ Extends Radix UI ContextMenuRadioGroup primitive props
 
 ### ContextMenuRadioItemProps
 
-Defined in: [src/components/ui/context-menu.tsx:46](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L46)
+Defined in: [src/components/ui/context-menu.tsx:46](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L46)
 
 ContextMenuRadioItem component props interface
 Extends Radix UI ContextMenuRadioItem primitive props
@@ -134,7 +134,7 @@ Extends Radix UI ContextMenuRadioItem primitive props
 
 ### ContextMenuSeparatorProps
 
-Defined in: [src/components/ui/context-menu.tsx:60](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L60)
+Defined in: [src/components/ui/context-menu.tsx:60](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L60)
 
 ContextMenuSeparator component props interface
 Extends Radix UI ContextMenuSeparator primitive props
@@ -147,7 +147,7 @@ Extends Radix UI ContextMenuSeparator primitive props
 
 ### ContextMenuShortcutProps
 
-Defined in: [src/components/ui/context-menu.tsx:66](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L66)
+Defined in: [src/components/ui/context-menu.tsx:66](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L66)
 
 ContextMenuShortcut component props interface
 Extends native span element props
@@ -160,7 +160,7 @@ Extends native span element props
 
 ### ContextMenuSubContentProps
 
-Defined in: [src/components/ui/context-menu.tsx:98](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L98)
+Defined in: [src/components/ui/context-menu.tsx:98](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L98)
 
 ContextMenuSubContent component props interface
 Extends Radix UI ContextMenuSubContent primitive props
@@ -173,7 +173,7 @@ Extends Radix UI ContextMenuSubContent primitive props
 
 ### ContextMenuSubProps
 
-Defined in: [src/components/ui/context-menu.tsx:84](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L84)
+Defined in: [src/components/ui/context-menu.tsx:84](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L84)
 
 ContextMenuSub component props interface
 Extends Radix UI ContextMenuSub primitive props
@@ -186,7 +186,7 @@ Extends Radix UI ContextMenuSub primitive props
 
 ### ContextMenuSubTriggerProps
 
-Defined in: [src/components/ui/context-menu.tsx:90](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L90)
+Defined in: [src/components/ui/context-menu.tsx:90](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L90)
 
 ContextMenuSubTrigger component props interface
 Extends Radix UI ContextMenuSubTrigger primitive props and adds inset prop
@@ -199,13 +199,13 @@ Extends Radix UI ContextMenuSubTrigger primitive props and adds inset prop
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="inset-2"></a> `inset?` | `boolean` | [src/components/ui/context-menu.tsx:91](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L91) |
+| <a id="inset-2"></a> `inset?` | `boolean` | [src/components/ui/context-menu.tsx:91](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L91) |
 
 ***
 
 ### ContextMenuTriggerProps
 
-Defined in: [src/components/ui/context-menu.tsx:19](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L19)
+Defined in: [src/components/ui/context-menu.tsx:19](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L19)
 
 ContextMenuTrigger component props interface
 Extends Radix UI ContextMenuTrigger primitive props
@@ -222,7 +222,7 @@ Extends Radix UI ContextMenuTrigger primitive props
 const ContextMenu: NamedExoticComponent<ContextMenuProps>;
 ```
 
-Defined in: [src/components/ui/context-menu.tsx:125](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L125)
+Defined in: [src/components/ui/context-menu.tsx:125](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L125)
 
 ContextMenu component - A context menu (right-click menu)
 
@@ -256,7 +256,7 @@ A ContextMenu component
 function ContextMenuCheckboxItem(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/context-menu.tsx:298](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L298)
+Defined in: [src/components/ui/context-menu.tsx:298](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L298)
 
 ContextMenuCheckboxItem component - A checkbox item in the context menu
 
@@ -280,7 +280,7 @@ A ContextMenuCheckboxItem component
 function ContextMenuContent(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/context-menu.tsx:250](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L250)
+Defined in: [src/components/ui/context-menu.tsx:250](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L250)
 
 ContextMenuContent component - The content container of the context menu
 
@@ -304,7 +304,7 @@ A ContextMenuContent component
 function ContextMenuGroup(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/context-menu.tsx:149](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L149)
+Defined in: [src/components/ui/context-menu.tsx:149](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L149)
 
 ContextMenuGroup component - A group of related context menu items
 
@@ -328,7 +328,7 @@ A ContextMenuGroup component
 function ContextMenuItem(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/context-menu.tsx:273](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L273)
+Defined in: [src/components/ui/context-menu.tsx:273](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L273)
 
 ContextMenuItem component - An individual selectable item in the context menu
 
@@ -352,7 +352,7 @@ A ContextMenuItem component
 function ContextMenuLabel(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/context-menu.tsx:358](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L358)
+Defined in: [src/components/ui/context-menu.tsx:358](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L358)
 
 ContextMenuLabel component - A non-interactive label in the context menu
 
@@ -376,7 +376,7 @@ A ContextMenuLabel component
 function ContextMenuPortal(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/context-menu.tsx:162](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L162)
+Defined in: [src/components/ui/context-menu.tsx:162](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L162)
 
 ContextMenuPortal component - Portals the context menu content
 
@@ -400,7 +400,7 @@ A ContextMenuPortal component
 function ContextMenuRadioGroup(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/context-menu.tsx:186](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L186)
+Defined in: [src/components/ui/context-menu.tsx:186](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L186)
 
 ContextMenuRadioGroup component - A radio group within the context menu
 
@@ -424,7 +424,7 @@ A ContextMenuRadioGroup component
 function ContextMenuRadioItem(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/context-menu.tsx:329](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L329)
+Defined in: [src/components/ui/context-menu.tsx:329](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L329)
 
 ContextMenuRadioItem component - A radio item in the context menu
 
@@ -448,7 +448,7 @@ A ContextMenuRadioItem component
 function ContextMenuSeparator(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/context-menu.tsx:381](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L381)
+Defined in: [src/components/ui/context-menu.tsx:381](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L381)
 
 ContextMenuSeparator component - A visual separator in the context menu
 
@@ -472,7 +472,7 @@ A ContextMenuSeparator component
 function ContextMenuShortcut(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/context-menu.tsx:399](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L399)
+Defined in: [src/components/ui/context-menu.tsx:399](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L399)
 
 ContextMenuShortcut component - A keyboard shortcut indicator
 
@@ -496,7 +496,7 @@ A ContextMenuShortcut component
 function ContextMenuSub(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/context-menu.tsx:175](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L175)
+Defined in: [src/components/ui/context-menu.tsx:175](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L175)
 
 ContextMenuSub component - A submenu container
 
@@ -520,7 +520,7 @@ A ContextMenuSub component
 function ContextMenuSubContent(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/context-menu.tsx:229](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L229)
+Defined in: [src/components/ui/context-menu.tsx:229](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L229)
 
 ContextMenuSubContent component - The content container of a submenu
 
@@ -544,7 +544,7 @@ A ContextMenuSubContent component
 function ContextMenuSubTrigger(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/context-menu.tsx:202](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L202)
+Defined in: [src/components/ui/context-menu.tsx:202](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L202)
 
 ContextMenuSubTrigger component - The trigger for a submenu
 
@@ -568,7 +568,7 @@ A ContextMenuSubTrigger component
 function ContextMenuTrigger(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/context-menu.tsx:136](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L136)
+Defined in: [src/components/ui/context-menu.tsx:136](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/context-menu.tsx#L136)
 
 ContextMenuTrigger component - The element that triggers the context menu
 

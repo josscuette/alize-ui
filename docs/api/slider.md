@@ -4,7 +4,7 @@
 
 ### SliderProps
 
-Defined in: [src/components/ui/slider.tsx:12](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/slider.tsx#L12)
+Defined in: [src/components/ui/slider.tsx:12](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/slider.tsx#L12)
 
 Slider component props interface
 Extends Radix UI Slider primitive props
@@ -21,7 +21,7 @@ Extends Radix UI Slider primitive props
 function Slider(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/slider.tsx:29](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/slider.tsx#L29)
+Defined in: [src/components/ui/slider.tsx:29](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/slider.tsx#L29)
 
 Slider component - A range input slider
 

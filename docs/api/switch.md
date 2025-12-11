@@ -4,7 +4,7 @@
 
 ### SwitchCardProps
 
-Defined in: [src/components/ui/switch.tsx:19](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/switch.tsx#L19)
+Defined in: [src/components/ui/switch.tsx:19](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/switch.tsx#L19)
 
 SwitchCard component props interface
 Extends Radix UI Switch primitive props and adds label/description
@@ -17,14 +17,14 @@ Extends Radix UI Switch primitive props and adds label/description
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="description"></a> `description?` | `string` | [src/components/ui/switch.tsx:21](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/switch.tsx#L21) |
-| <a id="label"></a> `label` | `string` | [src/components/ui/switch.tsx:20](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/switch.tsx#L20) |
+| <a id="description"></a> `description?` | `string` | [src/components/ui/switch.tsx:21](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/switch.tsx#L21) |
+| <a id="label"></a> `label` | `string` | [src/components/ui/switch.tsx:20](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/switch.tsx#L20) |
 
 ***
 
 ### SwitchProps
 
-Defined in: [src/components/ui/switch.tsx:13](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/switch.tsx#L13)
+Defined in: [src/components/ui/switch.tsx:13](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/switch.tsx#L13)
 
 Switch component props interface
 Extends Radix UI Switch primitive props
@@ -41,7 +41,7 @@ Extends Radix UI Switch primitive props
 function Switch(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/switch.tsx:39](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/switch.tsx#L39)
+Defined in: [src/components/ui/switch.tsx:39](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/switch.tsx#L39)
 
 Switch component - A toggle switch control
 
@@ -75,7 +75,7 @@ A switch element
 function SwitchCard(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/switch.tsx:94](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/switch.tsx#L94)
+Defined in: [src/components/ui/switch.tsx:94](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/switch.tsx#L94)
 
 SwitchCard component - A switch styled as a card with a label and optional description
 

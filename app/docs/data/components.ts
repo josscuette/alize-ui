@@ -4028,12 +4028,14 @@ import { Button } from 'alize-ui';
     props: [
       { name: "value", type: "string", required: false, description: "Controlled active tab" },
       { name: "defaultValue", type: "string", required: false, description: "Default active tab" },
-      { name: "onValueChange", type: "(value: string) => void", required: false, description: "Tab change callback" }
+      { name: "onValueChange", type: "(value: string) => void", required: false, description: "Tab change callback" },
+      { name: "variant", type: "'pills' | 'underline'", required: false, default: "'pills'", description: "Visual style of the tabs (on TabsList)" },
+      { name: "fill", type: "boolean", required: false, default: "false", description: "When true, tabs stretch to fill parent height (on TabsList, for underline variant)" }
     ],
     examples: [
       {
         title: "Basic Tabs",
-        description: "Simple tab navigation",
+        description: "Simple tab navigation with pills style (default)",
         code: `import { Tabs, TabsContent, TabsList, TabsTrigger } from 'alize-ui';
 
 <Tabs defaultValue="account" className="w-[400px]">
@@ -4048,6 +4050,46 @@ import { Button } from 'alize-ui';
     <p>Change your password here.</p>
   </TabsContent>
 </Tabs>`
+      },
+      {
+        title: "Underline Tabs",
+        description: "Tab navigation with underline indicator style",
+        code: `import { Tabs, TabsContent, TabsList, TabsTrigger } from 'alize-ui';
+
+<Tabs defaultValue="overview" className="w-[400px]">
+  <TabsList variant="underline">
+    <TabsTrigger value="overview">Overview</TabsTrigger>
+    <TabsTrigger value="analytics">Analytics</TabsTrigger>
+    <TabsTrigger value="reports">Reports</TabsTrigger>
+  </TabsList>
+  <TabsContent value="overview">
+    <p>View your project overview and key metrics.</p>
+  </TabsContent>
+  <TabsContent value="analytics">
+    <p>Detailed analytics and performance data.</p>
+  </TabsContent>
+  <TabsContent value="reports">
+    <p>Generate and download reports.</p>
+  </TabsContent>
+</Tabs>`
+      },
+      {
+        title: "Underline Tabs in Container",
+        description: "Tabs that fill the container height, perfect for headers and toolbars",
+        code: `import { Tabs, TabsList, TabsTrigger } from 'alize-ui';
+
+// The tabs stretch to fill the header height
+// The border merges with the container's border
+<header className="flex items-center gap-6 h-14 px-4 border-b">
+  <span className="font-semibold">Project Name</span>
+  <Tabs defaultValue="overview" className="h-full">
+    <TabsList variant="underline" fill>
+      <TabsTrigger value="overview">Overview</TabsTrigger>
+      <TabsTrigger value="analytics">Analytics</TabsTrigger>
+      <TabsTrigger value="reports">Reports</TabsTrigger>
+    </TabsList>
+  </Tabs>
+</header>`
       }
     ],
     do: [

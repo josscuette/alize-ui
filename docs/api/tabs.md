@@ -4,7 +4,7 @@
 
 ### TabsContentProps
 
-Defined in: [src/components/ui/tabs.tsx:30](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/tabs.tsx#L30)
+Defined in: [src/components/ui/tabs.tsx:30](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/tabs.tsx#L30)
 
 TabsContent component props interface
 Extends Radix UI TabsContent primitive props
@@ -17,7 +17,7 @@ Extends Radix UI TabsContent primitive props
 
 ### TabsListProps
 
-Defined in: [src/components/ui/tabs.tsx:18](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/tabs.tsx#L18)
+Defined in: [src/components/ui/tabs.tsx:18](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/tabs.tsx#L18)
 
 TabsList component props interface
 Extends Radix UI TabsList primitive props
@@ -30,7 +30,7 @@ Extends Radix UI TabsList primitive props
 
 ### TabsProps
 
-Defined in: [src/components/ui/tabs.tsx:12](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/tabs.tsx#L12)
+Defined in: [src/components/ui/tabs.tsx:12](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/tabs.tsx#L12)
 
 Tabs component props interface
 Extends Radix UI Tabs primitive props
@@ -43,7 +43,7 @@ Extends Radix UI Tabs primitive props
 
 ### TabsTriggerProps
 
-Defined in: [src/components/ui/tabs.tsx:24](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/tabs.tsx#L24)
+Defined in: [src/components/ui/tabs.tsx:24](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/tabs.tsx#L24)
 
 TabsTrigger component props interface
 Extends Radix UI TabsTrigger primitive props
@@ -60,7 +60,7 @@ Extends Radix UI TabsTrigger primitive props
 function Tabs(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/tabs.tsx:53](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/tabs.tsx#L53)
+Defined in: [src/components/ui/tabs.tsx:53](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/tabs.tsx#L53)
 
 Tabs component - A tabbed interface
 
@@ -100,7 +100,7 @@ A tabs container element
 function TabsContent(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/tabs.tsx:113](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/tabs.tsx#L113)
+Defined in: [src/components/ui/tabs.tsx:113](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/tabs.tsx#L113)
 
 TabsContent component - The content panel for a tab
 
@@ -124,7 +124,7 @@ A TabsContent component
 function TabsList(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/tabs.tsx:71](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/tabs.tsx#L71)
+Defined in: [src/components/ui/tabs.tsx:71](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/tabs.tsx#L71)
 
 TabsList component - The container for tab triggers
 
@@ -148,7 +148,7 @@ A TabsList component
 function TabsTrigger(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/tabs.tsx:92](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/tabs.tsx#L92)
+Defined in: [src/components/ui/tabs.tsx:92](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/tabs.tsx#L92)
 
 TabsTrigger component - An individual tab trigger button
 

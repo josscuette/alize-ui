@@ -4,7 +4,7 @@
 
 ### LogoProps
 
-Defined in: [src/components/ui/logo.tsx:110](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/logo.tsx#L110)
+Defined in: [src/components/ui/logo.tsx:110](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/logo.tsx#L110)
 
 Logo component props interface
 
@@ -33,9 +33,9 @@ Logo component props interface
 
 | Property | Type | Description | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ | ------ |
-| <a id="collapsed"></a> `collapsed?` | `boolean` | When true, hides the product name and shows only the logo. Useful for collapsed navigation states. **Default** `false` | - | [src/components/ui/logo.tsx:123](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/logo.tsx#L123) |
-| <a id="productname"></a> `productName?` | `string` | Optional product name to display next to the logo. If not provided or empty, only the JLL logo is displayed. | - | [src/components/ui/logo.tsx:117](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/logo.tsx#L117) |
-| <a id="size"></a> `size?` | `"default"` \| `"sm"` \| `"lg"` \| `null` | - | `VariantProps.size` | [src/components/ui/logo.tsx:45](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/logo.tsx#L45) |
+| <a id="collapsed"></a> `collapsed?` | `boolean` | When true, hides the product name and shows only the logo. Useful for collapsed navigation states. **Default** `false` | - | [src/components/ui/logo.tsx:123](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/logo.tsx#L123) |
+| <a id="productname"></a> `productName?` | `string` | Optional product name to display next to the logo. If not provided or empty, only the JLL logo is displayed. | - | [src/components/ui/logo.tsx:117](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/logo.tsx#L117) |
+| <a id="size"></a> `size?` | `"default"` \| `"sm"` \| `"lg"` \| `null` | - | `VariantProps.size` | [src/components/ui/logo.tsx:45](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/logo.tsx#L45) |
 
 ## Variables
 
@@ -45,7 +45,7 @@ Logo component props interface
 const logoVariants: (props?) => string;
 ```
 
-Defined in: [src/components/ui/logo.tsx:40](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/logo.tsx#L40)
+Defined in: [src/components/ui/logo.tsx:40](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/logo.tsx#L40)
 
 #### Parameters
 
@@ -65,7 +65,7 @@ Defined in: [src/components/ui/logo.tsx:40](https://github.com/josscuette/alize-
 function JLLLogo(__namedParameters): ReactElement;
 ```
 
-Defined in: [src/components/ui/logo.tsx:12](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/logo.tsx#L12)
+Defined in: [src/components/ui/logo.tsx:12](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/logo.tsx#L12)
 
 JLL Logo SVG Component
 Uses semantic brand tokens for theming in light/dark mode:
@@ -90,7 +90,7 @@ Uses semantic brand tokens for theming in light/dark mode:
 function Logo(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/logo.tsx:151](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/logo.tsx#L151)
+Defined in: [src/components/ui/logo.tsx:151](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/logo.tsx#L151)
 
 Logo component - JLL brand logo with optional product name
 

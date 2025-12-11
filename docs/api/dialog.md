@@ -4,7 +4,7 @@
 
 ### DialogCloseProps
 
-Defined in: [src/components/ui/dialog.tsx:31](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L31)
+Defined in: [src/components/ui/dialog.tsx:31](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L31)
 
 DialogClose component props interface
 Extends Radix UI DialogClose primitive props
@@ -17,7 +17,7 @@ Extends Radix UI DialogClose primitive props
 
 ### DialogContentProps
 
-Defined in: [src/components/ui/dialog.tsx:43](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L43)
+Defined in: [src/components/ui/dialog.tsx:43](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L43)
 
 DialogContent component props interface
 Extends Radix UI DialogContent primitive props and adds showCloseButton prop
@@ -30,13 +30,13 @@ Extends Radix UI DialogContent primitive props and adds showCloseButton prop
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="showclosebutton"></a> `showCloseButton?` | `boolean` | [src/components/ui/dialog.tsx:44](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L44) |
+| <a id="showclosebutton"></a> `showCloseButton?` | `boolean` | [src/components/ui/dialog.tsx:44](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L44) |
 
 ***
 
 ### DialogDescriptionProps
 
-Defined in: [src/components/ui/dialog.tsx:69](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L69)
+Defined in: [src/components/ui/dialog.tsx:69](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L69)
 
 DialogDescription component props interface
 Extends Radix UI DialogDescription primitive props
@@ -49,7 +49,7 @@ Extends Radix UI DialogDescription primitive props
 
 ### DialogFooterProps
 
-Defined in: [src/components/ui/dialog.tsx:57](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L57)
+Defined in: [src/components/ui/dialog.tsx:57](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L57)
 
 DialogFooter component props interface
 Extends native div element props
@@ -62,7 +62,7 @@ Extends native div element props
 
 ### DialogHeaderProps
 
-Defined in: [src/components/ui/dialog.tsx:51](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L51)
+Defined in: [src/components/ui/dialog.tsx:51](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L51)
 
 DialogHeader component props interface
 Extends native div element props
@@ -75,7 +75,7 @@ Extends native div element props
 
 ### DialogOverlayProps
 
-Defined in: [src/components/ui/dialog.tsx:37](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L37)
+Defined in: [src/components/ui/dialog.tsx:37](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L37)
 
 DialogOverlay component props interface
 Extends Radix UI DialogOverlay primitive props
@@ -88,7 +88,7 @@ Extends Radix UI DialogOverlay primitive props
 
 ### DialogPortalProps
 
-Defined in: [src/components/ui/dialog.tsx:25](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L25)
+Defined in: [src/components/ui/dialog.tsx:25](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L25)
 
 DialogPortal component props interface
 Extends Radix UI DialogPortal primitive props
@@ -101,7 +101,7 @@ Extends Radix UI DialogPortal primitive props
 
 ### DialogProps
 
-Defined in: [src/components/ui/dialog.tsx:13](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L13)
+Defined in: [src/components/ui/dialog.tsx:13](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L13)
 
 Dialog component props interface
 Extends Radix UI Dialog primitive props
@@ -114,7 +114,7 @@ Extends Radix UI Dialog primitive props
 
 ### DialogTitleProps
 
-Defined in: [src/components/ui/dialog.tsx:63](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L63)
+Defined in: [src/components/ui/dialog.tsx:63](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L63)
 
 DialogTitle component props interface
 Extends Radix UI DialogTitle primitive props
@@ -127,7 +127,7 @@ Extends Radix UI DialogTitle primitive props
 
 ### DialogTriggerProps
 
-Defined in: [src/components/ui/dialog.tsx:19](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L19)
+Defined in: [src/components/ui/dialog.tsx:19](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L19)
 
 DialogTrigger component props interface
 Extends Radix UI DialogTrigger primitive props
@@ -144,7 +144,7 @@ Extends Radix UI DialogTrigger primitive props
 const Dialog: NamedExoticComponent<DialogProps>;
 ```
 
-Defined in: [src/components/ui/dialog.tsx:93](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L93)
+Defined in: [src/components/ui/dialog.tsx:93](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L93)
 
 Dialog component - A modal dialog
 
@@ -181,7 +181,7 @@ A Dialog component
 const DialogContent: NamedExoticComponent<DialogContentProps>;
 ```
 
-Defined in: [src/components/ui/dialog.tsx:158](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L158)
+Defined in: [src/components/ui/dialog.tsx:158](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L158)
 
 DialogContent component - The main content container of the dialog
 
@@ -201,7 +201,7 @@ A DialogContent component
 function DialogClose(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/dialog.tsx:126](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L126)
+Defined in: [src/components/ui/dialog.tsx:126](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L126)
 
 DialogClose component - The element that closes the dialog
 
@@ -225,7 +225,7 @@ A DialogClose component
 function DialogDescription(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/dialog.tsx:241](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L241)
+Defined in: [src/components/ui/dialog.tsx:241](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L241)
 
 DialogDescription component - The description text of the dialog
 
@@ -249,7 +249,7 @@ A DialogDescription component
 function DialogFooter(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/dialog.tsx:205](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L205)
+Defined in: [src/components/ui/dialog.tsx:205](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L205)
 
 DialogFooter component - The footer section of the dialog
 
@@ -273,7 +273,7 @@ A DialogFooter component
 function DialogHeader(__namedParameters): ReactElement;
 ```
 
-Defined in: [src/components/ui/dialog.tsx:190](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L190)
+Defined in: [src/components/ui/dialog.tsx:190](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L190)
 
 #### Parameters
 
@@ -293,7 +293,7 @@ Defined in: [src/components/ui/dialog.tsx:190](https://github.com/josscuette/ali
 function DialogOverlay(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/dialog.tsx:137](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L137)
+Defined in: [src/components/ui/dialog.tsx:137](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L137)
 
 DialogOverlay component - The backdrop overlay for the dialog
 
@@ -317,7 +317,7 @@ A DialogOverlay component
 function DialogPortal(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/dialog.tsx:115](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L115)
+Defined in: [src/components/ui/dialog.tsx:115](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L115)
 
 DialogPortal component - Portals the dialog content
 
@@ -341,7 +341,7 @@ A DialogPortal component
 function DialogTitle(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/dialog.tsx:223](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L223)
+Defined in: [src/components/ui/dialog.tsx:223](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L223)
 
 DialogTitle component - The title of the dialog
 
@@ -365,7 +365,7 @@ A DialogTitle component
 function DialogTrigger(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/dialog.tsx:104](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L104)
+Defined in: [src/components/ui/dialog.tsx:104](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/dialog.tsx#L104)
 
 DialogTrigger component - The element that opens the dialog
 

@@ -4,7 +4,7 @@
 
 ### PaginationContentProps
 
-Defined in: [src/components/ui/pagination.tsx:21](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L21)
+Defined in: [src/components/ui/pagination.tsx:21](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L21)
 
 PaginationContent component props interface
 Extends native ul element props
@@ -17,7 +17,7 @@ Extends native ul element props
 
 ### PaginationEllipsisProps
 
-Defined in: [src/components/ui/pagination.tsx:54](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L54)
+Defined in: [src/components/ui/pagination.tsx:54](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L54)
 
 PaginationEllipsis component props interface
 Extends native span element props
@@ -30,7 +30,7 @@ Extends native span element props
 
 ### PaginationItemProps
 
-Defined in: [src/components/ui/pagination.tsx:27](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L27)
+Defined in: [src/components/ui/pagination.tsx:27](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L27)
 
 PaginationItem component props interface
 Extends native li element props
@@ -43,7 +43,7 @@ Extends native li element props
 
 ### PaginationLinkProps
 
-Defined in: [src/components/ui/pagination.tsx:33](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L33)
+Defined in: [src/components/ui/pagination.tsx:33](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L33)
 
 PaginationLink component props interface
 Extends native a element props and adds isActive and size props
@@ -61,14 +61,14 @@ Extends native a element props and adds isActive and size props
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="isactive"></a> `isActive?` | `boolean` | [src/components/ui/pagination.tsx:34](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L34) |
-| <a id="size"></a> `size?` | \| `"default"` \| `"xs"` \| `"sm"` \| `"lg"` \| `"icon"` \| `"icon-sm"` \| `"icon-lg"` \| `"icon-xs"` \| `null` | [src/components/ui/pagination.tsx:35](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L35) |
+| <a id="isactive"></a> `isActive?` | `boolean` | [src/components/ui/pagination.tsx:34](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L34) |
+| <a id="size"></a> `size?` | \| `"default"` \| `"xs"` \| `"sm"` \| `"lg"` \| `"icon"` \| `"icon-sm"` \| `"icon-lg"` \| `"icon-xs"` \| `null` | [src/components/ui/pagination.tsx:35](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L35) |
 
 ***
 
 ### PaginationNextProps
 
-Defined in: [src/components/ui/pagination.tsx:48](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L48)
+Defined in: [src/components/ui/pagination.tsx:48](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L48)
 
 PaginationNext component props interface
 Extends PaginationLink props
@@ -81,14 +81,14 @@ Extends PaginationLink props
 
 | Property | Type | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="isactive-1"></a> `isActive?` | `boolean` | [`PaginationLinkProps`](#paginationlinkprops).[`isActive`](#isactive) | [src/components/ui/pagination.tsx:34](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L34) |
-| <a id="size-1"></a> `size?` | \| `"default"` \| `"xs"` \| `"sm"` \| `"lg"` \| `"icon"` \| `"icon-sm"` \| `"icon-lg"` \| `"icon-xs"` \| `null` | [`PaginationPreviousProps`](#paginationpreviousprops).[`size`](#size-2) | [src/components/ui/pagination.tsx:35](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L35) |
+| <a id="isactive-1"></a> `isActive?` | `boolean` | [`PaginationLinkProps`](#paginationlinkprops).[`isActive`](#isactive) | [src/components/ui/pagination.tsx:34](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L34) |
+| <a id="size-1"></a> `size?` | \| `"default"` \| `"xs"` \| `"sm"` \| `"lg"` \| `"icon"` \| `"icon-sm"` \| `"icon-lg"` \| `"icon-xs"` \| `null` | [`PaginationPreviousProps`](#paginationpreviousprops).[`size`](#size-2) | [src/components/ui/pagination.tsx:35](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L35) |
 
 ***
 
 ### PaginationPreviousProps
 
-Defined in: [src/components/ui/pagination.tsx:42](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L42)
+Defined in: [src/components/ui/pagination.tsx:42](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L42)
 
 PaginationPrevious component props interface
 Extends PaginationLink props
@@ -101,14 +101,14 @@ Extends PaginationLink props
 
 | Property | Type | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="isactive-2"></a> `isActive?` | `boolean` | [`PaginationLinkProps`](#paginationlinkprops).[`isActive`](#isactive) | [src/components/ui/pagination.tsx:34](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L34) |
-| <a id="size-2"></a> `size?` | \| `"default"` \| `"xs"` \| `"sm"` \| `"lg"` \| `"icon"` \| `"icon-sm"` \| `"icon-lg"` \| `"icon-xs"` \| `null` | [`PaginationPreviousProps`](#paginationpreviousprops).[`size`](#size-2) | [src/components/ui/pagination.tsx:35](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L35) |
+| <a id="isactive-2"></a> `isActive?` | `boolean` | [`PaginationLinkProps`](#paginationlinkprops).[`isActive`](#isactive) | [src/components/ui/pagination.tsx:34](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L34) |
+| <a id="size-2"></a> `size?` | \| `"default"` \| `"xs"` \| `"sm"` \| `"lg"` \| `"icon"` \| `"icon-sm"` \| `"icon-lg"` \| `"icon-xs"` \| `null` | [`PaginationPreviousProps`](#paginationpreviousprops).[`size`](#size-2) | [src/components/ui/pagination.tsx:35](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L35) |
 
 ***
 
 ### PaginationProps
 
-Defined in: [src/components/ui/pagination.tsx:15](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L15)
+Defined in: [src/components/ui/pagination.tsx:15](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L15)
 
 Pagination component props interface
 Extends native nav element props
@@ -125,7 +125,7 @@ Extends native nav element props
 function Pagination(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/pagination.tsx:81](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L81)
+Defined in: [src/components/ui/pagination.tsx:81](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L81)
 
 Pagination component - A pagination navigation
 
@@ -169,7 +169,7 @@ A pagination navigation element
 function PaginationContent(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/pagination.tsx:98](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L98)
+Defined in: [src/components/ui/pagination.tsx:98](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L98)
 
 PaginationContent component - The container for pagination items
 
@@ -193,7 +193,7 @@ A PaginationContent component
 function PaginationEllipsis(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/pagination.tsx:214](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L214)
+Defined in: [src/components/ui/pagination.tsx:214](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L214)
 
 PaginationEllipsis component - An ellipsis indicator for truncated pages
 
@@ -217,7 +217,7 @@ A PaginationEllipsis component
 function PaginationItem(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/pagination.tsx:116](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L116)
+Defined in: [src/components/ui/pagination.tsx:116](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L116)
 
 PaginationItem component - An individual pagination item
 
@@ -241,7 +241,7 @@ A PaginationItem component
 function PaginationLink(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/pagination.tsx:125](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L125)
+Defined in: [src/components/ui/pagination.tsx:125](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L125)
 
 PaginationLink component - A link to a specific page
 
@@ -265,7 +265,7 @@ A PaginationLink component
 function PaginationNext(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/pagination.tsx:192](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L192)
+Defined in: [src/components/ui/pagination.tsx:192](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L192)
 
 PaginationNext component - A link to the next page
 
@@ -289,7 +289,7 @@ A PaginationNext component
 function PaginationPrevious(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/pagination.tsx:170](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L170)
+Defined in: [src/components/ui/pagination.tsx:170](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/pagination.tsx#L170)
 
 PaginationPrevious component - A link to the previous page
 

@@ -41,7 +41,7 @@ cd node_modules/alize && git log -1 --oneline 2>/dev/null || echo "Not a git rep
 ```bash
 rm -rf node_modules/alize node_modules/.cache .next package-lock.json
 npm cache clean --force
-npm install git+https://github.com/josscuette/alize-ui.git#bed4d42
+npm install git+https://github.com/Josselin-Cuette_JLLT/alize-ui.git#bed4d42
 ```
 
 2. **Check commit hash matches**:

@@ -72,7 +72,7 @@ const groups = [
 ];
 
 const basePackages = [
-  "github:josscuette/alize-ui", 
+  "github:Josselin-Cuette_JLLT/alize-ui", 
   "react", 
   "react-dom", 
   "next",
@@ -302,7 +302,7 @@ export default function Home() {
         </Card>
 
         <p className="text-center text-sm text-muted-foreground">
-          Docs: <a href="https://github.com/josscuette/alize-ui" target="_blank" className="text-primary underline">github.com/josscuette/alize-ui</a>
+          Docs: <a href="https://github.com/Josselin-Cuette_JLLT/alize-ui" target="_blank" className="text-primary underline">github.com/Josselin-Cuette_JLLT/alize-ui</a>
         </p>
       </div>
     </main>

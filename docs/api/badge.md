@@ -4,7 +4,7 @@
 
 ### BadgeProps
 
-Defined in: [src/components/ui/badge.tsx:36](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/badge.tsx#L36)
+Defined in: [src/components/ui/badge.tsx:36](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/badge.tsx#L36)
 
 Badge component props interface
 Extends native span element props and adds variant and asChild props
@@ -17,8 +17,8 @@ Extends native span element props and adds variant and asChild props
 
 | Property | Type | Description | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ | ------ |
-| <a id="aschild"></a> `asChild?` | `boolean` | Render as a different element using Radix UI Slot **Default** `false` | - | [src/components/ui/badge.tsx:41](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/badge.tsx#L41) |
-| <a id="variant"></a> `variant?` | \| `"default"` \| `"destructive"` \| `"secondary"` \| `"warning"` \| `"success"` \| `"outline"` \| `null` | - | `VariantProps.variant` | [src/components/ui/badge.tsx:11](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/badge.tsx#L11) |
+| <a id="aschild"></a> `asChild?` | `boolean` | Render as a different element using Radix UI Slot **Default** `false` | - | [src/components/ui/badge.tsx:41](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/badge.tsx#L41) |
+| <a id="variant"></a> `variant?` | \| `"default"` \| `"destructive"` \| `"secondary"` \| `"warning"` \| `"success"` \| `"outline"` \| `null` | - | `VariantProps.variant` | [src/components/ui/badge.tsx:11](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/badge.tsx#L11) |
 
 ## Variables
 
@@ -28,7 +28,7 @@ Extends native span element props and adds variant and asChild props
 const badgeVariants: (props?) => string;
 ```
 
-Defined in: [src/components/ui/badge.tsx:7](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/badge.tsx#L7)
+Defined in: [src/components/ui/badge.tsx:7](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/badge.tsx#L7)
 
 #### Parameters
 
@@ -48,7 +48,7 @@ Defined in: [src/components/ui/badge.tsx:7](https://github.com/josscuette/alize-
 function Badge(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/badge.tsx:76](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/badge.tsx#L76)
+Defined in: [src/components/ui/badge.tsx:76](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/badge.tsx#L76)
 
 Badge component - A small status indicator or label
 

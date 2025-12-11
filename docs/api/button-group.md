@@ -4,7 +4,7 @@
 
 ### ButtonGroupProps
 
-Defined in: [src/components/ui/button-group.tsx:12](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button-group.tsx#L12)
+Defined in: [src/components/ui/button-group.tsx:12](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button-group.tsx#L12)
 
 ButtonGroup component props interface
 Extends native div element props and adds orientation prop
@@ -17,13 +17,13 @@ Extends native div element props and adds orientation prop
 
 | Property | Type | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="orientation"></a> `orientation?` | `"horizontal"` \| `"vertical"` \| `null` | `VariantProps.orientation` | [src/components/ui/button-group.tsx:34](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button-group.tsx#L34) |
+| <a id="orientation"></a> `orientation?` | `"horizontal"` \| `"vertical"` \| `null` | `VariantProps.orientation` | [src/components/ui/button-group.tsx:34](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button-group.tsx#L34) |
 
 ***
 
 ### ButtonGroupSeparatorProps
 
-Defined in: [src/components/ui/button-group.tsx:26](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button-group.tsx#L26)
+Defined in: [src/components/ui/button-group.tsx:26](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button-group.tsx#L26)
 
 ButtonGroupSeparator component props interface
 Extends Separator props
@@ -36,13 +36,13 @@ Extends Separator props
 
 | Property | Type | Description | Overrides | Defined in |
 | ------ | ------ | ------ | ------ | ------ |
-| <a id="orientation-1"></a> `orientation?` | `"horizontal"` \| `"vertical"` | Either `vertical` or `horizontal`. Defaults to `horizontal`. | `React.ComponentProps.orientation` | [src/components/ui/button-group.tsx:27](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button-group.tsx#L27) |
+| <a id="orientation-1"></a> `orientation?` | `"horizontal"` \| `"vertical"` | Either `vertical` or `horizontal`. Defaults to `horizontal`. | `React.ComponentProps.orientation` | [src/components/ui/button-group.tsx:27](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button-group.tsx#L27) |
 
 ***
 
 ### ButtonGroupTextProps
 
-Defined in: [src/components/ui/button-group.tsx:18](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button-group.tsx#L18)
+Defined in: [src/components/ui/button-group.tsx:18](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button-group.tsx#L18)
 
 ButtonGroupText component props interface
 Extends native div element props and adds asChild prop
@@ -55,7 +55,7 @@ Extends native div element props and adds asChild prop
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="aschild"></a> `asChild?` | `boolean` | [src/components/ui/button-group.tsx:19](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button-group.tsx#L19) |
+| <a id="aschild"></a> `asChild?` | `boolean` | [src/components/ui/button-group.tsx:19](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button-group.tsx#L19) |
 
 ## Variables
 
@@ -65,7 +65,7 @@ Extends native div element props and adds asChild prop
 const buttonGroupVariants: (props?) => string;
 ```
 
-Defined in: [src/components/ui/button-group.tsx:30](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button-group.tsx#L30)
+Defined in: [src/components/ui/button-group.tsx:30](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button-group.tsx#L30)
 
 #### Parameters
 
@@ -85,7 +85,7 @@ Defined in: [src/components/ui/button-group.tsx:30](https://github.com/josscuett
 function ButtonGroup(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/button-group.tsx:63](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button-group.tsx#L63)
+Defined in: [src/components/ui/button-group.tsx:63](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button-group.tsx#L63)
 
 ButtonGroup component - A group of buttons
 
@@ -120,7 +120,7 @@ A ButtonGroup component
 function ButtonGroupSeparator(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/button-group.tsx:107](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button-group.tsx#L107)
+Defined in: [src/components/ui/button-group.tsx:107](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button-group.tsx#L107)
 
 ButtonGroupSeparator component - A separator within a button group
 
@@ -144,7 +144,7 @@ A ButtonGroupSeparator component
 function ButtonGroupText(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/button-group.tsx:84](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button-group.tsx#L84)
+Defined in: [src/components/ui/button-group.tsx:84](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button-group.tsx#L84)
 
 ButtonGroupText component - A text element within a button group
 

@@ -71,6 +71,7 @@ export {
   CardContent,
 } from './components/ui/card'
 export { Tabs, TabsContent, TabsList, TabsTrigger } from './components/ui/tabs'
+export type { TabsVariant, TabsProps, TabsListProps, TabsTriggerProps, TabsContentProps } from './components/ui/tabs'
 export { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './components/ui/accordion'
 export { Collapsible, CollapsibleContent, CollapsibleTrigger } from './components/ui/collapsible'
 export { Popover, PopoverContent, PopoverTrigger, PopoverAnchor } from './components/ui/popover'

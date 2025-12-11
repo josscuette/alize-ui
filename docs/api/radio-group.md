@@ -4,7 +4,7 @@
 
 ### RadioGroupCardItemProps
 
-Defined in: [src/components/ui/radio-group.tsx:109](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/radio-group.tsx#L109)
+Defined in: [src/components/ui/radio-group.tsx:109](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/radio-group.tsx#L109)
 
 RadioGroupCardItem component props interface
 Extends Radix UI RadioGroupItem primitive props and adds label/description
@@ -17,14 +17,14 @@ Extends Radix UI RadioGroupItem primitive props and adds label/description
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="description"></a> `description?` | `string` | [src/components/ui/radio-group.tsx:111](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/radio-group.tsx#L111) |
-| <a id="label"></a> `label` | `string` | [src/components/ui/radio-group.tsx:110](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/radio-group.tsx#L110) |
+| <a id="description"></a> `description?` | `string` | [src/components/ui/radio-group.tsx:111](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/radio-group.tsx#L111) |
+| <a id="label"></a> `label` | `string` | [src/components/ui/radio-group.tsx:110](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/radio-group.tsx#L110) |
 
 ***
 
 ### RadioGroupItemProps
 
-Defined in: [src/components/ui/radio-group.tsx:103](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/radio-group.tsx#L103)
+Defined in: [src/components/ui/radio-group.tsx:103](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/radio-group.tsx#L103)
 
 RadioGroupItem component props interface
 Extends Radix UI RadioGroupItem primitive props
@@ -37,7 +37,7 @@ Extends Radix UI RadioGroupItem primitive props
 
 ### RadioGroupProps
 
-Defined in: [src/components/ui/radio-group.tsx:97](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/radio-group.tsx#L97)
+Defined in: [src/components/ui/radio-group.tsx:97](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/radio-group.tsx#L97)
 
 RadioGroup component props interface
 Extends Radix UI RadioGroup primitive props
@@ -54,7 +54,7 @@ Extends Radix UI RadioGroup primitive props
 function RadioGroup(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/radio-group.tsx:26](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/radio-group.tsx#L26)
+Defined in: [src/components/ui/radio-group.tsx:26](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/radio-group.tsx#L26)
 
 RadioGroup component - A group of radio buttons
 
@@ -90,7 +90,7 @@ A radio group element
 function RadioGroupCardItem(__namedParameters): ReactElement;
 ```
 
-Defined in: [src/components/ui/radio-group.tsx:114](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/radio-group.tsx#L114)
+Defined in: [src/components/ui/radio-group.tsx:114](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/radio-group.tsx#L114)
 
 #### Parameters
 
@@ -110,7 +110,7 @@ Defined in: [src/components/ui/radio-group.tsx:114](https://github.com/josscuett
 function RadioGroupItem(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/radio-group.tsx:45](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/radio-group.tsx#L45)
+Defined in: [src/components/ui/radio-group.tsx:45](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/radio-group.tsx#L45)
 
 RadioGroupItem component - An individual radio button within a RadioGroup
 

@@ -170,7 +170,7 @@
 ### Installation
 
 ```bash
-npm install git+https://github.com/josscuette/alize-ui.git
+npm install git+https://github.com/Josselin-Cuette_JLLT/alize-ui.git
 npm install react react-dom tailwindcss react-hook-form
 ```
 

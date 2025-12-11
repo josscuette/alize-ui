@@ -4,7 +4,7 @@
 
 ### ButtonProps
 
-Defined in: [src/components/ui/button.tsx:19](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button.tsx#L19)
+Defined in: [src/components/ui/button.tsx:19](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button.tsx#L19)
 
 Button component props interface
 
@@ -25,9 +25,9 @@ Button component props interface
 
 | Property | Type | Description | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ | ------ |
-| <a id="aschild"></a> `asChild?` | `boolean` | Render as a different element using Radix UI Slot **Default** `false` | - | [src/components/ui/button.tsx:24](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button.tsx#L24) |
-| <a id="size"></a> `size?` | \| `"default"` \| `"xs"` \| `"sm"` \| `"lg"` \| `"icon"` \| `"icon-sm"` \| `"icon-lg"` \| `"icon-xs"` \| `null` | - | `VariantProps.size` | [src/components/ui/button.tsx:95](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button.tsx#L95) |
-| <a id="variant"></a> `variant?` | \| `"link"` \| `"default"` \| `"destructive"` \| `"secondary"` \| `"outline"` \| `"ghost"` \| `"tertiary"` \| `null` | - | `VariantProps.variant` | [src/components/ui/button.tsx:48](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button.tsx#L48) |
+| <a id="aschild"></a> `asChild?` | `boolean` | Render as a different element using Radix UI Slot **Default** `false` | - | [src/components/ui/button.tsx:24](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button.tsx#L24) |
+| <a id="size"></a> `size?` | \| `"default"` \| `"xs"` \| `"sm"` \| `"lg"` \| `"icon"` \| `"icon-sm"` \| `"icon-lg"` \| `"icon-xs"` \| `null` | - | `VariantProps.size` | [src/components/ui/button.tsx:95](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button.tsx#L95) |
+| <a id="variant"></a> `variant?` | \| `"link"` \| `"default"` \| `"destructive"` \| `"secondary"` \| `"outline"` \| `"ghost"` \| `"tertiary"` \| `null` | - | `VariantProps.variant` | [src/components/ui/button.tsx:48](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button.tsx#L48) |
 
 ## Variables
 
@@ -37,7 +37,7 @@ Button component props interface
 const buttonVariants: (props?) => string;
 ```
 
-Defined in: [src/components/ui/button.tsx:27](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button.tsx#L27)
+Defined in: [src/components/ui/button.tsx:27](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button.tsx#L27)
 
 #### Parameters
 
@@ -57,7 +57,7 @@ Defined in: [src/components/ui/button.tsx:27](https://github.com/josscuette/aliz
 function Button(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/button.tsx:136](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button.tsx#L136)
+Defined in: [src/components/ui/button.tsx:136](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button.tsx#L136)
 
 Button component - A versatile button with multiple variants and sizes
 

@@ -4,7 +4,7 @@
 
 ### ScrollAreaProps
 
-Defined in: [src/components/ui/scroll-area.tsx:12](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/scroll-area.tsx#L12)
+Defined in: [src/components/ui/scroll-area.tsx:12](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/scroll-area.tsx#L12)
 
 ScrollArea component props interface
 Extends Radix UI ScrollArea primitive props
@@ -17,7 +17,7 @@ Extends Radix UI ScrollArea primitive props
 
 ### ScrollBarProps
 
-Defined in: [src/components/ui/scroll-area.tsx:18](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/scroll-area.tsx#L18)
+Defined in: [src/components/ui/scroll-area.tsx:18](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/scroll-area.tsx#L18)
 
 ScrollBar component props interface
 Extends Radix UI ScrollAreaScrollbar primitive props
@@ -30,7 +30,7 @@ Extends Radix UI ScrollAreaScrollbar primitive props
 
 | Property | Type | Overrides | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="orientation"></a> `orientation?` | `"horizontal"` \| `"vertical"` | `React.ComponentProps.orientation` | [src/components/ui/scroll-area.tsx:19](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/scroll-area.tsx#L19) |
+| <a id="orientation"></a> `orientation?` | `"horizontal"` \| `"vertical"` | `React.ComponentProps.orientation` | [src/components/ui/scroll-area.tsx:19](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/scroll-area.tsx#L19) |
 
 ## Functions
 
@@ -40,7 +40,7 @@ Extends Radix UI ScrollAreaScrollbar primitive props
 function ScrollArea(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/scroll-area.tsx:38](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/scroll-area.tsx#L38)
+Defined in: [src/components/ui/scroll-area.tsx:38](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/scroll-area.tsx#L38)
 
 ScrollArea component - A scrollable container
 
@@ -75,7 +75,7 @@ A ScrollArea component
 function ScrollBar(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/scroll-area.tsx:66](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/scroll-area.tsx#L66)
+Defined in: [src/components/ui/scroll-area.tsx:66](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/scroll-area.tsx#L66)
 
 ScrollBar component - A custom scrollbar for the ScrollArea
 

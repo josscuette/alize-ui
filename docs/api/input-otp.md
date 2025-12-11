@@ -4,7 +4,7 @@
 
 ### InputOTPGroupProps
 
-Defined in: [src/components/ui/input-otp.tsx:22](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/input-otp.tsx#L22)
+Defined in: [src/components/ui/input-otp.tsx:22](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/input-otp.tsx#L22)
 
 InputOTPGroup component props interface
 Extends native div element props
@@ -17,7 +17,7 @@ Extends native div element props
 
 ### InputOTPSeparatorProps
 
-Defined in: [src/components/ui/input-otp.tsx:36](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/input-otp.tsx#L36)
+Defined in: [src/components/ui/input-otp.tsx:36](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/input-otp.tsx#L36)
 
 InputOTPSeparator component props interface
 Extends native div element props
@@ -30,7 +30,7 @@ Extends native div element props
 
 ### InputOTPSlotProps
 
-Defined in: [src/components/ui/input-otp.tsx:28](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/input-otp.tsx#L28)
+Defined in: [src/components/ui/input-otp.tsx:28](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/input-otp.tsx#L28)
 
 InputOTPSlot component props interface
 Extends native div element props and adds index prop
@@ -43,7 +43,7 @@ Extends native div element props and adds index prop
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="index"></a> `index` | `number` | [src/components/ui/input-otp.tsx:29](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/input-otp.tsx#L29) |
+| <a id="index"></a> `index` | `number` | [src/components/ui/input-otp.tsx:29](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/input-otp.tsx#L29) |
 
 ## Type Aliases
 
@@ -56,7 +56,7 @@ type InputOTPProps = React.ComponentProps<typeof OTPInput> & {
 };
 ```
 
-Defined in: [src/components/ui/input-otp.tsx:13](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/input-otp.tsx#L13)
+Defined in: [src/components/ui/input-otp.tsx:13](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/input-otp.tsx#L13)
 
 InputOTP component props interface
 Extends input-otp OTPInput props and adds containerClassName prop
@@ -65,8 +65,8 @@ Extends input-otp OTPInput props and adds containerClassName prop
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `children?` | `React.ReactNode` | [src/components/ui/input-otp.tsx:15](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/input-otp.tsx#L15) |
-| `containerClassName?` | `string` | [src/components/ui/input-otp.tsx:14](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/input-otp.tsx#L14) |
+| `children?` | `React.ReactNode` | [src/components/ui/input-otp.tsx:15](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/input-otp.tsx#L15) |
+| `containerClassName?` | `string` | [src/components/ui/input-otp.tsx:14](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/input-otp.tsx#L14) |
 
 ## Functions
 
@@ -76,7 +76,7 @@ Extends input-otp OTPInput props and adds containerClassName prop
 function InputOTP(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/input-otp.tsx:58](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/input-otp.tsx#L58)
+Defined in: [src/components/ui/input-otp.tsx:58](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/input-otp.tsx#L58)
 
 InputOTP component - A one-time password input
 
@@ -115,7 +115,7 @@ An InputOTP component
 function InputOTPGroup(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/input-otp.tsx:81](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/input-otp.tsx#L81)
+Defined in: [src/components/ui/input-otp.tsx:81](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/input-otp.tsx#L81)
 
 InputOTPGroup component - A group of OTP input slots
 
@@ -139,7 +139,7 @@ An InputOTPGroup component
 function InputOTPSeparator(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/input-otp.tsx:129](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/input-otp.tsx#L129)
+Defined in: [src/components/ui/input-otp.tsx:129](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/input-otp.tsx#L129)
 
 InputOTPSeparator component - A separator between OTP groups
 
@@ -163,7 +163,7 @@ An InputOTPSeparator component
 function InputOTPSlot(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/input-otp.tsx:96](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/input-otp.tsx#L96)
+Defined in: [src/components/ui/input-otp.tsx:96](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/input-otp.tsx#L96)
 
 InputOTPSlot component - An individual slot in an OTP input
 

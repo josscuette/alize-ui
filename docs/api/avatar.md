@@ -4,7 +4,7 @@
 
 ### AvatarFallbackProps
 
-Defined in: [src/components/ui/avatar.tsx:63](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/avatar.tsx#L63)
+Defined in: [src/components/ui/avatar.tsx:63](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/avatar.tsx#L63)
 
 AvatarFallback component props interface
 Extends Radix UI AvatarFallback primitive props and adds size prop
@@ -17,14 +17,14 @@ Extends Radix UI AvatarFallback primitive props and adds size prop
 
 | Property | Type | Overrides | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="delayms"></a> `delayMs?` | `number` | `React.ComponentProps.delayMs` | [src/components/ui/avatar.tsx:65](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/avatar.tsx#L65) |
-| <a id="size"></a> `size?` | `"xs"` \| `"sm"` \| `"md"` \| `"lg"` | - | [src/components/ui/avatar.tsx:64](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/avatar.tsx#L64) |
+| <a id="delayms"></a> `delayMs?` | `number` | `React.ComponentProps.delayMs` | [src/components/ui/avatar.tsx:65](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/avatar.tsx#L65) |
+| <a id="size"></a> `size?` | `"xs"` \| `"sm"` \| `"md"` \| `"lg"` | - | [src/components/ui/avatar.tsx:64](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/avatar.tsx#L64) |
 
 ***
 
 ### AvatarImageProps
 
-Defined in: [src/components/ui/avatar.tsx:57](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/avatar.tsx#L57)
+Defined in: [src/components/ui/avatar.tsx:57](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/avatar.tsx#L57)
 
 AvatarImage component props interface
 Extends Radix UI AvatarImage primitive props
@@ -37,7 +37,7 @@ Extends Radix UI AvatarImage primitive props
 
 ### AvatarProps
 
-Defined in: [src/components/ui/avatar.tsx:51](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/avatar.tsx#L51)
+Defined in: [src/components/ui/avatar.tsx:51](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/avatar.tsx#L51)
 
 Avatar component props interface
 Extends Radix UI Avatar primitive props and adds size/shape variants
@@ -50,8 +50,8 @@ Extends Radix UI Avatar primitive props and adds size/shape variants
 
 | Property | Type | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="shape"></a> `shape?` | `"square"` \| `"rounded"` \| `null` | `VariantProps.shape` | [src/components/ui/avatar.tsx:20](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/avatar.tsx#L20) |
-| <a id="size-1"></a> `size?` | `"xs"` \| `"sm"` \| `"md"` \| `"lg"` \| `null` | `VariantProps.size` | [src/components/ui/avatar.tsx:14](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/avatar.tsx#L14) |
+| <a id="shape"></a> `shape?` | `"square"` \| `"rounded"` \| `null` | `VariantProps.shape` | [src/components/ui/avatar.tsx:20](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/avatar.tsx#L20) |
+| <a id="size-1"></a> `size?` | `"xs"` \| `"sm"` \| `"md"` \| `"lg"` \| `null` | `VariantProps.size` | [src/components/ui/avatar.tsx:14](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/avatar.tsx#L14) |
 
 ## Variables
 
@@ -61,7 +61,7 @@ Extends Radix UI Avatar primitive props and adds size/shape variants
 const avatarVariants: (props?) => string;
 ```
 
-Defined in: [src/components/ui/avatar.tsx:10](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/avatar.tsx#L10)
+Defined in: [src/components/ui/avatar.tsx:10](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/avatar.tsx#L10)
 
 #### Parameters
 
@@ -81,7 +81,7 @@ Defined in: [src/components/ui/avatar.tsx:10](https://github.com/josscuette/aliz
 function Avatar(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/avatar.tsx:86](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/avatar.tsx#L86)
+Defined in: [src/components/ui/avatar.tsx:86](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/avatar.tsx#L86)
 
 Avatar component - A user avatar with image and fallback
 
@@ -118,7 +118,7 @@ An avatar element
 function AvatarFallback(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/avatar.tsx:133](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/avatar.tsx#L133)
+Defined in: [src/components/ui/avatar.tsx:133](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/avatar.tsx#L133)
 
 AvatarFallback component - The fallback content displayed when AvatarImage fails to load
 
@@ -142,7 +142,7 @@ An avatar fallback element
 function AvatarImage(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/avatar.tsx:114](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/avatar.tsx#L114)
+Defined in: [src/components/ui/avatar.tsx:114](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/avatar.tsx#L114)
 
 AvatarImage component - The image displayed in an Avatar
 

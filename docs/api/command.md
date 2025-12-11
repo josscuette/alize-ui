@@ -4,7 +4,7 @@
 
 ### CommandDialogProps
 
-Defined in: [src/components/ui/command.tsx:26](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L26)
+Defined in: [src/components/ui/command.tsx:26](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L26)
 
 CommandDialog component props interface
 Extends Dialog props and adds title, description, and showCloseButton props
@@ -17,16 +17,16 @@ Extends Dialog props and adds title, description, and showCloseButton props
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="classname"></a> `className?` | `string` | [src/components/ui/command.tsx:29](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L29) |
-| <a id="description"></a> `description?` | `string` | [src/components/ui/command.tsx:28](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L28) |
-| <a id="showclosebutton"></a> `showCloseButton?` | `boolean` | [src/components/ui/command.tsx:30](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L30) |
-| <a id="title"></a> `title?` | `string` | [src/components/ui/command.tsx:27](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L27) |
+| <a id="classname"></a> `className?` | `string` | [src/components/ui/command.tsx:29](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L29) |
+| <a id="description"></a> `description?` | `string` | [src/components/ui/command.tsx:28](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L28) |
+| <a id="showclosebutton"></a> `showCloseButton?` | `boolean` | [src/components/ui/command.tsx:30](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L30) |
+| <a id="title"></a> `title?` | `string` | [src/components/ui/command.tsx:27](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L27) |
 
 ***
 
 ### CommandEmptyProps
 
-Defined in: [src/components/ui/command.tsx:49](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L49)
+Defined in: [src/components/ui/command.tsx:49](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L49)
 
 CommandEmpty component props interface
 Extends cmdk CommandEmpty primitive props
@@ -39,7 +39,7 @@ Extends cmdk CommandEmpty primitive props
 
 ### CommandGroupProps
 
-Defined in: [src/components/ui/command.tsx:55](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L55)
+Defined in: [src/components/ui/command.tsx:55](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L55)
 
 CommandGroup component props interface
 Extends cmdk CommandGroup primitive props
@@ -52,7 +52,7 @@ Extends cmdk CommandGroup primitive props
 
 ### CommandInputProps
 
-Defined in: [src/components/ui/command.tsx:37](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L37)
+Defined in: [src/components/ui/command.tsx:37](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L37)
 
 CommandInput component props interface
 Extends cmdk CommandInput primitive props
@@ -65,7 +65,7 @@ Extends cmdk CommandInput primitive props
 
 ### CommandItemProps
 
-Defined in: [src/components/ui/command.tsx:67](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L67)
+Defined in: [src/components/ui/command.tsx:67](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L67)
 
 CommandItem component props interface
 Extends cmdk CommandItem primitive props
@@ -78,7 +78,7 @@ Extends cmdk CommandItem primitive props
 
 ### CommandListProps
 
-Defined in: [src/components/ui/command.tsx:43](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L43)
+Defined in: [src/components/ui/command.tsx:43](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L43)
 
 CommandList component props interface
 Extends cmdk CommandList primitive props
@@ -91,7 +91,7 @@ Extends cmdk CommandList primitive props
 
 ### CommandProps
 
-Defined in: [src/components/ui/command.tsx:20](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L20)
+Defined in: [src/components/ui/command.tsx:20](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L20)
 
 Command component props interface
 Extends cmdk Command primitive props
@@ -104,7 +104,7 @@ Extends cmdk Command primitive props
 
 ### CommandSeparatorProps
 
-Defined in: [src/components/ui/command.tsx:61](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L61)
+Defined in: [src/components/ui/command.tsx:61](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L61)
 
 CommandSeparator component props interface
 Extends cmdk CommandSeparator primitive props
@@ -117,7 +117,7 @@ Extends cmdk CommandSeparator primitive props
 
 ### CommandShortcutProps
 
-Defined in: [src/components/ui/command.tsx:73](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L73)
+Defined in: [src/components/ui/command.tsx:73](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L73)
 
 CommandShortcut component props interface
 Extends native span element props
@@ -134,7 +134,7 @@ Extends native span element props
 function Command(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/command.tsx:96](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L96)
+Defined in: [src/components/ui/command.tsx:96](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L96)
 
 Command component - A command palette interface
 
@@ -174,7 +174,7 @@ A Command component
 function CommandDialog(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/command.tsx:117](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L117)
+Defined in: [src/components/ui/command.tsx:117](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L117)
 
 CommandDialog component - A dialog wrapper for Command
 
@@ -198,7 +198,7 @@ A CommandDialog component
 function CommandEmpty(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/command.tsx:196](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L196)
+Defined in: [src/components/ui/command.tsx:196](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L196)
 
 CommandEmpty component - The empty state when no commands match
 
@@ -222,7 +222,7 @@ A CommandEmpty component
 function CommandGroup(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/command.tsx:213](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L213)
+Defined in: [src/components/ui/command.tsx:213](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L213)
 
 CommandGroup component - A group of related command items
 
@@ -246,7 +246,7 @@ A CommandGroup component
 function CommandInput(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/command.tsx:148](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L148)
+Defined in: [src/components/ui/command.tsx:148](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L148)
 
 CommandInput component - The search input for the command palette
 
@@ -270,7 +270,7 @@ A CommandInput component
 function CommandItem(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/command.tsx:252](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L252)
+Defined in: [src/components/ui/command.tsx:252](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L252)
 
 CommandItem component - An individual selectable command item
 
@@ -294,7 +294,7 @@ A CommandItem component
 function CommandList(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/command.tsx:175](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L175)
+Defined in: [src/components/ui/command.tsx:175](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L175)
 
 CommandList component - The scrollable list container for command items
 
@@ -318,7 +318,7 @@ A CommandList component
 function CommandSeparator(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/command.tsx:234](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L234)
+Defined in: [src/components/ui/command.tsx:234](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L234)
 
 CommandSeparator component - A visual separator between command groups
 
@@ -342,7 +342,7 @@ A CommandSeparator component
 function CommandShortcut(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/command.tsx:273](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L273)
+Defined in: [src/components/ui/command.tsx:273](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/command.tsx#L273)
 
 CommandShortcut component - A keyboard shortcut indicator
 

@@ -4,7 +4,7 @@
 
 ### LabelProps
 
-Defined in: [src/components/ui/label.tsx:12](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/label.tsx#L12)
+Defined in: [src/components/ui/label.tsx:12](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/label.tsx#L12)
 
 Label component props interface
 Extends Radix UI Label primitive props
@@ -21,7 +21,7 @@ Extends Radix UI Label primitive props
 function Label(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/label.tsx:29](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/label.tsx#L29)
+Defined in: [src/components/ui/label.tsx:29](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/label.tsx#L29)
 
 Label component - A form label
 

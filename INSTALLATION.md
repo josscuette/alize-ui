@@ -14,18 +14,18 @@ This guide explains how to install and use Alize as a dependency in your project
 ### Step 1: Install via GitHub
 
 ```bash
-npm install git+https://github.com/josscuette/alize-ui.git
+npm install git+https://github.com/Josselin-Cuette_JLLT/alize-ui.git
 # or
-yarn add git+https://github.com/josscuette/alize-ui.git
+yarn add git+https://github.com/Josselin-Cuette_JLLT/alize-ui.git
 # or
-pnpm add git+https://github.com/josscuette/alize-ui.git
+pnpm add git+https://github.com/Josselin-Cuette_JLLT/alize-ui.git
 ```
 
 Or install from a specific branch/tag:
 
 ```bash
-npm install git+https://github.com/josscuette/alize-ui.git#main
-npm install git+https://github.com/josscuette/alize-ui.git#v0.1.1
+npm install git+https://github.com/Josselin-Cuette_JLLT/alize-ui.git#main
+npm install git+https://github.com/Josselin-Cuette_JLLT/alize-ui.git#v0.1.1
 ```
 
 ### Updating to Latest Version
@@ -34,7 +34,7 @@ When installing from GitHub, npm caches the dependency. To get the latest change
 
 **Option 1: Force reinstall** (recommended)
 ```bash
-npm install git+https://github.com/josscuette/alize-ui.git --force
+npm install git+https://github.com/Josselin-Cuette_JLLT/alize-ui.git --force
 # or
 rm -rf node_modules/alize package-lock.json
 npm install
@@ -43,12 +43,12 @@ npm install
 **Option 2: Clear npm cache**
 ```bash
 npm cache clean --force
-npm install git+https://github.com/josscuette/alize-ui.git
+npm install git+https://github.com/Josselin-Cuette_JLLT/alize-ui.git
 ```
 
 **Option 3: Use specific commit hash**
 ```bash
-npm install git+https://github.com/josscuette/alize-ui.git#<commit-hash>
+npm install git+https://github.com/Josselin-Cuette_JLLT/alize-ui.git#<commit-hash>
 ```
 
 ### Step 2: Install Peer Dependencies

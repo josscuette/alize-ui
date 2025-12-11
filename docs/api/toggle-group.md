@@ -4,7 +4,7 @@
 
 ### ToggleGroupItemProps
 
-Defined in: [src/components/ui/toggle-group.tsx:23](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/toggle-group.tsx#L23)
+Defined in: [src/components/ui/toggle-group.tsx:23](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/toggle-group.tsx#L23)
 
 ToggleGroupItem component props interface
 Extends Radix UI ToggleGroupItem primitive props and adds variant and size props
@@ -17,8 +17,8 @@ Extends Radix UI ToggleGroupItem primitive props and adds variant and size props
 
 | Property | Type | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="size"></a> `size?` | `"default"` \| `"sm"` \| `"lg"` \| `null` | `VariantProps.size` | [src/components/ui/toggle.tsx:24](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/toggle.tsx#L24) |
-| <a id="variant"></a> `variant?` | `"default"` \| `"outline"` \| `null` | `VariantProps.variant` | [src/components/ui/toggle.tsx:19](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/toggle.tsx#L19) |
+| <a id="size"></a> `size?` | `"default"` \| `"sm"` \| `"lg"` \| `null` | `VariantProps.size` | [src/components/ui/toggle.tsx:24](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/toggle.tsx#L24) |
+| <a id="variant"></a> `variant?` | `"default"` \| `"outline"` \| `null` | `VariantProps.variant` | [src/components/ui/toggle.tsx:19](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/toggle.tsx#L19) |
 
 ## Type Aliases
 
@@ -31,7 +31,7 @@ type ToggleGroupProps = React.ComponentProps<typeof ToggleGroupPrimitive.Root> &
 };
 ```
 
-Defined in: [src/components/ui/toggle-group.tsx:14](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/toggle-group.tsx#L14)
+Defined in: [src/components/ui/toggle-group.tsx:14](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/toggle-group.tsx#L14)
 
 ToggleGroup component props interface
 Extends Radix UI ToggleGroup primitive props and adds variant, size, and spacing props
@@ -40,8 +40,8 @@ Extends Radix UI ToggleGroup primitive props and adds variant, size, and spacing
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `children?` | `React.ReactNode` | [src/components/ui/toggle-group.tsx:16](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/toggle-group.tsx#L16) |
-| `spacing?` | `number` | [src/components/ui/toggle-group.tsx:15](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/toggle-group.tsx#L15) |
+| `children?` | `React.ReactNode` | [src/components/ui/toggle-group.tsx:16](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/toggle-group.tsx#L16) |
+| `spacing?` | `number` | [src/components/ui/toggle-group.tsx:15](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/toggle-group.tsx#L15) |
 
 ## Functions
 
@@ -51,7 +51,7 @@ Extends Radix UI ToggleGroup primitive props and adds variant, size, and spacing
 function ToggleGroup(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/toggle-group.tsx:52](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/toggle-group.tsx#L52)
+Defined in: [src/components/ui/toggle-group.tsx:52](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/toggle-group.tsx#L52)
 
 ToggleGroup component - A group of toggle buttons
 
@@ -87,7 +87,7 @@ A ToggleGroup component
 function ToggleGroupItem(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/toggle-group.tsx:86](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/toggle-group.tsx#L86)
+Defined in: [src/components/ui/toggle-group.tsx:86](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/toggle-group.tsx#L86)
 
 ToggleGroupItem component - An individual toggle button in a ToggleGroup
 

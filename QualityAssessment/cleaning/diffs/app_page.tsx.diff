@@ -24,7 +24,7 @@ index 0000000..1111111 100644
      {
        title: "Installation Guide",
        description: "Get started with Alize in your project",
-       href: "https://github.com/josscuette/alize-ui#getting-started",
+       href: "https://github.com/Josselin-Cuette_JLLT/alize-ui#getting-started",
        icon: "download",
        variant: "outline" as const,
      },
@@ -103,7 +103,7 @@ index 0000000..1111111 100644
                  <p className="text-sm font-medium">Install via GitHub:</p>
                  <div className="p-4 rounded-md bg-semantic-surface-subdued border border-semantic-stroke-default font-mono text-sm overflow-x-auto">
                    <code className="text-semantic-text-default">
-                     npm install git+https://github.com/josscuette/alize-ui.git
+                     npm install git+https://github.com/Josselin-Cuette_JLLT/alize-ui.git
                    </code>
                  </div>
                </div>
@@ -135,7 +135,7 @@ index 0000000..1111111 100644
              </div>
              <div className="flex items-center gap-6 text-sm text-semantic-text-subdued">
                <a 
-                 href="https://github.com/josscuette/alize-ui" 
+                 href="https://github.com/Josselin-Cuette_JLLT/alize-ui" 
                  className="hover:text-semantic-text-interaction-default transition-colors flex items-center gap-2"
                >
                  <MaterialSymbol name="code" size={16} weight={300} />

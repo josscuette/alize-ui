@@ -22,7 +22,7 @@ A comprehensive React component library based on [shadcn/ui](https://ui.shadcn.c
 To use Alize in your project, install it via GitHub:
 
 ```bash
-npm install git+https://github.com/josscuette/alize-ui.git
+npm install git+https://github.com/Josselin-Cuette_JLLT/alize-ui.git
 ```
 
 Then configure Tailwind and import the CSS:

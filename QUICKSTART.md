@@ -14,7 +14,7 @@ Get Alize up and running in your project in 5 minutes.
 ### 1. Install Alize
 
 ```bash
-npm install git+https://github.com/josscuette/alize-ui.git
+npm install git+https://github.com/Josselin-Cuette_JLLT/alize-ui.git
 ```
 
 ### 2. Install Peer Dependencies

@@ -7,6 +7,24 @@ import { cn } from "../../lib/utils"
 import { states, animation } from "../../foundation"
 
 /**
+ * Tabs variant type
+ */
+export type TabsVariant = "pills" | "underline"
+
+/**
+ * Context for sharing variant and fill between TabsList and TabsTrigger
+ */
+interface TabsContextValue {
+  variant: TabsVariant
+  fill: boolean
+}
+
+const TabsContext = React.createContext<TabsContextValue>({
+  variant: "pills",
+  fill: false,
+})
+
+/**
  * Tabs component props interface
  * Extends Radix UI Tabs primitive props
  */
@@ -16,7 +34,16 @@ export interface TabsProps extends React.ComponentProps<typeof TabsPrimitive.Roo
  * TabsList component props interface
  * Extends Radix UI TabsList primitive props
  */
-export interface TabsListProps extends React.ComponentProps<typeof TabsPrimitive.List> {}
+export interface TabsListProps extends React.ComponentProps<typeof TabsPrimitive.List> {
+  /** Visual variant of the tabs */
+  variant?: TabsVariant
+  /** 
+   * When true, the tabs stretch to fill the parent container height.
+   * Useful when placing tabs in a header or toolbar.
+   * The border will merge with the container's border.
+   */
+  fill?: boolean
+}
 
 /**
  * TabsTrigger component props interface
@@ -41,6 +68,7 @@ export interface TabsContentProps extends React.ComponentProps<typeof TabsPrimit
  * 
  * @example
  * ```tsx
+ * // Pills variant (default)
  * <Tabs defaultValue="tab1">
  *   <TabsList>
  *     <TabsTrigger value="tab1">Tab 1</TabsTrigger>
@@ -49,6 +77,26 @@ export interface TabsContentProps extends React.ComponentProps<typeof TabsPrimit
  *   <TabsContent value="tab1">Content 1</TabsContent>
  *   <TabsContent value="tab2">Content 2</TabsContent>
  * </Tabs>
+ * 
+ * // Underline variant
+ * <Tabs defaultValue="tab1">
+ *   <TabsList variant="underline">
+ *     <TabsTrigger value="tab1">Tab 1</TabsTrigger>
+ *     <TabsTrigger value="tab2">Tab 2</TabsTrigger>
+ *   </TabsList>
+ *   <TabsContent value="tab1">Content 1</TabsContent>
+ *   <TabsContent value="tab2">Content 2</TabsContent>
+ * </Tabs>
+ * 
+ * // Underline variant with fill (in a container)
+ * <header className="h-16 border-b">
+ *   <Tabs defaultValue="tab1">
+ *     <TabsList variant="underline" fill>
+ *       <TabsTrigger value="tab1">Tab 1</TabsTrigger>
+ *       <TabsTrigger value="tab2">Tab 2</TabsTrigger>
+ *     </TabsList>
+ *   </Tabs>
+ * </header>
  * ```
  */
 function Tabs({
@@ -66,22 +114,41 @@ function Tabs({
 
 /**
  * TabsList component - The container for tab triggers
- * @param props - TabsList props
+ * @param props - TabsList props including variant and fill
  * @returns A TabsList component
  */
 function TabsList({
   className,
+  variant = "pills",
+  fill = false,
   ...props
 }: TabsListProps): React.ReactElement {
   return (
-    <TabsPrimitive.List
-      data-slot="tabs-list"
-      className={cn(
-        "bg-muted text-muted-foreground inline-flex h-9 w-fit items-center justify-center rounded-lg p-[3px]",
-        className
-      )}
-      {...props}
-    />
+    <TabsContext.Provider value={{ variant, fill }}>
+      <TabsPrimitive.List
+        data-slot="tabs-list"
+        data-variant={variant}
+        data-fill={fill ? "true" : undefined}
+        className={cn(
+          // Base styles
+          "inline-flex w-fit items-center",
+          // Pills variant
+          variant === "pills" && [
+            "h-9 gap-1 rounded-lg bg-muted p-[3px]",
+            "text-muted-foreground",
+          ],
+          // Underline variant
+          variant === "underline" && [
+            "gap-4 border-b border-[var(--semantic-stroke-subdued)]",
+            "text-muted-foreground",
+            // Height: fixed by default, full when fill
+            fill ? "h-full -mb-px" : "h-10",
+          ],
+          className
+        )}
+        {...props}
+      />
+    </TabsContext.Provider>
   )
 }
 
@@ -94,20 +161,16 @@ function TabsTrigger({
   className,
   ...props
 }: TabsTriggerProps): React.ReactElement {
+  const { variant, fill } = React.useContext(TabsContext)
+  
   return (
     <TabsPrimitive.Trigger
       data-slot="tabs-trigger"
       className={cn(
-        // Layout
-        "inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-md border border-transparent px-2 py-1 text-sm font-medium whitespace-nowrap",
-        // Colors
-        "text-foreground dark:text-muted-foreground",
-        // Active state using foundation
-        states.tabActive,
-        "dark:data-[state=active]:border-transparent dark:data-[state=active]:bg-input/30",
+        // Base layout
+        "inline-flex items-center justify-center gap-1.5 text-sm font-medium whitespace-nowrap",
         // Focus state
         states.focusRing,
-        "focus-visible:border-ring focus-visible:outline-1",
         // Pressed state
         states.pressed,
         // Disabled state
@@ -117,6 +180,32 @@ function TabsTrigger({
         "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         // Transition
         animation.transitionFormControl,
+        // Pills variant styles
+        variant === "pills" && [
+          "h-[calc(100%-1px)] rounded-md border border-transparent px-2 py-1",
+          "text-foreground dark:text-muted-foreground",
+          // Active state
+          states.tabActive,
+          "dark:data-[state=active]:border-transparent dark:data-[state=active]:bg-input/30",
+          // Focus
+          "focus-visible:border-ring focus-visible:outline-1",
+        ],
+        // Underline variant styles
+        variant === "underline" && [
+          "relative",
+          "text-muted-foreground",
+          // Height handling
+          fill ? "h-full" : "h-full pb-2.5",
+          // Hover
+          "hover:text-foreground",
+          // Active state - bottom border indicator (overlaps the border for seamless look)
+          "data-[state=active]:text-foreground",
+          "after:absolute after:bottom-[-2px] after:left-0 after:right-0 after:h-px after:z-10",
+          "after:bg-transparent data-[state=active]:after:bg-[var(--semantic-stroke-interaction-default)]",
+          "after:transition-colors",
+          // Focus
+          "focus-visible:outline-offset-2",
+        ],
         className
       )}
       {...props}

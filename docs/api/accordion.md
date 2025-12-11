@@ -4,7 +4,7 @@
 
 ### AccordionContentProps
 
-Defined in: [src/components/ui/accordion.tsx:35](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/accordion.tsx#L35)
+Defined in: [src/components/ui/accordion.tsx:35](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/accordion.tsx#L35)
 
 AccordionContent component props interface
 Extends Radix UI AccordionContent primitive props
@@ -17,7 +17,7 @@ Extends Radix UI AccordionContent primitive props
 
 ### AccordionItemProps
 
-Defined in: [src/components/ui/accordion.tsx:23](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/accordion.tsx#L23)
+Defined in: [src/components/ui/accordion.tsx:23](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/accordion.tsx#L23)
 
 AccordionItem component props interface
 Extends Radix UI AccordionItem primitive props
@@ -30,7 +30,7 @@ Extends Radix UI AccordionItem primitive props
 
 ### AccordionProps
 
-Defined in: [src/components/ui/accordion.tsx:13](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/accordion.tsx#L13)
+Defined in: [src/components/ui/accordion.tsx:13](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/accordion.tsx#L13)
 
 Accordion component props interface
 Extends Radix UI Accordion primitive props
@@ -43,15 +43,15 @@ Extends Radix UI Accordion primitive props
 
 | Property | Type | Overrides | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="children"></a> `children?` | `ReactNode` | `Omit.children` | [src/components/ui/accordion.tsx:16](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/accordion.tsx#L16) |
-| <a id="collapsible"></a> `collapsible?` | `boolean` | - | [src/components/ui/accordion.tsx:15](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/accordion.tsx#L15) |
-| <a id="type"></a> `type?` | `"single"` \| `"multiple"` | - | [src/components/ui/accordion.tsx:14](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/accordion.tsx#L14) |
+| <a id="children"></a> `children?` | `ReactNode` | `Omit.children` | [src/components/ui/accordion.tsx:16](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/accordion.tsx#L16) |
+| <a id="collapsible"></a> `collapsible?` | `boolean` | - | [src/components/ui/accordion.tsx:15](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/accordion.tsx#L15) |
+| <a id="type"></a> `type?` | `"single"` \| `"multiple"` | - | [src/components/ui/accordion.tsx:14](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/accordion.tsx#L14) |
 
 ***
 
 ### AccordionTriggerProps
 
-Defined in: [src/components/ui/accordion.tsx:29](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/accordion.tsx#L29)
+Defined in: [src/components/ui/accordion.tsx:29](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/accordion.tsx#L29)
 
 AccordionTrigger component props interface
 Extends Radix UI AccordionTrigger primitive props
@@ -68,7 +68,7 @@ Extends Radix UI AccordionTrigger primitive props
 function Accordion(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/accordion.tsx:56](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/accordion.tsx#L56)
+Defined in: [src/components/ui/accordion.tsx:56](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/accordion.tsx#L56)
 
 Accordion component - A collapsible content section
 
@@ -106,7 +106,7 @@ An Accordion component
 function AccordionContent(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/accordion.tsx:123](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/accordion.tsx#L123)
+Defined in: [src/components/ui/accordion.tsx:123](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/accordion.tsx#L123)
 
 AccordionContent component - The collapsible content of the accordion item
 
@@ -130,7 +130,7 @@ An AccordionContent component
 function AccordionItem(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/accordion.tsx:78](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/accordion.tsx#L78)
+Defined in: [src/components/ui/accordion.tsx:78](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/accordion.tsx#L78)
 
 AccordionItem component - An individual accordion item
 
@@ -154,7 +154,7 @@ An AccordionItem component
 function AccordionTrigger(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/accordion.tsx:96](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/accordion.tsx#L96)
+Defined in: [src/components/ui/accordion.tsx:96](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/accordion.tsx#L96)
 
 AccordionTrigger component - The clickable header that toggles the accordion item
 

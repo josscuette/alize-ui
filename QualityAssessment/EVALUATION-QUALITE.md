@@ -248,7 +248,7 @@ La bibliothèque Alizé UI est prête pour la production en tant que package npm
 
 ```bash
 # Installation
-npm install git+https://github.com/josscuette/alize-ui.git
+npm install git+https://github.com/Josselin-Cuette_JLLT/alize-ui.git
 npm install react-hook-form
 ```
 

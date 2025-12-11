@@ -4,7 +4,7 @@
 
 ### NativeSelectOptGroupProps
 
-Defined in: [src/components/ui/native-select.tsx:22](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/native-select.tsx#L22)
+Defined in: [src/components/ui/native-select.tsx:22](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/native-select.tsx#L22)
 
 NativeSelectOptGroup component props interface
 Extends native optgroup element props
@@ -17,7 +17,7 @@ Extends native optgroup element props
 
 ### NativeSelectOptionProps
 
-Defined in: [src/components/ui/native-select.tsx:16](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/native-select.tsx#L16)
+Defined in: [src/components/ui/native-select.tsx:16](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/native-select.tsx#L16)
 
 NativeSelectOption component props interface
 Extends native option element props
@@ -30,7 +30,7 @@ Extends native option element props
 
 ### NativeSelectProps
 
-Defined in: [src/components/ui/native-select.tsx:10](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/native-select.tsx#L10)
+Defined in: [src/components/ui/native-select.tsx:10](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/native-select.tsx#L10)
 
 NativeSelect component props interface
 Extends native select element props
@@ -47,7 +47,7 @@ Extends native select element props
 function NativeSelect(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/native-select.tsx:40](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/native-select.tsx#L40)
+Defined in: [src/components/ui/native-select.tsx:40](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/native-select.tsx#L40)
 
 NativeSelect component - A native HTML select element
 
@@ -82,7 +82,7 @@ A NativeSelect component
 function NativeSelectOptGroup(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/native-select.tsx:79](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/native-select.tsx#L79)
+Defined in: [src/components/ui/native-select.tsx:79](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/native-select.tsx#L79)
 
 NativeSelectOptGroup component - A group of options within a NativeSelect
 
@@ -106,7 +106,7 @@ A NativeSelectOptGroup component
 function NativeSelectOption(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/native-select.tsx:70](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/native-select.tsx#L70)
+Defined in: [src/components/ui/native-select.tsx:70](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/native-select.tsx#L70)
 
 NativeSelectOption component - An option within a NativeSelect
 

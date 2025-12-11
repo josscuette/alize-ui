@@ -4,7 +4,7 @@
 
 ### MenubarCheckboxItemProps
 
-Defined in: [src/components/ui/menubar.tsx:64](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L64)
+Defined in: [src/components/ui/menubar.tsx:64](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L64)
 
 MenubarCheckboxItem component props interface
 Extends Radix UI Menubar CheckboxItem props
@@ -17,7 +17,7 @@ Extends Radix UI Menubar CheckboxItem props
 
 ### MenubarContentProps
 
-Defined in: [src/components/ui/menubar.tsx:49](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L49)
+Defined in: [src/components/ui/menubar.tsx:49](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L49)
 
 MenubarContent component props interface
 Extends Radix UI Menubar Content props
@@ -30,7 +30,7 @@ Extends Radix UI Menubar Content props
 
 ### MenubarGroupProps
 
-Defined in: [src/components/ui/menubar.tsx:25](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L25)
+Defined in: [src/components/ui/menubar.tsx:25](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L25)
 
 MenubarGroup component props interface
 Extends Radix UI Menubar Group props
@@ -43,7 +43,7 @@ Extends Radix UI Menubar Group props
 
 ### MenubarItemProps
 
-Defined in: [src/components/ui/menubar.tsx:55](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L55)
+Defined in: [src/components/ui/menubar.tsx:55](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L55)
 
 MenubarItem component props interface
 Extends Radix UI Menubar Item props and adds inset and variant props
@@ -56,14 +56,14 @@ Extends Radix UI Menubar Item props and adds inset and variant props
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="inset"></a> `inset?` | `boolean` | [src/components/ui/menubar.tsx:56](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L56) |
-| <a id="variant"></a> `variant?` | `"default"` \| `"destructive"` | [src/components/ui/menubar.tsx:57](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L57) |
+| <a id="inset"></a> `inset?` | `boolean` | [src/components/ui/menubar.tsx:56](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L56) |
+| <a id="variant"></a> `variant?` | `"default"` \| `"destructive"` | [src/components/ui/menubar.tsx:57](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L57) |
 
 ***
 
 ### MenubarLabelProps
 
-Defined in: [src/components/ui/menubar.tsx:76](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L76)
+Defined in: [src/components/ui/menubar.tsx:76](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L76)
 
 MenubarLabel component props interface
 Extends Radix UI Menubar Label props and adds inset prop
@@ -76,13 +76,13 @@ Extends Radix UI Menubar Label props and adds inset prop
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="inset-1"></a> `inset?` | `boolean` | [src/components/ui/menubar.tsx:77](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L77) |
+| <a id="inset-1"></a> `inset?` | `boolean` | [src/components/ui/menubar.tsx:77](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L77) |
 
 ***
 
 ### MenubarMenuProps
 
-Defined in: [src/components/ui/menubar.tsx:19](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L19)
+Defined in: [src/components/ui/menubar.tsx:19](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L19)
 
 MenubarMenu component props interface
 Extends Radix UI Menubar Menu props
@@ -95,7 +95,7 @@ Extends Radix UI Menubar Menu props
 
 ### MenubarPortalProps
 
-Defined in: [src/components/ui/menubar.tsx:31](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L31)
+Defined in: [src/components/ui/menubar.tsx:31](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L31)
 
 MenubarPortal component props interface
 Extends Radix UI Menubar Portal props
@@ -108,7 +108,7 @@ Extends Radix UI Menubar Portal props
 
 ### MenubarProps
 
-Defined in: [src/components/ui/menubar.tsx:13](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L13)
+Defined in: [src/components/ui/menubar.tsx:13](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L13)
 
 Menubar component props interface
 Extends Radix UI Menubar Root props
@@ -121,7 +121,7 @@ Extends Radix UI Menubar Root props
 
 ### MenubarRadioGroupProps
 
-Defined in: [src/components/ui/menubar.tsx:37](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L37)
+Defined in: [src/components/ui/menubar.tsx:37](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L37)
 
 MenubarRadioGroup component props interface
 Extends Radix UI Menubar RadioGroup props
@@ -134,7 +134,7 @@ Extends Radix UI Menubar RadioGroup props
 
 ### MenubarRadioItemProps
 
-Defined in: [src/components/ui/menubar.tsx:70](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L70)
+Defined in: [src/components/ui/menubar.tsx:70](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L70)
 
 MenubarRadioItem component props interface
 Extends Radix UI Menubar RadioItem props
@@ -147,7 +147,7 @@ Extends Radix UI Menubar RadioItem props
 
 ### MenubarSeparatorProps
 
-Defined in: [src/components/ui/menubar.tsx:84](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L84)
+Defined in: [src/components/ui/menubar.tsx:84](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L84)
 
 MenubarSeparator component props interface
 Extends Radix UI Menubar Separator props
@@ -160,7 +160,7 @@ Extends Radix UI Menubar Separator props
 
 ### MenubarShortcutProps
 
-Defined in: [src/components/ui/menubar.tsx:90](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L90)
+Defined in: [src/components/ui/menubar.tsx:90](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L90)
 
 MenubarShortcut component props interface
 Extends native span element props
@@ -173,7 +173,7 @@ Extends native span element props
 
 ### MenubarSubContentProps
 
-Defined in: [src/components/ui/menubar.tsx:110](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L110)
+Defined in: [src/components/ui/menubar.tsx:110](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L110)
 
 MenubarSubContent component props interface
 Extends Radix UI Menubar SubContent props
@@ -186,7 +186,7 @@ Extends Radix UI Menubar SubContent props
 
 ### MenubarSubProps
 
-Defined in: [src/components/ui/menubar.tsx:96](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L96)
+Defined in: [src/components/ui/menubar.tsx:96](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L96)
 
 MenubarSub component props interface
 Extends Radix UI Menubar Sub props
@@ -199,7 +199,7 @@ Extends Radix UI Menubar Sub props
 
 ### MenubarSubTriggerProps
 
-Defined in: [src/components/ui/menubar.tsx:102](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L102)
+Defined in: [src/components/ui/menubar.tsx:102](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L102)
 
 MenubarSubTrigger component props interface
 Extends Radix UI Menubar SubTrigger props and adds inset prop
@@ -212,13 +212,13 @@ Extends Radix UI Menubar SubTrigger props and adds inset prop
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="inset-2"></a> `inset?` | `boolean` | [src/components/ui/menubar.tsx:103](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L103) |
+| <a id="inset-2"></a> `inset?` | `boolean` | [src/components/ui/menubar.tsx:103](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L103) |
 
 ***
 
 ### MenubarTriggerProps
 
-Defined in: [src/components/ui/menubar.tsx:43](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L43)
+Defined in: [src/components/ui/menubar.tsx:43](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L43)
 
 MenubarTrigger component props interface
 Extends Radix UI Menubar Trigger props
@@ -235,7 +235,7 @@ Extends Radix UI Menubar Trigger props
 const Menubar: NamedExoticComponent<MenubarProps>;
 ```
 
-Defined in: [src/components/ui/menubar.tsx:133](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L133)
+Defined in: [src/components/ui/menubar.tsx:133](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L133)
 
 Menubar component - A menubar component
 
@@ -271,7 +271,7 @@ A Menubar component
 function MenubarCheckboxItem(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/menubar.tsx:275](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L275)
+Defined in: [src/components/ui/menubar.tsx:275](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L275)
 
 MenubarCheckboxItem component - A checkbox item in the menubar
 
@@ -295,7 +295,7 @@ A MenubarCheckboxItem component
 function MenubarContent(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/menubar.tsx:221](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L221)
+Defined in: [src/components/ui/menubar.tsx:221](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L221)
 
 MenubarContent component - Content displayed in menubar dropdowns
 
@@ -319,7 +319,7 @@ A MenubarContent component
 function MenubarGroup(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/menubar.tsx:165](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L165)
+Defined in: [src/components/ui/menubar.tsx:165](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L165)
 
 MenubarGroup component - A group of menubar items
 
@@ -343,7 +343,7 @@ A MenubarGroup component
 function MenubarItem(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/menubar.tsx:250](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L250)
+Defined in: [src/components/ui/menubar.tsx:250](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L250)
 
 MenubarItem component - An individual item in the menubar
 
@@ -367,7 +367,7 @@ A MenubarItem component
 function MenubarLabel(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/menubar.tsx:335](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L335)
+Defined in: [src/components/ui/menubar.tsx:335](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L335)
 
 MenubarLabel component - A label in the menubar
 
@@ -391,7 +391,7 @@ A MenubarLabel component
 function MenubarMenu(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/menubar.tsx:154](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L154)
+Defined in: [src/components/ui/menubar.tsx:154](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L154)
 
 MenubarMenu component - A menu within the menubar
 
@@ -415,7 +415,7 @@ A MenubarMenu component
 function MenubarPortal(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/menubar.tsx:176](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L176)
+Defined in: [src/components/ui/menubar.tsx:176](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L176)
 
 MenubarPortal component - A portal for menubar content
 
@@ -439,7 +439,7 @@ A MenubarPortal component
 function MenubarRadioGroup(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/menubar.tsx:187](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L187)
+Defined in: [src/components/ui/menubar.tsx:187](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L187)
 
 MenubarRadioGroup component - A radio group within the menubar
 
@@ -463,7 +463,7 @@ A MenubarRadioGroup component
 function MenubarRadioItem(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/menubar.tsx:306](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L306)
+Defined in: [src/components/ui/menubar.tsx:306](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L306)
 
 MenubarRadioItem component - A radio item in the menubar
 
@@ -487,7 +487,7 @@ A MenubarRadioItem component
 function MenubarSeparator(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/menubar.tsx:358](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L358)
+Defined in: [src/components/ui/menubar.tsx:358](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L358)
 
 MenubarSeparator component - A separator in the menubar
 
@@ -511,7 +511,7 @@ A MenubarSeparator component
 function MenubarShortcut(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/menubar.tsx:376](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L376)
+Defined in: [src/components/ui/menubar.tsx:376](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L376)
 
 MenubarShortcut component - A keyboard shortcut indicator
 
@@ -535,7 +535,7 @@ A MenubarShortcut component
 function MenubarSub(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/menubar.tsx:397](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L397)
+Defined in: [src/components/ui/menubar.tsx:397](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L397)
 
 MenubarSub component - A submenu container
 
@@ -559,7 +559,7 @@ A MenubarSub component
 function MenubarSubContent(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/menubar.tsx:435](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L435)
+Defined in: [src/components/ui/menubar.tsx:435](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L435)
 
 MenubarSubContent component - Content for submenus
 
@@ -583,7 +583,7 @@ A MenubarSubContent component
 function MenubarSubTrigger(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/menubar.tsx:408](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L408)
+Defined in: [src/components/ui/menubar.tsx:408](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L408)
 
 MenubarSubTrigger component - A trigger for submenus
 
@@ -607,7 +607,7 @@ A MenubarSubTrigger component
 function MenubarTrigger(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/menubar.tsx:200](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L200)
+Defined in: [src/components/ui/menubar.tsx:200](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/menubar.tsx#L200)
 
 MenubarTrigger component - A trigger button for menubar menus
 

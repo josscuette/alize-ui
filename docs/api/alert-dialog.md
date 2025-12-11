@@ -4,7 +4,7 @@
 
 ### AlertDialogActionProps
 
-Defined in: [src/components/ui/alert-dialog.tsx:67](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L67)
+Defined in: [src/components/ui/alert-dialog.tsx:67](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L67)
 
 AlertDialogAction component props interface
 Extends Radix UI AlertDialogAction primitive props
@@ -17,7 +17,7 @@ Extends Radix UI AlertDialogAction primitive props
 
 ### AlertDialogCancelProps
 
-Defined in: [src/components/ui/alert-dialog.tsx:73](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L73)
+Defined in: [src/components/ui/alert-dialog.tsx:73](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L73)
 
 AlertDialogCancel component props interface
 Extends Radix UI AlertDialogCancel primitive props
@@ -30,7 +30,7 @@ Extends Radix UI AlertDialogCancel primitive props
 
 ### AlertDialogContentProps
 
-Defined in: [src/components/ui/alert-dialog.tsx:37](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L37)
+Defined in: [src/components/ui/alert-dialog.tsx:37](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L37)
 
 AlertDialogContent component props interface
 Extends Radix UI AlertDialogContent primitive props
@@ -43,7 +43,7 @@ Extends Radix UI AlertDialogContent primitive props
 
 ### AlertDialogDescriptionProps
 
-Defined in: [src/components/ui/alert-dialog.tsx:61](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L61)
+Defined in: [src/components/ui/alert-dialog.tsx:61](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L61)
 
 AlertDialogDescription component props interface
 Extends Radix UI AlertDialogDescription primitive props
@@ -56,7 +56,7 @@ Extends Radix UI AlertDialogDescription primitive props
 
 ### AlertDialogFooterProps
 
-Defined in: [src/components/ui/alert-dialog.tsx:49](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L49)
+Defined in: [src/components/ui/alert-dialog.tsx:49](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L49)
 
 AlertDialogFooter component props interface
 Extends native div element props
@@ -69,7 +69,7 @@ Extends native div element props
 
 ### AlertDialogHeaderProps
 
-Defined in: [src/components/ui/alert-dialog.tsx:43](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L43)
+Defined in: [src/components/ui/alert-dialog.tsx:43](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L43)
 
 AlertDialogHeader component props interface
 Extends native div element props
@@ -82,7 +82,7 @@ Extends native div element props
 
 ### AlertDialogOverlayProps
 
-Defined in: [src/components/ui/alert-dialog.tsx:31](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L31)
+Defined in: [src/components/ui/alert-dialog.tsx:31](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L31)
 
 AlertDialogOverlay component props interface
 Extends Radix UI AlertDialogOverlay primitive props
@@ -95,7 +95,7 @@ Extends Radix UI AlertDialogOverlay primitive props
 
 ### AlertDialogPortalProps
 
-Defined in: [src/components/ui/alert-dialog.tsx:25](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L25)
+Defined in: [src/components/ui/alert-dialog.tsx:25](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L25)
 
 AlertDialogPortal component props interface
 Extends Radix UI AlertDialogPortal primitive props
@@ -108,7 +108,7 @@ Extends Radix UI AlertDialogPortal primitive props
 
 ### AlertDialogProps
 
-Defined in: [src/components/ui/alert-dialog.tsx:13](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L13)
+Defined in: [src/components/ui/alert-dialog.tsx:13](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L13)
 
 AlertDialog component props interface
 Extends Radix UI AlertDialog primitive props
@@ -121,7 +121,7 @@ Extends Radix UI AlertDialog primitive props
 
 ### AlertDialogTitleProps
 
-Defined in: [src/components/ui/alert-dialog.tsx:55](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L55)
+Defined in: [src/components/ui/alert-dialog.tsx:55](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L55)
 
 AlertDialogTitle component props interface
 Extends Radix UI AlertDialogTitle primitive props
@@ -134,7 +134,7 @@ Extends Radix UI AlertDialogTitle primitive props
 
 ### AlertDialogTriggerProps
 
-Defined in: [src/components/ui/alert-dialog.tsx:19](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L19)
+Defined in: [src/components/ui/alert-dialog.tsx:19](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L19)
 
 AlertDialogTrigger component props interface
 Extends Radix UI AlertDialogTrigger primitive props
@@ -151,7 +151,7 @@ Extends Radix UI AlertDialogTrigger primitive props
 function AlertDialog(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/alert-dialog.tsx:101](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L101)
+Defined in: [src/components/ui/alert-dialog.tsx:101](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L101)
 
 AlertDialog component - A modal dialog for important confirmations
 
@@ -196,7 +196,7 @@ An AlertDialog component
 function AlertDialogAction(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/alert-dialog.tsx:258](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L258)
+Defined in: [src/components/ui/alert-dialog.tsx:258](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L258)
 
 AlertDialogAction component - The action button in the alert dialog
 
@@ -220,7 +220,7 @@ An AlertDialogAction component
 function AlertDialogCancel(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/alert-dialog.tsx:275](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L275)
+Defined in: [src/components/ui/alert-dialog.tsx:275](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L275)
 
 AlertDialogCancel component - The cancel button in the alert dialog
 
@@ -244,7 +244,7 @@ An AlertDialogCancel component
 function AlertDialogContent(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/alert-dialog.tsx:159](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L159)
+Defined in: [src/components/ui/alert-dialog.tsx:159](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L159)
 
 AlertDialogContent component - The main content container of the alert dialog
 
@@ -268,7 +268,7 @@ An AlertDialogContent component
 function AlertDialogDescription(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/alert-dialog.tsx:240](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L240)
+Defined in: [src/components/ui/alert-dialog.tsx:240](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L240)
 
 AlertDialogDescription component - The description text of the alert dialog
 
@@ -292,7 +292,7 @@ An AlertDialogDescription component
 function AlertDialogFooter(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/alert-dialog.tsx:201](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L201)
+Defined in: [src/components/ui/alert-dialog.tsx:201](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L201)
 
 AlertDialogFooter component - The footer section of the alert dialog
 
@@ -316,7 +316,7 @@ An AlertDialogFooter component
 function AlertDialogHeader(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/alert-dialog.tsx:183](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L183)
+Defined in: [src/components/ui/alert-dialog.tsx:183](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L183)
 
 AlertDialogHeader component - The header section of the alert dialog
 
@@ -340,7 +340,7 @@ An AlertDialogHeader component
 function AlertDialogOverlay(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/alert-dialog.tsx:138](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L138)
+Defined in: [src/components/ui/alert-dialog.tsx:138](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L138)
 
 AlertDialogOverlay component - The backdrop overlay for the alert dialog
 
@@ -364,7 +364,7 @@ An AlertDialogOverlay component
 function AlertDialogPortal(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/alert-dialog.tsx:125](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L125)
+Defined in: [src/components/ui/alert-dialog.tsx:125](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L125)
 
 AlertDialogPortal component - Portals the alert dialog content
 
@@ -388,7 +388,7 @@ An AlertDialogPortal component
 function AlertDialogTitle(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/alert-dialog.tsx:222](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L222)
+Defined in: [src/components/ui/alert-dialog.tsx:222](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L222)
 
 AlertDialogTitle component - The title of the alert dialog
 
@@ -412,7 +412,7 @@ An AlertDialogTitle component
 function AlertDialogTrigger(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/alert-dialog.tsx:112](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L112)
+Defined in: [src/components/ui/alert-dialog.tsx:112](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert-dialog.tsx#L112)
 
 AlertDialogTrigger component - The element that opens the alert dialog
 

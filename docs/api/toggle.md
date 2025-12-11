@@ -4,7 +4,7 @@
 
 ### ToggleProps
 
-Defined in: [src/components/ui/toggle.tsx:13](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/toggle.tsx#L13)
+Defined in: [src/components/ui/toggle.tsx:13](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/toggle.tsx#L13)
 
 Toggle component props interface
 Extends Radix UI Toggle primitive props and adds variant and size props
@@ -17,8 +17,8 @@ Extends Radix UI Toggle primitive props and adds variant and size props
 
 | Property | Type | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="size"></a> `size?` | `"default"` \| `"sm"` \| `"lg"` \| `null` | `VariantProps.size` | [src/components/ui/toggle.tsx:24](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/toggle.tsx#L24) |
-| <a id="variant"></a> `variant?` | `"default"` \| `"outline"` \| `null` | `VariantProps.variant` | [src/components/ui/toggle.tsx:19](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/toggle.tsx#L19) |
+| <a id="size"></a> `size?` | `"default"` \| `"sm"` \| `"lg"` \| `null` | `VariantProps.size` | [src/components/ui/toggle.tsx:24](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/toggle.tsx#L24) |
+| <a id="variant"></a> `variant?` | `"default"` \| `"outline"` \| `null` | `VariantProps.variant` | [src/components/ui/toggle.tsx:19](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/toggle.tsx#L19) |
 
 ## Variables
 
@@ -28,7 +28,7 @@ Extends Radix UI Toggle primitive props and adds variant and size props
 const toggleVariants: (props?) => string;
 ```
 
-Defined in: [src/components/ui/toggle.tsx:15](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/toggle.tsx#L15)
+Defined in: [src/components/ui/toggle.tsx:15](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/toggle.tsx#L15)
 
 #### Parameters
 
@@ -48,7 +48,7 @@ Defined in: [src/components/ui/toggle.tsx:15](https://github.com/josscuette/aliz
 function Toggle(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/toggle.tsx:52](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/toggle.tsx#L52)
+Defined in: [src/components/ui/toggle.tsx:52](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/toggle.tsx#L52)
 
 Toggle component - A toggle button
 

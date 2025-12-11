@@ -4,7 +4,7 @@
 
 ### AlertDescriptionProps
 
-Defined in: [src/components/ui/alert.tsx:38](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert.tsx#L38)
+Defined in: [src/components/ui/alert.tsx:38](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert.tsx#L38)
 
 AlertDescription component props interface
 Extends native div element props
@@ -17,7 +17,7 @@ Extends native div element props
 
 ### AlertProps
 
-Defined in: [src/components/ui/alert.tsx:26](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert.tsx#L26)
+Defined in: [src/components/ui/alert.tsx:26](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert.tsx#L26)
 
 Alert component props interface
 Extends native div element props and adds variant prop
@@ -30,13 +30,13 @@ Extends native div element props and adds variant prop
 
 | Property | Type | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="variant"></a> `variant?` | `"default"` \| `"destructive"` \| `null` | `VariantProps.variant` | [src/components/ui/alert.tsx:10](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert.tsx#L10) |
+| <a id="variant"></a> `variant?` | `"default"` \| `"destructive"` \| `null` | `VariantProps.variant` | [src/components/ui/alert.tsx:10](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert.tsx#L10) |
 
 ***
 
 ### AlertTitleProps
 
-Defined in: [src/components/ui/alert.tsx:32](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert.tsx#L32)
+Defined in: [src/components/ui/alert.tsx:32](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert.tsx#L32)
 
 AlertTitle component props interface
 Extends native div element props
@@ -53,7 +53,7 @@ Extends native div element props
 function Alert(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/alert.tsx:57](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert.tsx#L57)
+Defined in: [src/components/ui/alert.tsx:57](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert.tsx#L57)
 
 Alert component - A contextual alert message
 
@@ -89,7 +89,7 @@ An alert element
 function AlertDescription(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/alert.tsx:95](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert.tsx#L95)
+Defined in: [src/components/ui/alert.tsx:95](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert.tsx#L95)
 
 AlertDescription component - The description text of the alert
 
@@ -113,7 +113,7 @@ An AlertDescription component
 function AlertTitle(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/alert.tsx:77](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert.tsx#L77)
+Defined in: [src/components/ui/alert.tsx:77](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/alert.tsx#L77)
 
 AlertTitle component - The title of the alert
 

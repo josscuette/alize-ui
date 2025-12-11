@@ -4,7 +4,7 @@
 
 ### ProgressProps
 
-Defined in: [src/components/ui/progress.tsx:13](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/progress.tsx#L13)
+Defined in: [src/components/ui/progress.tsx:13](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/progress.tsx#L13)
 
 Progress component props interface
 Extends Radix UI Progress primitive props
@@ -21,7 +21,7 @@ Extends Radix UI Progress primitive props
 function Progress(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/progress.tsx:30](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/progress.tsx#L30)
+Defined in: [src/components/ui/progress.tsx:30](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/progress.tsx#L30)
 
 Progress component - A progress bar indicator
 

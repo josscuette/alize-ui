@@ -59,7 +59,7 @@ export default function Home() {
     {
       title: "Installation Guide",
       description: "Get started with Alize in your project",
-      href: "https://github.com/josscuette/alize-ui#getting-started",
+      href: "https://github.com/Josselin-Cuette_JLLT/alize-ui#getting-started",
       icon: "download",
       variant: "outline" as const,
     },
@@ -118,9 +118,9 @@ export default function Home() {
             <CardContent>
               <div className="flex items-center justify-between p-4 rounded-md bg-semantic-surface-subdued border border-semantic-stroke-default font-mono text-sm">
                 <code className="text-semantic-text-default">
-                  npx -y github:josscuette/alize-ui
+                  npx -y github:Josselin-Cuette_JLLT/alize-ui
                 </code>
-                <CopyButton text="npx -y github:josscuette/alize-ui" />
+                <CopyButton text="npx -y github:Josselin-Cuette_JLLT/alize-ui" />
               </div>
             </CardContent>
           </Card>
@@ -139,7 +139,7 @@ export default function Home() {
             </div>
             <div className="flex items-center gap-6 text-sm text-semantic-text-subdued">
               <a 
-                href="https://github.com/josscuette/alize-ui" 
+                href="https://github.com/Josselin-Cuette_JLLT/alize-ui" 
                 className="hover:text-semantic-text-interaction-default transition-colors flex items-center gap-2"
               >
                 <MaterialSymbol name="code" size={16} weight={300} />

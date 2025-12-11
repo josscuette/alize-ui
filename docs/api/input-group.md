@@ -4,7 +4,7 @@
 
 ### InputGroupProps
 
-Defined in: [src/components/ui/input-group.tsx:8](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/input-group.tsx#L8)
+Defined in: [src/components/ui/input-group.tsx:8](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/input-group.tsx#L8)
 
 InputGroup component props interface
 Extends native div element props
@@ -21,7 +21,7 @@ Extends native div element props
 function InputGroup(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/input-group.tsx:26](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/input-group.tsx#L26)
+Defined in: [src/components/ui/input-group.tsx:26](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/input-group.tsx#L26)
 
 InputGroup component - A container for grouping input elements
 

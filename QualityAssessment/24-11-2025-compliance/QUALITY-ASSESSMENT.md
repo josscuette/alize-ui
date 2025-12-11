@@ -319,7 +319,7 @@ The Alizé UI library has achieved a significant milestone with the implementati
 
 The library is now **production-ready** for consumption as an npm package. Consumer applications can integrate Alizé with minimal configuration:
 
-1. Install: `npm install git+https://github.com/josscuette/alize-ui.git`
+1. Install: `npm install git+https://github.com/Josselin-Cuette_JLLT/alize-ui.git`
 2. Configure Tailwind with preset and plugin
 3. Import CSS
 4. Use components

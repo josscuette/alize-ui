@@ -4,7 +4,7 @@
 
 ### CarouselContentProps
 
-Defined in: [src/components/ui/carousel.tsx:50](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/carousel.tsx#L50)
+Defined in: [src/components/ui/carousel.tsx:50](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/carousel.tsx#L50)
 
 CarouselContent component props interface
 Extends native div element props
@@ -17,7 +17,7 @@ Extends native div element props
 
 ### CarouselItemProps
 
-Defined in: [src/components/ui/carousel.tsx:56](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/carousel.tsx#L56)
+Defined in: [src/components/ui/carousel.tsx:56](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/carousel.tsx#L56)
 
 CarouselItem component props interface
 Extends native div element props
@@ -30,7 +30,7 @@ Extends native div element props
 
 ### CarouselNextProps
 
-Defined in: [src/components/ui/carousel.tsx:68](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/carousel.tsx#L68)
+Defined in: [src/components/ui/carousel.tsx:68](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/carousel.tsx#L68)
 
 CarouselNext component props interface
 Extends Button props
@@ -43,15 +43,15 @@ Extends Button props
 
 | Property | Type | Description | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ | ------ |
-| <a id="aschild"></a> `asChild?` | `boolean` | Render as a different element using Radix UI Slot **Default** `false` | `React.ComponentProps.asChild` | [src/components/ui/button.tsx:24](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button.tsx#L24) |
-| <a id="size"></a> `size?` | \| `"default"` \| `"xs"` \| `"sm"` \| `"lg"` \| `"icon"` \| `"icon-sm"` \| `"icon-lg"` \| `"icon-xs"` \| `null` | - | `React.ComponentProps.size` | [src/components/ui/button.tsx:95](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button.tsx#L95) |
-| <a id="variant"></a> `variant?` | \| `"link"` \| `"default"` \| `"destructive"` \| `"secondary"` \| `"outline"` \| `"ghost"` \| `"tertiary"` \| `null` | - | `React.ComponentProps.variant` | [src/components/ui/button.tsx:48](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button.tsx#L48) |
+| <a id="aschild"></a> `asChild?` | `boolean` | Render as a different element using Radix UI Slot **Default** `false` | `React.ComponentProps.asChild` | [src/components/ui/button.tsx:24](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button.tsx#L24) |
+| <a id="size"></a> `size?` | \| `"default"` \| `"xs"` \| `"sm"` \| `"lg"` \| `"icon"` \| `"icon-sm"` \| `"icon-lg"` \| `"icon-xs"` \| `null` | - | `React.ComponentProps.size` | [src/components/ui/button.tsx:95](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button.tsx#L95) |
+| <a id="variant"></a> `variant?` | \| `"link"` \| `"default"` \| `"destructive"` \| `"secondary"` \| `"outline"` \| `"ghost"` \| `"tertiary"` \| `null` | - | `React.ComponentProps.variant` | [src/components/ui/button.tsx:48](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button.tsx#L48) |
 
 ***
 
 ### CarouselPreviousProps
 
-Defined in: [src/components/ui/carousel.tsx:62](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/carousel.tsx#L62)
+Defined in: [src/components/ui/carousel.tsx:62](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/carousel.tsx#L62)
 
 CarouselPrevious component props interface
 Extends Button props
@@ -64,15 +64,15 @@ Extends Button props
 
 | Property | Type | Description | Inherited from | Defined in |
 | ------ | ------ | ------ | ------ | ------ |
-| <a id="aschild-1"></a> `asChild?` | `boolean` | Render as a different element using Radix UI Slot **Default** `false` | `React.ComponentProps.asChild` | [src/components/ui/button.tsx:24](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button.tsx#L24) |
-| <a id="size-1"></a> `size?` | \| `"default"` \| `"xs"` \| `"sm"` \| `"lg"` \| `"icon"` \| `"icon-sm"` \| `"icon-lg"` \| `"icon-xs"` \| `null` | - | `React.ComponentProps.size` | [src/components/ui/button.tsx:95](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button.tsx#L95) |
-| <a id="variant-1"></a> `variant?` | \| `"link"` \| `"default"` \| `"destructive"` \| `"secondary"` \| `"outline"` \| `"ghost"` \| `"tertiary"` \| `null` | - | `React.ComponentProps.variant` | [src/components/ui/button.tsx:48](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button.tsx#L48) |
+| <a id="aschild-1"></a> `asChild?` | `boolean` | Render as a different element using Radix UI Slot **Default** `false` | `React.ComponentProps.asChild` | [src/components/ui/button.tsx:24](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button.tsx#L24) |
+| <a id="size-1"></a> `size?` | \| `"default"` \| `"xs"` \| `"sm"` \| `"lg"` \| `"icon"` \| `"icon-sm"` \| `"icon-lg"` \| `"icon-xs"` \| `null` | - | `React.ComponentProps.size` | [src/components/ui/button.tsx:95](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button.tsx#L95) |
+| <a id="variant-1"></a> `variant?` | \| `"link"` \| `"default"` \| `"destructive"` \| `"secondary"` \| `"outline"` \| `"ghost"` \| `"tertiary"` \| `null` | - | `React.ComponentProps.variant` | [src/components/ui/button.tsx:48](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/button.tsx#L48) |
 
 ***
 
 ### CarouselProps
 
-Defined in: [src/components/ui/carousel.tsx:26](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/carousel.tsx#L26)
+Defined in: [src/components/ui/carousel.tsx:26](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/carousel.tsx#L26)
 
 Carousel component props interface
 Extends native div element props and adds carousel-specific props
@@ -85,10 +85,10 @@ Extends native div element props and adds carousel-specific props
 
 | Property | Type | Defined in |
 | ------ | ------ | ------ |
-| <a id="opts"></a> `opts?` | `Partial`\<`OptionsType`\> | [src/components/ui/carousel.tsx:27](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/carousel.tsx#L27) |
-| <a id="orientation"></a> `orientation?` | `"horizontal"` \| `"vertical"` | [src/components/ui/carousel.tsx:29](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/carousel.tsx#L29) |
-| <a id="plugins"></a> `plugins?` | `CreatePluginType`\<`LoosePluginType`, \{ \}\>[] | [src/components/ui/carousel.tsx:28](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/carousel.tsx#L28) |
-| <a id="setapi"></a> `setApi?` | (`api`) => `void` | [src/components/ui/carousel.tsx:30](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/carousel.tsx#L30) |
+| <a id="opts"></a> `opts?` | `Partial`\<`OptionsType`\> | [src/components/ui/carousel.tsx:27](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/carousel.tsx#L27) |
+| <a id="orientation"></a> `orientation?` | `"horizontal"` \| `"vertical"` | [src/components/ui/carousel.tsx:29](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/carousel.tsx#L29) |
+| <a id="plugins"></a> `plugins?` | `CreatePluginType`\<`LoosePluginType`, \{ \}\>[] | [src/components/ui/carousel.tsx:28](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/carousel.tsx#L28) |
+| <a id="setapi"></a> `setApi?` | (`api`) => `void` | [src/components/ui/carousel.tsx:30](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/carousel.tsx#L30) |
 
 ## Type Aliases
 
@@ -98,7 +98,7 @@ Extends native div element props and adds carousel-specific props
 type CarouselApi = UseEmblaCarouselType[1];
 ```
 
-Defined in: [src/components/ui/carousel.tsx:16](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/carousel.tsx#L16)
+Defined in: [src/components/ui/carousel.tsx:16](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/carousel.tsx#L16)
 
 CarouselApi type
 Represents the Embla Carousel API instance
@@ -111,7 +111,7 @@ Represents the Embla Carousel API instance
 const Carousel: NamedExoticComponent<CarouselProps>;
 ```
 
-Defined in: [src/components/ui/carousel.tsx:103](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/carousel.tsx#L103)
+Defined in: [src/components/ui/carousel.tsx:103](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/carousel.tsx#L103)
 
 Carousel component - A carousel/slider component
 
@@ -147,7 +147,7 @@ A Carousel component
 function CarouselContent(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/carousel.tsx:198](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/carousel.tsx#L198)
+Defined in: [src/components/ui/carousel.tsx:198](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/carousel.tsx#L198)
 
 CarouselContent component - The content container for carousel items
 
@@ -171,7 +171,7 @@ A CarouselContent component
 function CarouselItem(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/carousel.tsx:224](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/carousel.tsx#L224)
+Defined in: [src/components/ui/carousel.tsx:224](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/carousel.tsx#L224)
 
 CarouselItem component - An individual slide/item in the carousel
 
@@ -195,7 +195,7 @@ A CarouselItem component
 function CarouselNext(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/carousel.tsx:282](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/carousel.tsx#L282)
+Defined in: [src/components/ui/carousel.tsx:282](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/carousel.tsx#L282)
 
 CarouselNext component - A button to navigate to the next slide
 
@@ -219,7 +219,7 @@ A CarouselNext component
 function CarouselPrevious(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/carousel.tsx:247](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/carousel.tsx#L247)
+Defined in: [src/components/ui/carousel.tsx:247](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/carousel.tsx#L247)
 
 CarouselPrevious component - A button to navigate to the previous slide
 

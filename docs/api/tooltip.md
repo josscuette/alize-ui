@@ -4,7 +4,7 @@
 
 ### TooltipContentProps
 
-Defined in: [src/components/ui/tooltip.tsx:30](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/tooltip.tsx#L30)
+Defined in: [src/components/ui/tooltip.tsx:30](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/tooltip.tsx#L30)
 
 TooltipContent component props interface
 Extends Radix UI TooltipContent primitive props
@@ -17,13 +17,13 @@ Extends Radix UI TooltipContent primitive props
 
 | Property | Type | Overrides | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="sideoffset"></a> `sideOffset?` | `number` | `React.ComponentProps.sideOffset` | [src/components/ui/tooltip.tsx:31](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/tooltip.tsx#L31) |
+| <a id="sideoffset"></a> `sideOffset?` | `number` | `React.ComponentProps.sideOffset` | [src/components/ui/tooltip.tsx:31](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/tooltip.tsx#L31) |
 
 ***
 
 ### TooltipProps
 
-Defined in: [src/components/ui/tooltip.tsx:18](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/tooltip.tsx#L18)
+Defined in: [src/components/ui/tooltip.tsx:18](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/tooltip.tsx#L18)
 
 Tooltip component props interface
 Extends Radix UI Tooltip primitive props
@@ -36,7 +36,7 @@ Extends Radix UI Tooltip primitive props
 
 ### TooltipProviderProps
 
-Defined in: [src/components/ui/tooltip.tsx:12](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/tooltip.tsx#L12)
+Defined in: [src/components/ui/tooltip.tsx:12](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/tooltip.tsx#L12)
 
 TooltipProvider component props interface
 Extends Radix UI TooltipProvider primitive props
@@ -49,7 +49,7 @@ Extends Radix UI TooltipProvider primitive props
 
 ### TooltipTriggerProps
 
-Defined in: [src/components/ui/tooltip.tsx:24](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/tooltip.tsx#L24)
+Defined in: [src/components/ui/tooltip.tsx:24](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/tooltip.tsx#L24)
 
 TooltipTrigger component props interface
 Extends Radix UI TooltipTrigger primitive props
@@ -66,7 +66,7 @@ Extends Radix UI TooltipTrigger primitive props
 function Tooltip(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/tooltip.tsx:72](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/tooltip.tsx#L72)
+Defined in: [src/components/ui/tooltip.tsx:72](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/tooltip.tsx#L72)
 
 Tooltip component - A tooltip wrapper that includes TooltipProvider
 
@@ -90,7 +90,7 @@ A Tooltip component
 function TooltipContent(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/tooltip.tsx:98](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/tooltip.tsx#L98)
+Defined in: [src/components/ui/tooltip.tsx:98](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/tooltip.tsx#L98)
 
 TooltipContent component - The content displayed in the tooltip
 
@@ -114,7 +114,7 @@ A TooltipContent component
 function TooltipProvider(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/tooltip.tsx:53](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/tooltip.tsx#L53)
+Defined in: [src/components/ui/tooltip.tsx:53](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/tooltip.tsx#L53)
 
 TooltipProvider component - Provides context for tooltips
 
@@ -152,7 +152,7 @@ A TooltipProvider component
 function TooltipTrigger(props): ReactElement;
 ```
 
-Defined in: [src/components/ui/tooltip.tsx:87](https://github.com/josscuette/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/tooltip.tsx#L87)
+Defined in: [src/components/ui/tooltip.tsx:87](https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/2e66e334f6c744c6ef68f063731a660c64776605/src/components/ui/tooltip.tsx#L87)
 
 TooltipTrigger component - The element that triggers the tooltip
 
