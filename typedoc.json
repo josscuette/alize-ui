@@ -4,6 +4,7 @@
   "entryPointStrategy": "expand",
   "out": "docs/api",
   "plugin": ["typedoc-plugin-markdown"],
+  "sourceLinkTemplate": "https://github.com/Josselin-Cuette_JLLT/alize-ui/blob/{gitRevision}/{path}#L{line}",
   "outputFileStrategy": "modules",
   "exclude": [
     "**/*.test.tsx",

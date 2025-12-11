@@ -2,6 +2,14 @@
   "name": "alize-ui",
   "version": "0.2.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Josselin-Cuette_JLLT/alize-ui.git"
+  },
+  "homepage": "https://github.com/Josselin-Cuette_JLLT/alize-ui#readme",
+  "bugs": {
+    "url": "https://github.com/Josselin-Cuette_JLLT/alize-ui/issues"
+  },
   "type": "module",
   "main": "./dist/index.js",
   "bin": {
