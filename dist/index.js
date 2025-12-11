@@ -807,8 +807,12 @@ function shouldInjectDevTools() {
 }
 function useAlizeDevToolsAutoInject() {
   useEffect(() => {
+    console.log("[Aliz\xE9 DevTools] Hook called, shouldInject:", shouldInjectDevTools());
     if (shouldInjectDevTools()) {
-      const timer = setTimeout(injectDevTools, 50);
+      const timer = setTimeout(() => {
+        console.log("[Aliz\xE9 DevTools] Attempting injection...");
+        injectDevTools();
+      }, 50);
       return () => clearTimeout(timer);
     }
   }, []);

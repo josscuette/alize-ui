@@ -588,9 +588,17 @@ function shouldInjectDevTools(): boolean {
  */
 export function useAlizeDevToolsAutoInject(): void {
   useEffect(() => {
+    // Debug log
+    // eslint-disable-next-line no-console
+    console.log("[Alizé DevTools] Hook called, shouldInject:", shouldInjectDevTools())
+    
     if (shouldInjectDevTools()) {
       // Small delay to ensure DOM is ready
-      const timer = setTimeout(injectDevTools, 50)
+      const timer = setTimeout(() => {
+        // eslint-disable-next-line no-console
+        console.log("[Alizé DevTools] Attempting injection...")
+        injectDevTools()
+      }, 50)
       return () => clearTimeout(timer)
     }
   }, [])
