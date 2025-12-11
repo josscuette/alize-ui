@@ -529,6 +529,15 @@ function render(): void {
   }
 }
 
+// Debounce helper
+function debounce<T extends (...args: unknown[]) => void>(fn: T, delay: number): T {
+  let timeoutId: ReturnType<typeof setTimeout> | null = null
+  return ((...args: unknown[]) => {
+    if (timeoutId) clearTimeout(timeoutId)
+    timeoutId = setTimeout(() => fn(...args), delay)
+  }) as T
+}
+
 function injectDevTools(): void {
   const state = getState()
   if (state.isInjected) return
@@ -546,18 +555,18 @@ function injectDevTools(): void {
   
   render()
   
-  // Set up periodic stats update
-  setInterval(updateStats, 2000)
-  
-  // Set up mutation observer for dynamic content
-  const observer = new MutationObserver(() => {
+  // Debounced update function to prevent freezing
+  const debouncedUpdate = debounce(() => {
     if (state.highlightMode !== "off") {
       applyHighlights(state.highlightMode)
     }
     updateStats()
-  })
+  }, 300)
   
-  observer.observe(document.body, { childList: true, subtree: true })
+  // Set up mutation observer for dynamic content (debounced)
+  const observer = new MutationObserver(debouncedUpdate)
+  
+  observer.observe(document.body, { childList: true, subtree: true, attributes: false })
   
   // Keyboard shortcut
   document.addEventListener("keydown", (e) => {
@@ -588,17 +597,9 @@ function shouldInjectDevTools(): boolean {
  */
 export function useAlizeDevToolsAutoInject(): void {
   useEffect(() => {
-    // Debug log
-    // eslint-disable-next-line no-console
-    console.log("[Alizé DevTools] Hook called, shouldInject:", shouldInjectDevTools())
-    
     if (shouldInjectDevTools()) {
       // Small delay to ensure DOM is ready
-      const timer = setTimeout(() => {
-        // eslint-disable-next-line no-console
-        console.log("[Alizé DevTools] Attempting injection...")
-        injectDevTools()
-      }, 50)
+      const timer = setTimeout(injectDevTools, 50)
       return () => clearTimeout(timer)
     }
   }, [])

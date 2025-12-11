@@ -769,6 +769,13 @@ function render() {
     updateStats();
   }
 }
+function debounce(fn, delay) {
+  let timeoutId = null;
+  return ((...args) => {
+    if (timeoutId) clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => fn(...args), delay);
+  });
+}
 function injectDevTools() {
   const state = getState();
   if (state.isInjected) return;
@@ -780,14 +787,14 @@ function injectDevTools() {
   bar.setAttribute("data-alize-devtools-standalone", "true");
   document.body.appendChild(bar);
   render();
-  setInterval(updateStats, 2e3);
-  const observer = new MutationObserver(() => {
+  const debouncedUpdate = debounce(() => {
     if (state.highlightMode !== "off") {
       applyHighlights(state.highlightMode);
     }
     updateStats();
-  });
-  observer.observe(document.body, { childList: true, subtree: true });
+  }, 300);
+  const observer = new MutationObserver(debouncedUpdate);
+  observer.observe(document.body, { childList: true, subtree: true, attributes: false });
   document.addEventListener("keydown", (e) => {
     if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === "a") {
       e.preventDefault();
@@ -807,12 +814,8 @@ function shouldInjectDevTools() {
 }
 function useAlizeDevToolsAutoInject() {
   useEffect(() => {
-    console.log("[Aliz\xE9 DevTools] Hook called, shouldInject:", shouldInjectDevTools());
     if (shouldInjectDevTools()) {
-      const timer = setTimeout(() => {
-        console.log("[Aliz\xE9 DevTools] Attempting injection...");
-        injectDevTools();
-      }, 50);
+      const timer = setTimeout(injectDevTools, 50);
       return () => clearTimeout(timer);
     }
   }, []);
