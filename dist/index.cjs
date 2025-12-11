@@ -1,7 +1,7 @@
 "use client";
 'use strict';
 
-var React22 = require('react');
+var React32 = require('react');
 var reactSlot = require('@radix-ui/react-slot');
 var classVarianceAuthority = require('class-variance-authority');
 var clsx = require('clsx');
@@ -67,7 +67,7 @@ function _interopNamespace(e) {
   return Object.freeze(n);
 }
 
-var React22__namespace = /*#__PURE__*/_interopNamespace(React22);
+var React32__namespace = /*#__PURE__*/_interopNamespace(React32);
 var LabelPrimitive__namespace = /*#__PURE__*/_interopNamespace(LabelPrimitive);
 var AvatarPrimitive__namespace = /*#__PURE__*/_interopNamespace(AvatarPrimitive);
 var SeparatorPrimitive__namespace = /*#__PURE__*/_interopNamespace(SeparatorPrimitive);
@@ -396,7 +396,7 @@ function Button(_a) {
     "children"
   ]);
   const Comp = asChild ? reactSlot.Slot : "button";
-  React22__namespace.Children.toArray(children).some((child) => {
+  React32__namespace.Children.toArray(children).some((child) => {
     if (typeof child === "string") return child.trim().length > 0;
     if (typeof child === "number") return true;
     return false;
@@ -419,7 +419,7 @@ function Button(_a) {
     })
   );
 }
-var Input = React22__namespace.forwardRef(
+var Input = React32__namespace.forwardRef(
   (_a, ref) => {
     var _b = _a, { className, type } = _b, props = __objRest(_b, ["className", "type"]);
     return /* @__PURE__ */ jsxRuntime.jsx(
@@ -923,7 +923,7 @@ function Toggle(_a) {
     }, props)
   );
 }
-var ToggleGroupContext = React22__namespace.createContext({
+var ToggleGroupContext = React32__namespace.createContext({
   size: "default",
   variant: "default",
   spacing: 0
@@ -972,7 +972,7 @@ function ToggleGroupItem(_a) {
     "variant",
     "size"
   ]);
-  const context = React22__namespace.useContext(ToggleGroupContext);
+  const context = React32__namespace.useContext(ToggleGroupContext);
   return /* @__PURE__ */ jsxRuntime.jsx(
     ToggleGroupPrimitive__namespace.Item,
     __spreadProps(__spreadValues({
@@ -1046,7 +1046,7 @@ function TooltipContent(_a) {
     })
   ) });
 }
-var TypographyH1 = React22__namespace.forwardRef((_a, ref) => {
+var TypographyH1 = React32__namespace.forwardRef((_a, ref) => {
   var _b = _a, { className } = _b, props = __objRest(_b, ["className"]);
   return /* @__PURE__ */ jsxRuntime.jsx(
     "h1",
@@ -1057,7 +1057,7 @@ var TypographyH1 = React22__namespace.forwardRef((_a, ref) => {
   );
 });
 TypographyH1.displayName = "TypographyH1";
-var TypographyH2 = React22__namespace.forwardRef((_a, ref) => {
+var TypographyH2 = React32__namespace.forwardRef((_a, ref) => {
   var _b = _a, { className } = _b, props = __objRest(_b, ["className"]);
   return /* @__PURE__ */ jsxRuntime.jsx(
     "h2",
@@ -1068,7 +1068,7 @@ var TypographyH2 = React22__namespace.forwardRef((_a, ref) => {
   );
 });
 TypographyH2.displayName = "TypographyH2";
-var TypographyH3 = React22__namespace.forwardRef((_a, ref) => {
+var TypographyH3 = React32__namespace.forwardRef((_a, ref) => {
   var _b = _a, { className } = _b, props = __objRest(_b, ["className"]);
   return /* @__PURE__ */ jsxRuntime.jsx(
     "h3",
@@ -1079,7 +1079,7 @@ var TypographyH3 = React22__namespace.forwardRef((_a, ref) => {
   );
 });
 TypographyH3.displayName = "TypographyH3";
-var TypographyH4 = React22__namespace.forwardRef((_a, ref) => {
+var TypographyH4 = React32__namespace.forwardRef((_a, ref) => {
   var _b = _a, { className } = _b, props = __objRest(_b, ["className"]);
   return /* @__PURE__ */ jsxRuntime.jsx(
     "h4",
@@ -1090,7 +1090,7 @@ var TypographyH4 = React22__namespace.forwardRef((_a, ref) => {
   );
 });
 TypographyH4.displayName = "TypographyH4";
-var TypographyP = React22__namespace.forwardRef((_a, ref) => {
+var TypographyP = React32__namespace.forwardRef((_a, ref) => {
   var _b = _a, { className } = _b, props = __objRest(_b, ["className"]);
   return /* @__PURE__ */ jsxRuntime.jsx(
     "p",
@@ -1101,7 +1101,7 @@ var TypographyP = React22__namespace.forwardRef((_a, ref) => {
   );
 });
 TypographyP.displayName = "TypographyP";
-var TypographyBlockquote = React22__namespace.forwardRef((_a, ref) => {
+var TypographyBlockquote = React32__namespace.forwardRef((_a, ref) => {
   var _b = _a, { className } = _b, props = __objRest(_b, ["className"]);
   return /* @__PURE__ */ jsxRuntime.jsx(
     "blockquote",
@@ -1112,7 +1112,7 @@ var TypographyBlockquote = React22__namespace.forwardRef((_a, ref) => {
   );
 });
 TypographyBlockquote.displayName = "TypographyBlockquote";
-var TypographyCode = React22__namespace.forwardRef((_a, ref) => {
+var TypographyCode = React32__namespace.forwardRef((_a, ref) => {
   var _b = _a, { className } = _b, props = __objRest(_b, ["className"]);
   return /* @__PURE__ */ jsxRuntime.jsx(
     "code",
@@ -1367,7 +1367,7 @@ function CheckboxCard(_a) {
     "description",
     "id"
   ]);
-  const generatedId = React22__namespace.useId();
+  const generatedId = React32__namespace.useId();
   const itemId = id || `checkbox-card-${generatedId}`;
   return /* @__PURE__ */ jsxRuntime.jsxs(
     "label",
@@ -1522,7 +1522,7 @@ function SwitchCard(_a) {
     "description",
     "id"
   ]);
-  const generatedId = React22__namespace.useId();
+  const generatedId = React32__namespace.useId();
   const itemId = id || `switch-card-${generatedId}`;
   return /* @__PURE__ */ jsxRuntime.jsxs(
     "label",
@@ -1687,7 +1687,7 @@ function RadioGroupCardItem(_a) {
     "description",
     "id"
   ]);
-  const generatedId = React22__namespace.useId();
+  const generatedId = React32__namespace.useId();
   const itemId = id || `radio-card-${generatedId}`;
   return /* @__PURE__ */ jsxRuntime.jsxs(
     "label",
@@ -1782,7 +1782,7 @@ function RadioGroupCardItem(_a) {
     }
   );
 }
-var Select = React22__namespace.memo(function Select2(_a) {
+var Select = React32__namespace.memo(function Select2(_a) {
   var props = __objRest(_a, []);
   return /* @__PURE__ */ jsxRuntime.jsx(SelectPrimitive__namespace.Root, __spreadValues({ "data-slot": "select" }, props));
 });
@@ -2064,7 +2064,7 @@ function Slider(_a) {
     "min",
     "max"
   ]);
-  const _values = React22__namespace.useMemo(
+  const _values = React32__namespace.useMemo(
     () => Array.isArray(value) ? value : Array.isArray(defaultValue) ? defaultValue : [min2, max2],
     [value, defaultValue, min2, max2]
   );
@@ -2559,7 +2559,7 @@ function HoverCardContent(_a) {
     }, props)
   ) });
 }
-var DropdownMenu = React22__namespace.memo(function DropdownMenu2(_a) {
+var DropdownMenu = React32__namespace.memo(function DropdownMenu2(_a) {
   var props = __objRest(_a, []);
   return /* @__PURE__ */ jsxRuntime.jsx(DropdownMenuPrimitive__namespace.Root, __spreadValues({ "data-slot": "dropdown-menu" }, props));
 });
@@ -2819,7 +2819,7 @@ function DropdownMenuSubContent(_a) {
     }, props)
   );
 }
-var ContextMenu = React22__namespace.memo(function ContextMenu2(_a) {
+var ContextMenu = React32__namespace.memo(function ContextMenu2(_a) {
   var props = __objRest(_a, []);
   return /* @__PURE__ */ jsxRuntime.jsx(ContextMenuPrimitive__namespace.Root, __spreadValues({ "data-slot": "context-menu" }, props));
 });
@@ -3067,7 +3067,7 @@ function ContextMenuShortcut(_a) {
     }, props)
   );
 }
-var Dialog = React22__namespace.memo(function Dialog2(_a) {
+var Dialog = React32__namespace.memo(function Dialog2(_a) {
   var props = __objRest(_a, []);
   return /* @__PURE__ */ jsxRuntime.jsx(SheetPrimitive__namespace.Root, __spreadValues({ "data-slot": "dialog" }, props));
 });
@@ -3100,7 +3100,7 @@ function DialogOverlay(_a) {
     }, props)
   );
 }
-var DialogContent = React22__namespace.memo(function DialogContent2(_a) {
+var DialogContent = React32__namespace.memo(function DialogContent2(_a) {
   var _b = _a, {
     className,
     children,
@@ -3381,7 +3381,7 @@ function Combobox({
   className,
   disabled
 }) {
-  const [open, setOpen] = React22__namespace.useState(false);
+  const [open, setOpen] = React32__namespace.useState(false);
   const selectedOption = options.find((option) => option.value === value);
   return /* @__PURE__ */ jsxRuntime.jsxs(Popover, { open, onOpenChange: setOpen, children: [
     /* @__PURE__ */ jsxRuntime.jsx(PopoverTrigger, { asChild: true, children: /* @__PURE__ */ jsxRuntime.jsxs(
@@ -3456,7 +3456,7 @@ function InputOTPSlot(_a) {
     "className"
   ]);
   var _a2;
-  const inputOTPContext = React22__namespace.useContext(inputOtp.OTPInputContext);
+  const inputOTPContext = React32__namespace.useContext(inputOtp.OTPInputContext);
   const { char, hasFakeCaret, isActive } = (_a2 = inputOTPContext == null ? void 0 : inputOTPContext.slots[index]) != null ? _a2 : {};
   return /* @__PURE__ */ jsxRuntime.jsxs(
     "div",
@@ -3640,7 +3640,7 @@ function PaginationLink(_a) {
     "children"
   ]);
   const isIconOnly = (size2 == null ? void 0 : size2.toString().includes("icon")) || false;
-  const hasText = React22__namespace.Children.toArray(children).some((child) => {
+  const hasText = React32__namespace.Children.toArray(children).some((child) => {
     if (typeof child === "string") return child.trim().length > 0;
     if (typeof child === "number") return true;
     return false;
@@ -3914,7 +3914,7 @@ var fieldVariants = classVarianceAuthority.cva(
     }
   }
 );
-var Field = React22__namespace.memo(function Field2(_a) {
+var Field = React32__namespace.memo(function Field2(_a) {
   var _b = _a, {
     className,
     orientation = "vertical"
@@ -4034,7 +4034,7 @@ function FieldError(_a) {
     "children",
     "errors"
   ]);
-  const content = React22.useMemo(() => {
+  const content = React32.useMemo(() => {
     var _a2;
     if (children) {
       return children;
@@ -4447,8 +4447,8 @@ function SheetDescription(_a) {
 }
 var MOBILE_BREAKPOINT = 1024;
 function useIsMobile() {
-  const [isMobile, setIsMobile] = React22__namespace.useState(void 0);
-  React22__namespace.useEffect(() => {
+  const [isMobile, setIsMobile] = React32__namespace.useState(void 0);
+  React32__namespace.useEffect(() => {
     const mql = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`);
     const onChange = () => {
       setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
@@ -4465,9 +4465,9 @@ var SIDEBAR_WIDTH = "16rem";
 var SIDEBAR_WIDTH_MOBILE = "18rem";
 var SIDEBAR_WIDTH_ICON = "3rem";
 var SIDEBAR_KEYBOARD_SHORTCUT = "b";
-var SidebarContext = React22__namespace.createContext(null);
+var SidebarContext = React32__namespace.createContext(null);
 function useSidebar() {
-  const context = React22__namespace.useContext(SidebarContext);
+  const context = React32__namespace.useContext(SidebarContext);
   if (!context) {
     throw new Error("useSidebar must be used within a SidebarProvider.");
   }
@@ -4490,10 +4490,10 @@ function SidebarProvider(_a) {
     "children"
   ]);
   const isMobile = useIsMobile();
-  const [openMobile, setOpenMobile] = React22__namespace.useState(false);
-  const [_open, _setOpen] = React22__namespace.useState(defaultOpen);
+  const [openMobile, setOpenMobile] = React32__namespace.useState(false);
+  const [_open, _setOpen] = React32__namespace.useState(defaultOpen);
   const open = openProp != null ? openProp : _open;
-  const setOpen = React22__namespace.useCallback(
+  const setOpen = React32__namespace.useCallback(
     (value) => {
       const openState = typeof value === "function" ? value(open) : value;
       if (setOpenProp) {
@@ -4505,10 +4505,10 @@ function SidebarProvider(_a) {
     },
     [setOpenProp, open]
   );
-  const toggleSidebar = React22__namespace.useCallback(() => {
+  const toggleSidebar = React32__namespace.useCallback(() => {
     return isMobile ? setOpenMobile((open2) => !open2) : setOpen((open2) => !open2);
   }, [isMobile, setOpen, setOpenMobile]);
-  React22__namespace.useEffect(() => {
+  React32__namespace.useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === SIDEBAR_KEYBOARD_SHORTCUT && (event.metaKey || event.ctrlKey)) {
         event.preventDefault();
@@ -4519,7 +4519,7 @@ function SidebarProvider(_a) {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [toggleSidebar]);
   const state = open ? "expanded" : "collapsed";
-  const contextValue = React22__namespace.useMemo(
+  const contextValue = React32__namespace.useMemo(
     () => ({
       state,
       open,
@@ -5004,7 +5004,7 @@ function SidebarMenuSkeleton(_a) {
     "className",
     "showIcon"
   ]);
-  const width = React22__namespace.useMemo(() => {
+  const width = React32__namespace.useMemo(() => {
     return `${Math.floor(Math.random() * 40) + 50}%`;
   }, []);
   return /* @__PURE__ */ jsxRuntime.jsxs(
@@ -5281,7 +5281,7 @@ function NavigationMenuLink(_a) {
     }, props)
   );
 }
-var Menubar = React22__namespace.memo(function Menubar2(_a) {
+var Menubar = React32__namespace.memo(function Menubar2(_a) {
   var _b = _a, {
     className
   } = _b, props = __objRest(_b, [
@@ -5573,7 +5573,7 @@ function MenubarSubContent(_a) {
 }
 var { FormProvider, useFormContext, useFormState, useController } = ReactHookForm__namespace;
 var Form = FormProvider;
-var FormFieldContext = React22__namespace.createContext(
+var FormFieldContext = React32__namespace.createContext(
   {}
 );
 var FormField = ({
@@ -5594,8 +5594,8 @@ var FormField = ({
   return /* @__PURE__ */ jsxRuntime.jsx(FormFieldContext.Provider, { value: { name }, children: render({ field, fieldState, formState }) });
 };
 var useFormField = () => {
-  const fieldContext = React22__namespace.useContext(FormFieldContext);
-  const itemContext = React22__namespace.useContext(FormItemContext);
+  const fieldContext = React32__namespace.useContext(FormFieldContext);
+  const itemContext = React32__namespace.useContext(FormItemContext);
   const { getFieldState } = useFormContext();
   const formState = useFormState({ name: fieldContext.name });
   const fieldState = getFieldState(fieldContext.name, formState);
@@ -5611,12 +5611,12 @@ var useFormField = () => {
     formMessageId: `${id}-form-item-message`
   }, fieldState);
 };
-var FormItemContext = React22__namespace.createContext(
+var FormItemContext = React32__namespace.createContext(
   {}
 );
 function FormItem(_a) {
   var _b = _a, { className } = _b, props = __objRest(_b, ["className"]);
-  const id = React22__namespace.useId();
+  const id = React32__namespace.useId();
   return /* @__PURE__ */ jsxRuntime.jsx(FormItemContext.Provider, { value: { id }, children: /* @__PURE__ */ jsxRuntime.jsx(
     "div",
     __spreadValues({
@@ -8671,7 +8671,7 @@ function getSortedRowModel() {
 
 // node_modules/@tanstack/react-table/build/lib/index.mjs
 function flexRender(Comp, props) {
-  return !Comp ? null : isReactComponent(Comp) ? /* @__PURE__ */ React22__namespace.createElement(Comp, props) : Comp;
+  return !Comp ? null : isReactComponent(Comp) ? /* @__PURE__ */ React32__namespace.createElement(Comp, props) : Comp;
 }
 function isReactComponent(component) {
   return isClassComponent(component) || typeof component === "function" || isExoticComponent(component);
@@ -8694,10 +8694,10 @@ function useReactTable(options) {
     // noop
     renderFallbackValue: null
   }, options);
-  const [tableRef] = React22__namespace.useState(() => ({
+  const [tableRef] = React32__namespace.useState(() => ({
     current: createTable(resolvedOptions)
   }));
-  const [state, setState] = React22__namespace.useState(() => tableRef.current.initialState);
+  const [state, setState] = React32__namespace.useState(() => tableRef.current.initialState);
   tableRef.current.setOptions((prev) => __spreadProps(__spreadValues(__spreadValues({}, prev), options), {
     state: __spreadValues(__spreadValues({}, state), options.state),
     // Similarly, we'll maintain both our internal state and any user-provided
@@ -8859,29 +8859,29 @@ function DataTable({
   showToolbar
 }) {
   var _a, _b, _c, _d;
-  const [sorting, setSorting] = React22__namespace.useState([]);
-  const [columnFilters, setColumnFilters] = React22__namespace.useState([]);
-  const [columnVisibility, setColumnVisibility] = React22__namespace.useState({});
-  const [rowSelection, setRowSelection] = React22__namespace.useState({});
-  const [globalFilter, setGlobalFilter] = React22__namespace.useState("");
+  const [sorting, setSorting] = React32__namespace.useState([]);
+  const [columnFilters, setColumnFilters] = React32__namespace.useState([]);
+  const [columnVisibility, setColumnVisibility] = React32__namespace.useState({});
+  const [rowSelection, setRowSelection] = React32__namespace.useState({});
+  const [globalFilter, setGlobalFilter] = React32__namespace.useState("");
   const pinnedColumnsKey = pinnedColumns.join(",");
-  const [columnPinning, setColumnPinning] = React22__namespace.useState(() => ({
+  const [columnPinning, setColumnPinning] = React32__namespace.useState(() => ({
     left: enableColumnPinning ? pinnedColumns : [],
     right: []
   }));
-  React22__namespace.useEffect(() => {
+  React32__namespace.useEffect(() => {
     const newPinned = enableColumnPinning ? pinnedColumnsKey.split(",").filter(Boolean) : [];
     setColumnPinning({ left: newPinned, right: [] });
   }, [enableColumnPinning, pinnedColumnsKey]);
-  const getColumnIds = React22__namespace.useCallback(
+  const getColumnIds = React32__namespace.useCallback(
     () => columns.map((c) => {
       const col = c;
       return col.id || col.accessorKey || "";
     }).filter(Boolean),
     [columns]
   );
-  const [columnOrder, setColumnOrder] = React22__namespace.useState(getColumnIds);
-  React22__namespace.useEffect(() => {
+  const [columnOrder, setColumnOrder] = React32__namespace.useState(getColumnIds);
+  React32__namespace.useEffect(() => {
     if (!enableColumnReordering) {
       setColumnOrder(getColumnIds());
     }
@@ -8919,13 +8919,13 @@ function DataTable({
       }
     }
   }));
-  React22__namespace.useEffect(() => {
+  React32__namespace.useEffect(() => {
     if (onRowSelectionChange) {
       const selectedRows = table.getFilteredSelectedRowModel().rows.map((row) => row.original);
       onRowSelectionChange(selectedRows);
     }
   }, [rowSelection, onRowSelectionChange, table]);
-  const [draggedColumn, setDraggedColumn] = React22__namespace.useState(null);
+  const [draggedColumn, setDraggedColumn] = React32__namespace.useState(null);
   const handleDragStart = (columnId) => {
     if (enableColumnReordering) {
       setDraggedColumn(columnId);
@@ -9160,11 +9160,11 @@ function DataTable({
     ] })
   ] });
 }
-var DataListContext = React22__namespace.createContext({
+var DataListContext = React32__namespace.createContext({
   density: "default",
   dividers: true
 });
-var useDataList = () => React22__namespace.useContext(DataListContext);
+var useDataList = () => React32__namespace.useContext(DataListContext);
 function DataList({
   children,
   density = "default",
@@ -9194,7 +9194,7 @@ function DataListGroup({
   children,
   className
 }) {
-  const [internalCollapsed, setInternalCollapsed] = React22__namespace.useState(false);
+  const [internalCollapsed, setInternalCollapsed] = React32__namespace.useState(false);
   const collapsed = controlledCollapsed != null ? controlledCollapsed : internalCollapsed;
   const { dividers } = useDataList();
   const handleToggle = () => {
@@ -9260,8 +9260,8 @@ function DataListItem({
   onClick
 }) {
   const { density, dividers } = useDataList();
-  const [internalExpanded, setInternalExpanded] = React22__namespace.useState(false);
-  const [internalSelected, setInternalSelected] = React22__namespace.useState(false);
+  const [internalExpanded, setInternalExpanded] = React32__namespace.useState(false);
+  const [internalSelected, setInternalSelected] = React32__namespace.useState(false);
   const expanded = controlledExpanded != null ? controlledExpanded : internalExpanded;
   const selected = controlledSelected != null ? controlledSelected : internalSelected;
   const handleExpandToggle = (e) => {
@@ -9511,7 +9511,7 @@ function getCSSVariable(name) {
   return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
 }
 function useSparklineColors() {
-  const [colors, setColors] = React22__namespace.useState({
+  const [colors, setColors] = React32__namespace.useState({
     success: "#4c774c",
     warning: "#c97c12",
     danger: "#c03c5e",
@@ -9520,7 +9520,7 @@ function useSparklineColors() {
     text: "#0e1d23",
     background: "transparent"
   });
-  React22__namespace.useEffect(() => {
+  React32__namespace.useEffect(() => {
     setColors({
       success: getCSSVariable("--semantic-dataviz-rag-successmedium") || "#4c774c",
       warning: getCSSVariable("--semantic-dataviz-rag-warningmedium") || "#c97c12",
@@ -9611,7 +9611,7 @@ function Sparkbar({
   ariaLabel = "Sparkbar chart"
 }) {
   const colors = useSparklineColors();
-  const getBarColor = React22__namespace.useCallback(
+  const getBarColor = React32__namespace.useCallback(
     (value) => {
       if (typeof color === "function") return color(value);
       if (typeof color === "string") return color;
@@ -9686,8 +9686,8 @@ function SparkBullet({
   ariaLabel = "Bullet chart"
 }) {
   const colors = useSparklineColors();
-  const [moduleReady, setModuleReady] = React22__namespace.useState(bulletModuleInitialized);
-  React22__namespace.useEffect(() => {
+  const [moduleReady, setModuleReady] = React32__namespace.useState(bulletModuleInitialized);
+  React32__namespace.useEffect(() => {
     if (!bulletModuleInitialized) {
       initBulletModule().then(() => setModuleReady(true));
     }
@@ -9770,7 +9770,7 @@ function SparkTrend({
   className
 }) {
   const colors = useSparklineColors();
-  const calculatedChange = React22__namespace.useMemo(() => {
+  const calculatedChange = React32__namespace.useMemo(() => {
     if (change !== void 0) return change;
     if (previousValue !== void 0 && previousValue !== 0) {
       return (value - previousValue) / previousValue * 100;
@@ -9827,8 +9827,8 @@ function CalendarDayButton(_a) {
     "modifiers"
   ]);
   const defaultClassNames = reactDayPicker.getDefaultClassNames();
-  const ref = React22__namespace.useRef(null);
-  React22__namespace.useEffect(() => {
+  const ref = React32__namespace.useRef(null);
+  React32__namespace.useEffect(() => {
     var _a2;
     if (modifiers.focused) (_a2 = ref.current) == null ? void 0 : _a2.focus();
   }, [modifiers.focused]);
@@ -9851,7 +9851,7 @@ function CalendarDayButton(_a) {
     }, props)
   );
 }
-var Calendar = React22__namespace.memo(function Calendar2({
+var Calendar = React32__namespace.memo(function Calendar2({
   className,
   classNames,
   showOutsideDays = true,
@@ -10009,7 +10009,7 @@ function DatePicker({
   className,
   disabled
 }) {
-  const [open, setOpen] = React22__namespace.useState(false);
+  const [open, setOpen] = React32__namespace.useState(false);
   const defaultFormat = variant === "input" ? "MM/dd/yyyy" : "EEE, MMM d, yyyy";
   const displayFormat = formatString || defaultFormat;
   const formatDate = (date2) => {
@@ -10097,15 +10097,15 @@ function DatePicker({
     ) })
   ] });
 }
-var CarouselContext = React22__namespace.createContext(null);
+var CarouselContext = React32__namespace.createContext(null);
 function useCarousel() {
-  const context = React22__namespace.useContext(CarouselContext);
+  const context = React32__namespace.useContext(CarouselContext);
   if (!context) {
     throw new Error("useCarousel must be used within a <Carousel />");
   }
   return context;
 }
-var Carousel = React22__namespace.memo(function Carousel2(_a) {
+var Carousel = React32__namespace.memo(function Carousel2(_a) {
   var _b = _a, {
     orientation = "horizontal",
     opts,
@@ -10127,20 +10127,20 @@ var Carousel = React22__namespace.memo(function Carousel2(_a) {
     }),
     plugins
   );
-  const [canScrollPrev, setCanScrollPrev] = React22__namespace.useState(false);
-  const [canScrollNext, setCanScrollNext] = React22__namespace.useState(false);
-  const onSelect = React22__namespace.useCallback((api2) => {
+  const [canScrollPrev, setCanScrollPrev] = React32__namespace.useState(false);
+  const [canScrollNext, setCanScrollNext] = React32__namespace.useState(false);
+  const onSelect = React32__namespace.useCallback((api2) => {
     if (!api2) return;
     setCanScrollPrev(api2.canScrollPrev());
     setCanScrollNext(api2.canScrollNext());
   }, []);
-  const scrollPrev = React22__namespace.useCallback(() => {
+  const scrollPrev = React32__namespace.useCallback(() => {
     api == null ? void 0 : api.scrollPrev();
   }, [api]);
-  const scrollNext = React22__namespace.useCallback(() => {
+  const scrollNext = React32__namespace.useCallback(() => {
     api == null ? void 0 : api.scrollNext();
   }, [api]);
-  const handleKeyDown = React22__namespace.useCallback(
+  const handleKeyDown = React32__namespace.useCallback(
     (event) => {
       if (event.key === "ArrowLeft") {
         event.preventDefault();
@@ -10152,11 +10152,11 @@ var Carousel = React22__namespace.memo(function Carousel2(_a) {
     },
     [scrollPrev, scrollNext]
   );
-  React22__namespace.useEffect(() => {
+  React32__namespace.useEffect(() => {
     if (!api || !setApi) return;
     setApi(api);
   }, [api, setApi]);
-  React22__namespace.useEffect(() => {
+  React32__namespace.useEffect(() => {
     if (!api) return;
     onSelect(api);
     api.on("reInit", onSelect);
@@ -10423,7 +10423,7 @@ function ResizableHandle(_a) {
 }
 var MATERIAL_SYMBOLS_URL = "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200";
 function MaterialSymbolsProvider() {
-  React22.useEffect(() => {
+  React32.useEffect(() => {
     const existingLink = document.querySelector(
       `link[href="${MATERIAL_SYMBOLS_URL}"]`
     );
@@ -10440,7 +10440,7 @@ function MaterialSymbolsProvider() {
   }, []);
   return null;
 }
-var FidelityContext = React22__namespace.createContext(
+var FidelityContext = React32__namespace.createContext(
   void 0
 );
 var STORAGE_KEY = "alize-fidelity";
@@ -10448,16 +10448,16 @@ function FidelityProvider({
   children,
   defaultFidelity = "alize"
 }) {
-  const [fidelity, setFidelityState] = React22__namespace.useState(defaultFidelity);
-  const [mounted, setMounted] = React22__namespace.useState(false);
-  React22__namespace.useEffect(() => {
+  const [fidelity, setFidelityState] = React32__namespace.useState(defaultFidelity);
+  const [mounted, setMounted] = React32__namespace.useState(false);
+  React32__namespace.useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY);
     if (stored === "alize" || stored === "lofi") {
       setFidelityState(stored);
     }
     setMounted(true);
   }, []);
-  React22__namespace.useEffect(() => {
+  React32__namespace.useEffect(() => {
     if (!mounted) return;
     const root = document.documentElement;
     if (fidelity === "lofi") {
@@ -10466,18 +10466,18 @@ function FidelityProvider({
       root.classList.remove("theme-lofi");
     }
   }, [fidelity, mounted]);
-  const setFidelity = React22__namespace.useCallback((newFidelity) => {
+  const setFidelity = React32__namespace.useCallback((newFidelity) => {
     setFidelityState(newFidelity);
     localStorage.setItem(STORAGE_KEY, newFidelity);
   }, []);
-  const value = React22__namespace.useMemo(
+  const value = React32__namespace.useMemo(
     () => ({ fidelity, setFidelity }),
     [fidelity, setFidelity]
   );
   return /* @__PURE__ */ jsxRuntime.jsx(FidelityContext.Provider, { value, children });
 }
 function useFidelity() {
-  const context = React22__namespace.useContext(FidelityContext);
+  const context = React32__namespace.useContext(FidelityContext);
   if (context === void 0) {
     throw new Error("useFidelity must be used within a FidelityProvider");
   }
@@ -10485,8 +10485,8 @@ function useFidelity() {
 }
 function FidelityToggle() {
   const { fidelity, setFidelity } = useFidelity();
-  const [mounted, setMounted] = React22__namespace.useState(false);
-  React22__namespace.useEffect(() => {
+  const [mounted, setMounted] = React32__namespace.useState(false);
+  React32__namespace.useEffect(() => {
     setMounted(true);
   }, []);
   if (!mounted) {
@@ -10514,11 +10514,11 @@ function FidelityToggle() {
 }
 function ThemeToggle() {
   const { theme, setTheme, resolvedTheme } = nextThemes.useTheme();
-  const [mounted, setMounted] = React22__namespace.useState(false);
-  React22__namespace.useEffect(() => {
+  const [mounted, setMounted] = React32__namespace.useState(false);
+  React32__namespace.useEffect(() => {
     setMounted(true);
   }, []);
-  React22__namespace.useEffect(() => {
+  React32__namespace.useEffect(() => {
     if (mounted) {
       console.log("Theme:", theme, "Resolved:", resolvedTheme);
       console.log("HTML class:", document.documentElement.className);
@@ -10847,7 +10847,7 @@ function DefaultErrorFallback({ error, resetError }) {
     ] })
   ] }) });
 }
-var ErrorBoundary = class extends React22__namespace.Component {
+var ErrorBoundary = class extends React32__namespace.Component {
   constructor(props) {
     super(props);
     this.resetError = () => {
@@ -10891,6 +10891,588 @@ var ErrorBoundary = class extends React22__namespace.Component {
     return this.props.children;
   }
 };
+var ALIZE_SLOT_NAMES = /* @__PURE__ */ new Set([
+  // Atoms
+  "button",
+  "input",
+  "label",
+  "badge",
+  "avatar",
+  "avatar-image",
+  "avatar-fallback",
+  "skeleton",
+  "spinner",
+  "separator",
+  "kbd",
+  "kbd-group",
+  "toggle",
+  "toggle-group",
+  "toggle-group-item",
+  "tooltip",
+  "tooltip-trigger",
+  "tooltip-content",
+  "aspect-ratio",
+  "empty",
+  "item",
+  "logo",
+  // Typography
+  "typography-h1",
+  "typography-h2",
+  "typography-h3",
+  "typography-h4",
+  "typography-p",
+  "typography-blockquote",
+  "typography-code",
+  // Molecules
+  "checkbox",
+  "checkbox-card",
+  "switch",
+  "switch-card",
+  "radio-group",
+  "radio-group-item",
+  "radio-group-card-item",
+  "select",
+  "select-trigger",
+  "select-content",
+  "select-item",
+  "select-value",
+  "select-group",
+  "select-label",
+  "select-separator",
+  "textarea",
+  "slider",
+  "slider-track",
+  "slider-range",
+  "slider-thumb",
+  "progress",
+  "progress-indicator",
+  "alert",
+  "alert-title",
+  "alert-description",
+  "card",
+  "card-header",
+  "card-footer",
+  "card-title",
+  "card-action",
+  "card-description",
+  "card-content",
+  "tabs",
+  "tabs-list",
+  "tabs-trigger",
+  "tabs-content",
+  "accordion",
+  "accordion-item",
+  "accordion-trigger",
+  "accordion-content",
+  "collapsible",
+  "collapsible-trigger",
+  "collapsible-content",
+  "popover",
+  "popover-trigger",
+  "popover-content",
+  "popover-anchor",
+  "hover-card",
+  "hover-card-trigger",
+  "hover-card-content",
+  "dropdown-menu",
+  "dropdown-menu-trigger",
+  "dropdown-menu-content",
+  "dropdown-menu-item",
+  "dropdown-menu-label",
+  "dropdown-menu-separator",
+  "dropdown-menu-shortcut",
+  "dropdown-menu-group",
+  "dropdown-menu-checkbox-item",
+  "dropdown-menu-radio-group",
+  "dropdown-menu-radio-item",
+  "dropdown-menu-sub",
+  "dropdown-menu-sub-trigger",
+  "dropdown-menu-sub-content",
+  "context-menu",
+  "context-menu-trigger",
+  "context-menu-content",
+  "context-menu-item",
+  "context-menu-label",
+  "context-menu-separator",
+  "context-menu-shortcut",
+  "context-menu-checkbox-item",
+  "context-menu-radio-group",
+  "context-menu-radio-item",
+  "context-menu-sub",
+  "context-menu-sub-trigger",
+  "context-menu-sub-content",
+  "command",
+  "command-dialog",
+  "command-input",
+  "command-list",
+  "command-empty",
+  "command-group",
+  "command-item",
+  "command-shortcut",
+  "command-separator",
+  "combobox",
+  "input-otp",
+  "input-otp-group",
+  "input-otp-slot",
+  "input-otp-separator",
+  "input-group",
+  "breadcrumb",
+  "breadcrumb-list",
+  "breadcrumb-item",
+  "breadcrumb-link",
+  "breadcrumb-page",
+  "breadcrumb-separator",
+  "breadcrumb-ellipsis",
+  "pagination",
+  "pagination-content",
+  "pagination-item",
+  "pagination-link",
+  "pagination-previous",
+  "pagination-next",
+  "pagination-ellipsis",
+  "button-group",
+  "button-group-separator",
+  "button-group-text",
+  "native-select",
+  "native-select-trigger",
+  "native-select-value",
+  "native-select-content",
+  "native-select-item",
+  "field",
+  "field-content",
+  "field-description",
+  "field-error",
+  "field-group",
+  "field-label",
+  "field-legend",
+  "field-separator",
+  "field-set",
+  "field-title",
+  // Organisms
+  "dialog",
+  "dialog-trigger",
+  "dialog-content",
+  "dialog-header",
+  "dialog-footer",
+  "dialog-title",
+  "dialog-description",
+  "dialog-close",
+  "dialog-overlay",
+  "dialog-portal",
+  "alert-dialog",
+  "alert-dialog-trigger",
+  "alert-dialog-content",
+  "alert-dialog-header",
+  "alert-dialog-footer",
+  "alert-dialog-title",
+  "alert-dialog-description",
+  "alert-dialog-action",
+  "alert-dialog-cancel",
+  "drawer",
+  "drawer-trigger",
+  "drawer-content",
+  "drawer-header",
+  "drawer-footer",
+  "drawer-title",
+  "drawer-description",
+  "drawer-close",
+  "drawer-overlay",
+  "drawer-portal",
+  "sheet",
+  "sheet-trigger",
+  "sheet-content",
+  "sheet-header",
+  "sheet-footer",
+  "sheet-title",
+  "sheet-description",
+  "sheet-close",
+  "sidebar",
+  "sidebar-content",
+  "sidebar-footer",
+  "sidebar-group",
+  "sidebar-group-action",
+  "sidebar-group-content",
+  "sidebar-group-label",
+  "sidebar-header",
+  "sidebar-input",
+  "sidebar-inset",
+  "sidebar-menu",
+  "sidebar-menu-action",
+  "sidebar-menu-badge",
+  "sidebar-menu-button",
+  "sidebar-menu-item",
+  "sidebar-menu-skeleton",
+  "sidebar-menu-sub",
+  "sidebar-menu-sub-button",
+  "sidebar-menu-sub-item",
+  "sidebar-provider",
+  "sidebar-rail",
+  "sidebar-separator",
+  "sidebar-trigger",
+  "navigation-menu",
+  "navigation-menu-content",
+  "navigation-menu-item",
+  "navigation-menu-link",
+  "navigation-menu-list",
+  "navigation-menu-trigger",
+  "navigation-menu-viewport",
+  "navigation-menu-indicator",
+  "menubar",
+  "menubar-menu",
+  "menubar-trigger",
+  "menubar-content",
+  "menubar-item",
+  "menubar-label",
+  "menubar-separator",
+  "menubar-shortcut",
+  "menubar-checkbox-item",
+  "menubar-radio-group",
+  "menubar-radio-item",
+  "menubar-sub",
+  "menubar-sub-trigger",
+  "menubar-sub-content",
+  "form",
+  "form-item",
+  "form-label",
+  "form-control",
+  "form-description",
+  "form-message",
+  "table",
+  "table-header",
+  "table-body",
+  "table-footer",
+  "table-row",
+  "table-head",
+  "table-cell",
+  "table-caption",
+  "data-table",
+  "data-list",
+  "data-list-group",
+  "data-list-item",
+  "data-list-empty",
+  "data-list-skeleton",
+  "sparkline",
+  "sparkbar",
+  "spark-bullet",
+  "spark-trend",
+  "sparkline-cell",
+  "sparkbar-cell",
+  "spark-bullet-cell",
+  "spark-trend-cell",
+  "calendar",
+  "calendar-day-button",
+  "date-picker",
+  "carousel",
+  "carousel-content",
+  "carousel-item",
+  "carousel-previous",
+  "carousel-next",
+  "highchart",
+  "toaster",
+  "scroll-area",
+  "scroll-bar",
+  "resizable-panel-group",
+  "resizable-panel",
+  "resizable-handle",
+  // Utilities
+  "material-symbol"
+]);
+function isAlizeSlot(slotName) {
+  return ALIZE_SLOT_NAMES.has(slotName);
+}
+var AlizeDevToolsContext = React32__namespace.createContext(null);
+function useAlizeDevTools() {
+  const context = React32__namespace.useContext(AlizeDevToolsContext);
+  if (!context) {
+    throw new Error("useAlizeDevTools must be used within AlizeDevToolsProvider");
+  }
+  return context;
+}
+var devToolsStyles = `
+  /* Aliz\xE9 DevTools Styles */
+  [data-alize-component="true"] {
+    outline: 3px solid var(--semantic-tonal-lilac-strong) !important;
+    outline-offset: 2px !important;
+    position: relative !important;
+  }
+  
+  [data-alize-component="true"]::before {
+    content: "Aliz\xE9: " attr(data-slot);
+    position: absolute !important;
+    top: -22px !important;
+    left: 0 !important;
+    background: var(--semantic-tonal-lilac-strong) !important;
+    color: white !important;
+    font-size: 10px !important;
+    font-weight: 500 !important;
+    padding: 2px 8px !important;
+    border-radius: 4px !important;
+    font-family: ui-monospace, SFMono-Regular, monospace !important;
+    z-index: 99999 !important;
+    white-space: nowrap !important;
+    pointer-events: none !important;
+    line-height: 1.4 !important;
+  }
+  
+  [data-alize-component="false"] {
+    outline: 3px solid var(--color-tailwind-slate-500) !important;
+    outline-offset: 2px !important;
+    position: relative !important;
+  }
+  
+  [data-alize-component="false"]::before {
+    content: "Not Aliz\xE9";
+    position: absolute !important;
+    top: -22px !important;
+    left: 0 !important;
+    background: var(--color-tailwind-slate-500) !important;
+    color: white !important;
+    font-size: 10px !important;
+    font-weight: 500 !important;
+    padding: 2px 8px !important;
+    border-radius: 4px !important;
+    font-family: ui-monospace, SFMono-Regular, monospace !important;
+    z-index: 99999 !important;
+    white-space: nowrap !important;
+    pointer-events: none !important;
+    line-height: 1.4 !important;
+  }
+`;
+var modeButtons = [
+  { mode: "off", label: "Off", icon: "visibility_off" },
+  { mode: "alize", label: "Aliz\xE9", icon: "check_circle" },
+  { mode: "non-alize", label: "Other", icon: "cancel" },
+  { mode: "both", label: "Both", icon: "compare" }
+];
+function DevToolsBar() {
+  const { highlightMode, setHighlightMode, isEnabled, setIsEnabled, alizeCount, nonAlizeCount } = useAlizeDevTools();
+  const [isCollapsed, setIsCollapsed] = React32__namespace.useState(false);
+  if (!isEnabled) return null;
+  return /* @__PURE__ */ jsxRuntime.jsx(
+    "div",
+    {
+      "data-alize-devtools": true,
+      className: "fixed bottom-4 right-4 z-[99999] font-sans text-sm",
+      children: isCollapsed ? /* @__PURE__ */ jsxRuntime.jsxs(Tooltip, { children: [
+        /* @__PURE__ */ jsxRuntime.jsx(TooltipTrigger, { asChild: true, children: /* @__PURE__ */ jsxRuntime.jsx(
+          Button,
+          {
+            onClick: () => setIsCollapsed(false),
+            size: "icon",
+            className: "size-11 rounded-xl bg-[var(--semantic-surface-default)] border border-[var(--semantic-stroke-default)] shadow-lg hover:bg-[var(--semantic-surface-overlays-level1)]",
+            children: /* @__PURE__ */ jsxRuntime.jsx("span", { className: "text-lg font-bold text-[var(--semantic-text-interaction-default)]", children: "A" })
+          }
+        ) }),
+        /* @__PURE__ */ jsxRuntime.jsx(TooltipContent, { side: "left", children: "Open Aliz\xE9 DevTools" })
+      ] }) : /* @__PURE__ */ jsxRuntime.jsxs("div", { className: "min-w-[300px] rounded-xl border border-[var(--semantic-stroke-default)] bg-[var(--semantic-surface-default)] p-4 shadow-xl", children: [
+        /* @__PURE__ */ jsxRuntime.jsxs("div", { className: "mb-3 flex items-center justify-between", children: [
+          /* @__PURE__ */ jsxRuntime.jsxs("div", { className: "flex items-center gap-2", children: [
+            /* @__PURE__ */ jsxRuntime.jsx("span", { className: "text-base font-semibold text-[var(--semantic-text-interaction-default)]", children: "Aliz\xE9 DevTools" }),
+            /* @__PURE__ */ jsxRuntime.jsx(Badge, { tonal: "default", className: "text-[10px]", children: "beta" })
+          ] }),
+          /* @__PURE__ */ jsxRuntime.jsxs("div", { className: "flex gap-1", children: [
+            /* @__PURE__ */ jsxRuntime.jsxs(Tooltip, { children: [
+              /* @__PURE__ */ jsxRuntime.jsx(TooltipTrigger, { asChild: true, children: /* @__PURE__ */ jsxRuntime.jsx(
+                Button,
+                {
+                  variant: "ghost",
+                  size: "icon-xs",
+                  onClick: () => setIsCollapsed(true),
+                  children: /* @__PURE__ */ jsxRuntime.jsx(MaterialSymbol, { name: "remove", size: 16, weight: 300 })
+                }
+              ) }),
+              /* @__PURE__ */ jsxRuntime.jsx(TooltipContent, { children: "Minimize" })
+            ] }),
+            /* @__PURE__ */ jsxRuntime.jsxs(Tooltip, { children: [
+              /* @__PURE__ */ jsxRuntime.jsx(TooltipTrigger, { asChild: true, children: /* @__PURE__ */ jsxRuntime.jsx(
+                Button,
+                {
+                  variant: "ghost",
+                  size: "icon-xs",
+                  onClick: () => setIsEnabled(false),
+                  children: /* @__PURE__ */ jsxRuntime.jsx(MaterialSymbol, { name: "close", size: 16, weight: 300 })
+                }
+              ) }),
+              /* @__PURE__ */ jsxRuntime.jsx(TooltipContent, { children: "Close (\u2318/Ctrl+Shift+A to reopen)" })
+            ] })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntime.jsx(Separator, { className: "mb-3" }),
+        /* @__PURE__ */ jsxRuntime.jsxs("div", { className: "mb-3 flex gap-4", children: [
+          /* @__PURE__ */ jsxRuntime.jsxs("div", { className: "flex items-center gap-2", children: [
+            /* @__PURE__ */ jsxRuntime.jsx("div", { className: "size-2.5 rounded-full bg-[var(--semantic-tonal-lilac-strong)]" }),
+            /* @__PURE__ */ jsxRuntime.jsx("span", { className: "text-[var(--semantic-text-subdued)]", children: "Aliz\xE9:" }),
+            /* @__PURE__ */ jsxRuntime.jsx(Badge, { tonal: "lilac", badgeStyle: "reversed", numeric: true, children: alizeCount })
+          ] }),
+          /* @__PURE__ */ jsxRuntime.jsxs("div", { className: "flex items-center gap-2", children: [
+            /* @__PURE__ */ jsxRuntime.jsx("div", { className: "size-2.5 rounded-full bg-[var(--color-tailwind-slate-500)]" }),
+            /* @__PURE__ */ jsxRuntime.jsx("span", { className: "text-[var(--semantic-text-subdued)]", children: "Other:" }),
+            /* @__PURE__ */ jsxRuntime.jsx(Badge, { numeric: true, className: "bg-[var(--color-tailwind-slate-500)] text-white border-transparent", children: nonAlizeCount })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntime.jsx("div", { className: "grid grid-cols-4 gap-1.5", children: modeButtons.map(({ mode, label, icon: icon2 }) => /* @__PURE__ */ jsxRuntime.jsxs(
+          Button,
+          {
+            variant: "outline",
+            size: "sm",
+            onClick: () => setHighlightMode(mode),
+            className: cn(
+              "flex-col gap-0.5 h-auto py-2",
+              highlightMode === mode ? "bg-[var(--semantic-surface-overlays-level1)] border-[var(--semantic-stroke-default)] text-[var(--semantic-text-default)]" : "text-[var(--semantic-text-subdued)]"
+            ),
+            children: [
+              /* @__PURE__ */ jsxRuntime.jsx(MaterialSymbol, { name: icon2, size: 16, weight: 300 }),
+              /* @__PURE__ */ jsxRuntime.jsx("span", { className: "text-[11px]", children: label })
+            ]
+          },
+          mode
+        )) }),
+        /* @__PURE__ */ jsxRuntime.jsx(Separator, { className: "my-3" }),
+        /* @__PURE__ */ jsxRuntime.jsxs("div", { className: "flex items-center justify-center gap-1.5 text-[11px] text-[var(--semantic-text-subdued)]", children: [
+          /* @__PURE__ */ jsxRuntime.jsx("span", { children: "Press" }),
+          /* @__PURE__ */ jsxRuntime.jsxs(KbdGroup, { children: [
+            /* @__PURE__ */ jsxRuntime.jsx(Kbd, { children: "\u2318" }),
+            /* @__PURE__ */ jsxRuntime.jsx(Kbd, { children: "\u21E7" }),
+            /* @__PURE__ */ jsxRuntime.jsx(Kbd, { children: "A" })
+          ] }),
+          /* @__PURE__ */ jsxRuntime.jsx("span", { children: "to toggle" })
+        ] })
+      ] })
+    }
+  );
+}
+function hasAlizeAncestor(el) {
+  let parent = el.parentElement;
+  while (parent) {
+    const parentSlot = parent.getAttribute("data-slot");
+    if (parentSlot && isAlizeSlot(parentSlot)) {
+      return true;
+    }
+    parent = parent.parentElement;
+  }
+  return false;
+}
+function getComponents() {
+  if (typeof document === "undefined") {
+    return { alizeElements: [], nonAlizeElements: [] };
+  }
+  const alizeElements = [];
+  const nonAlizeElements = [];
+  const slottedElements = document.querySelectorAll("[data-slot]");
+  slottedElements.forEach((el) => {
+    if (el.closest("[data-alize-devtools]")) {
+      return;
+    }
+    const slotName = el.getAttribute("data-slot");
+    if (slotName && isAlizeSlot(slotName)) {
+      alizeElements.push(el);
+    } else {
+      if (!hasAlizeAncestor(el)) {
+        nonAlizeElements.push(el);
+      }
+    }
+  });
+  return { alizeElements, nonAlizeElements };
+}
+function countComponents() {
+  const { alizeElements, nonAlizeElements } = getComponents();
+  return { alizeCount: alizeElements.length, nonAlizeCount: nonAlizeElements.length };
+}
+function applyHighlights(mode) {
+  if (typeof document === "undefined") return;
+  document.querySelectorAll("[data-alize-component]").forEach((el) => {
+    el.removeAttribute("data-alize-component");
+  });
+  if (mode === "off") return;
+  const { alizeElements, nonAlizeElements } = getComponents();
+  if (mode === "alize" || mode === "both") {
+    alizeElements.forEach((el) => {
+      el.setAttribute("data-alize-component", "true");
+    });
+  }
+  if (mode === "non-alize" || mode === "both") {
+    nonAlizeElements.forEach((el) => {
+      el.setAttribute("data-alize-component", "false");
+    });
+  }
+}
+function useDevToolsAvailable() {
+  const [isAvailable, setIsAvailable] = React32__namespace.useState(false);
+  React32__namespace.useEffect(() => {
+    const envEnabled = process.env.NEXT_PUBLIC_ALIZE_DEVTOOLS === "true";
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlEnabled = urlParams.get("alize-devtools") === "true";
+    setIsAvailable(envEnabled || urlEnabled);
+  }, []);
+  return isAvailable;
+}
+function AlizeDevToolsProvider({
+  children,
+  enabled,
+  position = "bottom-right"
+}) {
+  const isAvailable = useDevToolsAvailable();
+  const [isEnabled, setIsEnabled] = React32__namespace.useState(false);
+  const [highlightMode, setHighlightMode] = React32__namespace.useState("off");
+  const [counts, setCounts] = React32__namespace.useState({ alizeCount: 0, nonAlizeCount: 0 });
+  React32__namespace.useEffect(() => {
+    if (enabled === void 0) {
+      setIsEnabled(isAvailable);
+    }
+  }, [isAvailable, enabled]);
+  React32__namespace.useEffect(() => {
+    const updateCounts = () => {
+      setCounts(countComponents());
+    };
+    updateCounts();
+    const interval = setInterval(updateCounts, 2e3);
+    return () => clearInterval(interval);
+  }, [highlightMode]);
+  React32__namespace.useEffect(() => {
+    if (typeof document === "undefined") return;
+    applyHighlights(highlightMode);
+    const observer = new MutationObserver(() => {
+      if (highlightMode !== "off") {
+        applyHighlights(highlightMode);
+      }
+    });
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+    return () => {
+      observer.disconnect();
+      applyHighlights("off");
+    };
+  }, [highlightMode]);
+  React32__namespace.useEffect(() => {
+    if (!isAvailable && enabled === void 0) return;
+    const handleKeyDown = (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === "a") {
+        e.preventDefault();
+        setIsEnabled((prev) => !prev);
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isAvailable, enabled]);
+  const contextValue = React32__namespace.useMemo(
+    () => ({
+      highlightMode,
+      setHighlightMode,
+      isEnabled,
+      setIsEnabled,
+      alizeCount: counts.alizeCount,
+      nonAlizeCount: counts.nonAlizeCount
+    }),
+    [highlightMode, isEnabled, counts]
+  );
+  return /* @__PURE__ */ jsxRuntime.jsxs(AlizeDevToolsContext.Provider, { value: contextValue, children: [
+    isEnabled && /* @__PURE__ */ jsxRuntime.jsx("style", { dangerouslySetInnerHTML: { __html: devToolsStyles } }),
+    children,
+    /* @__PURE__ */ jsxRuntime.jsx(DevToolsBar, {})
+  ] });
+}
 /*! Bundled license information:
 
 @tanstack/table-core/build/lib/index.mjs:
@@ -10934,6 +11516,7 @@ exports.AlertDialogHeader = AlertDialogHeader;
 exports.AlertDialogTitle = AlertDialogTitle;
 exports.AlertDialogTrigger = AlertDialogTrigger;
 exports.AlertTitle = AlertTitle;
+exports.AlizeDevToolsProvider = AlizeDevToolsProvider;
 exports.AppError = AppError;
 exports.AspectRatio = AspectRatio;
 exports.Avatar = Avatar;
@@ -11234,6 +11817,7 @@ exports.selectSchema = selectSchema;
 exports.strongPasswordSchema = strongPasswordSchema;
 exports.textareaSchema = textareaSchema;
 exports.urlSchema = urlSchema;
+exports.useAlizeDevTools = useAlizeDevTools;
 exports.useFidelity = useFidelity;
 exports.useFormField = useFormField;
 exports.useSidebar = useSidebar;
