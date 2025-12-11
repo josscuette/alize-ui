@@ -677,14 +677,22 @@ function useDevToolsAvailable(): boolean {
   const [isAvailable, setIsAvailable] = React.useState(false)
   
   React.useEffect(() => {
-    // Check environment variable
-    const envEnabled = process.env.NEXT_PUBLIC_ALIZE_DEVTOOLS === "true"
-    
-    // Check URL query parameter
-    const urlParams = new URLSearchParams(window.location.search)
-    const urlEnabled = urlParams.get("alize-devtools") === "true"
-    
-    setIsAvailable(envEnabled || urlEnabled)
+    try {
+      // Check environment variable
+      const envEnabled = process.env.NEXT_PUBLIC_ALIZE_DEVTOOLS === "true"
+      
+      // Check URL query parameter safely
+      let urlEnabled = false
+      if (typeof window !== "undefined" && window.location?.search) {
+        const urlParams = new URLSearchParams(window.location.search)
+        urlEnabled = urlParams.get("alize-devtools") === "true"
+      }
+      
+      setIsAvailable(envEnabled || urlEnabled)
+    } catch {
+      // Silently fail if there's an issue accessing URL params
+      setIsAvailable(false)
+    }
   }, [])
   
   return isAvailable

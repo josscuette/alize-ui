@@ -11343,10 +11343,18 @@ function applyHighlights(mode) {
 function useDevToolsAvailable() {
   const [isAvailable, setIsAvailable] = React32.useState(false);
   React32.useEffect(() => {
-    const envEnabled = process.env.NEXT_PUBLIC_ALIZE_DEVTOOLS === "true";
-    const urlParams = new URLSearchParams(window.location.search);
-    const urlEnabled = urlParams.get("alize-devtools") === "true";
-    setIsAvailable(envEnabled || urlEnabled);
+    var _a;
+    try {
+      const envEnabled = process.env.NEXT_PUBLIC_ALIZE_DEVTOOLS === "true";
+      let urlEnabled = false;
+      if (typeof window !== "undefined" && ((_a = window.location) == null ? void 0 : _a.search)) {
+        const urlParams = new URLSearchParams(window.location.search);
+        urlEnabled = urlParams.get("alize-devtools") === "true";
+      }
+      setIsAvailable(envEnabled || urlEnabled);
+    } catch (e) {
+      setIsAvailable(false);
+    }
   }, []);
   return isAvailable;
 }
