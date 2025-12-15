@@ -17,37 +17,9 @@ A comprehensive React component library based on [shadcn/ui](https://ui.shadcn.c
 
 ## Getting Started
 
-### As a Dependency (GitHub)
+### Installation
 
-To use Alize in your project, install it via GitHub:
-
-```bash
-npm install git+https://github.com/Josselin-Cuette_JLLT/alize-ui.git
-```
-
-Then configure Tailwind and import the CSS:
-
-```ts
-// tailwind.config.ts
-import alizePreset from "alize-ui/preset";
-import alizePlugin from "alize-ui/plugin";
-
-export default {
-  presets: [alizePreset],
-  plugins: [alizePlugin],
-  content: ["./app/**/*.{ts,tsx}"],
-};
-```
-
-```tsx
-// app/layout.tsx
-import "alize-ui/dist/alize.css";
-import { MaterialSymbolsProvider } from "alize-ui";
-```
-
-**Quick Start**: See [QUICKSTART.md](./QUICKSTART.md) for a 5-minute setup guide.
-
-**Full Guide**: See [INSTALLATION.md](./INSTALLATION.md) for detailed setup instructions and [INTEGRATION.md](./INTEGRATION.md) for complete integration guide.
+The installation procedure is currently being finalized and will be released in the coming days. Please check back soon for complete setup instructions.
 
 ### Development (Local)
 
@@ -108,24 +80,14 @@ alize/
 
 ## Documentation
 
-### Getting Started
-- [Installation Guide](./INSTALLATION.md) - How to install and use Alize as a dependency
-- [Quick Start Guide](./QUICKSTART.md) - 5-minute setup guide
-- [Usage Examples](./USAGE_EXAMPLE.md) - Practical code examples
-- [Setup Guide](./SETUP.md) - Development setup instructions
-
 ### Guides & Best Practices
 - [Security Guide](./docs/SECURITY.md) - Security best practices and sanitization
 - [Validation Guide](./docs/VALIDATION.md) - Form validation with Zod schemas
 - [Error Handling Guide](./docs/ERROR_HANDLING.md) - Error handling patterns and utilities
 - [Keyboard Navigation](./docs/KEYBOARD_NAVIGATION.md) - Accessibility and keyboard navigation
-- [Performance Guide](./PERFORMANCE.md) - Performance optimization patterns
 
 ### Reference
 - [Component Documentation](./src/components/DOCUMENTATION.md) - Documentation principles and guidelines
-- [Conventions](./CONVENTIONS.md) - Code conventions and best practices
-- [Integration Guide](./INTEGRATION.md) - Complete integration guide for consumers
-- [Architecture](./ARCHITECTURE.md) - Project architecture and build system
 
 ## Components
 
