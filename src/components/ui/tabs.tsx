@@ -139,10 +139,12 @@ function TabsList({
           ],
           // Underline variant
           variant === "underline" && [
-            "gap-4 border-b border-[var(--semantic-stroke-subdued)]",
+            "gap-4 pb-px",
+            // Border only in non-fill mode (fill mode relies on parent container border)
+            !fill && "border-b border-[var(--semantic-stroke-subdued)]",
             "text-muted-foreground",
             // Height: fixed by default, full when fill
-            fill ? "h-full -mb-px" : "h-10",
+            fill ? "h-full" : "h-10",
           ],
           className
         )}
@@ -200,7 +202,7 @@ function TabsTrigger({
           "hover:text-foreground",
           // Active state - bottom border indicator (overlaps the border for seamless look)
           "data-[state=active]:text-foreground",
-          "after:absolute after:bottom-[-2px] after:left-0 after:right-0 after:h-px after:z-10",
+          "after:absolute after:bottom-[-3px] after:left-0 after:right-0 after:h-px after:z-10",
           "after:bg-transparent data-[state=active]:after:bg-[var(--semantic-stroke-interaction-default)]",
           "after:transition-colors",
           // Focus

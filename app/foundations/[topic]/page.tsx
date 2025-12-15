@@ -1,6 +1,7 @@
 'use client';
 
-import { useParams, notFound } from 'next/navigation';
+import { use } from 'react';
+import { notFound } from 'next/navigation';
 import { FoundationTemplate } from '../components/foundation-template';
 import { getFoundationBySlug } from '../data/foundations';
 import { ColorTokenGroups } from '../components/previews/color-preview';
@@ -77,9 +78,13 @@ function DefaultTokenGroups({ tokenGroups }: { tokenGroups: TokenGroup<Foundatio
 // Page Component
 // ============================================================================
 
-export default function FoundationTopicPage(): React.ReactNode {
-  const params = useParams();
-  const topic = params.topic as string;
+export default function FoundationTopicPage({ 
+  params 
+}: { 
+  params: Promise<{ topic: string }> 
+}): React.ReactNode {
+  const resolvedParams = use(params);
+  const topic = resolvedParams.topic;
 
   // Get foundation data
   const foundation = getFoundationBySlug(topic);
