@@ -58,7 +58,7 @@ export default function Home() {
     },
     {
       title: "Installation Guide",
-      description: "Get started with Alize in your project",
+      description: "Get started with Alizé in your project",
       href: "https://github.com/Josselin-Cuette_JLLT/alize-ui#getting-started",
       icon: "download",
       variant: "outline" as const,
@@ -77,7 +77,7 @@ export default function Home() {
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight">
             Build beautiful interfaces with{" "}
-            <span className="text-semantic-text-interaction-default">Alize</span>
+            <span className="text-semantic-text-interaction-default">Alizé</span>
           </h1>
           
           <p className="text-lg md:text-xl text-semantic-text-subdued max-w-2xl mx-auto leading-relaxed">
@@ -104,7 +104,7 @@ export default function Home() {
           <div className="text-center mb-12 space-y-4">
             <h2 className="text-3xl md:text-4xl font-normal">Get started</h2>
             <p className="text-lg text-semantic-text-subdued">
-              Install Alize in your project and start building beautiful interfaces in minutes.
+              Install Alizé in your project and start building beautiful interfaces in minutes.
             </p>
           </div>
 
@@ -134,7 +134,7 @@ export default function Home() {
             <div className="flex items-center gap-2">
               <MaterialSymbol name="widgets" size={20} weight={300} className="text-semantic-icon-subdued" />
               <span className="text-sm text-semantic-text-subdued">
-                Alize Component Library
+                Alizé Component Library
               </span>
             </div>
             <div className="flex items-center gap-6 text-sm text-semantic-text-subdued">
