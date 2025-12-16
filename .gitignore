@@ -43,3 +43,7 @@ next-env.d.ts
 # enterprise rules (not for version control)
 /jll-cursorrules-main
 QualityAssessment/jll-cursorrules-main
+
+# Material Symbols font files (copied from node_modules during build)
+/public/fonts
+/dist/fonts

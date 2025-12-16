@@ -1610,6 +1610,32 @@ import { Input } from 'alize-ui';
 </div>`
       },
       {
+        title: "Default vs Reversed",
+        description: "The default style uses a subdued background and is appropriate for most use cases. The reversed style uses a strong background with white text and should be used sparingly to attract attention in rare cases where emphasis is needed.",
+        code: `import { Badge } from 'alize-ui';
+
+<div className="space-y-4">
+  <div className="space-y-2">
+    <p className="text-sm text-muted-foreground">Default style - Use for most cases</p>
+    <div className="flex flex-wrap gap-2">
+      <Badge tonal="royal">Royal</Badge>
+      <Badge tonal="magenta">Magenta</Badge>
+      <Badge tonal="science">Science</Badge>
+      <Badge tonal="forest">Forest</Badge>
+    </div>
+  </div>
+  <div className="space-y-2">
+    <p className="text-sm text-muted-foreground">Reversed style - Use sparingly to attract attention</p>
+    <div className="flex flex-wrap gap-2">
+      <Badge tonal="royal" badgeStyle="reversed">Royal</Badge>
+      <Badge tonal="magenta" badgeStyle="reversed">Magenta</Badge>
+      <Badge tonal="science" badgeStyle="reversed">Science</Badge>
+      <Badge tonal="forest" badgeStyle="reversed">Forest</Badge>
+    </div>
+  </div>
+</div>`
+      },
+      {
         title: "Numeric Badges",
         description: "Use the numeric prop for number-only badges with optimized padding.",
         code: `import { Badge } from 'alize-ui';
@@ -1792,6 +1818,12 @@ const [tags, setTags] = useState(['React', 'TypeScript', 'Tailwind']);
       }
     ],
     changelog: [
+      {
+        version: "0.4.0",
+        date: "2025-12-15",
+        type: "added",
+        description: "Added 'Default vs Reversed' documentation section with visual comparison and guidance on when to use the reversed style sparingly to attract attention."
+      },
       {
         version: "0.4.0",
         date: "2025-12-08",

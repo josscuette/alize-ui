@@ -80,6 +80,30 @@ export function BadgePreview({ title }: { title: string }): ReactNode {
         </div>
       );
     
+    case 'Default vs Reversed':
+      return (
+        <div className="space-y-4">
+          <div className="space-y-2">
+            <p className="text-sm text-[var(--semantic-text-subdued)]">Default style - Use for most cases</p>
+            <div className="flex flex-wrap gap-2">
+              <Badge tonal="royal">Royal</Badge>
+              <Badge tonal="magenta">Magenta</Badge>
+              <Badge tonal="science">Science</Badge>
+              <Badge tonal="forest">Forest</Badge>
+            </div>
+          </div>
+          <div className="space-y-2">
+            <p className="text-sm text-[var(--semantic-text-subdued)]">Reversed style - Use sparingly to attract attention</p>
+            <div className="flex flex-wrap gap-2">
+              <Badge tonal="royal" badgeStyle="reversed">Royal</Badge>
+              <Badge tonal="magenta" badgeStyle="reversed">Magenta</Badge>
+              <Badge tonal="science" badgeStyle="reversed">Science</Badge>
+              <Badge tonal="forest" badgeStyle="reversed">Forest</Badge>
+            </div>
+          </div>
+        </div>
+      );
+    
     case 'Numeric Badges':
       return (
         <div className="flex gap-2">

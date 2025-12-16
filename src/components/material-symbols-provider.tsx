@@ -1,58 +1,23 @@
 "use client"
 
-import { useEffect } from "react"
-
-const MATERIAL_SYMBOLS_URL =
-  "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-
 /**
- * MaterialSymbolsProvider ensures Material Symbols font is loaded
- * Add this component to your root layout to ensure icons display correctly
+ * MaterialSymbolsProvider - No longer needed
+ * 
+ * Material Symbols font is now loaded locally via @font-face in globals.css.
+ * This component is kept for backwards compatibility but does nothing.
+ * 
+ * @deprecated Material Symbols font is loaded via CSS @font-face, no provider needed
  * 
  * @example
  * ```tsx
  * // app/layout.tsx
- * import { MaterialSymbolsProvider } from "alize/components/material-symbols-provider"
- * 
- * export default function RootLayout({ children }) {
- *   return (
- *     <html>
- *       <body>
- *         <MaterialSymbolsProvider />
- *         {children}
- *       </body>
- *     </html>
- *   )
- * }
+ * // No need to import MaterialSymbolsProvider anymore
+ * // Font is automatically loaded via globals.css
  * ```
  */
 export function MaterialSymbolsProvider() {
-  useEffect(() => {
-    // Check if link already exists
-    const existingLink = document.querySelector(
-      `link[href="${MATERIAL_SYMBOLS_URL}"]`
-    )
-
-    if (existingLink) {
-      return
-    }
-
-    // Create and inject link tag
-    const link = document.createElement("link")
-    link.rel = "stylesheet"
-    link.href = MATERIAL_SYMBOLS_URL
-    link.crossOrigin = "anonymous"
-
-    // Insert in head
-    document.head.appendChild(link)
-
-    // Cleanup function (though link will persist)
-    return () => {
-      // Optionally remove on unmount, but usually we want to keep it
-      // link.remove()
-    }
-  }, [])
-
+  // Font is loaded via @font-face in globals.css
+  // No action needed
   return null
 }
 
