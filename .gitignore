@@ -45,5 +45,5 @@ next-env.d.ts
 QualityAssessment/jll-cursorrules-main
 
 # Material Symbols font files (copied from node_modules during build)
+# Note: /dist/fonts is NOT ignored - font files must be in the npm package
 /public/fonts
-/dist/fonts
